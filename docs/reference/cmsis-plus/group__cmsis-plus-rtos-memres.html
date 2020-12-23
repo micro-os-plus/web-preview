@@ -335,7 +335,7 @@ Standard Memory Functions</h2></td></tr>
 <p>The µOS++ RTOS includes several advanced and flexible memory management features.</p>
 <p>First, it defines a configurable memory manager for the application free store (also known as the "heap").</p>
 <p>Second, it defines a separate memory manager to be used by the RTOS system objects. This separate manager can be configured to use any allocation policy. It may use either a statically or a dynamically allocated area.</p>
-<p>The reason for the system memory manager is to allow RTOS system objects to be separated from application objects; this hase several advantages:</p>
+<p>The reason for the system memory manager is to allow RTOS system objects to be separated from application objects; this has several advantages:</p>
 <ul>
 <li>it helps to protect the system objects from application bugs; this is beneficial during debug and it can improve reliability in the field.</li>
 <li>it helps improve system performances, by allowing to locate the system objects on a fast, on-chip RAM, in case the platform has multiple RAM regions with different performances.</li>
@@ -349,7 +349,7 @@ Standard Memory Functions</h2></td></tr>
 </ul>
 <p>The default application memory manager is set in the <code><a class="el" href="group__cmsis-plus-app-hooks.html#ga348982bfc48b68b86a9771dbda12c505" title="Initialise free store. ">os_startup_initialize_free_store()</a></code> function, called by the startup code when running on bare metal.</p>
 <p>On synthetic POSIX platforms the default memory manager is <code><a class="el" href="classos_1_1memory_1_1malloc__memory__resource.html" title="A memory manager that allocates memory via the system std::malloc() and deallocates via std::free()...">os::memory::malloc_memory_resource</a></code>, which uses memory from the system free store.</p>
-<p>By default the RTOS system memory manager is the same as the application memory manager, but, for isolation reasons, it is recommended to define a separate memory mamanger for the RTOS system objects.</p>
+<p>By default the RTOS system memory manager is the same as the application memory manager, but, for isolation reasons, it is recommended to define a separate memory mananger for the RTOS system objects.</p>
 <p>The basic memory management class is <code><a class="el" href="classos_1_1rtos_1_1memory_1_1memory__resource.html" title="Memory resource manager (abstract class). ">os::rtos::memory::memory_resource</a></code>, which will be standard starting with C++17. The µOS++ version of this class includes several extensions, like out of memory processing and statistics (and this is the reason the class is not defined in <code><a class="el" href="namespaceos_1_1estd.html" title="Embedded std namespace. ">os::estd</a></code>). </p>
 <h2 class="groupheader">Types</h2>
 <a id="gac00e47b1a65850b96de7c9fe0e938da1"></a>
