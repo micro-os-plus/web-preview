@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Começando com μOS++ IIIe</title>
+  <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
+
+  <meta property="og:title" content="Começando com μOS++ IIIe">
+  <meta property="og:site_name" content="µOS++ IIIe">
+
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+
+
+  <meta property="article:published_time" content="2016-06-29">
+
+
+
+
+
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
+
+  <link rel="canonical" href="/web-preview/pt/user-manual/getting-started/">
+
+
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16767008-14', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+  <div class="site-header">
+  <table style="width:100%">
+    <tr>
+      <td>
+        <a href="/web-preview/">
+          <img alt="Icon" class="site-icon" src="/web-preview/assets/icons/wall-e-icon.png" height="100" width="100">
+      </a>
+      </td>
+      <td>
+        <table class="site-title" style="width:100%">
+          <tr>
+            <td class="site-title">
+              <a href="/web-preview/">µOS++ IIIe</a>
+            </td>
+            <td class="site-motto" align="right">
+              “Perfekt ist nicht gut genug”
+            </td>
+          </tr>
+          <tr>
+            <td class="site-description" colspan="2">
+              The third edition of µOS++, a POSIX inspired open source framework, written in C++.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+</div>
+
+<div class="container">
+
+  <div class="wrapper">
+    <div class="site-body">
+
+      <div class="site-sidebar">
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      <h4 id="news"><a href="/web-preview/blog/">News</a></h4>
+
+<ul>
+  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></li>
+  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ IIIe v6.3.14 released</a></li>
+  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ IIIe v6.3.13 released</a></li>
+  <li><a href="/web-preview/blog/2017/01/02/micro-os-plus-v6-3-11-released/">µOS++ IIIe v6.3.11 released</a></li>
+</ul>
+
+
+    </div>
+  </div>
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      
+      <h4 id="início"><a href="/web-preview/pt/">Início</a></h4>
+
+<h4 id="µos-iiie">µOS++ IIIe</h4>
+
+<ul>
+  <li><a href="/web-preview/micro-os-plus/">Visão Geral</a></li>
+</ul>
+
+<h4 id="cmsis">CMSIS++</h4>
+
+<ul>
+  <li><a href="/web-preview/cmsis-plus/">Visão Geral</a></li>
+  <li><a href="/web-preview/cmsis-plus/rtos/">RTOS API</a></li>
+</ul>
+
+<h4 id="xpacksxcdl">xPacks/XCDL</h4>
+
+<ul>
+  <li><a href="/web-preview/xpacks/">Visão Geral</a></li>
+</ul>
+
+<h4 id="documentação">Documentação</h4>
+
+<ul>
+  <li>
+<a href="/web-preview/pt/user-manual/">Manual do usuário</a>
+    <ul>
+      <li><a href="/web-preview/pt/user-manual/getting-started/">Começando</a></li>
+      <li><a href="/web-preview/pt/user-manual/basic-concepts/">Conceitos básicos</a></li>
+      <li><a href="/web-preview/user-manual/features/">Características</a></li>
+      <li><a href="/web-preview/user-manual/threads/">Threads</a></li>
+      <li><a href="/web-preview/user-manual/thread-event-flags/">Thread event flags</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/">Semaphores</a></li>
+      <li><a href="/web-preview/user-manual/event-flags/">Event flags</a></li>
+      <li><a href="/web-preview/user-manual/mutexes/">Mutexes</a></li>
+      <li>Condition variables</li>
+      <li>Message queues</li>
+      <li>Memory pools</li>
+      <li>Software timers</li>
+      <li>Clocks</li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/reference/cmsis-plus/">CMSIS++ <strong>reference</strong></a></li>
+</ul>
+
+<h4 id="desenvolvedor">Desenvolvedor</h4>
+
+<ul>
+  <li><a href="/web-preview/develop/">Visão Geral</a></li>
+  <li><a href="/web-preview/reference/cmsis-plus/md_doxygen_pages_change-log.html">Change log</a></li>
+  <li><a href="/web-preview/develop/coding-style/">Estilo de codificação C++</a></li>
+  <li><a href="/web-preview/develop/references/">Links &amp; referencias</a></li>
+</ul>
+
+<h4 id="suporte">Suporte</h4>
+
+<ul>
+  <li><a href="/web-preview/support/">Visão Geral</a></li>
+  <li><a href="/web-preview/support/known-issues/">Problemas conhecidos</a></li>
+  <li><a href="/web-preview/support/faq/">FAQ</a></li>
+  <li><a href="/web-preview/support/forum/">Forum</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Relatar problemas no µOS++ IIIe</a></li>
+</ul>
+
+<h4 id="últimos-artigos">Últimos Artigos</h4>
+
+<ul>
+  <li><a href="/web-preview/articles/arm-com-2016-06-24/">CMSIS++ RTOS: fully functional reference implementation</a></li>
+  <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
+</ul>
+
+<h4 id="licença">Licença</h4>
+
+<ul>
+  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+</ul>
+
+<h4 id="sobre"><a href="/web-preview/about/">Sobre</a></h4>
+
+    </div>
+  </div>
+
+  <div class="site-theme">
+    This site uses the <a href="https://github.com/ilg-ul/github-jekyll-theme">GitHub Wiki-like</a> theme by <a href="https://github.com/ilg-ul">Liviu Ionescu</a>.
+  </div>
+
+</div>
+
+
+      <div class="site-content">
+
+        
+<h1 class="page-title">Começando com μOS++ IIIe</h1>
+<table id="last-modified">
+  <tr>
+    <td id="last-modified">Last modified on Wed Dec 23 10:37:26 2020 UTC.</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/user-manual/getting-started.pt.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+  </tr>
+</table>
+
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Conteúdo</h2>
+</div>
+<ul>
+<li class="toc_level-1 toc_section-1">
+<a href="#overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a>
+<ul>
+<li class="toc_level-2 toc_section-2">
+<a href="#multiple-apis"><span class="tocnumber">1.1</span> <span class="toctext">Multiple APIs</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-3">
+<a href="#the-os_main-and-the-main-thread"><span class="tocnumber">2</span> <span class="toctext">The os_main() and the main thread</span></a>
+</li>
+<li class="toc_level-1 toc_section-4">
+<a href="#multiple-thread-applications"><span class="tocnumber">3</span> <span class="toctext">Multiple thread applications</span></a>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="overview">Overview</h2>
+
+<p><strong>µOS++ IIIe</strong> <em>(micro oh ɛs plus plus third edition)</em> is the third iteration of µOS++, a POSIX-like, portable, open source, royalty-free, multi-tasking real-time operating system intended for 32/64-bits embedded applications.</p>
+
+<p><strong>µOS++ IIIe</strong> is written in modern C++, with C++ applications in mind, but also provides equally functional C APIs.</p>
+
+<h3 id="multiple-apis">Multiple APIs</h3>
+
+<p>µOS++ provides services via multiple APIs, covering both C++ and C applications.</p>
+
+<div style="text-align:center">
+<img alt="Overview" src="/web-preview/assets/images/2017/cmsis-plus-rtos-overview.png">
+</div>
+
+<p>The supported APIs are:</p>
+
+<ul>
+  <li>
+<strong>µOS++ RTOS C++ API</strong> - the native µOS++ IIIe C++ API, giving direct access to the system services;</li>
+  <li>
+<strong>µOS++ RTOS C API</strong> - a 1:1 C wrapper on top of the C++ API;</li>
+  <li>
+<strong>ISO C++ Threads API</strong> - an implementation of the standard ISO threads on top of the C++ API;</li>
+  <li>
+<strong>ARM CMSIS RTOS v1 API</strong> - a compatibility layer with ARM CMSIS RTOS</li>
+</ul>
+
+<p>The functions in these APIs provide services to manage threads, semaphores, message queues, mutexes and more. As far as the user code is concerned, the calls to the µOS++ system functions are exactly as any other function calls, using the toolchain standard <a href="https://en.wikipedia.org/wiki/Application_binary_interface">ABI</a>; no system service calls (SVC) are used to switch from user to system modes.</p>
+
+<p>In this chapter, the reader will appreciate how easy it is to start using µOS++. Refer to <a href="http://micro-os-plus.github.io/reference/cmsis-plus/">CMSIS++ Reference</a> for the full descriptions of the µOS++ functions used.</p>
+
+<p>For this introductory chapter, the project setup (files and folders, toolchain and other tools, hardware initialisations) are considered not relevant and are not addressed.</p>
+
+<h2 id="the-os_main-and-the-main-thread">The <code class="language-plaintext highlighter-rouge">os_main()</code> and the main thread</h2>
+
+<p>For user convenience, the default <code class="language-plaintext highlighter-rouge">main()</code> function creates an initial thread (not surprisingly called <code class="language-plaintext highlighter-rouge">main</code>) and arranges for the <code class="language-plaintext highlighter-rouge">os_main()</code> function to be called on this thread context.</p>
+
+<p>This arrangement relieves the user from the concerns of initialising and starting the scheduler, and also provides a parent for the user threads created from here.</p>
+
+<p>A simple C++ <em>blinky</em> application that toggles a LED at 1 Hz might look like this:</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="c1">/// @file app-main.cpp</span>
+<span class="cp">#include &lt;cmsis-plus/rtos/os.h&gt;
+#include &lt;user-led.h&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">os</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">rtos</span><span class="p">;</span>
+
+<span class="kt">int</span>
+<span class="nf">os_main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+  <span class="c1">// At this point the scheduler is running, the CPU is</span>
+  <span class="c1">// on a thread context, and all system functions are available.</span>
+
+  <span class="n">user_led</span> <span class="n">led</span><span class="p">;</span>
+
+  <span class="n">led</span><span class="p">.</span><span class="n">initialize</span><span class="p">();</span>
+
+  <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">sysclock</span><span class="p">.</span><span class="n">sleep_for</span><span class="p">(</span><span class="n">clock_systick</span><span class="o">::</span><span class="n">frequency_hz</span><span class="p">);</span>
+
+    <span class="n">led</span><span class="p">.</span><span class="n">toggle</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+</div>
+
+<p>The example is generally self explanatory. The LED functions are provided by the application. The only system function used is <code class="language-plaintext highlighter-rouge">sleep_for()</code>, which, when called for the <code class="language-plaintext highlighter-rouge">sysclock</code> object, puts the current thread to sleep for the given number of ticks, which, in this case, is the number of SysTick ticks per second, resulting in an 1 second sleep.</p>
+
+<p>A similar application, but written in C:</p>
+
+<div class="language-c highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="c1">/// @file app-main.c</span>
+<span class="cp">#include &lt;cmsis-plus/rtos/os-c-api.h&gt;
+#include &lt;user-led.h&gt;
+</span>
+<span class="kt">int</span>
+<span class="nf">os_main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+  <span class="c1">// At this point the scheduler is running, the CPU is</span>
+  <span class="c1">// on a thread context, and all system functions are available.</span>
+
+  <span class="n">user_led_t</span> <span class="n">led</span><span class="p">;</span>
+
+  <span class="n">led_initialize</span><span class="p">(</span><span class="o">&amp;</span><span class="n">led</span><span class="p">);</span>
+
+  <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">os_sysclock_sleep_for</span><span class="p">(</span><span class="n">OS_INTEGER_SYSTICK_FREQUENCY_HZ</span><span class="p">);</span>
+
+    <span class="n">led_toggle</span><span class="p">(</span><span class="o">&amp;</span><span class="n">led</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+</div>
+
+<p>Please note that for plain C applications, the system include header is different.</p>
+
+<h2 id="multiple-thread-applications">Multiple thread applications</h2>
+
+<p>In addition to the blinking LED, the next example adds a message queue where messages are enqueued from an interrupt callback, and a user thread that gets messages from the queue and prints them on the trace channel.</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="c1">/// @file app-main.cpp</span>
+<span class="cp">#include &lt;cmsis-plus/rtos/os.h&gt;
+#include &lt;user-led.h&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">os</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">rtos</span><span class="p">;</span>
+
+<span class="k">typedef</span> <span class="k">struct</span> <span class="nc">msg_s</span>
+<span class="p">{</span>
+  <span class="kt">uint8_t</span> <span class="n">id</span><span class="p">;</span>
+  <span class="kt">uint8_t</span> <span class="n">payload</span><span class="p">[</span><span class="mi">7</span><span class="p">];</span>
+<span class="p">}</span> <span class="n">msg_t</span><span class="p">;</span>
+
+<span class="c1">// Define a queue of 7 messages.</span>
+<span class="c1">// The queue itself will be dynamically allocated.</span>
+<span class="n">message_queue_typed</span><span class="o">&lt;</span><span class="n">msg_t</span><span class="o">&gt;</span> <span class="n">mq</span> <span class="p">{</span> <span class="mi">7</span> <span class="p">};</span>
+
+<span class="c1">// Called from an ISR context.</span>
+<span class="kt">void</span>
+<span class="nf">some_irq_callback</span><span class="p">(</span><span class="k">const</span> <span class="n">msg_t</span><span class="o">*</span> <span class="n">msg</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// If possible, enqueue the message.</span>
+  <span class="n">mq</span><span class="p">.</span><span class="n">try_send</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Thread function. Wait to receive a message and print it.</span>
+<span class="kt">void</span><span class="o">*</span>
+<span class="nf">th_func</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">args</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">msg_t</span> <span class="n">msg</span><span class="p">;</span>
+    <span class="n">mq</span><span class="p">.</span><span class="n">receive</span><span class="p">(</span><span class="o">&amp;</span><span class="n">msg</span><span class="p">);</span>
+
+    <span class="n">trace</span><span class="o">::</span><span class="n">printf</span><span class="p">(</span><span class="s">"id: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">msg</span><span class="p">.</span><span class="n">id</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nb">nullptr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// The thread definition.</span>
+<span class="kr">thread</span> <span class="n">th</span> <span class="p">{</span> <span class="s">"th"</span><span class="p">,</span> <span class="n">th_func</span><span class="p">,</span> <span class="nb">nullptr</span> <span class="p">};</span>
+
+<span class="kt">int</span>
+<span class="nf">os_main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+  <span class="c1">// At this point the scheduler is running, the CPU is</span>
+  <span class="c1">// on a thread context, and all system functions are available.</span>
+
+  <span class="c1">// No need to explicitly initialise the queue or the thread, they where</span>
+  <span class="c1">// properly initialised by the static constructors.</span>
+
+  <span class="n">user_led</span> <span class="n">led</span><span class="p">;</span>
+
+  <span class="n">led</span><span class="p">.</span><span class="n">initialize</span><span class="p">();</span>
+
+  <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">sysclock</span><span class="p">.</span><span class="n">sleep_for</span><span class="p">(</span><span class="n">clock_systick</span><span class="o">::</span><span class="n">frequency_hz</span><span class="p">);</span>
+
+    <span class="n">led</span><span class="p">.</span><span class="n">toggle</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+</div>
+
+<p>A similar application, but written in C:</p>
+
+<div class="language-c highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="c1">/// @file app-main.c</span>
+<span class="cp">#include &lt;cmsis-plus/rtos/os-c-api.h&gt;
+#include &lt;user-led.h&gt;
+</span>
+<span class="k">typedef</span> <span class="k">struct</span> <span class="n">msg_s</span>
+<span class="p">{</span>
+  <span class="kt">uint8_t</span> <span class="n">id</span><span class="p">;</span>
+  <span class="kt">uint8_t</span> <span class="n">payload</span><span class="p">[</span><span class="mi">7</span><span class="p">];</span>
+<span class="p">}</span> <span class="n">msg_t</span><span class="p">;</span>
+
+<span class="c1">// Storage for the queue object.</span>
+<span class="c1">// The queue itself will be dynamically allocated.</span>
+<span class="n">os_mqueue_t</span> <span class="n">mq</span><span class="p">;</span>
+
+<span class="c1">// Called from an ISR context.</span>
+<span class="kt">void</span>
+<span class="nf">some_irq_callback</span><span class="p">(</span><span class="k">const</span> <span class="n">msg_t</span><span class="o">*</span> <span class="n">msg</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// If possible, enqueue the message.</span>
+  <span class="n">os_mqueue_try_send</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mq</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">msg_t</span><span class="p">),</span> <span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Thread function. Wait to receive a message and print it.</span>
+<span class="kt">void</span><span class="o">*</span>
+<span class="nf">th_func</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span> <span class="n">args</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">msg_t</span> <span class="n">msg</span><span class="p">;</span>
+    <span class="n">os_mqueue_receive</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mq</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">msg</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">msg</span><span class="p">),</span> <span class="nb">NULL</span><span class="p">);</span>
+
+    <span class="n">trace_printf</span><span class="p">(</span><span class="s">"id: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">msg</span><span class="p">.</span><span class="n">id</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Storage for the thread object.</span>
+<span class="n">os_thread_t</span> <span class="n">th</span><span class="p">;</span>
+
+<span class="kt">int</span>
+<span class="nf">os_main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+  <span class="c1">// At this point the scheduler is running, the CPU is</span>
+  <span class="c1">// on a thread context, and all system functions are available.</span>
+
+  <span class="c1">// Initialise the queue object and allocate the queue storage.</span>
+  <span class="n">os_mqueue_construct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mq</span><span class="p">,</span> <span class="s">"q"</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">msg_t</span><span class="p">),</span> <span class="nb">NULL</span><span class="p">);</span>
+
+  <span class="c1">// Initialise the thread object and allocate the thread stack.</span>
+  <span class="n">os_thread_construct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">th</span><span class="p">,</span> <span class="s">"th"</span><span class="p">,</span> <span class="n">th_func</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+
+  <span class="n">user_led_t</span> <span class="n">led</span><span class="p">;</span>
+
+  <span class="n">led_initialize</span><span class="p">(</span><span class="o">&amp;</span><span class="n">led</span><span class="p">);</span>
+
+  <span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">os_sysclock_sleep_for</span><span class="p">(</span><span class="n">OS_INTEGER_SYSTICK_FREQUENCY_HZ</span><span class="p">);</span>
+
+    <span class="n">led_toggle</span><span class="p">(</span><span class="o">&amp;</span><span class="n">led</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Not reached if the LED loop never ends.</span>
+  <span class="n">os_thread_destruct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">th</span><span class="p">);</span>
+  <span class="n">os_mqueue_destruct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mq</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+</div>
+
+<p>The visible difference is that in C the queue and the thread objects need to be explicitly created, while in C++ the constructors are called implicitly by the compiler.</p>
+
+
+
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/pt/user-manual/getting-started/" data-layout="button"></div></li>
+</ul>
+
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="site-footer">
+  <div class="site-footer-links left">
+    <ul>
+  <li>© 2019 Liviu Ionescu</li>
+  <li>Hosted on GitHub</li>
+  <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
+  <li>
+<a href="http://twitter.com/micro_os_plus" class="twitter-follow-button" data-show-count="false">Follow @micro_os_plus</a><script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</li>
+</ul>
+
+
+  </div>
+  <a href="https://github.com/micro-os-plus/micro-os-plus-iii" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+  </a>
+  <div class="site-footer-links right">
+    <ul>
+  <li><a href="/web-preview/">Home</a></li>
+  <li><a href="/web-preview/blog/">News</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/releases">Releases</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues">Support</a></li>
+  <li><a href="/web-preview/about/">About</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</div>
+
+</body>
+</html>

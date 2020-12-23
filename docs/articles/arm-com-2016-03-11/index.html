@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>[Article] CMSIS++: a proposal for a future CMSIS, written in C++</title>
+  <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
+
+  <meta property="og:title" content="[Article] CMSIS++: a proposal for a future CMSIS, written in C++">
+  <meta property="og:site_name" content="µOS++ IIIe">
+
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+
+
+  <meta property="article:published_time" content="2016-03-10">
+
+
+
+  <meta property="article:tag" content="arm">
+  <meta property="article:tag" content="cmsis">
+  <meta property="article:tag" content="c++">
+  <meta property="article:tag" content="cmsis++">
+  <meta property="article:tag" content="rtos">
+  <meta property="article:tag" content="api">
+  <meta property="article:tag" content="posix">
+  <meta property="article:tag" content="iso">
+
+
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
+
+  <link rel="canonical" href="/web-preview/articles/arm-com-2016-03-11/">
+
+
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16767008-14', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+  <div class="site-header">
+  <table style="width:100%">
+    <tr>
+      <td>
+        <a href="/web-preview/">
+          <img alt="Icon" class="site-icon" src="/web-preview/assets/icons/wall-e-icon.png" height="100" width="100">
+      </a>
+      </td>
+      <td>
+        <table class="site-title" style="width:100%">
+          <tr>
+            <td class="site-title">
+              <a href="/web-preview/">µOS++ IIIe</a>
+            </td>
+            <td class="site-motto" align="right">
+              “Perfekt ist nicht gut genug”
+            </td>
+          </tr>
+          <tr>
+            <td class="site-description" colspan="2">
+              The third edition of µOS++, a POSIX inspired open source framework, written in C++.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+</div>
+
+<div class="container">
+
+  <div class="wrapper">
+    <div class="site-body">
+
+      <div class="site-sidebar">
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      <h4 id="news"><a href="/web-preview/blog/">News</a></h4>
+
+<ul>
+  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></li>
+  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ IIIe v6.3.14 released</a></li>
+  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ IIIe v6.3.13 released</a></li>
+  <li><a href="/web-preview/blog/2017/01/02/micro-os-plus-v6-3-11-released/">µOS++ IIIe v6.3.11 released</a></li>
+</ul>
+
+
+    </div>
+  </div>
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      
+      <h4 id="home"><a href="/web-preview/">Home</a></h4>
+
+<h4 id="µos-iiie">µOS++ IIIe</h4>
+
+<ul>
+  <li><a href="/web-preview/micro-os-plus/">Overview</a></li>
+</ul>
+
+<h4 id="apis">APIs</h4>
+
+<ul>
+  <li><a href="/web-preview/cmsis-plus/">Overview</a></li>
+  <li><a href="/web-preview/cmsis-plus/rtos/">RTOS API</a></li>
+</ul>
+
+<h4 id="xpacksxcdl">xPacks/XCDL</h4>
+
+<ul>
+  <li><a href="/web-preview/xpacks/">Overview</a></li>
+</ul>
+
+<h4 id="documentation">Documentation</h4>
+
+<ul>
+  <li>
+<a href="/web-preview/user-manual/">User’s <strong>manual</strong></a>
+    <ul>
+      <li><a href="/web-preview/user-manual/getting-started/">Getting started</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/">Basic concepts</a></li>
+      <li><a href="/web-preview/user-manual/features/">Features</a></li>
+      <li><a href="/web-preview/user-manual/threads/">Threads</a></li>
+      <li><a href="/web-preview/user-manual/thread-event-flags/">Thread event flags</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/">Semaphores</a></li>
+      <li><a href="/web-preview/user-manual/event-flags/">Event flags</a></li>
+      <li>Mutexes</li>
+      <li>Condition variables</li>
+      <li>Message queues</li>
+      <li>Memory pools</li>
+      <li>Software timers</li>
+      <li>Clocks</li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/reference/cmsis-plus/">µOS++ <strong>reference</strong></a></li>
+</ul>
+
+<h4 id="developer">Developer</h4>
+
+<ul>
+  <li><a href="/web-preview/develop/">Overview</a></li>
+  <li><a href="/web-preview/reference/cmsis-plus/md_doxygen_pages_change-log.html">Change log</a></li>
+  <li><a href="/web-preview/develop/coding-style/">C++ coding style</a></li>
+  <li><a href="/web-preview/develop/naming-conventions/">Naming conventions</a></li>
+  <li><a href="/web-preview/develop/references/">Links &amp; references</a></li>
+</ul>
+
+<h4 id="support">Support</h4>
+
+<ul>
+  <li><a href="/web-preview/support/">Overview</a></li>
+  <li><a href="/web-preview/support/known-issues/">Known issues</a></li>
+  <li><a href="/web-preview/support/faq/">FAQ</a></li>
+  <li><a href="/web-preview/support/forum/">Forum</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ IIIe issues</a></li>
+</ul>
+
+<h4 id="latest-articles">Latest Articles</h4>
+
+<ul>
+  <li><a href="/web-preview/articles/arm-com-2016-06-24/">CMSIS++ RTOS: fully functional reference implementation</a></li>
+  <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
+</ul>
+
+<h4 id="license">License</h4>
+
+<ul>
+  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+</ul>
+
+<h4 id="about"><a href="/web-preview/about/">About</a></h4>
+
+    </div>
+  </div>
+
+  <div class="site-theme">
+    This site uses the <a href="https://github.com/ilg-ul/github-jekyll-theme">GitHub Wiki-like</a> theme by <a href="https://github.com/ilg-ul">Liviu Ionescu</a>.
+  </div>
+
+</div>
+
+
+      <div class="site-content">
+
+        
+<h1 class="page-title">[Article] CMSIS++: a proposal for a future CMSIS, written in C++</h1>
+<table id="last-modified">
+  <tr>
+    <td id="last-modified">Last modified on Wed Dec 23 10:37:26 2020 UTC.</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/articles/arm-com-2016-03-11.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+  </tr>
+</table>
+
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toc_level-1 toc_section-1">
+<a href="#overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a>
+</li>
+<li class="toc_level-1 toc_section-2">
+<a href="#major-features-and-benefits"><span class="tocnumber">2</span> <span class="toctext">Major features and benefits</span></a>
+<ul>
+<li class="toc_level-2 toc_section-3">
+<a href="#written-in-c-but-with-c-wrappers-for-full-c-support"><span class="tocnumber">2.1</span> <span class="toctext">Written in C++ but with C wrappers for full C support</span></a>
+</li>
+<li class="toc_level-2 toc_section-4">
+<a href="#close-adherence-to-standards-posix-and-iso"><span class="tocnumber">2.2</span> <span class="toctext">Close adherence to standards (POSIX and ISO)</span></a>
+</li>
+<li class="toc_level-2 toc_section-5">
+<a href="#compatibility-with-existing-arm-cmsis"><span class="tocnumber">2.3</span> <span class="toctext">Compatibility with existing ARM CMSIS</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-6">
+<a href="#the-cmsis-rtos-apis"><span class="tocnumber">3</span> <span class="toctext">The CMSIS++ RTOS APIs</span></a>
+<ul>
+<li class="toc_level-2 toc_section-7">
+<a href="#the-native-rtos-c-api"><span class="tocnumber">3.1</span> <span class="toctext">The native RTOS C++ API</span></a>
+</li>
+<li class="toc_level-2 toc_section-8">
+<a href="#the-iso-c-threads-api"><span class="tocnumber">3.2</span> <span class="toctext">The ISO C++ Threads API</span></a>
+</li>
+<li class="toc_level-2 toc_section-9">
+<a href="#the-new-cmsis-rtos-c-api"><span class="tocnumber">3.3</span> <span class="toctext">The new CMSIS++ RTOS C API</span></a>
+</li>
+<li class="toc_level-2 toc_section-10">
+<a href="#the-arm-cmsis-rtos-c-api-compatibility-layer"><span class="tocnumber">3.4</span> <span class="toctext">The ARM CMSIS RTOS C API (compatibility layer)</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-11">
+<a href="#the-cmsis-rtos-reference"><span class="tocnumber">4</span> <span class="toctext">The CMSIS++ RTOS Reference</span></a>
+</li>
+<li class="toc_level-1 toc_section-12">
+<a href="#more-cmsis-components"><span class="tocnumber">5</span> <span class="toctext">More CMSIS++ components</span></a>
+</li>
+<li class="toc_level-1 toc_section-13">
+<a href="#conclusions"><span class="tocnumber">6</span> <span class="toctext">Conclusions</span></a>
+</li>
+<li class="toc_level-1 toc_section-14">
+<a href="#more-info"><span class="tocnumber">7</span> <span class="toctext">More info</span></a>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+<small>(This article was published in the <a href="https://community.arm.com/groups/tools/blog/2016/03/11/cmsis-a-proposal-for-a-future-cmsis-written-in-c">ARM Connected Community </a> blog, on 11.03.2016).</small>
+</p>
+
+<h2 id="overview">Overview</h2>
+
+<p><strong>CMSIS++</strong> is a portable, vendor-independent hardware abstraction layer intended for <strong>C++/C embedded applications</strong>, designed with special consideration for the industry standard <strong>ARM Cortex-M</strong> processor series. Read <strong>CMSIS++</strong> as <em>“the next generation CMSIS”</em>, <em>“CMSIS v2.0”</em>, or, more accurately, <em>“C++ CMSIS”</em>.</p>
+
+<h2 id="major-features-and-benefits">Major features and benefits</h2>
+
+<h3 id="written-in-c-but-with-c-wrappers-for-full-c-support">Written in C++ but with C wrappers for full C support</h3>
+
+<p>The original ARM/Keil name stands for <strong>Cortex Microcontroller Software Interface Standard</strong>, and the CMSIS++ design inherits the good things from ARM CMSIS, but goes one step further and ventures into the world of C++; as such, CMSIS++ is <strong>not</strong> a C++ wrapper running on top of the ARM CMSIS APIs, but a set of  newly designed C++ APIs, with C APIs supported as wrappers on top of the native C++ APIs.</p>
+
+<h3 id="close-adherence-to-standards-posix-and-iso">Close adherence to standards (POSIX and ISO)</h3>
+
+<p>The first iteration of CMSIS++ was a direct rewrite in C++ of ARM CMSIS, but later most of the definitions were adjusted to match the <a href="http://pubs.opengroup.org/onlinepubs/9699919799/nframe.html">IEEE Std 1003.1, 2013 Edition</a> (POSIX) and the <a href="https://isocpp.org/std/the-standard">ISO/IEC 14882(E) – Programming Language C++</a> standards.</p>
+
+<p>As such, CMSIS++ RTOS API is no longer a wrapper over Keil RTX (as ARM CMSIS unfortunately was), but a wrapper over standard threads and synchronisation objects.</p>
+
+<h3 id="compatibility-with-existing-arm-cmsis">Compatibility with existing ARM CMSIS</h3>
+
+<p>Although fully written in C++, the CMSIS++ RTOS API, initially implemented on top of the FreeRTOS scheduler, and accessible via the C wrapper, was the first non-Keil RTOS that passed the recently released <strong>CMSIS RTOS validation suite</strong>.</p>
+
+<h2 id="the-cmsis-rtos-apis">The CMSIS++ RTOS APIs</h2>
+
+<p>There are many components in the original CMSIS, but the major ones that benefit from C++ are <strong>RTOS</strong> and <strong>Drivers</strong>. Since everything revolves around the RTOS API, the <strong>C++ RTOS API</strong> was the first CMSIS++ API defined and is presented here in more detail.</p>
+
+<p>Under the CMSIS++ RTOS APIs umbrella there are actually several interfaces, two in C++, two in C and one internal, in C++. The relationships between them is presented below:</p>
+
+<p>
+<img src="/web-preview/assets/images/2016/cmsis-plus-rtos-overview.png" alt="CMSIS++ RTOS API">
+</p>
+
+<h3 id="the-native-rtos-c-api">The native RTOS C++ API</h3>
+
+<p>This is the native RTOS interface, implemented in C++, and providing access to the entire RTOS functionality.</p>
+
+<p>The classes are grouped under the <code class="language-plaintext highlighter-rouge">os::rtos</code> namespace, and, to access them, C++ applications need to include the <code class="language-plaintext highlighter-rouge">&lt;cmsis-plus/rtos/os.h&gt;</code> header.</p>
+
+<p>Objects can be instantiated from native classes in the usual C++ way, and can be allocated statically, dynamically on the caller stack or dynamically on the heap.</p>
+
+<p>Inspired by the POSIX threads usage model, all CMSIS++ native objects can be instantiated in two ways:</p>
+
+<ul>
+  <li>a <strong>simple</strong>, minimalistic, <strong>default way</strong>, with a default constructor, or, if not possible, a constructor with a minimum number of arguments.</li>
+  <li>a <strong>fully configurable</strong>, maximal way, by using a set of specific attributes, passed as the first argument to a separate constructor.</li>
+</ul>
+
+<p>For example, to create a thread with default settings, only the pointer to the thread function and a pointer to the function arguments need to be specified, while a thread with custom settings can also have a custom priority, a static stack, and possibly other custom settings.</p>
+
+<p>Here is a short example with a thread that counts 5 seconds and quits:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>#include &lt;cmsis-plus/rtos/os.h&gt;
+#include &lt;cmsis-plus/diag/trace.h&gt;
+
+using namespace os;
+
+// Define the thread function.
+// Native threads can have only one pointer parameter.
+void*
+func(void* args)
+{
+  for (int i = 0; i &lt; 5; i++).
+    {
+      trace::printf("%d sec\n", i);
+
+      // Sleep for one second.
+      rtos::sysclock::sleep_for(rtos::clock_systick::frequency_hz);
+    }
+  return nullptr;
+}
+
+// In CMSIS++, os_main() is called from main()
+// after initialising and starting the scheduler.
+int
+os_main(int argc, char* argv[])
+{
+  // Create a new native thread, with pointer to function and no arguments.
+  // The thread is automatically destroyed at the end of the os_main() function.
+  rtos::thread th { func };
+
+  // Wait for the thread to terminate.
+  th.join();
+
+  trace::puts("done.");
+  return 0;
+}
+</code></pre>
+</div>
+</div>
+
+<p>The native CMSIS++ thread is basically a POSIX thread, with some additional functionality (see the <a href="http://micro-os-plus.github.io/reference/cmsis-plus/classos_1_1rtos_1_1_thread.html">os::rtos::Thread</a> reference page for more details).</p>
+
+<p>Similarly, synchronisation objects can be created with the usual C++ approach; for example a piece of code that uses a mutex to protects a counter looks like this:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>#include &lt;cmsis-plus/rtos/os.h&gt;
+
+// Protected resource (a counter).
+typedef struct {
+  int count;
+} resource_t;
+
+// Alloc the resource statically.
+resource_t resource;
+
+// Define a native mutex to protect the resource.
+rtos::mutex mx;
+
+void
+count(void)
+{
+  mx.lock();
+  // Not much here, real applications are more complicated.
+  resource.count++;
+  mx.unlock();
+}
+</code></pre>
+</div>
+</div>
+
+<h3 id="the-iso-c-threads-api">The ISO C++ Threads API</h3>
+
+<p>The <strong>CMSIS++ ISO C++ Threads API</strong> is an accurate implementation of the <strong>ISO C++ 11</strong> standard threads specifications.</p>
+
+<p>With the ISO standard threads defined as wrappers over POSIX threads, and with the CMSIS++ native threads functionally compatible with POSIX threads, the implementation of the CMSIS++ ISO threads was quite straightforward.</p>
+
+<p>The classes are grouped under the <code class="language-plaintext highlighter-rouge">os::estd</code> namespace, and, to access them, C++ applications have to include headers from the <code class="language-plaintext highlighter-rouge">cmsis-plus/estd</code> folder, like <code class="language-plaintext highlighter-rouge">&lt;cmsis-plus/estd/thread&gt;</code>. The namespace <code class="language-plaintext highlighter-rouge">std::</code> and the standard header names (like <code class="language-plaintext highlighter-rouge">&lt;thread&gt;</code>) could not be used, to avoid clashes with system definitions when building CMSIS++ applications on POSIX host systems. The <strong>e</strong> in <code class="language-plaintext highlighter-rouge">estd</code> stands for <strong>embedded</strong>, so the namespace is dedicated to <strong>embedded standard</strong> definitions.</p>
+
+<p>A similar example using the standard C++ threads:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>#include &lt;cmsis-plus/estd/thread&gt;
+#include &lt;cmsis-plus/estd/chrono&gt;
+#include &lt;cmsis-plus/diag/trace.h&gt;
+
+using namespace os;
+using namespace os::estd; // Use the embedded version of 'std::'.
+
+// Define the thread function.
+// Thanks to the magic of C++ tuples, standard threads
+// can have any number of arguments, of any type.
+void*
+func(int max_count, const char* msg)
+{
+  for (int i = 0; i &lt; max_count; i++).
+    {
+      trace::printf("%d sec, %s\n", i, msg);
+
+      // Sleep for one second. &lt;chrono&gt; is very convenient,
+      // notice the duration syntax.
+      this_thread::sleep_for (1s);
+    }
+  return nullptr;
+}
+
+// In CMSIS++, os_main() is called from main()
+// after initialising and starting the scheduler.
+int
+os_main(int argc, char* argv[])
+{
+  // Create a new standard thread, and pass two arguments.
+  // The thread is automatically destroyed at the end of the os_main() function.
+  thread th { func, 5, "bing" };
+
+  // Wait for the thread to terminate.
+  th.join();
+
+  trace::puts("done.");
+  return 0;
+}
+</code></pre>
+</div>
+</div>
+
+<p>Most of the goodies of the C++ 11 standard can be used, for example <a href="https://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization">RAII</a> mutex locks, condition variables, lambdas:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>#include &lt;cmsis-plus/estd/mutex&gt;
+#include &lt;cmsis-plus/estd/condition_variable&gt;
+
+using namespace os;
+using namespace os::estd;
+
+// Protected resource (a counter and a limit).
+typedef struct {
+  int count;
+  int limit;
+} resource_t;
+
+// Alloc the resource statically.
+resource_t resource { 0, 10 };
+
+// Define a standard mutex to protect the resource.
+mutex mx;
+// Define a condition variable to notify listeners and detect limits.
+condition_variable cv;
+
+// Increment count and notify possible listeners.
+void
+count(void)
+{
+  unique_lock&lt;mutex&gt; lck(mx); // Enter the locked region.
+
+  resource.count++;
+  cv.notify_one();
+
+  // No need to explicitly unlock, done automatically.
+}
+
+// Return only when count reaches the limit.
+void
+wait_for_limit()
+{
+  unique_lock&lt;mutex&gt; lck(mx); // Enter the locked region.
+
+  cv.wait(lck,
+          []{ return (res.count &gt;= res.limit); }
+  );
+}
+</code></pre>
+</div>
+</div>
+
+<h3 id="the-new-cmsis-rtos-c-api">The new CMSIS++ RTOS C API</h3>
+
+<p>Although fully written in C++, <strong>CMSIS++ also provides a C API</strong>, to be used by C applications. Yes, that’s correct, plain C applications can use CMSIS++ without any problems. Only that function names are a bit longer and some of the C++ magic (like running the constructors and the destructors) needs to be done by hand, but otherwise the entire functionality is available.</p>
+
+<p>The C API is defined in the <code class="language-plaintext highlighter-rouge">&lt;cmsis-plus/rtos/os-c-api.h&gt;</code> header.</p>
+
+<p>The same simple example that counts 5 seconds and quits, in C would look like:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>#include &lt;cmsis-plus/rtos/os-c-api.h&gt;
+#include &lt;cmsis-plus/diag/trace.h&gt;
+
+// Define the thread function.
+// Native threads can have only one pointer parameter.
+void*
+func(void* args)
+{
+  for (int i = 0; i &lt; 5; i++).
+    {
+      trace_printf("%d sec\n", i);
+
+      // Sleep for one second.
+      os_sysclock_sleep_for(OS_INTEGER_SYSTICK_FREQUENCY_HZ);
+    }
+  return NULL;
+}
+
+// In CMSIS++, os_main() is called from main()
+// after initialising and starting the scheduler.
+int
+os_main(int argc, char* argv[])
+{
+  // Manually allocate space for the thread.    
+  os_thread_t th;
+
+  // Initialise a new native thread, with function and no arguments.
+  os_thread_create(&amp;th, NULL, func, NULL);
+
+  // Wait for the thread to terminate.
+  os_thread_join(&amp;th, NULL);
+
+  // Manually destroy the thread.
+  os_thread_destroy(&amp;th);
+
+  trace_puts("done.");
+  return 0;
+}
+</code></pre>
+</div>
+</div>
+
+<h3 id="the-arm-cmsis-rtos-c-api-compatibility-layer">The ARM CMSIS RTOS C API (compatibility layer)</h3>
+
+<p>Even more, the CMSIS++ C wrapper also implements <strong>the original ARM CMSIS API</strong>. This is a full and accurate implementation, since this API already passed the ARM CMSIS RTOS validation test.</p>
+
+<p>To access this API, include the <code class="language-plaintext highlighter-rouge">&lt;cmsis_os.h&gt;</code> header provided in the CMSIS++ package.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>#include &lt;cmsis_os.h&gt;
+#include &lt;cmsis-plus/diag/trace.h&gt;
+
+// Define the thread function.
+// ARM CMSIS threads can have only one pointer parameter.
+void
+func(void* args)
+{
+  for (int i = 0; i &lt; 5; i++).
+    {
+      trace_printf("%d sec\n", i);
+
+      // Sleep for one second.
+      osDelay(osKernelSysTickFrequency);
+    }
+  // ARM CMSIS threads can return, but there is
+  // no way to know when this happens.
+}
+
+// The unusual way of defining a thread, specific to CMSIS RTOS API.
+// It looks like a function, but it is not, it is a macro that defines
+// some internal structures.
+osThreadDef(func, 0, 1, 0);
+
+// In CMSIS++, os_main() is called from main()
+// after initialising and starting the scheduler.
+int
+os_main(int argc, char* argv[])
+{
+  // Initialise a new ARM CMSIS thread, with function and no arguments.
+  osThreadCreate(osThread(func), NULL);
+
+  // Since ARM CMSIS has no mechanism to wait for a thread to terminate,
+  // a more complicated synchronisation scheme must be used.
+  // In this test just sleep for a little longer.
+  osDelay(6 * osKernelSysTickFrequency);
+
+  trace_puts("done.");
+  return 0;
+}
+</code></pre>
+</div>
+</div>
+
+<h2 id="the-cmsis-rtos-reference">The CMSIS++ RTOS Reference</h2>
+
+<p>The entire CMSIS++ RTOS interface is fully documented in the separate site, available in the <a href="http://micro-os-plus.github.io/reference/cmsis-plus/group__cmsis-plus-rtos.html">project web</a>:</p>
+
+<p>
+<img src="/web-preview/assets/images/2016/cmsis-plus-rtos-reference.png" alt="CMSIS++ RTOS API">
+</p>
+
+<h2 id="more-cmsis-components">More CMSIS++ components</h2>
+
+<p>In addition to the RTOS APIs, CMSIS++ also includes:</p>
+
+<ul>
+  <li>
+<strong>CMSIS++ Drivers</strong> - a C++ rewrite of ARM CMSIS Drivers, with extensions;</li>
+  <li>
+<strong>CMSIS++ POSIX I/O</strong> - a layer bringing together access to terminal devices, files and sockets, via a unified and standard API, using <code class="language-plaintext highlighter-rouge">open()</code>, <code class="language-plaintext highlighter-rouge">close()</code>, <code class="language-plaintext highlighter-rouge">read()</code>, <code class="language-plaintext highlighter-rouge">write()</code> as main functions;</li>
+  <li>
+<strong>CMSIS++ Startup</strong> - a portable startup code, replacing non-portable vendor assembly code;</li>
+  <li>
+<strong>CMSIS++ Core</strong> - C++ API for the ARM Cortex-M processors core and peripherals;</li>
+  <li>
+<strong>CMSIS++ Diagnostics</strong> - a C++/C API providing support for diagnostics and instrumentation.</li>
+</ul>
+
+<h2 id="conclusions">Conclusions</h2>
+
+<p>CMSIS++ is still a young project, and many things need to be addressed, but the core component, the RTOS API, is pretty well defined and awaiting for comments.</p>
+
+<p>For now it may not be perfect (as it tries to be), but it definitely provides a more standard set of primitives, closer to POSIX, and a wider set of APIs, covering both C++ and C applications; at the same time it does its best to preserve compatibility with the original ARM CMSIS APIs.</p>
+
+<p>Any contributions to improve CMSIS++ will be highly appreciated.</p>
+
+<h2 id="more-info">More info</h2>
+
+<p>CMSIS++ is an open source project, maintained by Liviu Ionescu.</p>
+
+<p>The main source of information for CMSIS++ is the <a href="http://micro-os-plus.github.io/cmsis-plus/">project web</a>.</p>
+
+<p>The Git repositories and all public releases are available from <a href="https://github.com/micro-os-plus/cmsis-plus">GitHub</a>.</p>
+
+<p>For questions and discussions, please use the CMSIS++ section of the <a href="https://www.element14.com/community/groups/gnu-arm-eclipse">GNU ARM Eclipse forum</a>.</p>
+
+<p>For bugs and feature requests, please use the <a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">GitHub issues</a>.</p>
+
+
+
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/articles/arm-com-2016-03-11/" data-layout="button"></div></li>
+</ul>
+
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="site-footer">
+  <div class="site-footer-links left">
+    <ul>
+  <li>© 2019 Liviu Ionescu</li>
+  <li>Hosted on GitHub</li>
+  <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
+  <li>
+<a href="http://twitter.com/micro_os_plus" class="twitter-follow-button" data-show-count="false">Follow @micro_os_plus</a><script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</li>
+</ul>
+
+
+  </div>
+  <a href="https://github.com/micro-os-plus/micro-os-plus-iii" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+  </a>
+  <div class="site-footer-links right">
+    <ul>
+  <li><a href="/web-preview/">Home</a></li>
+  <li><a href="/web-preview/blog/">News</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/releases">Releases</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues">Support</a></li>
+  <li><a href="/web-preview/about/">About</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</div>
+
+</body>
+</html>

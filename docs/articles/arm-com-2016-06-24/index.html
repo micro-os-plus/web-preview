@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>[Article] CMSIS++ RTOS: fully functional reference implementation</title>
+  <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
+
+  <meta property="og:title" content="[Article] CMSIS++ RTOS: fully functional reference implementation">
+  <meta property="og:site_name" content="µOS++ IIIe">
+
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+
+
+  <meta property="article:published_time" content="2016-06-24">
+
+
+
+  <meta property="article:tag" content="arm">
+  <meta property="article:tag" content="cmsis">
+  <meta property="article:tag" content="c++">
+  <meta property="article:tag" content="cmsis++">
+  <meta property="article:tag" content="rtos">
+  <meta property="article:tag" content="api">
+  <meta property="article:tag" content="posix">
+  <meta property="article:tag" content="iso">
+
+
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
+
+  <link rel="canonical" href="/web-preview/articles/arm-com-2016-06-24/">
+
+
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16767008-14', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+  <div class="site-header">
+  <table style="width:100%">
+    <tr>
+      <td>
+        <a href="/web-preview/">
+          <img alt="Icon" class="site-icon" src="/web-preview/assets/icons/wall-e-icon.png" height="100" width="100">
+      </a>
+      </td>
+      <td>
+        <table class="site-title" style="width:100%">
+          <tr>
+            <td class="site-title">
+              <a href="/web-preview/">µOS++ IIIe</a>
+            </td>
+            <td class="site-motto" align="right">
+              “Perfekt ist nicht gut genug”
+            </td>
+          </tr>
+          <tr>
+            <td class="site-description" colspan="2">
+              The third edition of µOS++, a POSIX inspired open source framework, written in C++.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+</div>
+
+<div class="container">
+
+  <div class="wrapper">
+    <div class="site-body">
+
+      <div class="site-sidebar">
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      <h4 id="news"><a href="/web-preview/blog/">News</a></h4>
+
+<ul>
+  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></li>
+  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ IIIe v6.3.14 released</a></li>
+  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ IIIe v6.3.13 released</a></li>
+  <li><a href="/web-preview/blog/2017/01/02/micro-os-plus-v6-3-11-released/">µOS++ IIIe v6.3.11 released</a></li>
+</ul>
+
+
+    </div>
+  </div>
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      
+      <h4 id="home"><a href="/web-preview/">Home</a></h4>
+
+<h4 id="µos-iiie">µOS++ IIIe</h4>
+
+<ul>
+  <li><a href="/web-preview/micro-os-plus/">Overview</a></li>
+</ul>
+
+<h4 id="apis">APIs</h4>
+
+<ul>
+  <li><a href="/web-preview/cmsis-plus/">Overview</a></li>
+  <li><a href="/web-preview/cmsis-plus/rtos/">RTOS API</a></li>
+</ul>
+
+<h4 id="xpacksxcdl">xPacks/XCDL</h4>
+
+<ul>
+  <li><a href="/web-preview/xpacks/">Overview</a></li>
+</ul>
+
+<h4 id="documentation">Documentation</h4>
+
+<ul>
+  <li>
+<a href="/web-preview/user-manual/">User’s <strong>manual</strong></a>
+    <ul>
+      <li><a href="/web-preview/user-manual/getting-started/">Getting started</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/">Basic concepts</a></li>
+      <li><a href="/web-preview/user-manual/features/">Features</a></li>
+      <li><a href="/web-preview/user-manual/threads/">Threads</a></li>
+      <li><a href="/web-preview/user-manual/thread-event-flags/">Thread event flags</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/">Semaphores</a></li>
+      <li><a href="/web-preview/user-manual/event-flags/">Event flags</a></li>
+      <li>Mutexes</li>
+      <li>Condition variables</li>
+      <li>Message queues</li>
+      <li>Memory pools</li>
+      <li>Software timers</li>
+      <li>Clocks</li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/reference/cmsis-plus/">µOS++ <strong>reference</strong></a></li>
+</ul>
+
+<h4 id="developer">Developer</h4>
+
+<ul>
+  <li><a href="/web-preview/develop/">Overview</a></li>
+  <li><a href="/web-preview/reference/cmsis-plus/md_doxygen_pages_change-log.html">Change log</a></li>
+  <li><a href="/web-preview/develop/coding-style/">C++ coding style</a></li>
+  <li><a href="/web-preview/develop/naming-conventions/">Naming conventions</a></li>
+  <li><a href="/web-preview/develop/references/">Links &amp; references</a></li>
+</ul>
+
+<h4 id="support">Support</h4>
+
+<ul>
+  <li><a href="/web-preview/support/">Overview</a></li>
+  <li><a href="/web-preview/support/known-issues/">Known issues</a></li>
+  <li><a href="/web-preview/support/faq/">FAQ</a></li>
+  <li><a href="/web-preview/support/forum/">Forum</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ IIIe issues</a></li>
+</ul>
+
+<h4 id="latest-articles">Latest Articles</h4>
+
+<ul>
+  <li><a href="/web-preview/articles/arm-com-2016-06-24/">CMSIS++ RTOS: fully functional reference implementation</a></li>
+  <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
+</ul>
+
+<h4 id="license">License</h4>
+
+<ul>
+  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+</ul>
+
+<h4 id="about"><a href="/web-preview/about/">About</a></h4>
+
+    </div>
+  </div>
+
+  <div class="site-theme">
+    This site uses the <a href="https://github.com/ilg-ul/github-jekyll-theme">GitHub Wiki-like</a> theme by <a href="https://github.com/ilg-ul">Liviu Ionescu</a>.
+  </div>
+
+</div>
+
+
+      <div class="site-content">
+
+        
+<h1 class="page-title">[Article] CMSIS++ RTOS: fully functional reference implementation</h1>
+<table id="last-modified">
+  <tr>
+    <td id="last-modified">Last modified on Wed Dec 23 10:37:26 2020 UTC.</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/articles/arm-com-2016-06-24.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+  </tr>
+</table>
+
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toc_level-1 toc_section-1">
+<a href="#overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a>
+</li>
+<li class="toc_level-1 toc_section-2">
+<a href="#cmsis-rtos-apis-vs-reference-implementations"><span class="tocnumber">2</span> <span class="toctext">CMSIS++ RTOS: APIs vs reference implementations</span></a>
+</li>
+<li class="toc_level-1 toc_section-3">
+<a href="#the-cmsis-rtos-c-api-as-a-wrapper-on-top-of-an-existing-rtos"><span class="tocnumber">3</span> <span class="toctext">The CMSIS++ RTOS C++ API as a wrapper on top of an existing RTOS</span></a>
+</li>
+<li class="toc_level-1 toc_section-4">
+<a href="#the-cmsis-rtos-reference-synchronisation-objects-semaphores-queues-etc"><span class="tocnumber">4</span> <span class="toctext">The CMSIS++ RTOS reference synchronisation objects (semaphores, queues, etc)</span></a>
+</li>
+<li class="toc_level-1 toc_section-5">
+<a href="#the-cmsis-rtos-reference-scheduler"><span class="tocnumber">5</span> <span class="toctext">The CMSIS++ RTOS reference scheduler</span></a>
+<ul>
+<li class="toc_level-2 toc_section-6">
+<a href="#the-scheduler-portable-code"><span class="tocnumber">5.1</span> <span class="toctext">The scheduler portable code</span></a>
+</li>
+<li class="toc_level-2 toc_section-7">
+<a href="#the-scheduler-port-specific-code"><span class="tocnumber">5.2</span> <span class="toctext">The scheduler port-specific code</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-8">
+<a href="#the-cortex-m-scheduler-port"><span class="tocnumber">6</span> <span class="toctext">The Cortex-M scheduler port</span></a>
+</li>
+<li class="toc_level-1 toc_section-9">
+<a href="#static-vs-dynamic-memory-allocation"><span class="tocnumber">7</span> <span class="toctext">Static vs dynamic memory allocation</span></a>
+</li>
+<li class="toc_level-1 toc_section-10">
+<a href="#tests"><span class="tocnumber">8</span> <span class="toctext">Tests</span></a>
+<ul>
+<li class="toc_level-2 toc_section-11">
+<a href="#the-arm-cmsis-rtos-validation-suite"><span class="tocnumber">8.1</span> <span class="toctext">The ARM CMSIS RTOS validation suite</span></a>
+</li>
+<li class="toc_level-2 toc_section-12">
+<a href="#the-mutex-stress-test"><span class="tocnumber">8.2</span> <span class="toctext">The mutex stress test</span></a>
+</li>
+<li class="toc_level-2 toc_section-13">
+<a href="#the-semaphore-stress-test"><span class="tocnumber">8.3</span> <span class="toctext">The semaphore stress test</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-14">
+<a href="#conclusions"><span class="tocnumber">9</span> <span class="toctext">Conclusions</span></a>
+</li>
+<li class="toc_level-1 toc_section-15">
+<a href="#more-info"><span class="tocnumber">10</span> <span class="toctext">More info</span></a>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+<small>(This article was published in the <a href="https://community.arm.com/groups/tools/blog/2016/06/24/cmsis-rtos-reference-implementation-fully-functional">ARM Connected Community </a> blog, on 24.06.2016).</small>
+</p>
+
+<h2 id="overview">Overview</h2>
+
+<p><strong>CMSIS++</strong>, or rather <strong>POSIX++</strong>, is a POSIX-like, portable, vendor-independent, hardware abstraction layer intended for <strong>C++/C embedded applications</strong>, designed with special consideration for the industry standard <strong>ARM Cortex-M</strong> processor series. Originally intended as a proposal for the next generation CMSIS,  <strong>CMSIS++</strong> can probably be more accurately defined as <em>“C++ CMSIS”</em>, and <strong>POSIX++</strong> as <em>“C++ POSIX”</em>.</p>
+
+<h2 id="cmsis-rtos-apis-vs-reference-implementations">CMSIS++ RTOS: APIs vs reference implementations</h2>
+
+<p>The CMSIS++ cornerstone is the RTOS, and in this respect CMSIS++ RTOS can be analysed from two perspectives: the <strong>CMSIS++ RTOS APIs</strong>, with a modern design and the <strong>CMSIS++ RTOS reference implementation</strong> with a clean and efficient code.</p>
+
+<p>In the first phase of the project, the CMSIS++ RTOS APIs were designed, with POSIX threads in mind, but from a C++ point of view.</p>
+
+<p>The native CMSIS++ RTOS interface is the C++ API, with a C API implemented as a wrapper, and an ISO C++ Threads API implemented also on top of the native C++ API.</p>
+
+<h2 id="the-cmsis-rtos-c-api-as-a-wrapper-on-top-of-an-existing-rtos">The CMSIS++ RTOS C++ API as a wrapper on top of an existing RTOS</h2>
+
+<p>Initially, the C++ API was validated by implementing it as a wrapper on top of the popular open source project FreeRTOS. Full functionality was achieved, and the entire system passed the ARM CMSIS RTOS validation suite.</p>
+
+<h2 id="the-cmsis-rtos-reference-synchronisation-objects-semaphores-queues-etc">The CMSIS++ RTOS reference synchronisation objects (semaphores, queues, etc)</h2>
+
+<p>With the native C++ API validated, while still using the safety net provided by an existing scheduler, the next step toward a grand design was to implement, in a portable way, the synchronisation objects defined by the CMSIS++ RTOS.</p>
+
+<p>The result was a highly portable implementation, that requires a very simple interaction with the scheduler, basically a thread <code class="language-plaintext highlighter-rouge">suspend()</code> and <code class="language-plaintext highlighter-rouge">resume()</code>.</p>
+
+<p>Using this model, all RTOS objects were implemented (semaphores, mutexes, condition variables, message queues, memory pools, event flags, clocks and timers); full functionality was achieved, and again the entire system passed the ARM CMSIS RTOS validation suite.</p>
+
+<p>To be noted that in this configuration, when running on top of an existing RTOS, it is perfectly possible to select which implementation to use, at individual object level; in other words it is perfectly possible to run with some objects implemented by the host RTOS and some objects using the reference portable implementation. This is generally useful when some of the objects defined by CMSIS++ are not available in the host RTOS; for example in the current version of FreeRTOS there were no memory pools or condition variables, and these objects were supplied by the reference implementation.</p>
+
+<h2 id="the-cmsis-rtos-reference-scheduler">The CMSIS++ RTOS reference scheduler</h2>
+
+<p>The last piece to complete the puzzle was the scheduler. The CMSIS++ RTOS specifications do not mandate for a specific scheduling policy, and, when running on top of an existing RTOS, any scheduling policy can be used.</p>
+
+<p>However, the CMSIS++ RTOS reference scheduler takes the beaten path and implements a priority based, round robin, cooperative and optionally preemptive scheduler.</p>
+
+<p>In other words, threads are assigned priorities, higher priority threads are scheduled first, equal priority threads are scheduled in a round robin way, and scheduling points are entered either explicitly at any wait() or yield(), or are optionally triggered by periodic interrupts, like the system clock ticks, or by user interrupts.</p>
+
+<h3 id="the-scheduler-portable-code">The scheduler portable code</h3>
+
+<p>The scheduler was designed to be as portable as possible, and to run on any reasonable architecture, with any word size.</p>
+
+<p>As such, the scheduler’s main responsibility is to manage the list of threads ready for execution and to switch their execution contexts in an orderly manner.</p>
+
+<p>Although not mandatory for its functionality, the scheduler also keeps track of all registered threads, and provides iterators to walk these lists.</p>
+
+<p>For a better modularity, the scheduler itself does not keep track of threads waiting for various events; this is delegated to the various synchronisation objects, that are expected to implement their own policy of suspending and resuming execution of threads waiting for common resources.</p>
+
+<p>However, the reference synchronisation objects use similar lists to keep track of the waiting threads, and, to simplify the implementation, the scheduler provides base classes for these lists.</p>
+
+<h3 id="the-scheduler-port-specific-code">The scheduler port-specific code</h3>
+
+<p>Regardless how carefully a portable scheduler is designed and implemented, there will always be a last mile where the platform differences become important.</p>
+
+<p>To accommodate for these differences, the scheduler needs to be <em>ported</em> on a specific platform. The <em>port</em> includes the specific definitions, mainly the way of creating and switching thread contexts, but also handling interrupts, accessing timers and clocks, etc.</p>
+
+<p>There are currently two such CMSIS++ RTOS scheduler ports available and fully functional:</p>
+
+<ul>
+  <li>a 32-bits ARM thumb port, running on Cortex-M devices;</li>
+  <li>a 64-bits synthetic POSIX port, running as a user process on <strong>macOS</strong> and <strong>GNU/Linux</strong>.</li>
+</ul>
+
+<p>These ports are actually not part of the CMSIS++ package itself, which is highly portable, but are part of separate <strong>µOS++</strong> packages.</p>
+
+<h2 id="the-cortex-m-scheduler-port">The Cortex-M scheduler port</h2>
+
+<p>This 32-bits ARM thumb port is specifically designed to run on Cortex-M devices. It currently supports ARMv6-M and ARMv7-M architectures, with or without FPU. Support for ARMv8-M will be added when needed.</p>
+
+<p>The implementation uses the ARM specific features, like PendSV, which greatly simplify things.</p>
+
+<p>For example, the context switching is performed by a rather simple function:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>void
+__attribute__ ((section(".after_vectors"), naked, used, optimize("s")))
+PendSV_Handler (void)
+{
+  // The naked attribute and the push/pop are used to fully control
+  // the function entry/exit code; be sure other registers are not
+  // used in the assembly parts.
+  asm volatile ("push {lr}");
+
+  // The whole mystery of context switching, in one sentence. :-)
+  port::scheduler::restore_from_stack (
+      port::scheduler::switch_stacks (
+          port::scheduler::save_on_stack ()));
+
+  asm volatile ("pop {pc}");
+}
+</code></pre>
+</div>
+</div>
+
+<p>Apart from saving/returning, this function does exactly what it is expected to do:</p>
+
+<ul>
+  <li>
+<code class="language-plaintext highlighter-rouge">save_on_stack ()</code> - saves the context of the current thread on the thread stack and returns the stack address;</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">switch_stacks ()</code> - saves the above stack address in the current thread control block, selects the next thread waiting to run and returns the address of its stack context;</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">restore_from_stack ()</code> - restores the context of the new thread from the stack.</li>
+</ul>
+
+<p>The two save/restore functions are among the very few in the Cortex-M port that require assembly code:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>inline stack::element_t*
+__attribute__((always_inline))
+save_on_stack (void)
+{
+  register stack::element_t* sp_;
+
+  asm volatile
+  (
+      // Get the thread stack
+      " mrs %[r], PSP                       \n"
+      " isb                                 \n"
+
+#if defined (__VFP_FP__) &amp;&amp; !defined (__SOFTFP__)
+
+      // Is the thread using the FPU context?
+      " tst lr, #0x10                       \n"
+      " it eq                               \n"
+      // If so, push high vfp registers.
+      " vstmdbeq %[r]!, {s16-s31}           \n"
+      // Save the core registers r4-r11,r14.
+      // Also save EXC_RETURN to be able to test
+      // again this condition in the restore sequence.
+      " stmdb %[r]!, {r4-r9,sl,fp,lr}       \n"
+
+#else
+
+      // Save the core registers r4-r11.
+      " stmdb %[r]!, {r4-r9,sl,fp}          \n"
+
+#endif
+      : [r] "=r" (sp_) /* out */
+      : /* in */
+      : /* clobber. DO NOT add anything here! */
+  );
+
+  return sp_;
+}
+
+inline void
+__attribute__((always_inline))
+restore_from_stack (stack::element_t* sp)
+{
+  // Without enforcing optimisations, an intermediate variable
+  // would be needed to avoid using R4, which collides with
+  // the R4 in the list of ldmia.
+
+  // register stack::element_t* sp_ asm ("r0") = sp;
+
+  asm volatile
+  (
+
+#if defined (__VFP_FP__) &amp;&amp; !defined (__SOFTFP__)
+
+      // Pop the core registers r4-r11,r14.
+      // R14 contains the EXC_RETURN value
+      // and is restored for the next test.
+      " ldmia %[r]!, {r4-r9,sl,fp,lr}       \n"
+      // Is the thread using the FPU context?
+      " tst lr, #0x10                       \n"
+      " it eq                               \n"
+      // If so, pop the high vfp registers too.
+      " vldmiaeq %[r]!, {s16-s31}           \n"
+
+#else
+
+      // Pop the core registers r4-r11.
+      " ldmia %[r]!, {r4-r9,sl,fp}          \n"
+
+#endif
+
+      // Restore the thread stack register.
+      " msr PSP, %[r]                       \n"
+      " isb                                 \n"
+
+      : /* out */
+      : [r] "r" (sp) /* in */
+      : /* clobber. DO NOT add anything here! */
+  );
+}
+</code></pre>
+</div>
+</div>
+
+<p>The generated code (for Cortex-M3) is remarkably neat and tidy:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>08000198 &lt;PendSV_Handler&gt;:
+ 8000198:	b500      	push	{lr}
+ 800019a:	f3ef 8009 	mrs	r0, PSP
+ 800019e:	f3bf 8f6f 	isb	sy
+ 80001a2:	e920 0ff0 	stmdb	r0!, {r4, r5, r6, r7, r8, r9, sl, fp}
+ 80001a6:	f000 fe07 	bl	8000db8 &lt;os::rtos::port::scheduler::switch_stacks(unsigned long*)&gt;
+ 80001aa:	e8b0 0ff0 	ldmia.w	r0!, {r4, r5, r6, r7, r8, r9, sl, fp}
+ 80001ae:	f380 8809 	msr	PSP, r0
+ 80001b2:	f3bf 8f6f 	isb	sy
+ 80001b6:	bd00      	pop	{pc}
+
+</code></pre>
+</div>
+</div>
+
+<h2 id="static-vs-dynamic-memory-allocation">Static vs dynamic memory allocation</h2>
+
+<p>One of the initial CMSIS++ RTOS design requirements was to give the user full control over the memory allocation.</p>
+
+<p>The implementation fulfilled this requirement, allowing any possible memory allocation scheme, from the simplicity of using fully static allocation to the extreme of using separate custom allocators for each object requiring dynamic memory.</p>
+
+<p>The objects requiring dynamic memory are:</p>
+
+<ul>
+  <li>threads, for the stacks</li>
+  <li>message queues, for the queues (arrays of messages)</li>
+  <li>memory pools, for the pools (arrays of blocks)</li>
+</ul>
+
+<p>All these objects have a last <code class="language-plaintext highlighter-rouge">allocator</code> parameter in their constructors that defaults to the system allocator <code class="language-plaintext highlighter-rouge">memory::allocator&lt;T&gt;</code>.</p>
+
+<p>For example one of the thread constructors is:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>using Allocator = memory::allocator&lt;stack::allocation_element_t&gt;;
+
+thread (const char* name, func_t function, func_args_t args,
+        const attributes&amp; attr = initializer, const Allocator&amp; allocator =
+              Allocator ());
+</code></pre>
+</div>
+</div>
+
+<p>By default the <code class="language-plaintext highlighter-rouge">memory::allocator&lt;T&gt;</code> is defined as:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>template&lt;typename T&gt;
+  using allocator = new_delete_allocator&lt;T&gt;;
+</code></pre>
+</div>
+</div>
+
+<p>but the user can define it as any standard C++ allocator, and so the behaviour of all objects requiring dynamic memory can be customised at once.</p>
+
+<p>Even more, each such object has a separate template version, that takes a last allocator parameter, so at the limit each such object can be allocated using a separate allocator.</p>
+
+<p>Given the magic of C++, using such allocators is straightforward:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>template&lt;typename T&gt;
+  class my_allocator;
+
+thread_allocated&lt;my_allocator&gt; thread { "th", func, nullptr };
+
+message_queue_allocated&lt;my_allocator&gt; queue1 { "q1", 7, sizeof(msg_t) };
+message_queue_typed&lt;msg_t, my_allocator&gt; queue2 { "q2", 7 };
+
+memory_pool_allocated&lt;my_allocator&gt; pool1 { "p1", 7, sizeof(blk_t) };
+memory_pool_typed&lt;blk_t, my_allocator&gt; pool2 { "p2", 7 };
+</code></pre>
+</div>
+</div>
+
+<p>Static allocation is handled using exactly the same method, but different templates:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>thread_static&lt;2500&gt; thread { "th", func, nullptr };
+
+message_queue_static&lt;7, msg_t&gt; queue { "q" };
+
+memory_pool_static&lt;7, blk_t&gt; pool { "p" };
+</code></pre>
+</div>
+</div>
+
+<h2 id="tests">Tests</h2>
+
+<p>Writing RTOS unit tests was always tricky and the results debatable. This does not mean it should not be attempted; actually, if done properly, these tests can be very useful.</p>
+
+<p>To improve testability, the synthetic POSIX platform was implemented. It allows to run most RTOS tests within a very convenient environment like macOS or GNU/Linux.</p>
+
+<p>Another greatly helpful tool used to run the RTOS tests is the GNU ARM Eclipse QEMU, which emulates the STM32F4DISCOVERY board well enough for most tests to be relevant.</p>
+
+<p>Actually most of the times the tests were performed either on macOS or on QEMU, and only rarely, usually at the end, as a final validation, the tests were also performed on physical hardware.</p>
+
+<h3 id="the-arm-cmsis-rtos-validation-suite">The ARM CMSIS RTOS validation suite</h3>
+
+<p>The main test was the ARM CMSIS RTOS validation suite, that exercises quite thoroughly the interface published in the <code class="language-plaintext highlighter-rouge">cmsis_os.h</code> file.</p>
+
+<p>This test is automatically performed by the test scripts on the STM32F4DISCOVERY board running under GNU ARM Eclipse QEMU and on the synthetic POSIX platform.</p>
+
+<p>The result of a run is:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>CMSIS-RTOS Test Suite   Jun 23 2016   16:03:42
+
+TEST 01: TC_ThreadCreate                  PASSED
+TEST 02: TC_ThreadMultiInstance           PASSED
+TEST 03: TC_ThreadTerminate               PASSED
+TEST 04: TC_ThreadRestart                 PASSED
+TEST 05: TC_ThreadGetId                   PASSED
+TEST 06: TC_ThreadPriority                PASSED
+TEST 07: TC_ThreadPriorityExec            PASSED
+TEST 08: TC_ThreadChainedCreate           PASSED
+TEST 09: TC_ThreadYield                   PASSED
+TEST 10: TC_ThreadParam                   PASSED
+TEST 11: TC_ThreadInterrupts              PASSED
+TEST 12: TC_GenWaitBasic                  PASSED
+TEST 13: TC_GenWaitInterrupts             PASSED
+TEST 14: TC_TimerOneShot                  PASSED
+TEST 15: TC_TimerPeriodic                 PASSED
+TEST 16: TC_TimerParam                    PASSED
+TEST 17: TC_TimerInterrupts               PASSED
+TEST 18: TC_SignalMainThread              PASSED
+TEST 19: TC_SignalChildThread             PASSED
+TEST 20: TC_SignalChildToParent           PASSED
+TEST 21: TC_SignalChildToChild            PASSED
+TEST 22: TC_SignalWaitTimeout             PASSED
+TEST 23: TC_SignalParam                   PASSED
+TEST 24: TC_SignalInterrupts              PASSED
+TEST 25: TC_SemaphoreCreateAndDelete      PASSED
+TEST 26: TC_SemaphoreObtainCounting       PASSED
+TEST 27: TC_SemaphoreObtainBinary         PASSED
+TEST 28: TC_SemaphoreWaitForBinary        PASSED
+TEST 29: TC_SemaphoreWaitForCounting      PASSED
+TEST 30: TC_SemaphoreZeroCount            PASSED
+TEST 31: TC_SemaphoreWaitTimeout          PASSED
+TEST 32: TC_SemParam                      PASSED
+TEST 33: TC_SemInterrupts                 PASSED
+TEST 34: TC_MutexBasic                    PASSED
+TEST 35: TC_MutexTimeout                  PASSED
+TEST 36: TC_MutexNestedAcquire            PASSED
+TEST 37: TC_MutexPriorityInversion        PASSED
+TEST 38: TC_MutexOwnership                PASSED
+TEST 39: TC_MutexParam                    PASSED
+TEST 40: TC_MutexInterrupts               PASSED
+TEST 41: TC_MemPoolAllocAndFree           PASSED
+TEST 42: TC_MemPoolAllocAndFreeComb       PASSED
+TEST 43: TC_MemPoolZeroInit               PASSED
+TEST 44: TC_MemPoolParam                  PASSED
+TEST 45: TC_MemPoolInterrupts             PASSED
+TEST 46: TC_MsgQBasic                     PASSED
+TEST 47: TC_MsgQWait                      PASSED
+TEST 48: TC_MsgQParam                     PASSED
+TEST 49: TC_MsgQInterrupts                PASSED
+TEST 50: TC_MsgFromThreadToISR            PASSED
+TEST 51: TC_MsgFromISRToThread            PASSED
+TEST 52: TC_MailAlloc                     PASSED
+TEST 53: TC_MailCAlloc                    PASSED
+TEST 54: TC_MailToThread                  PASSED
+TEST 55: TC_MailFromThread                PASSED
+TEST 56: TC_MailTimeout                   PASSED
+TEST 57: TC_MailParam                     PASSED
+TEST 58: TC_MailInterrupts                PASSED
+TEST 59: TC_MailFromThreadToISR           PASSED
+TEST 60: TC_MailFromISRToThread           PASSED
+
+Test Summary: 60 Tests, 60 Executed, 60 Passed, 0 Failed, 0 Warnings.
+Test Result: PASSED
+</code></pre>
+</div>
+</div>
+
+<h3 id="the-mutex-stress-test">The mutex stress test</h3>
+
+<p>This test exercises the scheduler and the thread synchronisation primitives. It creates 10 threads that compete for a mutex, simulate random activities and compute statistics on how many times each thread acquired the mutex, to validate the fairness of the scheduler.</p>
+
+<p>The test is automatically performed by the scripts on the STM32F4DISCOVERY board running under GNU ARM Eclipse QEMU and on the synthetic POSIX platform.</p>
+
+<p>A typical result of the run is:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>Mutex stress &amp; uniformity test.
+Built with GCC 5.3.1 20160307 (release) [ARM/embedded-5-branch revision 234589].
+Seed 3761791254
+[  5s] t0:39   t1:42   t2:37   t3:41   t4:38   t5:37   t6:36   t7:41   t8:40   t9:34   sum=385, avg=39, delta in [-5,3] [-12%,8%]
+[ 10s] t0:74   t1:82   t2:79   t3:84   t4:79   t5:84   t6:77   t7:76   t8:80   t9:75   sum=790, avg=79, delta in [-5,5] [-5%,6%]
+[ 15s] t0:114  t1:120  t2:116  t3:128  t4:117  t5:122  t6:114  t7:116  t8:116  t9:115  sum=1178, avg=118, delta in [-4,10] [-2%,8%]
+[ 20s] t0:155  t1:161  t2:152  t3:163  t4:153  t5:160  t6:154  t7:159  t8:154  t9:154  sum=1565, avg=157, delta in [-5,6] [-2%,4%]
+[ 25s] t0:196  t1:199  t2:194  t3:206  t4:193  t5:198  t6:194  t7:200  t8:197  t9:194  sum=1971, avg=197, delta in [-4,9] [-1%,5%]
+[ 30s] t0:233  t1:236  t2:241  t3:245  t4:231  t5:236  t6:233  t7:237  t8:234  t9:237  sum=2363, avg=236, delta in [-5,9] [-1%,4%]
+[ 35s] t0:270  t1:281  t2:277  t3:284  t4:266  t5:273  t6:279  t7:278  t8:273  t9:277  sum=2758, avg=276, delta in [-10,8] [-3%,3%]
+Done.
+</code></pre>
+</div>
+</div>
+
+<h3 id="the-semaphore-stress-test">The semaphore stress test</h3>
+
+<p>This test exercises the synchronisation primitives available from interrupt service routines and the effectiveness of the critical sections. It creates a high frequency hardware timer which posts to a semaphore, and a thread counts if the posts arrived in time or were late, in other words if the scheduler was or not able to wakeup the thread fast enough.</p>
+
+<p>The test runs on the physical STM32F4DISCOVERY board.</p>
+
+<p>A typical result of the run shows that on this platform the scheduler can stand about 250.000 context switches per second:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>Semaphore stress test.
+Built with GCC 5.3.1 20160307 (release) [ARM/embedded-5-branch revision 234589].
+
+Iteration 0
+Seed 832262406
+  42000 cy    1 kHz
+  21000 cy    2 kHz
+  10500 cy    4 kHz
+   5250 cy    8 kHz
+   2625 cy   16 kHz
+   1312 cy   32 kHz
+    656 cy   64 kHz
+    328 cy  128 kHz
+    164 cy  256 kHz    1 late
+     82 cy  512 kHz  777 late
+     41 cy 1024 kHz  998 late
+     20 cy 2100 kHz  999 late
+     10 cy 4200 kHz  999 late
+</code></pre>
+</div>
+</div>
+
+<h2 id="conclusions">Conclusions</h2>
+
+<p>CMSIS++ is still a young project, and many things need to be addressed, but the core component, the RTOS, is pretty well defined and functional.</p>
+
+<p>For now it may not be perfect (as it tries to be), but it definitely provides a more standard set of primitives, closer to POSIX, and a wider set of APIs, covering both C++ and C applications than many other existing RTOSes; at the same time it does its best to preserve compatibility with the original ARM CMSIS APIs.</p>
+
+<p>Any contributions to improve CMSIS++ will be highly appreciated.</p>
+
+<h2 id="more-info">More info</h2>
+
+<p>CMSIS++ is an open source project, maintained by Liviu Ionescu. The project is released under the terms of the MIT license.</p>
+
+<p>The main source of information for CMSIS++ is the <a href="http://micro-os-plus.github.io/cmsis-plus/">project web</a>.</p>
+
+<p>The Git repositories and all public releases are available from <a href="https://github.com/micro-os-plus/cmsis-plus">GitHub</a>; specifically the stress tests are available from the <a href="https://github.com/micro-os-plus/micro-os-plus-iii/tree/xpack/test">tests</a> folder.</p>
+
+<p>The code for ARM CMSIS RTOS validator is available from <a href="https://github.com/xpacks/arm-cmsis-rtos-validator">GitHub</a>.</p>
+
+<p>The code for the Cortex-M scheduler port is available from <a href="https://github.com/micro-os-plus/micro-os-plus-iii">GitHub</a>.</p>
+
+<p>The code for the synthetic POSIX scheduler port is available from <a href="https://github.com/micro-os-plus/posix-arch">GitHub</a>.</p>
+
+<p>For questions and discussions, please use the CMSIS++ section of the <a href="https://www.element14.com/community/groups/gnu-arm-eclipse">GNU ARM Eclipse forum</a>.</p>
+
+<p>For bugs and feature requests, please use the <a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">GitHub issues</a>.</p>
+
+
+
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/articles/arm-com-2016-06-24/" data-layout="button"></div></li>
+</ul>
+
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="site-footer">
+  <div class="site-footer-links left">
+    <ul>
+  <li>© 2019 Liviu Ionescu</li>
+  <li>Hosted on GitHub</li>
+  <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
+  <li>
+<a href="http://twitter.com/micro_os_plus" class="twitter-follow-button" data-show-count="false">Follow @micro_os_plus</a><script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</li>
+</ul>
+
+
+  </div>
+  <a href="https://github.com/micro-os-plus/micro-os-plus-iii" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+  </a>
+  <div class="site-footer-links right">
+    <ul>
+  <li><a href="/web-preview/">Home</a></li>
+  <li><a href="/web-preview/blog/">News</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/releases">Releases</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues">Support</a></li>
+  <li><a href="/web-preview/about/">About</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</div>
+
+</body>
+</html>

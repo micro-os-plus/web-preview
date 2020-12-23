@@ -9,16 +9,16 @@
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>The µOS++ IIIe Project</title>
+  <title>Using the AVR32 bootloader</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="The µOS++ IIIe Project">
+  <meta property="og:title" content="Using the AVR32 bootloader">
   <meta property="og:site_name" content="µOS++ IIIe">
 
   <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
 
 
-  <meta property="article:published_time" content="2016-03-03">
+  <meta property="article:published_time" content="2011-07-22">
 
 
 
@@ -32,7 +32,7 @@
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
 
-  <link rel="canonical" href="/web-preview/">
+  <link rel="canonical" href="/web-preview/micro-os-plus/i/Using_the_AVR32_bootloader/">
 
 
 
@@ -239,58 +239,186 @@
       <div class="site-content">
 
         
-<h1 class="page-title">The µOS++ IIIe Project</h1>
+<h1 class="page-title">Using the AVR32 bootloader - DEPRECATED</h1>
 <table id="last-modified">
   <tr>
-    <td id="last-modified">Last modified on Wed Dec 23 10:37:26 2020 UTC.</td>
-    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/home.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+    <td id="last-modified">Page date Fri Jul 22 13:08:39 2011 .</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/micro-os-plus/i/Using_the_AVR32_bootloader.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
 
-
-<p>The <strong>µOS++ IIIe</strong> <em>(micro oh ɛs plus plus third edition)</em> project is the third iteration of µOS++, a POSIX-like, portable, open source, royalty-free, multi-tasking real-time framework intended for 32/64-bits embedded applications, written in C++. The project is hosted on GitHub as <a href="https://github.com/micro-os-plus">micro-os-plus</a>. It has a comprehensive <a href="/web-preview/user-manual/">User’s manual</a>. The APIs are documented in the <a href="/web-preview/reference/cmsis-plus/">µOS++ reference</a>.</p>
-
-<p><strong>POSIX++</strong> is another point of view of the project; with most system APIs using the POSIX semantics, but being written in C++, the <strong>µOS++ IIIe</strong> APIs can also be seen as a C++ version of POSIX, thus the name <strong>POSIX++</strong>.</p>
-
-<h2 id="manyfold-identity">Manyfold identity</h2>
-
-<p>The <strong>µOS++ IIIe</strong> project can be considered from several points of view.</p>
-
-<h3 id="the-µos-frameworkapis">The µOS++ framework/APIs</h3>
-
-<p>Although generally associated with its RTOS, <strong>µOS++ IIIe</strong> is actually a framework, a collection of APIs, components and technologies.</p>
-
-<p>One of the main APIs is the µOS++ RTOS API, but applications based on µOS++ may run very well without a RTOS, or even use a different RTOS.</p>
-
-<p>For a better portability, the entire framework is layered, the µOS++ RTOS API provides a common public interface to the applications, but the implementation is separate, it might be that of its own µOS++ RTOS reference implementation, but it may very well be another implementation, even a custom one specific to the application.</p>
-
-<h3 id="the-µos-rtos-implementation">The µOS++ RTOS implementation</h3>
-
-<p>From an embedded system point of view, <strong>µOS++ IIIe</strong> provides the <strong>reference implementation</strong> for the <strong>scheduler</strong> and <strong>portable synchronisation</strong> objects (like mutex, semaphore, etc).</p>
-
-<div style="text-align:center">
-<img alt="µOS++ RTOS" src="/web-preview/assets/images/2017/micro-os-plus-rtos.png">
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
 </div>
+<ul>
+<li class="toc_level-1 toc_section-1">
+<a href="#erase-the-chip"><span class="tocnumber">1</span> <span class="toctext">Erase the chip</span></a>
+</li>
+<li class="toc_level-1 toc_section-2">
+<a href="#program-the-bootloader-code"><span class="tocnumber">2</span> <span class="toctext">Program the bootloader code</span></a>
+</li>
+<li class="toc_level-1 toc_section-3">
+<a href="#configure-the-usb-dfu-programmer"><span class="tocnumber">3</span> <span class="toctext">Configure the USB DFU programmer</span></a>
+</li>
+<li class="toc_level-1 toc_section-4">
+<a href="#program-flash-image"><span class="tocnumber">4</span> <span class="toctext">Program flash image</span></a>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Atmel provides a functional bootloader for its UC3 processors. It was intended for reprogramming the firmware after deployment, but it can be also used during development, as a more convenient alternative to JTAG.</p>
 
-<h3 id="the-µos-packages">The µOS++ packages</h3>
+<h1 id="how-to-program-the-bootloader">How to program the bootloader</h1>
 
-<p>From a modular point of view, <strong>µOS++ IIIe</strong> is a <strong>collection of packages</strong> hosted on GitHub in two locations:</p>
+<p>The bootloader occupies the first 8 KB of the flash space, and should be programmed using the JTAG.</p>
+
+<p>The Atmel tools to manage chip programming are available in the AVR perspective:</p>
 
 <ul>
-  <li>the original code is grouped under the <a href="https://github.com/micro-os-plus">µOS++ IIIe</a> GitHub collection of projects</li>
-  <li>projects based on third party code are grouped under the <a href="https://github.com/xpacks">xPacks</a> collection.</li>
+  <li>select the <strong>AVR</strong> perspective:
+    <ul>
+      <li>
+<strong>Eclipse</strong> menu: <strong>Windows</strong> → <strong>Open perspective</strong> → <strong>Other</strong>
+</li>
+      <li>select <strong>AVR</strong>
+</li>
+      <li>click the <strong>OK</strong> button</li>
+    </ul>
+  </li>
 </ul>
 
-<div style="text-align:center">
-<img alt="µOS++ Collection" src="/web-preview/assets/images/2017/micro-os-plus-collection.png">
+<h2 id="erase-the-chip">Erase the chip</h2>
+
+<p>Although it seems to be included in the next step, to avoid any surprises, it is recommended to first completely erase the chip before any programming.</p>
+
+<p>Be sure you select <strong>Chip Erase…</strong>, not just <strong>Erase…</strong>, to completely erase the chip, including any security bits.</p>
+
+<ul>
+  <li>in the <strong>AVR Targets</strong> tab, right-click on <strong>JTABICE mkII</strong>
+</li>
+  <li>click on <strong>Chip Erase…</strong>
+    <ul>
+      <li>read the notificaton message and click the <strong>OK</strong> button</li>
+    </ul>
+  </li>
+</ul>
+
+<p>For reference, on my machine this translated to:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>cmd.exe /C avr32program -c USB:0700000053E7 -pjtagicemkii --gui --part UC3A3256 chiperase
+</code></pre>
+</div>
 </div>
 
-<h2 id="license">License</h2>
+<h2 id="program-the-bootloader-code">Program the bootloader code</h2>
 
-<p>Unless otherwise mentioned, all <strong>µOS++ IIIe</strong> components are provided <strong>free of charge</strong> under the terms of the <a href="https://opensource.org/licenses/MIT">MIT License</a>, with all rights reserved to Liviu Ionescu.</p>
+<ul>
+  <li>in the <strong>AVR Targets</strong> tab, right-click on <strong>JTAGICE mkII</strong>
+</li>
+  <li>click on <strong>Program Bootloadewr…</strong>
+    <ul>
+      <li>select the part, the <strong>USB DFU</strong> type and the latest version (currently 1.0.3)</li>
+      <li>click the <strong>Next</strong> button</li>
+      <li>in the AT32UC3 Bootloader wizard page
+        <ul>
+          <li>set the pin to <strong>42</strong> (or any other value your board supports); this is the pin where the booloader button is connected.</li>
+          <li>deselect the level (the User Page Configuration Word should read 0x929E2A9E)</li>
+          <li>select all 3 bit configurations: ISP_BOD_EN, ISP_IO_COND_EN, ISP_FORCE (the FuseBitConfiguration Value should read 0xFFF7FFFF)</li>
+          <li>click on the <strong>Finish</strong> button</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>For reference, on my machine this translated to:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>cmd.exe /C avr32program -c USB:0700000053E7 -pjtagicemkii --part UC3A3256 chiperase
+cmd.exe /C avr32program -c USB:0700000053E7 -pjtagicemkii --part UC3A3256 program
+  -finternal@0x80000000,512Kb -cxtal -e -v -O0x80000000 -Fbin
+  C:\Users\LIVIUI~1\AppData\Local\Temp\at32uc3a3-isp-1.0.3.bin9020454716059643611.bin
+cmd.exe /C avr32program -c USB:0700000053E7 -pjtagicemkii --part UC3A3256 program
+  -finternal@0x80000000,512Kb -cxtal -e -v -O0x808001FC -Fbin
+  C:\Users\LIVIUI~1\AppData\Local\Temp\userConf7033399909011047483,dat
+cmd.exe /C avr32program -c USB:0700000053E7 -pjtagicemkii --part UC3A3256 writefuses
+  -finternal@0x80000000,512Kb gp=0xfff7ffff
+cmd.exe /C avr32program -c USB:0700000053E7 -pjtagicemkii --part UC3A3256 reset
+cmd.exe /C avr32program -c USB:0700000053E7 -pjtagicemkii --part UC3A3256 run
+</code></pre>
+</div>
+</div>
+
+<h1 id="how-to-use-the-bootloader">How to use the bootloader</h1>
+
+<h2 id="configure-the-usb-dfu-programmer">Configure the USB DFU programmer</h2>
+
+<p>Configuring the USB DFU Programmer is certainly possible, but unfortunately it is not obvious, probably due to some bugs.</p>
+
+<p>The first step is to add a new AVR Target. In the properties page, the Details tab, should allow to select the</p>
+
+<ul>
+  <li>Device: AT32UC3A3256 (or some other value to match your board)</li>
+  <li>Debugger/programmer: USB DFU</li>
+  <li>Clock source: External clock connected to OSC0 (or some other value to match your board)</li>
+</ul>
+
+<p>If these selections are not available, the trick is to play with existing config until they become available. For example you can first configure the JTAGICE mkII first and select the Device.</p>
+
+<h2 id="program-flash-image">Program flash image</h2>
+
+<ul>
+  <li>in the <strong>AVR Targets</strong> tab, right-click on USB DFU
+    <ul>
+      <li>click the <strong>Program…</strong> menu item</li>
+      <li>select the file path to the .elf image</li>
+      <li>leave the offset to <strong>0x0</strong>
+</li>
+      <li>set the following options
+        <ul>
+          <li>enable <strong>Verify memory after programming</strong>
+</li>
+          <li>enable <strong>Erase flash before programming</strong>
+</li>
+          <li>enable <strong>Unlock flash before erasing</strong>
+</li>
+          <li>disable <strong>Reset MCU after programming</strong>
+</li>
+          <li>enable <strong>Start executing after programming</strong>
+</li>
+        </ul>
+      </li>
+      <li>click the <strong>OK</strong> button</li>
+    </ul>
+  </li>
+</ul>
+
+<p>The device will start to execute the new image as soon as programming is completed.</p>
 
 
 
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/micro-os-plus/i/Using_the_AVR32_bootloader/" data-layout="button"></div></li>
+</ul>
 
 
 

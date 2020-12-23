@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Eclipse (install and config)</title>
+  <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
+
+  <meta property="og:title" content="Eclipse (install and config)">
+  <meta property="og:site_name" content="µOS++ IIIe">
+
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+
+
+  <meta property="article:published_time" content="2013-09-09">
+
+
+
+
+
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
+
+  <link rel="canonical" href="/web-preview/micro-os-plus/ii/Eclipse_(install_and_config)/">
+
+
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16767008-14', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+  <div class="site-header">
+  <table style="width:100%">
+    <tr>
+      <td>
+        <a href="/web-preview/">
+          <img alt="Icon" class="site-icon" src="/web-preview/assets/icons/wall-e-icon.png" height="100" width="100">
+      </a>
+      </td>
+      <td>
+        <table class="site-title" style="width:100%">
+          <tr>
+            <td class="site-title">
+              <a href="/web-preview/">µOS++ IIIe</a>
+            </td>
+            <td class="site-motto" align="right">
+              “Perfekt ist nicht gut genug”
+            </td>
+          </tr>
+          <tr>
+            <td class="site-description" colspan="2">
+              The third edition of µOS++, a POSIX inspired open source framework, written in C++.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+</div>
+
+<div class="container">
+
+  <div class="wrapper">
+    <div class="site-body">
+
+      <div class="site-sidebar">
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      <h4 id="news"><a href="/web-preview/blog/">News</a></h4>
+
+<ul>
+  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></li>
+  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ IIIe v6.3.14 released</a></li>
+  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ IIIe v6.3.13 released</a></li>
+  <li><a href="/web-preview/blog/2017/01/02/micro-os-plus-v6-3-11-released/">µOS++ IIIe v6.3.11 released</a></li>
+</ul>
+
+
+    </div>
+  </div>
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      
+      <h4 id="home"><a href="/web-preview/">Home</a></h4>
+
+<h4 id="µos-iiie">µOS++ IIIe</h4>
+
+<ul>
+  <li><a href="/web-preview/micro-os-plus/">Overview</a></li>
+</ul>
+
+<h4 id="apis">APIs</h4>
+
+<ul>
+  <li><a href="/web-preview/cmsis-plus/">Overview</a></li>
+  <li><a href="/web-preview/cmsis-plus/rtos/">RTOS API</a></li>
+</ul>
+
+<h4 id="xpacksxcdl">xPacks/XCDL</h4>
+
+<ul>
+  <li><a href="/web-preview/xpacks/">Overview</a></li>
+</ul>
+
+<h4 id="documentation">Documentation</h4>
+
+<ul>
+  <li>
+<a href="/web-preview/user-manual/">User’s <strong>manual</strong></a>
+    <ul>
+      <li><a href="/web-preview/user-manual/getting-started/">Getting started</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/">Basic concepts</a></li>
+      <li><a href="/web-preview/user-manual/features/">Features</a></li>
+      <li><a href="/web-preview/user-manual/threads/">Threads</a></li>
+      <li><a href="/web-preview/user-manual/thread-event-flags/">Thread event flags</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/">Semaphores</a></li>
+      <li><a href="/web-preview/user-manual/event-flags/">Event flags</a></li>
+      <li>Mutexes</li>
+      <li>Condition variables</li>
+      <li>Message queues</li>
+      <li>Memory pools</li>
+      <li>Software timers</li>
+      <li>Clocks</li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/reference/cmsis-plus/">µOS++ <strong>reference</strong></a></li>
+</ul>
+
+<h4 id="developer">Developer</h4>
+
+<ul>
+  <li><a href="/web-preview/develop/">Overview</a></li>
+  <li><a href="/web-preview/reference/cmsis-plus/md_doxygen_pages_change-log.html">Change log</a></li>
+  <li><a href="/web-preview/develop/coding-style/">C++ coding style</a></li>
+  <li><a href="/web-preview/develop/naming-conventions/">Naming conventions</a></li>
+  <li><a href="/web-preview/develop/references/">Links &amp; references</a></li>
+</ul>
+
+<h4 id="support">Support</h4>
+
+<ul>
+  <li><a href="/web-preview/support/">Overview</a></li>
+  <li><a href="/web-preview/support/known-issues/">Known issues</a></li>
+  <li><a href="/web-preview/support/faq/">FAQ</a></li>
+  <li><a href="/web-preview/support/forum/">Forum</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ IIIe issues</a></li>
+</ul>
+
+<h4 id="latest-articles">Latest Articles</h4>
+
+<ul>
+  <li><a href="/web-preview/articles/arm-com-2016-06-24/">CMSIS++ RTOS: fully functional reference implementation</a></li>
+  <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
+</ul>
+
+<h4 id="license">License</h4>
+
+<ul>
+  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+</ul>
+
+<h4 id="about"><a href="/web-preview/about/">About</a></h4>
+
+    </div>
+  </div>
+
+  <div class="site-theme">
+    This site uses the <a href="https://github.com/ilg-ul/github-jekyll-theme">GitHub Wiki-like</a> theme by <a href="https://github.com/ilg-ul">Liviu Ionescu</a>.
+  </div>
+
+</div>
+
+
+      <div class="site-content">
+
+        
+<h1 class="page-title">Eclipse (install and config) - DEPRECATED</h1>
+<table id="last-modified">
+  <tr>
+    <td id="last-modified">Page date Mon Sep  9 13:46:36 2013 .</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/micro-os-plus/ii/Eclipse_(install_and_config).md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+  </tr>
+</table>
+
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toc_level-1 toc_section-1">
+<a href="#personal-preferences"><span class="tocnumber">1</span> <span class="toctext">Personal preferences</span></a>
+</li>
+<li class="toc_level-1 toc_section-2">
+<a href="#download"><span class="tocnumber">2</span> <span class="toctext">Download</span></a>
+</li>
+<li class="toc_level-1 toc_section-3">
+<a href="#create-workspace"><span class="tocnumber">3</span> <span class="toctext">Create workspace</span></a>
+</li>
+<li class="toc_level-1 toc_section-4">
+<a href="#install-plug-ins"><span class="tocnumber">4</span> <span class="toctext">Install plug-ins</span></a>
+<ul>
+<li class="toc_level-2 toc_section-5">
+<a href="#pydev"><span class="tocnumber">4.1</span> <span class="toctext">PyDev</span></a>
+</li>
+<li class="toc_level-2 toc_section-6">
+<a href="#gdb-hardware-debugging"><span class="tocnumber">4.2</span> <span class="toctext">GDB Hardware Debugging</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-7">
+<a href="#configure-workspace-preferences"><span class="tocnumber">5</span> <span class="toctext">Configure workspace preferences</span></a>
+</li>
+<li class="toc_level-1 toc_section-8">
+<a href="#configure-pydev-preferences"><span class="tocnumber">6</span> <span class="toctext">Configure PyDev preferences</span></a>
+</li>
+<li class="toc_level-1 toc_section-9">
+<a href="#clone-repositories"><span class="tocnumber">7</span> <span class="toctext">Clone repositories</span></a>
+<ul>
+<li class="toc_level-2 toc_section-10">
+<a href="#local-repositories"><span class="tocnumber">7.1</span> <span class="toctext">Local repositories</span></a>
+</li>
+<li class="toc_level-2 toc_section-11">
+<a href="#remote-repositories"><span class="tocnumber">7.2</span> <span class="toctext">Remote repositories</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-12">
+<a href="#configure-paths-and-locations"><span class="tocnumber">8</span> <span class="toctext">Configure paths and locations</span></a>
+</li>
+<li class="toc_level-1 toc_section-13">
+<a href="#create-a-new-%C2%B5os-project"><span class="tocnumber">9</span> <span class="toctext">Create a new µOS++ project</span></a>
+<ul>
+<li class="toc_level-2 toc_section-14">
+<a href="#configure-toolchain-path"><span class="tocnumber">9.1</span> <span class="toctext">Configure toolchain path</span></a>
+</li>
+<li class="toc_level-2 toc_section-15">
+<a href="#configure-preprocessor-discovery-command"><span class="tocnumber">9.2</span> <span class="toctext">Configure preprocessor discovery command</span></a>
+</li>
+<li class="toc_level-2 toc_section-16">
+<a href="#add-the-%C2%B5os-specific-include-folders"><span class="tocnumber">9.3</span> <span class="toctext">Add the µOS++ specific include folders</span></a>
+</li>
+<li class="toc_level-2 toc_section-17">
+<a href="#add-a-linked-folder-to-the-%C2%B5os-sources"><span class="tocnumber">9.4</span> <span class="toctext">Add a linked folder to the µOS++ sources</span></a>
+</li>
+<li class="toc_level-2 toc_section-18">
+<a href="#configure-the-custom-build-command"><span class="tocnumber">9.5</span> <span class="toctext">Configure the custom build command</span></a>
+</li>
+<li class="toc_level-2 toc_section-19">
+<a href="#create-actual-build-configurations"><span class="tocnumber">9.6</span> <span class="toctext">Create actual build configurations</span></a>
+</li>
+<li class="toc_level-2 toc_section-20">
+<a href="#build-the-new-configurations"><span class="tocnumber">9.7</span> <span class="toctext">Build the new configurations</span></a>
+</li>
+<li class="toc_level-2 toc_section-21">
+<a href="#check-indexer"><span class="tocnumber">9.8</span> <span class="toctext">Check indexer</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-22">
+<a href="#configure-the-run-console"><span class="tocnumber">10</span> <span class="toctext">Configure the run console</span></a>
+</li>
+<li class="toc_level-1 toc_section-23">
+<a href="#configure-the-project-clean-options"><span class="tocnumber">11</span> <span class="toctext">Configure the project Clean options</span></a>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Although the minimum development environment for µOS++ SE requires only a shell terminal and a character based editor (like vi or emacs), the recommended development environment is based on <a href="http://www.eclipse.org">Eclipse IDE</a>, more specifically on <strong>Eclipse IDE for C/C++ Developers</strong>, available from <a href="http://www.eclipse.org/downloads/">Eclipse downloads</a>.</p>
+
+<p>Currently there are no specific plug-ins required, so any recent Eclipse version should work. The below steps are based on Eclipse 4.3 Kepler, running on OS X, but should not be much different when running on Ubuntu.</p>
+
+<div style="text-align:center">
+<img alt="Eclipse Kepler" src="/web-preview/assets/images/old/Eclipse_Kepler.png">
+</div>
+
+<h2 id="personal-preferences">Personal preferences</h2>
+
+<p>The below procedure is based on my personal preferences, and I usually like to keep things grouped in separate folders. If you have your strong opinions on how things should be organised, you can obviously adjust the procedure to suit your need. Otherwise, if you do this for the first time, it is recommended to follow the procedure in detail, as-is, to avoid surprises.</p>
+
+<h2 id="download">Download</h2>
+
+<p>Although you can use an existing Eclipse that you already have installed, it is recommended to keep things distinct, and do not share development tools between project, especially since Eclipse does not install system components and has absolutely no problems with multiple instances of itself.</p>
+
+<p>So, it is recommended to prepare a local folder where all current and future Eclipses used for this project will be stored, and to download a fresh Eclipse into it:</p>
+
+<ul>
+  <li>prepare a local location in the work folder</li>
+</ul>
+
+<!-- -->
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>mkdir -p "~/work/uOS/Eclipses"
+</code></pre>
+</div>
+</div>
+
+<ul>
+  <li>download <strong>Eclipse IDE for C/C++ Developers</strong> for your platform, preferably the 64-bit version (for example eclipse-cpp-kepler-R-macosx-cocoa-x86_64.tar.gz) into this new folder</li>
+  <li>unpack the archive; the result should be a folder named <strong>eclipse</strong>
+</li>
+  <li>to make things more explicit, and to avoid confusions with future versions, it is recommended to rename the <strong>eclipse</strong> folder to something like <strong>eclipse-4.3-cdt</strong>
+</li>
+  <li>go into this folder and make an alias of the <strong>Eclipse.app</strong>, with a name containing the version, like <strong>Eclipse-4.3-CDT.app alias</strong>, and move the alias to a convenient place, like a Launcher, a menu, the Desktop, etc. (on GNU/Linux instead of an alias you can make a symbolic link).</li>
+</ul>
+
+<h2 id="create-workspace">Create workspace</h2>
+
+<ul>
+  <li>prepare a local location where the workspace(s) related to this project will be stored</li>
+</ul>
+
+<!-- -->
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>mkdir -p "~/work/uOS/Eclipse Workspaces"
+</code></pre>
+</div>
+</div>
+
+<ul>
+  <li>start the new Eclipse and define a new workspace, for example: <code class="language-plaintext highlighter-rouge">~/work/uOS/Eclipse Workspaces/workspace-4.3-osx</code>
+</li>
+</ul>
+
+<h2 id="install-plug-ins">Install plug-ins</h2>
+
+<h3 id="pydev">PyDev</h3>
+
+<p>The PyDev plug-in is necessary to better view the Python XCDL files, even if Python development is not planned.</p>
+
+<p>In <strong>Help</strong> menu → <strong>Install New Software…</strong></p>
+
+<ul>
+  <li>press the <strong>Add…</strong> button</li>
+  <li>set Name: <strong>PyDev</strong>
+</li>
+  <li>set Location: <strong><a href="http://pydev.org/updates">http://pydev.org/updates</a></strong>
+</li>
+  <li>press the <strong>OK</strong> button</li>
+  <li>enable <strong>PyDev</strong> and optionally <strong>PyDev Mylyn Integration</strong>
+</li>
+</ul>
+
+<div style="text-align:center">
+<img alt="Install PyDev" src="/web-preview/assets/images/old/Install_PyDev.png">
+</div>
+
+<ul>
+  <li>press the <strong>Next</strong> button</li>
+  <li>accept the license</li>
+  <li>press the <strong>Finish</strong> button</li>
+  <li>wait for the plug-in to be installed</li>
+  <li>press the <strong>OK</strong> button to accept installing plug-ins with unsigned content</li>
+  <li>select the Brainwy Software certificate</li>
+  <li>press the <strong>OK</strong> button</li>
+  <li>press the <strong>Yes</strong> button to accept Eclipse to restart.</li>
+</ul>
+
+<h3 id="gdb-hardware-debugging">GDB Hardware Debugging</h3>
+
+<p>If you plan to do any debugging using JTAG/SWD probes, it is recommended to install the GDB Hardware Debugging support plug-in.</p>
+
+<p>In <strong>Help</strong> menu → <strong>Install New Software…</strong></p>
+
+<ul>
+  <li>in the <strong>Work with</strong> field select <strong>Kepler…</strong>
+</li>
+  <li>in the below window expand <strong>Mobile and Device Development</strong>
+</li>
+  <li>and select <strong>C/C++ GDB Hardware Debugging</strong>
+</li>
+</ul>
+
+<div style="text-align:center">
+<img alt="Install GDB Hardware" src="/web-preview/assets/images/old/Install_GDB_Hardware.png">
+</div>
+
+<ul>
+  <li>press the <strong>Next &gt;</strong> button</li>
+  <li>press the <strong>Next &gt;</strong> button</li>
+  <li>accept the license</li>
+  <li>press the <strong>Finish</strong> button</li>
+  <li>press the <strong>Yes</strong> button to accept Eclipse to restart.</li>
+</ul>
+
+<h2 id="configure-workspace-preferences">Configure workspace preferences</h2>
+
+<p>In <strong>Eclipse</strong> menu → <strong>Preferences…</strong> → <strong>General</strong> → <strong>Workspace</strong></p>
+
+<ul>
+  <li>disable <strong>Build Automatically</strong>
+</li>
+  <li>enable <strong>Save automatically before build</strong>
+</li>
+  <li>set <strong>Text file encoding: UTF-8</strong>
+</li>
+</ul>
+
+<div style="text-align:center">
+<img alt="General Workspace" src="/web-preview/assets/images/old/General_Workspace.png">
+</div>
+
+<p>In <strong>Eclipse</strong> menu → <strong>Preferences…</strong> → <strong>General</strong> → <strong>Editors</strong> → <strong>Text Editors</strong></p>
+
+<ul>
+  <li>enable <strong>Show print margin</strong>
+</li>
+  <li>check <strong>Print margin column: 80</strong>
+</li>
+  <li>enable <strong>Show line numbers</strong>
+</li>
+</ul>
+
+<div style="text-align:center">
+<img alt="General Editors" src="/web-preview/assets/images/old/General_Editors.png">
+</div>
+
+<p>In <strong>Eclipse</strong> menu → <strong>Preferences…</strong> → <strong>C/C++</strong> → <strong>Code Style</strong> → <strong>Formatter</strong></p>
+
+<ul>
+  <li>set <strong>Active profile: GNU [built-in]</strong>
+</li>
+</ul>
+
+<div style="text-align:center">
+<img alt="Code Style Formatter" src="/web-preview/assets/images/old/Code_Style_Formatter.png">
+</div>
+
+<p>In <strong>Eclipse</strong> menu → <strong>Preferences…</strong> → <strong>C/C++</strong> → <strong>Indexer</strong></p>
+
+<ul>
+  <li>check Indexing strategy: <strong>Automatically update the index</strong>
+</li>
+  <li>check Indexing strategy: <strong>Update index immediately after every file-save</strong>
+</li>
+  <li>set <strong>Build configuration for the indexer: Use active build configuration</strong>
+</li>
+</ul>
+
+<div style="text-align:center">
+<img alt="Indexer" src="/web-preview/assets/images/old/Indexer.png">
+</div>
+
+<h2 id="configure-pydev-preferences">Configure PyDev preferences</h2>
+
+<p>In <strong>Eclipse</strong> menu → <strong>Preferences…</strong> → <strong>PyDev</strong> → <strong>Interpreter - Python</strong></p>
+
+<ul>
+  <li>press the <strong>Auto Config</strong> button
+    <ul>
+      <li>select the Eclipse plugin</li>
+      <li>press the <strong>OK</strong> button</li>
+    </ul>
+  </li>
+  <li>press the <strong>OK</strong> button</li>
+</ul>
+
+<div style="text-align:center">
+<img alt="Python Interpreter" src="/web-preview/assets/images/old/Python_Interpreter.png">
+</div>
+
+<p>In <strong>Eclipse</strong> menu → <strong>Preferences…</strong> → <strong>PyDev</strong> → <strong>Editor</strong></p>
+
+<ul>
+  <li>in <strong>Appearance color options</strong>, select Comments</li>
+  <li>configure <strong>Color</strong> to a <strong>50% grey</strong>
+</li>
+</ul>
+
+<div style="text-align:center">
+<img alt="PyDev Comments" src="/web-preview/assets/images/old/PyDev_Comments.png">
+</div>
+
+<h2 id="clone-repositories">Clone repositories</h2>
+
+<h3 id="local-repositories">Local repositories</h3>
+
+<p>If you already performed the unit tests, the two required repositories are already locally cloned, and you just have to inform Eclipse on their location, and import the projects.</p>
+
+<p>For this, in the <strong>File</strong> menu → <strong>Import</strong></p>
+
+<ul>
+  <li>expand <strong>Git</strong>
+</li>
+  <li>select <strong>Projects from Git</strong>
+</li>
+  <li>press the <strong>Next</strong> button</li>
+  <li>select <strong>Local</strong>
+</li>
+  <li>press the <strong>Next</strong> button; if the Eclipse instance is fresh, there are no local repositories registered, and you need to add them
+    <ul>
+      <li>press the <strong>Add…</strong> button</li>
+      <li>browse to the <strong>micro-os-plus-se.git</strong> folder</li>
+      <li>press the <strong>Finish</strong> button</li>
+    </ul>
+  </li>
+  <li>press the <strong>Next</strong> button</li>
+  <li>select <strong>Import existing projects</strong>
+</li>
+  <li>press the <strong>Next</strong> button</li>
+  <li>select the <strong>micro-os-plus-se.git</strong> project</li>
+  <li>click the <strong>Finish</strong> button</li>
+</ul>
+
+<div style="text-align:center">
+<img alt="Import µOS" src="/web-preview/assets/images/old/Import_uOS.png">
+</div>
+
+<p>Repeat this procedure for the <strong>xcdl-python.git</strong> repository, and import the <strong>xcdl-python</strong> project.</p>
+
+<h3 id="remote-repositories">Remote repositories</h3>
+
+<p>If you did not perform the unit tests, then you need to clone the repositories to a local folder. You can do this either using the command line git command and then just perform the above steps, or using Eclipse specific commands, as explained below.</p>
+
+<p>In the <strong>File</strong> menu → <strong>Import</strong></p>
+
+<ul>
+  <li>expand <strong>Git</strong>
+</li>
+  <li>select <strong>Projects from Git</strong>
+</li>
+  <li>press the <strong>Next</strong> button</li>
+  <li>select <strong>URI</strong>
+</li>
+  <li>press the <strong>Next</strong> button</li>
+  <li>fill in the <strong>URI</strong> field with <code class="language-plaintext highlighter-rouge">https://github.com/micro-os-plus/micro-os-plus-ii</code>
+</li>
+  <li>press the <strong>Next</strong> button</li>
+  <li>select the <strong>master</strong> branch</li>
+  <li>press the <strong>Next</strong> button</li>
+  <li>fill in the <strong>Destination Directory</strong> field with the absolute folder path, like <code class="language-plaintext highlighter-rouge">/Users/XXX/work/uOS/micro-os-plus-se.git</code>
+</li>
+  <li>select the <strong>micro-os-plus-se.git</strong> project</li>
+  <li>click the <strong>Finish</strong> button</li>
+</ul>
+
+<p>Similarly, repeat the steps for the second repository URI <code class="language-plaintext highlighter-rouge">https://github.com/xcdl/xcdl-py</code>, clone it to an absolute folder path like <code class="language-plaintext highlighter-rouge">/Users/XXX/work/uOS/xcdl-python.git</code> and import the <strong>xcdl-python</strong> project.</p>
+
+<h2 id="configure-paths-and-locations">Configure paths and locations</h2>
+
+<p>To simplify entering of various program or folder locations in Eclipse, it is recommended to define them once, as variables, and refer them as many times as needed.</p>
+
+<p>Eclipse is a bit confusing when dealing with variables, since it allows several types of them, called with different names, but, with some attention, it allows the job done.</p>
+
+<p>In the <strong>Eclipse</strong> menu → <strong>Preferences…</strong> → <strong>C/C++</strong> → <strong>Build</strong> → <strong>Build Variables</strong></p>
+
+<ul>
+  <li>press the <strong>Add…</strong> button
+    <ul>
+      <li>fill in <strong>Variable name</strong> with <code class="language-plaintext highlighter-rouge">MICRO_OS_PLUS_SE_LOC</code>
+</li>
+      <li>select <strong>Type</strong> as <strong>Directory</strong>
+</li>
+      <li>in the <strong>Value</strong> field browse the filesystem to the <strong>micro-os-plus-se.git</strong> folder</li>
+      <li>press the <strong>OK</strong> button</li>
+    </ul>
+  </li>
+  <li>press the <strong>Add…</strong> button
+    <ul>
+      <li>fill in <strong>Variable name</strong> with <code class="language-plaintext highlighter-rouge">XCDLBUILD</code>
+</li>
+      <li>select <strong>Type</strong> as <strong>File</strong>
+</li>
+      <li>in the <strong>Value</strong> field browse the filesystem and from the <strong>xcdl-python.git</strong> folder select <code class="language-plaintext highlighter-rouge">scripts/xcdlBuild.sh</code>
+</li>
+      <li>press the <strong>OK</strong> button</li>
+    </ul>
+  </li>
+  <li>press the <strong>Add…</strong> button
+    <ul>
+      <li>fill in <strong>Variable name</strong> with <code class="language-plaintext highlighter-rouge">GCC_ARM_EP_LOC</code>
+</li>
+      <li>select <strong>Type</strong> as <strong>Directory</strong>
+</li>
+      <li>in the <strong>Value</strong> field browse the filesystem and select the bin folder where the ARM toolchain is installed</li>
+      <li>press the <strong>OK</strong> button</li>
+    </ul>
+  </li>
+  <li>press the <strong>OK</strong> button</li>
+</ul>
+
+<div style="text-align:center">
+<img alt="Build Variables" src="/web-preview/assets/images/old/Build_Variables.png">
+</div>
+
+<p>In addition to the C/C++ Build Variables, we also need the µOS++ SE location for a linked folder, so an additional definition General Workspace group is required.</p>
+
+<p>In the <strong>Eclipse</strong> menu → <strong>Preferences…</strong> → <strong>General</strong> → <strong>Workspace</strong> → <strong>Linked Resources</strong></p>
+
+<ul>
+  <li>press the <strong>New…</strong> button
+    <ul>
+      <li>fill in the <strong>Name</strong> field with <code class="language-plaintext highlighter-rouge">MICRO_OS_PLUS_SE_LOC</code>
+</li>
+      <li>in the <strong>Location</strong> field browse the filesystem to the absolute <strong>micro-os-plus-se.git</strong> folder</li>
+      <li>press the <strong>OK</strong> button</li>
+    </ul>
+  </li>
+  <li>press the <strong>OK</strong> button</li>
+</ul>
+
+<div style="text-align:center">
+<img alt="Linked Resources" src="/web-preview/assets/images/old/Linked_Resources.png">
+</div>
+
+<p>Note: The yellow exclamation mark is there because the sample path is not valid.</p>
+
+<h2 id="create-a-new-µos-project">Create a new µOS++ project</h2>
+
+<p>Once the µOS++ SE folder is available, it can be linked to as many projects as necessary, without having to keep multiple copies of it, significantly simplifying space management.</p>
+
+<p>The Eclipse projects used for µOS++ applications should be created as Makefile projects, without a toolchain (this detail is very important!).</p>
+
+<p>In order for the indexer to function properly, some additional details need to be manually defined:</p>
+
+<ul>
+  <li>the path to the toolchain</li>
+  <li>the compiler command (it is used to generate the list of system Includes and preprocessor defines)</li>
+  <li>two more include paths, one to the central µOS++ folder and one to the build folder</li>
+</ul>
+
+<p>µOS++ has a large number of build configurations defined in the XCDL metadata, to support not only multiple applications, but also building the same application for multiple platforms (different boards, different synthetic platforms), with different compilers, in different bit sizes (32/64-bit), for Debug/Release. There are no metadata limitations on how these build configurations should be grouped, so it is completely up to you, you can group them by applications, by platform, or by any other criterion.</p>
+
+<p>For example, to create a project to group all QEMU build configurations, follow the steps:</p>
+
+<p>In the <strong>File</strong> menu: <strong>New</strong> → <strong>C++ Project</strong></p>
+
+<ul>
+  <li>fill the <strong>Project name</strong> field with a valid name, for example QEMU</li>
+  <li>in the <strong>Project type</strong> list, expand the <strong>Makefile Project</strong> entry and select <strong>Empty Project</strong>
+</li>
+  <li>in the <strong>Toolchains</strong> list, select <strong>– Other Toolchain –</strong> (note: this detail is very important)</li>
+  <li>press the <strong>Finish</strong> button</li>
+</ul>
+
+<div style="text-align:center">
+<img alt="New Project" src="/web-preview/assets/images/old/New_Project.png">
+</div>
+
+<p>The new project is now visible in the Project Explorer, but is completely empty, and, to be functional, it needs to be configured.</p>
+
+<h3 id="configure-toolchain-path">Configure toolchain path</h3>
+
+<ul>
+  <li>select the project</li>
+  <li>in the <strong>Project</strong> menu: <strong>Properties</strong> → <strong>C/C++ Build</strong> → <strong>Environment</strong>
+</li>
+  <li>the configuration selection should read Default (the only one in the beginning)</li>
+  <li>press the <strong>Add…</strong> button
+    <ul>
+      <li>fill in the <strong>Name</strong> field with <code class="language-plaintext highlighter-rouge">PATH</code>
+</li>
+      <li>fill in the <strong>Value</strong> field with <code class="language-plaintext highlighter-rouge">${GCC_ARM_EP_LOC}</code>
+</li>
+      <li>press the <strong>OK</strong> button</li>
+    </ul>
+  </li>
+  <li>a new environment definition should be added, with the variable at the end</li>
+  <li>press the <strong>OK</strong> button</li>
+</ul>
+
+<div style="text-align:center">
+<img alt="Toolchain Path" src="/web-preview/assets/images/old/Toochain_Path.png">
+</div>
+
+<h3 id="configure-preprocessor-discovery-command">Configure preprocessor discovery command</h3>
+
+<ul>
+  <li>select the project</li>
+  <li>in the <strong>Project</strong> menu: <strong>Properties</strong> → <strong>C/C++ General</strong> → <strong>Preprocessor Include Paths</strong>
+</li>
+  <li>the configuration selection should read Default (the only one in the beginning)</li>
+  <li>select the <strong>Providers</strong> tab</li>
+  <li>enable the first 4 entries:
+    <ul>
+      <li><strong>CDT User Setting Entries</strong></li>
+      <li><strong>CDT Managed Build Setting Entries</strong></li>
+      <li><strong>CDT GCC Build Output Parser</strong></li>
+      <li><strong>CDT GCC Built-in Compiler Settings</strong></li>
+    </ul>
+  </li>
+  <li>select <strong>CDT GCC Built-in Compiler Settings</strong>
+</li>
+  <li>disable <strong>Use global provider shared between projects</strong>
+</li>
+  <li>edit the command line and replace the <code class="language-plaintext highlighter-rouge">${COMMAND}</code> with the actual g++ command name, for example <code class="language-plaintext highlighter-rouge">arm-none-eabi-g++</code>
+</li>
+  <li>press the <strong>OK</strong> button</li>
+</ul>
+
+<div style="text-align:center">
+<img alt="Discovery Providers" src="/web-preview/assets/images/old/Discovery_Providers.png">
+</div>
+
+<p>Once the toolchain path and the discovery command are properly configured, the <strong>Includes</strong> list in the <strong>Project Explorer</strong> should be populated with the a list specific to the toolchain.</p>
+
+<div style="text-align:center">
+<img alt="QEMU Includes" src="/web-preview/assets/images/old/QEMU_Includes.png">
+</div>
+
+<h3 id="add-the-µos-specific-include-folders">Add the µOS++ specific include folders</h3>
+
+<ul>
+  <li>select the project</li>
+  <li>in the <strong>Project</strong> menu: <strong>Properties</strong> → <strong>C/C++ General</strong> → <strong>Paths and Symbols</strong>
+</li>
+  <li>select the <strong>Includes</strong> tab</li>
+  <li>press the <strong>Add…</strong> button
+    <ul>
+      <li>fill in the <strong>Directory</strong> field with <code class="language-plaintext highlighter-rouge">${ProjDirPath}/build/${config_name:${ProjName}}/include</code>
+</li>
+      <li>enable <strong>Add to all languages</strong>
+</li>
+      <li>press the <strong>OK</strong> button</li>
+    </ul>
+  </li>
+  <li>press the <strong>Add…</strong> button
+    <ul>
+      <li>fill in the <strong>Directory</strong> field with <code class="language-plaintext highlighter-rouge">${MICRO_OS_PLUS_SE_LOC}/packages</code>
+</li>
+      <li>enable <strong>Add to all languages</strong>
+</li>
+      <li>press the <strong>OK</strong> button</li>
+    </ul>
+  </li>
+  <li>press the OK button</li>
+</ul>
+
+<h3 id="add-a-linked-folder-to-the-µos-sources">Add a linked folder to the µOS++ sources</h3>
+
+<ul>
+  <li>select the project</li>
+  <li>in the <strong>File</strong> menu: <strong>New</strong> → <strong>Folder</strong>
+</li>
+  <li>fill in the <strong>Folder name</strong> with <strong>micro-os-plus-se</strong>
+</li>
+  <li>press the <strong>Advanced &gt;&gt;</strong> button</li>
+  <li>select the <strong>Link to alternate location</strong> option</li>
+  <li>fill in the location field with <code class="language-plaintext highlighter-rouge">MICRO_OS_PLUS_SE_LOC/packages</code> (alternatively this can be done by pushing the <strong>Variables…</strong> button, selecting the <code class="language-plaintext highlighter-rouge">MICRO_OS_PLUS_SE_LOC</code> variable, pushing the <strong>Extend…</strong> button and selecting the <strong>packages</strong> folder)</li>
+  <li>press the <strong>Finish</strong> button</li>
+</ul>
+
+<p>To check if the definition is valid, expand the <strong>micro-os-plus-se</strong> folder and check if the µOS++ SE sources are available.</p>
+
+<div style="text-align:center">
+<img alt="Linked Folder" src="/web-preview/assets/images/old/Linked_Folder.png">
+</div>
+
+<h3 id="configure-the-custom-build-command">Configure the custom build command</h3>
+
+<ul>
+  <li>select the project</li>
+  <li>in the <strong>Project</strong> menu: <strong>Properties</strong> → <strong>C/C++ Build</strong>
+</li>
+  <li>select the <strong>Builder Settings</strong> tab</li>
+  <li>disable <strong>Use default build command</strong>
+</li>
+  <li>fill in the <strong>Build command</strong> field with <code class="language-plaintext highlighter-rouge">/bin/bash "\${XCDLBUILD}" --repository='\${MICRO_OS_PLUS_SE_LOC}/packages' --build_config=\${config_name:\${ProjName}}</code>
+</li>
+  <li>press the <strong>OK</strong> button</li>
+</ul>
+
+<h3 id="create-actual-build-configurations">Create actual build configurations</h3>
+
+<p>All above settings were performed on the Default build configuration. This configuration in itself is not functional, since there is no µOS++ configuration called Default, but is useful, since it can be used as template to create actual build configurations.</p>
+
+<p>This can be done using the Manage Configurations dialog.</p>
+
+<ul>
+  <li>select the project</li>
+  <li>in the <strong>Project</strong> menu: <strong>Build Configurations</strong> → <strong>Manage</strong> (alternatively you can right click on the project and select the command)</li>
+  <li>in the new window, press the <strong>New…</strong> button
+    <ul>
+      <li>fill in the <strong>Name</strong> field with an existing µOS++ configuration name, for example <code class="language-plaintext highlighter-rouge">qemu_osx_aep_gcc_minimal_Debug</code>
+</li>
+      <li>select the <strong>Existing configuration</strong> option, the <strong>Default</strong> entry</li>
+      <li>press the <strong>OK</strong> button</li>
+    </ul>
+  </li>
+  <li>press the <strong>OK</strong> button</li>
+</ul>
+
+<p>Eventually repeat this step, and add a new build configuration named <code class="language-plaintext highlighter-rouge">qemu_osx_aep_gcc_minimal_Release</code>.</p>
+
+<h3 id="build-the-new-configurations">Build the new configurations</h3>
+
+<p>To build only one configuration, click on the down pointing triangle on the right of the hammer icon and select one of the existing configuration. This selects the active configuration and also starts the build process.</p>
+
+<div style="text-align:center">
+<img alt="Build Configurations" src="/web-preview/assets/images/old/Build_configurations.png">
+</div>
+
+<p>Avoid to build all defined configurations (using the Project menu: Build All) since this will also try to build the python projects, and it takes some time.</p>
+
+<p>The result of each build is a folder below the <strong>build</strong> folder, with the same name as the build configuration.</p>
+
+<div style="text-align:center">
+<img alt="Minimal Build" src="/web-preview/assets/images/old/Minimal_build.png">
+</div>
+
+<h3 id="check-indexer">Check indexer</h3>
+
+<p>The indexer is configured to automatically reindex the active build configuration.</p>
+
+<p>To check if this functions properly, switch between Release/Debug and verify if the two lines turn grey on Release and remain white on Debug.</p>
+
+<p>If, for any reason, during development, you think the index was not updated, you can force it to run using the <strong>Project</strong> menu → <strong>C/C++ Index</strong> → <strong>Rebuild</strong>.</p>
+
+<h2 id="configure-the-run-console">Configure the run console</h2>
+
+<p>With such a complex project, the build output is sometimes quite large, and it is recommended to remove any limitations imposed on the console output, in order to avoid missing its beginning.</p>
+
+<p>The <strong>Eclipse</strong> menu: <strong>Preferences…</strong> → <strong>Run/Debug</strong> → <strong>Console</strong></p>
+
+<ul>
+  <li>disable <strong>Limit console output</strong>
+</li>
+</ul>
+
+<div style="text-align:center">
+<img alt="Run Console" src="/web-preview/assets/images/old/Run_Console.png">
+</div>
+
+<h2 id="configure-the-project-clean-options">Configure the project Clean options</h2>
+
+<p>As a detail that sometimes is annoying, it is recommended to configure Clean to clean only the selected project, and to not start build automatically.</p>
+
+<p>This is achieved via the <strong>Project</strong> menu → <strong>Clean…</strong></p>
+
+<ul>
+  <li>select <strong>Clean projects selected below</strong>
+</li>
+  <li>select the <strong>QEMU</strong> project</li>
+  <li>disable <strong>Start a build immediately</strong>
+</li>
+  <li>press the <strong>OK</strong> button</li>
+</ul>
+
+<div style="text-align:center">
+<img alt="Clean" src="/web-preview/assets/images/old/Clean.png">
+</div>
+
+
+
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/micro-os-plus/ii/Eclipse_(install_and_config)/" data-layout="button"></div></li>
+</ul>
+
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="site-footer">
+  <div class="site-footer-links left">
+    <ul>
+  <li>© 2019 Liviu Ionescu</li>
+  <li>Hosted on GitHub</li>
+  <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
+  <li>
+<a href="http://twitter.com/micro_os_plus" class="twitter-follow-button" data-show-count="false">Follow @micro_os_plus</a><script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</li>
+</ul>
+
+
+  </div>
+  <a href="https://github.com/micro-os-plus/micro-os-plus-iii" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+  </a>
+  <div class="site-footer-links right">
+    <ul>
+  <li><a href="/web-preview/">Home</a></li>
+  <li><a href="/web-preview/blog/">News</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/releases">Releases</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues">Support</a></li>
+  <li><a href="/web-preview/about/">About</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</div>
+
+</body>
+</html>

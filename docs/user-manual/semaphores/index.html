@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Semaphores</title>
+  <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
+
+  <meta property="og:title" content="Semaphores">
+  <meta property="og:site_name" content="µOS++ IIIe">
+
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+
+
+  <meta property="article:published_time" content="2016-07-12">
+
+
+
+
+
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
+
+  <link rel="canonical" href="/web-preview/user-manual/semaphores/">
+
+
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16767008-14', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+  <div class="site-header">
+  <table style="width:100%">
+    <tr>
+      <td>
+        <a href="/web-preview/">
+          <img alt="Icon" class="site-icon" src="/web-preview/assets/icons/wall-e-icon.png" height="100" width="100">
+      </a>
+      </td>
+      <td>
+        <table class="site-title" style="width:100%">
+          <tr>
+            <td class="site-title">
+              <a href="/web-preview/">µOS++ IIIe</a>
+            </td>
+            <td class="site-motto" align="right">
+              “Perfekt ist nicht gut genug”
+            </td>
+          </tr>
+          <tr>
+            <td class="site-description" colspan="2">
+              The third edition of µOS++, a POSIX inspired open source framework, written in C++.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+</div>
+
+<div class="container">
+
+  <div class="wrapper">
+    <div class="site-body">
+
+      <div class="site-sidebar">
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      <h4 id="news"><a href="/web-preview/blog/">News</a></h4>
+
+<ul>
+  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></li>
+  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ IIIe v6.3.14 released</a></li>
+  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ IIIe v6.3.13 released</a></li>
+  <li><a href="/web-preview/blog/2017/01/02/micro-os-plus-v6-3-11-released/">µOS++ IIIe v6.3.11 released</a></li>
+</ul>
+
+
+    </div>
+  </div>
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      
+      <h4 id="home"><a href="/web-preview/">Home</a></h4>
+
+<h4 id="µos-iiie">µOS++ IIIe</h4>
+
+<ul>
+  <li><a href="/web-preview/micro-os-plus/">Overview</a></li>
+</ul>
+
+<h4 id="apis">APIs</h4>
+
+<ul>
+  <li><a href="/web-preview/cmsis-plus/">Overview</a></li>
+  <li><a href="/web-preview/cmsis-plus/rtos/">RTOS API</a></li>
+</ul>
+
+<h4 id="xpacksxcdl">xPacks/XCDL</h4>
+
+<ul>
+  <li><a href="/web-preview/xpacks/">Overview</a></li>
+</ul>
+
+<h4 id="documentation">Documentation</h4>
+
+<ul>
+  <li>
+<a href="/web-preview/user-manual/">User’s <strong>manual</strong></a>
+    <ul>
+      <li><a href="/web-preview/user-manual/getting-started/">Getting started</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/">Basic concepts</a></li>
+      <li><a href="/web-preview/user-manual/features/">Features</a></li>
+      <li><a href="/web-preview/user-manual/threads/">Threads</a></li>
+      <li><a href="/web-preview/user-manual/thread-event-flags/">Thread event flags</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/">Semaphores</a></li>
+      <li><a href="/web-preview/user-manual/event-flags/">Event flags</a></li>
+      <li>Mutexes</li>
+      <li>Condition variables</li>
+      <li>Message queues</li>
+      <li>Memory pools</li>
+      <li>Software timers</li>
+      <li>Clocks</li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/reference/cmsis-plus/">µOS++ <strong>reference</strong></a></li>
+</ul>
+
+<h4 id="developer">Developer</h4>
+
+<ul>
+  <li><a href="/web-preview/develop/">Overview</a></li>
+  <li><a href="/web-preview/reference/cmsis-plus/md_doxygen_pages_change-log.html">Change log</a></li>
+  <li><a href="/web-preview/develop/coding-style/">C++ coding style</a></li>
+  <li><a href="/web-preview/develop/naming-conventions/">Naming conventions</a></li>
+  <li><a href="/web-preview/develop/references/">Links &amp; references</a></li>
+</ul>
+
+<h4 id="support">Support</h4>
+
+<ul>
+  <li><a href="/web-preview/support/">Overview</a></li>
+  <li><a href="/web-preview/support/known-issues/">Known issues</a></li>
+  <li><a href="/web-preview/support/faq/">FAQ</a></li>
+  <li><a href="/web-preview/support/forum/">Forum</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ IIIe issues</a></li>
+</ul>
+
+<h4 id="latest-articles">Latest Articles</h4>
+
+<ul>
+  <li><a href="/web-preview/articles/arm-com-2016-06-24/">CMSIS++ RTOS: fully functional reference implementation</a></li>
+  <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
+</ul>
+
+<h4 id="license">License</h4>
+
+<ul>
+  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+</ul>
+
+<h4 id="about"><a href="/web-preview/about/">About</a></h4>
+
+    </div>
+  </div>
+
+  <div class="site-theme">
+    This site uses the <a href="https://github.com/ilg-ul/github-jekyll-theme">GitHub Wiki-like</a> theme by <a href="https://github.com/ilg-ul">Liviu Ionescu</a>.
+  </div>
+
+</div>
+
+
+      <div class="site-content">
+
+        
+<h1 class="page-title">Semaphores</h1>
+<table id="last-modified">
+  <tr>
+    <td id="last-modified">Last modified on Wed Dec 23 10:37:26 2020 UTC.</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/user-manual/semaphores.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+  </tr>
+</table>
+
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toc_level-1 toc_section-1">
+<a href="#overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a>
+</li>
+<li class="toc_level-1 toc_section-2">
+<a href="#semaphore-types"><span class="tocnumber">2</span> <span class="toctext">Semaphore types</span></a>
+<ul>
+<li class="toc_level-2 toc_section-3">
+<a href="#binary-semaphores"><span class="tocnumber">2.1</span> <span class="toctext">Binary semaphores</span></a>
+</li>
+<li class="toc_level-2 toc_section-4">
+<a href="#counting-semaphores"><span class="tocnumber">2.2</span> <span class="toctext">Counting semaphores</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-5">
+<a href="#creating-semaphores"><span class="tocnumber">3</span> <span class="toctext">Creating semaphores</span></a>
+</li>
+<li class="toc_level-1 toc_section-6">
+<a href="#posting-to-semaphores"><span class="tocnumber">4</span> <span class="toctext">Posting to semaphores</span></a>
+<ul>
+<li class="toc_level-2 toc_section-7">
+<a href="#posting-to-semaphores-from-isrs"><span class="tocnumber">4.1</span> <span class="toctext">Posting to semaphores from ISRs</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-8">
+<a href="#waiting-on-semaphores"><span class="tocnumber">5</span> <span class="toctext">Waiting on semaphores</span></a>
+</li>
+<li class="toc_level-1 toc_section-9">
+<a href="#multiple-threads-waiting-on-a-semaphore"><span class="tocnumber">6</span> <span class="toctext">Multiple threads waiting on a semaphore</span></a>
+</li>
+<li class="toc_level-1 toc_section-10">
+<a href="#other-semaphore-functions"><span class="tocnumber">7</span> <span class="toctext">Other semaphore functions</span></a>
+<ul>
+<li class="toc_level-2 toc_section-11">
+<a href="#getting-the-semaphore-name"><span class="tocnumber">7.1</span> <span class="toctext">Getting the semaphore name</span></a>
+</li>
+<li class="toc_level-2 toc_section-12">
+<a href="#getting-the-semaphore-value"><span class="tocnumber">7.2</span> <span class="toctext">Getting the semaphore value</span></a>
+</li>
+<li class="toc_level-2 toc_section-13">
+<a href="#getting-the-semaphore-maximum-value"><span class="tocnumber">7.3</span> <span class="toctext">Getting the semaphore maximum value</span></a>
+</li>
+<li class="toc_level-2 toc_section-14">
+<a href="#getting-the-semaphore-initial-value"><span class="tocnumber">7.4</span> <span class="toctext">Getting the semaphore initial value</span></a>
+</li>
+<li class="toc_level-2 toc_section-15">
+<a href="#reseting-the-semaphore"><span class="tocnumber">7.5</span> <span class="toctext">Reseting the semaphore</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-16">
+<a href="#destroying-semaphores"><span class="tocnumber">8</span> <span class="toctext">Destroying semaphores</span></a>
+</li>
+<li class="toc_level-1 toc_section-17">
+<a href="#using-semaphores-for-resource-management"><span class="tocnumber">9</span> <span class="toctext">Using semaphores for resource management</span></a>
+</li>
+<li class="toc_level-1 toc_section-18">
+<a href="#unilateral-rendezvous"><span class="tocnumber">10</span> <span class="toctext">Unilateral rendezvous</span></a>
+</li>
+<li class="toc_level-1 toc_section-19">
+<a href="#semaphore-pitfalls"><span class="tocnumber">11</span> <span class="toctext">Semaphore pitfalls</span></a>
+<ul>
+<li class="toc_level-2 toc_section-20">
+<a href="#unbalanced-waitpost"><span class="tocnumber">11.1</span> <span class="toctext">Unbalanced wait()/post()</span></a>
+</li>
+<li class="toc_level-2 toc_section-21">
+<a href="#recursive-deadlock"><span class="tocnumber">11.2</span> <span class="toctext">Recursive deadlock</span></a>
+</li>
+<li class="toc_level-2 toc_section-22">
+<a href="#thread-termination-deadlock"><span class="tocnumber">11.3</span> <span class="toctext">Thread-termination deadlock</span></a>
+</li>
+<li class="toc_level-2 toc_section-23">
+<a href="#priority-inversion"><span class="tocnumber">11.4</span> <span class="toctext">Priority inversion</span></a>
+</li>
+<li class="toc_level-2 toc_section-24">
+<a href="#wrong-initialisation"><span class="tocnumber">11.5</span> <span class="toctext">Wrong initialisation</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="overview">Overview</h2>
+
+<p>Semaphores are one of the oldest mechanisms introduced by multitasking systems, being used both for managing common resources and synchronisation.</p>
+
+<p>Managing common resources, in its simple form, prevents several threads to concurrently use a shared resource by blocking access of all other threads until the thread that acquired the resource releases it.</p>
+
+<p>Synchronisation is generally required to efficiently implement blocking I/O; when a thread requires some data that is not yet available (for example by performing a <code class="language-plaintext highlighter-rouge">read()</code>), it is not efficient to poll until the data becomes available, but it is much better to suspend the thread and arrange for the data producer (usually an ISR) to resume the thread when the data is available.</p>
+
+<p>In µOS++ there are two basic synchronisations mechanisms: <strong>semaphores</strong> and <strong>event flags</strong>.</p>
+
+<p>A <a href="https://en.wikipedia.org/wiki/Semaphore_(programming)">semaphore</a> is a synchronisation mechanism offered by most multitasking systems. In its simplest form, a semaphore is similar to the real-world traffic light, which blocks access to a segment of road in certain conditions.</p>
+
+<p>The semaphore concept was introduced in 1965 by the Dutch computer scientist <a href="https://en.wikipedia.org/wiki/Edsger_Dijkstra">Edsger Dijkstra</a> and historically it is said to be inspired by the railway semaphore (the binary semaphore, which controls access to a single resource by bracing the critical section with the <code class="language-plaintext highlighter-rouge">P(S)</code> and <code class="language-plaintext highlighter-rouge">V(S)</code> primitives).</p>
+
+<div style="float:right; margin-left: 10px;">
+<img alt="Rail Semphore" src="/web-preview/assets/images/2016/160px-Rail-semaphore-signal-Dave-F.jpg">
+</div>
+
+<p>The concept was later extended by another Dutchman, Carel S. Scholten, to control access to an arbitrary number of resources. In his proposal the semaphore can have an initial value (or count) greater than one (thus the counting semaphore).</p>
+
+<p>Semaphores were originally used to control access to shared resources. However, depending on the application, better mechanisms exist now to manage shared resources, like locks, mutexes, etc. Semaphores are best used to synchronize a thread with an ISR or with another thread (unilateral rendezvous).</p>
+
+<h2 id="semaphore-types">Semaphore types</h2>
+
+<p>There are two types of semaphores: <strong>binary</strong> and <strong>counting</strong>.</p>
+
+<p>Note: In µOS++, even if binary and counting semaphores are defined by different classes, the objects created are actually the same, but constructed with different parameters; binary semaphores are in fact counting semaphores with the maximum value set to 1.</p>
+
+<h3 id="binary-semaphores">Binary semaphores</h3>
+
+<p>Since we mentioned the analogy with the railway system, let’s imagine we have a small train station, with a single platform. The first arriving train enters the station without any restrictions, and stops at the platform. To prevent a second train from entering the station and bumping onto the first, a semaphore is installed at a certain distance before the station. The railway semaphore has a red hand which can be either lowered or raised. Modern semaphores are electric, and also have lights (red and green). After the first train enters the station, the hand is lowered and the light turns red. If a second train arrives, it reads this as “stop” and waits. When the first train leaves the station, the semaphore arm swings up, the light turns green, and the second train can enter the station.</p>
+
+<p>Like a railway semaphore which has two states, a binary semaphore has only two values, 0 or 1. If the value is 0, the resource associated with the semaphore is not available, and whoever needs it, must wait, like the train that stops at a red semaphore. When the resource becomes available, the semaphore is “posted”, allowing the next thread waiting for the semaphore to resume.</p>
+
+<p>Depending on the semaphore usage, it can start either with 0 (when used for synchronisation) or 1 (when used to protect a single shared resource).</p>
+
+<p>What a binary semaphore has in addition to a railway semaphore, is a signaling method (think of this mechanism as a loud horn used to wakeup the sleeping train driver, waiting for the semaphore).</p>
+
+<h3 id="counting-semaphores">Counting semaphores</h3>
+
+<p>To continue the analogy with the railway system, what if we have a larger train station, with multiple platforms, where many trains can be present at the same time? Well, the solution is similar, but the semaphore logic should keep track of the number of trains in the station, and turn red when all tracks are busy. When one train leaves the station, the semaphore can be turned green, and, if there is a train waiting, it’ll be allowed to enter the station.</p>
+
+<p>A counting semaphore has a counter with a limit, representing the maximum number of available resources.</p>
+
+<p>Depending on the semaphore usage, it usually starts either at 0 (when used for synchronisation) or at the limit (when used to protect a multiple shared resources).</p>
+
+<p>Assuming it starts at zero, with no resources available, the semaphore is “posted” each time a new resource becomes available, which increments the counter. When the maximum is reached, further “posts” will fail and the counter will remain unchanged.</p>
+
+<p>On the other side, when resources need to be consumed, as long as the counter is positive, the requesting thread will be allowed access to the resource, and, at each request, the counter will be decremented.</p>
+
+<p>When the counter reaches 0, no more resources are available, and the requesting thread is suspended, until the semaphore will be posted.</p>
+
+<p>A counting semaphore is used when elements of a resource can be used by more than one thread at the same time. For example, a counting semaphore can be used in the management of a buffer pool.</p>
+
+<div style="text-align:center">
+<img alt="Semaphore" src="/web-preview/assets/images/2016/semaphore.png">
+<p>Semaphore services</p>
+</div>
+
+<h2 id="creating-semaphores">Creating semaphores</h2>
+
+<p>For convenience reasons, µOS++ has several functions for creating semaphores. Semaphores can be created as local objects on the function stack, or as global objects, semaphores can be binary, or counting, semaphores can be created with default characteristics or with custom attributes, and so on.</p>
+
+<p>When used to synchronise threads with ISRs, the easiest way to access semaphores is when they are created as global objects.</p>
+
+<p>The initial value for the semaphore is typically zero (0), indicating that the event has not yet occurred, or there are no resources. It is possible to initialize the semaphore with a value other than zero, indicating that the semaphore initially contains that number of resources.</p>
+
+<p>In C++, the global semaphores are created and initialised by the global static constructors mechanism.</p>
+
+<div class="language-cpp highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="c1">/// @file app-main.cpp</span>
+<span class="cp">#include &lt;cmsis-plus/rtos/os.h&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">os</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">os</span><span class="o">::</span><span class="n">rtos</span><span class="p">;</span>
+
+<span class="c1">// Create a global binary semaphore object instance,</span>
+<span class="c1">// with the initial count as 0.</span>
+<span class="n">semaphore_binary</span> <span class="n">sb1</span> <span class="p">{</span> <span class="s">"sb1"</span><span class="p">,</span> <span class="mi">0</span> <span class="p">};</span>
+
+<span class="c1">// Create a global binary semaphore object instance,</span>
+<span class="c1">// Create a global binary semaphore,</span>
+<span class="c1">// with the initial count as 1.</span>
+<span class="n">semaphore_binary</span> <span class="n">sb2</span> <span class="p">{</span> <span class="s">"sb2"</span><span class="p">,</span> <span class="mi">1</span> <span class="p">};</span>
+
+<span class="c1">// Create a global binary semaphore object instance,</span>
+<span class="c1">// with max 7 items and the initial count as 0.</span>
+<span class="n">semaphore_counting</span> <span class="n">sc1</span> <span class="p">{</span> <span class="s">"sc1"</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">0</span> <span class="p">};</span>
+
+<span class="c1">// Create a global binary semaphore object instance,</span>
+<span class="c1">// with max 7 items and the initial count as 7.</span>
+<span class="n">semaphore_counting</span> <span class="n">sc2</span> <span class="p">{</span> <span class="s">"sc2"</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">7</span> <span class="p">};</span>
+
+<span class="kt">int</span>
+<span class="nf">os_main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+  <span class="c1">// ...</span>
+
+  <span class="c1">// Not much to do, the semaphores were created by the static</span>
+  <span class="c1">// constructors, before entering main().</span>
+
+  <span class="c1">// ...</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// All global semaphores are automatically destroyed if os_main() returns.</span>
+
+</code></pre>
+</div>
+</div>
+
+<p>A similar example, but written in C:</p>
+
+<div class="language-c highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="c1">/// @file app-main.c</span>
+<span class="cp">#include &lt;cmsis-plus/rtos/os-c-api.h&gt;
+</span>
+<span class="c1">// Global static storage for the semaphore objects instances.</span>
+<span class="n">os_semaphore_t</span> <span class="n">sb1</span><span class="p">;</span>
+<span class="n">os_semaphore_t</span> <span class="n">sb2</span><span class="p">;</span>
+<span class="n">os_semaphore_t</span> <span class="n">sc1</span><span class="p">;</span>
+<span class="n">os_semaphore_t</span> <span class="n">sc2</span><span class="p">;</span>
+
+<span class="kt">int</span>
+<span class="nf">os_main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+  <span class="c1">// ...</span>
+
+  <span class="c1">// Create a global binary semaphore object instance,</span>
+  <span class="c1">// with the initial count as 0.</span>
+  <span class="n">os_semaphore_binary_construct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sb1</span><span class="p">,</span> <span class="s">"sb1"</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+  <span class="c1">// Create a global binary semaphore object instance,</span>
+  <span class="c1">// with the initial count as 1.</span>
+  <span class="n">os_semaphore_binary_construct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sb2</span><span class="p">,</span> <span class="s">"sb2"</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+  <span class="c1">// Create a global binary semaphore object instance,</span>
+  <span class="c1">// with max 7 items and the initial count as 0.</span>
+  <span class="n">os_semaphore_counting_construct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sc1</span><span class="p">,</span> <span class="s">"sc1"</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+  <span class="c1">// Create a global binary semaphore object instance,</span>
+  <span class="c1">// with max 7 items and the initial count as 7.</span>
+  <span class="n">os_semaphore_counting_construct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sc2</span><span class="p">,</span> <span class="s">"sc2"</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">);</span>
+
+  <span class="c1">// ...</span>
+
+  <span class="c1">// For completeness, destroy the semaphores.</span>
+  <span class="n">os_semaphore_destruct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sb1</span><span class="p">);</span>
+  <span class="n">os_semaphore_destruct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sb2</span><span class="p">);</span>
+  <span class="n">os_semaphore_destruct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sc1</span><span class="p">);</span>
+  <span class="n">os_semaphore_destruct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sc2</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+</div>
+
+<p>In C++, if it is necessary to control the moment when global objects instances are created, it is possible to separately allocate the storage as global variables, then use the placement <code class="language-plaintext highlighter-rouge">new</code> operator to initialise them.</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="c1">/// @file app-main.cpp</span>
+<span class="cp">#include &lt;cmsis-plus/rtos/os.h&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">os</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">os</span><span class="o">::</span><span class="n">rtos</span><span class="p">;</span>
+
+<span class="c1">// Global static storage for the semaphore object instance.</span>
+<span class="c1">// This storage is set to 0 as any uninitialised variable.</span>
+<span class="n">std</span><span class="o">::</span><span class="n">aligned_storage</span><span class="o">&lt;</span><span class="k">sizeof</span><span class="p">(</span><span class="n">semaphore_binary</span><span class="p">),</span> <span class="k">alignof</span><span class="p">(</span><span class="n">semaphore_binary</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">type</span> <span class="n">sb1</span><span class="p">;</span>
+
+<span class="kt">int</span>
+<span class="nf">os_main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+  <span class="c1">// ...</span>
+
+  <span class="c1">// Use placement new, to explicitly call the constructor</span>
+  <span class="c1">// and initialise the semaphore.</span>
+  <span class="c1">// Create a global binary semaphore object instance,</span>
+  <span class="c1">// with the initial count as 1.</span>
+  <span class="k">new</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">sb1</span><span class="p">)</span> <span class="n">semaphore_binary</span> <span class="p">{</span> <span class="s">"sb1"</span><span class="p">,</span> <span class="mi">1</span> <span class="p">};</span>
+
+  <span class="c1">// Local static storage for the semaphore object instance.</span>
+  <span class="k">static</span> <span class="n">std</span><span class="o">::</span><span class="n">aligned_storage</span><span class="o">&lt;</span><span class="k">sizeof</span><span class="p">(</span><span class="n">semaphore_counting</span><span class="p">),</span> <span class="k">alignof</span><span class="p">(</span><span class="n">semaphore_counting</span><span class="p">)</span><span class="o">&gt;::</span><span class="n">type</span> <span class="n">sc1</span><span class="p">;</span>
+
+  <span class="c1">// Use placement new, to explicitly call the constructor</span>
+  <span class="c1">// and initialise the semaphore.</span>
+  <span class="c1">// Create a static counting semaphore object instance,</span>
+  <span class="c1">// max 7 items and the initial count as 0.</span>
+  <span class="k">new</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">sc1</span><span class="p">)</span> <span class="n">semaphore_counting</span> <span class="p">{</span> <span class="s">"sc1"</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">0</span> <span class="p">};</span>
+
+  <span class="c1">// ...</span>
+
+  <span class="c1">// For completeness, call the semaphores destructors, which for placement new</span>
+  <span class="c1">// is no longer called automatically.</span>
+  <span class="n">sb1</span><span class="p">.</span><span class="o">~</span><span class="n">semaphore_binary</span><span class="p">();</span>
+  <span class="n">sc1</span><span class="p">.</span><span class="o">~</span><span class="n">semaphore_counting</span><span class="p">();</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+</div>
+
+<p>Semaphore objects instances can also be created on the local stack, for example on the main thread stack. Just be sure the stack is large enough to store all defined local objects.</p>
+
+<div class="language-cpp highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="c1">/// @file app-main.cpp</span>
+<span class="cp">#include &lt;cmsis-plus/rtos/os.h&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">os</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">os</span><span class="o">::</span><span class="n">rtos</span><span class="p">;</span>
+
+<span class="kt">int</span>
+<span class="nf">os_main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+  <span class="c1">// ...</span>
+
+  <span class="c1">// Create a local binary semaphore object instance,</span>
+  <span class="c1">// with the initial count as 0.</span>
+  <span class="n">semaphore_binary</span> <span class="n">sb1</span> <span class="p">{</span> <span class="s">"sb1"</span><span class="p">,</span> <span class="mi">0</span> <span class="p">};</span>
+
+  <span class="c1">// Create a local binary semaphore object instance,</span>
+  <span class="c1">// with the initial count as 1.</span>
+  <span class="n">semaphore_binary</span> <span class="n">sb2</span> <span class="p">{</span> <span class="s">"sb2"</span><span class="p">,</span> <span class="mi">1</span> <span class="p">};</span>
+
+  <span class="c1">// Create a local binary semaphore object instance,</span>
+  <span class="c1">// with max 7 items and the initial count as 0.</span>
+  <span class="n">semaphore_counting</span> <span class="n">sc1</span> <span class="p">{</span> <span class="s">"sc1"</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">0</span> <span class="p">};</span>
+
+  <span class="c1">// Create a local binary semaphore object instance,</span>
+  <span class="c1">// with max 7 items and the initial count as 7.</span>
+  <span class="n">semaphore_counting</span> <span class="n">sc2</span> <span class="p">{</span> <span class="s">"sc2"</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">7</span> <span class="p">};</span>
+
+  <span class="c1">// Beware of local static instances, since they'll use atexit()</span>
+  <span class="c1">// to register the destructor; avoid and prefer placement new, as before.</span>
+  <span class="c1">// static semaphore_binary sb3 { "sb3" };</span>
+
+  <span class="c1">// ...</span>
+
+  <span class="c1">// The local semaphores are destroyed automatically before exiting this block.</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+</div>
+
+<p>A similar example, but written in C:</p>
+
+<div class="language-c highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="c1">/// @file app-main.c</span>
+<span class="cp">#include &lt;cmsis-plus/rtos/os-c-api.h&gt;
+</span>
+<span class="kt">int</span>
+<span class="nf">os_main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+  <span class="c1">// ...</span>
+
+  <span class="c1">// Local storage for the semaphore object instance.</span>
+  <span class="n">os_semaphore_t</span> <span class="n">sb1</span><span class="p">;</span>
+
+  <span class="c1">// Create a binary semaphore,</span>
+  <span class="c1">// with the initial count as 0.</span>
+  <span class="n">os_semaphore_binary_construct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sb1</span><span class="p">,</span> <span class="s">"sb1"</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+  <span class="c1">// Local storage for the semaphore object instance.</span>
+  <span class="n">os_semaphore_t</span> <span class="n">sb2</span><span class="p">;</span>
+
+  <span class="c1">// Create a binary semaphore,</span>
+  <span class="c1">// with the initial count as 1.</span>
+  <span class="n">os_semaphore_binary_construct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sb2</span><span class="p">,</span> <span class="s">"sb2"</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+  <span class="c1">// Local storage for the semaphore object instance.</span>
+  <span class="n">os_semaphore_t</span> <span class="n">sc1</span><span class="p">;</span>
+
+  <span class="c1">// Create a counting semaphore,</span>
+  <span class="c1">// with max 7 items and the initial count as 0.</span>
+  <span class="n">os_semaphore_counting_construct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sc1</span><span class="p">,</span> <span class="s">"sc1"</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+  <span class="c1">// Local storage for the semaphore object instance.</span>
+  <span class="n">os_semaphore_t</span> <span class="n">sc2</span><span class="p">;</span>
+
+  <span class="c1">// Create a counting semaphore,</span>
+  <span class="c1">// with max 7 items and the initial count as 7.</span>
+  <span class="n">os_semaphore_counting_construct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sc2</span><span class="p">,</span> <span class="s">"sc2"</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">);</span>
+
+  <span class="c1">// ...</span>
+
+  <span class="c1">// For completeness, destroy the semaphores.</span>
+  <span class="n">os_semaphore_destruct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sb1</span><span class="p">);</span>
+  <span class="n">os_semaphore_destruct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sb2</span><span class="p">);</span>
+  <span class="n">os_semaphore_destruct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sc1</span><span class="p">);</span>
+  <span class="n">os_semaphore_destruct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sc2</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+</div>
+
+<p>For a total control over the semaphore creation (for example to set a custom clock), the semaphore attribute mechanism can be used.</p>
+
+<div class="language-cpp highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="c1">/// @file app-main.cpp</span>
+<span class="cp">#include &lt;cmsis-plus/rtos/os.h&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">os</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">os</span><span class="o">::</span><span class="n">rtos</span><span class="p">;</span>
+
+<span class="kt">int</span>
+<span class="nf">os_main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+  <span class="c1">// ...</span>
+
+  <span class="n">semaphore</span><span class="o">::</span><span class="n">attribute_binary</span> <span class="n">attr_b1</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
+  <span class="n">attr_b1</span><span class="p">.</span><span class="n">clock</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">rtclock</span><span class="p">;</span>
+
+  <span class="c1">// Create a local binary semaphore object instance,</span>
+  <span class="c1">// the initial count as 0.</span>
+  <span class="n">semaphore</span> <span class="n">sb1</span> <span class="p">{</span> <span class="s">"sb1"</span><span class="p">,</span> <span class="n">attr_b1</span> <span class="p">};</span>
+
+  <span class="n">semaphore</span><span class="o">::</span><span class="n">attribute_counting</span> <span class="n">attr_c2</span> <span class="p">{</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">0</span> <span class="p">};</span>
+  <span class="n">attr_c2</span><span class="p">.</span><span class="n">clock</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">rtclock</span><span class="p">;</span>
+
+  <span class="c1">// Create a local binary semaphore object instance,</span>
+  <span class="c1">// with max 7 items and the initial count as 0.</span>
+  <span class="n">semaphore</span> <span class="n">sc1</span> <span class="p">{</span> <span class="s">"sc1"</span><span class="p">,</span> <span class="n">attr_c2</span> <span class="p">};</span>
+
+  <span class="c1">// Attributes for a generic counting semaphore, with max 7 items</span>
+  <span class="c1">// and the initial count as 7.</span>
+  <span class="n">semaphore</span><span class="o">::</span><span class="n">attribute</span> <span class="n">attr_g1</span><span class="p">;</span>
+  <span class="n">attr_g1</span><span class="p">.</span><span class="n">sm_max_value</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+  <span class="n">attr_g1</span><span class="p">.</span><span class="n">sm_initial_value</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+  <span class="n">attr_g1</span><span class="p">.</span><span class="n">clock</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">rtclock</span><span class="p">;</span>
+
+  <span class="c1">// Create a generic counting semaphore, fully defined by attributes.</span>
+  <span class="n">semaphore</span> <span class="n">sg1</span> <span class="p">{</span> <span class="s">"sg1"</span><span class="p">,</span> <span class="n">attr_g1</span> <span class="p">};</span>
+
+  <span class="c1">// ...</span>
+
+  <span class="c1">// The local semaphores and the attributes are destroyed automatically</span>
+  <span class="c1">// before exiting this block.</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+</div>
+
+<p>A similar example, but written in C:</p>
+
+<div class="language-c highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="c1">/// @file app-main.c</span>
+<span class="cp">#include &lt;cmsis-plus/rtos/os-c-api.h&gt;
+</span>
+<span class="kt">int</span>
+<span class="nf">os_main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+  <span class="c1">// ...</span>
+
+  <span class="n">os_semaphore_attr_t</span> <span class="n">attr_b1</span><span class="p">;</span>
+  <span class="n">os_semaphore_attr_binary_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">attr_b1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+  <span class="n">attr_b1</span><span class="p">.</span><span class="n">clock</span> <span class="o">=</span> <span class="n">os_clock_get_rtclock</span><span class="p">();</span>
+
+  <span class="c1">// Local storage for the semaphore object instance.</span>
+  <span class="n">os_semaphore_t</span> <span class="n">sb1</span><span class="p">;</span>
+
+  <span class="c1">// Create a binary semaphore,</span>
+  <span class="c1">// with the initial count as 0.</span>
+  <span class="n">os_semaphore_construct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sb1</span><span class="p">,</span> <span class="s">"sb1"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">attr_b1</span><span class="p">);</span>
+
+  <span class="n">os_semaphore_attr_t</span> <span class="n">attr_c2</span><span class="p">;</span>
+  <span class="n">os_semaphore_attr_counting_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">attr_c2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+  <span class="n">attr_c2</span><span class="p">.</span><span class="n">clock</span> <span class="o">=</span> <span class="n">os_clock_get_rtclock</span><span class="p">();</span>
+
+  <span class="c1">// Local storage for the semaphore object instance.</span>
+  <span class="n">os_semaphore_t</span> <span class="n">sc1</span><span class="p">;</span>
+
+  <span class="c1">// Create a counting semaphore,</span>
+  <span class="c1">// with max 7 items and the initial count as 0.</span>
+  <span class="n">os_semaphore_construct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sc1</span><span class="p">,</span> <span class="s">"sc1"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">attr_c2</span><span class="p">);</span>
+
+  <span class="n">os_semaphore_attr_t</span> <span class="n">attr_g1</span><span class="p">;</span>
+  <span class="n">os_semaphore_attr_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">attr_g1</span><span class="p">);</span>
+
+  <span class="n">attr_g1</span><span class="p">.</span><span class="n">sm_max_value</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+  <span class="n">attr_g1</span><span class="p">.</span><span class="n">sm_initial_value</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+  <span class="n">attr_g1</span><span class="p">.</span><span class="n">clock</span> <span class="o">=</span> <span class="n">os_clock_get_rtclock</span><span class="p">();</span>
+
+  <span class="c1">// Local storage for the semaphore object instance.</span>
+  <span class="n">os_semaphore_t</span> <span class="n">sg1</span><span class="p">;</span>
+
+  <span class="c1">// Create a generic counting semaphore, with max 7 items</span>
+  <span class="c1">// and the initial count as 7.</span>
+  <span class="n">os_semaphore_construct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sg1</span><span class="p">,</span> <span class="s">"sg1"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">attr_g1</span><span class="p">);</span>
+
+  <span class="c1">// ...</span>
+
+  <span class="c1">// For completeness, destroy the semaphores.</span>
+  <span class="n">os_semaphore_destruct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sb1</span><span class="p">);</span>
+  <span class="n">os_semaphore_destruct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sc1</span><span class="p">);</span>
+  <span class="n">os_semaphore_destruct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sg1</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+</div>
+
+<p>The application programmer can create an unlimited number of semaphores (limited only by the available RAM).</p>
+
+<h2 id="posting-to-semaphores">Posting to semaphores</h2>
+
+<p>When one resource associated with the semaphore becomes available, the semaphore is notified.</p>
+
+<p>The name <strong>post</strong> comes from POSIX; other names used are <strong>P</strong>, <strong>signal</strong>, <strong>release</strong>.</p>
+
+<div class="language-cpp highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="n">result_t</span> <span class="n">res</span><span class="p">;</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">sem</span><span class="p">.</span><span class="n">post</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">==</span> <span class="n">result</span><span class="o">::</span><span class="n">ok</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// The semaphore was posted.</span>
+  <span class="p">}</span>
+<span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">==</span> <span class="n">EGAIN</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// The maximum count value was exceeded.</span>
+  <span class="p">}</span>
+</code></pre>
+</div>
+</div>
+
+<p>A similar example, but written in C:</p>
+
+<div class="language-c highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="n">os_result_t</span> <span class="n">res</span><span class="p">;</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">os_semaphore_post</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">==</span> <span class="n">os_ok</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// The semaphore was posted.</span>
+  <span class="p">}</span>
+<span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">==</span> <span class="n">EGAIN</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// The maximum count value was exceeded.</span>
+  <span class="p">}</span>
+</code></pre>
+</div>
+</div>
+
+<p>When the semaphore is correctly posted, the value is increased and the oldest high priority thread waiting (if any) is added to the READY list, allowing it to acquire the semaphore.</p>
+
+<p>If any of the waiting threads has a higher priority than the currently running thread, µOS++ will run the highest-priority thread made ready by <code class="language-plaintext highlighter-rouge">post()</code>. The current thread is suspended until it’ll become the highest-priority thread that is ready to run.</p>
+
+<h3 id="posting-to-semaphores-from-isrs">Posting to semaphores from ISRs</h3>
+
+<p>It is perfectly possible to post semaphores from ISRs, generally to synchronise waiting threads with events occurring on interrupts.</p>
+
+<h2 id="waiting-on-semaphores">Waiting on semaphores</h2>
+
+<p>To synchronise access to a resource, a thread must invoke the semaphore <code class="language-plaintext highlighter-rouge">wait()</code> function.</p>
+
+<p>If the resource is available, in other words if the semaphore was posted and the count value is positive, the count is decremented and the call returns.</p>
+
+<p>If the count value is zero, this means that no more resources are available, and the calling thread will be suspended. The thread will resume either when the semaphore is posted, a timeout occurs, or the thread is interrupted.</p>
+
+<p>Along with the semaphore’s value, µOS++ also keeps track of the threads waiting for the semaphore’s availability (a double linked list, ordered by thread priorities).</p>
+
+<div class="language-cpp highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="n">result_t</span> <span class="n">res</span><span class="p">;</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">sem</span><span class="p">.</span><span class="n">timed_wait</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span> <span class="c1">// The timeout is 100 clock ticks.</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">==</span> <span class="n">result</span><span class="o">::</span><span class="n">ok</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// The wait ended when the semaphore was posted.</span>
+  <span class="p">}</span>
+<span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">==</span> <span class="n">ETIMEDOUT</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// The wait ended due to timeout.</span>
+  <span class="p">}</span>
+<span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">==</span> <span class="n">EINTR</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// The wait ended due to an explicit interruption request.</span>
+  <span class="p">}</span>
+</code></pre>
+</div>
+</div>
+
+<p>A similar example, but written in C:</p>
+
+<div class="language-c highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="n">os_result_t</span> <span class="n">res</span><span class="p">;</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">os_semaphore_timed_wait</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span> <span class="c1">// The timeout is 100 clock ticks.</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">==</span> <span class="n">os_ok</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// The wait ended when the semaphore was posted.</span>
+  <span class="p">}</span>
+<span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">==</span> <span class="n">ETIMEDOUT</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// The wait ended due to timeout.</span>
+  <span class="p">}</span>
+<span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="n">res</span> <span class="o">==</span> <span class="n">EINTR</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// The wait ended due to an explicit interruption request.</span>
+  <span class="p">}</span>
+</code></pre>
+</div>
+</div>
+
+<p>The name <strong>wait</strong> comes from POSIX; other names used are <strong>V</strong>, <strong>acquire</strong>, <strong>pend</strong>.</p>
+
+<h2 id="multiple-threads-waiting-on-a-semaphore">Multiple threads waiting on a semaphore</h2>
+
+<p>When semaphores are used to manage common resources, it is possible for several threads to wait on the same semaphore, each with its own timeout.</p>
+
+<div style="text-align:center">
+<img alt="Semaphore Multi-Thread" src="/web-preview/assets/images/2016/semaphore-multi-thread.png">
+<p>Multiple threads waiting on a semaphore</p>
+</div>
+
+<p>When the semaphore is posted, µOS++ makes the highest-priority thread waiting on the semaphore ready to run. If at this moment any of the waiting threads has a higher priority than the currently running thread, µOS++ will run all higher-priority threads and only then return to the current thread.</p>
+
+<h2 id="other-semaphore-functions">Other semaphore functions</h2>
+
+<p>The µOS++ semaphore API basically implements the POSIX semaphores, with several extensions.</p>
+
+<h3 id="getting-the-semaphore-name">Getting the semaphore name</h3>
+
+<p>The semaphore name is an optional string defined during the semaphore object instance creation. It is generally used to identify the semaphore during debugging sessions.</p>
+
+<p>The C++ API is:</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="n">semaphore_binary</span> <span class="n">sem</span> <span class="p">{</span> <span class="s">"sem"</span><span class="p">,</span> <span class="mi">0</span> <span class="p">};</span>
+
+<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span> <span class="o">=</span> <span class="n">sem</span><span class="p">.</span><span class="n">name</span><span class="p">();</span>
+</code></pre>
+</div>
+</div>
+
+<p>The C API is:</p>
+
+<div class="language-c highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="n">os_semaphore_t</span> <span class="n">sem</span><span class="p">;</span>
+<span class="n">os_semaphore_construct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">,</span> <span class="s">"sem"</span><span class="p">,</span> <span class="mi">0</span> <span class="err">}</span><span class="p">;</span>
+
+<span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span> <span class="o">=</span> <span class="n">os_semaphore_get_name</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">);</span>
+</code></pre>
+</div>
+</div>
+
+<h3 id="getting-the-semaphore-value">Getting the semaphore value</h3>
+
+<p>The semaphore value is the instantaneous counter value, if positive, or 0 if the semaphore exhausted its resources and there are threads waiting for it.</p>
+
+<p>The C++ API is:</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">value</span> <span class="o">=</span> <span class="n">sem</span><span class="p">.</span><span class="n">value</span><span class="p">();</span>
+</code></pre>
+</div>
+</div>
+
+<p>The C API is:</p>
+
+<div class="language-c highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="kt">size_t</span> <span class="n">value</span> <span class="o">=</span> <span class="n">os_semaphore_get_value</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">);</span>
+</code></pre>
+</div>
+</div>
+
+<h3 id="getting-the-semaphore-maximum-value">Getting the semaphore maximum value</h3>
+
+<p>The semaphore maximum value is a constant value set at semaphore creation, representing the total number of resources associated with the semaphore. For binary semaphores, these functions return 1.</p>
+
+<p>The C++ API is:</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">value</span> <span class="o">=</span> <span class="n">sem</span><span class="p">.</span><span class="n">max_value</span><span class="p">();</span>
+</code></pre>
+</div>
+</div>
+
+<p>The C API is:</p>
+
+<div class="language-c highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="kt">size_t</span> <span class="n">value</span> <span class="o">=</span> <span class="n">os_semaphore_get_max_value</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">);</span>
+</code></pre>
+</div>
+</div>
+
+<h3 id="getting-the-semaphore-initial-value">Getting the semaphore initial value</h3>
+
+<p>The semaphore initial value is a constant value set at semaphore creation, representing the number of initial resources associated with the semaphore. Applications using semaphores for synchronisation usually start with this value set to 0, while applications that use semaphores for resource management start with this value equal to the number of resources.</p>
+
+<p>The C++ API is:</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">value</span> <span class="o">=</span> <span class="n">sem</span><span class="p">.</span><span class="n">initial_value</span><span class="p">();</span>
+</code></pre>
+</div>
+</div>
+
+<p>The C API is:</p>
+
+<div class="language-c highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="kt">size_t</span> <span class="n">value</span> <span class="o">=</span> <span class="n">os_semaphore_get_initial_value</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">);</span>
+</code></pre>
+</div>
+</div>
+
+<h3 id="reseting-the-semaphore">Reseting the semaphore</h3>
+
+<p>Real-world applications may include monitoring mechanisms to detect erroneous conditions. Recovering from such conditions may require to return the semaphore to stable state; µOS++ provides a function to return the semaphore to the initial state after construction.</p>
+
+<p>The C++ API is:</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="n">sem</span><span class="p">.</span><span class="n">reset</span><span class="p">();</span>
+</code></pre>
+</div>
+</div>
+
+<p>The C API is:</p>
+
+<div class="language-c highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="n">os_semaphore_reset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">);</span>
+</code></pre>
+</div>
+</div>
+
+<h2 id="destroying-semaphores">Destroying semaphores</h2>
+
+<p>In C++, if the semaphores were created using the normal way, the destructors are automatically invoked when the current block exits, or, for the global semaphores instances, after the <code class="language-plaintext highlighter-rouge">main()</code> function returns. Semaphores created with placement <code class="language-plaintext highlighter-rouge">new</code> need to be destructed manually.</p>
+
+<p>In C, all semaphores must be destructed by explicit calls to <code class="language-plaintext highlighter-rouge">os_semaphore_destruct()</code>.</p>
+
+<p>There should be no threads waiting on the semaphore when it is destroyed, otherwise an assert check will trigger.</p>
+
+<h2 id="using-semaphores-for-resource-management">Using semaphores for resource management</h2>
+
+<p>Originally semaphores were used to control access to shared resources, for example to I/O devices.</p>
+
+<p>The classical example includes two or more threads writing messages to an I/O port. Without any control mechanism, the characters from one thread messages might get intermingled with characters from other thread messages.</p>
+
+<p>The solution is to add a mechanism that allows one thread to gain exclusive access to the device and prevent other threads to write characters before the message is fully transferred. Such a critical section may use a binary semaphore, initialised to 1, and brace writing messages with <code class="language-plaintext highlighter-rouge">wait()</code> and <code class="language-plaintext highlighter-rouge">post()</code> calls.</p>
+
+<div class="language-cpp highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="c1">/// @file app-main.cpp</span>
+<span class="cp">#include &lt;cmsis-plus/rtos/os.h&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">os</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">os</span><span class="o">::</span><span class="n">rtos</span><span class="p">;</span>
+
+<span class="c1">// Create a binary semaphore, with the initial count as 1.</span>
+<span class="n">semaphore_binary</span> <span class="n">sem</span> <span class="p">{</span> <span class="s">"sem"</span><span class="p">,</span> <span class="mi">1</span> <span class="p">};</span>
+
+<span class="kt">void</span>
+<span class="nf">write_message</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">msg</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// Wait until no other thread is using the device and lock access to it.</span>
+  <span class="n">sem</span><span class="p">.</span><span class="n">wait</span><span class="p">();</span>
+
+  <span class="c1">// Write the message, one character at a time, without fear</span>
+  <span class="c1">// that other threads will intervene.</span>
+  <span class="k">while</span> <span class="p">(</span><span class="o">*</span><span class="n">msg</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">write_char</span><span class="p">(</span><span class="o">*</span><span class="n">msg</span><span class="p">);</span>
+      <span class="o">++</span><span class="n">msg</span><span class="p">;</span>
+    <span class="p">}</span>
+
+  <span class="c1">// Unlock access to the device.</span>
+  <span class="n">sem</span><span class="p">.</span><span class="n">post</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+</div>
+
+<p>A similar example, but written in C:</p>
+
+<div class="language-c highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="c1">/// @file app-main.c</span>
+<span class="cp">#include &lt;cmsis-plus/rtos/os-c-api.h&gt;
+</span>
+<span class="c1">// Global static global storage for the semaphore object instance.</span>
+<span class="n">os_semaphore_t</span> <span class="n">sem</span><span class="p">;</span>
+
+<span class="kt">int</span>
+<span class="nf">os_main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+  <span class="c1">// ...</span>
+
+  <span class="c1">// Create a binary semaphore, with the initial count as 1.</span>
+  <span class="n">os_semaphore_binary_construct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">,</span> <span class="s">"sem"</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+  <span class="c1">// ...</span>
+
+  <span class="n">os_semaphore_destruct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span>
+<span class="nf">write_message</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">msg</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// Wait until no other thread is using the device and lock access to it.</span>
+  <span class="n">os_semaphore_wait</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">);</span>
+
+  <span class="c1">// Write the message, one character at a time, without fear</span>
+  <span class="c1">// that other threads will intervene.</span>
+  <span class="k">while</span> <span class="p">(</span><span class="o">*</span><span class="n">msg</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">write_char</span><span class="p">(</span><span class="o">*</span><span class="n">msg</span><span class="p">);</span>
+      <span class="o">++</span><span class="n">msg</span><span class="p">;</span>
+    <span class="p">}</span>
+
+  <span class="c1">// Unlock access to the device.</span>
+  <span class="n">os_semaphore_post</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+</div>
+<p>**
+It is mandatory for the binary semaphore to be initialised with 1 (i.e. device available) for the first <code class="language-plaintext highlighter-rouge">wait()</code> to not block.</p>
+
+<h2 id="unilateral-rendezvous">Unilateral rendezvous</h2>
+
+<p>It is common for a thread to wait for event generated by an ISR (or another thread). In this case, no data needs to be exchanged, only the fact that the ISR or the thread (on the left) has occurred is important. Using a semaphore for this type of synchronization is called a <strong>unilateral rendezvous</strong>.</p>
+
+<div style="text-align:center">
+<img alt="Semaphore Unilateral Rendezvous" src="/web-preview/assets/images/2016/semaphore-unilateral-rendezvous.png">
+<p>Unilateral rendezvous</p>
+</div>
+
+<p>A unilateral rendezvous is used when a thread initiates an I/O operation and waits (i.e., calls <code class="language-plaintext highlighter-rouge">wait()</code>) for the semaphore to be posted. Lower priority threads are executed. When the I/O operation is complete, an ISR (or another thread) signals the semaphore (i.e., calls <code class="language-plaintext highlighter-rouge">post()</code>), and the thread is resumed.</p>
+
+<div style="text-align:center">
+<img alt="Semaphore Unilateral Rendezvous" src="/web-preview/assets/images/2016/semaphore-unilateral-rendezvous-timeline.png">
+<p>Unilateral rendezvous timeline</p>
+</div>
+
+<p>An example code in C++ is:</p>
+
+<div class="language-cpp highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="c1">/// @file app-main.cpp</span>
+<span class="cp">#include &lt;cmsis-plus/rtos/os.h&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">os</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">os</span><span class="o">::</span><span class="n">rtos</span><span class="p">;</span>
+
+<span class="c1">// Create a binary semaphore, with the initial count as 0.</span>
+<span class="n">semaphore_binary</span> <span class="n">sem</span> <span class="p">{</span> <span class="s">"sem"</span><span class="p">,</span> <span class="mi">0</span> <span class="p">};</span>
+
+<span class="kt">int</span>
+<span class="nf">os_main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+  <span class="c1">// ...</span>
+
+  <span class="c1">// Not much to do, the semaphore was created by the static</span>
+  <span class="c1">// constructors, before entering main().</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="k">volatile</span> <span class="kt">uint8_t</span> <span class="n">device_byte</span><span class="p">;</span>
+
+<span class="kt">uint8_t</span>
+<span class="nf">read_byte</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// Wait until the semaphore is posted.</span>
+  <span class="n">sem</span><span class="p">.</span><span class="n">wait</span><span class="p">();</span>
+
+  <span class="k">return</span> <span class="n">device_byte</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span>
+<span class="nf">device_interrupt_service_routine</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// Store the device data in a static location.</span>
+  <span class="n">device_byte</span> <span class="o">=</span> <span class="n">read_device_register</span><span class="p">();</span>
+
+  <span class="c1">// Inform the reader that new data is available.</span>
+  <span class="n">sem</span><span class="p">.</span><span class="n">post</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+</div>
+
+<p>A similar example, but written in C:</p>
+
+<div class="language-c highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="c1">/// @file app-main.c</span>
+<span class="cp">#include &lt;cmsis-plus/rtos/os-c-api.h&gt;
+</span>
+<span class="c1">// Global static global storage for the semaphore object instance.</span>
+<span class="n">os_semaphore_t</span> <span class="n">sem</span><span class="p">;</span>
+
+<span class="kt">int</span>
+<span class="nf">os_main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+  <span class="c1">// ...</span>
+
+  <span class="c1">// Create a binary semaphore, with the initial count as 0.</span>
+  <span class="n">os_semaphore_binary_construct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">,</span> <span class="s">"sem"</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+  <span class="c1">// ...</span>
+
+  <span class="n">os_semaphore_destruct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="k">volatile</span> <span class="kt">uint8_t</span> <span class="n">device_byte</span><span class="p">;</span>
+
+<span class="kt">uint8_t</span>
+<span class="nf">read_byte</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// Wait until the semaphore is posted.</span>
+  <span class="n">os_semaphore_wait</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="n">device_byte</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span>
+<span class="nf">device_interrupt_service_routine</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// Store the device data in a static location.</span>
+  <span class="n">device_byte</span> <span class="o">=</span> <span class="n">read_device_register</span><span class="p">();</span>
+
+  <span class="c1">// Inform the reader that new data is available.</span>
+  <span class="n">os_semaphore_post</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+</div>
+
+<p>This example is for demonstrative purposes only. A real-world example would probably need to use a circular buffer to store multiple bytes, to avoid loosing data when multiple interrupts occur before the <code class="language-plaintext highlighter-rouge">read_byte()</code> is called.</p>
+
+<h2 id="semaphore-pitfalls">Semaphore pitfalls</h2>
+
+<p>Semaphores are great synchronisation objects, especially with events occurring on interrupts.</p>
+
+<p>However semaphores are subject to several problems, which must be known and addressed during system design.</p>
+
+<h3 id="unbalanced-waitpost">Unbalanced wait()/post()</h3>
+
+<p>When using the semaphores for managing common resources, it is absolutely mandatory to begin the critical section with <code class="language-plaintext highlighter-rouge">wait()</code> and to end it with <code class="language-plaintext highlighter-rouge">post()</code>. Any possibility to leave the critical section in the middle of it (via <code class="language-plaintext highlighter-rouge">return</code>, <code class="language-plaintext highlighter-rouge">break</code>, <code class="language-plaintext highlighter-rouge">continue</code>, <code class="language-plaintext highlighter-rouge">goto</code>, etc) will result in a deadlock and should be avoided.</p>
+
+<h3 id="recursive-deadlock">Recursive deadlock</h3>
+
+<p>Recursive deadlock can occur if a thread tries to lock a semaphore it has already locked. This can typically occur in libraries or recursive functions.</p>
+
+<p>A typical scenario is to have a functional program, like the one protecting the <code class="language-plaintext highlighter-rouge">write_message()</code> function and try to “improve” it to protect a series of messages:</p>
+
+<div class="language-cpp highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="c1">/// @file app-main.cpp</span>
+<span class="cp">#include &lt;cmsis-plus/rtos/os.h&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">os</span><span class="p">;</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">os</span><span class="o">::</span><span class="n">rtos</span><span class="p">;</span>
+
+<span class="c1">// Create a binary semaphore, with the initial count as 1.</span>
+<span class="n">semaphore_binary</span> <span class="n">sem</span> <span class="p">{</span> <span class="s">"sem"</span><span class="p">,</span> <span class="mi">1</span> <span class="p">};</span>
+
+<span class="kt">void</span>
+<span class="nf">write_message</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">msg</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// Wait until no other thread is using the device and lock access to it.</span>
+  <span class="n">sem</span><span class="p">.</span><span class="n">wait</span><span class="p">();</span>
+
+  <span class="c1">// Write the message, one character at a time, without fear</span>
+  <span class="c1">// that other threads will intervene.</span>
+  <span class="k">while</span> <span class="p">(</span><span class="o">*</span><span class="n">msg</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">write_char</span><span class="p">(</span><span class="o">*</span><span class="n">msg</span><span class="p">);</span>
+      <span class="o">++</span><span class="n">msg</span><span class="p">;</span>
+    <span class="p">}</span>
+
+  <span class="c1">// Unlock access to the device.</span>
+  <span class="n">sem</span><span class="p">.</span><span class="n">post</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// ...</span>
+
+<span class="kt">void</span>
+<span class="nf">write_many_messages</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">sem</span><span class="p">.</span><span class="n">wait</span><span class="p">();</span>
+
+  <span class="n">write_message</span><span class="p">(</span><span class="s">"one"</span><span class="p">);</span>
+  <span class="n">write_message</span><span class="p">(</span><span class="s">"two"</span><span class="p">);</span>
+  <span class="n">write_message</span><span class="p">(</span><span class="s">"three"</span><span class="p">);</span>
+
+  <span class="n">sem</span><span class="p">.</span><span class="n">post</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+</div>
+
+<p>A similar example, but written in C:</p>
+
+<div class="language-c highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="c1">/// @file app-main.c</span>
+<span class="cp">#include &lt;cmsis-plus/rtos/os-c-api.h&gt;
+</span>
+<span class="c1">// Global static global storage for the semaphore object instance.</span>
+<span class="n">os_semaphore_t</span> <span class="n">sem</span><span class="p">;</span>
+
+<span class="kt">int</span>
+<span class="nf">os_main</span> <span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+  <span class="c1">// ...</span>
+
+  <span class="c1">// Create a binary semaphore, with the initial count as 1.</span>
+  <span class="n">os_semaphore_binary_construct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">,</span> <span class="s">"sem"</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+  <span class="c1">// ...</span>
+
+  <span class="n">os_semaphore_destruct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span>
+<span class="nf">write_message</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">msg</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="c1">// Wait until no other thread is using the device and lock access to it.</span>
+  <span class="n">os_semaphore_wait</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">);</span>
+
+  <span class="c1">// Write the message, one character at a time, without fear</span>
+  <span class="c1">// that other threads will intervene.</span>
+  <span class="k">while</span> <span class="p">(</span><span class="o">*</span><span class="n">msg</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">write_char</span><span class="p">(</span><span class="o">*</span><span class="n">msg</span><span class="p">);</span>
+      <span class="o">++</span><span class="n">msg</span><span class="p">;</span>
+    <span class="p">}</span>
+
+  <span class="c1">// Unlock access to the device.</span>
+  <span class="n">os_semaphore_post</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span>
+<span class="nf">write_many_messages</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">os_semaphore_wait</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">);</span>
+
+  <span class="n">write_message</span><span class="p">(</span><span class="s">"one"</span><span class="p">);</span>
+  <span class="n">write_message</span><span class="p">(</span><span class="s">"two"</span><span class="p">);</span>
+  <span class="n">write_message</span><span class="p">(</span><span class="s">"three"</span><span class="p">);</span>
+
+  <span class="n">os_semaphore_post</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">);</span>
+<span class="p">}</span>
+
+</code></pre>
+</div>
+</div>
+
+<p>Well… bad idea! Since the semaphore was created as binary, the first <code class="language-plaintext highlighter-rouge">wait()</code> in <code class="language-plaintext highlighter-rouge">write_many_messages()</code> will lock it, and the inner <code class="language-plaintext highlighter-rouge">wait()</code> in <code class="language-plaintext highlighter-rouge">write_message()</code> will find it locked and block forever.</p>
+
+<p>For such scenarios, recursive mutexes are definitely more appropriate.</p>
+
+<h3 id="thread-termination-deadlock">Thread-termination deadlock</h3>
+
+<p>What if a thread that locked a semaphore is terminated? Since the semaphore does not keep track of its owner, most implementations are not able to detect this and all thread waiting (or may wait in the future) will never acquire the semaphore and deadlock. To partially address this, it is recommended to use the <code class="language-plaintext highlighter-rouge">timed_wait()</code>, which specifies a timeout.</p>
+
+<h3 id="priority-inversion">Priority inversion</h3>
+
+<p>Semaphores are subject to a serious problem in real-time systems called <a href="/web-preview/user-manual/basic-concepts/#priority-inversion--priority-inheritance">priority inversion</a>, where a high priority thread becomes delayed for an indefinite period by a low priority thread, preventing it to meet its deadlines. A very high profile case was the <a href="https://en.wikipedia.org/wiki/Mars_Pathfinder">NASA JPL’s Mars Pathfinder</a> spacecraft (see <a href="http://research.microsoft.com/en-us/um/people/mbj/Mars_Pathfinder/">What really happened on Mars?</a>)</p>
+
+<p>One of the best solutions to prevent priority inversion is to use mutexes with priority inheritance.</p>
+
+<h3 id="wrong-initialisation">Wrong initialisation</h3>
+
+<p>If using semaphores for mutual exclusion is problematic, using them for synchronisation is fine, and the the typical scenario is unilateral rendezvous. However, for this to work, the semaphore must be created with an initial count value of 0 (zero).</p>
+
+
+
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/user-manual/semaphores/" data-layout="button"></div></li>
+</ul>
+
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="site-footer">
+  <div class="site-footer-links left">
+    <ul>
+  <li>© 2019 Liviu Ionescu</li>
+  <li>Hosted on GitHub</li>
+  <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
+  <li>
+<a href="http://twitter.com/micro_os_plus" class="twitter-follow-button" data-show-count="false">Follow @micro_os_plus</a><script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</li>
+</ul>
+
+
+  </div>
+  <a href="https://github.com/micro-os-plus/micro-os-plus-iii" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+  </a>
+  <div class="site-footer-links right">
+    <ul>
+  <li><a href="/web-preview/">Home</a></li>
+  <li><a href="/web-preview/blog/">News</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/releases">Releases</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues">Support</a></li>
+  <li><a href="/web-preview/about/">About</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</div>
+
+</body>
+</html>

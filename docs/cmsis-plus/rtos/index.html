@@ -9,16 +9,16 @@
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>The µOS++ IIIe Project</title>
+  <title>µOS++ RTOS APIs</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="The µOS++ IIIe Project">
+  <meta property="og:title" content="µOS++ RTOS APIs">
   <meta property="og:site_name" content="µOS++ IIIe">
 
   <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
 
 
-  <meta property="article:published_time" content="2016-03-03">
+  <meta property="article:published_time" content="2016-03-09">
 
 
 
@@ -32,7 +32,7 @@
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
 
-  <link rel="canonical" href="/web-preview/">
+  <link rel="canonical" href="/web-preview/cmsis-plus/rtos/">
 
 
 
@@ -239,58 +239,73 @@
       <div class="site-content">
 
         
-<h1 class="page-title">The µOS++ IIIe Project</h1>
+<h1 class="page-title">µOS++ RTOS APIs</h1>
 <table id="last-modified">
   <tr>
     <td id="last-modified">Last modified on Wed Dec 23 10:37:26 2020 UTC.</td>
-    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/home.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/cmsis-plus/rtos/overview.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
 
+<h2 id="overview">Overview</h2>
 
-<p>The <strong>µOS++ IIIe</strong> <em>(micro oh ɛs plus plus third edition)</em> project is the third iteration of µOS++, a POSIX-like, portable, open source, royalty-free, multi-tasking real-time framework intended for 32/64-bits embedded applications, written in C++. The project is hosted on GitHub as <a href="https://github.com/micro-os-plus">micro-os-plus</a>. It has a comprehensive <a href="/web-preview/user-manual/">User’s manual</a>. The APIs are documented in the <a href="/web-preview/reference/cmsis-plus/">µOS++ reference</a>.</p>
-
-<p><strong>POSIX++</strong> is another point of view of the project; with most system APIs using the POSIX semantics, but being written in C++, the <strong>µOS++ IIIe</strong> APIs can also be seen as a C++ version of POSIX, thus the name <strong>POSIX++</strong>.</p>
-
-<h2 id="manyfold-identity">Manyfold identity</h2>
-
-<p>The <strong>µOS++ IIIe</strong> project can be considered from several points of view.</p>
-
-<h3 id="the-µos-frameworkapis">The µOS++ framework/APIs</h3>
-
-<p>Although generally associated with its RTOS, <strong>µOS++ IIIe</strong> is actually a framework, a collection of APIs, components and technologies.</p>
-
-<p>One of the main APIs is the µOS++ RTOS API, but applications based on µOS++ may run very well without a RTOS, or even use a different RTOS.</p>
-
-<p>For a better portability, the entire framework is layered, the µOS++ RTOS API provides a common public interface to the applications, but the implementation is separate, it might be that of its own µOS++ RTOS reference implementation, but it may very well be another implementation, even a custom one specific to the application.</p>
-
-<h3 id="the-µos-rtos-implementation">The µOS++ RTOS implementation</h3>
-
-<p>From an embedded system point of view, <strong>µOS++ IIIe</strong> provides the <strong>reference implementation</strong> for the <strong>scheduler</strong> and <strong>portable synchronisation</strong> objects (like mutex, semaphore, etc).</p>
+<p>The µOS++ RTOS APIs are a set of RTOS interfaces, highly portable but designed to best match the ARM Cortex-M processor-based devices.</p>
 
 <div style="text-align:center">
-<img alt="µOS++ RTOS" src="/web-preview/assets/images/2017/micro-os-plus-rtos.png">
+<img alt="Overview" src="/web-preview/assets/images/2017/cmsis-plus-rtos-overview.png">
 </div>
 
-<h3 id="the-µos-packages">The µOS++ packages</h3>
+<h2 id="project-highlights">Project highlights</h2>
 
-<p>From a modular point of view, <strong>µOS++ IIIe</strong> is a <strong>collection of packages</strong> hosted on GitHub in two locations:</p>
+<p>The project highlights are:</p>
 
 <ul>
-  <li>the original code is grouped under the <a href="https://github.com/micro-os-plus">µOS++ IIIe</a> GitHub collection of projects</li>
-  <li>projects based on third party code are grouped under the <a href="https://github.com/xpacks">xPacks</a> collection.</li>
+  <li>
+    <p>the core µOS++ RTOS is based on a C++ API (namespace <code class="language-plaintext highlighter-rouge">os::rtos</code>), defined in <a href="https://github.com/micro-os-plus/micro-os-plus-iii/blob/xpack/include/cmsis-plus/rtos/os.h">&lt;cmsis-plus/rtos/os.h&gt;</a>;</p>
+  </li>
+  <li>
+    <p>exactly the same functionality is provided in C, with a C wrapper, for those who prefer to use plain C; the C API is defined in <a href="https://github.com/micro-os-plus/micro-os-plus-iii/blob/xpack/include/cmsis-plus/rtos/os-c-api.h">&lt;cmsis-plus/rtos/os-c-api.h&gt;</a>;</p>
+  </li>
+  <li>
+    <p>for compatibility reasons, the actual CMSIS API is also implemented in the C wrapper; it is defined in <a href="https://github.com/micro-os-plus/micro-os-plus-iii/blob/xpack/include/cmsis-plus/legacy/cmsis_os.h">&lt;cmsis_os.h&gt;</a> (functional, passed the CMSIS RTOS validation, using the <a href="https://github.com/xpacks/freertos/blob/xpack/cmsis-plus/include/cmsis-plus/rtos/port/os-inlines.h">FreeRTOS port</a>);</p>
+  </li>
+  <li>
+    <p>on top of the core C++ API, the ISO standard thread library is fully implemented (namespace <code class="language-plaintext highlighter-rouge">os::estd</code>), and this is the recommended C++ API for future applications; the definitions are available from <a href="https://github.com/micro-os-plus/micro-os-plus-iii/tree/xpack/include/cmsis-plus/estd/">&lt;cmsis-plus/estd/*&gt;</a>;</p>
+  </li>
+  <li>
+    <p>all RTOS objects are based on the core C++ objects, and objects created in C++ can be used in C and similarly objects created in C can be used in C++ (there is no mystery here, they represent exactly the same objects);</p>
+  </li>
+  <li>
+    <p>the C++ API was originally derived from the original CMSIS RTOS C API, but was adjusted to match the POSIX and ISO requirements as close as possible, so now it is generally a C++ version of the POSIX pthread library;</p>
+  </li>
+  <li>
+    <p>the µOS++ RTOS specification will go one step further then the original CMSIS, it will also suggest a portable scheduler API, and a set of portable synchronisation primitives, calling the portable scheduler; the portable synchronisation objects can be considered a ‘reference implementation’, however µOS++ does not mandate the use of these objects, it is quite easy to forward all calls to the underlaying implementation, as the current version using FreeRTOS does (partly implemented, to be completed soon);</p>
+  </li>
+  <li>
+    <p>there will also be a reference scheduler implementation (called µOS++ III), that will also be highly portable; it will run in 32-bits and 64-bits environments but will be specifically tailored for Cortex-M cores; it’ll also run on synthetic POSIX platforms, for example as a user mode POSIX process, on OS X and GNU/Linux, possibly on Windows if MinGW-w64 will allow an easy port. (will be based on prior µOS++ versions, which are fully functional);</p>
+  </li>
+  <li>
+    <p>µOS++ also includes a POSIX IO interface (namespace <code class="language-plaintext highlighter-rouge">os::posix</code>), bringing together access to terminal devices, files and sockets, via a unified and standard API (functional in a separate project, will be updated and moved here shortly);</p>
+  </li>
+  <li>
+    <p>µOS++ Drivers are the response to CMSIS Drivers, but designed in C++ (namespace os::drivers), and with a C API on top of them (µOS++ serial, USB Device and USB Host already defined and partly implemented);</p>
+  </li>
+  <li>
+    <p>the µOS++ packaging solution will extend and complement CMSIS Packs with <strong>xPack/XCDL</strong> packs.</p>
+  </li>
 </ul>
 
-<div style="text-align:center">
-<img alt="µOS++ Collection" src="/web-preview/assets/images/2017/micro-os-plus-collection.png">
-</div>
-
-<h2 id="license">License</h2>
-
-<p>Unless otherwise mentioned, all <strong>µOS++ IIIe</strong> components are provided <strong>free of charge</strong> under the terms of the <a href="https://opensource.org/licenses/MIT">MIT License</a>, with all rights reserved to Liviu Ionescu.</p>
 
 
 
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/cmsis-plus/rtos/" data-layout="button"></div></li>
+</ul>
 
 
 

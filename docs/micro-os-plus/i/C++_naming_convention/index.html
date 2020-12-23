@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>C++ naming convention</title>
+  <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
+
+  <meta property="og:title" content="C++ naming convention">
+  <meta property="og:site_name" content="µOS++ IIIe">
+
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+
+
+  <meta property="article:published_time" content="2011-07-30">
+
+
+
+
+
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
+
+  <link rel="canonical" href="/web-preview/micro-os-plus/i/C++_naming_convention/">
+
+
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16767008-14', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+  <div class="site-header">
+  <table style="width:100%">
+    <tr>
+      <td>
+        <a href="/web-preview/">
+          <img alt="Icon" class="site-icon" src="/web-preview/assets/icons/wall-e-icon.png" height="100" width="100">
+      </a>
+      </td>
+      <td>
+        <table class="site-title" style="width:100%">
+          <tr>
+            <td class="site-title">
+              <a href="/web-preview/">µOS++ IIIe</a>
+            </td>
+            <td class="site-motto" align="right">
+              “Perfekt ist nicht gut genug”
+            </td>
+          </tr>
+          <tr>
+            <td class="site-description" colspan="2">
+              The third edition of µOS++, a POSIX inspired open source framework, written in C++.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+</div>
+
+<div class="container">
+
+  <div class="wrapper">
+    <div class="site-body">
+
+      <div class="site-sidebar">
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      <h4 id="news"><a href="/web-preview/blog/">News</a></h4>
+
+<ul>
+  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></li>
+  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ IIIe v6.3.14 released</a></li>
+  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ IIIe v6.3.13 released</a></li>
+  <li><a href="/web-preview/blog/2017/01/02/micro-os-plus-v6-3-11-released/">µOS++ IIIe v6.3.11 released</a></li>
+</ul>
+
+
+    </div>
+  </div>
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      
+      <h4 id="home"><a href="/web-preview/">Home</a></h4>
+
+<h4 id="µos-iiie">µOS++ IIIe</h4>
+
+<ul>
+  <li><a href="/web-preview/micro-os-plus/">Overview</a></li>
+</ul>
+
+<h4 id="apis">APIs</h4>
+
+<ul>
+  <li><a href="/web-preview/cmsis-plus/">Overview</a></li>
+  <li><a href="/web-preview/cmsis-plus/rtos/">RTOS API</a></li>
+</ul>
+
+<h4 id="xpacksxcdl">xPacks/XCDL</h4>
+
+<ul>
+  <li><a href="/web-preview/xpacks/">Overview</a></li>
+</ul>
+
+<h4 id="documentation">Documentation</h4>
+
+<ul>
+  <li>
+<a href="/web-preview/user-manual/">User’s <strong>manual</strong></a>
+    <ul>
+      <li><a href="/web-preview/user-manual/getting-started/">Getting started</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/">Basic concepts</a></li>
+      <li><a href="/web-preview/user-manual/features/">Features</a></li>
+      <li><a href="/web-preview/user-manual/threads/">Threads</a></li>
+      <li><a href="/web-preview/user-manual/thread-event-flags/">Thread event flags</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/">Semaphores</a></li>
+      <li><a href="/web-preview/user-manual/event-flags/">Event flags</a></li>
+      <li>Mutexes</li>
+      <li>Condition variables</li>
+      <li>Message queues</li>
+      <li>Memory pools</li>
+      <li>Software timers</li>
+      <li>Clocks</li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/reference/cmsis-plus/">µOS++ <strong>reference</strong></a></li>
+</ul>
+
+<h4 id="developer">Developer</h4>
+
+<ul>
+  <li><a href="/web-preview/develop/">Overview</a></li>
+  <li><a href="/web-preview/reference/cmsis-plus/md_doxygen_pages_change-log.html">Change log</a></li>
+  <li><a href="/web-preview/develop/coding-style/">C++ coding style</a></li>
+  <li><a href="/web-preview/develop/naming-conventions/">Naming conventions</a></li>
+  <li><a href="/web-preview/develop/references/">Links &amp; references</a></li>
+</ul>
+
+<h4 id="support">Support</h4>
+
+<ul>
+  <li><a href="/web-preview/support/">Overview</a></li>
+  <li><a href="/web-preview/support/known-issues/">Known issues</a></li>
+  <li><a href="/web-preview/support/faq/">FAQ</a></li>
+  <li><a href="/web-preview/support/forum/">Forum</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ IIIe issues</a></li>
+</ul>
+
+<h4 id="latest-articles">Latest Articles</h4>
+
+<ul>
+  <li><a href="/web-preview/articles/arm-com-2016-06-24/">CMSIS++ RTOS: fully functional reference implementation</a></li>
+  <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
+</ul>
+
+<h4 id="license">License</h4>
+
+<ul>
+  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+</ul>
+
+<h4 id="about"><a href="/web-preview/about/">About</a></h4>
+
+    </div>
+  </div>
+
+  <div class="site-theme">
+    This site uses the <a href="https://github.com/ilg-ul/github-jekyll-theme">GitHub Wiki-like</a> theme by <a href="https://github.com/ilg-ul">Liviu Ionescu</a>.
+  </div>
+
+</div>
+
+
+      <div class="site-content">
+
+        
+<h1 class="page-title">C++ naming convention - DEPRECATED</h1>
+<table id="last-modified">
+  <tr>
+    <td id="last-modified">Page date Sat Jul 30 11:14:45 2011 .</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/micro-os-plus/i/C++_naming_convention.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+  </tr>
+</table>
+
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toc_level-1 toc_section-1">
+<a href="#antonyms"><span class="tocnumber">1</span> <span class="toctext">Antonyms</span></a>
+</li>
+<li class="toc_level-1 toc_section-2">
+<a href="#technical-terms"><span class="tocnumber">2</span> <span class="toctext">Technical terms</span></a>
+</li>
+<li class="toc_level-1 toc_section-3">
+<a href="#startstop-vs-beginend"><span class="tocnumber">3</span> <span class="toctext">start/stop vs. begin/end</span></a>
+</li>
+<li class="toc_level-1 toc_section-4">
+<a href="#derived-class-names"><span class="tocnumber">4</span> <span class="toctext">Derived class names</span></a>
+</li>
+<li class="toc_level-1 toc_section-5">
+<a href="#abstract-base-classes"><span class="tocnumber">5</span> <span class="toctext">Abstract base classes</span></a>
+</li>
+<li class="toc_level-1 toc_section-6">
+<a href="#getterssetters"><span class="tocnumber">6</span> <span class="toctext">Getters/Setters</span></a>
+</li>
+<li class="toc_level-1 toc_section-7">
+<a href="#boolean-methods"><span class="tocnumber">7</span> <span class="toctext">Boolean methods</span></a>
+</li>
+<li class="toc_level-1 toc_section-8">
+<a href="#initialise-vs-configure"><span class="tocnumber">8</span> <span class="toctext">initialise() vs. configure()</span></a>
+</li>
+<li class="toc_level-1 toc_section-9">
+<a href="#set-vs-configure"><span class="tocnumber">9</span> <span class="toctext">set() vs. configure()</span></a>
+</li>
+<li class="toc_level-1 toc_section-10">
+<a href="#private-member-variables-names"><span class="tocnumber">10</span> <span class="toctext">Private member variables names</span></a>
+</li>
+<li class="toc_level-1 toc_section-11">
+<a href="#static-member-variables-names"><span class="tocnumber">11</span> <span class="toctext">Static member variables names</span></a>
+</li>
+<li class="toc_level-1 toc_section-12">
+<a href="#public-member-names"><span class="tocnumber">12</span> <span class="toctext">Public member names</span></a>
+</li>
+<li class="toc_level-1 toc_section-13">
+<a href="#array-members"><span class="tocnumber">13</span> <span class="toctext">Array members</span></a>
+</li>
+<li class="toc_level-1 toc_section-14">
+<a href="#language-type-definition"><span class="tocnumber">14</span> <span class="toctext">Language type definition</span></a>
+<ul>
+<li class="toc_level-2 toc_section-15">
+<a href="#explicit-size-definitions"><span class="tocnumber">14.1</span> <span class="toctext">Explicit size definitions</span></a>
+</li>
+<li class="toc_level-2 toc_section-16">
+<a href="#platform-size-definitions"><span class="tocnumber">14.2</span> <span class="toctext">Platform size definitions</span></a>
+</li>
+<li class="toc_level-2 toc_section-17">
+<a href="#explicit-size-versus-platform-size"><span class="tocnumber">14.3</span> <span class="toctext">Explicit size versus platform size</span></a>
+</li>
+<li class="toc_level-2 toc_section-18">
+<a href="#signed-versus-unsigned"><span class="tocnumber">14.4</span> <span class="toctext">Signed versus unsigned</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-19">
+<a href="#user-type-definitions"><span class="tocnumber">15</span> <span class="toctext">User type definitions</span></a>
+</li>
+<li class="toc_level-1 toc_section-20">
+<a href="#enumeration-definitions"><span class="tocnumber">16</span> <span class="toctext">Enumeration definitions</span></a>
+</li>
+<li class="toc_level-1 toc_section-21">
+<a href="#structure-definitions"><span class="tocnumber">17</span> <span class="toctext">Structure definitions</span></a>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>µOS++ uses the common C++ naming convention, based on the <a href="http://en.wikipedia.org/wiki/CamelCase">CamelCase</a> convention.</p>
+
+<h1 id="full-words-vs-short-words">Full words vs. short words</h1>
+
+<p>Whenever possible, it is recommended to use the full words; shortening words in member or method names does not make the program shorter or faster, but, when used properly, highly increases the readability of the program.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>  int initialise(); &lt;- instead of init();
+  int configure(); &lt;- instead of config();
+  ..
+  int delaySeconds; &lt;- instead of delaySec;
+</code></pre>
+</div>
+</div>
+
+<h1 id="pairs-of-opposed-actions-or-names">Pairs of opposed actions or names</h1>
+
+<h2 id="antonyms">Antonyms</h2>
+
+<p>When defining pairs of opposed actions, use the proper antonyms:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>  int startAcquisition();
+  int stopAcquisition();
+  ...
+  int enableInterrupts();
+  int disableInterrupts();
+</code></pre>
+</div>
+</div>
+
+<h2 id="technical-terms">Technical terms</h2>
+
+<p>Sometimes, even if the words are not listed in dictionaries as antonyms, the pairs of opposed names are defined by practice:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>  // For hardware signals, like chip select
+  int assert();
+  int deassert();
+  ...
+  // For synchronisation objects, like mutex
+  int acquire();
+  int release();
+</code></pre>
+</div>
+</div>
+
+<h2 id="startstop-vs-beginend">start/stop vs. begin/end</h2>
+
+<p>When defining actions, prefer <strong>start</strong>/<strong>stop</strong> to <strong>begin</strong>/<strong>end</strong>, since they have a stronger verb-like meaning (end is more an adjective than a verb).</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>  int startAcquisition(); &lt;- instead of beginAcquisition()
+  int stopAcquisition(); &lt;- instead of endAcquisition()
+</code></pre>
+</div>
+</div>
+
+<p>However, when the meaning is adjectival, for example adding determinants to a noun, the pair begin/end is preferred.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>  int listBegin; &lt;- instead of listStart
+  int listEnd; &lt;- instead of listStop
+</code></pre>
+</div>
+</div>
+
+<h1 id="class-names">Class names</h1>
+
+<p>Class names start with upper case letters.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>class Logger;
+class CircularBuffer;
+</code></pre>
+</div>
+</div>
+
+<h2 id="derived-class-names">Derived class names</h2>
+
+<p>Derived class names should extend the base class name, by adding a differentiator at the end.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>class OSDeviceCharacterBuffered : public OSDeviceCharacter
+{
+ ...
+};
+</code></pre>
+</div>
+</div>
+
+<h2 id="abstract-base-classes">Abstract base classes</h2>
+
+<p>When an abstract class is used as a base class for concrete implementations, the word Base can be used in the name, and this name can be skipped in the derived class name:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>class DeviceCharacterBufferedUsart0 : public DeviceCharacterBufferedBase
+{
+ ...
+};
+</code></pre>
+</div>
+</div>
+
+<h1 id="method-names">Method names</h1>
+
+<p>All method names start with lower case letters.</p>
+
+<p>Since methods define actions to be performed upon the object, the method name should have the function of a predicate, and usually <strong>start with an imperative verb</strong>.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>  int read();
+</code></pre>
+</div>
+</div>
+
+<p>If there are multiple methods that perform similar functions, they should differentiate by the following noun, with the function of a direct complement.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>  int readByte();
+  long readLong();
+  ...
+  void readBlock();
+</code></pre>
+</div>
+</div>
+
+<p>The rule of starting with a verb is not absolute, when multiple methods are logically grouped by a common criteria, then predicative groups can be used as method names, and the verb is placed at the end.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>  bool eventWaitPrepare(OSEvent_t event);
+  OSEventWaitReturn_t eventWaitPerform(void);
+
+  int eventNotify(OSEvent_t event, OSEventWaitReturn_t ret = OSEventWaitReturn::OS_VOID);
+</code></pre>
+</div>
+</div>
+
+<p>However, when such names occur, it might be a sign that the design can be further refined by defining additional objects, for example instead of</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>  void criticalEnter();
+  void criticalExit();
+</code></pre>
+</div>
+</div>
+
+<p>in the new version of µOS++ we use a separate object to manage critical sections, like</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>class OSCriticalSection
+{
+  void enter(void);
+  void exit(void);
+};
+</code></pre>
+</div>
+</div>
+
+<p>In this case the naming convention is again simplified, according to the initial recommendation to use a verb.</p>
+
+<h2 id="getterssetters">Getters/Setters</h2>
+
+<p>As in most object oriented designs, member variables are usually private to the class and external direct access to them is discouraged. Instead, special getters and setters should be defined.</p>
+
+<p>The name should contain exactly the variable name, prefixed with <strong>get</strong> or <strong>set</strong>.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>private:
+  int m_count;
+
+public:
+  int getCount(void);
+  void setCount(int);
+</code></pre>
+</div>
+</div>
+
+<h2 id="boolean-methods">Boolean methods</h2>
+
+<p>Methods that return boolean values should start with boolean verbs, like <strong>is</strong>, <strong>has</strong>, <strong>does</strong>. Depending on the context, past or future tense versions, like <strong>was</strong> or <strong>will</strong> may be more appropriate.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>  bool isAvailable();
+  bool wasInterrupted();
+  bool willBlock();
+  bool hasMembers();
+  bool doesReturn();  &lt;-- instead of 'bool returns();'
+</code></pre>
+</div>
+</div>
+
+<h2 id="initialise-vs-configure">initialise() vs. configure()</h2>
+
+<p>In classes implementing device drivers, there are methods that can be called only before the device is enabled and methods that can be called at any moment.</p>
+
+<p>To mark this distinction, the recommended names should start with <strong>initialise</strong> for methods that are used before the device is enabled and with <strong>configure</strong> for methods that can be used at any moment.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>  bool initialiseSomething(void);
+  ...
+  bool configureBaudRate(BaudRate_t baudRate);
+  bool configureHighSpeed(void);
+</code></pre>
+</div>
+</div>
+
+<p>It is recommended to use the full words, shortening initialise() to init() or configure() to config() does not make the program shorter or faster.</p>
+
+<h2 id="set-vs-configure">set() vs. configure()</h2>
+
+<p>As mentioned before, setMember() generally should be used as a setter for a class member variable. When dealing with device drivers, changing the state of the device is in fact a configuration change, so it is more appropriate to name methods like configureSomething().</p>
+
+<h1 id="member-variables-names">Member variables names</h1>
+
+<p>Similar to methods, all member variables names start with lower case letters.</p>
+
+<p>Since member variables define characteristics of the object, the member variables name should have the function of an attribute, and usually <strong>start with a noun</strong>. Boolean status variables naming convention should follow the boolean method naming convention, i.e. start with a verb like <strong>is</strong>, <strong>has</strong>, <strong>does</strong>, at present/past/future tense.</p>
+
+<h2 id="private-member-variables-names">Private member variables names</h2>
+
+<p>As the most common type of member variable names, the private member variables should be prefixed with <strong>m_</strong>.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>private:
+  int m_count;
+  char* m_bufferAddress;
+  int m_bufferSize;
+
+  bool m_isRunning;
+  bool m_wasCancelled;
+</code></pre>
+</div>
+</div>
+
+<h2 id="static-member-variables-names">Static member variables names</h2>
+
+<p>Static member variables should be prefixed with <strong>ms_</strong>.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>  static OSThread* volatile ms_pThreadRunning;
+</code></pre>
+</div>
+</div>
+
+<h2 id="public-member-names">Public member names</h2>
+
+<p>As an exception to the above rules, some globally available member variables, like those in the global <strong>os</strong> or <strong>app</strong> objects, can be named without the <strong>m_</strong> prefix.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>class OS : public OSImpl
+{
+public:
+  ...
+  OSScheduler sched;
+  ...
+};
+</code></pre>
+</div>
+</div>
+
+<h2 id="array-members">Array members</h2>
+
+<p>For a better code readability, it is recommended to name array members or pointers to arrays explicitly, like this:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>OSTask** m_pWaitingTasksArray;
+unsigned short m_waitingTasksArraySize;
+</code></pre>
+</div>
+</div>
+
+<h1 id="constant-members">Constant members</h1>
+
+<p>Constant names are all upper case, with words separated by underscores, as in most C programs.</p>
+
+<p>Although in C/C++ it is possible to define constants using the preprocessor, it is recommended to use them only for project configuration variables.</p>
+
+<p>Another possibility would be the use of the C <strong>enum</strong> statement, but the C++ recommended way is to use static <strong>const members</strong>. The main advantage is that these constants are typed, and the compiler can catch some errors.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>  static const OSReturn_t OS_OK = 0;
+</code></pre>
+</div>
+</div>
+
+<p>Depending on the specific scope, if the constants are to be used only inside the given class, they can be made private. where needed,</p>
+
+<p>Constants can be grouped in separated classes, like the system OSReturn class, that groups together various return values.</p>
+
+<h1 id="type-definitions">Type definitions</h1>
+
+<p>For a better code maintainability, where needed, it is recommended to use type definitions instead of direct C/C++ scalar types.</p>
+
+<p>Type definitions must end with <strong>_t</strong>.</p>
+
+<p>As a general rule, it is recommended that all user type definitions should start with an upper case letter, while language type definitions start with lower case letters.</p>
+
+<h2 id="language-type-definition">Language type definition</h2>
+
+<h3 id="explicit-size-definitions">Explicit size definitions</h3>
+
+<p>These are mainly the definitions from <stdint.h></stdint.h></p>
+
+<ul>
+  <li>
+<strong>uint8_t</strong>, <strong>int8_t</strong>
+</li>
+  <li>
+<strong>uint16_t</strong>, <strong>int16_t</strong>
+</li>
+  <li>
+<strong>uint32_t</strong>, <strong>int32_t</strong>
+</li>
+</ul>
+
+<h3 id="platform-size-definitions">Platform size definitions</h3>
+
+<p>In addition, we also recommend the following definitions:</p>
+
+<ul>
+  <li><strong>uchar_t</strong></li>
+  <li><strong>uint_t</strong></li>
+  <li><strong>ulong_t</strong></li>
+</ul>
+
+<p>Although they are physically represented by identical implementations, <strong>uchar_t</strong> should not be messed with <strong>uint8_t</strong>. The first definition (uchar_t) should be used when dealing with text (characters or strings) and the second when dealing with numerical values.</p>
+
+<h3 id="explicit-size-versus-platform-size">Explicit size versus platform size</h3>
+
+<p>Once we introduce the above definitions, the usual question is when to use <strong>int</strong> versus <strong>int8_t</strong>/<strong>int16_t</strong>/<strong>int32_t</strong> or <strong>uint_t</strong> versus <strong>uint8_t</strong>/<strong>uint16_t</strong>/<strong>uint32_t</strong>?</p>
+
+<p>Probably there is no single rule, but several usage cases. For applications that depend on a specific size, regardless of the platform, it is recommended to use the explicit size type definitions. Otherwise, using the platform native size may be more efficient in some cases. For example loop counts are usually better compiled when the the platform register size is used, so even if you know that the counter is small, using uint8_t instead of uint_t may not produce a shorter/faster code (on the contrary).</p>
+
+<p>As a general rule, when defining types that should match a memory mapped structure, or a packet header, or some other fixed size structure, you obviously need to use the explicit size definitions. For the rest, platform size definitions might be preferred.</p>
+
+<h3 id="signed-versus-unsigned">Signed versus unsigned</h3>
+
+<p>Another usual question is when to use int (signed) versus uint_t (unsigned). The answer is obvious, if the variable you want to represent can take negative values, then use signed variables. Otherwise, use unsigned variables.</p>
+
+<p>One single note: sometimes, although the variable itself can take only positive values, it might be needed to also multiplex error codes on the same variable, and, in order to differentiate them, error cases are defined as impossible/illegal negative values.</p>
+
+<p>Although an universal solution is not enforced, it is preferable NOT to return error codes multiplexed with valid content; instead, use a separate <strong>OSReturn_t</strong> for errors, and leave the value unaffected by error processing.</p>
+
+<h2 id="user-type-definitions">User type definitions</h2>
+
+<p>These are custom definitions, made to increase code readability and maintainability. Preferably they should rely on the previous type definitions.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>typedef uint8_t OSThreadPriority_t;
+</code></pre>
+</div>
+</div>
+
+<h2 id="enumeration-definitions">Enumeration definitions</h2>
+
+<p>When defining enumerations, it is recommended to define both the key and the type, using the following syntax:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>typedef enum Channel_e
+  {
+    channelA = 0,
+    channelB = 1
+  } Channel_t;
+...
+someMethod(channelA);
+</code></pre>
+</div>
+</div>
+
+<p>However, since in the current language definition, enumerations are not typed, it is recommended to use separate a classes with constant members.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>typedef uint8_t Channel_t;
+
+class Channel
+{
+  const static Channel_t A = 0;
+  const static Channel_t B = 1;
+};
+...
+someMethod(Channel::A);
+</code></pre>
+</div>
+</div>
+
+<h2 id="structure-definitions">Structure definitions</h2>
+
+<p>Usually, structure definitions should be avoided, and be replaced by class definitions.</p>
+
+<p>However, if for any reasons, struct definitions are needed, it is recommended to define both the struct name and the type, using the following syntax:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>typedef struct Region_s
+  {
+    RegionAddress_t address;
+    RegionSize_t size;
+  } Region_t;
+</code></pre>
+</div>
+</div>
+
+<h1 id="measuring-units">Measuring units</h1>
+
+<p>Whenever not absolutely obvious, append the measuring units to the member or method name.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>int busFrequencyHz;
+int delaySeconds;
+int delayMilliseconds;
+int delayMicroseconds;
+int lengthMetres;
+int lengthCentimetres;
+int lengthMillimetres;
+</code></pre>
+</div>
+</div>
+
+<p>If possible, use the full unit names;</p>
+
+<h1 id="use-of-underscore">Use of underscore</h1>
+
+<p>Normally under camelCase rules, the underscore is no longer necessary. However, in special cases the underscore can be used as a class specifier.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>  inline static void ledActiveOn(void) __attribute__((always_inline));
+
+  inline static void ISR_ledActiveOn(void) __attribute__((always_inline));
+</code></pre>
+</div>
+</div>
+
+
+
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/micro-os-plus/i/C++_naming_convention/" data-layout="button"></div></li>
+</ul>
+
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="site-footer">
+  <div class="site-footer-links left">
+    <ul>
+  <li>© 2019 Liviu Ionescu</li>
+  <li>Hosted on GitHub</li>
+  <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
+  <li>
+<a href="http://twitter.com/micro_os_plus" class="twitter-follow-button" data-show-count="false">Follow @micro_os_plus</a><script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</li>
+</ul>
+
+
+  </div>
+  <a href="https://github.com/micro-os-plus/micro-os-plus-iii" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+  </a>
+  <div class="site-footer-links right">
+    <ul>
+  <li><a href="/web-preview/">Home</a></li>
+  <li><a href="/web-preview/blog/">News</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/releases">Releases</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues">Support</a></li>
+  <li><a href="/web-preview/about/">About</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>C/C++ naming conventions</title>
+  <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
+
+  <meta property="og:title" content="C/C++ naming conventions">
+  <meta property="og:site_name" content="µOS++ IIIe">
+
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+
+
+  <meta property="article:published_time" content="2014-02-22">
+
+
+
+
+
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
+
+  <link rel="canonical" href="/web-preview/develop/naming-conventions/">
+
+
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16767008-14', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+  <div class="site-header">
+  <table style="width:100%">
+    <tr>
+      <td>
+        <a href="/web-preview/">
+          <img alt="Icon" class="site-icon" src="/web-preview/assets/icons/wall-e-icon.png" height="100" width="100">
+      </a>
+      </td>
+      <td>
+        <table class="site-title" style="width:100%">
+          <tr>
+            <td class="site-title">
+              <a href="/web-preview/">µOS++ IIIe</a>
+            </td>
+            <td class="site-motto" align="right">
+              “Perfekt ist nicht gut genug”
+            </td>
+          </tr>
+          <tr>
+            <td class="site-description" colspan="2">
+              The third edition of µOS++, a POSIX inspired open source framework, written in C++.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+</div>
+
+<div class="container">
+
+  <div class="wrapper">
+    <div class="site-body">
+
+      <div class="site-sidebar">
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      <h4 id="news"><a href="/web-preview/blog/">News</a></h4>
+
+<ul>
+  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></li>
+  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ IIIe v6.3.14 released</a></li>
+  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ IIIe v6.3.13 released</a></li>
+  <li><a href="/web-preview/blog/2017/01/02/micro-os-plus-v6-3-11-released/">µOS++ IIIe v6.3.11 released</a></li>
+</ul>
+
+
+    </div>
+  </div>
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      
+      <h4 id="home"><a href="/web-preview/">Home</a></h4>
+
+<h4 id="µos-iiie">µOS++ IIIe</h4>
+
+<ul>
+  <li><a href="/web-preview/micro-os-plus/">Overview</a></li>
+</ul>
+
+<h4 id="apis">APIs</h4>
+
+<ul>
+  <li><a href="/web-preview/cmsis-plus/">Overview</a></li>
+  <li><a href="/web-preview/cmsis-plus/rtos/">RTOS API</a></li>
+</ul>
+
+<h4 id="xpacksxcdl">xPacks/XCDL</h4>
+
+<ul>
+  <li><a href="/web-preview/xpacks/">Overview</a></li>
+</ul>
+
+<h4 id="documentation">Documentation</h4>
+
+<ul>
+  <li>
+<a href="/web-preview/user-manual/">User’s <strong>manual</strong></a>
+    <ul>
+      <li><a href="/web-preview/user-manual/getting-started/">Getting started</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/">Basic concepts</a></li>
+      <li><a href="/web-preview/user-manual/features/">Features</a></li>
+      <li><a href="/web-preview/user-manual/threads/">Threads</a></li>
+      <li><a href="/web-preview/user-manual/thread-event-flags/">Thread event flags</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/">Semaphores</a></li>
+      <li><a href="/web-preview/user-manual/event-flags/">Event flags</a></li>
+      <li>Mutexes</li>
+      <li>Condition variables</li>
+      <li>Message queues</li>
+      <li>Memory pools</li>
+      <li>Software timers</li>
+      <li>Clocks</li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/reference/cmsis-plus/">µOS++ <strong>reference</strong></a></li>
+</ul>
+
+<h4 id="developer">Developer</h4>
+
+<ul>
+  <li><a href="/web-preview/develop/">Overview</a></li>
+  <li><a href="/web-preview/reference/cmsis-plus/md_doxygen_pages_change-log.html">Change log</a></li>
+  <li><a href="/web-preview/develop/coding-style/">C++ coding style</a></li>
+  <li><a href="/web-preview/develop/naming-conventions/">Naming conventions</a></li>
+  <li><a href="/web-preview/develop/references/">Links &amp; references</a></li>
+</ul>
+
+<h4 id="support">Support</h4>
+
+<ul>
+  <li><a href="/web-preview/support/">Overview</a></li>
+  <li><a href="/web-preview/support/known-issues/">Known issues</a></li>
+  <li><a href="/web-preview/support/faq/">FAQ</a></li>
+  <li><a href="/web-preview/support/forum/">Forum</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ IIIe issues</a></li>
+</ul>
+
+<h4 id="latest-articles">Latest Articles</h4>
+
+<ul>
+  <li><a href="/web-preview/articles/arm-com-2016-06-24/">CMSIS++ RTOS: fully functional reference implementation</a></li>
+  <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
+</ul>
+
+<h4 id="license">License</h4>
+
+<ul>
+  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+</ul>
+
+<h4 id="about"><a href="/web-preview/about/">About</a></h4>
+
+    </div>
+  </div>
+
+  <div class="site-theme">
+    This site uses the <a href="https://github.com/ilg-ul/github-jekyll-theme">GitHub Wiki-like</a> theme by <a href="https://github.com/ilg-ul">Liviu Ionescu</a>.
+  </div>
+
+</div>
+
+
+      <div class="site-content">
+
+        
+<h1 class="page-title">C/C++ naming conventions</h1>
+<table id="last-modified">
+  <tr>
+    <td id="last-modified">Last modified on Wed Dec 23 10:37:26 2020 UTC.</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/develop/naming-conventions.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+  </tr>
+</table>
+
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toc_level-1 toc_section-1">
+<a href="#underscore-separated-lower-case-names"><span class="tocnumber">1</span> <span class="toctext">Underscore separated lower case names</span></a>
+</li>
+<li class="toc_level-1 toc_section-2">
+<a href="#full-words-vs-short-words"><span class="tocnumber">2</span> <span class="toctext">Full words vs. short words</span></a>
+</li>
+<li class="toc_level-1 toc_section-3">
+<a href="#avoid-context-duplication"><span class="tocnumber">3</span> <span class="toctext">Avoid context duplication</span></a>
+</li>
+<li class="toc_level-1 toc_section-4">
+<a href="#singular-vs-plural"><span class="tocnumber">4</span> <span class="toctext">Singular vs. plural</span></a>
+</li>
+<li class="toc_level-1 toc_section-5">
+<a href="#pairs-of-opposed-actions-or-names"><span class="tocnumber">5</span> <span class="toctext">Pairs of opposed actions or names</span></a>
+<ul>
+<li class="toc_level-2 toc_section-6">
+<a href="#antonyms"><span class="tocnumber">5.1</span> <span class="toctext">Antonyms</span></a>
+</li>
+<li class="toc_level-2 toc_section-7">
+<a href="#technical-terms"><span class="tocnumber">5.2</span> <span class="toctext">Technical terms</span></a>
+</li>
+<li class="toc_level-2 toc_section-8">
+<a href="#startstop-vs-beginend"><span class="tocnumber">5.3</span> <span class="toctext">start/stop vs. begin/end</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-9">
+<a href="#class-names"><span class="tocnumber">6</span> <span class="toctext">Class names</span></a>
+<ul>
+<li class="toc_level-2 toc_section-10">
+<a href="#derived-class-names"><span class="tocnumber">6.1</span> <span class="toctext">Derived class names</span></a>
+</li>
+<li class="toc_level-2 toc_section-11">
+<a href="#abstract-base-classes"><span class="tocnumber">6.2</span> <span class="toctext">Abstract base classes</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-12">
+<a href="#templates"><span class="tocnumber">7</span> <span class="toctext">Templates</span></a>
+<ul>
+<li class="toc_level-2 toc_section-13">
+<a href="#class-template-vs-template-class"><span class="tocnumber">7.1</span> <span class="toctext">Class template vs template class?</span></a>
+</li>
+<li class="toc_level-2 toc_section-14">
+<a href="#class-template-names"><span class="tocnumber">7.2</span> <span class="toctext">Class template names</span></a>
+</li>
+<li class="toc_level-2 toc_section-15">
+<a href="#template-parameter-types"><span class="tocnumber">7.3</span> <span class="toctext">Template parameter types</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-16">
+<a href="#member-function-names"><span class="tocnumber">8</span> <span class="toctext">Member function names</span></a>
+<ul>
+<li class="toc_level-2 toc_section-17">
+<a href="#actions-prefixes"><span class="tocnumber">8.1</span> <span class="toctext">Actions prefixes</span></a>
+</li>
+<li class="toc_level-2 toc_section-18">
+<a href="#accessorsmutators"><span class="tocnumber">8.2</span> <span class="toctext">Accessors/mutators</span></a>
+</li>
+<li class="toc_level-2 toc_section-19">
+<a href="#getset-vs-readwrite"><span class="tocnumber">8.3</span> <span class="toctext">get/set vs. read/write</span></a>
+</li>
+<li class="toc_level-2 toc_section-20">
+<a href="#boolean-functions"><span class="tocnumber">8.4</span> <span class="toctext">Boolean functions</span></a>
+</li>
+<li class="toc_level-2 toc_section-21">
+<a href="#initialise-vs-configure"><span class="tocnumber">8.5</span> <span class="toctext">initialise() vs. configure()</span></a>
+</li>
+<li class="toc_level-2 toc_section-22">
+<a href="#set-vs-configure"><span class="tocnumber">8.6</span> <span class="toctext">set() vs. configure()</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-23">
+<a href="#member-variables-names"><span class="tocnumber">9</span> <span class="toctext">Member variables names</span></a>
+<ul>
+<li class="toc_level-2 toc_section-24">
+<a href="#private-member-variables-names"><span class="tocnumber">9.1</span> <span class="toctext">Private member variables names</span></a>
+</li>
+<li class="toc_level-2 toc_section-25">
+<a href="#static-member-variables-names"><span class="tocnumber">9.2</span> <span class="toctext">Static member variables names</span></a>
+</li>
+<li class="toc_level-2 toc_section-26">
+<a href="#public-member-names"><span class="tocnumber">9.3</span> <span class="toctext">Public member names</span></a>
+</li>
+<li class="toc_level-2 toc_section-27">
+<a href="#array-members"><span class="tocnumber">9.4</span> <span class="toctext">Array members</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-28">
+<a href="#const--volatile"><span class="tocnumber">10</span> <span class="toctext">const &amp; volatile</span></a>
+</li>
+<li class="toc_level-1 toc_section-29">
+<a href="#constants"><span class="tocnumber">11</span> <span class="toctext">Constants</span></a>
+<ul>
+<li class="toc_level-2 toc_section-30">
+<a href="#static-constexpr-vs-constexpr-static"><span class="tocnumber">11.1</span> <span class="toctext">static constexpr vs. constexpr static</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-31">
+<a href="#type-definitions"><span class="tocnumber">12</span> <span class="toctext">Type definitions</span></a>
+<ul>
+<li class="toc_level-2 toc_section-32">
+<a href="#language-type-definition"><span class="tocnumber">12.1</span> <span class="toctext">Language type definition</span></a>
+</li>
+<li class="toc_level-2 toc_section-33">
+<a href="#user-type-definitions"><span class="tocnumber">12.2</span> <span class="toctext">User type definitions</span></a>
+</li>
+<li class="toc_level-2 toc_section-34">
+<a href="#enumeration-definitions"><span class="tocnumber">12.3</span> <span class="toctext">Enumeration definitions</span></a>
+</li>
+<li class="toc_level-2 toc_section-35">
+<a href="#structure-definitions"><span class="tocnumber">12.4</span> <span class="toctext">Structure definitions</span></a>
+</li>
+<li class="toc_level-2 toc_section-36">
+<a href="#aliases-to-classes"><span class="tocnumber">12.5</span> <span class="toctext">Aliases to classes</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-37">
+<a href="#measuring-units"><span class="tocnumber">13</span> <span class="toctext">Measuring units</span></a>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="underscore-separated-lower-case-names">Underscore separated lower case names</h2>
+
+<p>In previous versions, µOS++ used the <a href="http://en.wikipedia.org/wiki/CamelCase">CamelCase</a> naming convention, but, after a long consideration, the naming was brought back to what the ISO standard libraries use, and to what existing coding styles (like MISRA, JSF) recommend, which is <strong>underscore separated lower case names</strong>.</p>
+
+<h2 id="full-words-vs-short-words">Full words vs. short words</h2>
+
+<p>Do <strong>not</strong> use contractions. Whenever possible, it is recommended to use the full words; shortening words in member or member function names does not make the program shorter or faster; full names, when used properly, highly increase the readability of the program.</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="kt">int</span> <span class="nf">initialise</span><span class="p">();</span> <span class="c1">// instead of init();</span>
+<span class="kt">int</span> <span class="nf">configure</span><span class="p">();</span> <span class="c1">// instead of config();</span>
+<span class="p">...</span>
+<span class="kt">int</span> <span class="n">delay_seconds</span><span class="p">;</span> <span class="c1">// instead of delay_sec;</span>
+</code></pre>
+</div>
+</div>
+
+<h2 id="avoid-context-duplication">Avoid context duplication</h2>
+
+<p>A name should not duplicate the context in which it is defined. Always remove the context from a name if that doesn’t decrease its readability.</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="k">class</span> <span class="nc">menu_item</span> <span class="p">{</span>
+  <span class="c1">// Bad.</span>
+  <span class="kt">void</span> <span class="n">handle_menu_item_click</span><span class="p">();</span>
+  
+  <span class="c1">// Good.</span>
+  <span class="kt">void</span> <span class="n">handle_click</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+</div>
+
+<h2 id="singular-vs-plural">Singular vs. plural</h2>
+
+<p>Names can be made singular or plural depending on whether they hold a single value or multiple values, thus arrays and collections should be plural.</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="kt">int</span> <span class="n">id</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">ids</span><span class="p">[];</span>
+</code></pre>
+</div>
+</div>
+
+<p>Even better, arrays and collections can be suffixed with the type:</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="n">thread_t</span><span class="o">*</span> <span class="n">waiting_threads_array</span><span class="p">[];</span>
+
+<span class="n">thread_t</span><span class="o">*</span> <span class="n">waiting_threads_list</span><span class="p">;</span>
+<span class="n">property_t</span><span class="o">*</span> <span class="n">properties_map</span><span class="p">;</span>
+<span class="kt">char</span><span class="o">*</span> <span class="n">known_client_ids_set</span><span class="p">;</span>
+</code></pre>
+</div>
+</div>
+
+<h2 id="pairs-of-opposed-actions-or-names">Pairs of opposed actions or names</h2>
+
+<h3 id="antonyms">Antonyms</h3>
+
+<p>When defining pairs of opposed actions, use the proper antonyms:</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="kt">int</span> <span class="nf">start_acquisition</span><span class="p">();</span>
+<span class="kt">int</span> <span class="nf">stop_acquisition</span><span class="p">();</span>
+
+<span class="kt">int</span> <span class="nf">enable_interrupts</span><span class="p">();</span>
+<span class="kt">int</span> <span class="nf">disable_interrupts</span><span class="p">();</span>
+</code></pre>
+</div>
+</div>
+
+<h3 id="technical-terms">Technical terms</h3>
+
+<p>Sometimes, even if the words are not listed in dictionaries as antonyms, the pairs of opposed names are defined by practice:</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="c1">// For hardware signals, like chip select</span>
+<span class="kt">int</span> <span class="nf">assert</span><span class="p">();</span>
+<span class="kt">int</span> <span class="nf">deassert</span><span class="p">();</span>
+
+<span class="c1">// For synchronisation objects, like mutex</span>
+<span class="kt">int</span> <span class="nf">acquire</span><span class="p">();</span>
+<span class="kt">int</span> <span class="nf">release</span><span class="p">();</span>
+</code></pre>
+</div>
+</div>
+
+<h3 id="startstop-vs-beginend">start/stop vs. begin/end</h3>
+
+<p>When defining actions, prefer <strong>start</strong>/<strong>stop</strong> to <strong>begin</strong>/<strong>end</strong>, since they have a stronger verb-like meaning (end is more an adjective than a verb).</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="kt">int</span> <span class="nf">start_acquisition</span><span class="p">();</span> <span class="c1">// instead of begin_acquisition()</span>
+<span class="kt">int</span> <span class="nf">stop_acquisition</span><span class="p">();</span> <span class="c1">// instead of end_acquisition()</span>
+</code></pre>
+</div>
+</div>
+
+<p>However, when the meaning is adjectival, for example adding determinants to a noun, the pair begin/end is preferred.</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="kt">int</span> <span class="n">list_begin</span><span class="p">;</span> <span class="c1">// instead of list_start</span>
+<span class="kt">int</span> <span class="n">list_end</span><span class="p">;</span> <span class="c1">// instead of list_stop</span>
+</code></pre>
+</div>
+</div>
+
+<h2 id="class-names">Class names</h2>
+
+<p>Class names are singular names or nominative constructs; they do not need to start with upper case letters.</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="k">class</span> <span class="nc">logger</span><span class="p">;</span>
+<span class="k">class</span> <span class="nc">circular_buffer</span><span class="p">;</span>
+</code></pre>
+</div>
+</div>
+
+<h3 id="derived-class-names">Derived class names</h3>
+
+<p>Derived class names should extend the base class name, by adding a differentiator at the end.</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="k">class</span> <span class="nc">device_character_buffered</span> <span class="o">:</span> <span class="k">public</span> <span class="n">device_character</span>
+<span class="p">{</span>
+  <span class="c1">// ...</span>
+<span class="p">};</span>
+</code></pre>
+</div>
+</div>
+
+<h3 id="abstract-base-classes">Abstract base classes</h3>
+
+<p>When an abstract class is used as a base class for concrete implementations, the suffix <code class="language-plaintext highlighter-rouge">_base</code> can be added to the name, and this name can be skipped in the derived class name:</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="k">class</span> <span class="nc">device_character_buffered_usart0</span> <span class="o">:</span> <span class="k">public</span> <span class="n">device_character_buffered_base</span>
+<span class="p">{</span>
+  <span class="c1">// ...</span>
+<span class="p">};</span>
+</code></pre>
+</div>
+</div>
+
+<h2 id="templates">Templates</h2>
+
+<p>Templates are a great C++ feature, that can be used for many purposes, with the common one being to implement compile time polymorphism.</p>
+
+<h3 id="class-template-vs-template-class">Class template vs <del>template class</del>?</h3>
+
+<p>As far as C++ is concerned, there is no such thing as a <del>template class</del>, there is only a <strong>class template</strong>.</p>
+
+<h3 id="class-template-names">Class template names</h3>
+
+<p>Class template names follow the same convention as the class names. No need to prefix them with anything.</p>
+
+<h3 id="template-parameter-types">Template parameter types</h3>
+
+<p>There are several template parameter types, parameters naming user-defined types (like classes), parameters naming primitive types and constant parameters (usually integer).</p>
+
+<p>Although not required by the language, it is recommended to define parameters naming types with <code class="language-plaintext highlighter-rouge">typename T</code>.</p>
+
+<p>In class templates, it is recommended to alias the template parameters to new names, and use these new names in code, reserving the template parameters only to define the template syntax.</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="p">,</span> <span class="k">typename</span> <span class="nc">U</span> <span class="o">=</span> <span class="kt">void</span><span class="p">,</span> <span class="kt">int</span> <span class="n">N</span><span class="p">&gt;</span>
+<span class="k">class</span> <span class="nc">pin</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+  <span class="k">using</span> <span class="n">gpio</span> <span class="o">=</span> <span class="n">T</span><span class="p">;</span>
+  <span class="k">using</span> <span class="n">result_t</span> <span class="o">=</span> <span class="n">U</span> <span class="p">;</span>
+  <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">int</span> <span class="n">bit</span> <span class="o">=</span> <span class="n">N</span><span class="p">;</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+
+<span class="c1">// Explicit instantiation</span>
+<span class="k">template</span> <span class="k">class</span> <span class="nc">pin</span><span class="o">&lt;</span><span class="n">GPIOC1</span><span class="p">&gt;;</span>
+
+<span class="c1">// Define a type alias. </span>
+<span class="k">using</span> <span class="n">my_pin</span> <span class="o">=</span> <span class="k">class</span> <span class="nc">pin</span><span class="o">&lt;</span><span class="n">GPIOC1</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre>
+</div>
+</div>
+
+<h2 id="member-function-names">Member function names</h2>
+
+<p>Function names are formed from lower case letters.</p>
+
+<p>Since functions define actions to be performed upon the object, the function name should have the function of a predicate, and usually <strong>start with an imperative verb</strong>.</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="kt">int</span> <span class="nf">read</span><span class="p">();</span>
+</code></pre>
+</div>
+</div>
+
+<p>If there are multiple functions that perform similar actions, they should differentiate by the following noun, with the function of a direct complement.</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="kt">int</span> <span class="nf">read_byte</span><span class="p">();</span>
+<span class="kt">long</span> <span class="nf">read_long</span><span class="p">();</span>
+
+<span class="kt">void</span> <span class="nf">read_block</span><span class="p">();</span>
+</code></pre>
+</div>
+</div>
+
+<p>The rule of starting with a verb is not absolute, when multiple functions are logically grouped by a common criteria, then predicative groups can be used as function names, and the verb is placed at the end. However, when such names occur, it might be a sign that the design can be further refined by defining additional objects, for example instead of:</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="kt">void</span> <span class="nf">critical_enter</span><span class="p">();</span>
+<span class="kt">void</span> <span class="nf">critical_exit</span><span class="p">();</span>
+</code></pre>
+</div>
+</div>
+
+<p>a separate object to manage critical sections might be useful, like:</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="k">class</span> <span class="nc">critical</span>
+<span class="p">{</span>
+  <span class="kt">void</span> <span class="n">enter</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+  <span class="kt">void</span> <span class="n">exit</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre>
+</div>
+</div>
+
+<p>In this case the naming convention is again simplified, according to the initial recommendation to use a verb.</p>
+
+<h3 id="actions-prefixes">Actions prefixes</h3>
+
+<h4 id="get">
+<del>get</del>
+</h4>
+
+<p>Accesses data immediately (i.e., shorthand getter of internal data). Generally to be avoided, use accessors instead.</p>
+
+<h4 id="set">
+<del>set</del>
+</h4>
+
+<p>Declaratively sets a variable or a member to a value. Generally to be avoided, use mutators instead.</p>
+
+<h4 id="reset">reset</h4>
+
+<p>Sets a variable or a member back to its initial value or state.</p>
+
+<h4 id="fetch">fetch</h4>
+
+<p>Requests data, which takes time.</p>
+
+<h4 id="remove">remove</h4>
+
+<p>Removes something from somewhere, for example an object from a collection. The objects thembselves may continue to live, but outside of the collection.</p>
+
+<h4 id="delete">delete</h4>
+
+<p>Completely erases something from the realm of existence.</p>
+
+<h4 id="compose">compose</h4>
+
+<p>Creates new data from existing data.</p>
+
+<h4 id="handle">handle</h4>
+
+<p>Handles an action. Often used when naming a callback method.</p>
+
+<h4 id="do">do</h4>
+
+<p>Implement a private action, usually paired with public similar name.</p>
+
+<h3 id="accessorsmutators">Accessors/mutators</h3>
+
+<p>As in most object oriented designs, member variables are usually private to the class and external direct access to them is discouraged. Instead, special accessors and mutators should be defined.</p>
+
+<p>The name should generally contain the variable name, without parameters for the accessors and with at least one parameter for the mutators.</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="nl">private:</span>
+  <span class="kt">int</span> <span class="n">prio_</span><span class="p">;</span>
+
+<span class="k">public</span><span class="o">:</span>
+  <span class="kt">int</span> <span class="nf">prio</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+  <span class="kt">void</span> <span class="nf">prio</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+</code></pre>
+</div>
+</div>
+
+<h3 id="getset-vs-readwrite">get/set vs. read/write</h3>
+
+<p>When dealing with hardware, even if the memory mapped registers are seen as class members, it is recommended to prefix member functions with read/write, not get/set, which are usually the sign of accessors/mutators in other languages.</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="n">hal</span><span class="o">::</span><span class="n">cortexm</span><span class="o">::</span><span class="n">reg32_t</span>
+<span class="nf">read_mode</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+<span class="kt">void</span>
+<span class="nf">write_mode</span><span class="p">(</span><span class="k">const</span> <span class="n">hal</span><span class="o">::</span><span class="n">cortexm</span><span class="o">::</span><span class="n">reg32_t</span> <span class="n">value</span><span class="p">);</span>
+</code></pre>
+</div>
+</div>
+
+<h3 id="boolean-functions">Boolean functions</h3>
+
+<p>Functions that return boolean values should start with boolean verbs, like <strong>is</strong>, <strong>has</strong>, <strong>should</strong>, <strong>does</strong>.</p>
+
+<h4 id="iswaswill">is/was/will</h4>
+
+<p>Describes the existence of a characteristic or state.</p>
+
+<p>Depending on the context, past or future tense versions, like <strong>was</strong> or <strong>will</strong> may be more appropriate.</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="kt">bool</span> <span class="nf">is_available</span><span class="p">();</span>
+<span class="kt">bool</span> <span class="nf">was_interrupted</span><span class="p">();</span>
+<span class="kt">bool</span> <span class="nf">will_block</span><span class="p">();</span>
+</code></pre>
+</div>
+</div>
+
+<h4 id="has">has</h4>
+
+<p>Describes whether the current context possesses a certain attribute (value or state).</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="kt">bool</span> <span class="nf">has_members</span><span class="p">();</span>
+
+<span class="c1">// Bad</span>
+<span class="kt">bool</span> <span class="nf">are_members_present</span><span class="p">();</span>
+</code></pre>
+</div>
+</div>
+
+<h4 id="does">does</h4>
+
+<p>Describes whether the current context is capable of a certain positive action.</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="kt">bool</span> <span class="nf">does_return</span><span class="p">();</span>  
+
+<span class="c1">// Bad</span>
+<span class="kt">bool</span> <span class="nf">returns</span><span class="p">();</span>
+</code></pre>
+</div>
+</div>
+
+<h4 id="should">should</h4>
+
+<p>Reflects a positive conditional statement (usually a boolean) coupled with a certain action.</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="kt">bool</span> <span class="nf">should_update</span><span class="p">();</span>
+</code></pre>
+</div>
+</div>
+
+<h4 id="not">
+<del>not</del>
+</h4>
+
+<p>Generally avoid inserting <code class="language-plaintext highlighter-rouge">_not_</code> between the words to define negative logic; instead use the positive logic names prefixed with the language <code class="language-plaintext highlighter-rouge">!</code> operator.</p>
+
+<h3 id="initialise-vs-configure">initialise() vs. configure()</h3>
+
+<p>In classes implementing device drivers, there are member functions that can be called only before the device is enabled and functions that can be called at any moment.</p>
+
+<p>To mark this distinction, the recommended names should start with <strong>initialise</strong> for functions that are used before the device is enabled and with <strong>configure</strong> for functions that can be used at any moment.</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="kt">bool</span> <span class="nf">initialise_something</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+<span class="kt">bool</span> <span class="nf">configure_baud_rate</span><span class="p">(</span><span class="n">baud_rate_t</span> <span class="n">baud_rate</span><span class="p">);</span>
+<span class="kt">bool</span> <span class="nf">configure_high_speed</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</code></pre>
+</div>
+</div>
+
+<p>It is recommended to use the full words, shortening <code class="language-plaintext highlighter-rouge">initialise()</code> to <code class="language-plaintext highlighter-rouge">init()</code> or <code class="language-plaintext highlighter-rouge">configure()</code> to <code class="language-plaintext highlighter-rouge">config()</code> does not make the program shorter or faster.</p>
+
+<h3 id="set-vs-configure">set() vs. configure()</h3>
+
+<p>When dealing with device drivers, changing the state of the device is in fact a configuration change, so it is more appropriate to name functions like <code class="language-plaintext highlighter-rouge">configure_something()</code>.</p>
+
+<h2 id="member-variables-names">Member variables names</h2>
+
+<p>Similar to member functions, all member variables names use lower case letters.</p>
+
+<p>Since member variables define characteristics of the object, the member variables name should have the function of an attribute, and usually <strong>start with a noun</strong>. Boolean status variables naming convention should follow the boolean function naming convention, i.e. start with a verb like <strong>is</strong>, <strong>has</strong>, <strong>does</strong>, at present/past/future tense.</p>
+
+<h3 id="private-member-variables-names">Private member variables names</h3>
+
+<p>As the most common type of member variable names, the private member variables should be suffixed with <code class="language-plaintext highlighter-rouge">_</code>.</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="nl">private:</span>
+  <span class="kt">int</span> <span class="n">count_</span><span class="p">;</span>
+  <span class="kt">char</span><span class="o">*</span> <span class="n">buffer_address_</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">buffer_size_</span><span class="p">;</span>
+
+  <span class="kt">bool</span> <span class="n">is_running_</span><span class="p">;</span>
+  <span class="kt">bool</span> <span class="n">was_cancelled_</span><span class="p">;</span>
+</code></pre>
+</div>
+</div>
+
+<h3 id="static-member-variables-names">Static member variables names</h3>
+
+<p>Static member variables <strong>need not</strong> be prefixed or suffixed.</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="k">static</span> <span class="k">constexpr</span> <span class="kt">uint32_t</span> <span class="n">frequency_hz</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</code></pre>
+</div>
+</div>
+
+<h3 id="public-member-names">Public member names</h3>
+
+<p>As an exception to the above rules, some <strong>globally available</strong> member variables, can be named without the <code class="language-plaintext highlighter-rouge">_</code> suffix.</p>
+
+<h3 id="array-members">Array members</h3>
+
+<p>For a better code readability, it is recommended to name the array members, at plural:</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="kr">thread</span><span class="o">**</span> <span class="n">waiting_threads_array</span><span class="p">;</span>
+<span class="kt">unsigned</span> <span class="kt">short</span> <span class="n">waiting_threads_array_size</span><span class="p">;</span>
+</code></pre>
+</div>
+</div>
+
+<h2 id="const--volatile">const &amp; volatile</h2>
+
+<p>The rules for using these keywords are sometimes tricky, and the easiest to remember is <strong><em>const makes a constant whatever is on its left</em></strong>:</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code> <span class="kt">int</span><span class="o">*</span> <span class="k">const</span> <span class="n">p1</span><span class="p">;</span> <span class="c1">// constant pointer to int</span>
+ <span class="k">const</span> <span class="kt">int</span><span class="o">*</span> <span class="n">p2</span><span class="p">;</span> <span class="c1">// pointer to an int constant</span>
+ <span class="k">const</span> <span class="kt">int</span><span class="o">*</span> <span class="k">const</span> <span class="n">p3</span><span class="p">;</span> <span class="c1">// constant pointer to an int constant</span>
+</code></pre>
+</div>
+</div>
+
+<p>Systematic use of the above rule would put the type of scalars at the left of const, which is not that usual:</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code> <span class="kt">int</span> <span class="k">const</span> <span class="n">n</span><span class="p">;</span> <span class="c1">// constant integer</span>
+</code></pre>
+</div>
+</div>
+
+<p>So, for scalars and for constants, it is also acceptable to use the more common order:</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code> <span class="k">const</span> <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+ <span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">my_const</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+</code></pre>
+</div>
+</div>
+
+<h2 id="constants">Constants</h2>
+
+<p>Constant names are regular names, all lower case.</p>
+
+<p>Although in C/C++ it is possible to define constants using the preprocessor, it is recommended to use them only for project configuration variables, otherwise use only typed definitions, and the compiler might catch some errors.</p>
+
+<p>For individual definitions, the recommended way is to use <code class="language-plaintext highlighter-rouge">constexpr</code>.</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="k">constexpr</span> <span class="n">thread_id_t</span> <span class="n">id_none</span> <span class="o">=</span> <span class="mh">0xFF</span><span class="p">;</span>
+</code></pre>
+</div>
+</div>
+
+<p>For definitions inside a class, use <code class="language-plaintext highlighter-rouge">static constexpr</code> members.</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="k">static</span> <span class="k">constexpr</span> <span class="n">return_t</span> <span class="n">os_ok</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</code></pre>
+</div>
+</div>
+
+<p>Depending on the specific scope, if the constants are to be used only inside the given class, they can be made private.</p>
+
+<p>Constants can be grouped in separated classes, that groups together various return values, although enums would be probably more appropriate.</p>
+
+<p>For group of constants, the recommended method is to use enumerations.</p>
+
+<h3 id="static-constexpr-vs-constexpr-static">static constexpr vs. <del>constexpr static</del>
+</h3>
+
+<p>The recommended order is <code class="language-plaintext highlighter-rouge">static constexpr</code>.</p>
+
+<h2 id="type-definitions">Type definitions</h2>
+
+<p>For a better code maintainability, where needed, it is recommended to use type definitions instead of direct C/C++ scalar types.</p>
+
+<p>Scalar type definitions should use lower case letters and end with <code class="language-plaintext highlighter-rouge">_t</code>; class aliases should follow the usual naming convention of class names.</p>
+
+<h3 id="language-type-definition">Language type definition</h3>
+
+<h4 id="explicit-size-definitions">Explicit size definitions</h4>
+
+<p>These are mainly the definitions from <code class="language-plaintext highlighter-rouge">&lt;stdint.h&gt;</code></p>
+
+<ul>
+  <li>
+<code class="language-plaintext highlighter-rouge">uint8_t</code>, <code class="language-plaintext highlighter-rouge">int8_t</code>
+</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">uint16_t</code>, <code class="language-plaintext highlighter-rouge">int16_t</code>
+</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">uint32_t</code>, <code class="language-plaintext highlighter-rouge">int32_t</code>
+</li>
+</ul>
+
+<h4 id="explicit-size-versus-platform-size">Explicit size versus platform size</h4>
+
+<p>Once we introduce the above definitions, the usual question is when to use <code class="language-plaintext highlighter-rouge">int</code> versus <code class="language-plaintext highlighter-rouge">int8_t</code>/<code class="language-plaintext highlighter-rouge">int16_t</code>/<code class="language-plaintext highlighter-rouge">int32_t</code> or <code class="language-plaintext highlighter-rouge">unsigned int</code> versus <code class="language-plaintext highlighter-rouge">uint8_t</code>/<code class="language-plaintext highlighter-rouge">uint16_t</code>/<code class="language-plaintext highlighter-rouge">uint32_t</code>?</p>
+
+<p>Probably there is no single rule, but several usage cases. For applications that depend on a specific size, regardless of the platform, it is recommended to use the explicit size type definitions. Otherwise, using the platform native size may be more efficient in some cases. For example loop counts are usually better compiled when the the platform register size is used, so even if you know that the counter is small, using <code class="language-plaintext highlighter-rouge">uint8_t</code> instead of unsigned int may not produce a shorter/faster code (on the contrary).</p>
+
+<p>As a general rule, when defining types that should match a memory mapped structure, or a packet header, or some other fixed size structure, you obviously need to use the explicit size definitions. For the rest, platform size definitions might be preferred.</p>
+
+<h4 id="signed-versus-unsigned">Signed versus unsigned</h4>
+
+<p>Another usual question is when to use <code class="language-plaintext highlighter-rouge">int</code> (signed) versus <code class="language-plaintext highlighter-rouge">unsigned int</code>. The answer is obvious, if the variable you want to represent can take negative values, then use signed variables. Otherwise, use unsigned variables.</p>
+
+<p>One single note: sometimes, although the variable itself can take only positive values, it might be needed to also multiplex error codes on the same variable, and, in order to differentiate them, error cases are defined as impossible/illegal negative values.</p>
+
+<p>Although an universal solution is not enforced, it is preferable NOT to return error codes multiplexed with valid content; instead, return the error code and use a separate pointer parameter to return values, and leave the value unaffected by error processing.</p>
+
+<h3 id="user-type-definitions">User type definitions</h3>
+
+<p>These are custom definitions, made to increase code readability and maintainability. Preferably they should rely on the previous type definitions.</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="k">typedef</span> <span class="kt">uint8_t</span> <span class="n">thread_priority_t</span><span class="p">;</span>
+<span class="err">```</span><span class="n">c</span><span class="o">++</span>
+
+<span class="n">If</span> <span class="n">the</span> <span class="k">new</span> <span class="n">type</span> <span class="n">can</span> <span class="n">be</span> <span class="n">an</span> <span class="n">alias</span><span class="p">,</span> <span class="n">that</span> <span class="n">does</span> <span class="n">not</span> <span class="n">introduce</span> <span class="n">a</span> <span class="k">new</span> <span class="n">type</span> <span class="n">definition</span><span class="p">,</span> <span class="n">the</span> <span class="n">C</span><span class="o">++</span><span class="mi">11</span> <span class="n">syntax</span> <span class="n">is</span><span class="o">:</span>
+
+<span class="err">```</span><span class="n">c</span><span class="o">++</span>
+<span class="k">using</span> <span class="n">thread_priority_t</span> <span class="o">=</span> <span class="kt">uint8_t</span><span class="p">;</span>
+</code></pre>
+</div>
+</div>
+
+<h3 id="enumeration-definitions">Enumeration definitions</h3>
+
+<p>C++11 solved the old C enumeration problem and introduced strongly typed and scoped enumerations (<code class="language-plaintext highlighter-rouge">enum class</code>), so usually there is no need to use embedded classes with constants.</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="k">typedef</span> <span class="kt">uint32_t</span> <span class="n">mode_t</span><span class="p">;</span>
+
+<span class="k">enum</span> <span class="k">class</span> <span class="nc">mode</span> <span class="o">:</span> <span class="n">mode_t</span>
+<span class="p">{</span>
+    <span class="n">input</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> 
+    <span class="n">output</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> 
+    <span class="n">alternate</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> 
+    <span class="n">analog</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="p">};</span>
+
+<span class="k">static</span> <span class="k">const</span> <span class="n">mode_t</span> <span class="n">mode_mask</span> <span class="o">=</span> <span class="mh">0x3</span><span class="p">;</span>
+
+<span class="n">some_function</span><span class="p">(</span><span class="n">mode</span><span class="o">::</span><span class="n">input</span><span class="p">);</span>
+</code></pre>
+</div>
+</div>
+
+<h3 id="structure-definitions">Structure definitions</h3>
+
+<p>Usually, structure definitions should be avoided, and be replaced by class definitions.</p>
+
+<p>However, if for any reasons, struct definitions are needed, it is recommended to define both the struct name and the type, using the following syntax:</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="k">typedef</span> <span class="k">struct</span> <span class="nc">region_s</span>
+<span class="p">{</span>
+  <span class="n">region_address_t</span> <span class="n">address</span><span class="p">;</span>
+  <span class="n">region_size_t</span> <span class="n">size</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">region_t</span><span class="p">;</span>
+</code></pre>
+</div>
+</div>
+
+<h3 id="aliases-to-classes">Aliases to classes</h3>
+
+<p>For a more uniform look, type names used as aliases to class names need not end with <code class="language-plaintext highlighter-rouge">_t</code>.</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="k">class</span> <span class="nc">my_class</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+  <span class="n">region_address_t</span> <span class="n">address</span><span class="p">;</span>
+  <span class="n">region_size_t</span> <span class="n">size</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">using</span> <span class="n">my_class_alias</span> <span class="o">=</span> <span class="n">my_class</span><span class="p">;</span>
+</code></pre>
+</div>
+</div>
+
+<h2 id="measuring-units">Measuring units</h2>
+
+<p>Whenever not absolutely obvious, append the measuring units to the member variable or function name.</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="kt">int</span> <span class="n">bus_frequency_hz</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">delay_seconds</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">delay_milliseconds</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">delay_microseconds</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">length_metres</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">length_centimetres</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">length_millimetres</span><span class="p">;</span>
+</code></pre>
+</div>
+</div>
+
+<p>If possible, use the full unit names.</p>
+
+
+
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/develop/naming-conventions/" data-layout="button"></div></li>
+</ul>
+
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="site-footer">
+  <div class="site-footer-links left">
+    <ul>
+  <li>© 2019 Liviu Ionescu</li>
+  <li>Hosted on GitHub</li>
+  <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
+  <li>
+<a href="http://twitter.com/micro_os_plus" class="twitter-follow-button" data-show-count="false">Follow @micro_os_plus</a><script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</li>
+</ul>
+
+
+  </div>
+  <a href="https://github.com/micro-os-plus/micro-os-plus-iii" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+  </a>
+  <div class="site-footer-links right">
+    <ul>
+  <li><a href="/web-preview/">Home</a></li>
+  <li><a href="/web-preview/blog/">News</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/releases">Releases</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues">Support</a></li>
+  <li><a href="/web-preview/about/">About</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</div>
+
+</body>
+</html>

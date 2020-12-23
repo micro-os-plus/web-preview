@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Tasks</title>
+  <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
+
+  <meta property="og:title" content="Tasks">
+  <meta property="og:site_name" content="µOS++ IIIe">
+
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+
+
+  <meta property="article:published_time" content="2010-12-13">
+
+
+
+
+
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
+
+  <link rel="canonical" href="/web-preview/micro-os-plus/i/Tasks/">
+
+
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16767008-14', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+  <div class="site-header">
+  <table style="width:100%">
+    <tr>
+      <td>
+        <a href="/web-preview/">
+          <img alt="Icon" class="site-icon" src="/web-preview/assets/icons/wall-e-icon.png" height="100" width="100">
+      </a>
+      </td>
+      <td>
+        <table class="site-title" style="width:100%">
+          <tr>
+            <td class="site-title">
+              <a href="/web-preview/">µOS++ IIIe</a>
+            </td>
+            <td class="site-motto" align="right">
+              “Perfekt ist nicht gut genug”
+            </td>
+          </tr>
+          <tr>
+            <td class="site-description" colspan="2">
+              The third edition of µOS++, a POSIX inspired open source framework, written in C++.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+</div>
+
+<div class="container">
+
+  <div class="wrapper">
+    <div class="site-body">
+
+      <div class="site-sidebar">
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      <h4 id="news"><a href="/web-preview/blog/">News</a></h4>
+
+<ul>
+  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></li>
+  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ IIIe v6.3.14 released</a></li>
+  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ IIIe v6.3.13 released</a></li>
+  <li><a href="/web-preview/blog/2017/01/02/micro-os-plus-v6-3-11-released/">µOS++ IIIe v6.3.11 released</a></li>
+</ul>
+
+
+    </div>
+  </div>
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      
+      <h4 id="home"><a href="/web-preview/">Home</a></h4>
+
+<h4 id="µos-iiie">µOS++ IIIe</h4>
+
+<ul>
+  <li><a href="/web-preview/micro-os-plus/">Overview</a></li>
+</ul>
+
+<h4 id="apis">APIs</h4>
+
+<ul>
+  <li><a href="/web-preview/cmsis-plus/">Overview</a></li>
+  <li><a href="/web-preview/cmsis-plus/rtos/">RTOS API</a></li>
+</ul>
+
+<h4 id="xpacksxcdl">xPacks/XCDL</h4>
+
+<ul>
+  <li><a href="/web-preview/xpacks/">Overview</a></li>
+</ul>
+
+<h4 id="documentation">Documentation</h4>
+
+<ul>
+  <li>
+<a href="/web-preview/user-manual/">User’s <strong>manual</strong></a>
+    <ul>
+      <li><a href="/web-preview/user-manual/getting-started/">Getting started</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/">Basic concepts</a></li>
+      <li><a href="/web-preview/user-manual/features/">Features</a></li>
+      <li><a href="/web-preview/user-manual/threads/">Threads</a></li>
+      <li><a href="/web-preview/user-manual/thread-event-flags/">Thread event flags</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/">Semaphores</a></li>
+      <li><a href="/web-preview/user-manual/event-flags/">Event flags</a></li>
+      <li>Mutexes</li>
+      <li>Condition variables</li>
+      <li>Message queues</li>
+      <li>Memory pools</li>
+      <li>Software timers</li>
+      <li>Clocks</li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/reference/cmsis-plus/">µOS++ <strong>reference</strong></a></li>
+</ul>
+
+<h4 id="developer">Developer</h4>
+
+<ul>
+  <li><a href="/web-preview/develop/">Overview</a></li>
+  <li><a href="/web-preview/reference/cmsis-plus/md_doxygen_pages_change-log.html">Change log</a></li>
+  <li><a href="/web-preview/develop/coding-style/">C++ coding style</a></li>
+  <li><a href="/web-preview/develop/naming-conventions/">Naming conventions</a></li>
+  <li><a href="/web-preview/develop/references/">Links &amp; references</a></li>
+</ul>
+
+<h4 id="support">Support</h4>
+
+<ul>
+  <li><a href="/web-preview/support/">Overview</a></li>
+  <li><a href="/web-preview/support/known-issues/">Known issues</a></li>
+  <li><a href="/web-preview/support/faq/">FAQ</a></li>
+  <li><a href="/web-preview/support/forum/">Forum</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ IIIe issues</a></li>
+</ul>
+
+<h4 id="latest-articles">Latest Articles</h4>
+
+<ul>
+  <li><a href="/web-preview/articles/arm-com-2016-06-24/">CMSIS++ RTOS: fully functional reference implementation</a></li>
+  <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
+</ul>
+
+<h4 id="license">License</h4>
+
+<ul>
+  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+</ul>
+
+<h4 id="about"><a href="/web-preview/about/">About</a></h4>
+
+    </div>
+  </div>
+
+  <div class="site-theme">
+    This site uses the <a href="https://github.com/ilg-ul/github-jekyll-theme">GitHub Wiki-like</a> theme by <a href="https://github.com/ilg-ul">Liviu Ionescu</a>.
+  </div>
+
+</div>
+
+
+      <div class="site-content">
+
+        
+<h1 class="page-title">Tasks - DEPRECATED</h1>
+<table id="last-modified">
+  <tr>
+    <td id="last-modified">Page date Mon Dec 13 23:06:31 2010 .</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/micro-os-plus/i/Tasks.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+  </tr>
+</table>
+
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toc_level-1 toc_section-1">
+<a href="#constructors"><span class="tocnumber">1</span> <span class="toctext">Constructors</span></a>
+</li>
+<li class="toc_level-1 toc_section-2">
+<a href="#methods"><span class="tocnumber">2</span> <span class="toctext">Methods</span></a>
+<ul>
+<li class="toc_level-2 toc_section-3">
+<a href="#info-methods"><span class="tocnumber">2.1</span> <span class="toctext">Info Methods</span></a>
+</li>
+<li class="toc_level-2 toc_section-4">
+<a href="#status-methods"><span class="tocnumber">2.2</span> <span class="toctext">Status Methods</span></a>
+</li>
+<li class="toc_level-2 toc_section-5">
+<a href="#stack-methods"><span class="tocnumber">2.3</span> <span class="toctext">Stack Methods</span></a>
+</li>
+<li class="toc_level-2 toc_section-6">
+<a href="#priority-methods"><span class="tocnumber">2.4</span> <span class="toctext">Priority Methods</span></a>
+</li>
+<li class="toc_level-2 toc_section-7">
+<a href="#events-methods"><span class="tocnumber">2.5</span> <span class="toctext">Events Methods</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-8">
+<a href="#examples"><span class="tocnumber">3</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toc_level-2 toc_section-9">
+<a href="#taskblinkh"><span class="tocnumber">3.1</span> <span class="toctext">TaskBlink.h</span></a>
+</li>
+<li class="toc_level-2 toc_section-10">
+<a href="#taskblinkcpp"><span class="tocnumber">3.2</span> <span class="toctext">TaskBlink.cpp</span></a>
+</li>
+<li class="toc_level-2 toc_section-11">
+<a href="#mainc"><span class="tocnumber">3.3</span> <span class="toctext">main.c</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>µOS++ tasks allow the application developer to create and manage independent threads of execution. All defined tasks are automatically registered to the scheduler and thus all tasks are scheduled to use the CPU in a order based on their static priority (see the <a href="/web-preview/micro-os-plus/i/Scheduler">scheduler</a> page). Tasks cannot be unregistered from the scheduler.</p>
+
+<p>Each µOS++ task has its own stack where all task calls are performed. On architectures that do not have a separate exception stack (like AVR), when the task is running, interrupt service routines will use the task stack, so please be aware that a ‘deep’ interrupt service routine will affect all tasks running. When the task is created, the stack is initialized to a known static pattern. Stack activity overwrite this value, so when <strong>getStackUsed()</strong> is invoked it is possible to compute the maximum usage of the stack.</p>
+
+<p>Tasks can have, at different moments in time, different status attributes: running, waiting, suspended.</p>
+
+<ul>
+  <li>Running tasks: are either using the CPU or waiting for their turn to get the CPU.</li>
+  <li>Waiting tasks: are blocked tasks that will no longer be scheduled to use the CPU until an event occur.</li>
+  <li>Suspended tasks: are no longer scheduled to execution until the ‘suspended’ status is cleared. Notifications sent to suspended tasks are ignored.</li>
+</ul>
+
+<p>Creating a new task is simply a matter of defining a new class, based on <strong>OSTask</strong> (see example below), and declaring an instance of this class.</p>
+
+<p>The new task is automatically registered to the scheduler by the <strong>OSTask</strong> constructor.</p>
+
+<h2 id="constructors">Constructors</h2>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>OSTask(const char *pName, const OSStack_t *pStack, unsigned short stackSize,
+       OSTaskPriority_t priority = OS_TASK_DEFAULT_PRIORITY);
+</code></pre>
+</div>
+</div>
+
+<p>This constructor defines the task name, the stack and optionally a priority.</p>
+
+<h2 id="methods">Methods</h2>
+
+<h3 id="info-methods">Info Methods</h3>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>char const *getName(void);
+</code></pre>
+</div>
+</div>
+
+<p>Return the task name.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>int getID(void);
+</code></pre>
+</div>
+</div>
+
+<p>Return the task ID.</p>
+
+<h3 id="status-methods">Status Methods</h3>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>void suspend(void);
+</code></pre>
+</div>
+</div>
+
+<p>Mark the task as suspended and remove it from the list of running tasks.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>void resume(void);
+</code></pre>
+</div>
+</div>
+
+<p>Clean the suspended status and add the task to the list of running tasks.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>bool isSuspended(void);
+</code></pre>
+</div>
+</div>
+
+<p>Return true if the task is suspended.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>bool isWaiting(void);
+</code></pre>
+</div>
+</div>
+
+<p>Return true if the task is waiting for an event.</p>
+
+<h3 id="stack-methods">Stack Methods</h3>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>unsigned char *getStackBottom(void);
+</code></pre>
+</div>
+</div>
+
+<p>Return the address of the stack bottom. Stack grows from high address to low address, so this is the maximum address the stack can grow.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>unsigned short getStackSize(void);
+</code></pre>
+</div>
+</div>
+
+<p>Return the stack size given at task creation.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>OSStack_t *getStack(void);
+</code></pre>
+</div>
+</div>
+
+<p>Return the current stack pointer of the task. This value is stored only during context switch, so the running task will not get the actual value.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>unsigned short getStackUsed(void);
+</code></pre>
+</div>
+</div>
+
+<p>Return the maximum usage of the stack.</p>
+
+<h3 id="priority-methods">Priority Methods</h3>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>OSTaskPriority_t getPriority(void);
+</code></pre>
+</div>
+</div>
+
+<p>Return task priority.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>void setPriority(OSTaskPriority_t priority);
+</code></pre>
+</div>
+</div>
+
+<p>Set task priority to given value. Should be used with caution to avoid deadlocks and priority inversions.</p>
+
+<h3 id="events-methods">Events Methods</h3>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>OSEvent_t getEvent(void);
+</code></pre>
+</div>
+</div>
+
+<p>Return the event the task is waiting for. Cancelling a waiting task can be done by notifying this event with a return value of OS_EVENT_WAIT_RETURN_CANCELED.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>void setEvent(OSEvent_t event);
+</code></pre>
+</div>
+</div>
+
+<p>Set the event the task is waiting for (defined only for completness, normally not necessary).</p>
+
+<hr>
+
+<h2 id="examples">Examples</h2>
+
+<h3 id="taskblinkh">TaskBlink.h</h3>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>#include "portable/kernel/include/OS.h"
+
+#include "config_app.h"
+
+class TaskBlink : public OSTask
+  {
+public:
+    // task constructor
+    TaskBlink(const char *pName, schedTicks_t rate = 1);
+
+    // actual task main code
+    virtual void taskMain(void);
+private:
+    // members
+    OSStack_t m_stack[(OS_MINIMAL_STACK_SIZE + 200) / sizeof(OSStack_t)];
+    schedTicks_t m_rate;
+  };
+</code></pre>
+</div>
+</div>
+
+<h3 id="taskblinkcpp">TaskBlink.cpp</h3>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>#include "TaskBlink.h"
+
+TaskBlink::TaskBlink(const char *pName, schedTicks_t rate) :
+  OSTask(pName, m_stack, sizeof(m_stack))
+  {
+    m_rate = rate;
+  }
+
+void TaskBlink::taskMain(void)
+  {
+    ledInit();
+    ledOff();
+
+    // task endless loop
+    for (;;)
+      {
+        os.timerSeconds.sleep(m_rate);
+        ledToggle();
+      }
+  }
+</code></pre>
+</div>
+</div>
+
+<h3 id="mainc">main.c</h3>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>// ...
+#include "TaskBlink.h"
+// ...
+TaskBlink t("blink"); // the new task is declared as a static object
+</code></pre>
+</div>
+</div>
+
+
+
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/micro-os-plus/i/Tasks/" data-layout="button"></div></li>
+</ul>
+
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="site-footer">
+  <div class="site-footer-links left">
+    <ul>
+  <li>© 2019 Liviu Ionescu</li>
+  <li>Hosted on GitHub</li>
+  <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
+  <li>
+<a href="http://twitter.com/micro_os_plus" class="twitter-follow-button" data-show-count="false">Follow @micro_os_plus</a><script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</li>
+</ul>
+
+
+  </div>
+  <a href="https://github.com/micro-os-plus/micro-os-plus-iii" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+  </a>
+  <div class="site-footer-links right">
+    <ul>
+  <li><a href="/web-preview/">Home</a></li>
+  <li><a href="/web-preview/blog/">News</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/releases">Releases</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues">Support</a></li>
+  <li><a href="/web-preview/about/">About</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</div>
+
+</body>
+</html>

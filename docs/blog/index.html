@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 
 <head>
@@ -9,16 +9,15 @@
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>The µOS++ IIIe Project</title>
+  <title>µOS++ News</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="The µOS++ IIIe Project">
+  <meta property="og:title" content="µOS++ News">
   <meta property="og:site_name" content="µOS++ IIIe">
 
   <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
 
 
-  <meta property="article:published_time" content="2016-03-03">
 
 
 
@@ -32,7 +31,7 @@
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
 
-  <link rel="canonical" href="/web-preview/">
+  <link rel="canonical" href="/web-preview/blog/">
 
 
 
@@ -239,57 +238,69 @@
       <div class="site-content">
 
         
-<h1 class="page-title">The µOS++ IIIe Project</h1>
-<table id="last-modified">
-  <tr>
-    <td id="last-modified">Last modified on Wed Dec 23 10:37:26 2020 UTC.</td>
-    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/home.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
-  </tr>
-</table>
+<!-- This loops through all site posts -->
 
+  <h3><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></h3>
+  <p><em>Nov 19, 2018</em> - Version v6.3.15 is a <strong>µOS++ IIIe</strong> maintenance release. The main changes 
+are several bug fixes.
 
-<p>The <strong>µOS++ IIIe</strong> <em>(micro oh ɛs plus plus third edition)</em> project is the third iteration of µOS++, a POSIX-like, portable, open source, royalty-free, multi-tasking real-time framework intended for 32/64-bits embedded applications, written in C++. The project is hosted on GitHub as <a href="https://github.com/micro-os-plus">micro-os-plus</a>. It has a comprehensive <a href="/web-preview/user-manual/">User’s manual</a>. The APIs are documented in the <a href="/web-preview/reference/cmsis-plus/">µOS++ reference</a>.</p>
+</p>
+  <hr>
 
-<p><strong>POSIX++</strong> is another point of view of the project; with most system APIs using the POSIX semantics, but being written in C++, the <strong>µOS++ IIIe</strong> APIs can also be seen as a C++ version of POSIX, thus the name <strong>POSIX++</strong>.</p>
+  <h3><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ IIIe v6.3.14 released</a></h3>
+  <p><em>Jul 4, 2018</em> - Version v6.3.14 is a <strong>µOS++ IIIe</strong> maintenance release. The main addition
+is the functional POSIX I/O subsystem, which supports character devices, 
+block devices and file systems.
 
-<h2 id="manyfold-identity">Manyfold identity</h2>
+</p>
+  <hr>
 
-<p>The <strong>µOS++ IIIe</strong> project can be considered from several points of view.</p>
+  <h3><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ IIIe v6.3.13 released</a></h3>
+  <p><em>Aug 26, 2017</em> - Version v6.3.13 is a <strong>µOS++ IIIe</strong> maintenance release.
 
-<h3 id="the-µos-frameworkapis">The µOS++ framework/APIs</h3>
+</p>
+  <hr>
 
-<p>Although generally associated with its RTOS, <strong>µOS++ IIIe</strong> is actually a framework, a collection of APIs, components and technologies.</p>
+  <h3><a href="/web-preview/blog/2017/01/02/micro-os-plus-v6-3-11-released/">µOS++ IIIe v6.3.11 released</a></h3>
+  <p><em>Jan 2, 2017</em> - Version v6.3.11 is a new <strong>µOS++ IIIe/CMSIS++</strong> public release that addresses several bugs.
 
-<p>One of the main APIs is the µOS++ RTOS API, but applications based on µOS++ may run very well without a RTOS, or even use a different RTOS.</p>
+</p>
+  <hr>
 
-<p>For a better portability, the entire framework is layered, the µOS++ RTOS API provides a common public interface to the applications, but the implementation is separate, it might be that of its own µOS++ RTOS reference implementation, but it may very well be another implementation, even a custom one specific to the application.</p>
+  <h3><a href="/web-preview/blog/2016/11/27/micro-os-plus-v6-3-10-released/">µOS++ IIIe v6.3.10 released</a></h3>
+  <p><em>Nov 27, 2016</em> - Version v6.3.10 is a new <strong>µOS++ IIIe/CMSIS++</strong> public release that addresses several bugs.
 
-<h3 id="the-µos-rtos-implementation">The µOS++ RTOS implementation</h3>
+</p>
+  <hr>
 
-<p>From an embedded system point of view, <strong>µOS++ IIIe</strong> provides the <strong>reference implementation</strong> for the <strong>scheduler</strong> and <strong>portable synchronisation</strong> objects (like mutex, semaphore, etc).</p>
+  <h3><a href="/web-preview/blog/2016/10/13/micro-os-plus-v6-3-9-released/">µOS++ IIIe v6.3.9 released</a></h3>
+  <p><em>Oct 13, 2016</em> - Version v6.3.9 is a new <strong>µOS++ IIIe/CMSIS++</strong> public release (v6.3.8 was an internal release). The major additions are: the first integration of the POSIX I/O subsystem and an experimental set of scripts to generate µOS++ projects.
 
-<div style="text-align:center">
-<img alt="µOS++ RTOS" src="/web-preview/assets/images/2017/micro-os-plus-rtos.png">
-</div>
+</p>
+  <hr>
 
-<h3 id="the-µos-packages">The µOS++ packages</h3>
+  <h3><a href="/web-preview/blog/2016/09/15/micro-os-plus-v6-3-7-released/">First µOS++ IIIe public version v6.3.7 released</a></h3>
+  <p><em>Sep 15, 2016</em> - Version v6.3.7 is the first <strong>µOS++ IIIe/CMSIS++</strong> public release. The major additions are the advanced memory management features, which allow deterministic and non-fragmenting allocations in controlled environments.
 
-<p>From a modular point of view, <strong>µOS++ IIIe</strong> is a <strong>collection of packages</strong> hosted on GitHub in two locations:</p>
+</p>
+  <hr>
 
-<ul>
-  <li>the original code is grouped under the <a href="https://github.com/micro-os-plus">µOS++ IIIe</a> GitHub collection of projects</li>
-  <li>projects based on third party code are grouped under the <a href="https://github.com/xpacks">xPacks</a> collection.</li>
-</ul>
+  <h3><a href="/web-preview/blog/2016/03/29/license-update/">License changed from LGPL to MIT License</a></h3>
+  <p><em>Mar 29, 2016</em> - To further facilitate the integration of CMSIS++ files into other commercial or open source projects, the project license was changed from the copyleft LGPL to the  permissive <a href="https://opensource.org/licenses/MIT">MIT License</a>.
+</p>
+  <hr>
 
-<div style="text-align:center">
-<img alt="µOS++ Collection" src="/web-preview/assets/images/2017/micro-os-plus-collection.png">
-</div>
+  <h3><a href="/web-preview/blog/2016/03/10/arm-connected-community-article/">ARM Connected Community article, March 11, 2016</a></h3>
+  <p><em>Mar 10, 2016</em> - A presentation article was published on the <a href="http://community.arm.com">ARM Connected Community</a> site, under the name <strong><a href="https://community.arm.com/groups/tools/blog/2016/03/11/cmsis-a-proposal-for-a-future-cmsis-written-in-c">CMSIS++: a proposal for a future CMSIS, written in C++</a></strong>.
 
-<h2 id="license">License</h2>
+</p>
+  <hr>
 
-<p>Unless otherwise mentioned, all <strong>µOS++ IIIe</strong> components are provided <strong>free of charge</strong> under the terms of the <a href="https://opensource.org/licenses/MIT">MIT License</a>, with all rights reserved to Liviu Ionescu.</p>
+  <h3><a href="/web-preview/blog/2016/03/03/web-new-look/">The µOS++ IIIe new web site (using GitHub Pages)</a></h3>
+  <p><em>Mar 3, 2016</em> - After the µOS++ IIIe project was migrated from <a href="http://sourceforge.net/projects/micro-os-plus/">SourceForge</a> to <a href="https://github.com/micro-os-plus">GitHub</a>, a new web site was created, to replace the previous wikis.
 
-
+</p>
+  <hr>
 
 
 

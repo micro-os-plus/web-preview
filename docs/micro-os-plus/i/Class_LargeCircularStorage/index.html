@@ -9,16 +9,16 @@
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>The µOS++ IIIe Project</title>
+  <title>Class LargeCircularStorage</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="The µOS++ IIIe Project">
+  <meta property="og:title" content="Class LargeCircularStorage">
   <meta property="og:site_name" content="µOS++ IIIe">
 
   <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
 
 
-  <meta property="article:published_time" content="2016-03-03">
+  <meta property="article:published_time" content="2011-04-14">
 
 
 
@@ -32,7 +32,7 @@
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
 
-  <link rel="canonical" href="/web-preview/">
+  <link rel="canonical" href="/web-preview/micro-os-plus/i/Class_LargeCircularStorage/">
 
 
 
@@ -239,58 +239,70 @@
       <div class="site-content">
 
         
-<h1 class="page-title">The µOS++ IIIe Project</h1>
+<h1 class="page-title">Class LargeCircularStorage - DEPRECATED</h1>
 <table id="last-modified">
   <tr>
-    <td id="last-modified">Last modified on Wed Dec 23 10:37:26 2020 UTC.</td>
-    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/home.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+    <td id="last-modified">Page date Thu Apr 14 18:01:52 2011 .</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/micro-os-plus/i/Class_LargeCircularStorage.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
 
+<h1 id="overview">Overview</h1>
 
-<p>The <strong>µOS++ IIIe</strong> <em>(micro oh ɛs plus plus third edition)</em> project is the third iteration of µOS++, a POSIX-like, portable, open source, royalty-free, multi-tasking real-time framework intended for 32/64-bits embedded applications, written in C++. The project is hosted on GitHub as <a href="https://github.com/micro-os-plus">micro-os-plus</a>. It has a comprehensive <a href="/web-preview/user-manual/">User’s manual</a>. The APIs are documented in the <a href="/web-preview/reference/cmsis-plus/">µOS++ reference</a>.</p>
+<p>The LargeCircularStorage class manages a large circular buffer, based on a random access block device, like a flash memory, with a fixed block size of BLK_SIZE bytes and a fixed capacity of NUM_BLOCKS blocks, addressed from 0 to (NUM_BLOCKS-1).</p>
 
-<p><strong>POSIX++</strong> is another point of view of the project; with most system APIs using the POSIX semantics, but being written in C++, the <strong>µOS++ IIIe</strong> APIs can also be seen as a C++ version of POSIX, thus the name <strong>POSIX++</strong>.</p>
+<p>Managing a circular buffer is usually trivial, by sequentially writing data blocks and restarting from the beginning when the last available block is used.</p>
 
-<h2 id="manyfold-identity">Manyfold identity</h2>
+<p>The only challenge is at power-up, to determine which is the first free block, or, in other words, which was the last written block. One could claim that such a mechanism is not needed, by always writing the last block address on an external persistent device.</p>
 
-<p>The <strong>µOS++ IIIe</strong> project can be considered from several points of view.</p>
-
-<h3 id="the-µos-frameworkapis">The µOS++ framework/APIs</h3>
-
-<p>Although generally associated with its RTOS, <strong>µOS++ IIIe</strong> is actually a framework, a collection of APIs, components and technologies.</p>
-
-<p>One of the main APIs is the µOS++ RTOS API, but applications based on µOS++ may run very well without a RTOS, or even use a different RTOS.</p>
-
-<p>For a better portability, the entire framework is layered, the µOS++ RTOS API provides a common public interface to the applications, but the implementation is separate, it might be that of its own µOS++ RTOS reference implementation, but it may very well be another implementation, even a custom one specific to the application.</p>
-
-<h3 id="the-µos-rtos-implementation">The µOS++ RTOS implementation</h3>
-
-<p>From an embedded system point of view, <strong>µOS++ IIIe</strong> provides the <strong>reference implementation</strong> for the <strong>scheduler</strong> and <strong>portable synchronisation</strong> objects (like mutex, semaphore, etc).</p>
-
-<div style="text-align:center">
-<img alt="µOS++ RTOS" src="/web-preview/assets/images/2017/micro-os-plus-rtos.png">
-</div>
-
-<h3 id="the-µos-packages">The µOS++ packages</h3>
-
-<p>From a modular point of view, <strong>µOS++ IIIe</strong> is a <strong>collection of packages</strong> hosted on GitHub in two locations:</p>
+<p>Although this might work, it has two drawbacks:</p>
 
 <ul>
-  <li>the original code is grouped under the <a href="https://github.com/micro-os-plus">µOS++ IIIe</a> GitHub collection of projects</li>
-  <li>projects based on third party code are grouped under the <a href="https://github.com/xpacks">xPacks</a> collection.</li>
+  <li>the persistent device must allow a huge number of write cycles</li>
+  <li>due to external reasons (power failure, unexpected reset) the saved value might not be accurate</li>
 </ul>
 
-<div style="text-align:center">
-<img alt="µOS++ Collection" src="/web-preview/assets/images/2017/micro-os-plus-collection.png">
-</div>
+<p>For a high reliability device, determining the address of the next free block is mandatory. Being, by definition, a large storage, let’s say millions of blocks, a linear search is out of question, and a binary search should be possible.</p>
 
-<h2 id="license">License</h2>
+<p>Originally designed for linear structures, the binary search does not work directly on circular buffers, but with some carefully designed details, the binary search can be tailored on circular buffers too.</p>
 
-<p>Unless otherwise mentioned, all <strong>µOS++ IIIe</strong> components are provided <strong>free of charge</strong> under the terms of the <a href="https://opensource.org/licenses/MIT">MIT License</a>, with all rights reserved to Liviu Ionescu.</p>
+<p>There are probably many possible implementations, one of them being described below.</p>
+
+<h1 id="implementation">Implementation</h1>
+
+<p>One assumption intended to simplify things is that data block are grouped by a certain criteria, let’s say by sessions with identical characteristics (for example a measurement session with a given acquisition rate, precision, etc).</p>
+
+<p>Writing blocks to the storage is always done at the end, the only decision being</p>
+
+<ul>
+  <li>append the block to the previous session</li>
+  <li>start a new session</li>
+</ul>
+
+<p>The grouping by sessions can be easily implemented by adding a pointer to each block, referring to the first block of the session, identified by referring to itself.</p>
+
+<p>Assuming the sessions have a significant number of blocks, when a search is needed, instead of linearly scanning the entire storage it is much faster to scan session by session.</p>
+
+<p>The second field required in each block is a monotone increasing unique ID, to simplify the detection of the last used block, since the next block should be an older one, so with a lower ID. The range of this ID should be at least two times larger than the total number of blocks, to accommodate the situation when this ID rolls over.</p>
+
+<p>In conclusion, the overhead of the circular buffer is a two field header, added to each block, containing the following:</p>
+
+<ul>
+  <li>a block number (with a 1KB block size, a long integer covers about 4 TB, a value more than enough for regular embedded applications)</li>
+  <li>a monotone increasing unique ID (a long integer usually would be enough)</li>
+</ul>
 
 
 
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/micro-os-plus/i/Class_LargeCircularStorage/" data-layout="button"></div></li>
+</ul>
 
 
 

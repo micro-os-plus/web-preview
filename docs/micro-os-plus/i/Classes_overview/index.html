@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Classes overview</title>
+  <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
+
+  <meta property="og:title" content="Classes overview">
+  <meta property="og:site_name" content="µOS++ IIIe">
+
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+
+
+  <meta property="article:published_time" content="2011-03-08">
+
+
+
+
+
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
+
+  <link rel="canonical" href="/web-preview/micro-os-plus/i/Classes_overview/">
+
+
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16767008-14', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+  <div class="site-header">
+  <table style="width:100%">
+    <tr>
+      <td>
+        <a href="/web-preview/">
+          <img alt="Icon" class="site-icon" src="/web-preview/assets/icons/wall-e-icon.png" height="100" width="100">
+      </a>
+      </td>
+      <td>
+        <table class="site-title" style="width:100%">
+          <tr>
+            <td class="site-title">
+              <a href="/web-preview/">µOS++ IIIe</a>
+            </td>
+            <td class="site-motto" align="right">
+              “Perfekt ist nicht gut genug”
+            </td>
+          </tr>
+          <tr>
+            <td class="site-description" colspan="2">
+              The third edition of µOS++, a POSIX inspired open source framework, written in C++.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+</div>
+
+<div class="container">
+
+  <div class="wrapper">
+    <div class="site-body">
+
+      <div class="site-sidebar">
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      <h4 id="news"><a href="/web-preview/blog/">News</a></h4>
+
+<ul>
+  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></li>
+  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ IIIe v6.3.14 released</a></li>
+  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ IIIe v6.3.13 released</a></li>
+  <li><a href="/web-preview/blog/2017/01/02/micro-os-plus-v6-3-11-released/">µOS++ IIIe v6.3.11 released</a></li>
+</ul>
+
+
+    </div>
+  </div>
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      
+      <h4 id="home"><a href="/web-preview/">Home</a></h4>
+
+<h4 id="µos-iiie">µOS++ IIIe</h4>
+
+<ul>
+  <li><a href="/web-preview/micro-os-plus/">Overview</a></li>
+</ul>
+
+<h4 id="apis">APIs</h4>
+
+<ul>
+  <li><a href="/web-preview/cmsis-plus/">Overview</a></li>
+  <li><a href="/web-preview/cmsis-plus/rtos/">RTOS API</a></li>
+</ul>
+
+<h4 id="xpacksxcdl">xPacks/XCDL</h4>
+
+<ul>
+  <li><a href="/web-preview/xpacks/">Overview</a></li>
+</ul>
+
+<h4 id="documentation">Documentation</h4>
+
+<ul>
+  <li>
+<a href="/web-preview/user-manual/">User’s <strong>manual</strong></a>
+    <ul>
+      <li><a href="/web-preview/user-manual/getting-started/">Getting started</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/">Basic concepts</a></li>
+      <li><a href="/web-preview/user-manual/features/">Features</a></li>
+      <li><a href="/web-preview/user-manual/threads/">Threads</a></li>
+      <li><a href="/web-preview/user-manual/thread-event-flags/">Thread event flags</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/">Semaphores</a></li>
+      <li><a href="/web-preview/user-manual/event-flags/">Event flags</a></li>
+      <li>Mutexes</li>
+      <li>Condition variables</li>
+      <li>Message queues</li>
+      <li>Memory pools</li>
+      <li>Software timers</li>
+      <li>Clocks</li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/reference/cmsis-plus/">µOS++ <strong>reference</strong></a></li>
+</ul>
+
+<h4 id="developer">Developer</h4>
+
+<ul>
+  <li><a href="/web-preview/develop/">Overview</a></li>
+  <li><a href="/web-preview/reference/cmsis-plus/md_doxygen_pages_change-log.html">Change log</a></li>
+  <li><a href="/web-preview/develop/coding-style/">C++ coding style</a></li>
+  <li><a href="/web-preview/develop/naming-conventions/">Naming conventions</a></li>
+  <li><a href="/web-preview/develop/references/">Links &amp; references</a></li>
+</ul>
+
+<h4 id="support">Support</h4>
+
+<ul>
+  <li><a href="/web-preview/support/">Overview</a></li>
+  <li><a href="/web-preview/support/known-issues/">Known issues</a></li>
+  <li><a href="/web-preview/support/faq/">FAQ</a></li>
+  <li><a href="/web-preview/support/forum/">Forum</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ IIIe issues</a></li>
+</ul>
+
+<h4 id="latest-articles">Latest Articles</h4>
+
+<ul>
+  <li><a href="/web-preview/articles/arm-com-2016-06-24/">CMSIS++ RTOS: fully functional reference implementation</a></li>
+  <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
+</ul>
+
+<h4 id="license">License</h4>
+
+<ul>
+  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+</ul>
+
+<h4 id="about"><a href="/web-preview/about/">About</a></h4>
+
+    </div>
+  </div>
+
+  <div class="site-theme">
+    This site uses the <a href="https://github.com/ilg-ul/github-jekyll-theme">GitHub Wiki-like</a> theme by <a href="https://github.com/ilg-ul">Liviu Ionescu</a>.
+  </div>
+
+</div>
+
+
+      <div class="site-content">
+
+        
+<h1 class="page-title">Classes overview - DEPRECATED</h1>
+<table id="last-modified">
+  <tr>
+    <td id="last-modified">Page date Tue Mar  8 23:38:17 2011 .</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/micro-os-plus/i/Classes_overview.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+  </tr>
+</table>
+
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toc_level-1 toc_section-1">
+<a href="#oscpu"><span class="tocnumber">1</span> <span class="toctext">OSCPU</span></a>
+</li>
+<li class="toc_level-1 toc_section-2">
+<a href="#oscpuimpl"><span class="tocnumber">2</span> <span class="toctext">OSCPUImpl</span></a>
+</li>
+<li class="toc_level-1 toc_section-3">
+<a href="#os"><span class="tocnumber">3</span> <span class="toctext">OS</span></a>
+</li>
+<li class="toc_level-1 toc_section-4">
+<a href="#osimpl"><span class="tocnumber">4</span> <span class="toctext">OSImpl</span></a>
+</li>
+<li class="toc_level-1 toc_section-5">
+<a href="#osscheduler"><span class="tocnumber">5</span> <span class="toctext">OSScheduler</span></a>
+</li>
+<li class="toc_level-1 toc_section-6">
+<a href="#osschedulerimpl"><span class="tocnumber">6</span> <span class="toctext">OSSchedulerImpl</span></a>
+</li>
+<li class="toc_level-1 toc_section-7">
+<a href="#ostask"><span class="tocnumber">7</span> <span class="toctext">OSTask</span></a>
+</li>
+<li class="toc_level-1 toc_section-8">
+<a href="#ostaskidle"><span class="tocnumber">8</span> <span class="toctext">OSTaskIdle</span></a>
+</li>
+<li class="toc_level-1 toc_section-9">
+<a href="#ostimer"><span class="tocnumber">9</span> <span class="toctext">OSTimer</span></a>
+</li>
+<li class="toc_level-1 toc_section-10">
+<a href="#ostimerticks"><span class="tocnumber">10</span> <span class="toctext">OSTimerTicks</span></a>
+</li>
+<li class="toc_level-1 toc_section-11">
+<a href="#ostimerseconds"><span class="tocnumber">11</span> <span class="toctext">OSTimerSeconds</span></a>
+</li>
+<li class="toc_level-1 toc_section-12">
+<a href="#timer"><span class="tocnumber">12</span> <span class="toctext">Timer</span></a>
+</li>
+<li class="toc_level-1 toc_section-13">
+<a href="#osmutex"><span class="tocnumber">13</span> <span class="toctext">OSMutex</span></a>
+</li>
+<li class="toc_level-1 toc_section-14">
+<a href="#oseventflags"><span class="tocnumber">14</span> <span class="toctext">OSEventFlags</span></a>
+</li>
+<li class="toc_level-1 toc_section-15">
+<a href="#osdevicedebug"><span class="tocnumber">15</span> <span class="toctext">OSDeviceDebug</span></a>
+</li>
+<li class="toc_level-1 toc_section-16">
+<a href="#devicedebugi2c"><span class="tocnumber">16</span> <span class="toctext">DeviceDebugI2C</span></a>
+</li>
+<li class="toc_level-1 toc_section-17">
+<a href="#osdevicecharacter"><span class="tocnumber">17</span> <span class="toctext">OSDeviceCharacter</span></a>
+</li>
+<li class="toc_level-1 toc_section-18">
+<a href="#osdevicecharacterbuffered"><span class="tocnumber">18</span> <span class="toctext">OSDeviceCharacterBuffered</span></a>
+</li>
+<li class="toc_level-1 toc_section-19">
+<a href="#devicecharacterbufferedbase"><span class="tocnumber">19</span> <span class="toctext">DeviceCharacterBufferedBase</span></a>
+</li>
+<li class="toc_level-1 toc_section-20">
+<a href="#devicecharacterbufferedusart0"><span class="tocnumber">20</span> <span class="toctext">DeviceCharacterBufferedUsart0</span></a>
+</li>
+<li class="toc_level-1 toc_section-21">
+<a href="#devicecharacterbufferedusart1"><span class="tocnumber">21</span> <span class="toctext">DeviceCharacterBufferedUsart1</span></a>
+</li>
+<li class="toc_level-1 toc_section-22">
+<a href="#ostimerstruct_t"><span class="tocnumber">22</span> <span class="toctext">OSTimerStruct_t</span></a>
+</li>
+<li class="toc_level-1 toc_section-23">
+<a href="#ostimerticks_t"><span class="tocnumber">23</span> <span class="toctext">OSTimerTicks_t</span></a>
+</li>
+<li class="toc_level-1 toc_section-24">
+<a href="#oseventwaitreturn_t"><span class="tocnumber">24</span> <span class="toctext">OSEventWaitReturn_t</span></a>
+</li>
+<li class="toc_level-1 toc_section-25">
+<a href="#osevent_t"><span class="tocnumber">25</span> <span class="toctext">OSEvent_t</span></a>
+</li>
+<li class="toc_level-1 toc_section-26">
+<a href="#oseventflagsbits_t"><span class="tocnumber">26</span> <span class="toctext">OSEventFlagsBits_t</span></a>
+</li>
+<li class="toc_level-1 toc_section-27">
+<a href="#classes-from-portablekernelinclude"><span class="tocnumber">27</span> <span class="toctext">Classes from “portable/kernel/include”</span></a>
+</li>
+<li class="toc_level-1 toc_section-28">
+<a href="#classes-from-portabledevicescharacterinclude"><span class="tocnumber">28</span> <span class="toctext">Classes from “portable/devices/character/include”</span></a>
+</li>
+<li class="toc_level-1 toc_section-29">
+<a href="#classes-from-portabledevicesusbinclude"><span class="tocnumber">29</span> <span class="toctext">Classes from “portable/devices/usb/include”</span></a>
+</li>
+<li class="toc_level-1 toc_section-30">
+<a href="#classes-from-portablemiscinclude"><span class="tocnumber">30</span> <span class="toctext">Classes from “portable/misc/include”</span></a>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="core-classes">Core classes</h1>
+
+<h2 id="oscpu">OSCPU</h2>
+
+<p>The class <a href="/web-preview/micro-os-plus/i/Class_OSCPU">OSCPU</a> groups all CPU related calls and functionality. Here should be defined all CPU specifics, like</p>
+
+<h2 id="oscpuimpl">OSCPUImpl</h2>
+
+<p>The <a href="/web-preview/micro-os-plus/i/Class_OSCPUImpl">OSCPUImpl</a> class is a portability helper for the <strong>OSCPU</strong> class.</p>
+
+<p>Here are defined the non-portable methods, specific to each architecture or family.</p>
+
+<h2 id="os">OS</h2>
+
+<p>Without having any specific functionality, the <a href="/web-preview/micro-os-plus/i/Class_OS">OS</a> class is a placeholder for all µOS++ related members and methods that did not find their way in other classes.</p>
+
+<p>The non-portable methods are based on the <strong>OSImpl</strong> class, where the actual implementation is defined.</p>
+
+<h2 id="osimpl">OSImpl</h2>
+
+<p>The <a href="/web-preview/micro-os-plus/i/Class_OSImpl">OSImpl</a> class is a portability helper for the <strong>OS</strong> class.</p>
+
+<p>Here are defined the non-portable methods, specific to each architecture or family.</p>
+
+<h2 id="osscheduler">OSScheduler</h2>
+
+<p>The <a href="/web-preview/micro-os-plus/i/Class_OSScheduler">OSScheduler</a> class implements the main µOS++ functionality, i.e. the preemptive scheduler.</p>
+
+<p>The non portable methods are based on the <strong>OSSchedulerImpl</strong> class, where the actual implementation is defined.</p>
+
+<h2 id="osschedulerimpl">OSSchedulerImpl</h2>
+
+<p>The <a href="/web-preview/micro-os-plus/i/Class_OSSchedulerImpl">OSSchedulerImpl</a> class is a portability helper for the <strong>OSScheduler</strong> class.</p>
+
+<p>Here are defined the non-portable methods, specific to each architecture or family.</p>
+
+<h2 id="ostask">OSTask</h2>
+
+<p>The <a href="/web-preview/micro-os-plus/i/Class_OSTask">OSTask</a> class is the parent class for all tasks running in the µOS++ environment.</p>
+
+<h2 id="ostaskidle">OSTaskIdle</h2>
+
+<p>The <a href="/web-preview/micro-os-plus/i/Class_OSTaskIdle">OSTaskIdle</a> class is the implementation of the µOS++ idle task, i.e. the lowest priority task that gets control when no other task is running.</p>
+
+<p>It has several functionalities:</p>
+
+<ul>
+  <li>to make the processor enter the idle mode, waiting for the next interrupt</li>
+  <li>to execute a yield(), to guarantee that tasks that were waken by non-rescheduling interrupts are scheduled for execution</li>
+</ul>
+
+<h2 id="ostimer">OSTimer</h2>
+
+<p>The <a href="/web-preview/micro-os-plus/i/Class_OSTimer">OSTimer</a> class is the parent class of all system timer classes.</p>
+
+<h2 id="ostimerticks">OSTimerTicks</h2>
+
+<p>The <a href="/web-preview/micro-os-plus/i/Class_OSTimerTicks">OSTimerTicks</a> class implements the main timer functionality in µOS++.</p>
+
+<p>As the name implies, all timing intervals of this timer are expressed in ticks, more precisely in scheduler ticks.</p>
+
+<h2 id="ostimerseconds">OSTimerSeconds</h2>
+
+<p>The <a href="/web-preview/micro-os-plus/i/Class_OSTimerSeconds">OSTimerSeconds</a> class implements the second system timer functionality, intended to measure longer intervals.</p>
+
+<p>As the name implies, all timing intervals of this timer are expressed in seconds.</p>
+
+<p>For systems equipped with a Real Time Clock, this timer runs completely independently, even when the device is in sleep or deep sleep mode.</p>
+
+<p>For systems not equipped with a RTC, this time is derived from the existing <strong>OSTimerTicks</strong>.</p>
+
+<h2 id="timer">Timer</h2>
+
+<p>The <a href="/web-preview/micro-os-plus/i/Class_Timer">Timer</a> class is the parent class of all custom timer classes.</p>
+
+<h2 id="osmutex">OSMutex</h2>
+
+<p>The <a href="/web-preview/micro-os-plus/i/Class_OSMutex">OSMutex</a> class implements a mutual exclusion (mutex) inter-task synchronisation mechanism.</p>
+
+<h2 id="oseventflags">OSEventFlags</h2>
+
+<p>The <a href="/web-preview/micro-os-plus/i/Class_OSEventFlags">OSEventFlags</a> class implements an inter-task synchronisation mechanism allowing a task to wait for multiple events, defined as separate flags in a structure.</p>
+
+<h1 id="device-classes">Device classes</h1>
+
+<h2 id="osdevicedebug">OSDeviceDebug</h2>
+
+<p>The <a href="/web-preview/micro-os-plus/i/Class_OSDeviceDebug">OSDeviceDebug</a> class is the parent class of all debug classes used for displaying trace messages.</p>
+
+<h2 id="devicedebugi2c">DeviceDebugI2C</h2>
+
+<p>The <a href="/web-preview/micro-os-plus/i/Class_DeviceDebugI2C">DeviceDebugI2C</a> class is the implementation of <strong>OSDeviceDebug</strong> where the output device is implemented as a master I2C using two generic IP pins via bit-banging.</p>
+
+<p>The main advantage of such a mechanism is independence from processor speed and from specific hardware.</p>
+
+<h2 id="osdevicecharacter">OSDeviceCharacter</h2>
+
+<p>The <a href="/web-preview/micro-os-plus/i/Class_OSDeviceCharacter">OSDeviceCharacter</a> class is the parent class of all character devices in µOS++. A <em>character</em> device is defined as a device having the transfer unit as low as one ASCII character.</p>
+
+<p>Example of such devices are USART, CDC USB.</p>
+
+<h2 id="osdevicecharacterbuffered">OSDeviceCharacterBuffered</h2>
+
+<p>The <a href="/web-preview/micro-os-plus/i/Class_OSDeviceCharacterBuffered">OSDeviceCharacterBuffered</a> class is derived from OSDeviceCharacter and implements circular buffers for RX and TX.</p>
+
+<h2 id="devicecharacterbufferedbase">DeviceCharacterBufferedBase</h2>
+
+<p>The <a href="/web-preview/micro-os-plus/i/Class_OSDeviceCharacterBufferedBase">OSDeviceCharacterBufferedBase</a> class is derived from OSDeviceCharacterBuffered and contain generic implementation for all USART’s.</p>
+
+<h2 id="devicecharacterbufferedusart0">DeviceCharacterBufferedUsart0</h2>
+
+<p>The <a href="/web-preview/micro-os-plus/i/Class_OSDeviceCharacterBufferedUsart0">OSDeviceCharacterBufferedUsart0</a> class is derived from OSDeviceCharacterBase and contain specific implementation for USART0.</p>
+
+<h2 id="devicecharacterbufferedusart1">DeviceCharacterBufferedUsart1</h2>
+
+<p>The <a href="/web-preview/micro-os-plus/i/Class_OSDeviceCharacterBufferedUsart1">OSDeviceCharacterBufferedUsart1</a> class is derived from OSDeviceCharacterBase and contain specific implementation for USART1.</p>
+
+<h1 id="type-definitions">Type definitions</h1>
+
+<h2 id="ostimerstruct_t">OSTimerStruct_t</h2>
+
+<p>The <a href="/web-preview/micro-os-plus/i/Typedef_OSTimerStruct_t">OSTimerStruct_t</a> type definition is used in OSTimer for storing the timeout set for a certain task.</p>
+
+<h2 id="ostimerticks_t">OSTimerTicks_t</h2>
+
+<p>The <a href="/web-preview/micro-os-plus/i/Typedef_OSTimerTicks_t">OSTimerTicks_t</a> type definition is used in … (TBD)</p>
+
+<h2 id="oseventwaitreturn_t">OSEventWaitReturn_t</h2>
+
+<p>The <a href="/web-preview/micro-os-plus/i/Typedef_OSEventWaitReturn_t">OSEventWaitReturn_t</a> type definition is used in … (TBD)</p>
+
+<h2 id="osevent_t">OSEvent_t</h2>
+
+<p>The <a href="/web-preview/micro-os-plus/i/Type_OSEvent_t">OSEvent_t</a> type definition is used in … (TBD)</p>
+
+<h2 id="oseventflagsbits_t">OSEventFlagsBits_t</h2>
+
+<p>The <a href="/web-preview/micro-os-plus/i/Typedef_OSEventFlagsBits_t">OSEventFlagsBits_t</a> type definition is used in <a href="/web-preview/micro-os-plus/i/Class_OSEventFlags">OSEventFlags</a> inter-task synchronization.</p>
+
+<h1 id="classes-hierarchy">Classes hierarchy</h1>
+
+<p>The class inheritance is depicted with multilevel bulleted lists:</p>
+
+<ul>
+  <li>Base class
+    <ul>
+      <li>Derived class</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="classes-from-portablekernelinclude">Classes from “portable/kernel/include”</h2>
+
+<ul>
+  <li>OSCPUImpl
+    <ul>
+      <li>OSCPU</li>
+    </ul>
+  </li>
+  <li>OSImpl
+    <ul>
+      <li>OS</li>
+    </ul>
+  </li>
+  <li>OSScheduler</li>
+  <li>OSSchedulerImpl</li>
+  <li>OSTask
+    <ul>
+      <li>OSTaskIdle</li>
+    </ul>
+  </li>
+  <li>OSTimer
+    <ul>
+      <li>OSTimerTicks</li>
+      <li>OSTimerSeconds</li>
+    </ul>
+  </li>
+  <li>Timer</li>
+  <li>OSMutex</li>
+  <li>OSEventFlags</li>
+</ul>
+
+<h2 id="classes-from-portabledevicescharacterinclude">Classes from “portable/devices/character/include”</h2>
+
+<ul>
+  <li>OSDeviceDebug (may be optionally derived from streambuf)</li>
+  <li>OSDeviceCharacter (may be optionally derived from streambuf)
+    <ul>
+      <li>OSDeviceCharacterBuffered
+        <ul>
+          <li>DeviceCharacterBufferedUsartBase
+            <ul>
+              <li>DeviceCharacterBufferedUsart0</li>
+              <li>DeviceCharacterBufferedUsart1</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>DeviceCharacterUsb</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="classes-from-portabledevicesusbinclude">Classes from “portable/devices/usb/include”</h2>
+
+<ul>
+  <li>OSUsbDevice</li>
+</ul>
+
+<h2 id="classes-from-portablemiscinclude">Classes from “portable/misc/include”</h2>
+
+<ul>
+  <li>
+    <p>ASCII</p>
+  </li>
+  <li>
+    <p>CircularBlockBuffer</p>
+  </li>
+  <li>
+    <p>CircularByteBuffer</p>
+  </li>
+  <li>
+    <p>Parser</p>
+  </li>
+  <li>
+    <p>SimpleCli</p>
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/micro-os-plus/i/Classes_overview/" data-layout="button"></div></li>
+</ul>
+
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="site-footer">
+  <div class="site-footer-links left">
+    <ul>
+  <li>© 2019 Liviu Ionescu</li>
+  <li>Hosted on GitHub</li>
+  <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
+  <li>
+<a href="http://twitter.com/micro_os_plus" class="twitter-follow-button" data-show-count="false">Follow @micro_os_plus</a><script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</li>
+</ul>
+
+
+  </div>
+  <a href="https://github.com/micro-os-plus/micro-os-plus-iii" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+  </a>
+  <div class="site-footer-links right">
+    <ul>
+  <li><a href="/web-preview/">Home</a></li>
+  <li><a href="/web-preview/blog/">News</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/releases">Releases</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues">Support</a></li>
+  <li><a href="/web-preview/about/">About</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</div>
+
+</body>
+</html>

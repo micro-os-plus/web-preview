@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>µOS++ IIIe features</title>
+  <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
+
+  <meta property="og:title" content="µOS++ IIIe features">
+  <meta property="og:site_name" content="µOS++ IIIe">
+
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+
+
+  <meta property="article:published_time" content="2016-07-03">
+
+
+
+
+
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
+
+  <link rel="canonical" href="/web-preview/user-manual/features/">
+
+
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16767008-14', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+  <div class="site-header">
+  <table style="width:100%">
+    <tr>
+      <td>
+        <a href="/web-preview/">
+          <img alt="Icon" class="site-icon" src="/web-preview/assets/icons/wall-e-icon.png" height="100" width="100">
+      </a>
+      </td>
+      <td>
+        <table class="site-title" style="width:100%">
+          <tr>
+            <td class="site-title">
+              <a href="/web-preview/">µOS++ IIIe</a>
+            </td>
+            <td class="site-motto" align="right">
+              “Perfekt ist nicht gut genug”
+            </td>
+          </tr>
+          <tr>
+            <td class="site-description" colspan="2">
+              The third edition of µOS++, a POSIX inspired open source framework, written in C++.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+</div>
+
+<div class="container">
+
+  <div class="wrapper">
+    <div class="site-body">
+
+      <div class="site-sidebar">
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      <h4 id="news"><a href="/web-preview/blog/">News</a></h4>
+
+<ul>
+  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></li>
+  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ IIIe v6.3.14 released</a></li>
+  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ IIIe v6.3.13 released</a></li>
+  <li><a href="/web-preview/blog/2017/01/02/micro-os-plus-v6-3-11-released/">µOS++ IIIe v6.3.11 released</a></li>
+</ul>
+
+
+    </div>
+  </div>
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      
+      <h4 id="home"><a href="/web-preview/">Home</a></h4>
+
+<h4 id="µos-iiie">µOS++ IIIe</h4>
+
+<ul>
+  <li><a href="/web-preview/micro-os-plus/">Overview</a></li>
+</ul>
+
+<h4 id="apis">APIs</h4>
+
+<ul>
+  <li><a href="/web-preview/cmsis-plus/">Overview</a></li>
+  <li><a href="/web-preview/cmsis-plus/rtos/">RTOS API</a></li>
+</ul>
+
+<h4 id="xpacksxcdl">xPacks/XCDL</h4>
+
+<ul>
+  <li><a href="/web-preview/xpacks/">Overview</a></li>
+</ul>
+
+<h4 id="documentation">Documentation</h4>
+
+<ul>
+  <li>
+<a href="/web-preview/user-manual/">User’s <strong>manual</strong></a>
+    <ul>
+      <li><a href="/web-preview/user-manual/getting-started/">Getting started</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/">Basic concepts</a></li>
+      <li><a href="/web-preview/user-manual/features/">Features</a></li>
+      <li><a href="/web-preview/user-manual/threads/">Threads</a></li>
+      <li><a href="/web-preview/user-manual/thread-event-flags/">Thread event flags</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/">Semaphores</a></li>
+      <li><a href="/web-preview/user-manual/event-flags/">Event flags</a></li>
+      <li>Mutexes</li>
+      <li>Condition variables</li>
+      <li>Message queues</li>
+      <li>Memory pools</li>
+      <li>Software timers</li>
+      <li>Clocks</li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/reference/cmsis-plus/">µOS++ <strong>reference</strong></a></li>
+</ul>
+
+<h4 id="developer">Developer</h4>
+
+<ul>
+  <li><a href="/web-preview/develop/">Overview</a></li>
+  <li><a href="/web-preview/reference/cmsis-plus/md_doxygen_pages_change-log.html">Change log</a></li>
+  <li><a href="/web-preview/develop/coding-style/">C++ coding style</a></li>
+  <li><a href="/web-preview/develop/naming-conventions/">Naming conventions</a></li>
+  <li><a href="/web-preview/develop/references/">Links &amp; references</a></li>
+</ul>
+
+<h4 id="support">Support</h4>
+
+<ul>
+  <li><a href="/web-preview/support/">Overview</a></li>
+  <li><a href="/web-preview/support/known-issues/">Known issues</a></li>
+  <li><a href="/web-preview/support/faq/">FAQ</a></li>
+  <li><a href="/web-preview/support/forum/">Forum</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ IIIe issues</a></li>
+</ul>
+
+<h4 id="latest-articles">Latest Articles</h4>
+
+<ul>
+  <li><a href="/web-preview/articles/arm-com-2016-06-24/">CMSIS++ RTOS: fully functional reference implementation</a></li>
+  <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
+</ul>
+
+<h4 id="license">License</h4>
+
+<ul>
+  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+</ul>
+
+<h4 id="about"><a href="/web-preview/about/">About</a></h4>
+
+    </div>
+  </div>
+
+  <div class="site-theme">
+    This site uses the <a href="https://github.com/ilg-ul/github-jekyll-theme">GitHub Wiki-like</a> theme by <a href="https://github.com/ilg-ul">Liviu Ionescu</a>.
+  </div>
+
+</div>
+
+
+      <div class="site-content">
+
+        
+<h1 class="page-title">µOS++ IIIe features</h1>
+<table id="last-modified">
+  <tr>
+    <td id="last-modified">Last modified on Wed Dec 23 10:37:26 2020 UTC.</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/user-manual/features.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+  </tr>
+</table>
+
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toc_level-1 toc_section-1">
+<a href="#overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a>
+</li>
+<li class="toc_level-1 toc_section-2">
+<a href="#features"><span class="tocnumber">2</span> <span class="toctext">Features</span></a>
+<ul>
+<li class="toc_level-2 toc_section-3">
+<a href="#source-code"><span class="tocnumber">2.1</span> <span class="toctext">Source code</span></a>
+</li>
+<li class="toc_level-2 toc_section-4">
+<a href="#multiple-c-and-c-apis"><span class="tocnumber">2.2</span> <span class="toctext">Multiple C++ and C APIs</span></a>
+</li>
+<li class="toc_level-2 toc_section-5">
+<a href="#posix-like-apis"><span class="tocnumber">2.3</span> <span class="toctext">POSIX-like APIs</span></a>
+</li>
+<li class="toc_level-2 toc_section-6">
+<a href="#iso-thread-c-api"><span class="tocnumber">2.4</span> <span class="toctext">ISO thread C++ API</span></a>
+</li>
+<li class="toc_level-2 toc_section-7">
+<a href="#consistent-apis"><span class="tocnumber">2.5</span> <span class="toctext">Consistent APIs</span></a>
+</li>
+<li class="toc_level-2 toc_section-8">
+<a href="#preemptive-multi-tasking"><span class="tocnumber">2.6</span> <span class="toctext">Preemptive multi-tasking</span></a>
+</li>
+<li class="toc_level-2 toc_section-9">
+<a href="#round-robin-scheduling"><span class="tocnumber">2.7</span> <span class="toctext">Round robin scheduling</span></a>
+</li>
+<li class="toc_level-2 toc_section-10">
+<a href="#low-interrupt-disable-time"><span class="tocnumber">2.8</span> <span class="toctext">Low interrupt disable time</span></a>
+</li>
+<li class="toc_level-2 toc_section-11">
+<a href="#safe-nested-critical-sections"><span class="tocnumber">2.9</span> <span class="toctext">Safe nested critical sections</span></a>
+</li>
+<li class="toc_level-2 toc_section-12">
+<a href="#configurable"><span class="tocnumber">2.10</span> <span class="toctext">Configurable</span></a>
+</li>
+<li class="toc_level-2 toc_section-13">
+<a href="#modular"><span class="tocnumber">2.11</span> <span class="toctext">Modular</span></a>
+</li>
+<li class="toc_level-2 toc_section-14">
+<a href="#portable"><span class="tocnumber">2.12</span> <span class="toctext">Portable</span></a>
+</li>
+<li class="toc_level-2 toc_section-15">
+<a href="#romable"><span class="tocnumber">2.13</span> <span class="toctext">ROMable</span></a>
+</li>
+<li class="toc_level-2 toc_section-16">
+<a href="#fully-statically-allocated"><span class="tocnumber">2.14</span> <span class="toctext">Fully statically allocated</span></a>
+</li>
+<li class="toc_level-2 toc_section-17">
+<a href="#users-choice-of-memory-allocation"><span class="tocnumber">2.15</span> <span class="toctext">Users choice of memory allocation</span></a>
+</li>
+<li class="toc_level-2 toc_section-18">
+<a href="#custom-memory-allocators"><span class="tocnumber">2.16</span> <span class="toctext">Custom memory allocators</span></a>
+</li>
+<li class="toc_level-2 toc_section-19">
+<a href="#unlimited-number-of-threads"><span class="tocnumber">2.17</span> <span class="toctext">Unlimited number of threads</span></a>
+</li>
+<li class="toc_level-2 toc_section-20">
+<a href="#unlimited-number-of-system-objects"><span class="tocnumber">2.18</span> <span class="toctext">Unlimited number of system objects</span></a>
+</li>
+<li class="toc_level-2 toc_section-21">
+<a href="#posix-mutexes"><span class="tocnumber">2.19</span> <span class="toctext">POSIX mutexes</span></a>
+</li>
+<li class="toc_level-2 toc_section-22">
+<a href="#software-timers"><span class="tocnumber">2.20</span> <span class="toctext">Software timers</span></a>
+</li>
+<li class="toc_level-2 toc_section-23">
+<a href="#thread-signals"><span class="tocnumber">2.21</span> <span class="toctext">Thread Signals</span></a>
+</li>
+<li class="toc_level-2 toc_section-24">
+<a href="#thread-user-data"><span class="tocnumber">2.22</span> <span class="toctext">Thread user data</span></a>
+</li>
+<li class="toc_level-2 toc_section-25">
+<a href="#error-checking"><span class="tocnumber">2.23</span> <span class="toctext">Error checking</span></a>
+</li>
+<li class="toc_level-2 toc_section-26">
+<a href="#thread-statistics"><span class="tocnumber">2.24</span> <span class="toctext">Thread statistics</span></a>
+</li>
+<li class="toc_level-2 toc_section-27">
+<a href="#deadlock-prevention"><span class="tocnumber">2.25</span> <span class="toctext">Deadlock prevention</span></a>
+</li>
+<li class="toc_level-2 toc_section-28">
+<a href="#object-names"><span class="tocnumber">2.26</span> <span class="toctext">Object names</span></a>
+</li>
+<li class="toc_level-2 toc_section-29">
+<a href="#support-for-thread-aware-debuggers"><span class="tocnumber">2.27</span> <span class="toctext">Support for thread aware debuggers</span></a>
+</li>
+<li class="toc_level-2 toc_section-30">
+<a href="#support-for-instrumentation"><span class="tocnumber">2.28</span> <span class="toctext">Support for instrumentation</span></a>
+</li>
+<li class="toc_level-2 toc_section-31">
+<a href="#multiple-clocks"><span class="tocnumber">2.29</span> <span class="toctext">Multiple clocks</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="overview">Overview</h2>
+
+<p>µOS++ IIIe is a POSIX-like, portable, open source, royalty-free, multi-tasking real-time operating system intended for 32/64-bits embedded applications.</p>
+
+<p>µOS++ IIIe is written in <strong>modern C++ 11</strong>, with C++ applications in mind, but also provides equally functional C APIs.</p>
+
+<p>µOS++ IIIe is the third edition of µOS++, offering all of the services expected from a modern real-time system including resource management, synchronization, inter-thread communication, and more. µOS++ IIIe also offers many features not found in many other real-time systems, such as both C++ and C APIs, POSIX-like threads, POSIX synchronisation objects, use of standard C++ memory allocators, and more.</p>
+
+<h2 id="features">Features</h2>
+
+<p>Here is a list of features provided by µOS++ IIIe.</p>
+
+<h3 id="source-code">Source code</h3>
+
+<p>µOS++ is an <strong>open source project</strong>, provided under the very <strong>permissive terms of the MIT license</strong>.</p>
+
+<p>The source code availability not only helps debugging, but also greatly improves the general understanding of the entire run environment, resulting in better and more robust applications.</p>
+
+<h3 id="multiple-c-and-c-apis">Multiple C++ and C APIs</h3>
+
+<p>µOS++ provides services via multiple APIs, covering both C++ and C applications.</p>
+
+<p>The supported APIs are:</p>
+
+<ul>
+  <li>µOS++ RTOS C++ API - the native µOS++ IIIe C++ API, giving direct access to the system services;</li>
+  <li>µOS++ RTOS C API - a 1:1 C wrapper on top of the C++ API;</li>
+  <li>ISO C++ Threads API - an implementation of the standard ISO threads on top of the C++ API;</li>
+  <li>ARM CMSIS RTOS v1 API - a compatibility layer with ARM CMSIS RTOS</li>
+</ul>
+
+<p>The µOS++ RTOS C API allows to write plain C applications, even if the RTOS core is written in C++.</p>
+
+<p>The ARM CMSIS RTOS API allows to run legacy applications, written for the ARM RTOS API.</p>
+
+<p>The ISO C++ Threads API provides a convenient way to run ISO standard code with almost no changes.</p>
+
+<h3 id="posix-like-apis">POSIX-like APIs</h3>
+
+<p>The design of the core APIs was heavily influenced by the POSIX threads specs. From this point of view, µOS++ can also be seen as <strong>POSIX++</strong>, a C++ version of POSIX.</p>
+
+<p>POSIX compatibility is a very important feature, since POSIX is a mature and well established portable standard, and the experience gained while using POSIX on larger systems can improve productivity of embedded application developers too.</p>
+
+<h3 id="iso-thread-c-api">ISO thread C++ API</h3>
+
+<p>µOS++ also implements the standard ISO C++ thread API, including the <code class="language-plaintext highlighter-rouge">chrono</code> functionality.</p>
+
+<p>The ISO C++ 14882:2011 introduced a standard API for threads, mutexes, condition variables, locks, time related functions, etc.</p>
+
+<p>This API is relatively easy to use, the overhead is low, and, if sharing code with some server environments is required, this may be a very interesting solution.</p>
+
+<h3 id="consistent-apis">Consistent APIs</h3>
+
+<p>The APIs used by µOS++ are highly consistent. Once familiar with the coding conventions used, it is simple to predict the functions to call for the services required, and even predict which arguments are needed. For example, in the C API a pointer to an object is always the first argument, most functions return a POSIX error code, etc.</p>
+
+<p>This translates into increased productivity and improved code readability over time.</p>
+
+<h3 id="preemptive-multi-tasking">Preemptive multi-tasking</h3>
+
+<p>µOS++ implements a priority based, preemptive, multi-tasking scheduler and therefore, µOS++ always runs the most important ready-to-run thread.</p>
+
+<p>For real-time systems, this improves the reaction speed and helps meeting the required deadlines.</p>
+
+<h3 id="round-robin-scheduling">Round robin scheduling</h3>
+
+<p>µOS++ allows multiple threads to run at the same priority level. When multiple threads at the same priority are ready to run, they are scheduled in a round-robin way.</p>
+
+<p>This scheduling algorithm provides a fair distribution of the CPU time to common threads that do not have special needs, and can all share a common priority.</p>
+
+<h3 id="low-interrupt-disable-time">Low interrupt disable time</h3>
+
+<p>µOS++ has a number of internal data structures and variables that it needs to access atomically. To ensure this, µOS++ disables interrupts for very short periods, to ensure minimal interrupt latency.</p>
+
+<p>Keeping the critical sections short gives a chance to fast interrupts to occur and system responsiveness is increased.</p>
+
+<h3 id="safe-nested-critical-sections">Safe nested critical sections</h3>
+
+<p>To avoid subtle bugs, the µOS++ critical sections are designed to be easily nested, saving the initial status during enter and restoring it while exiting.</p>
+
+<p>This save implementation allows to invoke µOS++ system calls from any environment, including from callbacks coming from code using poorly implemented critical sections (for example those using counters to tell when to re-enable interrupts).</p>
+
+<p>To be noted that the reverse is not true, calling library functions that implement critical sections using counters from environments where the interrupts are disabled possibly introduces a synchronisation problem, since the those functions will erroneously enable the interrupts.</p>
+
+<h3 id="configurable">Configurable</h3>
+
+<p>The footprint (both code and data) can be adjusted based on the requirements of the application. This is performed at compile time through many available <code class="language-plaintext highlighter-rouge">#defines</code> (see <code class="language-plaintext highlighter-rouge">os-app-config.h</code>). µOS++ also performs a number of run-time checks on arguments passed to its services, like not passing NULL pointers, not calling thread level services from ISRs, that arguments are within allowable range, and options specified are valid, etc. These checks can be disabled (at compile time) to further reduce the code footprint and improve performance.</p>
+
+<h3 id="modular">Modular</h3>
+
+<p>By a careful design, only those functions that are required are linked into an application, keeping the ROM size small.</p>
+
+<h3 id="portable">Portable</h3>
+
+<p>By design µOS++ is highly portable; it was developed mostly on macOS and its tests are constantly run on both 32 and 64-bits platforms.</p>
+
+<h3 id="romable">ROMable</h3>
+
+<p>µOS++ was designed especially for embedded systems and can be ROMed along with the application code.</p>
+
+<p>This is important for modern microcontrollers, which include large amounts of flash internally, and can execute code from there, without having to copy it to RAM.</p>
+
+<h3 id="fully-statically-allocated">Fully statically allocated</h3>
+
+<p>µOS++ itself is fully statically allocated, it does not require dynamic memory, which makes it a perfect fit for special applications that cannot tolerate the risks associated with fragmentation.</p>
+
+<h3 id="users-choice-of-memory-allocation">Users choice of memory allocation</h3>
+
+<p>For objects that require additional memory, the user has full control on using either <strong>statically</strong> or <strong>dynamically</strong> allocated memory.</p>
+
+<p>µOS++ can be used to build special applications that are not allowed to use dynamic allocations.</p>
+
+<h3 id="custom-memory-allocators">Custom memory allocators</h3>
+
+<p>In the µOS++ C++ API, all objects requiring additional memory can be configured to use a custom memory allocator, so, at the limit, each object can be allocated using a separate allocator.</p>
+
+<h3 id="unlimited-number-of-threads">Unlimited number of threads</h3>
+
+<p>µOS++ supports an unlimited number of threads. From a practical standpoint, however, the number of threads is actually limited by the amount of memory (both code and data space) that the processor has access to. Each thread requires its own stack; µOS++ provides features to allow stack growth to be monitored at run-time.</p>
+
+<p>The default stack size and the minimum stack size can be configured by the user.</p>
+
+<h3 id="unlimited-number-of-system-objects">Unlimited number of system objects</h3>
+
+<p>µOS++ allows for any number of threads, semaphores, mutexes, event flags, message queues, timers, memory pools, etc. The user at run-time allocates all system objects, either as global static objects, stack objects, or dynamically allocated objects.</p>
+
+<p>Not having to statically define at compile time the maximum number of objects is very convenient.</p>
+
+<h3 id="posix-mutexes">POSIX mutexes</h3>
+
+<p>Mutexes with POSIX functionality are provided for resource management. Both normal and recursive mutexes are available. Mutexes can be configured to have built-in priority inheritance, which eliminate unbounded priority inversions.</p>
+
+<h3 id="software-timers">Software timers</h3>
+
+<p>Timers are countdown counters that perform a user-definable action upon counting down to 0. Each timer can have its own action and, if a timer is periodic, the timer is automatically reloaded and the action is executed every time the countdown reaches zero.</p>
+
+<h3 id="thread-signals">Thread Signals</h3>
+
+<p>µOS++ allows an ISR or thread to directly signal a thread. This avoids having to create an intermediate system object such as a semaphore or event flag just to signal a thread, and results in better performance.</p>
+
+<h3 id="thread-user-data">Thread user data</h3>
+
+<p>Threads can include a user-definable user data structure, where the application can store any custom data.</p>
+
+<p>The definition of this data structure is a plain C <code class="language-plaintext highlighter-rouge">struct</code>, and the content is fully under user control.</p>
+
+<h3 id="error-checking">Error checking</h3>
+
+<p>µOS++ verifies that NULL pointers are not passed, that the user is not calling thread-level services from ISRs, that arguments are within allowable range, that options specified are valid, that a handler is passed to the proper object as part of the arguments to services that manipulate the desired object, and more.</p>
+
+<p>Generally these additional validations are enabled in the Debug configurations, and disabled in Release, to save significant space and some run-time.</p>
+
+<h3 id="thread-statistics">Thread statistics</h3>
+
+<p>µOS++ has built-in features to measure the execution time of each thread, stack usage, the number of times a thread executes, CPU usage, and more.</p>
+
+<p>This can be used monitor the system behaviour at run-time, and detect possible busy wait inefficient implementations.</p>
+
+<h3 id="deadlock-prevention">Deadlock prevention</h3>
+
+<p>All of the µOS++ blocking calls have versions that include timeouts, which help avoid deadlocks.</p>
+
+<h3 id="object-names">Object names</h3>
+
+<p>Each µOS++ system object can have a name associated with it. This makes it easy to recognize what the object is assigned to. Assign a name to a thread, a semaphore, a mutex, an event flag group, a message queue, a memory pool, and a timer. The object name can have any length, but must be NULL terminated.</p>
+
+<p>These names can be inspected during debug sessions, to identify objects, and can also be displayed by advanced instrumentation tools.</p>
+
+<h3 id="support-for-thread-aware-debuggers">Support for thread aware debuggers</h3>
+
+<p>This feature allows thread aware debuggers to examine and display µOS++ variables and data structures in a user-friendly way. (Work in progress).</p>
+
+<h3 id="support-for-instrumentation">Support for instrumentation</h3>
+
+<p>This feature allows integration with instrumentation tools like SEGGER SystemView. (Work in progress).</p>
+
+<h3 id="multiple-clocks">Multiple clocks</h3>
+
+<p>The classic solution for handling time in most embedded systems is to use the scheduler timer. By default in µOS++ the resolution for this clock is 1 ms, acceptable for most applications.</p>
+
+<p>µOS++ also defines a standard API to access the real-time clock, which has a resolution of 1 sec, and can be used to configure timeouts even when the CPU is in deep sleep.</p>
+
+<p>For accurate time measurements, down to the CPU cycle level, a high resolution timer derived from the scheduler timer, is also available.</p>
+
+<p>µOS++ provides a common API for all clocks, and all synchronisation objects that can be configured to use any of the available clocks.</p>
+
+
+
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/user-manual/features/" data-layout="button"></div></li>
+</ul>
+
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="site-footer">
+  <div class="site-footer-links left">
+    <ul>
+  <li>© 2019 Liviu Ionescu</li>
+  <li>Hosted on GitHub</li>
+  <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
+  <li>
+<a href="http://twitter.com/micro_os_plus" class="twitter-follow-button" data-show-count="false">Follow @micro_os_plus</a><script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</li>
+</ul>
+
+
+  </div>
+  <a href="https://github.com/micro-os-plus/micro-os-plus-iii" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+  </a>
+  <div class="site-footer-links right">
+    <ul>
+  <li><a href="/web-preview/">Home</a></li>
+  <li><a href="/web-preview/blog/">News</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/releases">Releases</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues">Support</a></li>
+  <li><a href="/web-preview/about/">About</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</div>
+
+</body>
+</html>

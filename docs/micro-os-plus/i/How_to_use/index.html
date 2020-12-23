@@ -1,0 +1,2271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>How to use</title>
+  <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
+
+  <meta property="og:title" content="How to use">
+  <meta property="og:site_name" content="µOS++ IIIe">
+
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+
+
+  <meta property="article:published_time" content="2012-11-01">
+
+
+
+
+
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
+
+  <link rel="canonical" href="/web-preview/micro-os-plus/i/How_to_use/">
+
+
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16767008-14', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+  <div class="site-header">
+  <table style="width:100%">
+    <tr>
+      <td>
+        <a href="/web-preview/">
+          <img alt="Icon" class="site-icon" src="/web-preview/assets/icons/wall-e-icon.png" height="100" width="100">
+      </a>
+      </td>
+      <td>
+        <table class="site-title" style="width:100%">
+          <tr>
+            <td class="site-title">
+              <a href="/web-preview/">µOS++ IIIe</a>
+            </td>
+            <td class="site-motto" align="right">
+              “Perfekt ist nicht gut genug”
+            </td>
+          </tr>
+          <tr>
+            <td class="site-description" colspan="2">
+              The third edition of µOS++, a POSIX inspired open source framework, written in C++.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+</div>
+
+<div class="container">
+
+  <div class="wrapper">
+    <div class="site-body">
+
+      <div class="site-sidebar">
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      <h4 id="news"><a href="/web-preview/blog/">News</a></h4>
+
+<ul>
+  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></li>
+  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ IIIe v6.3.14 released</a></li>
+  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ IIIe v6.3.13 released</a></li>
+  <li><a href="/web-preview/blog/2017/01/02/micro-os-plus-v6-3-11-released/">µOS++ IIIe v6.3.11 released</a></li>
+</ul>
+
+
+    </div>
+  </div>
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      
+      <h4 id="home"><a href="/web-preview/">Home</a></h4>
+
+<h4 id="µos-iiie">µOS++ IIIe</h4>
+
+<ul>
+  <li><a href="/web-preview/micro-os-plus/">Overview</a></li>
+</ul>
+
+<h4 id="apis">APIs</h4>
+
+<ul>
+  <li><a href="/web-preview/cmsis-plus/">Overview</a></li>
+  <li><a href="/web-preview/cmsis-plus/rtos/">RTOS API</a></li>
+</ul>
+
+<h4 id="xpacksxcdl">xPacks/XCDL</h4>
+
+<ul>
+  <li><a href="/web-preview/xpacks/">Overview</a></li>
+</ul>
+
+<h4 id="documentation">Documentation</h4>
+
+<ul>
+  <li>
+<a href="/web-preview/user-manual/">User’s <strong>manual</strong></a>
+    <ul>
+      <li><a href="/web-preview/user-manual/getting-started/">Getting started</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/">Basic concepts</a></li>
+      <li><a href="/web-preview/user-manual/features/">Features</a></li>
+      <li><a href="/web-preview/user-manual/threads/">Threads</a></li>
+      <li><a href="/web-preview/user-manual/thread-event-flags/">Thread event flags</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/">Semaphores</a></li>
+      <li><a href="/web-preview/user-manual/event-flags/">Event flags</a></li>
+      <li>Mutexes</li>
+      <li>Condition variables</li>
+      <li>Message queues</li>
+      <li>Memory pools</li>
+      <li>Software timers</li>
+      <li>Clocks</li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/reference/cmsis-plus/">µOS++ <strong>reference</strong></a></li>
+</ul>
+
+<h4 id="developer">Developer</h4>
+
+<ul>
+  <li><a href="/web-preview/develop/">Overview</a></li>
+  <li><a href="/web-preview/reference/cmsis-plus/md_doxygen_pages_change-log.html">Change log</a></li>
+  <li><a href="/web-preview/develop/coding-style/">C++ coding style</a></li>
+  <li><a href="/web-preview/develop/naming-conventions/">Naming conventions</a></li>
+  <li><a href="/web-preview/develop/references/">Links &amp; references</a></li>
+</ul>
+
+<h4 id="support">Support</h4>
+
+<ul>
+  <li><a href="/web-preview/support/">Overview</a></li>
+  <li><a href="/web-preview/support/known-issues/">Known issues</a></li>
+  <li><a href="/web-preview/support/faq/">FAQ</a></li>
+  <li><a href="/web-preview/support/forum/">Forum</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ IIIe issues</a></li>
+</ul>
+
+<h4 id="latest-articles">Latest Articles</h4>
+
+<ul>
+  <li><a href="/web-preview/articles/arm-com-2016-06-24/">CMSIS++ RTOS: fully functional reference implementation</a></li>
+  <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
+</ul>
+
+<h4 id="license">License</h4>
+
+<ul>
+  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+</ul>
+
+<h4 id="about"><a href="/web-preview/about/">About</a></h4>
+
+    </div>
+  </div>
+
+  <div class="site-theme">
+    This site uses the <a href="https://github.com/ilg-ul/github-jekyll-theme">GitHub Wiki-like</a> theme by <a href="https://github.com/ilg-ul">Liviu Ionescu</a>.
+  </div>
+
+</div>
+
+
+      <div class="site-content">
+
+        
+<h1 class="page-title">How to use - DEPRECATED</h1>
+<table id="last-modified">
+  <tr>
+    <td id="last-modified">Page date Thu Nov  1 21:43:30 2012 .</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/micro-os-plus/i/How_to_use.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+  </tr>
+</table>
+
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toc_level-1 toc_section-1">
+<a href="#using-the-released-packages"><span class="tocnumber">1</span> <span class="toctext">Using the released packages</span></a>
+</li>
+<li class="toc_level-1 toc_section-2">
+<a href="#using-the-svn-repository"><span class="tocnumber">2</span> <span class="toctext">Using the SVN repository</span></a>
+<ul>
+<li class="toc_level-2 toc_section-3">
+<a href="#automatic-method"><span class="tocnumber">2.1</span> <span class="toctext">Automatic method</span></a>
+</li>
+<li class="toc_level-2 toc_section-4">
+<a href="#manual-method"><span class="tocnumber">2.2</span> <span class="toctext">Manual method</span></a>
+</li>
+<li class="toc_level-2 toc_section-5">
+<a href="#replace-with-a-specific-revision"><span class="tocnumber">2.3</span> <span class="toctext">Replace with a specific revision</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-6">
+<a href="#build-configurations"><span class="tocnumber">3</span> <span class="toctext">Build Configurations</span></a>
+</li>
+<li class="toc_level-1 toc_section-7">
+<a href="#build-variables"><span class="tocnumber">4</span> <span class="toctext">Build Variables</span></a>
+</li>
+<li class="toc_level-1 toc_section-8">
+<a href="#cc-symbols"><span class="tocnumber">5</span> <span class="toctext">C/C++ Symbols</span></a>
+<ul>
+<li class="toc_level-2 toc_section-9">
+<a href="#os_config_board_board1"><span class="tocnumber">5.1</span> <span class="toctext">OS_CONFIG_BOARD_${BOARD}=1</span></a>
+</li>
+<li class="toc_level-2 toc_section-10">
+<a href="#debug1"><span class="tocnumber">5.2</span> <span class="toctext">DEBUG=1</span></a>
+</li>
+<li class="toc_level-2 toc_section-11">
+<a href="#os_config_debug_device_dbgdev1"><span class="tocnumber">5.3</span> <span class="toctext">OS_CONFIG_DEBUG_DEVICE_${DBGDEV}=1</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-12">
+<a href="#cc-build-settings"><span class="tocnumber">6</span> <span class="toctext">C/C++ Build Settings</span></a>
+</li>
+<li class="toc_level-1 toc_section-13">
+<a href="#using-an-existing-project-as-template"><span class="tocnumber">7</span> <span class="toctext">Using an existing project as template</span></a>
+</li>
+<li class="toc_level-1 toc_section-14">
+<a href="#copying-build-configurations-from-template"><span class="tocnumber">8</span> <span class="toctext">Copying build configurations from template</span></a>
+</li>
+<li class="toc_level-1 toc_section-15">
+<a href="#creating-a-new-project-from-scratch"><span class="tocnumber">9</span> <span class="toctext">Creating a new project from scratch</span></a>
+<ul>
+<li class="toc_level-2 toc_section-16">
+<a href="#create-new-c-project"><span class="tocnumber">9.1</span> <span class="toctext">Create new C++ project</span></a>
+</li>
+<li class="toc_level-2 toc_section-17">
+<a href="#create-a-link-to-the-system-folder"><span class="tocnumber">9.2</span> <span class="toctext">Create a link to the system folder</span></a>
+</li>
+<li class="toc_level-2 toc_section-18">
+<a href="#import-debugrelease-configurations-from-templates"><span class="tocnumber">9.3</span> <span class="toctext">Import Debug/Release configurations from templates</span></a>
+</li>
+<li class="toc_level-2 toc_section-19">
+<a href="#create-source-and-include-folders"><span class="tocnumber">9.4</span> <span class="toctext">Create source and include folders</span></a>
+</li>
+<li class="toc_level-2 toc_section-20">
+<a href="#update-the-location-of-the-source-folders"><span class="tocnumber">9.5</span> <span class="toctext">Update the location of the source folders</span></a>
+</li>
+<li class="toc_level-2 toc_section-21">
+<a href="#add-reference-to-micro-os-plus-system-project"><span class="tocnumber">9.6</span> <span class="toctext">Add reference to micro-os-plus system project</span></a>
+</li>
+<li class="toc_level-2 toc_section-22">
+<a href="#define-board"><span class="tocnumber">9.7</span> <span class="toctext">Define BOARD</span></a>
+</li>
+<li class="toc_level-2 toc_section-23">
+<a href="#define-dbgdev"><span class="tocnumber">9.8</span> <span class="toctext">Define DBGDEV</span></a>
+</li>
+<li class="toc_level-2 toc_section-24">
+<a href="#custom-architecture-configurations"><span class="tocnumber">9.9</span> <span class="toctext">Custom architecture configurations</span></a>
+</li>
+<li class="toc_level-2 toc_section-25">
+<a href="#rename-configurations"><span class="tocnumber">9.10</span> <span class="toctext">Rename configurations</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-26">
+<a href="#updating-the-compile-options"><span class="tocnumber">10</span> <span class="toctext">Updating the compile options</span></a>
+<ul>
+<li class="toc_level-2 toc_section-27">
+<a href="#warnings"><span class="tocnumber">10.1</span> <span class="toctext">Warnings</span></a>
+</li>
+<li class="toc_level-2 toc_section-28">
+<a href="#debugging"><span class="tocnumber">10.2</span> <span class="toctext">Debugging</span></a>
+</li>
+<li class="toc_level-2 toc_section-29">
+<a href="#optimizations"><span class="tocnumber">10.3</span> <span class="toctext">Optimizations</span></a>
+</li>
+<li class="toc_level-2 toc_section-30">
+<a href="#language-standards"><span class="tocnumber">10.4</span> <span class="toctext">Language Standards</span></a>
+</li>
+<li class="toc_level-2 toc_section-31">
+<a href="#miscellaneous"><span class="tocnumber">10.5</span> <span class="toctext">Miscellaneous</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-32">
+<a href="#post-build-steps"><span class="tocnumber">11</span> <span class="toctext">Post build steps</span></a>
+</li>
+<li class="toc_level-1 toc_section-33">
+<a href="#arm"><span class="tocnumber">12</span> <span class="toctext">ARM</span></a>
+<ul>
+<li class="toc_level-2 toc_section-34">
+<a href="#cc-general--paths--symbols"><span class="tocnumber">12.1</span> <span class="toctext">C/C++ General → Paths &amp; Symbols</span></a>
+</li>
+<li class="toc_level-2 toc_section-35">
+<a href="#cc-build--settings"><span class="tocnumber">12.2</span> <span class="toctext">C/C++ Build → Settings</span></a>
+</li>
+<li class="toc_level-2 toc_section-36">
+<a href="#linker-script-file"><span class="tocnumber">12.3</span> <span class="toctext">Linker script file</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-37">
+<a href="#avr8"><span class="tocnumber">13</span> <span class="toctext">AVR8</span></a>
+<ul>
+<li class="toc_level-2 toc_section-38">
+<a href="#cc-general--paths--symbols-1"><span class="tocnumber">13.1</span> <span class="toctext">C/C++ General → Paths &amp; Symbols</span></a>
+</li>
+<li class="toc_level-2 toc_section-39">
+<a href="#avr-settings"><span class="tocnumber">13.2</span> <span class="toctext">AVR Settings</span></a>
+</li>
+<li class="toc_level-2 toc_section-40">
+<a href="#cc-build--settings-1"><span class="tocnumber">13.3</span> <span class="toctext">C/C++ Build → Settings</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-41">
+<a href="#avr32"><span class="tocnumber">14</span> <span class="toctext">AVR32</span></a>
+<ul>
+<li class="toc_level-2 toc_section-42">
+<a href="#cc-build--build-variables"><span class="tocnumber">14.1</span> <span class="toctext">C/C++ Build → Build Variables</span></a>
+</li>
+<li class="toc_level-2 toc_section-43">
+<a href="#cc-general--paths--symbols-2"><span class="tocnumber">14.2</span> <span class="toctext">C/C++ General → Paths &amp; Symbols</span></a>
+</li>
+<li class="toc_level-2 toc_section-44">
+<a href="#cc-build--settings-2"><span class="tocnumber">14.3</span> <span class="toctext">C/C++ Build → Settings</span></a>
+</li>
+<li class="toc_level-2 toc_section-45">
+<a href="#mcu-settings"><span class="tocnumber">14.4</span> <span class="toctext">MCU Settings</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-46">
+<a href="#arm-1"><span class="tocnumber">15</span> <span class="toctext">ARM</span></a>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="prerequisites">Prerequisites</h1>
+
+<p>Before you start using the µOS++, please check that you have installed all necessary tools and packages, as described in the <a href="/web-preview/micro-os-plus/i/How_to_install">How to install</a> page.</p>
+
+<h1 id="downloading-the-system-source-code-and-sample-projects">Downloading the system source code and sample projects</h1>
+
+<h2 id="using-the-released-packages">Using the released packages</h2>
+
+<p>TBD…</p>
+
+<h2 id="using-the-svn-repository">Using the SVN repository</h2>
+
+<h3 id="automatic-method">Automatic method</h3>
+
+<p>For loading the latest versions of the projects from repository, the Eclipse standard procedure is to import the <a href="http://micro-os-plus.svn.sourceforge.net/svnroot/micro-os-plus/trunk/Eclipse/WorkspaceTeamProjectSystemAndSampleSets.psf">‘WorkspaceTeamProjectSystemAndSampleSets.psf</a> file.</p>
+
+<p>If you need only the system project, please use the <a href="http://micro-os-plus.svn.sourceforge.net/svnroot/micro-os-plus/trunk/Eclipse/WorkspaceTeamProjectSystemSet.psf">‘WorkspaceTeamProjectSystemSet.psf</a> file.</p>
+
+<p>The second step is to import the file in Eclipse:</p>
+
+<p><strong>Eclipse</strong> menu: <strong>File</strong> → <strong>Import</strong></p>
+
+<ul>
+  <li>a new Import Select window is displayed</li>
+  <li>expand the <strong>Team</strong> category</li>
+  <li>select the <strong>Team Project Set</strong>
+</li>
+  <li>click <strong>Next</strong>
+</li>
+  <li>in the File name: field, enter the <strong>WorkspaceTeamProjectSystemAndSampleSets.psf</strong> file</li>
+  <li>click <strong>Finish</strong>
+</li>
+</ul>
+
+<p>For saving your own Team Project sets:</p>
+
+<p><strong>Eclipse</strong> menu: <strong>File</strong> → <strong>Export</strong></p>
+
+<ul>
+  <li>a new Export Select window is displayed</li>
+  <li>expand the <strong>Team</strong> category</li>
+  <li>select the <strong>Team Project Set</strong>
+</li>
+  <li>click <strong>Next</strong>
+</li>
+  <li>enable <strong>Export working sets</strong>
+</li>
+  <li>click on <strong>Select All</strong> or manually select the System and Samples sets</li>
+  <li>click <strong>Next</strong>
+</li>
+  <li>in the new window, select the export destination to a file</li>
+  <li>click <strong>Finish</strong>
+</li>
+  <li>in the To preference file: enter the name of the file to be used, like <strong>myWorkspaceTeamProjectSets.psf</strong>
+</li>
+  <li>click <strong>Finish</strong>
+</li>
+  <li>check if the myWorkspaceTeamProjectSets.psf file was created</li>
+</ul>
+
+<h3 id="manual-method">Manual method</h3>
+
+<p>TBD…</p>
+
+<h3 id="replace-with-a-specific-revision">Replace with a specific revision</h3>
+
+<p>If your application was built with an older version, and you have good reasons to use that specific revision, this can be easily done with the SVN commands.</p>
+
+<p>Select the micro-os-plus project and right click</p>
+
+<ul>
+  <li>select the <strong>Replace With</strong> menu entry</li>
+  <li>select the <strong>Revision or URL…</strong> menu entry</li>
+  <li>a new window Update To Revision is displayed</li>
+  <li>enter the desired revision or date</li>
+  <li>click OK</li>
+  <li>a confirmation dialog is displayed</li>
+  <li>click OK</li>
+</ul>
+
+<h1 id="the-managed-build-process-peculiarities">The managed build process peculiarities</h1>
+
+<p>The µOS++ was designed to be portable across different boards. In other words, the same source code, without any changes, can be compiled to completely different boards, with completely different characteristics.</p>
+
+<p>There might be many solutions for this, but the preferred one uses the CDT Managed Build mechanism, that completely automates the build process, without having to deal with the creation and maintenance of makefiles.</p>
+
+<h2 id="build-configurations">Build Configurations</h2>
+
+<p>In Eclipse terms, a single project can have multiple build configurations, each for a different board.</p>
+
+<p>In addition, each board can have different Debug/Release configurations.</p>
+
+<p>To accomodate for multiple build configurations into a single project, in µOS++ the following naming convention is used:</p>
+
+<p><em>Type</em>-<em>Manufacturer</em>-<em>Board</em></p>
+
+<p>Where:</p>
+
+<ul>
+  <li>
+<em>Type</em> is <strong>Debug</strong> or <strong>Release</strong>
+</li>
+  <li>
+<em>Manufacturer</em> is a string defining the board manufacturer, like <strong>Atmel</strong>, <strong>Olimex</strong>, etc</li>
+  <li>
+<em>Board</em> is a string defining the physical board, for example <strong>STK525</strong>, <strong>STM32-H103</strong>
+</li>
+</ul>
+
+<p>Preferably the board is exactly the name of the board, as the manufacturer defines it. If it is longer than usual, or contains special character, it is recommended to shorten/filter it.</p>
+
+<h2 id="build-variables">Build Variables</h2>
+
+<p>To differentiate between build configurations, Eclipse allows to define different build variables for different configurations.</p>
+
+<p>Since in µOS++ the criteria to differentiates between configuration is the board, the only build variable needed is a string, named <strong>BOARD</strong>.</p>
+
+<p>The values that this variable can hold are uppercase alphanumerical strings, using the following naming convention</p>
+
+<p><em>Manufacturer</em>_<em>Board</em></p>
+
+<p>where the parts have the same meaning as before, but converte to uppercase, and ‘-‘ is replaced by ‘_’.</p>
+
+<p>The explanation for these requirements is simple, the BOARD definition will be used as part of preprocessor macro-definition.</p>
+
+<p>To acces the build variables, select the desired project (<strong>minimal</strong>, for example), and go to the</p>
+
+<p><strong>Eclipse</strong> menu: <strong>Project</strong> → <strong>Properties</strong></p>
+
+<ul>
+  <li>expand <strong>C/C++ Build</strong>
+</li>
+  <li>select <strong>Build Variables</strong>
+</li>
+  <li>in the right panel, choose the desired configuration, for example <strong>Debug-Atmel-STS525</strong>
+</li>
+  <li>the main window will display something like</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>BOARD</td>
+      <td>String</td>
+      <td>ATMEL_STK525</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The second build variables used for Debug build configurations is <strong>DBGDEV</strong>. It is used to specify the debug device used for the trace output.</p>
+
+<p>Currently only the <strong>I2C</strong> value is actively maintained.</p>
+
+<p>Another choice is <strong>USART</strong>, but code for this is not fully supported on all platforms.</p>
+
+<p>In addition to user defined build variables, there are also a lot of system variables. They can be seen by enabling <strong>Show system variables</strong>.</p>
+
+<p>Build variables can be used as simple macro definitions in most of the places where string fields are allowed in Eclipse.</p>
+
+<h2 id="cc-symbols">C/C++ Symbols</h2>
+
+<p>The next step for forwarding definitions definitions to the build process, are the C/C++ Symbols.</p>
+
+<p>The definitions entered here are automatically added to the preprocessor definitions of corresponding languages used in the project, and, very important, are also used by the CDT Indexer.</p>
+
+<p>To access the C/C++ Symbols, select the desired project (<strong>minimal</strong>, for example), and go to the</p>
+
+<p><strong>Eclipse</strong> menu: <strong>Project</strong> → <strong>Properties</strong></p>
+
+<ul>
+  <li>expand <strong>C/C++ General</strong>
+</li>
+  <li>select <strong>Paths &amp; Symbols</strong>
+</li>
+  <li>in the right panel, choose the desired configuration, for example <strong>Debug-Atmel-STS525</strong>
+</li>
+  <li>in the right panel, select the <strong>Symbols</strong> tab</li>
+</ul>
+
+<h3 id="os_config_board_board1">OS_CONFIG_BOARD_${BOARD}=1</h3>
+
+<p>This is the only mandatory definitions required by µOS++, and needs to be present for all projects.</p>
+
+<p>As it can be seen, it expands the build variable BOARD to a custom C/C++ preprocessor definition.</p>
+
+<h3 id="debug1">DEBUG=1</h3>
+
+<p>This definition should be present in all build configurations intended for debug.</p>
+
+<p>Among other things, the debug configurations defines a generic serial device, where debug messages are sent. The recommended device is I2C, but it is also possible to use USART ports.</p>
+
+<p>The selections is made by the following definitions. Only one of them should be present.</p>
+
+<h3 id="os_config_debug_device_dbgdev1">OS_CONFIG_DEBUG_DEVICE_${DBGDEV}=1</h3>
+
+<p>This definition should be present only for debug configurations, and defines the debug device to be the one defined by the build variable <strong>DBGDEV</strong>.</p>
+
+<h2 id="cc-build-settings">C/C++ Build Settings</h2>
+
+<p>The last step for forwarding definitions definitions to the build process, are the C/C++ Tool Settings.</p>
+
+<p>To access the C/C++ Tool Settings, select the desired project (<strong>minimal</strong>, for example), and go to the</p>
+
+<p><strong>Eclipse</strong> menu: <strong>Project</strong> → <strong>Properties</strong></p>
+
+<ul>
+  <li>expand <strong>C/C++ Build</strong>
+</li>
+  <li>select <strong>Settings</strong>
+</li>
+  <li>in the right panel, choose the desired configuration, for example <strong>Debug-Atmel-STS525</strong>
+</li>
+  <li>in the right panel, select the <strong>Tool Settings</strong> tab</li>
+</ul>
+
+<p>Selecting one specific compiler will show in the <strong>All options</strong> field the above preprocessor definitions passed as -D options to the GCC compiler.</p>
+
+<p>Whenever possible, it is also recommended to use the GNU Make Builder, instead of the CDT internal one.</p>
+
+<p>To access the C/C++ Tool chain Eitor, select the desired project (<strong>minimal</strong>, for example), and go to the</p>
+
+<p><strong>Eclipse</strong> menu: <strong>Project</strong> → <strong>Properties</strong></p>
+
+<ul>
+  <li>expand <strong>C/C++ Build</strong>
+</li>
+  <li>select <strong>Tool Chain Editor</strong>
+</li>
+  <li>in the <strong>Current builder</strong> dialog box select <strong>Gnu Make Builder</strong>
+</li>
+</ul>
+
+<h1 id="creating-and-configuring-new-projects">Creating and configuring new projects</h1>
+
+<h2 id="using-an-existing-project-as-template">Using an existing project as template</h2>
+
+<p>Although creating new projects from scratch is perfectly possible, the configurations are slightly more complex than usual, so the recommended method is by copy/paste, using as template the <strong>sample-minimal</strong> project.</p>
+
+<ul>
+  <li>in the Project Explorer, select the <strong>View Menu icon</strong> (down pointing triangle)
+    <ul>
+      <li>select <strong>No Working Sets</strong>
+</li>
+      <li>press <strong>OK</strong>; now all projects should be visible linearly, without Sets groupings</li>
+    </ul>
+  </li>
+  <li>select the <strong>sample-minimal</strong> project</li>
+  <li>Edit → <strong>Copy</strong>
+</li>
+  <li>Edit → <strong>Paste</strong>
+</li>
+  <li>enter a name for the new project</li>
+  <li>accept the default location</li>
+  <li>press <strong>OK</strong>
+</li>
+  <li>select all Debug* and Release* folders</li>
+  <li>Edit → <strong>Delete</strong>
+</li>
+  <li>right click on project</li>
+  <li>select <strong>Team Disconnect</strong>
+    <ul>
+      <li>select <strong>Also delete the SVN meta-information from the file system</strong>
+</li>
+      <li>click <strong>Yes</strong>
+</li>
+    </ul>
+  </li>
+  <li>edit the <strong>includes/App_Defines.h</strong> to change the debugger greeting message</li>
+</ul>
+
+<p>Update project to reference micro-os-plus.</p>
+
+<p>Continue to the <strong>Build Project</strong> section below.</p>
+
+<h2 id="copying-build-configurations-from-template">Copying build configurations from template</h2>
+
+<p>If needed, instead of manually configuring projects, it is easier to copy build configurations from existing projects.</p>
+
+<p>The reference project is the sample-minimal project, it is highly recommended to copy configurations only from this project.</p>
+
+<ul>
+  <li>
+<strong>Eclipse</strong> menu: <strong>Project</strong> → <strong>Build Configurations</strong> → <strong>Manage</strong>
+</li>
+  <li>click on the <strong>New</strong> button</li>
+  <li>enter configuration name, like <strong>Debug-Atmel-STK525</strong>
+</li>
+  <li>select <strong>Import from projects</strong>
+</li>
+  <li>select <strong>sample-minimal -&gt; Debug-Atmel-STK525</strong>
+</li>
+  <li>click on the <strong>OK</strong> button</li>
+  <li>click on the <strong>OK</strong> button</li>
+</ul>
+
+<p>For unknown reasons, not all settings are copied, and some manual changes are needed:</p>
+
+<ul>
+  <li>add <strong>BOARD</strong> and <strong>DVGDEV</strong> in the C/C++ Build Variables</li>
+  <li>make the project reference the <strong>micro-os-pus</strong> project</li>
+</ul>
+
+<h2 id="creating-a-new-project-from-scratch">Creating a new project from scratch</h2>
+
+<h3 id="create-new-c-project">Create new C++ project</h3>
+
+<ul>
+  <li>
+<strong>Eclipse</strong> menu: <strong>File</strong> → <strong>New</strong> -&gt; <strong>C++ Project</strong>
+    <ul>
+      <li>enter a project name</li>
+      <li>as Project type select <strong>AVR Cross Target Application</strong> → <em>‘Empty Project</em>
+</li>
+      <li>as Toolchain select <strong>AVR-GCC Toolchain</strong>
+</li>
+      <li>click <strong>Next</strong>
+</li>
+      <li>accept the Debug/Release configurations, will be edited later</li>
+      <li>click <strong>Next</strong>
+</li>
+      <li>select <strong>MCU Type</strong>
+</li>
+      <li>enter <strong>MCU Frequency</strong> (for completeness, not used by µOS++)</li>
+      <li>click <strong>Finish</strong>
+</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="create-a-link-to-the-system-folder">Create a link to the system folder</h3>
+
+<p>All project should have a folder named <strong>micro-os-plus</strong> linked to <strong>WORKSPACE_LOC/micro-os-plus</strong>.</p>
+
+<ul>
+  <li>select the newly created project</li>
+  <li>
+<strong>Eclipse</strong> menu: <strong>File</strong> → <strong>New</strong> → <strong>Folder</strong>
+    <ul>
+      <li>click on <strong>Advanced</strong>
+</li>
+      <li>select <strong>Link to alternate location (Linked Folder)</strong>
+</li>
+      <li>click on <strong>Variables…</strong>
+</li>
+      <li>select <strong>WORKSPACE_LOC</strong>
+</li>
+      <li>click OK</li>
+      <li>append <strong>‘/micro-os-plus</strong> to the WORKSPACE_LOC</li>
+      <li>check if the Folder name was updated to <strong>micro-os-plus</strong>
+</li>
+      <li>click <strong>Finish</strong>
+</li>
+      <li>wait a few good moments for the configuration to be created</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="import-debugrelease-configurations-from-templates">Import Debug/Release configurations from templates</h3>
+
+<ul>
+  <li>get Debug-AVR-Configuration.xml</li>
+  <li>
+    <p>get Release-AVR-Configuration.xml</p>
+  </li>
+  <li>
+<strong>Eclipse</strong> menu: <strong>Project</strong> → <strong>Properties</strong>
+    <ul>
+      <li>expand <strong>C/C++ general</strong>
+</li>
+      <li>select Paths and Symbols</li>
+      <li>click on <strong>Includes</strong> tab</li>
+      <li>click on <strong>Import Settings…</strong>
+</li>
+      <li>click on <strong>Browse</strong>
+        <ul>
+          <li>select <strong>Debug-AVR-Configuration.xml</strong>
+</li>
+          <li>click on <strong>Open</strong>
+</li>
+        </ul>
+      </li>
+      <li>in the Select Configuration select Debug</li>
+    </ul>
+  </li>
+  <li>
+    <p>click on Finish</p>
+  </li>
+  <li>repeat for Release with Release-AVR-Configuration.xml</li>
+</ul>
+
+<h3 id="create-source-and-include-folders">Create source and include folders</h3>
+
+<ul>
+  <li>create src folder</li>
+  <li>add the main.cpp file</li>
+  <li>create include folder</li>
+  <li>create App_define.h</li>
+  <li>create OS_App_Defines.h</li>
+</ul>
+
+<h3 id="update-the-location-of-the-source-folders">Update the location of the source folders</h3>
+
+<ul>
+  <li>
+<strong>Eclipse</strong> menu: <strong>Project</strong> → <strong>Properties</strong>
+    <ul>
+      <li>expand C/C++ general</li>
+      <li>select <strong>Paths and Symbols</strong>
+</li>
+      <li>click on <strong>Source Location</strong> tab</li>
+      <li>select the <strong>Debug</strong> configuration</li>
+      <li>click on <strong>Add folder…</strong>
+        <ul>
+          <li>select the src folder</li>
+          <li>press OK</li>
+        </ul>
+      </li>
+      <li>click on <strong>Add Folder…</strong>
+        <ul>
+          <li>select the <strong>micro-os-plus</strong> folder</li>
+          <li>click on <strong>OK</strong>
+</li>
+        </ul>
+      </li>
+      <li>select the root project folder</li>
+      <li>click on Delete</li>
+      <li>select the <strong>Release</strong> configuration</li>
+      <li>click on <strong>Add folder…</strong>
+        <ul>
+          <li>select the src folder</li>
+          <li>press OK</li>
+        </ul>
+      </li>
+      <li>click on <strong>Add Folder…</strong>
+        <ul>
+          <li>select the <strong>micro-os-plus</strong> folder</li>
+          <li>click on <strong>OK</strong>
+</li>
+        </ul>
+      </li>
+      <li>select the root project folder</li>
+      <li>click on Delete</li>
+      <li>click on OK</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="add-reference-to-micro-os-plus-system-project">Add reference to micro-os-plus system project</h3>
+
+<ul>
+  <li>
+<strong>Eclipse</strong> menu: <strong>Project</strong> → <strong>Properties</strong>
+    <ul>
+      <li>expand C/C++ general</li>
+      <li>select <strong>Paths and Symbols</strong>
+</li>
+      <li>click on <strong>References</strong> tab</li>
+      <li>select the <strong>Debug</strong> configuration</li>
+      <li>select micro-os-plus</li>
+      <li>click on Apply</li>
+      <li>select the <strong>Release</strong> configuration</li>
+      <li>select micro-os-plus</li>
+      <li>click on Apply</li>
+      <li>click on OK</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="define-board">Define BOARD</h3>
+
+<ul>
+  <li>
+<strong>Eclipse</strong> menu: <strong>Project</strong> → <strong>Properties</strong>
+    <ul>
+      <li>expand <strong>C/C++ Build</strong>
+</li>
+      <li>select <strong>Build Variables</strong>
+</li>
+      <li>select the <strong>Debug</strong> configuration</li>
+      <li>click on <strong>Add…</strong>
+        <ul>
+          <li>enter Variable name: <strong>BOARD</strong>
+</li>
+          <li>enable click on <strong>Apply to all configurations</strong>
+</li>
+          <li>leave Type: <strong>String</strong>
+</li>
+          <li>enter Value: <strong>ATMEL_STK525</strong> or <strong>ATMEL_EVK1104</strong>
+</li>
+          <li>click on <strong>OK</strong>
+</li>
+        </ul>
+      </li>
+      <li>check if the value as added to all configurations</li>
+      <li>click on <strong>OK</strong>
+</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="define-dbgdev">Define DBGDEV</h3>
+
+<ul>
+  <li>
+<strong>Eclipse</strong> menu: <strong>Project</strong> → <strong>Properties</strong>
+    <ul>
+      <li>expand <strong>C/C++ Build</strong>
+</li>
+      <li>select <strong>Build Variables</strong>
+</li>
+      <li>select the <strong>Debug</strong> configuration</li>
+      <li>click on <strong>Add…</strong>
+        <ul>
+          <li>enter Variable name: <strong>DBGDEV</strong>
+</li>
+          <li>disable <strong>Apply to all configurations</strong>
+</li>
+          <li>leave Type: <strong>String</strong>
+</li>
+          <li>enter Value: <strong>I2C</strong>
+</li>
+          <li>click on <strong>OK</strong>
+</li>
+        </ul>
+      </li>
+      <li>check if the value was added only to the Debug configuration</li>
+      <li>click on <strong>OK</strong>
+</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="custom-architecture-configurations">Custom architecture configurations</h3>
+
+<ul>
+  <li>
+<strong>Eclipse</strong> menu: <strong>Project</strong> → <strong>Properties</strong>
+    <ul>
+      <li>expand the <strong>AVR</strong> group</li>
+      <li>select <strong>Target Hardware</strong>
+        <ul>
+          <li>select the <strong>MCU Type</strong>
+</li>
+          <li>select the <strong>MCU Clock Frequency</strong>
+</li>
+          <li>click <strong>OK</strong>
+</li>
+        </ul>
+      </li>
+      <li>if you have a development platform with a micro-controller larger than the production board, select the AVR group and enable <strong>Enable individual settings for Build Configurations</strong>
+</li>
+    </ul>
+  </li>
+  <li>click <strong>OK</strong>
+</li>
+</ul>
+
+<h3 id="rename-configurations">Rename configurations</h3>
+
+<p>Eventually rename the Debug/Release configurations to mark the board used.</p>
+
+<p>The configuration names look like <strong>Debug-Atmel-STK525</strong>.</p>
+
+<ul>
+  <li>
+<strong>Eclipse</strong> menu: <strong>Project</strong> → <strong>Build Configurations</strong> → <strong>Manage</strong>
+</li>
+</ul>
+
+<h2 id="updating-the-compile-options">Updating the compile options</h2>
+
+<h3 id="warnings">Warnings</h3>
+
+<ul>
+  <li>enable All Warnings -Wall</li>
+</ul>
+
+<h3 id="debugging">Debugging</h3>
+
+<ul>
+  <li>set the debugging info to <strong>-g3</strong> for Debug and to <strong>-g2</strong> or <strong>-g</strong> for Release</li>
+  <li>if available, set the debug info format to <strong>dwarf-2</strong>
+</li>
+</ul>
+
+<h3 id="optimizations">Optimizations</h3>
+
+<ul>
+  <li>set to <strong>-O0</strong>/<strong>-O1</strong> for Debug and <strong>-Os</strong> for Release</li>
+  <li>disable -fpack-struct</li>
+  <li>disable -fshort-enums</li>
+</ul>
+
+<h3 id="language-standards">Language Standards</h3>
+
+<ul>
+  <li>set to <strong>-std=gnu99</strong> for C</li>
+  <li>set to <strong>-std=gnu++98</strong> for C++</li>
+  <li>disable -funsigned-char</li>
+  <li>disable -funsigned-bitfields</li>
+  <li>enable -fno-exceptions</li>
+</ul>
+
+<h3 id="miscellaneous">Miscellaneous</h3>
+
+<ul>
+  <li>set C options to: <strong>-Wextra -c -fmessage-length=0 -ffunction-sections -fdata-sections</strong>
+</li>
+  <li>eventually add to C options: <em>’ -Wa,-adhlns=”$@.lst”</em>’</li>
+  <li>for C++ add <strong>-Wabi -fno-rtti -fno-exceptions</strong>
+</li>
+  <li>for -O0/-O1 add <strong>-finline-small-functions</strong>
+</li>
+  <li>for -Os add the following optimisations: ‘’‘-finline-functions -funswitch-loops -fpredictive-commoning -fgcse-after-reload -ftree-vectorize ‘’’</li>
+</ul>
+
+<h2 id="post-build-steps">Post build steps</h2>
+
+<p>For environments that do not support additional build steps, like Avr32, you can manually configure a command to generate the disassembler output.</p>
+
+<p>To access the Post build steps, select the desired project (<strong>minimal</strong>, for example), and go to the</p>
+
+<p><strong>Eclipse</strong> menu: <strong>Project</strong> → <strong>Properties</strong></p>
+
+<ul>
+  <li>expand <strong>C/C++ Build</strong>
+</li>
+  <li>select <strong>Settings</strong>
+</li>
+  <li>in the right panel, choose the desired configuration, for example <strong>Debug-Atmel-STS525</strong>
+</li>
+  <li>in the right panel, select the <strong>Build Steps</strong> tab</li>
+  <li>in the Post-build steps, fill-in the following command</li>
+</ul>
+
+<p>avr32-objdump -h -S ${BuildArtifactFileBaseName}.elf &gt;${BuildArtifactFileBaseName}.lst</p>
+
+<h1 id="building-projects">Building projects</h1>
+
+<p>Once the project is created, the procedure to build it is:</p>
+
+<ul>
+  <li>
+<strong>Eclipse</strong> menu: <strong>Project</strong> → <strong>Build Configurations</strong> → <strong>Set Active</strong> → select desired config</li>
+  <li>
+<strong>Eclipse</strong> menu: <strong>Project</strong> → <strong>Build Project</strong>
+</li>
+  <li>monitor the console while the build progresses</li>
+</ul>
+
+<h1 id="troubleshooting-build">Troubleshooting build</h1>
+
+<p>If you missed/messed something during installation or project configuration, you might end with projects partly built.</p>
+
+<p>The first thing to try after changing configuration details is to do a fresh build. For this</p>
+
+<p><strong>Eclipse</strong> menu: <strong>Project</strong> → <strong>Clean</strong></p>
+
+<ul>
+  <li>select <strong>Clean projects selected below</strong>
+</li>
+  <li>select the current project</li>
+  <li>disable <strong>Start a build immediately</strong>
+</li>
+</ul>
+
+<h1 id="project-configuration-references">Project configuration references</h1>
+
+<h2 id="arm">ARM</h2>
+
+<p>Currently the Debug &amp; Release configurations are almost identical, the difference is the compiler optimisation level, -O0 for Debug, -Os for Release, and the DEBUG macro definition, present only on Debug.</p>
+
+<p>Although the definitions and the samples presented below are from a Windows environment, on GNU/Linux and Mac OS X they should be similar, if not identical.</p>
+
+<p><strong>Important:</strong> Please note that the preprocessor macro definitions and the Includes folders should be defined only once in the C/C++ General → Paths &amp; Symbols page, and will automatically be used in the C/C++ Build → Settings.</p>
+
+<h3 id="cc-general--paths--symbols">C/C++ General → Paths &amp; Symbols</h3>
+
+<h4 id="includes">Includes</h4>
+
+<p>For all languages</p>
+
+<ul>
+  <li><strong>${ProjDirPath}/include</strong></li>
+  <li><strong>${WorkspaceDirPath}/micro-os-plus/system</strong></li>
+</ul>
+
+<p><strong>Important:</strong> Be sure you do not mark them as Workspace path. (don’t know why, it seems to be a CDT bug)</p>
+
+<p>These definitions will automatically be reflected in all language <strong>C/C++ Build → Settings</strong>.</p>
+
+<h4 id="symbols">Symbols</h4>
+
+<p>Common to all configurations:</p>
+
+<ul>
+  <li><strong>OS_CONFIG_BOARD_${BOARD} 1</strong></li>
+</ul>
+
+<p>Present only for Debug, removed from Release:</p>
+
+<ul>
+  <li><strong>DEBUG 1</strong></li>
+  <li><strong>OS_CONFIG_DEBUG_DEVICE_${DBGDEV} 1</strong></li>
+</ul>
+
+<p>These definitions will automatically be reflected in all language <strong>C/C++ Build → Settings</strong>.</p>
+
+<h4 id="library-path">Library Path</h4>
+
+<ul>
+  <li>
+<strong>/micro-os-plus</strong> (workspace path)</li>
+</ul>
+
+<h4 id="source-location">Source Location</h4>
+
+<ul>
+  <li>/…actual project name…/src</li>
+  <li>/…actual project name…/micro-os-plus</li>
+</ul>
+
+<h4 id="references">References</h4>
+
+<ul>
+  <li>none</li>
+</ul>
+
+<h3 id="cc-build--settings">C/C++ Build → Settings</h3>
+
+<h4 id="tool-settings">Tool Settings</h4>
+
+<ul>
+  <li>Target Processor
+    <ul>
+      <li>Processor: <strong>cortex-m3</strong>
+</li>
+      <li>enable <strong>Thumb (-mthumb)</strong>
+</li>
+    </ul>
+  </li>
+  <li>Debugging
+    <ul>
+      <li>
+        <table>
+          <tbody>
+            <tr>
+              <td>Debug level: <strong>Maximum (-g3)</strong> ⇐ for Debug</td>
+              <td>
+<strong>Default (-g)</strong> ⇐ for Release</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+      <li>Debug format: <strong>dwarf-2</strong>
+</li>
+    </ul>
+  </li>
+  <li>ARM Sourcery Windows GCC Assembler
+    <ul>
+      <li>Preprocessor
+        <ul>
+          <li>enable <strong>Use preprocessor</strong>
+</li>
+          <li>Defined symbols (-D) ⇐ reflect the <strong>C/C++ General → Paths &amp; Symbols</strong> definitions
+            <ul>
+              <li>DEBUG=1</li>
+              <li>“OS_CONFIG_BOARD_${BOARD}=1”</li>
+              <li>OS_CONFIG_DEBUG_DEVICE_${DBGDEV}=1</li>
+            </ul>
+          </li>
+          <li>Include paths (-I) ⇐ reflect the <strong>C/C++ General → Paths &amp; Symbols</strong> definitions
+            <ul>
+              <li>”${ProjDirPath}/include”</li>
+              <li>”${WorkspaceDirPath}/micro-os-plus”</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Warnings
+        <ul>
+          <li>enable <strong>All warnings (-Wall)</strong>
+</li>
+          <li>enable <strong>Extra warnings (-Wextra)</strong>
+</li>
+        </ul>
+      </li>
+      <li>Miscellaneous
+        <ul>
+          <li>Assembler Listing: <strong>-adhlns=”$@.lst”</strong>
+</li>
+          <li>Other flags: <strong>-c -fmessage-length=0</strong>
+</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>ARM Sourcery Windows GCC C Compiler
+    <ul>
+      <li>Preprocessor
+        <ul>
+          <li>Defined symbols (-D) ⇐ reflect the <strong>C/C++ General → Paths &amp; Symbols</strong> definitions
+            <ul>
+              <li>DEBUG=1</li>
+              <li>“OS_CONFIG_BOARD_${BOARD}=1”</li>
+              <li>OS_CONFIG_DEBUG_DEVICE_${DBGDEV}=1</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Directories
+        <ul>
+          <li>Include paths (-I) ⇐ reflect the <strong>C/C++ General → Paths &amp; Symbols</strong> definitions
+            <ul>
+              <li>”${ProjDirPath}/include”</li>
+              <li>”${WorkspaceDirPath}/micro-os-plus”</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Optimizations
+        <ul>
+          <li>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Optimization level: <strong>None (-O0)</strong> ⇐ for Debug</td>
+                  <td>
+<strong>Optimize size (-Os)</strong> ⇐ for Release</td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+        </ul>
+      </li>
+      <li>Warnings
+        <ul>
+          <li>enable <strong>All warnings (-Wall)</strong>
+</li>
+          <li>enable <strong>Extra warnings (-Wextra)</strong>
+</li>
+        </ul>
+      </li>
+      <li>Miscellaneous
+        <ul>
+          <li>Language Standard: <strong>Compiler Default (ISO C90 with GNU extensions)</strong>
+</li>
+          <li>Assembler Listing: <strong>-adhlns=”$@.lst”</strong>
+</li>
+          <li>enable <strong>Do not inline functions (-fno-inline-functions)</strong>
+</li>
+          <li>Other flags: <strong>-c -fmessage-length=0</strong>
+</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>ARM Sourcery Windows GCC C++ Compiler
+    <ul>
+      <li>Preprocessor
+        <ul>
+          <li>Defined symbols (-D) ⇐ reflect the <strong>C/C++ General → Paths &amp; Symbols</strong> definitions
+            <ul>
+              <li>DEBUG=1</li>
+              <li>“OS_CONFIG_BOARD_${BOARD}=1”</li>
+              <li>OS_CONFIG_DEBUG_DEVICE_${DBGDEV}=1</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Directories
+        <ul>
+          <li>Include paths (-I) ⇐ reflect the <strong>C/C++ General → Paths &amp; Symbols</strong> definitions
+            <ul>
+              <li>”${ProjDirPath}/include”</li>
+              <li>”${WorkspaceDirPath}/micro-os-plus”</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Optimizations
+        <ul>
+          <li>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Optimization level: <strong>None (-O0)</strong> ⇐ for Debug</td>
+                  <td>
+<strong>Optimize size (-Os)</strong> ⇐ for Release</td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+        </ul>
+      </li>
+      <li>Warnings
+        <ul>
+          <li>enable <strong>All warnings (-Wall)</strong>
+</li>
+          <li>enable <strong>Extra warnings (-Wextra)</strong>
+</li>
+          <li>enable <strong>ABI warnings (-Wabi)</strong>
+</li>
+        </ul>
+      </li>
+      <li>Miscellaneous
+        <ul>
+          <li>Language Standard: <strong>Compiler Default (ISO C90 with GNU extensions)</strong>
+</li>
+          <li>Assembler Listing: <strong>-adhlns=”$@.lst”</strong>
+</li>
+          <li>enable <strong>Do not inline functions (-fno-inline-functions)</strong>
+</li>
+          <li>enable <strong>Do not use exceptions (-fno-exceptions)</strong>
+</li>
+          <li>enable <strong>Do not use RTTI (-fno-rtti)</strong>
+</li>
+          <li>Other flags: <strong>-c -fmessage-length=0</strong>
+</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>ARM Sourcery Windows GCC C++ Linker
+    <ul>
+      <li>General
+        <ul>
+          <li>Script file: <strong>${workspace_loc}\system\hal\boards\Olimex\stm32_h103\stm32_h103_rom.ld</strong> ⇐ board dependent</li>
+          <li>enable <strong>Do not use standard start files (-nostartfiles)</strong>
+</li>
+          <li>enable <strong>Remove unused sections (-Xlinker –gc-sections)</strong>
+</li>
+        </ul>
+      </li>
+      <li>Libraries
+        <ul>
+          <li>Library search path (-L): <strong>”${workspace_loc:/micro-os-plus}”</strong>
+</li>
+        </ul>
+      </li>
+      <li>Miscellaneous
+        <ul>
+          <li>Map Filename: <strong>${BuildArtifactFileBaseName}.map</strong>
+</li>
+          <li>enable <strong>Cross Reference (-Xlinker –cref)</strong>
+</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>ARM Sourcery Windows GNU Create Flash Image
+    <ul>
+      <li>Output
+        <ul>
+          <li>Output file format (-O): <strong>ihex</strong>
+</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>ARM Sourcery Windows GNU Create Listing
+    <ul>
+      <li>General
+        <ul>
+          <li>Other flags: <strong>-h -S</strong>
+</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>ARM Sourcery Windows GNU Print Size
+    <ul>
+      <li>General
+        <ul>
+          <li>Size Format: <strong>Berkeley</strong>
+</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="build-steps">Build Steps</h4>
+
+<ul>
+  <li>empty</li>
+</ul>
+
+<h4 id="build-artifacts">Build Artifacts</h4>
+
+<ul>
+  <li>Artifact name: <strong>${ProjName}</strong>
+</li>
+  <li>Artifact extensions: <strong>elf</strong>
+</li>
+</ul>
+
+<h4 id="binary-parsers">Binary Parsers</h4>
+
+<ul>
+  <li>enable <strong>GNU Elf Parser</strong>
+</li>
+  <li>enable <strong>Elf Parser</strong>
+</li>
+</ul>
+
+<h4 id="error-parsers">Error Parsers</h4>
+
+<ul>
+  <li>all except Visual C Error Parser</li>
+</ul>
+
+<h3 id="linker-script-file">Linker script file</h3>
+
+<p>The configuration for the linker script files is currently preliminary and might require further updates. For more flexibility, required for example when the flash image should be moved to higher addresses to reserve space for a custom bootloader, the script is split in two parts, one containing the memory definitions, placed in the board folder, and one common to all boards, placed in the arch folder, dynamically included in the first one at link time.</p>
+
+<h2 id="avr8">AVR8</h2>
+
+<p>Currently the Debug &amp; Release configurations are almost identical, the difference is the compiler optimisation level, -O1 for Debug, -Os for Release, and the DEBUG macro definition, present only on Debug. (O1 is used since, according to some old tests, O0 did not work).</p>
+
+<p>Although the definitions and the samples presented below are from a Windows environment, on GNU/Linux and Mac OS X they should be similar, if not identical.</p>
+
+<p><strong>Important:</strong> Please note that the preprocessor macro definitions and the Includes folders should be defined only once in the C/C++ General → Paths &amp; Symbols page, and will automatically be used in the C/C++ Build → Settings.</p>
+
+<h3 id="cc-general--paths--symbols-1">C/C++ General → Paths &amp; Symbols</h3>
+
+<h4 id="includes-1">Includes</h4>
+
+<p>For all languages</p>
+
+<ul>
+  <li><strong>${ProjDirPath}/include</strong></li>
+  <li><strong>${WorkspaceDirPath}/micro-os-plus</strong></li>
+</ul>
+
+<p><strong>Important:</strong> Be sure you do not mark them as Workspace path. (don’t know why, it seems to be a CDT bug)</p>
+
+<p>These definitions will automatically be reflected in all language <strong>C/C++ Build → Settings</strong>.</p>
+
+<h4 id="symbols-1">Symbols</h4>
+
+<p>Common to all configurations:</p>
+
+<ul>
+  <li><strong>OS_CONFIG_BOARD_${BOARD} 1</strong></li>
+</ul>
+
+<p>Present only for Debug, removed from Release:</p>
+
+<ul>
+  <li><strong>DEBUG 1</strong></li>
+  <li><strong>OS_CONFIG_DEBUG_DEVICE_${DBGDEV} 1</strong></li>
+</ul>
+
+<p>These definitions will automatically be reflected in all language <strong>C/C++ Build → Settings</strong>.</p>
+
+<h4 id="library-path-1">Library Path</h4>
+
+<ul>
+  <li>none</li>
+</ul>
+
+<h4 id="source-location-1">Source Location</h4>
+
+<ul>
+  <li>/…actual project name…/src</li>
+  <li>/…actual project name…/micro-os-plus</li>
+</ul>
+
+<h4 id="references-1">References</h4>
+
+<ul>
+  <li>micro-os-plus</li>
+</ul>
+
+<p>(this reference is necessary indirectly, to save files opened from the system project)</p>
+
+<h3 id="avr-settings">AVR Settings</h3>
+
+<p>Click on the Target Hardware and set the MCU Type and the MCU Clock Frequency. (The clock frequency is currently not used in the build).</p>
+
+<h3 id="cc-build--settings-1">C/C++ Build → Settings</h3>
+
+<h4 id="tool-settings-1">Tool Settings</h4>
+
+<ul>
+  <li>Additional Tools in Toolchain
+    <ul>
+      <li>Generate HEX file for Flash memory</li>
+      <li>Generate Extended Listing</li>
+      <li>Print Size</li>
+    </ul>
+  </li>
+  <li>AVR Assembler
+    <ul>
+      <li>General
+        <ul>
+          <li>enable <strong>Use preprocessor</strong>
+</li>
+          <li>Other GCC Flags: <strong>-adhlns=”$@.lst”</strong> (optional, if you need the individual listing files)</li>
+        </ul>
+      </li>
+      <li>Paths (-I) ⇐ reflect the <strong>C/C++ General → Paths &amp; Symbols</strong> definitions
+        <ul>
+          <li>”${ProjDirPath}/include”</li>
+          <li>”${WorkspaceDirPath}/micro-os-plus”</li>
+        </ul>
+      </li>
+      <li>Debugging
+        <ul>
+          <li>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Generate Debugging Info: <strong>Extra debugging info (-g3)</strong> ⇐ for Debug</td>
+                  <td>
+<strong>Standard debugging info (-g2)</strong> ⇐ for Release</td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>Debug Info Format: <strong>dwarf-2</strong>
+</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>AVR Compiler
+    <ul>
+      <li>Directories
+        <ul>
+          <li>Include paths (-I) ⇐ reflect the <strong>C/C++ General → Paths &amp; Symbols</strong> definitions
+            <ul>
+              <li>”${ProjDirPath}/include”</li>
+              <li>”${WorkspaceDirPath}/micro-os-plus”</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Symbols
+        <ul>
+          <li>Defined syms (-D) ⇐ reflect the <strong>C/C++ General → Paths &amp; Symbols</strong> definitions
+            <ul>
+              <li>“OS_CONFIG_BOARD_${BOARD}=1”</li>
+              <li>DEBUG=1</li>
+              <li>“OS_CONFIG_DEBUG_DEVICE_${DBGDEV}=1”</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Warnings
+        <ul>
+          <li>enable <strong>All warnings (-Wall)</strong>
+</li>
+        </ul>
+      </li>
+      <li>Debugging
+        <ul>
+          <li>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Generate Debugging Info: <strong>Extra debugging info (-g3)</strong> ⇐ for Debug</td>
+                  <td>
+<strong>Standard debugging info (-g2)</strong> ⇐ for Release</td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>Debug Info Format: <strong>dwarf-2</strong>
+</li>
+        </ul>
+      </li>
+      <li>Optimizations
+        <ul>
+          <li>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Optimization level: <strong>Slight Optimizations (-O1)</strong> ⇐ for Debug</td>
+                  <td>
+<strong>Optimize size (-Os)</strong> ⇐ for Release</td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>disable Pack structs (-fpack-struct)</li>
+          <li>disable Short enums (-fshort-enums)</li>
+        </ul>
+      </li>
+      <li>Language Standard
+        <ul>
+          <li>Language Standard: <strong>ISO C99 + GNU extensions (-std=gnu99)</strong>
+</li>
+          <li>disable char is unsigned (-funsigned-char)</li>
+          <li>disable bitfields are unsigned (-funsigned-bitfields)</li>
+        </ul>
+      </li>
+      <li>Miscellaneous
+        <ul>
+          <li>Other flags for -O0/O1 <strong>-Wextra -fmessage-length=0 -ffunction-sections -fdata-sections -finline-small-functions</strong>
+</li>
+          <li>Other flgs for -Os <strong>-Wextra -fmessage-length=0 -ffunction-sections -fdata-sections -finline-functions -funswitch-loops -fpredictive-commoning -fgcse-after-reload -ftree-vectorize</strong>
+</li>
+          <li>Other optional flags -Wa,-adhlns=”$@.lst”</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>AVR C++ Compiler
+    <ul>
+      <li>Directories
+        <ul>
+          <li>Include paths (-I) ⇐ reflect the <strong>C/C++ General → Paths &amp; Symbols</strong> definitions
+            <ul>
+              <li>”${ProjDirPath}/include”</li>
+              <li>”${WorkspaceDirPath}/micro-os-plus”</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Symbols
+        <ul>
+          <li>Defined syms (-D) ⇐ reflect the <strong>C/C++ General → Paths &amp; Symbols</strong> definitions
+            <ul>
+              <li>“OS_CONFIG_BOARD_${BOARD}=1”</li>
+              <li>DEBUG=1</li>
+              <li>“OS_CONFIG_DEBUG_DEVICE_${DBGDEV}=1”</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Warnings
+        <ul>
+          <li>enable <strong>All warnings (-Wall)</strong>
+</li>
+        </ul>
+      </li>
+      <li>Debugging
+        <ul>
+          <li>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Generate Debugging Info: <strong>Extra debugging info (-g3)</strong> ⇐ for Debug</td>
+                  <td>
+<strong>Standard debugging info (-g2)</strong> ⇐ for Release</td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>Debug Info Format: <strong>dwarf-2</strong>
+</li>
+        </ul>
+      </li>
+      <li>Optimizations
+        <ul>
+          <li>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Optimization level: <strong>Slight Optimizations (-O1)</strong> ⇐ for Debug</td>
+                  <td>
+<strong>Optimize size (-Os)</strong> ⇐ for Release</td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>disable Pack structs (-fpack-struct)</li>
+          <li>disable Short enums (-fshort-enums)</li>
+        </ul>
+      </li>
+      <li>Language Standard
+        <ul>
+          <li>Language Standard: <strong>ISO C98 + GNU extensions (-std=gnu++98)</strong>
+</li>
+          <li>disable char is unsigned (-funsigned-char)</li>
+          <li>disable bitfields are unsigned (-funsigned-bitfields)</li>
+          <li>enable <strong>Do not use Exceptions (-fno-exceptions)</strong>
+</li>
+        </ul>
+      </li>
+      <li>Miscellaneous
+        <ul>
+          <li>Other flags for -O0/O1 <strong>-Wextra -Wabi -fno-rtti -fmessage-length=0 -ffunction-sections -fdata-sections -finline-small-functions</strong>
+</li>
+          <li>Other flags for -Os <strong>-Wextra -Wabi -fno-rtti -fmessage-length=0 -ffunction-sections -fdata-sections -finline-functions -funswitch-loops -fpredictive-commoning -fgcse-after-reload -ftree-vectorize</strong>
+</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>ARM C++ Linker
+    <ul>
+      <li>General
+        <ul>
+          <li>Map Filename: <strong>${BuildArtifactFileBaseName}.map</strong>
+</li>
+        </ul>
+      </li>
+      <li>Libraries
+        <ul>
+          <li>none</li>
+        </ul>
+      </li>
+      <li>Objects
+        <ul>
+          <li>None</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>AVR Create Extended Listing
+    <ul>
+      <li>General
+        <ul>
+          <li>Options: <strong>-h -S</strong>
+</li>
+          <li>Output Filename <strong>${BuildArtifactFileBaseName}.lss</strong>
+</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>AVR Create Flash Image
+    <ul>
+      <li>General
+        <ul>
+          <li>Options to create flash imge: <strong>-R .eprom -O ihex</strong>
+</li>
+          <li>Output Filename <strong>${BuildArtifactFileBaseName}.hex</strong>
+</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>AVR Print Size
+    <ul>
+      <li>General
+        <ul>
+          <li>Size Format: <strong>AVR Format</strong>
+</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="build-steps-1">Build Steps</h4>
+
+<ul>
+  <li>empty</li>
+</ul>
+
+<h4 id="build-artifacts-1">Build Artifacts</h4>
+
+<ul>
+  <li>Artifact name: <strong>${ProjName}</strong>
+</li>
+  <li>Artifact extensions: <strong>elf</strong>
+</li>
+</ul>
+
+<h4 id="binary-parsers-1">Binary Parsers</h4>
+
+<ul>
+  <li>enable <strong>GNU Elf Parser</strong>
+</li>
+  <li>enable <strong>Elf Parser</strong>
+</li>
+</ul>
+
+<h4 id="error-parsers-1">Error Parsers</h4>
+
+<ul>
+  <li>all except Visual C Error Parser and pushd/popd CWD Locator</li>
+</ul>
+
+<h2 id="avr32">AVR32</h2>
+
+<p>Currently the Debug &amp; Release configurations are almost identical, the difference is the compiler optimisation level, -O0 for Debug, -Os for Release, and the DEBUG macro definition, present only on Debug.</p>
+
+<p>Although the definitions and the samples presented below are from a Windows environment, on GNU/Linux and Mac OS X they should be similar, if not identical.</p>
+
+<p><strong>Important:</strong> Please note that the preprocessor macro definitions and the Includes folders should be defined only once in the C/C++ General → Paths &amp; Symbols page, and will automatically be used in the C/C++ Build → Settings.</p>
+
+<h3 id="cc-build--build-variables">C/C++ Build → Build Variables</h3>
+
+<p>BOARD=ATMEL_EVK1104</p>
+
+<p>DBGDEV=I2C</p>
+
+<h3 id="cc-general--paths--symbols-2">C/C++ General → Paths &amp; Symbols</h3>
+
+<h4 id="includes-2">Includes</h4>
+
+<p>For all languages</p>
+
+<ul>
+  <li><strong>${ProjDirPath}/include</strong></li>
+  <li><strong>${WorkspaceDirPath}/micro-os-plus/system</strong></li>
+</ul>
+
+<p><strong>Important:</strong> Be sure you do not mark them as Workspace path. (don’t know why, it seems to be a CDT bug)</p>
+
+<p>These definitions will automatically be reflected in all language <strong>C/C++ Build → Settings</strong>.</p>
+
+<h4 id="symbols-2">Symbols</h4>
+
+<p>Common to all configurations:</p>
+
+<ul>
+  <li><strong>OS_CONFIG_BOARD_${BOARD} 1</strong></li>
+</ul>
+
+<p>Present only for Debug, removed from Release:</p>
+
+<ul>
+  <li><strong>DEBUG 1</strong></li>
+  <li><strong>OS_CONFIG_DEBUG_DEVICE_${DBGDEV} 1</strong></li>
+</ul>
+
+<p>These definitions will automatically be reflected in all language <strong>C/C++ Build → Settings</strong>.</p>
+
+<h4 id="libraries">Libraries</h4>
+
+<ul>
+  <li>none</li>
+</ul>
+
+<h4 id="library-path-2">Library Path</h4>
+
+<ul>
+  <li>
+<strong>/micro-os-plus</strong> as Workspace path</li>
+</ul>
+
+<h4 id="source-location-2">Source Location</h4>
+
+<ul>
+  <li>/…actual project name…/src</li>
+  <li>/…actual project name…/micro-os-plus</li>
+</ul>
+
+<h4 id="references-2">References</h4>
+
+<ul>
+  <li><strong>micro-os-plus</strong></li>
+</ul>
+
+<h3 id="cc-build--settings-2">C/C++ Build → Settings</h3>
+
+<h4 id="tool-settings-2">Tool Settings</h4>
+
+<ul>
+  <li>32-bit AVR/GNU C++ Compiler
+    <ul>
+      <li>Preprocessor
+        <ul>
+          <li>Defined symbols (-D) ⇐ reflect the <strong>C/C++ General → Paths &amp; Symbols</strong> definitions
+            <ul>
+              <li>“OS_CONFIG_BOARD_${BOARD}=1”</li>
+              <li>DEBUG=1</li>
+              <li>OS_CONFIG_DEBUG_DEVICE_${DBGDEV}=1</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Includes
+        <ul>
+          <li>Include paths (-I) ⇐ reflect the <strong>C/C++ General → Paths &amp; Symbols</strong> definitions
+            <ul>
+              <li>”${ProjDirPath}/include”</li>
+              <li>”${WorkspaceDirPath}/micro-os-plus”</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Optimizations
+        <ul>
+          <li>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Optimization Level: <strong>None (-O0)</strong> ⇐ for Debug</td>
+                  <td>
+<strong>Optimize for size (-Os)</strong> ⇐ for Release</td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>enable <strong>Prepare functions for garbage collection</strong>
+</li>
+          <li>enable <strong>Use assembler for pseudo instructions</strong>
+</li>
+          <li>disable all others</li>
+        </ul>
+      </li>
+      <li>Debugging
+        <ul>
+          <li>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Generate Debugging Info: <strong>Maximum (-g3)</strong> ⇐ for Debug</td>
+                  <td>
+<strong>Default (-g)</strong> ⇐ for Release</td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+        </ul>
+      </li>
+      <li>Warnings
+        <ul>
+          <li>enable <strong>All warnings (-Wall)</strong>
+</li>
+        </ul>
+      </li>
+      <li>Miscellaneous
+        <ul>
+          <li>Other flags <strong>-c -fmessage-length=0 -fno-exceptions -fno-rtti -Wextra -Wabi -std=gnu++98 -fdata-sections</strong>
+</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>32-bit AVR/GNU Compiler
+    <ul>
+      <li>Preprocessor
+        <ul>
+          <li>(none)</li>
+        </ul>
+      </li>
+      <li>Symbols
+        <ul>
+          <li>Defined symbols (-D) ⇐ reflect the <strong>C/C++ General → Paths &amp; Symbols</strong> definitions
+            <ul>
+              <li>“OS_CONFIG_BOARD_${BOARD}=1”</li>
+              <li>DEBUG=1</li>
+              <li>OS_CONFIG_DEBUG_DEVICE_I2C=1</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Includes
+        <ul>
+          <li>Include paths (-I) ⇐ reflect the <strong>C/C++ General → Paths &amp; Symbols</strong> definitions
+            <ul>
+              <li>”${ProjDirPath}/include”</li>
+              <li>”${WorkspaceDirPath}/micro-os-plus”</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Optimizations
+        <ul>
+          <li>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Optimization level: <strong>None (-O0)</strong> ⇐ for Debug</td>
+                  <td>
+<strong>Optimize size (-Os)</strong> ⇐ for Release</td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>enable <strong>Use assembler for pseudo instructions</strong>
+</li>
+        </ul>
+      </li>
+      <li>Debugging
+        <ul>
+          <li>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Generate Debugging Info: <strong>Maximum (-g3)</strong> ⇐ for Debug</td>
+                  <td>
+<strong>Default (-g)</strong> ⇐ for Release</td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+        </ul>
+      </li>
+      <li>Warnings
+        <ul>
+          <li>enable <strong>All warnings (-Wall)</strong>
+</li>
+        </ul>
+      </li>
+      <li>Miscellaneous
+        <ul>
+          <li>Other flags <strong>-c -fmessage-length=0 -Wextra -std=gnu99 -ffunction-sections -fdata-sections</strong>
+</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>32-bit AVR/GNU C++ Linker
+    <ul>
+      <li>General
+        <ul>
+          <li>enable <strong>Do not use standard start files</strong>
+</li>
+        </ul>
+      </li>
+      <li>Libraries
+        <ul>
+          <li>Library search path: “${workspace_loc:/micro-os-plus}”</li>
+        </ul>
+      </li>
+      <li>Miscellaneous
+        <ul>
+          <li>Linker flags: -Wl,-Map,${BuildArtifactFileBaseName}.map -Xlinker –cref -Wl,-e,_trampoline -T “${workspace_loc}/micro-os-plus/hal/arch/avr32/uc3/lib/link_uc3a3256.lds”</li>
+        </ul>
+      </li>
+      <li>Shared Library Settings
+        <ul>
+          <li>(none)</li>
+        </ul>
+      </li>
+      <li>Optimizations
+        <ul>
+          <li>Enable <strong>Garbage collect unused sections</strong>
+</li>
+          <li>Enable <strong>Direct references to the data section</strong> [Q: what is this good for?]</li>
+          <li>Disable <strong>Put read-only data in writable data section</strong>
+</li>
+          <li>Disable all other</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>32-bit AVR/GNU Assembler
+    <ul>
+      <li>General
+        <ul>
+          <li>Assembler flags: (none)</li>
+          <li>Include paths (-I) ⇐ reflect the <strong>C/C++ General → Paths &amp; Symbols</strong> definitions
+            <ul>
+              <li>”${ProjDirPath}/include”</li>
+              <li>”${WorkspaceDirPath}/micro-os-plus”</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Debugging
+        <ul>
+          <li>
+            <table>
+              <tbody>
+                <tr>
+                  <td>Debug Level: <strong>Maximum (-g3)</strong> ⇐ for Debug</td>
+                  <td>
+<strong>Default (-g)</strong> ⇐ for Release</td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="build-steps-2">Build Steps</h4>
+
+<ul>
+  <li>empty</li>
+</ul>
+
+<h4 id="build-artifacts-2">Build Artifacts</h4>
+
+<ul>
+  <li>Artifact name: <strong>${ProjName}</strong>
+</li>
+  <li>Artifact extensions: <strong>elf</strong>
+</li>
+</ul>
+
+<h4 id="binary-parsers-2">Binary Parsers</h4>
+
+<ul>
+  <li>enable <strong>AVR32/GNU Elf Parser</strong>
+</li>
+</ul>
+
+<h4 id="error-parsers-2">Error Parsers</h4>
+
+<ul>
+  <li>all except Visual C Error Parser and pushd/popd CWD Locator</li>
+</ul>
+
+<h3 id="mcu-settings">MCU Settings</h3>
+
+<p>Click on the Target Device and set the MCU Type.</p>
+
+<h1 id="sample-build-outputs">Sample Build Outputs</h1>
+
+<h2 id="arm-1">ARM</h2>
+
+<p>A sample build output on Windows looks like this:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>**** Build of configuration Debug-Olimex-STM32-H103 for project minimal ****
+
+cs-make all
+Building file: H:/My Files/MacMini Vault/Projects/Eclipse Workspaces/36 Win/uOS Dev 2/system/portable/tasks/src/CANLeds.cpp
+Invoking: ARM Sourcery Windows GCC C++ Compiler
+arm-none-eabi-g++ -DDEBUG=1 -DOS_CONFIG_DEBUG_DEVICE_I2C=1 -D"OS_CONFIG_BOARD_OLIMEX_STM32_H103=1"
+-I"H:/My Files/MacMini Vault/Projects/Eclipse Workspaces/36 Win/uOS Dev 2/minimal/include"
+-I"H:\My Files\MacMini Vault\Projects\Eclipse Workspaces\36 Win\uOS Dev 2/system" -O0 -Wall
+-Wa,-adhlns="system/portable/tasks/src/CANLeds.o.lst" -fno-exceptions -fno-rtti -c -fmessage-length=0
+-MMD -MP -MF"system/portable/tasks/src/CANLeds.d" -MT"system/portable/tasks/src/CANLeds.d"
+-mcpu=cortex-m3 -mthumb -g -gdwarf-2 -o"system/portable/tasks/src/CANLeds.o"
+"H:/My Files/MacMini Vault/Projects/Eclipse Workspaces/36 Win/uOS Dev 2/system/portable/tasks/src/CANLeds.cpp"
+Finished building: H:/My Files/MacMini Vault/Projects/Eclipse Workspaces/36 Win/uOS Dev 2/system/portable/tasks/src/CANLeds.cpp
+
+...
+
+Building target: minimal.elf
+Invoking: ARM Sourcery Windows GCC C++ Linker
+arm-none-eabi-g++
+-T"H:\My Files\MacMini Vault\Projects\Eclipse Workspaces\36 Win\uOS Dev 2\system\hal\boards\Olimex\stm32_h103\stm32_h103_rom.ld"
+-nostartfiles -Xlinker --gc-sections -Xlinker --print-gc-sections
+-L"H:\My Files\MacMini Vault\Projects\Eclipse Workspaces\36 Win\uOS Dev 2\system"
+-Wl,-Map,minimal.map -Xlinker --cref -mcpu=cortex-m3 -mthumb -g -gdwarf-2 -o"minimal.elf"
+./system/portable/tasks/src/CANLeds.o ./system/portable/tasks/src/TaskBlink.o ./system/portable/tasks/src/TaskPitpalac.o
+./system/portable/stdlib/src/ios.o ./system/portable/stdlib/src/iostream.o ./system/portable/stdlib/src/istream.o
+./system/portable/stdlib/src/ostream.o ./system/portable/stdlib/src/streambuf.o  ./system/portable/misc/src/CircularBlockBuffer.o
+./system/portable/misc/src/CircularByteBuffer.o ./system/portable/misc/src/Parser.o ./system/portable/misc/src/SimpleCli.o
+./system/portable/misc/src/uOS.o  ./system/portable/kernel/src/OS.o ./system/portable/kernel/src/OSEventFlags.o
+./system/portable/kernel/src/OSMutex.o ./system/portable/kernel/src/OSScheduler.o ./system/portable/kernel/src/OSTask.o
+./system/portable/kernel/src/OSTaskIdle.o ./system/portable/kernel/src/OSTimer.o ./system/portable/kernel/src/OSTimerSeconds.o
+./system/portable/kernel/src/OSTimerTicks.o ./system/portable/kernel/src/Timer.o ./system/portable/kernel/src/ostream_OSTask.o
+./system/portable/devices/usb/src/OSUsbDevice.o ./system/portable/devices/usb/src/OSUsbDeviceDescriptors.o
+./system/portable/devices/sdi12/src/SDI12BootLoader.o ./system/portable/devices/sdi12/src/SDI12Sensor.o
+./system/portable/devices/misc/src/DeviceLM74.o ./system/portable/devices/misc/src/DeviceMCP2510.o
+./system/portable/devices/misc/src/DeviceRTC4574.o ./system/portable/devices/misc/src/DeviceSPIUsart.o
+./system/portable/devices/misc/src/PinChangeDispatchers.o  ./system/portable/devices/debug/src/DeviceDebugI2C.o
+./system/portable/devices/debug/src/OSDeviceDebug.o  ./system/portable/devices/character/src/DeviceCharacterMultiUsart0.o
+./system/portable/devices/character/src/DeviceCharacterMultiUsart1.o ./system/portable/devices/character/src/DeviceCharacterUsart.o
+./system/portable/devices/character/src/DeviceCharacterUsart0.o ./system/portable/devices/character/src/DeviceCharacterUsart1.o
+./system/portable/devices/character/src/DeviceCharacterUsb.o ./system/portable/devices/character/src/OSDeviceCharacter.o
+./system/portable/devices/character/src/OSDeviceCharacterBuffered.o  ./system/portable/devices/block/src/CANPacket.o
+./system/portable/devices/block/src/DeviceMemCard.o ./system/portable/devices/block/src/DeviceMemCardSPI.o
+./system/portable/devices/block/src/OSDeviceCAN.o  ./system/hal/boards/Metrilog/m512/src/SDI12Sensor_Implementation.o
+./system/hal/arch/avr/kernel/src/OSScheduler_Implementation.o ./system/hal/arch/avr/kernel/src/OSTimer_Implementation.o
+./system/hal/arch/avr/kernel/src/OS_Implementation.o ./system/hal/arch/avr/kernel/src/ostream_ProgramPtr.o
+./system/hal/arch/avr/devices/misc/src/DeviceADC_Implementation.o
+./system/hal/arch/avr/devices/debug/src/OSDeviceDebug_Implementation.o
+./system/hal/arch/avr/devices/character/src/DeviceCharacterMultiUsart0_Implementation.o
+./system/hal/arch/avr/devices/character/src/DeviceCharacterMultiUsart1_Implementation.o
+./system/hal/arch/avr/devices/character/src/DeviceCharacterUsart0_Implementation.o
+./system/hal/arch/avr/devices/character/src/DeviceCharacterUsart1_Implementation.o
+./system/hal/arch/avr/devices/character/src/DeviceCharacterUsart_Implementation.o
+./system/hal/arch/avr/devices/block/src/DeviceCAN_MCP2510.o
+./system/hal/arch/avr/at90usb/devices/usb/src/OSUsbDevice_Implementation.o
+./system/hal/arch/avr/at90usb/devices/character/src/DeviceCharacterUsb_Implementation.o
+./system/hal/arch/avr/at90can/devices/block/src/DeviceCAN_AT90CAN.o
+./system/hal/arch/arm_cortex_m3/stm32f10x/lib/src/system_stm32f10x.o
+./system/hal/arch/arm_cortex_m3/stm32f10x/kernel/src/OS_Family_Implementation.o
+./system/hal/arch/arm_cortex_m3/lib/src/core_cm3.o
+./system/hal/arch/arm_cortex_m3/kernel/src/OSScheduler_Arch_Implementation.o
+./system/hal/arch/arm_cortex_m3/kernel/src/OSTimer_Arch_Implementation.o
+./system/hal/arch/arm_cortex_m3/kernel/src/OS_Arch_Implementation.o
+./system/hal/arch/arm_cortex_m3/devices/debug/src/OSDeviceDebug_Arch_Implementation.o  ./src/main.o
+
+Finished building target: minimal.elf
+
+Invoking: ARM Sourcery Windows GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex minimal.elf "minimal.hex"
+Finished building: minimal.hex
+
+Invoking: ARM Sourcery Windows GNU Create Listing
+arm-none-eabi-objdump -h -S minimal.elf &gt;"minimal.lst"
+Finished building: minimal.lst
+
+Invoking: ARM Sourcery Windows GNU Print Size
+arm-none-eabi-size  --format=berkeley minimal.elf
+   text    data     bss     dec     hex filename
+  12356     672     600   13628    353c minimal.elf
+Finished building: minimal.siz
+</code></pre>
+</div>
+</div>
+
+
+
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/micro-os-plus/i/How_to_use/" data-layout="button"></div></li>
+</ul>
+
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="site-footer">
+  <div class="site-footer-links left">
+    <ul>
+  <li>© 2019 Liviu Ionescu</li>
+  <li>Hosted on GitHub</li>
+  <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
+  <li>
+<a href="http://twitter.com/micro_os_plus" class="twitter-follow-button" data-show-count="false">Follow @micro_os_plus</a><script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</li>
+</ul>
+
+
+  </div>
+  <a href="https://github.com/micro-os-plus/micro-os-plus-iii" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+  </a>
+  <div class="site-footer-links right">
+    <ul>
+  <li><a href="/web-preview/">Home</a></li>
+  <li><a href="/web-preview/blog/">News</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/releases">Releases</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues">Support</a></li>
+  <li><a href="/web-preview/about/">About</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</div>
+
+</body>
+</html>

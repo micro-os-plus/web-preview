@@ -9,16 +9,16 @@
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>The µOS++ IIIe Project</title>
+  <title>System Timers</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="The µOS++ IIIe Project">
+  <meta property="og:title" content="System Timers">
   <meta property="og:site_name" content="µOS++ IIIe">
 
   <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
 
 
-  <meta property="article:published_time" content="2016-03-03">
+  <meta property="article:published_time" content="2010-11-10">
 
 
 
@@ -32,7 +32,7 @@
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
 
-  <link rel="canonical" href="/web-preview/">
+  <link rel="canonical" href="/web-preview/micro-os-plus/i/System_Timers/">
 
 
 
@@ -239,58 +239,212 @@
       <div class="site-content">
 
         
-<h1 class="page-title">The µOS++ IIIe Project</h1>
+<h1 class="page-title">System Timers - DEPRECATED</h1>
 <table id="last-modified">
   <tr>
-    <td id="last-modified">Last modified on Wed Dec 23 10:37:26 2020 UTC.</td>
-    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/home.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+    <td id="last-modified">Page date Wed Nov 10 16:19:54 2010 .</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/micro-os-plus/i/System_Timers.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
 
-
-<p>The <strong>µOS++ IIIe</strong> <em>(micro oh ɛs plus plus third edition)</em> project is the third iteration of µOS++, a POSIX-like, portable, open source, royalty-free, multi-tasking real-time framework intended for 32/64-bits embedded applications, written in C++. The project is hosted on GitHub as <a href="https://github.com/micro-os-plus">micro-os-plus</a>. It has a comprehensive <a href="/web-preview/user-manual/">User’s manual</a>. The APIs are documented in the <a href="/web-preview/reference/cmsis-plus/">µOS++ reference</a>.</p>
-
-<p><strong>POSIX++</strong> is another point of view of the project; with most system APIs using the POSIX semantics, but being written in C++, the <strong>µOS++ IIIe</strong> APIs can also be seen as a C++ version of POSIX, thus the name <strong>POSIX++</strong>.</p>
-
-<h2 id="manyfold-identity">Manyfold identity</h2>
-
-<p>The <strong>µOS++ IIIe</strong> project can be considered from several points of view.</p>
-
-<h3 id="the-µos-frameworkapis">The µOS++ framework/APIs</h3>
-
-<p>Although generally associated with its RTOS, <strong>µOS++ IIIe</strong> is actually a framework, a collection of APIs, components and technologies.</p>
-
-<p>One of the main APIs is the µOS++ RTOS API, but applications based on µOS++ may run very well without a RTOS, or even use a different RTOS.</p>
-
-<p>For a better portability, the entire framework is layered, the µOS++ RTOS API provides a common public interface to the applications, but the implementation is separate, it might be that of its own µOS++ RTOS reference implementation, but it may very well be another implementation, even a custom one specific to the application.</p>
-
-<h3 id="the-µos-rtos-implementation">The µOS++ RTOS implementation</h3>
-
-<p>From an embedded system point of view, <strong>µOS++ IIIe</strong> provides the <strong>reference implementation</strong> for the <strong>scheduler</strong> and <strong>portable synchronisation</strong> objects (like mutex, semaphore, etc).</p>
-
-<div style="text-align:center">
-<img alt="µOS++ RTOS" src="/web-preview/assets/images/2017/micro-os-plus-rtos.png">
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
 </div>
-
-<h3 id="the-µos-packages">The µOS++ packages</h3>
-
-<p>From a modular point of view, <strong>µOS++ IIIe</strong> is a <strong>collection of packages</strong> hosted on GitHub in two locations:</p>
-
 <ul>
-  <li>the original code is grouped under the <a href="https://github.com/micro-os-plus">µOS++ IIIe</a> GitHub collection of projects</li>
-  <li>projects based on third party code are grouped under the <a href="https://github.com/xpacks">xPacks</a> collection.</li>
+<li class="toc_level-1 toc_section-1">
+<a href="#methods"><span class="tocnumber">1</span> <span class="toctext">Methods</span></a>
+<ul>
+<li class="toc_level-2 toc_section-2">
+<a href="#sleep-method"><span class="tocnumber">1.1</span> <span class="toctext">Sleep method</span></a>
+</li>
+<li class="toc_level-2 toc_section-3">
+<a href="#event-methods"><span class="tocnumber">1.2</span> <span class="toctext">Event methods</span></a>
+</li>
+<li class="toc_level-2 toc_section-4">
+<a href="#get-ticks-method"><span class="tocnumber">1.3</span> <span class="toctext">Get Ticks method</span></a>
+</li>
 </ul>
+</li>
+<li class="toc_level-1 toc_section-5">
+<a href="#examples"><span class="tocnumber">2</span> <span class="toctext">Examples</span></a>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The main function of µOS++ system timers is to schedule the generation of events after a number of ticks.</p>
 
-<div style="text-align:center">
-<img alt="µOS++ Collection" src="/web-preview/assets/images/2017/micro-os-plus-collection.png">
+<p>There are at least two timers, one using scheduler ticks and the other using seconds. The variables used to store ticks should be of type <strong>OSTimerTicks_t</strong>. Usually this is an unsigned short, giving a range of max 65535 ticks. For the timer counting seconds this means about 18 hours, and for the timer counting scheduler ticks, at, let’s say, 1000 ticks/second, this means about 65 seconds.</p>
+
+<p>If a hardware 32 KHz oscillator is available, the timer counting seconds will run independently of the scheduler timer, and eventually will run even when the processor is put to a deep sleep. Otherwise the second event is triggered every OS_CFGINT_TICK_RATE_HZ ticks, which, due to roundings when setting the registers of the hardware timer, might be slightly inacurate.</p>
+
+<p>The two timers are static members of the <strong>os.sched</strong> object and the recommended way to access them is:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>os.sched.timerTicks
+os.sched.timerSeconds
+</code></pre>
+</div>
 </div>
 
-<h2 id="license">License</h2>
+<p>Please note that the seconds timer is optional. To include it in the build please add the following line to the system configuration header:</p>
 
-<p>Unless otherwise mentioned, all <strong>µOS++ IIIe</strong> components are provided <strong>free of charge</strong> under the terms of the <a href="https://opensource.org/licenses/MIT">MIT License</a>, with all rights reserved to Liviu Ionescu.</p>
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>#define OS_INCLUDE_OSSCHEDULER_TIMERSECONDS                1
+</code></pre>
+</div>
+</div>
+
+<p>Since specifying scheduler ticks might not be as intuitive as usual time units, the following macro was defined in OS.h and can be used whenever needed. However two issues should be considered: first, the result is aproximative, the higher the tick rate the better the approximation, and second, the result should fit the range of <strong>OSTimerTicks_t</strong>, otherwise results are erroneous. To increase precission it is recommended to define the parameter of this macro as long (by using the L suffix, like 15000L).</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>#define OS_MICROS_TO_TICKS(x) (((x)+(OS_CFGINT_TICK_RATE_HZ-1))/OS_CFGINT_TICK_RATE_HZ)
+</code></pre>
+</div>
+</div>
+
+<p>If the above excessive rounding is not necessarry, the user can always define and use a customized version of this macro.</p>
+
+<h2 id="methods">Methods</h2>
+
+<h3 id="sleep-method">Sleep method</h3>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>OSEventWaitReturn_t sleep(OSTimerTicks_t ticks);
+</code></pre>
+</div>
+</div>
+
+<p>Put the current task to sleep for the number of ticks. A value of 1 means ‘next’ tick, so it might be less than one full tick.</p>
+
+<p>Return: OS_EVENT_WAIT_RETURN_VOID if the call ended normally, or the value notified by eventNotify().</p>
+
+<h3 id="event-methods">Event methods</h3>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>void eventNotify(OSTimerTicks_t ticks, OSEvent_t event, OSEventWaitReturn_t ret);
+</code></pre>
+</div>
+</div>
+
+<p>Schedule a notification after a number of ticks. It is functionally equivalent with os.sched.eventNotify(event, ret) executed exactly after the given number of ticks.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>int eventRemove(OSEvent_t event);
+</code></pre>
+</div>
+</div>
+
+<p>Remove all notifications scheduled for the given event, regardless the task that issued them. Usefull when a timeout is set and the expected event occurs, making the timeout useless or even harmfull.</p>
+
+<p>Return: the number of notifications removed.</p>
+
+<h3 id="get-ticks-method">Get Ticks method</h3>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>OSTimerTicks_t getTicks(void);
+</code></pre>
+</div>
+</div>
+
+<p>Return the current value of the ticks counter. Ticks are automatically counted by the interrupt service routine. Due to the nature of unsigned arithmetic, you can safely compute the duration of an operation by subtracting the counter at the begining of the operation from the counter at the end of the operation, as long as the duration is not higher than the max range of the OSTimerTicks_t (usually an unsigned short).</p>
+
+<hr>
+
+<h2 id="examples">Examples</h2>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>// ...
+os.sched.timerTicks.sleep(OS_MICROS_TO_TICKS(15000L)); // 15 ms
+// ...
+</code></pre>
+</div>
+</div>
+
+<p>Put the current task to sleep for 15 miliseconds.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>// ...
+os.sched.timerSeconds.sleep(3); // 3 sec
+// ...
+</code></pre>
+</div>
+</div>
+
+<p>Put the current task to sleep for 3 seconds.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>// ...
+OSEventWaitReturn_t startSeconds;
+startTicks = os.sched.timerSeconds.getTicks();
+  {
+    // ...
+  }
+OSEventWaitReturn_t durationSeconds;
+durationSeconds = os.sched.timerSeconds.getTicks() - startSeconds;
+// ...
+</code></pre>
+</div>
+</div>
+
+<p>Compute the duration in seconds of a block of code.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>// ...
+OSEvent_t event;
+event = ...;
+os.sched.timerTicks.eventNotify(OS_MICROS_TO_TICKS(25000L), event, OS_EVENT_WAIT_RETURN_TIMEOUT);
+OSEventWaitReturn_t ret;
+ret = os.sched.eventWait(event);
+if (ret != OS_EVENT_WAIT_RETURN_TIMEOUT)
+  os.sched.timerTicks.eventRemove(event);
+// ...
+</code></pre>
+</div>
+</div>
+
+<p>Add a 25 miliseconds timeout to an <strong>eventWait()</strong>.</p>
 
 
 
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/micro-os-plus/i/System_Timers/" data-layout="button"></div></li>
+</ul>
 
 
 

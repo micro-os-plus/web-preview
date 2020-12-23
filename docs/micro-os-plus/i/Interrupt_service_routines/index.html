@@ -9,16 +9,16 @@
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>The µOS++ IIIe Project</title>
+  <title>Interrupt service routines</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="The µOS++ IIIe Project">
+  <meta property="og:title" content="Interrupt service routines">
   <meta property="og:site_name" content="µOS++ IIIe">
 
   <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
 
 
-  <meta property="article:published_time" content="2016-03-03">
+  <meta property="article:published_time" content="2011-03-09">
 
 
 
@@ -32,7 +32,7 @@
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
 
-  <link rel="canonical" href="/web-preview/">
+  <link rel="canonical" href="/web-preview/micro-os-plus/i/Interrupt_service_routines/">
 
 
 
@@ -239,58 +239,211 @@
       <div class="site-content">
 
         
-<h1 class="page-title">The µOS++ IIIe Project</h1>
+<h1 class="page-title">Interrupt service routines - DEPRECATED</h1>
 <table id="last-modified">
   <tr>
-    <td id="last-modified">Last modified on Wed Dec 23 10:37:26 2020 UTC.</td>
-    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/home.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+    <td id="last-modified">Page date Wed Mar  9 20:47:09 2011 .</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/micro-os-plus/i/Interrupt_service_routines.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
 
+<h1 id="overview">Overview</h1>
 
-<p>The <strong>µOS++ IIIe</strong> <em>(micro oh ɛs plus plus third edition)</em> project is the third iteration of µOS++, a POSIX-like, portable, open source, royalty-free, multi-tasking real-time framework intended for 32/64-bits embedded applications, written in C++. The project is hosted on GitHub as <a href="https://github.com/micro-os-plus">micro-os-plus</a>. It has a comprehensive <a href="/web-preview/user-manual/">User’s manual</a>. The APIs are documented in the <a href="/web-preview/reference/cmsis-plus/">µOS++ reference</a>.</p>
+<p>The µOS++ framework provides special support for adding context switch functionality to interrupt service routines.</p>
 
-<p><strong>POSIX++</strong> is another point of view of the project; with most system APIs using the POSIX semantics, but being written in C++, the <strong>µOS++ IIIe</strong> APIs can also be seen as a C++ version of POSIX, thus the name <strong>POSIX++</strong>.</p>
-
-<h2 id="manyfold-identity">Manyfold identity</h2>
-
-<p>The <strong>µOS++ IIIe</strong> project can be considered from several points of view.</p>
-
-<h3 id="the-µos-frameworkapis">The µOS++ framework/APIs</h3>
-
-<p>Although generally associated with its RTOS, <strong>µOS++ IIIe</strong> is actually a framework, a collection of APIs, components and technologies.</p>
-
-<p>One of the main APIs is the µOS++ RTOS API, but applications based on µOS++ may run very well without a RTOS, or even use a different RTOS.</p>
-
-<p>For a better portability, the entire framework is layered, the µOS++ RTOS API provides a common public interface to the applications, but the implementation is separate, it might be that of its own µOS++ RTOS reference implementation, but it may very well be another implementation, even a custom one specific to the application.</p>
-
-<h3 id="the-µos-rtos-implementation">The µOS++ RTOS implementation</h3>
-
-<p>From an embedded system point of view, <strong>µOS++ IIIe</strong> provides the <strong>reference implementation</strong> for the <strong>scheduler</strong> and <strong>portable synchronisation</strong> objects (like mutex, semaphore, etc).</p>
-
-<div style="text-align:center">
-<img alt="µOS++ RTOS" src="/web-preview/assets/images/2017/micro-os-plus-rtos.png">
-</div>
-
-<h3 id="the-µos-packages">The µOS++ packages</h3>
-
-<p>From a modular point of view, <strong>µOS++ IIIe</strong> is a <strong>collection of packages</strong> hosted on GitHub in two locations:</p>
+<p>The main idea requires two steps:</p>
 
 <ul>
-  <li>the original code is grouped under the <a href="https://github.com/micro-os-plus">µOS++ IIIe</a> GitHub collection of projects</li>
-  <li>projects based on third party code are grouped under the <a href="https://github.com/xpacks">xPacks</a> collection.</li>
+  <li>to inform the compiler that the routines to be used as interrupt service routines should not have the standard entry/exit code, (i.e. to be naked), and</li>
+  <li>instead of the compiler generated code, to use the system defined code to enter/exit managed interrupt service routines.</li>
 </ul>
 
-<div style="text-align:center">
-<img alt="µOS++ Collection" src="/web-preview/assets/images/2017/micro-os-plus-collection.png">
-</div>
+<h1 id="naked-functions">Naked functions</h1>
 
-<h2 id="license">License</h2>
+<p>One very important notice: the naked interrupts run in a special environment, without a properly initialised link register. This makes the use of local variables, i.e. variables allocated on the stack of the naked routine, impossible. Calls to other functions are safe, and this is one of the reasons why in µOS++ the functionality is split between context handlers and interrupt service routines.</p>
 
-<p>Unless otherwise mentioned, all <strong>µOS++ IIIe</strong> components are provided <strong>free of charge</strong> under the terms of the <a href="https://opensource.org/licenses/MIT">MIT License</a>, with all rights reserved to Liviu Ionescu.</p>
+<h1 id="context-handlers-vs-interrupt-service-routines">Context handlers vs. interrupt service routines</h1>
+
+<p>As mentioned above, in µOS++ the functionality is split between context handlers and interrupt service routines. Context handlers are non portable, and should be implemented in the HAL part for each architecture or family, sometimes in plain C. When written in C++, they should be static methods.</p>
+
+<p>Opposed to them, in µOS++, interrupt service routines are (or should be) portable and can be written in C++ without problems.</p>
+
+<h1 id="the-pointer-to-the-current-object">The pointer to the current object</h1>
+
+<p>Regardless of the complexity of the class hierarchy, with multiple classes inheriting from a common base, driver classes should have separate instances, to be able to use distinct interrupts context handlers.</p>
+
+<p>As an example, even if the platform allows to define a common base for all Usart ports, it is still necessary to derive distinct Usart0, Usart1, etc. classed from the common base, and each and every one to configure separate interrupts.</p>
+
+<p>The actual interrupt service routine can be a C++ method defined in the base class, but to be able to call it, the pointer to the actual objects should be used to differentiate between instances.</p>
+
+<p>Exactly for this purpose, each implementation class should define a static member (like ms_pThis), where the constructor will store the pointer to the object.</p>
+
+<p>Calling the common interrupt service routine from the context handler should be done using his pointer:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ms_pThis-&gt;interruptRxServiceRoutine();
+</code></pre></div></div>
+
+<h1 id="c-context-handlers">C++ context handlers</h1>
+
+<p>If the architecture allows to register any function as interrupt service routines, then it can be written in C++ without problems.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class MyClass
+{
+public:
+  MyClass();
+  ...
+  static void __attribute__((naked))
+  contextHandler(void);
+  ...
+  void interruptRxServiceRoutine(void);
+  ...
+  static MyClass * ms_pThis;
+}
+
+MyClass::MyClass(void)
+{
+  ...
+  ms_pThis = this;
+  ...
+}
+
+void
+MyClass::contextHandler(void)
+{
+  OSScheduler::interruptEnter();
+  {
+    ms_pThis-&gt;interruptRxServiceRoutine();
+  }
+  OSScheduler::interruptExit();
+}
+
+void
+MyClass::interruptRxServiceRoutine(void)
+{
+  // Here the interesting things happen
+}
+</code></pre></div></div>
+
+<h1 id="c-context-handlers-1">C context handlers</h1>
+
+<p>For architectures that mandate interrupt service routines to be written in C, the code outline is slightly different.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>extern "C" void __attribute__((naked))
+MyClass_contextHandler(void);
+
+class MyClass
+{
+public:
+  MyClass();
+  ...
+  void interruptServiceRoutine(void);
+  ...
+  static MyClass * ms_pThis;
+}
+
+MyClass::MyClass(void)
+{
+  ...
+  ms_pThis = this;
+  ...
+}
+
+void
+MyClass_contextHandler(void)
+{
+  OSScheduler::interruptEnter();
+  {
+    MyClass::ms_pThis-&gt;interruptServiceRoutine();
+  }
+  OSScheduler::interruptExit();
+}
+
+void
+MyClass::interruptServiceRoutine(void)
+{
+  // Here the interesting things happen
+}
+</code></pre></div></div>
+
+<h1 id="configurable-preemption">Configurable preemption</h1>
+
+<p>The µOS++ does not mandate for interrupts to implement preemption. When running in cooperative mode, i.e. when OS_EXCLUDE_PREEMPTION is defined, the code behind interruptEnter()/Exit() automatically skips the context switch code, so the interrupts will behave as usual (except they will do a full context save and context restore).</p>
+
+<p>When running in preemptive mode, i.e. the OS_EXCLUDE_PREEMPTION is not defined, all interrupts declared as naked and using the interruptEnter()/Exit() code, will perform the context switch code.</p>
+
+<p>For increased flexibility, and some more debugging opportunities, it is recommended to allow for each interrupt service routine to include or not the preemption code.</p>
+
+<p>The configuration variables used to do this should conform to the following convention:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OS_EXCLUDE_MYCLASS_ISR_PREEMPTION
+OS_EXCLUDE_MYCLASS_MYCONDITION_ISR_PREEMPTION
+</code></pre></div></div>
+
+<p>The MYCONDITION name adds some more specificity in case there are several interrupt service routines in a class, for example distinct RX and TX routines in the Usart driver.</p>
+
+<p>A complete C++ code with configurable preemptions should configure the attribute used for the several interrupt service routine between naked and interrupt (or signal) on some platforms, like AVR8), and if naked is not used, be sure to completely exclude the interruptEnter()/Exit() code.</p>
+
+<p>When the interruptEnter()/Exit() code is included, it also handles the activity LED (i.e. turn it on when interrupts are entered). To preserve the usefulness of the activity LED, when the interruptEnter()/Exit() code is not included, it is necessary to explicitly turn the LED on. In all cases it will be turned off when the processor enters the idle/sleep mode.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class MyClass
+{
+public:
+  MyClass();
+  ...
+  static void
+#if !defined(OS_EXCLUDE_MYCLASS_ISR_PREEMPTION)
+  __attribute__((naked))
+#else
+  __attribute__((interrupt))
+#endif /* !defined(OS_EXCLUDE_MYCLASS_ISR_PREEMPTION) */
+  contextHandler(void);
+  ...
+  void interruptServiceRoutine(void);
+  ...
+  static MyClass * ms_pThis;
+}
+
+MyClass::MyClass(void)
+{
+  ...
+  ms_pThis = this;
+  ...
+}
+
+void
+MyClass::contextHandler(void)
+{
+#if !defined(OS_EXCLUDE_MYCLASS_ISR_PREEMPTION)
+  OSScheduler::interruptEnter();
+#else
+  OSScheduler::ISR_ledActiveOn();
+#endif /* !defined(OS_EXCLUDE_MYCLASS_ISR_PREEMPTION) */
+  {
+    ms_pThis-&gt;interruptServiceRoutine();
+  }
+#if !defined(OS_EXCLUDE_MYCLASS_ISR_PREEMPTION)
+  OSScheduler::interruptExit();
+#endif /* !defined(OS_EXCLUDE_MYCLASS_ISR_PREEMPTION) */
+ }
+
+void
+MyClass::interruptServiceRoutine(void)
+{
+  // Here the interesting things happen
+}
+</code></pre></div></div>
 
 
 
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/micro-os-plus/i/Interrupt_service_routines/" data-layout="button"></div></li>
+</ul>
 
 
 

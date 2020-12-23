@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>The build mechanism</title>
+  <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
+
+  <meta property="og:title" content="The build mechanism">
+  <meta property="og:site_name" content="µOS++ IIIe">
+
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+
+
+  <meta property="article:published_time" content="2010-11-10">
+
+
+
+
+
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
+
+  <link rel="canonical" href="/web-preview/micro-os-plus/i/The_build_mechanism/">
+
+
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16767008-14', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+  <div class="site-header">
+  <table style="width:100%">
+    <tr>
+      <td>
+        <a href="/web-preview/">
+          <img alt="Icon" class="site-icon" src="/web-preview/assets/icons/wall-e-icon.png" height="100" width="100">
+      </a>
+      </td>
+      <td>
+        <table class="site-title" style="width:100%">
+          <tr>
+            <td class="site-title">
+              <a href="/web-preview/">µOS++ IIIe</a>
+            </td>
+            <td class="site-motto" align="right">
+              “Perfekt ist nicht gut genug”
+            </td>
+          </tr>
+          <tr>
+            <td class="site-description" colspan="2">
+              The third edition of µOS++, a POSIX inspired open source framework, written in C++.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+</div>
+
+<div class="container">
+
+  <div class="wrapper">
+    <div class="site-body">
+
+      <div class="site-sidebar">
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      <h4 id="news"><a href="/web-preview/blog/">News</a></h4>
+
+<ul>
+  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></li>
+  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ IIIe v6.3.14 released</a></li>
+  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ IIIe v6.3.13 released</a></li>
+  <li><a href="/web-preview/blog/2017/01/02/micro-os-plus-v6-3-11-released/">µOS++ IIIe v6.3.11 released</a></li>
+</ul>
+
+
+    </div>
+  </div>
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      
+      <h4 id="home"><a href="/web-preview/">Home</a></h4>
+
+<h4 id="µos-iiie">µOS++ IIIe</h4>
+
+<ul>
+  <li><a href="/web-preview/micro-os-plus/">Overview</a></li>
+</ul>
+
+<h4 id="apis">APIs</h4>
+
+<ul>
+  <li><a href="/web-preview/cmsis-plus/">Overview</a></li>
+  <li><a href="/web-preview/cmsis-plus/rtos/">RTOS API</a></li>
+</ul>
+
+<h4 id="xpacksxcdl">xPacks/XCDL</h4>
+
+<ul>
+  <li><a href="/web-preview/xpacks/">Overview</a></li>
+</ul>
+
+<h4 id="documentation">Documentation</h4>
+
+<ul>
+  <li>
+<a href="/web-preview/user-manual/">User’s <strong>manual</strong></a>
+    <ul>
+      <li><a href="/web-preview/user-manual/getting-started/">Getting started</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/">Basic concepts</a></li>
+      <li><a href="/web-preview/user-manual/features/">Features</a></li>
+      <li><a href="/web-preview/user-manual/threads/">Threads</a></li>
+      <li><a href="/web-preview/user-manual/thread-event-flags/">Thread event flags</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/">Semaphores</a></li>
+      <li><a href="/web-preview/user-manual/event-flags/">Event flags</a></li>
+      <li>Mutexes</li>
+      <li>Condition variables</li>
+      <li>Message queues</li>
+      <li>Memory pools</li>
+      <li>Software timers</li>
+      <li>Clocks</li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/reference/cmsis-plus/">µOS++ <strong>reference</strong></a></li>
+</ul>
+
+<h4 id="developer">Developer</h4>
+
+<ul>
+  <li><a href="/web-preview/develop/">Overview</a></li>
+  <li><a href="/web-preview/reference/cmsis-plus/md_doxygen_pages_change-log.html">Change log</a></li>
+  <li><a href="/web-preview/develop/coding-style/">C++ coding style</a></li>
+  <li><a href="/web-preview/develop/naming-conventions/">Naming conventions</a></li>
+  <li><a href="/web-preview/develop/references/">Links &amp; references</a></li>
+</ul>
+
+<h4 id="support">Support</h4>
+
+<ul>
+  <li><a href="/web-preview/support/">Overview</a></li>
+  <li><a href="/web-preview/support/known-issues/">Known issues</a></li>
+  <li><a href="/web-preview/support/faq/">FAQ</a></li>
+  <li><a href="/web-preview/support/forum/">Forum</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ IIIe issues</a></li>
+</ul>
+
+<h4 id="latest-articles">Latest Articles</h4>
+
+<ul>
+  <li><a href="/web-preview/articles/arm-com-2016-06-24/">CMSIS++ RTOS: fully functional reference implementation</a></li>
+  <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
+</ul>
+
+<h4 id="license">License</h4>
+
+<ul>
+  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+</ul>
+
+<h4 id="about"><a href="/web-preview/about/">About</a></h4>
+
+    </div>
+  </div>
+
+  <div class="site-theme">
+    This site uses the <a href="https://github.com/ilg-ul/github-jekyll-theme">GitHub Wiki-like</a> theme by <a href="https://github.com/ilg-ul">Liviu Ionescu</a>.
+  </div>
+
+</div>
+
+
+      <div class="site-content">
+
+        
+<h1 class="page-title">The build mechanism - DEPRECATED</h1>
+<table id="last-modified">
+  <tr>
+    <td id="last-modified">Page date Wed Nov 10 14:24:03 2010 .</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/micro-os-plus/i/The_build_mechanism.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+  </tr>
+</table>
+
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toc_level-1 toc_section-1">
+<a href="#the-build-toolchain"><span class="tocnumber">1</span> <span class="toctext">The Build Toolchain</span></a>
+</li>
+<li class="toc_level-1 toc_section-2">
+<a href="#managed-build"><span class="tocnumber">2</span> <span class="toctext">Managed Build</span></a>
+</li>
+<li class="toc_level-1 toc_section-3">
+<a href="#manual-build"><span class="tocnumber">3</span> <span class="toctext">Manual Build</span></a>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Building embedded applications usually differs from building desktop applications. When using traditional libraries the granularity is at library module level, i.e. useless library modules are not included by the linker. However for embedded applications, where flash size restrictions are important, this might not be enough and granularity at source level fragment is preffered. This extreme granularity can be obtained only by using preprocessor conditional statements to exclude useless code.</p>
+
+<h2 id="the-build-toolchain">The Build Toolchain</h2>
+
+<p>The only compiler considered for building µOS++ is the <a href="http://gcc.gnu.org/">GNU C++</a> compiler (currently 4.3.x); on Windows systems this compiler is packed in <a href="http://winavr.sourceforge.net/">WinAVR</a> and the ARM compiler is packed in <a href="http://www.codesourcery.com/sgpp/lite/arm">Code Sourcery G++ Lite</a>.</p>
+
+<p>The recommended build environment is based on <a href="http://www.eclipse.org/">Eclipse</a> (currently 3.4). Please note that the formatter in CDT 4.0.0 has some bugs and some files are not processed properly; version 4.0.1 fixes these bugs.</p>
+
+<h2 id="managed-build">Managed Build</h2>
+
+<p>Due to the inherent complexity of such a system, comprising tens of files, our recommendation is to use the Eclipse managed build mechanism.</p>
+
+<p>Dedicated plug-ins are available both for ARM and AVR.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>**** Build of configuration Debug-Olimex-STM32-H103 for project blinkX3 ****
+
+cs-make all
+Building file: X:/Users/ilg/Vault/Projects/workspace-3.3-AVR/micro-os-plus/
+system/portable/tasks/src/TaskBlink.cpp
+Invoking: ARM Sourcery Windows GCC C++ Compiler
+arm-none-eabi-g++ -DDEBUG=1 -DOS_CONFIG_DEBUG_DEVICE_I2C=1
+-D"OS_CONFIG_BOARD_OLIMEX_STM32_H103=1"
+-I"X:\Users\ilg\Vault\Projects\workspace-3.3-AVR\blinkX3/include"
+-I"X:\Users\ilg\Vault\Projects\workspace-3.3-AVR\micro-os-plus\system"
+-O1 -Wall -fno-exceptions
+-fsigned-char -c -fmessage-length=0 -fno-rtti -fno-inline-functions -Wabi
+-MMD -MP -MF"system/portable/tasks/src/TaskBlink.d"
+-MT"system/portable/tasks/src/TaskBlink.d" -mcpu=cortex-m3 -mthumb -g3
+-gdwarf-2 -o"system/portable/tasks/src/TaskBlink.o"
+"X:/Users/ilg/Vault/Projects/workspace-3.3-AVR/micro-os-plus/system/
+portable/tasks/src/TaskBlink.cpp"
+Finished building: X:/Users/ilg/Vault/Projects/workspace-3.3-AVR/
+micro-os-plus/system/portable/tasks/src/TaskBlink.cpp
+
+...
+
+Building file: ../src/TaskBlink.cpp
+Invoking: ARM Sourcery Windows GCC C++ Compiler
+arm-none-eabi-g++ -DDEBUG=1 -DOS_CONFIG_DEBUG_DEVICE_I2C=1
+-D"OS_CONFIG_BOARD_OLIMEX_STM32_H103=1"
+-I"X:\Users\ilg\Vault\Projects\workspace-3.3-AVR\blinkX3/include"
+-I"X:\Users\ilg\Vault\Projects\workspace-3.3-AVR\micro-os-plus\system"
+-O1 -Wall -fno-exceptions
+-fsigned-char -c -fmessage-length=0 -fno-rtti -fno-inline-functions -Wabi
+-MMD -MP -MF"src/TaskBlink.d" -MT"src/TaskBlink.d" -mcpu=cortex-m3 -mthumb -g3
+-gdwarf-2 -o"src/TaskBlink.o" "../src/TaskBlink.cpp"
+Finished building: ../src/TaskBlink.cpp
+
+Building file: ../src/main.cpp
+Invoking: ARM Sourcery Windows GCC C++ Compiler
+arm-none-eabi-g++ -DDEBUG=1 -DOS_CONFIG_DEBUG_DEVICE_I2C=1
+-D"OS_CONFIG_BOARD_OLIMEX_STM32_H103=1"
+-I"X:\Users\ilg\Vault\Projects\workspace-3.3-AVR\blinkX3/include"
+-I"X:\Users\ilg\Vault\Projects\workspace-3.3-AVR\micro-os-plus\system"
+-O1 -Wall -fno-exceptions
+-fsigned-char -c -fmessage-length=0 -fno-rtti -fno-inline-functions -Wabi
+-MMD -MP -MF"src/main.d" -MT"src/main.d" -mcpu=cortex-m3 -mthumb -g3
+-gdwarf-2 -o"src/main.o" "../src/main.cpp"
+Finished building: ../src/main.cpp
+
+Building target: blinkX3.elf
+Invoking: ARM Sourcery Windows GCC C++ Linker
+arm-none-eabi-g++ -T"X:\Users\ilg\Vault\Projects\workspace-3.3-AVR\
+micro-os-plus\system\hal\boards\Olimex\stm32_h103\stm32_h103_rom.ld"
+-nostartfiles
+-L"X:\Users\ilg\Vault\Projects\workspace-3.3-AVR\micro-os-plus\system"
+-Wl,-Map,blinkX3.map -v -mcpu=cortex-m3 -mthumb -g3 -gdwarf-2
+-o"blinkX3.elf"  ./system/portable/tasks/src/CANLeds.o
+./system/portable/tasks/src/TaskBlink.o
+./system/portable/tasks/src/TaskPitpalac.o
+./system/portable/stdlib/src/ios.o
+./system/portable/stdlib/src/iostream.o
+./system/portable/stdlib/src/istream.o
+./system/portable/stdlib/src/ostream.o
+./system/portable/stdlib/src/streambuf.o
+./system/portable/misc/src/CircularBlockBuffer.o
+./system/portable/misc/src/CircularByteBuffer.o
+./system/portable/misc/src/Parser.o
+./system/portable/misc/src/SimpleCli.o
+./system/portable/misc/src/uOS.o
+./system/portable/kernel/src/OS.o
+./system/portable/kernel/src/OSEventFlags.o
+./system/portable/kernel/src/OSMutex.o
+./system/portable/kernel/src/OSScheduler.o
+./system/portable/kernel/src/OSTask.o
+./system/portable/kernel/src/OSTaskIdle.o
+./system/portable/kernel/src/OSTimer.o
+./system/portable/kernel/src/OSTimerSeconds.o
+./system/portable/kernel/src/OSTimerTicks.o
+./system/portable/kernel/src/Timer.o
+./system/portable/kernel/src/ostream_OSTask.o
+./system/portable/devices/usb/src/OSUsbDevice.o
+./system/portable/devices/usb/src/OSUsbDeviceDescriptors.o
+./system/portable/devices/sdi12/src/SDI12BootLoader.o
+./system/portable/devices/sdi12/src/SDI12Sensor.o
+./system/portable/devices/misc/src/DeviceLM74.o
+./system/portable/devices/misc/src/DeviceMCP2510.o
+./system/portable/devices/misc/src/DeviceRTC4574.o
+./system/portable/devices/misc/src/DeviceSPIUsart.o
+./system/portable/devices/misc/src/PinChangeDispatchers.o
+./system/portable/devices/debug/src/DeviceDebugI2C.o
+./system/portable/devices/debug/src/OSDeviceDebug.o
+./system/portable/devices/character/src/DeviceCharacterMultiUsart0.o
+./system/portable/devices/character/src/DeviceCharacterMultiUsart1.o
+./system/portable/devices/character/src/DeviceCharacterUsart.o
+./system/portable/devices/character/src/DeviceCharacterUsart0.o
+./system/portable/devices/character/src/DeviceCharacterUsart1.o
+./system/portable/devices/character/src/DeviceCharacterUsb.o
+./system/portable/devices/character/src/OSDeviceCharacter.o
+./system/portable/devices/character/src/OSDeviceCharacterBuffered.o
+./system/portable/devices/block/src/CANPacket.o
+./system/portable/devices/block/src/DeviceMemCard.o
+./system/portable/devices/block/src/DeviceMemCardSPI.o
+./system/portable/devices/block/src/OSDeviceCAN.o
+./system/hal/boards/Metrilog/m512/src/SDI12Sensor_Implementation.o
+./system/hal/arch/avr/kernel/src/OSScheduler_Implementation.o
+./system/hal/arch/avr/kernel/src/OSTimer_Implementation.o
+./system/hal/arch/avr/kernel/src/OS_Implementation.o
+./system/hal/arch/avr/kernel/src/ostream_ProgramPtr.o
+./system/hal/arch/avr/devices/misc/src/DeviceADC_Implementation.o
+./system/hal/arch/avr/devices/debug/src/OSDeviceDebug_Implementation.o
+./system/hal/arch/avr/devices/character/src/DeviceCharacterMultiUsart0_Implementation.o
+./system/hal/arch/avr/devices/character/src/DeviceCharacterMultiUsart1_Implementation.o
+./system/hal/arch/avr/devices/character/src/DeviceCharacterUsart0_Implementation.o
+./system/hal/arch/avr/devices/character/src/DeviceCharacterUsart1_Implementation.o
+./system/hal/arch/avr/devices/character/src/DeviceCharacterUsart_Implementation.o
+./system/hal/arch/avr/devices/block/src/DeviceCAN_MCP2510.o
+./system/hal/arch/avr/at90usb/devices/usb/src/OSUsbDevice_Implementation.o
+./system/hal/arch/avr/at90usb/devices/character/src/DeviceCharacterUsb_Implementation.o
+./system/hal/arch/avr/at90can/devices/block/src/DeviceCAN_AT90CAN.o
+./system/hal/arch/arm_cortex_m3/stm32f10x/lib/src/system_stm32f10x.o
+./system/hal/arch/arm_cortex_m3/stm32f10x/kernel/src/OS_Family_Implementation.o
+./system/hal/arch/arm_cortex_m3/lib/src/core_cm3.o
+./system/hal/arch/arm_cortex_m3/kernel/src/OSScheduler_Arch_Implementation.o
+./system/hal/arch/arm_cortex_m3/kernel/src/OSTimer_Arch_Implementation.o
+./system/hal/arch/arm_cortex_m3/kernel/src/OS_Arch_Implementation.o
+./system/hal/arch/arm_cortex_m3/devices/debug/src/OSDeviceDebug_Arch_Implementation.o
+ ./src/TaskBlink.o ./src/main.o
+Finished building target: blinkX3.elf
+
+Invoking: ARM Sourcery Windows GNU Create Flash Image
+arm-none-eabi-objcopy -O ihex blinkX3.elf "blinkX3.hex"
+Finished building: blinkX3.hex
+
+Invoking: ARM Sourcery Windows GNU Create Listing
+arm-none-eabi-objdump -h -S blinkX3.elf &gt;"blinkX3.lst"
+Finished building: blinkX3.lst
+
+Invoking: ARM Sourcery Windows GNU Print Size
+arm-none-eabi-size  --format=berkeley blinkX3.elf
+   text       data        bss        dec        hex    filename
+  14652        696       2552      17900       45ec    blinkX3.elf
+Finished building: blinkX3.siz
+</code></pre>
+</div>
+</div>
+
+<h2 id="manual-build">Manual Build</h2>
+
+<p>Althouth previous versions included limited support for manual builds by use of a single included file (system.cpp), starting with version 3.x it was no longer maintained. Upon request, this file can be updated to include new files.</p>
+
+<p>Compile and link options should be based on the above manged build script.</p>
+
+
+
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/micro-os-plus/i/The_build_mechanism/" data-layout="button"></div></li>
+</ul>
+
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="site-footer">
+  <div class="site-footer-links left">
+    <ul>
+  <li>© 2019 Liviu Ionescu</li>
+  <li>Hosted on GitHub</li>
+  <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
+  <li>
+<a href="http://twitter.com/micro_os_plus" class="twitter-follow-button" data-show-count="false">Follow @micro_os_plus</a><script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</li>
+</ul>
+
+
+  </div>
+  <a href="https://github.com/micro-os-plus/micro-os-plus-iii" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+  </a>
+  <div class="site-footer-links right">
+    <ul>
+  <li><a href="/web-preview/">Home</a></li>
+  <li><a href="/web-preview/blog/">News</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/releases">Releases</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues">Support</a></li>
+  <li><a href="/web-preview/about/">About</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</div>
+
+</body>
+</html>

@@ -9,16 +9,16 @@
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>The µOS++ IIIe Project</title>
+  <title>History</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="The µOS++ IIIe Project">
+  <meta property="og:title" content="History">
   <meta property="og:site_name" content="µOS++ IIIe">
 
   <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
 
 
-  <meta property="article:published_time" content="2016-03-03">
+  <meta property="article:published_time" content="2010-11-10">
 
 
 
@@ -32,7 +32,7 @@
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
 
-  <link rel="canonical" href="/web-preview/">
+  <link rel="canonical" href="/web-preview/micro-os-plus/i/History/">
 
 
 
@@ -239,58 +239,89 @@
       <div class="site-content">
 
         
-<h1 class="page-title">The µOS++ IIIe Project</h1>
+<h1 class="page-title">History - DEPRECATED</h1>
 <table id="last-modified">
   <tr>
-    <td id="last-modified">Last modified on Wed Dec 23 10:37:26 2020 UTC.</td>
-    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/home.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+    <td id="last-modified">Page date Wed Nov 10 14:06:59 2010 .</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/micro-os-plus/i/History.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
 
-
-<p>The <strong>µOS++ IIIe</strong> <em>(micro oh ɛs plus plus third edition)</em> project is the third iteration of µOS++, a POSIX-like, portable, open source, royalty-free, multi-tasking real-time framework intended for 32/64-bits embedded applications, written in C++. The project is hosted on GitHub as <a href="https://github.com/micro-os-plus">micro-os-plus</a>. It has a comprehensive <a href="/web-preview/user-manual/">User’s manual</a>. The APIs are documented in the <a href="/web-preview/reference/cmsis-plus/">µOS++ reference</a>.</p>
-
-<p><strong>POSIX++</strong> is another point of view of the project; with most system APIs using the POSIX semantics, but being written in C++, the <strong>µOS++ IIIe</strong> APIs can also be seen as a C++ version of POSIX, thus the name <strong>POSIX++</strong>.</p>
-
-<h2 id="manyfold-identity">Manyfold identity</h2>
-
-<p>The <strong>µOS++ IIIe</strong> project can be considered from several points of view.</p>
-
-<h3 id="the-µos-frameworkapis">The µOS++ framework/APIs</h3>
-
-<p>Although generally associated with its RTOS, <strong>µOS++ IIIe</strong> is actually a framework, a collection of APIs, components and technologies.</p>
-
-<p>One of the main APIs is the µOS++ RTOS API, but applications based on µOS++ may run very well without a RTOS, or even use a different RTOS.</p>
-
-<p>For a better portability, the entire framework is layered, the µOS++ RTOS API provides a common public interface to the applications, but the implementation is separate, it might be that of its own µOS++ RTOS reference implementation, but it may very well be another implementation, even a custom one specific to the application.</p>
-
-<h3 id="the-µos-rtos-implementation">The µOS++ RTOS implementation</h3>
-
-<p>From an embedded system point of view, <strong>µOS++ IIIe</strong> provides the <strong>reference implementation</strong> for the <strong>scheduler</strong> and <strong>portable synchronisation</strong> objects (like mutex, semaphore, etc).</p>
-
-<div style="text-align:center">
-<img alt="µOS++ RTOS" src="/web-preview/assets/images/2017/micro-os-plus-rtos.png">
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
 </div>
-
-<h3 id="the-µos-packages">The µOS++ packages</h3>
-
-<p>From a modular point of view, <strong>µOS++ IIIe</strong> is a <strong>collection of packages</strong> hosted on GitHub in two locations:</p>
-
 <ul>
-  <li>the original code is grouped under the <a href="https://github.com/micro-os-plus">µOS++ IIIe</a> GitHub collection of projects</li>
-  <li>projects based on third party code are grouped under the <a href="https://github.com/xpacks">xPacks</a> collection.</li>
+<li class="toc_level-1 toc_section-1">
+<a href="#the-beginning"><span class="tocnumber">1</span> <span class="toctext">The Beginning</span></a>
+</li>
+<li class="toc_level-1 toc_section-2">
+<a href="#july-2007"><span class="tocnumber">2</span> <span class="toctext">July 2007</span></a>
+</li>
+<li class="toc_level-1 toc_section-3">
+<a href="#v12---september-2007"><span class="tocnumber">3</span> <span class="toctext">v1.2 - September 2007</span></a>
+</li>
+<li class="toc_level-1 toc_section-4">
+<a href="#v20---march-2008"><span class="tocnumber">4</span> <span class="toctext">v2.0 - March 2008</span></a>
+</li>
+<li class="toc_level-1 toc_section-5">
+<a href="#v30---june-2009"><span class="tocnumber">5</span> <span class="toctext">v3.0 - June 2009</span></a>
+</li>
 </ul>
-
-<div style="text-align:center">
-<img alt="µOS++ Collection" src="/web-preview/assets/images/2017/micro-os-plus-collection.png">
+</td>
+</tr>
+</tbody>
+</table>
 </div>
+<h2 id="the-beginning">The Beginning</h2>
 
-<h2 id="license">License</h2>
+<p>Work on the µOS++ started by the end of 2006, when I decided to upgrade the Flight Data Recorder and ‘Glue Avionics’ used in my light airplane. (CAN devices, currently based on multiple old PIC 16F877 microcontrollers, developped during 2002).</p>
 
-<p>Unless otherwise mentioned, all <strong>µOS++ IIIe</strong> components are provided <strong>free of charge</strong> under the terms of the <a href="https://opensource.org/licenses/MIT">MIT License</a>, with all rights reserved to Liviu Ionescu.</p>
+<p>The decision for C++ came quite early and was a tough one. During the initial phase I studied several other implementations (like µC/OS-II, FreeRTOS, eCos). An in-deep previous experience with eCos reminded me that C++ was used in embedded systems, but eCos was from the <em>big-boys ligue</em>, and I was under the common misconception that C++ cannot be used for small embedded projects.</p>
+
+<p>A ‘contributing factor’ was reading Michael Barr’s “Programming Embedded Systems in C and C++” (O’Reillly 1999, ISBN 1-56592-354-5); his approach looked reasonable, his code looked quite readable and well structured, and by the end of the book I also discovered a referrence to the Embedded C++ Standard, so I decided there are enough reasons to give it a try. The main concerns were related to GCC C++ readiness for embedded projects, both from the code generation point of view and from the run-time support. After extensive tests with AVR-GCC it looked like none of these concerns were real, AVR-GCC had full support to compile C++ and the heavy run-time features (exceptions, dynamic object allocation, etc) can be disabled.</p>
+
+<p>The only inconvenient I found was that Atmel AVR Studio had no support for C++; since I already used Eclipse for other Java projects, with good results, the decision for Eclipse CDT (C Development Tools) was natural.</p>
+
+<p>I am aware that the decision to go for C++ might be a discouraging factor in the adoption of µOS++, but I think the inherent modularity of the C++ code that leads to a much better discipline in writing code than in C, can be translated into a better maintenability and finally in lowering the TCO.</p>
+
+<p>The first version was µOS++ was functional in the spring of 2007, running on the Atmel STK525 development board, using an AVR at90usb1287 microcontroller. Development went to the point when I could run multiple shell instances, with I/O via USB CDC and USART, and read data blocks from MMC/SD cards, so I was able to download data from my Flight Recorder storage via USB, at much higher speed than by previous serial link.</p>
+
+<p>Discussions with colleagues and friends led me to the conclussion that µOS++ might be of interest for others too, so in April 2007 the full source code tree of the project was published on SourceForge.</p>
+
+<h2 id="july-2007">July 2007</h2>
+
+<p>µOS++ was also ported on a board running with Atmel AVR atmega324p and used to build commercial SDI-12 sensors.</p>
+
+<h2 id="v12---september-2007">v1.2 - September 2007</h2>
+
+<p>Once the requirements of running on multiple boards and processors were obvious and easier to test, the code was restructured to increase portability and portable stubs were added in the hal to include specific code.</p>
+
+<p>Synchronization mechanisms were expanded with <strong>OSFlags</strong>. In order to allow timers to interract with any synchronization objects, the functionality of the timers was increased; in addition to standard sleep(), timers notify standard events and can be expanded by the application to invoke a customized callback via the <strong>Timer</strong> class.</p>
+
+<h2 id="v20---march-2008">v2.0 - March 2008</h2>
+
+<p>A major code restructuring and cleanup, done after the first commercial/production grade products based on it were released. Two SDI-12 sensors were built using µOS++, each including a bootloader allowing full remote upgrade via X commands over the SDI-12 bus.</p>
+
+<h2 id="v30---june-2009">v3.0 - June 2009</h2>
+
+<p>The first port on a different microprocessor architecture, the ARM Cortex M3, with code restructuring and cleanup for the core scheduler. The implementation fully supports the specific features, like pending exceptions used to simplify context switches triggered by interrupts.</p>
 
 
 
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/micro-os-plus/i/History/" data-layout="button"></div></li>
+</ul>
 
 
 

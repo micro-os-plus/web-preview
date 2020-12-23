@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>µOS++ IIIe</title>
+    <description>The third edition of µOS++, a POSIX inspired open source framework, written in C++.</description>
+    <link>http://micro-os-plus.github.io/web-preview/</link>
+    <atom:link href="http://micro-os-plus.github.io/web-preview/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 23 Dec 2020 11:12:54 +0000</pubDate>
+    <lastBuildDate>Wed, 23 Dec 2020 11:12:54 +0000</lastBuildDate>
+    <generator>Jekyll v3.9.0</generator>
+    
+      <item>
+        <title>µOS++ IIIe v6.3.15 released</title>
+        <description>&lt;p&gt;Version v6.3.15 is a &lt;strong&gt;µOS++ IIIe&lt;/strong&gt; maintenance release. The main changes 
+are several bug fixes.&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 19 Nov 2018 11:09:00 +0000</pubDate>
+        <link>http://micro-os-plus.github.io/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/</link>
+        <guid isPermaLink="true">http://micro-os-plus.github.io/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/</guid>
+        
+        
+        <category>releases</category>
+        
+        <category>rtos</category>
+        
+        <category>micro-os-plus</category>
+        
+      </item>
+    
+      <item>
+        <title>µOS++ IIIe v6.3.14 released</title>
+        <description>&lt;p&gt;Version v6.3.14 is a &lt;strong&gt;µOS++ IIIe&lt;/strong&gt; maintenance release. The main addition
+is the functional POSIX I/O subsystem, which supports character devices, 
+block devices and file systems.&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 04 Jul 2018 05:19:00 +0000</pubDate>
+        <link>http://micro-os-plus.github.io/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/</link>
+        <guid isPermaLink="true">http://micro-os-plus.github.io/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/</guid>
+        
+        
+        <category>releases</category>
+        
+        <category>rtos</category>
+        
+        <category>micro-os-plus</category>
+        
+      </item>
+    
+      <item>
+        <title>µOS++ IIIe v6.3.13 released</title>
+        <description>&lt;p&gt;Version v6.3.13 is a &lt;strong&gt;µOS++ IIIe&lt;/strong&gt; maintenance release.&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 26 Aug 2017 20:29:00 +0000</pubDate>
+        <link>http://micro-os-plus.github.io/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/</link>
+        <guid isPermaLink="true">http://micro-os-plus.github.io/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/</guid>
+        
+        
+        <category>releases</category>
+        
+        <category>rtos</category>
+        
+        <category>micro-os-plus</category>
+        
+      </item>
+    
+      <item>
+        <title>µOS++ IIIe v6.3.11 released</title>
+        <description>&lt;p&gt;Version v6.3.11 is a new &lt;strong&gt;µOS++ IIIe/CMSIS++&lt;/strong&gt; public release that addresses several bugs.&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 02 Jan 2017 19:29:00 +0000</pubDate>
+        <link>http://micro-os-plus.github.io/web-preview/blog/2017/01/02/micro-os-plus-v6-3-11-released/</link>
+        <guid isPermaLink="true">http://micro-os-plus.github.io/web-preview/blog/2017/01/02/micro-os-plus-v6-3-11-released/</guid>
+        
+        
+        <category>releases</category>
+        
+        <category>rtos</category>
+        
+        <category>cmsis-plus</category>
+        
+        <category>micro-os-plus</category>
+        
+      </item>
+    
+      <item>
+        <title>µOS++ IIIe v6.3.10 released</title>
+        <description>&lt;p&gt;Version v6.3.10 is a new &lt;strong&gt;µOS++ IIIe/CMSIS++&lt;/strong&gt; public release that addresses several bugs.&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 27 Nov 2016 08:53:00 +0000</pubDate>
+        <link>http://micro-os-plus.github.io/web-preview/blog/2016/11/27/micro-os-plus-v6-3-10-released/</link>
+        <guid isPermaLink="true">http://micro-os-plus.github.io/web-preview/blog/2016/11/27/micro-os-plus-v6-3-10-released/</guid>
+        
+        
+        <category>releases</category>
+        
+        <category>rtos</category>
+        
+        <category>cmsis-plus</category>
+        
+        <category>micro-os-plus</category>
+        
+      </item>
+    
+      <item>
+        <title>µOS++ IIIe v6.3.9 released</title>
+        <description>&lt;p&gt;Version v6.3.9 is a new &lt;strong&gt;µOS++ IIIe/CMSIS++&lt;/strong&gt; public release (v6.3.8 was an internal release). The major additions are: the first integration of the POSIX I/O subsystem and an experimental set of scripts to generate µOS++ projects.&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 13 Oct 2016 19:46:00 +0000</pubDate>
+        <link>http://micro-os-plus.github.io/web-preview/blog/2016/10/13/micro-os-plus-v6-3-9-released/</link>
+        <guid isPermaLink="true">http://micro-os-plus.github.io/web-preview/blog/2016/10/13/micro-os-plus-v6-3-9-released/</guid>
+        
+        
+        <category>releases</category>
+        
+        <category>rtos</category>
+        
+        <category>cmsis-plus</category>
+        
+        <category>micro-os-plus</category>
+        
+      </item>
+    
+      <item>
+        <title>First µOS++ IIIe public version v6.3.7 released</title>
+        <description>&lt;p&gt;Version v6.3.7 is the first &lt;strong&gt;µOS++ IIIe/CMSIS++&lt;/strong&gt; public release. The major additions are the advanced memory management features, which allow deterministic and non-fragmenting allocations in controlled environments.&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 15 Sep 2016 12:28:00 +0000</pubDate>
+        <link>http://micro-os-plus.github.io/web-preview/blog/2016/09/15/micro-os-plus-v6-3-7-released/</link>
+        <guid isPermaLink="true">http://micro-os-plus.github.io/web-preview/blog/2016/09/15/micro-os-plus-v6-3-7-released/</guid>
+        
+        
+        <category>releases</category>
+        
+        <category>rtos</category>
+        
+        <category>cmsis-plus</category>
+        
+        <category>micro-os-plus</category>
+        
+      </item>
+    
+      <item>
+        <title>License changed from LGPL to MIT License</title>
+        <description>&lt;p&gt;To further facilitate the integration of CMSIS++ files into other commercial or open source projects, the project license was changed from the copyleft LGPL to the  permissive &lt;a href=&quot;https://opensource.org/licenses/MIT&quot;&gt;MIT License&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 29 Mar 2016 09:00:00 +0000</pubDate>
+        <link>http://micro-os-plus.github.io/web-preview/blog/2016/03/29/license-update/</link>
+        <guid isPermaLink="true">http://micro-os-plus.github.io/web-preview/blog/2016/03/29/license-update/</guid>
+        
+        
+        <category>news</category>
+        
+        <category>article</category>
+        
+        <category>license</category>
+        
+        <category>MIT</category>
+        
+      </item>
+    
+      <item>
+        <title>ARM Connected Community article, March 11, 2016</title>
+        <description>&lt;p&gt;A presentation article was published on the &lt;a href=&quot;http://community.arm.com&quot;&gt;ARM Connected Community&lt;/a&gt; site, under the name &lt;strong&gt;&lt;a href=&quot;https://community.arm.com/groups/tools/blog/2016/03/11/cmsis-a-proposal-for-a-future-cmsis-written-in-c&quot;&gt;CMSIS++: a proposal for a future CMSIS, written in C++&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 10 Mar 2016 09:00:00 +0000</pubDate>
+        <link>http://micro-os-plus.github.io/web-preview/blog/2016/03/10/arm-connected-community-article/</link>
+        <guid isPermaLink="true">http://micro-os-plus.github.io/web-preview/blog/2016/03/10/arm-connected-community-article/</guid>
+        
+        
+        <category>news</category>
+        
+        <category>article</category>
+        
+      </item>
+    
+      <item>
+        <title>The µOS++ IIIe new web site (using GitHub Pages)</title>
+        <description>&lt;p&gt;After the µOS++ IIIe project was migrated from &lt;a href=&quot;http://sourceforge.net/projects/micro-os-plus/&quot;&gt;SourceForge&lt;/a&gt; to &lt;a href=&quot;https://github.com/micro-os-plus&quot;&gt;GitHub&lt;/a&gt;, a new web site was created, to replace the previous wikis.&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 03 Mar 2016 19:10:00 +0000</pubDate>
+        <link>http://micro-os-plus.github.io/web-preview/blog/2016/03/03/web-new-look/</link>
+        <guid isPermaLink="true">http://micro-os-plus.github.io/web-preview/blog/2016/03/03/web-new-look/</guid>
+        
+        
+        <category>news</category>
+        
+        <category>web</category>
+        
+      </item>
+    
+  </channel>
+</rss>

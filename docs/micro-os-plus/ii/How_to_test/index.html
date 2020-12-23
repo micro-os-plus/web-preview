@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>How to test</title>
+  <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
+
+  <meta property="og:title" content="How to test">
+  <meta property="og:site_name" content="µOS++ IIIe">
+
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+
+
+  <meta property="article:published_time" content="2013-09-05">
+
+
+
+
+
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
+
+  <link rel="canonical" href="/web-preview/micro-os-plus/ii/How_to_test/">
+
+
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16767008-14', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+  <div class="site-header">
+  <table style="width:100%">
+    <tr>
+      <td>
+        <a href="/web-preview/">
+          <img alt="Icon" class="site-icon" src="/web-preview/assets/icons/wall-e-icon.png" height="100" width="100">
+      </a>
+      </td>
+      <td>
+        <table class="site-title" style="width:100%">
+          <tr>
+            <td class="site-title">
+              <a href="/web-preview/">µOS++ IIIe</a>
+            </td>
+            <td class="site-motto" align="right">
+              “Perfekt ist nicht gut genug”
+            </td>
+          </tr>
+          <tr>
+            <td class="site-description" colspan="2">
+              The third edition of µOS++, a POSIX inspired open source framework, written in C++.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+</div>
+
+<div class="container">
+
+  <div class="wrapper">
+    <div class="site-body">
+
+      <div class="site-sidebar">
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      <h4 id="news"><a href="/web-preview/blog/">News</a></h4>
+
+<ul>
+  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></li>
+  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ IIIe v6.3.14 released</a></li>
+  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ IIIe v6.3.13 released</a></li>
+  <li><a href="/web-preview/blog/2017/01/02/micro-os-plus-v6-3-11-released/">µOS++ IIIe v6.3.11 released</a></li>
+</ul>
+
+
+    </div>
+  </div>
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      
+      <h4 id="home"><a href="/web-preview/">Home</a></h4>
+
+<h4 id="µos-iiie">µOS++ IIIe</h4>
+
+<ul>
+  <li><a href="/web-preview/micro-os-plus/">Overview</a></li>
+</ul>
+
+<h4 id="apis">APIs</h4>
+
+<ul>
+  <li><a href="/web-preview/cmsis-plus/">Overview</a></li>
+  <li><a href="/web-preview/cmsis-plus/rtos/">RTOS API</a></li>
+</ul>
+
+<h4 id="xpacksxcdl">xPacks/XCDL</h4>
+
+<ul>
+  <li><a href="/web-preview/xpacks/">Overview</a></li>
+</ul>
+
+<h4 id="documentation">Documentation</h4>
+
+<ul>
+  <li>
+<a href="/web-preview/user-manual/">User’s <strong>manual</strong></a>
+    <ul>
+      <li><a href="/web-preview/user-manual/getting-started/">Getting started</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/">Basic concepts</a></li>
+      <li><a href="/web-preview/user-manual/features/">Features</a></li>
+      <li><a href="/web-preview/user-manual/threads/">Threads</a></li>
+      <li><a href="/web-preview/user-manual/thread-event-flags/">Thread event flags</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/">Semaphores</a></li>
+      <li><a href="/web-preview/user-manual/event-flags/">Event flags</a></li>
+      <li>Mutexes</li>
+      <li>Condition variables</li>
+      <li>Message queues</li>
+      <li>Memory pools</li>
+      <li>Software timers</li>
+      <li>Clocks</li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/reference/cmsis-plus/">µOS++ <strong>reference</strong></a></li>
+</ul>
+
+<h4 id="developer">Developer</h4>
+
+<ul>
+  <li><a href="/web-preview/develop/">Overview</a></li>
+  <li><a href="/web-preview/reference/cmsis-plus/md_doxygen_pages_change-log.html">Change log</a></li>
+  <li><a href="/web-preview/develop/coding-style/">C++ coding style</a></li>
+  <li><a href="/web-preview/develop/naming-conventions/">Naming conventions</a></li>
+  <li><a href="/web-preview/develop/references/">Links &amp; references</a></li>
+</ul>
+
+<h4 id="support">Support</h4>
+
+<ul>
+  <li><a href="/web-preview/support/">Overview</a></li>
+  <li><a href="/web-preview/support/known-issues/">Known issues</a></li>
+  <li><a href="/web-preview/support/faq/">FAQ</a></li>
+  <li><a href="/web-preview/support/forum/">Forum</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ IIIe issues</a></li>
+</ul>
+
+<h4 id="latest-articles">Latest Articles</h4>
+
+<ul>
+  <li><a href="/web-preview/articles/arm-com-2016-06-24/">CMSIS++ RTOS: fully functional reference implementation</a></li>
+  <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
+</ul>
+
+<h4 id="license">License</h4>
+
+<ul>
+  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+</ul>
+
+<h4 id="about"><a href="/web-preview/about/">About</a></h4>
+
+    </div>
+  </div>
+
+  <div class="site-theme">
+    This site uses the <a href="https://github.com/ilg-ul/github-jekyll-theme">GitHub Wiki-like</a> theme by <a href="https://github.com/ilg-ul">Liviu Ionescu</a>.
+  </div>
+
+</div>
+
+
+      <div class="site-content">
+
+        
+<h1 class="page-title">How to test - DEPRECATED</h1>
+<table id="last-modified">
+  <tr>
+    <td id="last-modified">Page date Thu Sep  5 22:42:56 2013 .</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/micro-os-plus/ii/How_to_test.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+  </tr>
+</table>
+
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toc_level-1 toc_section-1">
+<a href="#repository-cloning"><span class="tocnumber">1</span> <span class="toctext">Repository cloning</span></a>
+</li>
+<li class="toc_level-1 toc_section-2">
+<a href="#how-to-run-the-posix-tests"><span class="tocnumber">2</span> <span class="toctext">How to run the POSIX tests</span></a>
+<ul>
+<li class="toc_level-2 toc_section-3">
+<a href="#all-tests"><span class="tocnumber">2.1</span> <span class="toctext">All tests</span></a>
+</li>
+<li class="toc_level-2 toc_section-4">
+<a href="#one-or-some-tests-stress-tests"><span class="tocnumber">2.2</span> <span class="toctext">One or some tests (stress tests)</span></a>
+</li>
+<li class="toc_level-2 toc_section-5">
+<a href="#one-single-variant-of-a-test"><span class="tocnumber">2.3</span> <span class="toctext">One single variant of a test</span></a>
+</li>
+<li class="toc_level-2 toc_section-6">
+<a href="#sample-output"><span class="tocnumber">2.4</span> <span class="toctext">Sample output</span></a>
+</li>
+<li class="toc_level-2 toc_section-7">
+<a href="#the-xml-output"><span class="tocnumber">2.5</span> <span class="toctext">The XML output</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-8">
+<a href="#use-a-different-toolchain"><span class="tocnumber">3</span> <span class="toctext">Use a different toolchain</span></a>
+</li>
+<li class="toc_level-1 toc_section-9">
+<a href="#perform-the-build-tests"><span class="tocnumber">4</span> <span class="toctext">Perform the build tests</span></a>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="repository-cloning">Repository cloning</h2>
+
+<p>Once the prerequisites are satisfied, create a dedicated folder for the tests, clone the repositories and run the script. In addition to the µOS++ SE repository, a second repository, containing the <strong>XCDL build tools</strong>, is required.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>mkdir -p ~/work/uOS
+cd ~/work/uOS
+
+git clone http://git.code.sf.net/p/micro-os-plus/second micro-os-plus-se.git
+git clone http://git.code.sf.net/p/xcdl/python xcdl-python.git
+</code></pre>
+</div>
+</div>
+
+<p>If you already have local clones of the repositories, you can only update them:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>cd ~/work/uOS
+
+(cd micro-os-plus-se.git; git pull)
+(cd xcdl-python.git; git pull)
+</code></pre>
+</div>
+</div>
+
+<h2 id="how-to-run-the-posix-tests">How to run the POSIX tests</h2>
+
+<p>As already mentioned, one of the early µOS++ design decision was to include a POSIX synthetic platform, running on OS X and GNU/Linux. In this configuration, each µOS++ application is executed within the context of a POSIX process, running as a command line application.</p>
+
+<p>Each test can be compiled in multiple configurations, with various toolchains, with 32/64-bit, for <em>Debug</em> or <em>Release</em>.</p>
+
+<h3 id="all-tests">All tests</h3>
+
+<p>To run a sequence of all available POSIX tests, use the <strong>runPosixTests.sh</strong> script. The list of tests is currently static, defined at the beginning of the script.</p>
+
+<p>This script accepts some optional arguments:</p>
+
+<ul>
+  <li>
+<strong>–dest folder</strong> - to specify where the build folders will be created, usually in a temporary folder. Without it the build folder will be created in the current folder.</li>
+  <li>
+<strong>–full</strong> - to ask for all possible variants of each test</li>
+</ul>
+
+<p>To perform a quick test, using only the default compiler, run the following commands:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>rm -rf /tmp/uOS/build
+/bin/bash micro-os-plus-se.git/scripts/runPosixTests.sh --dest /tmp/uOS/build
+</code></pre>
+</div>
+</div>
+
+<p>(the remove command is useful if you already performed the tests before, and want a clean run).</p>
+
+<p>If the quick tests pass, it is recommended to run the full version, that includes all known compilers, in both 32 and 64 bit versions.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>/bin/bash micro-os-plus-se.git/scripts/runPosixTests.sh --dest /tmp/uOS/build --full
+</code></pre>
+</div>
+</div>
+
+<h3 id="one-or-some-tests-stress-tests">One or some tests (stress tests)</h3>
+
+<p>Due to their duration, there are some stress tests that were not included in the main group.</p>
+
+<p>However it is quite easy to run only a single test, or a given list of tests, by providing the names to the script:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>/bin/bash micro-os-plus-se.git/scripts/runPosixTests.sh --dest /tmp/uOS/build --full sleepstress mutexstress
+</code></pre>
+</div>
+</div>
+
+<h3 id="one-single-variant-of-a-test">One single variant of a test</h3>
+
+<p>For debugging purposes, here is the command to build a single configuration:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>/bin/bash xcdl-python.git/scripts/xcdlBuild.sh --repository=micro-os-plus-se.git/packages \
+--build_dir=/tmp/uOS/build --build_dir=/tmp/uOS/build \
+--build_config=linux_yields_x64_gcc_Debug -Wr,-x,junit.xml run
+</code></pre>
+</div>
+</div>
+
+<h3 id="sample-output">Sample output</h3>
+
+<p>Being based on <strong>make</strong>, the first time when the runTests.sh script is executed, each test will first build the executable from the sources, then execute it. Running the script again will only execute the tests.</p>
+
+<p>If the machine used to run this script returns x86_64 for <code class="language-plaintext highlighter-rouge">uname -m</code>, it is assumed to be a 64-bit machine and the 64-bit versions of all tests are also executed.</p>
+
+<p>On OS X, if <code class="language-plaintext highlighter-rouge">/opt/local/bin/g++-mp-4.7</code> exists and is executable, then the MacPorts GCC 4.7 tests are included. A similar test is performed for MacPorts GCC 4.8. However be sure that <strong>+universal</strong> was used to build these packages, otherwise the tests will fail to run the 32-bit executables on a 64-bit machine.</p>
+
+<p>The output produced by the <em>Debug</em> version of a test looks like:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>XCDL metadata processed in 30ms.
+
+XCDL build started, using toolchain 'OS X Apple Debug LLVM x86_64'...
+
+cd build/osx_trace_x64_llvm_Debug
+PATH=/usr/sbin:/sbin:/bin:/usr/bin
+
+make run
+Running XCDL target: trace.elf
+
+os::diag::Trace::Trace() @00000001097BABE8
+
+livius.net / Trace v1.1.1, Mar 30 2013 21:27:09
+uOS++ v5.1.7630, clang 4.2 (clang-425.0.24) x86_64
+POSIX synthetic, running on x86_64 Darwin 12.3.0
+
+hal::posix::infra::TestSuiteImplementation::TestSuiteImplementation() @00000001097BACC0
+os::infra::TestSuite::TestSuite() @00000001097BAC88
+
+START:"Starting tests from 'portable/diagnostics/tests/src/trace.cpp'"
+STAT:PASS,"All 208 checks passed! :-) "
+
+int main(int, char **) returns 0
+os::infra::TestSuite::~TestSuite() @00000001097BAC88
+hal::posix::infra::TestSuiteImplementation::~TestSuiteImplementation() @00000001097BACC0
+virtual os::diag::Trace::~Trace() @00000001097BABE8
+Finished running target: trace.elf
+
+XCDL build completed in 37ms.
+</code></pre>
+</div>
+</div>
+
+<p>The output produced by the <em>Release</em> version of the same test is slightly less verbose:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>XCDL metadata processed in 24ms.
+
+XCDL build started, using toolchain 'OS X Apple Release LLVM x86_64'...
+
+cd build/osx_trace_x64_llvm_Release
+PATH=/usr/sbin:/sbin:/bin:/usr/bin
+
+make run
+Running XCDL target: trace.elf
+
+START:"Starting tests from 'portable/diagnostics/tests/src/trace.cpp'"
+STAT:PASS,"All 208 checks passed! :-) "
+
+Finished running target: trace.elf
+
+XCDL build completed in 31ms.
+</code></pre>
+</div>
+</div>
+
+<h3 id="the-xml-output">The XML output</h3>
+
+<p>All tests return the FAIL information as the non-zero POSIX exit code, so the script will break as soon as one of the tests fails.</p>
+
+<p>In other words, the completion of the runTests.sh is a guarantee that all tests were built without warnings and all assertions passed.</p>
+
+<p>In addition to this PASS/FAIL information, the testing framework is also able to generate jUnit XML files for each test, to be used in continuous integration environments, like Jenkins.</p>
+
+<p>To activate this, the runTests.sh script automatically adds <code class="language-plaintext highlighter-rouge">-Wr,-x,junit.xml</code> to run builds, which will be passed by make down to the the executable as <code class="language-plaintext highlighter-rouge">-x junit.xml</code>.</p>
+
+<p>The resulting file looks like the following:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code> &lt;testsuites&gt;&lt;testsuite&gt;
+ &lt;testcase classname="os::infra::TestSuite" name="check true constant"/&gt;
+ &lt;testcase classname="os::infra::TestSuite" name="check false constant"&gt;&lt;failure/&gt;&lt;/testcase&gt;
+ &lt;testcase classname="os::infra::TestSuite" name="a passed test"/&gt;
+ &lt;testcase classname="os::infra::TestSuite" name="a failed test"&gt;&lt;failure/&gt;&lt;/testcase&gt;
+ &lt;/testsuite&gt;&lt;/testsuites&gt;
+</code></pre>
+</div>
+</div>
+
+<h1 id="how-to-build-the-cortex-m-tests">How to build the Cortex-M tests</h1>
+
+<h2 id="use-a-different-toolchain">Use a different toolchain</h2>
+
+<p>Although the current procedure recommends to fully define new toolchains and to refer to them in the build configurations, there might be cases when you would want to test a build with other toolchain versions, located in different folders.</p>
+
+<p>The current version of the build script uses a sequence like this:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>PATH_ARM="/usr/local/gcc-arm-none-eabi-4_7/bin"
+
+if [ -x "$PATH_ARM/arm-none-eabi-g++" ]
+then
+    (PATH=$PATH_ARM:$PATH; runTestCollection "linux_aep_gcc" )
+fi
+</code></pre>
+</div>
+</div>
+
+<p>Changing the script for a different toolchain is easy, just update the PATH_ARM variable to the new location and rerun.</p>
+
+<p>It is also perfectly possible to run the tests with multiple toolchains in the same script, just duplicate the above code and update the path for each instance.</p>
+
+<p>Please note that for such a change to be functional, the toolchains must be compatible, i.e. executables should be prefixed with ‘arm-none-eabi-‘ and in general must be the standard GNU modern versions of GCC.</p>
+
+<h2 id="perform-the-build-tests">Perform the build tests</h2>
+
+<p>If you properly installed the cross toolchains, you can run the script to build various tests:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>cd work/uOS
+/bin/bash micro-os-plus-se.git/scripts/buildCross.sh --dest /tmp/uOS/buildCross
+</code></pre>
+</div>
+</div>
+
+<h1 id="how-to-build-the-avr8-tests">How to build the AVR8 tests</h1>
+
+<p>TBD</p>
+
+
+
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/micro-os-plus/ii/How_to_test/" data-layout="button"></div></li>
+</ul>
+
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="site-footer">
+  <div class="site-footer-links left">
+    <ul>
+  <li>© 2019 Liviu Ionescu</li>
+  <li>Hosted on GitHub</li>
+  <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
+  <li>
+<a href="http://twitter.com/micro_os_plus" class="twitter-follow-button" data-show-count="false">Follow @micro_os_plus</a><script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</li>
+</ul>
+
+
+  </div>
+  <a href="https://github.com/micro-os-plus/micro-os-plus-iii" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+  </a>
+  <div class="site-footer-links right">
+    <ul>
+  <li><a href="/web-preview/">Home</a></li>
+  <li><a href="/web-preview/blog/">News</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/releases">Releases</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues">Support</a></li>
+  <li><a href="/web-preview/about/">About</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</div>
+
+</body>
+</html>

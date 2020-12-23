@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>How to install</title>
+  <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
+
+  <meta property="og:title" content="How to install">
+  <meta property="og:site_name" content="µOS++ IIIe">
+
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+
+
+  <meta property="article:published_time" content="2012-11-01">
+
+
+
+
+
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
+
+  <link rel="canonical" href="/web-preview/micro-os-plus/i/How_to_install/">
+
+
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16767008-14', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+  <div class="site-header">
+  <table style="width:100%">
+    <tr>
+      <td>
+        <a href="/web-preview/">
+          <img alt="Icon" class="site-icon" src="/web-preview/assets/icons/wall-e-icon.png" height="100" width="100">
+      </a>
+      </td>
+      <td>
+        <table class="site-title" style="width:100%">
+          <tr>
+            <td class="site-title">
+              <a href="/web-preview/">µOS++ IIIe</a>
+            </td>
+            <td class="site-motto" align="right">
+              “Perfekt ist nicht gut genug”
+            </td>
+          </tr>
+          <tr>
+            <td class="site-description" colspan="2">
+              The third edition of µOS++, a POSIX inspired open source framework, written in C++.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+</div>
+
+<div class="container">
+
+  <div class="wrapper">
+    <div class="site-body">
+
+      <div class="site-sidebar">
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      <h4 id="news"><a href="/web-preview/blog/">News</a></h4>
+
+<ul>
+  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></li>
+  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ IIIe v6.3.14 released</a></li>
+  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ IIIe v6.3.13 released</a></li>
+  <li><a href="/web-preview/blog/2017/01/02/micro-os-plus-v6-3-11-released/">µOS++ IIIe v6.3.11 released</a></li>
+</ul>
+
+
+    </div>
+  </div>
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      
+      <h4 id="home"><a href="/web-preview/">Home</a></h4>
+
+<h4 id="µos-iiie">µOS++ IIIe</h4>
+
+<ul>
+  <li><a href="/web-preview/micro-os-plus/">Overview</a></li>
+</ul>
+
+<h4 id="apis">APIs</h4>
+
+<ul>
+  <li><a href="/web-preview/cmsis-plus/">Overview</a></li>
+  <li><a href="/web-preview/cmsis-plus/rtos/">RTOS API</a></li>
+</ul>
+
+<h4 id="xpacksxcdl">xPacks/XCDL</h4>
+
+<ul>
+  <li><a href="/web-preview/xpacks/">Overview</a></li>
+</ul>
+
+<h4 id="documentation">Documentation</h4>
+
+<ul>
+  <li>
+<a href="/web-preview/user-manual/">User’s <strong>manual</strong></a>
+    <ul>
+      <li><a href="/web-preview/user-manual/getting-started/">Getting started</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/">Basic concepts</a></li>
+      <li><a href="/web-preview/user-manual/features/">Features</a></li>
+      <li><a href="/web-preview/user-manual/threads/">Threads</a></li>
+      <li><a href="/web-preview/user-manual/thread-event-flags/">Thread event flags</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/">Semaphores</a></li>
+      <li><a href="/web-preview/user-manual/event-flags/">Event flags</a></li>
+      <li>Mutexes</li>
+      <li>Condition variables</li>
+      <li>Message queues</li>
+      <li>Memory pools</li>
+      <li>Software timers</li>
+      <li>Clocks</li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/reference/cmsis-plus/">µOS++ <strong>reference</strong></a></li>
+</ul>
+
+<h4 id="developer">Developer</h4>
+
+<ul>
+  <li><a href="/web-preview/develop/">Overview</a></li>
+  <li><a href="/web-preview/reference/cmsis-plus/md_doxygen_pages_change-log.html">Change log</a></li>
+  <li><a href="/web-preview/develop/coding-style/">C++ coding style</a></li>
+  <li><a href="/web-preview/develop/naming-conventions/">Naming conventions</a></li>
+  <li><a href="/web-preview/develop/references/">Links &amp; references</a></li>
+</ul>
+
+<h4 id="support">Support</h4>
+
+<ul>
+  <li><a href="/web-preview/support/">Overview</a></li>
+  <li><a href="/web-preview/support/known-issues/">Known issues</a></li>
+  <li><a href="/web-preview/support/faq/">FAQ</a></li>
+  <li><a href="/web-preview/support/forum/">Forum</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ IIIe issues</a></li>
+</ul>
+
+<h4 id="latest-articles">Latest Articles</h4>
+
+<ul>
+  <li><a href="/web-preview/articles/arm-com-2016-06-24/">CMSIS++ RTOS: fully functional reference implementation</a></li>
+  <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
+</ul>
+
+<h4 id="license">License</h4>
+
+<ul>
+  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+</ul>
+
+<h4 id="about"><a href="/web-preview/about/">About</a></h4>
+
+    </div>
+  </div>
+
+  <div class="site-theme">
+    This site uses the <a href="https://github.com/ilg-ul/github-jekyll-theme">GitHub Wiki-like</a> theme by <a href="https://github.com/ilg-ul">Liviu Ionescu</a>.
+  </div>
+
+</div>
+
+
+      <div class="site-content">
+
+        
+<h1 class="page-title">How to install - DEPRECATED</h1>
+<table id="last-modified">
+  <tr>
+    <td id="last-modified">Page date Thu Nov  1 18:28:55 2012 .</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/micro-os-plus/i/How_to_install.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+  </tr>
+</table>
+
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toc_level-1 toc_section-1">
+<a href="#java"><span class="tocnumber">1</span> <span class="toctext">Java</span></a>
+</li>
+<li class="toc_level-1 toc_section-2">
+<a href="#eclipse"><span class="tocnumber">2</span> <span class="toctext">Eclipse</span></a>
+</li>
+<li class="toc_level-1 toc_section-3">
+<a href="#gnu-toolchain--eclipse-plug-ins"><span class="tocnumber">3</span> <span class="toctext">GNU Toolchain &amp; Eclipse Plug-ins</span></a>
+<ul>
+<li class="toc_level-2 toc_section-4">
+<a href="#arm"><span class="tocnumber">3.1</span> <span class="toctext">ARM</span></a>
+</li>
+<li class="toc_level-2 toc_section-5">
+<a href="#avr8"><span class="tocnumber">3.2</span> <span class="toctext">AVR8</span></a>
+</li>
+<li class="toc_level-2 toc_section-6">
+<a href="#avr32"><span class="tocnumber">3.3</span> <span class="toctext">AVR32</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-7">
+<a href="#eclipse-git-client"><span class="tocnumber">4</span> <span class="toctext">Eclipse Git client</span></a>
+</li>
+<li class="toc_level-1 toc_section-8">
+<a href="#eclipse-svn-client"><span class="tocnumber">5</span> <span class="toctext">Eclipse SVN client</span></a>
+</li>
+<li class="toc_level-1 toc_section-9">
+<a href="#preferences-reference-manual-setup"><span class="tocnumber">6</span> <span class="toctext">Preferences reference (manual setup)</span></a>
+</li>
+<li class="toc_level-1 toc_section-10">
+<a href="#importexport-preferences"><span class="tocnumber">7</span> <span class="toctext">Import/Export preferences</span></a>
+</li>
+<li class="toc_level-1 toc_section-11">
+<a href="#indexer-configuration"><span class="tocnumber">8</span> <span class="toctext">Indexer configuration</span></a>
+</li>
+<li class="toc_level-1 toc_section-12">
+<a href="#other-setting"><span class="tocnumber">9</span> <span class="toctext">Other setting</span></a>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Since the usual development platform is based on Windows, most of the below programs are Windows programs. However GNU/Linux and OS X versions of the toolchains are also available, so it should pe perfectly possible to use other platforms for µOS++ development.</p>
+
+<h1 id="overview">Overview</h1>
+
+<p>Although the first versions of µOS++ included a classic makefile build procedure, maintaining it proved difficult, and starting with version 3.1 the recommended build environment is the Eclipse CDT. We acknowledge the need for an unmanned build procedure, and plan to include one in the future major redesign, but currently there is no support for other IDE than Eclipse.</p>
+
+<h1 id="mandatory-packages">Mandatory packages</h1>
+
+<h2 id="java">Java</h2>
+
+<p>The Java Virtual Machine is required for running Eclipse. The current minimum to satisfy Eclipse is currently Java 5 JRE, but we recommend using the latest version available.</p>
+
+<p>Java JRE is publicly available for download from <a href="http://www.java.com/en/download/index.jsp">Oracle</a>.</p>
+
+<h2 id="eclipse">Eclipse</h2>
+
+<p>Eclipse is currently one of the most used development environments. Initially intended for Java development, it was soon expanded to support other languages too. Since µOS++ is written in C++, the recommended Eclipse package is <a href="http://www.eclipse.org/cdt/">Eclipse IDE for C/C++ Developers</a>, but any other package that includes the CDT can be used as well.</p>
+
+<p>The Eclipse IDE is publicly available for download from <a href="http://www.eclipse.org/downloads/">Eclipse.org</a>. The recommended version is 3.7.2, except for AVR32, since the Atmel provided plug-ins work up to version 3.6.2</p>
+
+<p>The default Eclipse is configured to use limited amounts of memory. For large workspaces, it is recommended you edit the eclipse.ini file and increase it:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>-Xms256m
+-Xmx768m
+</code></pre>
+</div>
+</div>
+
+<p>Although using a single Eclipse for multiple projects in different languages is perfectly possible, it is recommended to try to keep things as modular and separate as possible, and preferably install a dedicated Eclipse instance for the µOS++ projects.</p>
+
+<h2 id="gnu-toolchain--eclipse-plug-ins">GNU Toolchain &amp; Eclipse Plug-ins</h2>
+
+<p>The GNU Toolchain provides all required tools for cross compiling the micro-controller code on the development machine. Install one or more toolchains, according to the target micro-controller you plan to use.</p>
+
+<p>Follow individual toolchain installation procedures. To avoid surprises, it is recommended to <strong>update the PATH to include the toolchain binary directory</strong>.</p>
+
+<p>The basic Eclipse CDT is able to manages builds only for the same platform where Eclipse is executed. In order to cross build micro-controller code on Eclipse, additional plug-ins are required, to extend the Eclipse CDT Managed Build mechanism for other GNU Toolchains.</p>
+
+<h3 id="arm">ARM</h3>
+
+<h4 id="toolchain">Toolchain</h4>
+
+<p>For ARM, the recommended toolchain is <a href="http://www.codesourcery.com/sgpp/lite/arm">Sourcery CodeBench Lite Edition for ARM EABI</a> available both for Windows and GNU/Linux. Be sure you download <strong>the EABI version</strong>, from the <a href="https://sourcery.mentor.com/sgpp/lite/arm/portal/subscription3053">download page</a>, not the GNU/Linux Target OS one, since this is intended to generate GNU/Linux executables, not barebone embedded flash images.</p>
+
+<p>The version available since 2011-12-19 is 2011.09-69, providing GCC 4.6.1.</p>
+
+<p>For OS X, although Sourcery CodeBench Lite Edition for ARM currently does not provide a binary distribution, the available sources can be easily compiled on Mac OS X (for details please read the <a href="http://gnuarmeclipse.livius.net/wiki/Toolchain_installation_on_OS_X">Toolchain installation page</a>).</p>
+
+<h4 id="eclipse-plug-in">Eclipse Plug-in</h4>
+
+<p>Eclipse support for GNU toolchains is provided by <a href="http://sourceforge.net/projects/gnuarmeclipse/">Eclipse GNU ARM Plug-in</a>, an Eclipse CDT plug-in supporting GNU ARM toolchains like Sourcery CodeBench Lite, GNUARM, WinARM, Yagarto. Additional support for installing the toolchains might be available on the <a href="http://gnuarmeclipse.sourceforge.net/wiki/Main_Page">GNU ARM Plug-in documentation</a>.</p>
+
+<p>To install this plug-in, use the Eclipse standard install/update mechanism:</p>
+
+<p><strong>Eclipse</strong> menu: <strong>Help</strong> → <strong>Install New Software</strong></p>
+
+<ul>
+  <li>in the <em>Install</em> window, click the <strong>Add…</strong> button (on future updates, just select the URL)
+    <ul>
+      <li>fill in <strong>Name:</strong> with GNU ARM</li>
+      <li>fill in <strong>Location:</strong> with <a href="http://gnuarmeclipse.sourceforge.net/updates">http://gnuarmeclipse.sourceforge.net/updates</a>
+</li>
+      <li>click the <strong>OK</strong> button</li>
+    </ul>
+  </li>
+  <li>in the main window, click Select All to install all plug-ins</li>
+  <li>click the <strong>Next</strong> button</li>
+  <li>accept the unsigned plug-in</li>
+  <li>restart Eclipse, as asked</li>
+</ul>
+
+<p>On OS X, the procedure checking the environment might complain that some of the tools are not available.</p>
+
+<h3 id="avr8">AVR8</h3>
+
+<h4 id="toolchain-1">Toolchain</h4>
+
+<p>For AVR8 there are not as many options; on Windows the recommended toolchains is <a href="http://winavr.sourceforge.net/">WinAVR</a>, publicly available for download from <a href="http://sourceforge.net/projects/winavr/files/WinAVR/">SourceForge</a>. Similar toolchains are available for GNU/Linux, although small differences might occur (due to different patches applied to the original GCC source tree).</p>
+
+<p>For OS X, one toolchain is <a href="http://www.obdev.at/products/crosspack/download.html">CrossPack for AVR® Development</a>. It installs in /usr/local/CrossPack-AVR. Please note that the install procedure changes <strong>/etc/profile</strong>, adding a few lines to update the PATH. However, the recommended procedure is to disable the system wide PATH and to use the Eclipse AVR plug-in settings:</p>
+
+<p><strong>Eclipse</strong> menu: <strong>Preferences</strong> → <strong>AVR</strong> → <strong>Path</strong></p>
+
+<ul>
+  <li>AVR-GCC <strong>Custom</strong> /usr/local/CrossPack-AVR-20100115/bin</li>
+  <li>AVR Header Files <strong>Custom</strong> /usr/local/CrossPack-AVR-20100115/avr-3/include</li>
+  <li>AVRDude <strong>Custom</strong> /usr/local/CrossPack-AVR-20100115/bin</li>
+</ul>
+
+<p>If, for any reasons, you need to set the PATH, you can do it via an AppleScript saved in .app format:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>do shell script "export PATH=$PATH:/usr/local/CrossPack-AVR-20100115/bin;$HOME/'My Files/MacBookPro Vault/Projects/uOS/Eclipses/eclipse-3.7.2-cdt/eclipse'"
+</code></pre>
+</div>
+</div>
+
+<p>Alternately you can use a Finder .command script with the following content</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>#!/bin/bash
+export PATH=$PATH:/usr/local/CrossPack-AVR-20100115/bin
+$HOME/'My Files/MacBookPro Vault/Projects/uOS/Eclipses/eclipse-3.7.2-cdt/eclipse'
+</code></pre>
+</div>
+</div>
+
+<h4 id="eclipse-plug-in-1">Eclipse Plug-in</h4>
+
+<p>Eclipse support for GNU toolchains is provided by <a href="http://sourceforge.net/projects/avr-eclipse/">AVR Plugin for Eclipse</a>, an Eclipse CDT plug-in supporting the WinAVR toolchain.</p>
+
+<p>Please note that the version 2.4.0 has a problem when running on OS X, so, for OS X only, it is recommended to download the previous version, the file avreclipse-p2-repository-2.3.4.20100807PRD.zip from the <a href="http://sourceforge.net/projects/avr-eclipse/files/avr-eclipse%20stable%20release/2.3.4/">SourceForge download area</a> and install it as a local archive.</p>
+
+<p>To install this plug-in on Windows, use the Eclipse standard install/update mechanism:</p>
+
+<p><strong>Eclipse</strong> menu: <strong>Help</strong> → <strong>Install New Software</strong></p>
+
+<ul>
+  <li>in the <em>Install</em> window, click the <strong>Add…</strong> button (on future updates, just select the URL)
+    <ul>
+      <li>fill in <strong>Name:</strong> with GNU AVR</li>
+      <li>fill in <strong>Location:</strong> with <a href="http://avr-eclipse.sourceforge.net/updatesite/">http://avr-eclipse.sourceforge.net/updatesite/</a>
+</li>
+      <li>click the <strong>OK</strong> button</li>
+    </ul>
+  </li>
+  <li>in the main window, below <strong>CDT Optional Features</strong> select the <strong>AVR Eclipse Plugin</strong>
+</li>
+  <li>click the <strong>Next</strong> button</li>
+  <li>accept the unsigned plug-in</li>
+</ul>
+
+<h3 id="avr32">AVR32</h3>
+
+<h4 id="avr32-studio">AVR32 Studio</h4>
+
+<p>Originally Atmel based its AVR32 development environment on Eclipse, and provided the <strong>AVR32 Studio</strong> as an integrated tool, based on Eclipse 3.5. It includes the GCC toolchain and all required tools for flash programming and debugging.</p>
+
+<p>In 2011 Atmel abandoned the development of the Eclipse based AVR32 Studio, and implicitly of the Eclipse plug-ins.</p>
+
+<p>On Windows it is recommended to install it anyway, even if you later install a later Eclipse, to have the compiler and tools properly installed.</p>
+
+<p>There is no AVR32 Studio for OS X, so you can skip directly to installing Eclipse.</p>
+
+<h4 id="eclipse-1">Eclipse</h4>
+
+<p>The latest Eclipse running the Atmel plug-in is 3.6.2; although the plug-in installs in 3.7.x, it no longer allows to create new AVR32 projects.</p>
+
+<p>It is recommended to install the Eclipse 3.6.2 CDT, separately from the AVR32 folder.</p>
+
+<h4 id="toolchain-2">Toolchain</h4>
+
+<p>For Windows and Linux, the AVR32 toolchain is provided by Atmel either as a separate package, or is integrated in AVR32 Studio.</p>
+
+<p>For OS X, although currently there is no available binary package, the toolchain can be easily built from the sources, using <a href="https://github.com/jsnyder/avr32-toolchain">James Snyder’s Makefile</a>.</p>
+
+<h4 id="eclipse-plug-in-2">Eclipse Plug-in</h4>
+
+<p>We recommend to manually install the Atmel plug-ins on Eclipse 3.6.2.</p>
+
+<p><strong>Eclipse</strong> menu: <strong>Help</strong> → <strong>Install New Software</strong></p>
+
+<ul>
+  <li>in the <em>Install</em> window, click the <strong>Add…</strong> button (on future updates, just select the URL)
+    <ul>
+      <li>fill in <strong>Name:</strong> with Atmel AVR32</li>
+      <li>fill in <strong>Location:</strong> (No longer available!)</li>
+      <li>click the <strong>OK</strong> button</li>
+    </ul>
+  </li>
+  <li>in the main window, below <strong>CDT Optional Features</strong> select the <strong>AVR Eclipse Plugin</strong>
+</li>
+  <li>click the <strong>Next</strong> button</li>
+  <li>accept the unsigned plug-in</li>
+</ul>
+
+<h2 id="eclipse-git-client">Eclipse Git client</h2>
+
+<p>In spring 2012, the µOS++ repository was moved from SVN to Git, so if you want to use the latest version, you need to access the Git repository from within Eclipse.</p>
+
+<p>Starting with Eclipse 3.6.2, the Eclipse CDT package includes a Git client, so normally there is no need for any special steps.</p>
+
+<p>If you are using another Eclipse package, you might need to manually install it.</p>
+
+<p><strong>Eclipse</strong> menu: <strong>Help</strong> → <strong>Install New Software</strong></p>
+
+<ul>
+  <li>Work with: Indigo</li>
+  <li>Expand <strong>Collaboration</strong>
+</li>
+  <li>select <strong>Eclipse EGit</strong>
+</li>
+  <li>click the <strong>Next</strong> button</li>
+</ul>
+
+<h2 id="eclipse-svn-client">Eclipse SVN client</h2>
+
+<p>The SVN client provides Eclipse a way to use the SVN repository. For µOS++ versions later than spring 2012, SVN support is no longer mandatory, install it only if you need to acces your own repositories.</p>
+
+<p>For details, see the obsoleted page <a href="/web-preview/micro-os-plus/i/How_to_install_Eclipse_SVN">How to install Eclipse SVN</a></p>
+
+<h1 id="other-recommended-packages">Other recommended packages</h1>
+
+<p>None</p>
+
+<h1 id="eclipse-workspace-configuration">Eclipse workspace configuration</h1>
+
+<p>The default Eclipse configuration is more or less Ok, but there are some details that are either annoying or even harmful, and need to be changed.</p>
+
+<p>Every time you create a new workspace, you need to update the below parameters.</p>
+
+<h2 id="preferences-reference-manual-setup">Preferences reference (manual setup)</h2>
+
+<p><strong>Eclipse</strong> menu: <strong>Window</strong> → <strong>Preferences</strong> ( <strong>Window</strong> → <strong>Preferences</strong> on OS X)</p>
+
+<ul>
+  <li>
+<strong>General</strong> → <strong>Workspace</strong>
+    <ul>
+      <li>disable <strong>Build automatically</strong>
+</li>
+      <li>enable <strong>Refresh using native hooks or polling</strong>
+</li>
+      <li>enable <strong>Refresh on access</strong>
+</li>
+      <li>enable <strong>Save automatically before rebuild</strong>
+</li>
+      <li>set text file encoding: <strong>UTF-8</strong>
+</li>
+      <li>click the <strong>Apply</strong> button</li>
+    </ul>
+  </li>
+  <li>
+<strong>General</strong> → <strong>Editors</strong> → <strong>Text Editors</strong>
+    <ul>
+      <li>enable <strong>Show Line Numbers</strong>
+</li>
+      <li>enable <strong>Show Print Margin (80)</strong>
+</li>
+      <li>click the <strong>Apply</strong> button</li>
+    </ul>
+  </li>
+  <li>
+<strong>C/C++</strong> → <strong>Code Style</strong> → <strong>Formatter</strong>
+    <ul>
+      <li>select a profile: <strong>GNU [built-in]</strong>
+</li>
+      <li>click the <strong>Apply</strong> button</li>
+    </ul>
+  </li>
+  <li>
+<strong>C/C++</strong> → <strong>Indexer</strong>
+    <ul>
+      <li>Indexing strategy: <strong>Automatically update the index</strong> and <strong>Update index immediately after every file-save</strong>
+</li>
+      <li>Build configuration for the indexer: <strong>Use active build configuration</strong>
+</li>
+      <li>click the <strong>Apply</strong> button</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="importexport-preferences">Import/Export preferences</h2>
+
+<p>For a more convenient use, Eclipse provides a method to export the Workspace preferences to a file, so the recommend method to save (Export) your Eclipse preferences and later reuse them (Import).</p>
+
+<p>To save the preferences, use the following sequence:</p>
+
+<p><strong>Eclipse</strong> menu: <strong>File</strong> → <strong>Export</strong></p>
+
+<ul>
+  <li>a new Export Select window is displayed</li>
+  <li>expand the <strong>General</strong> entry</li>
+  <li>select <strong>Preferences</strong>
+</li>
+  <li>click <strong>Next</strong>
+</li>
+  <li>a new Export Preferences window is displayed</li>
+  <li>enable <strong>Export all</strong>
+</li>
+  <li>in the To preference file: field, enter the new file name, like <strong>myWorkspacePreferences.Win32.epf</strong>
+</li>
+  <li>click <strong>Finish</strong>
+</li>
+  <li>check if the <strong>myWorkspacePreferences.Win32.epf</strong> file was created</li>
+</ul>
+
+<p>To load the preferences, the sequence is:</p>
+
+<p><strong>Eclipse</strong> menu: <strong>File</strong> → <strong>Import</strong></p>
+
+<ul>
+  <li>a new Import Select window is displayed</li>
+  <li>expand the <strong>General</strong> entry</li>
+  <li>select <strong>Preferences</strong>
+</li>
+  <li>click <strong>Next</strong>
+</li>
+  <li>a new Import Preferences window is displayed</li>
+  <li>browse for the local <strong>WorkspacePreferences.Win32.epf</strong> file</li>
+  <li>enable <strong>Import all</strong>
+</li>
+  <li>click <strong>Finish</strong>
+</li>
+</ul>
+
+<p>Unfortunately not all preferences are stored in this file, and some, like the <strong>C/C++ Indexer</strong> configuration, are important.</p>
+
+<p>We recommend to double check the Eclipse preferences following the above list and update the missing entries.</p>
+
+<h2 id="indexer-configuration">Indexer configuration</h2>
+
+<p><strong>Important:</strong> Please note that Eclipse provides a convenient way to change build configurations between Debug and Release, without having to edit the source code, that remains identical for all configurations. To make the difference, it is necessary to propagate some macro definitions from the Eclipse configuration to the build environment. One of them is, for example, the definition of the DEBUG macro, stored in the Debug build configuration. The Indexer is able to use the configuration definition to properly show the excluded debugging sections when selecting the Release configuration, but unfortunately the default Indexer configuration is to use a fixed configuration, and needs to be changed to follow the active configuration. Without this setting, switching from Debug to Release and back will not be reflected by showing differently the debug code.</p>
+
+<h2 id="other-setting">Other setting</h2>
+
+<p>Other annoying settings, not saved in the preference file and requiring manual tuning, are related to cleaning all projects and automatic building after clean:</p>
+
+<p><strong>Eclipse</strong> menu: <strong>Project</strong> → <strong>Clean</strong></p>
+
+<ul>
+  <li>select <strong>Clean projects selected below</strong>
+</li>
+  <li>disable <strong>Start a build immediately</strong>
+</li>
+</ul>
+
+<p>Please note that during the initial setup, when there are no projects, the <strong>Project</strong> menu is not available. Remember to update this setting after you download the projects.</p>
+
+
+
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/micro-os-plus/i/How_to_install/" data-layout="button"></div></li>
+</ul>
+
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="site-footer">
+  <div class="site-footer-links left">
+    <ul>
+  <li>© 2019 Liviu Ionescu</li>
+  <li>Hosted on GitHub</li>
+  <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
+  <li>
+<a href="http://twitter.com/micro_os_plus" class="twitter-follow-button" data-show-count="false">Follow @micro_os_plus</a><script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</li>
+</ul>
+
+
+  </div>
+  <a href="https://github.com/micro-os-plus/micro-os-plus-iii" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+  </a>
+  <div class="site-footer-links right">
+    <ul>
+  <li><a href="/web-preview/">Home</a></li>
+  <li><a href="/web-preview/blog/">News</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/releases">Releases</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues">Support</a></li>
+  <li><a href="/web-preview/about/">About</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</div>
+
+</body>
+</html>

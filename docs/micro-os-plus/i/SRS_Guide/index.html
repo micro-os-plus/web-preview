@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>SRS Guide</title>
+  <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
+
+  <meta property="og:title" content="SRS Guide">
+  <meta property="og:site_name" content="µOS++ IIIe">
+
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+
+
+  <meta property="article:published_time" content="2011-11-14">
+
+
+
+
+
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
+
+  <link rel="canonical" href="/web-preview/micro-os-plus/i/SRS_Guide/">
+
+
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16767008-14', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+  <div class="site-header">
+  <table style="width:100%">
+    <tr>
+      <td>
+        <a href="/web-preview/">
+          <img alt="Icon" class="site-icon" src="/web-preview/assets/icons/wall-e-icon.png" height="100" width="100">
+      </a>
+      </td>
+      <td>
+        <table class="site-title" style="width:100%">
+          <tr>
+            <td class="site-title">
+              <a href="/web-preview/">µOS++ IIIe</a>
+            </td>
+            <td class="site-motto" align="right">
+              “Perfekt ist nicht gut genug”
+            </td>
+          </tr>
+          <tr>
+            <td class="site-description" colspan="2">
+              The third edition of µOS++, a POSIX inspired open source framework, written in C++.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+</div>
+
+<div class="container">
+
+  <div class="wrapper">
+    <div class="site-body">
+
+      <div class="site-sidebar">
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      <h4 id="news"><a href="/web-preview/blog/">News</a></h4>
+
+<ul>
+  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></li>
+  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ IIIe v6.3.14 released</a></li>
+  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ IIIe v6.3.13 released</a></li>
+  <li><a href="/web-preview/blog/2017/01/02/micro-os-plus-v6-3-11-released/">µOS++ IIIe v6.3.11 released</a></li>
+</ul>
+
+
+    </div>
+  </div>
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      
+      <h4 id="home"><a href="/web-preview/">Home</a></h4>
+
+<h4 id="µos-iiie">µOS++ IIIe</h4>
+
+<ul>
+  <li><a href="/web-preview/micro-os-plus/">Overview</a></li>
+</ul>
+
+<h4 id="apis">APIs</h4>
+
+<ul>
+  <li><a href="/web-preview/cmsis-plus/">Overview</a></li>
+  <li><a href="/web-preview/cmsis-plus/rtos/">RTOS API</a></li>
+</ul>
+
+<h4 id="xpacksxcdl">xPacks/XCDL</h4>
+
+<ul>
+  <li><a href="/web-preview/xpacks/">Overview</a></li>
+</ul>
+
+<h4 id="documentation">Documentation</h4>
+
+<ul>
+  <li>
+<a href="/web-preview/user-manual/">User’s <strong>manual</strong></a>
+    <ul>
+      <li><a href="/web-preview/user-manual/getting-started/">Getting started</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/">Basic concepts</a></li>
+      <li><a href="/web-preview/user-manual/features/">Features</a></li>
+      <li><a href="/web-preview/user-manual/threads/">Threads</a></li>
+      <li><a href="/web-preview/user-manual/thread-event-flags/">Thread event flags</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/">Semaphores</a></li>
+      <li><a href="/web-preview/user-manual/event-flags/">Event flags</a></li>
+      <li>Mutexes</li>
+      <li>Condition variables</li>
+      <li>Message queues</li>
+      <li>Memory pools</li>
+      <li>Software timers</li>
+      <li>Clocks</li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/reference/cmsis-plus/">µOS++ <strong>reference</strong></a></li>
+</ul>
+
+<h4 id="developer">Developer</h4>
+
+<ul>
+  <li><a href="/web-preview/develop/">Overview</a></li>
+  <li><a href="/web-preview/reference/cmsis-plus/md_doxygen_pages_change-log.html">Change log</a></li>
+  <li><a href="/web-preview/develop/coding-style/">C++ coding style</a></li>
+  <li><a href="/web-preview/develop/naming-conventions/">Naming conventions</a></li>
+  <li><a href="/web-preview/develop/references/">Links &amp; references</a></li>
+</ul>
+
+<h4 id="support">Support</h4>
+
+<ul>
+  <li><a href="/web-preview/support/">Overview</a></li>
+  <li><a href="/web-preview/support/known-issues/">Known issues</a></li>
+  <li><a href="/web-preview/support/faq/">FAQ</a></li>
+  <li><a href="/web-preview/support/forum/">Forum</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ IIIe issues</a></li>
+</ul>
+
+<h4 id="latest-articles">Latest Articles</h4>
+
+<ul>
+  <li><a href="/web-preview/articles/arm-com-2016-06-24/">CMSIS++ RTOS: fully functional reference implementation</a></li>
+  <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
+</ul>
+
+<h4 id="license">License</h4>
+
+<ul>
+  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+</ul>
+
+<h4 id="about"><a href="/web-preview/about/">About</a></h4>
+
+    </div>
+  </div>
+
+  <div class="site-theme">
+    This site uses the <a href="https://github.com/ilg-ul/github-jekyll-theme">GitHub Wiki-like</a> theme by <a href="https://github.com/ilg-ul">Liviu Ionescu</a>.
+  </div>
+
+</div>
+
+
+      <div class="site-content">
+
+        
+<h1 class="page-title">SRS Guide - DEPRECATED</h1>
+<table id="last-modified">
+  <tr>
+    <td id="last-modified">Page date Mon Nov 14 22:24:05 2011 .</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/micro-os-plus/i/SRS_Guide.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+  </tr>
+</table>
+
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toc_level-1 toc_section-1">
+<a href="#table-of-contents"><span class="tocnumber">1</span> <span class="toctext">Table of contents</span></a>
+</li>
+<li class="toc_level-1 toc_section-2">
+<a href="#purpose"><span class="tocnumber">2</span> <span class="toctext">Purpose</span></a>
+</li>
+<li class="toc_level-1 toc_section-3">
+<a href="#scope"><span class="tocnumber">3</span> <span class="toctext">Scope</span></a>
+</li>
+<li class="toc_level-1 toc_section-4">
+<a href="#definitions-acronyms-and-abbreviations"><span class="tocnumber">4</span> <span class="toctext">Definitions, acronyms, and abbreviations</span></a>
+</li>
+<li class="toc_level-1 toc_section-5">
+<a href="#references"><span class="tocnumber">5</span> <span class="toctext">References</span></a>
+</li>
+<li class="toc_level-1 toc_section-6">
+<a href="#overview"><span class="tocnumber">6</span> <span class="toctext">Overview</span></a>
+</li>
+<li class="toc_level-1 toc_section-7">
+<a href="#product-perspective"><span class="tocnumber">7</span> <span class="toctext">Product perspective</span></a>
+</li>
+<li class="toc_level-1 toc_section-8">
+<a href="#product-functions"><span class="tocnumber">8</span> <span class="toctext">Product functions</span></a>
+</li>
+<li class="toc_level-1 toc_section-9">
+<a href="#user-characteristics"><span class="tocnumber">9</span> <span class="toctext">User characteristics</span></a>
+</li>
+<li class="toc_level-1 toc_section-10">
+<a href="#constraints"><span class="tocnumber">10</span> <span class="toctext">Constraints</span></a>
+</li>
+<li class="toc_level-1 toc_section-11">
+<a href="#assumptions-and-dependencies"><span class="tocnumber">11</span> <span class="toctext">Assumptions and dependencies</span></a>
+</li>
+<li class="toc_level-1 toc_section-12">
+<a href="#specific-requirements"><span class="tocnumber">12</span> <span class="toctext">Specific requirements</span></a>
+</li>
+<li class="toc_level-1 toc_section-13">
+<a href="#appendixes"><span class="tocnumber">13</span> <span class="toctext">Appendixes</span></a>
+</li>
+<li class="toc_level-1 toc_section-14">
+<a href="#imperatives"><span class="tocnumber">14</span> <span class="toctext">Imperatives</span></a>
+</li>
+<li class="toc_level-1 toc_section-15">
+<a href="#continuances"><span class="tocnumber">15</span> <span class="toctext">Continuances</span></a>
+</li>
+<li class="toc_level-1 toc_section-16">
+<a href="#options"><span class="tocnumber">16</span> <span class="toctext">Options</span></a>
+</li>
+<li class="toc_level-1 toc_section-17">
+<a href="#weak-phrases"><span class="tocnumber">17</span> <span class="toctext">Weak phrases</span></a>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="credits">Credits</h1>
+
+<p>The following recommendations are based on chapter 4.7 of <a href="http://www.amazon.com/Real-Time-Systems-Analysis-Phillip-Laplante/dp/0471228559">Real-Time Systems Design and Analysis (Third Edition)</a>, by Phillip A. Laplante, published by Wiley &amp; Sons in 2004.</p>
+
+<h1 id="ieee-standard-830-1998">IEEE Standard 830-1998</h1>
+
+<p>There are many ways to organize the SRS, but <a href="http://standards.ieee.org/findstds/standard/830-1998.html">IEEE Standard 830-1998</a> is the IEEE’s Recommended Practice for Software Requirements Specifications (SRS), and provides a template of what an SRS should look like.</p>
+
+<p>The SRS is described as a “binding contract among designers, programmers, customers, and testers,” and it encompasses different design views or paradigms for system design. The recommended design views include some combination of decomposition, dependency, interface, and detail descriptions.</p>
+
+<h1 id="basic-issues">Basic issues</h1>
+
+<p>The basic issues that the SRS writer(s) shall address are the following:</p>
+
+<ul>
+  <li>Functionality - What is the software supposed to do?</li>
+  <li>External interfaces - How does the software interact with people, the system’s hardware, other hardware, and other software?</li>
+  <li>Performance - What is the speed, availability, response time, recovery time of various software functions, etc.?</li>
+  <li>Attributes - What are the portability, correctness, maintainability, security, etc. considerations?</li>
+  <li>Design constraints imposed on an implementation - Are there any required standards in effect, implementation language, policies for database integrity, resource limits, operating environment(s) etc.?</li>
+</ul>
+
+<h1 id="limitations">Limitations</h1>
+
+<p>The SRS writer(s) should avoid placing either design or project requirements in the SRS.</p>
+
+<p>The SRS writer(s) should be careful not to go beyond the bounds of that role. This means the SRS:</p>
+
+<ul>
+  <li>Should correctly define all of the software requirements. A software requirement may exist because of the nature of the task to be solved or because of a special characteristic of the project.</li>
+  <li>Should not describe any design or implementation details. These should be described in the design stage of the project.</li>
+  <li>Should not impose additional constraints on the software. These are properly specified in other documents such as a software quality assurance plan.</li>
+</ul>
+
+<p>Therefore, a properly written SRS limits the range of valid designs, but does not specify any particular design.</p>
+
+<h1 id="good-requirements">Good requirements</h1>
+
+<p>Whatever approach is used in organizing the SRS, the IEEE 830 standard describes the characteristics of good requirements. That is, good requirements must be.</p>
+
+<ol>
+  <li>
+<em>Correct</em> - They must correctly describe the system behavior.</li>
+  <li>
+<em>Unambiguous</em> - The requirements must be clear, not subject to different interpretations.</li>
+  <li>
+<em>Complete</em> - There must be no missing requirements. Ordinarily, the note TBD [to be defined (later)] is unacceptable in a requirements document. IEEE 830 sets out some exceptions to this rule. Consistent One requirement must not contradict another. Consistency can be checked using formal methods, as illustrated previously.</li>
+  <li>
+<em>Ranked</em> - for importance and/or stability Not every requirement is as critical as another. By ranking the requirements, designers will find guidance in making trade-off decisions.</li>
+  <li>
+<em>Verifiable</em> - A requirement that cannot be verified is a requirement that cannot be shown to have been met.</li>
+  <li>
+<em>Modifiable</em> - The requirements need to be written in such a way so as to be easy to change. In many ways, this approach is similar to the information hiding principle.</li>
+  <li>
+<em>Traceable</em> - The benefits of traceability cannot be overstated. The requirements provide the starting point for the traceability chain. Numbering the requirements in hierarchical fashion can aid in this regard.</li>
+</ol>
+
+<h1 id="best-practices">Best practices</h1>
+
+<p>To meet these criteria and to write clear requirements documentation, there are several best practices that the requirements engineer can follow. These are as follows:</p>
+
+<ul>
+  <li>Invent and use a standard format and use it for all requirements.</li>
+  <li>Use language in a consistent way.</li>
+  <li>Use <strong>shall</strong> for mandatory requirements.</li>
+  <li>Use <strong>should</strong> for desirable requirements.</li>
+  <li>Use text highlighting to identify key parts of the requirement.</li>
+  <li>Avoid the use of technical language unless it is warranted.</li>
+</ul>
+
+<p>To illustrate, consider the following bad requirements:</p>
+
+<ol>
+  <li>“The systems shall be completely reliable.”</li>
+  <li>“The system shall be modular.”</li>
+  <li>“The system shall be maintainable.”</li>
+  <li>“The system will be fast.”</li>
+  <li>“Errors shall be less than 99%.”</li>
+</ol>
+
+<p>These requirements are bad for a number of reasons. None are verifiable, for example, how is “reliability” supposed to be measured? Even requirement 5 is vague, that is, what does “less than 99% mean”?</p>
+
+<h1 id="content">Content</h1>
+
+<h2 id="table-of-contents">Table of contents</h2>
+
+<p>The recommended table of contents for an SRS is:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>1. Introduction
+  1.1 Purpose
+  1.2 Scope
+  1.3 Definitions and Acronyms
+  1.4 References
+  1.5 Overview
+2. Overall Description
+  2.1 Product Perspective
+  2.2 Product Functions
+  2.3 User Characteristics
+  2.4 Constraints
+  2.5 Assumptions and Dependencies
+3. Specific Requirements
+Appendices
+Index
+</code></pre>
+</div>
+</div>
+
+<h2 id="purpose">Purpose</h2>
+
+<p>This subsection should</p>
+
+<ul>
+  <li>Delineate the purpose of the SRS;</li>
+  <li>Specify the intended audience for the SRS.</li>
+</ul>
+
+<h2 id="scope">Scope</h2>
+
+<p>This subsection should</p>
+
+<ul>
+  <li>Identify the software product(s) to be produced by name (e.g., Host DBMS, Report Generator, etc.);</li>
+  <li>Explain what the software product(s) will, and, if necessary, will not do;</li>
+  <li>Describe the application of the software being specified, including relevant benefits, objectives, and goals;</li>
+  <li>Be consistent with similar statements in higher-level specifications (e.g., the system requirements specification), if they exist.</li>
+</ul>
+
+<h2 id="definitions-acronyms-and-abbreviations">Definitions, acronyms, and abbreviations</h2>
+
+<p>This subsection should provide the definitions of all terms, acronyms, and abbreviations required to properly interpret the SRS. This information may be provided by reference to one or more appendixes in the SRS or by reference to other documents.</p>
+
+<h2 id="references">References</h2>
+
+<p>This subsection should</p>
+
+<ul>
+  <li>Provide a complete list of all documents referenced elsewhere in the SRS;</li>
+  <li>Identify each document by title, report number (if applicable), date, and publishing organization;</li>
+  <li>Specify the sources from which the references can be obtained.</li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+
+<p>This subsection should</p>
+
+<ul>
+  <li>Describe what the rest of the SRS contains;</li>
+  <li>Explain how the SRS is organized.</li>
+</ul>
+
+<h2 id="product-perspective">Product perspective</h2>
+
+<p>This subsection of the SRS should put the product into perspective with other related products. If the product is independent and totally self-contained, it should be so stated here. If the SRS defines a product that is a component of a larger system, as frequently occurs, then this subsection should relate the requirements of that larger system to functionality of the software and should identify interfaces between that system and the software.</p>
+
+<p>A block diagram showing the major components of the larger system, interconnections, and external interfaces can be helpful.</p>
+
+<p>This subsection should also describe how the software operates inside various constraints. For example, these constraints could include</p>
+
+<ul>
+  <li>System interfaces;</li>
+  <li>User interfaces;</li>
+  <li>Hardware interfaces;</li>
+  <li>Software interfaces;</li>
+  <li>Communications interfaces;</li>
+  <li>Memory;</li>
+  <li>Operations;</li>
+  <li>Site adaptation requirements</li>
+</ul>
+
+<p>(for details, please see the original document)</p>
+
+<h2 id="product-functions">Product functions</h2>
+
+<p>This subsection of the SRS should provide a summary of the major functions that the software will perform.</p>
+
+<h2 id="user-characteristics">User characteristics</h2>
+
+<p>This subsection of the SRS should describe those general characteristics of the intended users of the product including educational level, experience, and technical expertise. It should not be used to state specific requirements, but rather should provide the reasons why certain specific requirements are later specified in Section 3 of the SRS.</p>
+
+<h2 id="constraints">Constraints</h2>
+
+<p>This subsection of the SRS should provide a general description of any other items that will limit the developer’s options. These include</p>
+
+<ul>
+  <li>Regulatory policies;</li>
+  <li>Hardware limitations (e.g., signal timing requirements);</li>
+  <li>Interfaces to other applications;</li>
+  <li>Parallel operation;</li>
+  <li>Audit functions;</li>
+  <li>Control functions;</li>
+  <li>Higher-order language requirements;</li>
+  <li>Signal handshake protocols (e.g., XON-XOFF, ACK-NACK);</li>
+  <li>Reliability requirements;</li>
+  <li>Criticality of the application;</li>
+  <li>Safety and security considerations.</li>
+</ul>
+
+<h2 id="assumptions-and-dependencies">Assumptions and dependencies</h2>
+
+<p>This subsection of the SRS should list each of the factors that affect the requirements stated in the SRS. These factors are not design constraints on the software but are, rather, any changes to them that can affect the requirements in the SRS. For example, an assumption may be that a specific operating system will be available on the hardware designated for the software product. If, in fact, the operating system is not available, the SRS would then have to change accordingly.</p>
+
+<h2 id="specific-requirements">Specific requirements</h2>
+
+<p>This section of the SRS should contain all of the software requirements to a level of detail suficient to enable designers to design a system to satisfy those requirements, and testers to test that the system satisfies those requirements.</p>
+
+<p>These requirements should include at a minimum a description of every input (stimulus) into the system, every output (response) from the system, and all functions performed by the system in response to an input or in support of an output.</p>
+
+<ul>
+  <li>Specific requirements should be stated in conformance with all the characteristics described in 4.3.</li>
+  <li>Specific requirements should be cross-referenced to earlier documents that relate.</li>
+  <li>All requirements should be uniquely identifiable.</li>
+  <li>Careful attention should be given to organizing the requirements to maximize readability</li>
+</ul>
+
+<p>Various items that comprise requirements</p>
+
+<ul>
+  <li>External interfaces</li>
+  <li>Functions</li>
+  <li>Performance requirements</li>
+  <li>Logical database requirements</li>
+  <li>Design constraints</li>
+  <li>Standards compliance</li>
+  <li>Software system attributes</li>
+  <li>Reliability</li>
+  <li>Availability</li>
+  <li>Security</li>
+  <li>Maintainability</li>
+  <li>Portability</li>
+  <li>Organizing the specific requirements
+    <ul>
+      <li>System mode</li>
+      <li>User class</li>
+      <li>Objects</li>
+      <li>Feature</li>
+      <li>Stimulus</li>
+      <li>Response</li>
+      <li>Functional hierarchy</li>
+    </ul>
+  </li>
+  <li>Additional comments</li>
+</ul>
+
+<h2 id="appendixes">Appendixes</h2>
+
+<p>The appendixes are not always considered part of the actual SRS and are not always necessary. They may include</p>
+
+<ul>
+  <li>Sample input/output formats, descriptions of cost analysis studies, or results of user surveys;</li>
+  <li>Supporting or background information that can help the readers of the SRS;</li>
+  <li>A description of the problems to be solved by the software;</li>
+  <li>Special packaging instructions for the code and the media to meet security, export, initial loading, or other requirements.</li>
+</ul>
+
+<h1 id="categories-of-words">Categories of Words</h1>
+
+<h2 id="imperatives">Imperatives</h2>
+
+<p>Imperatives found in requirements specifications and their purpose</p>
+
+<ul>
+  <li>
+<em>Shall</em> - Dictates provision of fundamental capability</li>
+  <li>
+<em>Must</em> - Establishes performance requirements or constraints</li>
+  <li>
+<em>Must not</em> - Establishes performance requirements or constraints</li>
+  <li>
+<em>Is required to</em> - Used in specifications statements written in passive voice</li>
+  <li>
+<em>Are applicable</em> - Used to include, by reference, standards or other documentation as an addition to the requirements being specified</li>
+  <li>
+<em>Responsible for</em> - Used as an imperative for systems whose architectures are already defined</li>
+  <li>
+<em>Will</em> - Generally used to cite things that the operational or development environment are to provide to the capability being specified</li>
+  <li>
+<em>Should</em> - Not recommended for use</li>
+</ul>
+
+<h2 id="continuances">Continuances</h2>
+
+<p>Continuances follow an imperative and introduce the specification of requirements at a lower level. Continuances include:</p>
+
+<ul>
+  <li>“Below”</li>
+  <li>“As follows”</li>
+  <li>“Following”</li>
+  <li>“Listed”</li>
+  <li>“In particular”</li>
+  <li>“Support”</li>
+</ul>
+
+<h2 id="options">Options</h2>
+
+<p>Options give the developer latitude in satisfying the specifications, and include:</p>
+
+<ul>
+  <li>“Can”</li>
+  <li>“May”</li>
+  <li>“Optionally”</li>
+</ul>
+
+<h2 id="weak-phrases">Weak phrases</h2>
+
+<p>Weak phrases, which should be avoided in SRS, include:</p>
+
+<ul>
+  <li>“Adequate”</li>
+  <li>“As a minimum”</li>
+  <li>“As applicable”</li>
+  <li>“Be able to”</li>
+  <li>“Be capable”</li>
+  <li>“But not limited to”</li>
+  <li>“Capability of”</li>
+  <li>“Capability to”</li>
+  <li>“Effective”</li>
+  <li>“If practical”</li>
+  <li>“Normal”</li>
+  <li>“Provide for”</li>
+  <li>“Timely”</li>
+  <li>“TBD”</li>
+</ul>
+
+<h1 id="requirements-validation">Requirements validation</h1>
+
+<p>Verification of the software product means ensuring that the software is conforming to the SRS. Verification is akin to asking the question “Am I building the software right?” in that it requires satisfaction of requirements.</p>
+
+<p>Requirements validation, on the other hand, is tantamount to asking the question “Am I building the right software?” Too often, software engineers deliver a system that conforms to the SRS, only to discover that it is not what the customer really wanted.</p>
+
+<p>Performing requirements validation involves checking the following:</p>
+
+<ol>
+  <li>Validity, that is, does the system provide the functions that best support the customer’s needs?</li>
+  <li>Consistency, that is, are there any requirements conflicts?</li>
+  <li>Completeness, in other words, are all functions required by the customer included?</li>
+  <li>Realism, or, can the requirements be implemented given available budget and technology?</li>
+  <li>Verifiability, that is, can the requirements be checked?</li>
+</ol>
+
+<p>There are a number of ways of checking the SRS for conformance to the IEEE 830 best practices and for validity. These approaches include:</p>
+
+<ol>
+  <li>Requirements reviews.</li>
+  <li>Systematic manual analysis of the requirements.</li>
+  <li>Prototyping.</li>
+  <li>Using an executable model of the system to check requirements.</li>
+  <li>Test-case generation.</li>
+  <li>Developing tests for requirements to check testability.</li>
+  <li>Automated consistency analysis.</li>
+  <li>Checking the consistency of a structured requirements description.</li>
+</ol>
+
+<h1 id="further-readings">Further readings</h1>
+
+<ul>
+  <li><a href="http://www.amazon.com/Documenting-Software-Architectures-Views-Beyond/dp/0321552687">Documenting Software Architectures Views and Beyond (Second Edition), by Paul Clements &amp; others, published in 2011 at Addison-Wesley</a></li>
+</ul>
+
+
+
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/micro-os-plus/i/SRS_Guide/" data-layout="button"></div></li>
+</ul>
+
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="site-footer">
+  <div class="site-footer-links left">
+    <ul>
+  <li>© 2019 Liviu Ionescu</li>
+  <li>Hosted on GitHub</li>
+  <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
+  <li>
+<a href="http://twitter.com/micro_os_plus" class="twitter-follow-button" data-show-count="false">Follow @micro_os_plus</a><script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</li>
+</ul>
+
+
+  </div>
+  <a href="https://github.com/micro-os-plus/micro-os-plus-iii" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+  </a>
+  <div class="site-footer-links right">
+    <ul>
+  <li><a href="/web-preview/">Home</a></li>
+  <li><a href="/web-preview/blog/">News</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/releases">Releases</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues">Support</a></li>
+  <li><a href="/web-preview/about/">About</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</div>
+
+</body>
+</html>

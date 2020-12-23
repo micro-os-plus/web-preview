@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Wiki pages style guide (SE)</title>
+  <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
+
+  <meta property="og:title" content="Wiki pages style guide (SE)">
+  <meta property="og:site_name" content="µOS++ IIIe">
+
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+
+
+  <meta property="article:published_time" content="2014-02-22">
+
+
+
+
+
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
+
+  <link rel="canonical" href="/web-preview/micro-os-plus/ii/Wiki_pages_style_guide_(SE)/">
+
+
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16767008-14', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+  <div class="site-header">
+  <table style="width:100%">
+    <tr>
+      <td>
+        <a href="/web-preview/">
+          <img alt="Icon" class="site-icon" src="/web-preview/assets/icons/wall-e-icon.png" height="100" width="100">
+      </a>
+      </td>
+      <td>
+        <table class="site-title" style="width:100%">
+          <tr>
+            <td class="site-title">
+              <a href="/web-preview/">µOS++ IIIe</a>
+            </td>
+            <td class="site-motto" align="right">
+              “Perfekt ist nicht gut genug”
+            </td>
+          </tr>
+          <tr>
+            <td class="site-description" colspan="2">
+              The third edition of µOS++, a POSIX inspired open source framework, written in C++.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+</div>
+
+<div class="container">
+
+  <div class="wrapper">
+    <div class="site-body">
+
+      <div class="site-sidebar">
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      <h4 id="news"><a href="/web-preview/blog/">News</a></h4>
+
+<ul>
+  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></li>
+  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ IIIe v6.3.14 released</a></li>
+  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ IIIe v6.3.13 released</a></li>
+  <li><a href="/web-preview/blog/2017/01/02/micro-os-plus-v6-3-11-released/">µOS++ IIIe v6.3.11 released</a></li>
+</ul>
+
+
+    </div>
+  </div>
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      
+      <h4 id="home"><a href="/web-preview/">Home</a></h4>
+
+<h4 id="µos-iiie">µOS++ IIIe</h4>
+
+<ul>
+  <li><a href="/web-preview/micro-os-plus/">Overview</a></li>
+</ul>
+
+<h4 id="apis">APIs</h4>
+
+<ul>
+  <li><a href="/web-preview/cmsis-plus/">Overview</a></li>
+  <li><a href="/web-preview/cmsis-plus/rtos/">RTOS API</a></li>
+</ul>
+
+<h4 id="xpacksxcdl">xPacks/XCDL</h4>
+
+<ul>
+  <li><a href="/web-preview/xpacks/">Overview</a></li>
+</ul>
+
+<h4 id="documentation">Documentation</h4>
+
+<ul>
+  <li>
+<a href="/web-preview/user-manual/">User’s <strong>manual</strong></a>
+    <ul>
+      <li><a href="/web-preview/user-manual/getting-started/">Getting started</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/">Basic concepts</a></li>
+      <li><a href="/web-preview/user-manual/features/">Features</a></li>
+      <li><a href="/web-preview/user-manual/threads/">Threads</a></li>
+      <li><a href="/web-preview/user-manual/thread-event-flags/">Thread event flags</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/">Semaphores</a></li>
+      <li><a href="/web-preview/user-manual/event-flags/">Event flags</a></li>
+      <li>Mutexes</li>
+      <li>Condition variables</li>
+      <li>Message queues</li>
+      <li>Memory pools</li>
+      <li>Software timers</li>
+      <li>Clocks</li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/reference/cmsis-plus/">µOS++ <strong>reference</strong></a></li>
+</ul>
+
+<h4 id="developer">Developer</h4>
+
+<ul>
+  <li><a href="/web-preview/develop/">Overview</a></li>
+  <li><a href="/web-preview/reference/cmsis-plus/md_doxygen_pages_change-log.html">Change log</a></li>
+  <li><a href="/web-preview/develop/coding-style/">C++ coding style</a></li>
+  <li><a href="/web-preview/develop/naming-conventions/">Naming conventions</a></li>
+  <li><a href="/web-preview/develop/references/">Links &amp; references</a></li>
+</ul>
+
+<h4 id="support">Support</h4>
+
+<ul>
+  <li><a href="/web-preview/support/">Overview</a></li>
+  <li><a href="/web-preview/support/known-issues/">Known issues</a></li>
+  <li><a href="/web-preview/support/faq/">FAQ</a></li>
+  <li><a href="/web-preview/support/forum/">Forum</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ IIIe issues</a></li>
+</ul>
+
+<h4 id="latest-articles">Latest Articles</h4>
+
+<ul>
+  <li><a href="/web-preview/articles/arm-com-2016-06-24/">CMSIS++ RTOS: fully functional reference implementation</a></li>
+  <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
+</ul>
+
+<h4 id="license">License</h4>
+
+<ul>
+  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+</ul>
+
+<h4 id="about"><a href="/web-preview/about/">About</a></h4>
+
+    </div>
+  </div>
+
+  <div class="site-theme">
+    This site uses the <a href="https://github.com/ilg-ul/github-jekyll-theme">GitHub Wiki-like</a> theme by <a href="https://github.com/ilg-ul">Liviu Ionescu</a>.
+  </div>
+
+</div>
+
+
+      <div class="site-content">
+
+        
+<h1 class="page-title">Wiki pages style guide (SE) - DEPRECATED</h1>
+<table id="last-modified">
+  <tr>
+    <td id="last-modified">Page date Sat Feb 22 16:03:34 2014 .</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/micro-os-plus/ii/Wiki_pages_style_guide_(SE).md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+  </tr>
+</table>
+
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toc_level-1 toc_section-1">
+<a href="#headers"><span class="tocnumber">1</span> <span class="toctext">Headers</span></a>
+</li>
+<li class="toc_level-1 toc_section-2">
+<a href="#paragraphs"><span class="tocnumber">2</span> <span class="toctext">Paragraphs</span></a>
+</li>
+<li class="toc_level-1 toc_section-3">
+<a href="#bolditalic"><span class="tocnumber">3</span> <span class="toctext">Bold/Italic</span></a>
+</li>
+<li class="toc_level-1 toc_section-4">
+<a href="#lists"><span class="tocnumber">4</span> <span class="toctext">Lists</span></a>
+<ul>
+<li class="toc_level-2 toc_section-5">
+<a href="#bulleted-lists"><span class="tocnumber">4.1</span> <span class="toctext">Bulleted lists</span></a>
+</li>
+<li class="toc_level-2 toc_section-6">
+<a href="#numbered-lists"><span class="tocnumber">4.2</span> <span class="toctext">Numbered lists</span></a>
+</li>
+<li class="toc_level-2 toc_section-7">
+<a href="#bulleted-vs-numbered"><span class="tocnumber">4.3</span> <span class="toctext">Bulleted vs. Numbered</span></a>
+</li>
+<li class="toc_level-2 toc_section-8">
+<a href="#multilevel-lists"><span class="tocnumber">4.4</span> <span class="toctext">Multilevel lists</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-9">
+<a href="#indentation"><span class="tocnumber">5</span> <span class="toctext">Indentation</span></a>
+</li>
+<li class="toc_level-1 toc_section-10">
+<a href="#mixture-of-types"><span class="tocnumber">6</span> <span class="toctext">Mixture of types</span></a>
+</li>
+<li class="toc_level-1 toc_section-11">
+<a href="#tables"><span class="tocnumber">7</span> <span class="toctext">Tables</span></a>
+</li>
+<li class="toc_level-1 toc_section-12">
+<a href="#links"><span class="tocnumber">8</span> <span class="toctext">Links</span></a>
+<ul>
+<li class="toc_level-2 toc_section-13">
+<a href="#internal-links"><span class="tocnumber">8.1</span> <span class="toctext">Internal links</span></a>
+</li>
+<li class="toc_level-2 toc_section-14">
+<a href="#external-links"><span class="tocnumber">8.2</span> <span class="toctext">External links</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-15">
+<a href="#no-spaces-before-punctuation"><span class="tocnumber">9</span> <span class="toctext">No spaces before punctuation</span></a>
+</li>
+<li class="toc_level-1 toc_section-16">
+<a href="#capital-letters"><span class="tocnumber">10</span> <span class="toctext">Capital letters</span></a>
+</li>
+<li class="toc_level-1 toc_section-17">
+<a href="#lists-1"><span class="tocnumber">11</span> <span class="toctext">Lists</span></a>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="overview">Overview</h1>
+
+<p>This document describes recommended approaches for the format and structure of wiki pages.</p>
+
+<h1 id="scope">Scope</h1>
+
+<p>The guide is aimed to Wiki pages creators, editors and reviewers.</p>
+
+<h1 id="environment">Environment</h1>
+
+<p>This guide assumes the existence of a standard MediaWiki instance and the wiki syntax is specific to MediWiki.</p>
+
+<h1 id="references">References</h1>
+
+<ul>
+  <li><a href="http://meta.wikimedia.org/wiki/Help:Contents">MediaWiki User’s Guide</a></li>
+  <li><a href="http://www.mediawiki.org/wiki/Manual:FAQ">MediWiki FAQ</a></li>
+</ul>
+
+<h1 id="wiki-markup">Wiki markup</h1>
+
+<h2 id="headers">Headers</h2>
+
+<p>The wiki pages should be well structured, with multiple levels of headers.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>= Level 1 Header =
+
+== Level 2 Header ==
+
+=== Level 3 Header ===
+</code></pre>
+</div>
+</div>
+
+<p>The recommended syntax is with one space between the equal signs and the content.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>= Level 1 Header =
+</code></pre>
+</div>
+</div>
+
+<p>is preferred over</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>=Level 1 Header=
+</code></pre>
+</div>
+</div>
+
+<p>The headers are also used to generate the page hierarchical table of contents; all headers, down to the deepest level. This also dictates the limit between too few and too many headers: if the table of contents looks too long, with unnecessary details, then you probably went too far with adding headers, and some of the deepest levels should be removed. Similarly, if the page is long but the table of contents is just a few lines, you might consider adding some more intermediate headers.</p>
+
+<h2 id="paragraphs">Paragraphs</h2>
+
+<p>Regardless of line legth, without any special characters, multiple text lines are concatenat and grouped in a single paragraph. To end a paragraph and open another one, use an empty line.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>This is the
+first paragraph.
+
+And this is the second.
+</code></pre>
+</div>
+</div>
+
+<h2 id="bolditalic">Bold/Italic</h2>
+
+<p>Text that should be more visible than the rest of the sentence, can be marked as <strong>bold</strong> or, when appropriate, <em>italic</em>.</p>
+
+<h2 id="lists">Lists</h2>
+
+<p>Lists are a very convenient and nice looking way to present enumerations and should be used as often as needed.</p>
+
+<h3 id="bulleted-lists">Bulleted lists</h3>
+
+<p>The usual format is a bulleted list:</p>
+
+<p>List</p>
+
+<ul>
+  <li>item 1</li>
+  <li>item 2</li>
+</ul>
+
+<!-- -->
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>List
+* item 1
+* item 2
+</code></pre>
+</div>
+</div>
+
+<h3 id="numbered-lists">Numbered lists</h3>
+
+<p>For ordered items, or when it is necessary to refer to a particular item, numbered lists are available:</p>
+
+<p>Orderd</p>
+
+<ol>
+  <li>first</li>
+  <li>second</li>
+</ol>
+
+<!-- -->
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>Orderd
+# first
+# second
+</code></pre>
+</div>
+</div>
+
+<h3 id="bulleted-vs-numbered">Bulleted vs. Numbered</h3>
+
+<p>Please note that unless ordered or referred items, bulleted lists are preferred over numbered lists.</p>
+
+<h3 id="multilevel-lists">Multilevel lists</h3>
+
+<p>It is not only perfectly possible to define, but also recommended to use multiple level lists:</p>
+
+<p>Multilevel</p>
+
+<ul>
+  <li>level 1
+    <ul>
+      <li>level 2
+        <ul>
+          <li>level 3</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<!-- -->
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>Multilevel
+* level 1
+** level 2
+*** level 3
+</code></pre>
+</div>
+</div>
+
+<p>This works for numbered lists too.</p>
+
+<h2 id="indentation">Indentation</h2>
+
+<p>When the text requires, for example when quoting a sentence, indentation can be used.</p>
+
+<p>This sentence quotes from the classics</p>
+
+<!-- -->
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>: This sentence quotes from the classics
+</code></pre>
+</div>
+</div>
+
+<h2 id="mixture-of-types">Mixture of types</h2>
+
+<p>Multilevel lists and indentation can be mixed, if needed.</p>
+
+<ol>
+  <li>one</li>
+  <li>two
+    <ul>
+      <li>two point one</li>
+      <li>two point two</li>
+    </ul>
+  </li>
+  <li>
+    <p>three
+three item one
+three def one</p>
+  </li>
+  <li>
+    <p>four</p>
+
+    <p>four def one</p>
+
+    <p>this looks like a continuation</p>
+
+    <p>and is often used</p>
+
+    <p>instead
+of &lt;br /&gt;</p>
+  </li>
+  <li>five
+    <ol>
+      <li>five sub 1
+        <ol>
+          <li>five sub 1 sub 1</li>
+        </ol>
+      </li>
+      <li>five sub 2</li>
+    </ol>
+  </li>
+</ol>
+
+<!-- -->
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code># one
+# two
+#* two point one
+#* two point two
+# three
+#; three item one
+#: three def one
+# four
+#: four def one
+#: this looks like a continuation
+#: and is often used
+#: instead&lt;br /&gt;of &lt;nowiki&gt;&lt;br /&gt;&lt;/nowiki&gt;
+# five
+## five sub 1
+### five sub 1 sub 1
+## five sub 2
+</code></pre>
+</div>
+</div>
+
+<h2 id="tables">Tables</h2>
+
+<p>Tables are not exactly the easiest feature of formats like wiki or html.</p>
+
+<p>The syntax, although quite simple, is not easy to remember, so the best way to enter tables is with… copy/paste.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>First Column</th>
+      <th>Second Column</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bread</td>
+      <td>Pie</td>
+    </tr>
+    <tr>
+      <td>Butter</td>
+      <td>Ice cream</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>{|  class="wikitable"
+! First Column !! Second Column
+|-
+| Bread || align="center" | Pie
+|-
+| Butter || Ice cream
+|}
+</code></pre>
+</div>
+</div>
+
+<h2 id="links">Links</h2>
+
+<h3 id="internal-links">Internal links</h3>
+
+<p>To ease navigation, it is recommended to link from one wiki page to another. If the displayed text needs to be different than the link, it can be specified.</p>
+
+<p>
+<a href="/web-preview/micro-os-plus/ii/Main_Page">different text</a>
+</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>[[/Main_Page|different text]]
+</code></pre>
+</div>
+</div>
+
+<h3 id="external-links">External links</h3>
+
+<p>Similarly, external links can be entered behind any text part:</p>
+
+<p>
+<a href="http://mediawiki.org">MediaWiki</a>
+</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>[http://mediawiki.org MediaWiki]
+</code></pre>
+</div>
+</div>
+
+<h1 id="preformatted-code">Preformatted code</h1>
+
+<p>Use: &lt;pre&gt; … &lt;/pre&gt; for preformatted code, or &lt;code&gt; … &lt;/code&gt; for pieces of source code that requires coloured syntax.</p>
+
+<h1 id="punctuation">Punctuation</h1>
+
+<h2 id="no-spaces-before-punctuation">No spaces before punctuation</h2>
+
+<p>General punctuation rules should be respected, for example</p>
+
+<ul>
+  <li>do not use spaces <strong>before</strong> punctuation marks</li>
+  <li>use one single space <strong>after</strong> punctuation marks</li>
+</ul>
+
+<p>The only exception to the rule are the open parenthesis, where the rule is symmetrical, i.e. one space before and no space after.</p>
+
+<h2 id="capital-letters">Capital letters</h2>
+
+<p>Capital letters should be used to mark:</p>
+
+<ul>
+  <li>the beginning of sentences</li>
+  <li>proper nouns or words derived from nouns</li>
+  <li>titles of persons or entities</li>
+  <li>acronyms</li>
+</ul>
+
+<p>Although a matter of personal preferences, the (ab)use of capital letters inside titles, headings, and sub-headings should be avoided.</p>
+
+<h2 id="lists-1">Lists</h2>
+
+<p>One usually arguable topic is the punctuation to be used for lists.</p>
+
+<p>There is no single rule to fit all needs.</p>
+
+<p>Short enumerations look cleaner without any punctuation and without capital letters:</p>
+
+<p>Sample list:</p>
+
+<ul>
+  <li>apples</li>
+  <li>oranges</li>
+</ul>
+
+<p>If the items of the list are in general short enumeration and only occasionally contain multiple sentences, except the first one, the general rules apply, i.e. the subsequent sentences start with capital letters and are finished with dot.</p>
+
+<p>Sample list with some sentences:</p>
+
+<ul>
+  <li>apples</li>
+  <li>oranges. Some might come from Florida.</li>
+  <li>peaches</li>
+</ul>
+
+<p>If the list items are long, and might be considered parts of a long sentence that was split for readability reasons, itms should end with usual punctuation marks, like semi-colon, and the last item should end with a dot.</p>
+
+<p>One possibility is:</p>
+
+<ul>
+  <li>a small initial letter at the start and a semi-colon at the end of each item;</li>
+  <li>and a full stop at the end of the final item.</li>
+</ul>
+
+<p>If the list items are independent sentences, and you feel like they should start with capital letters and be ended with full stops, then you should probably reconsider the option of using lists and consider indentation.</p>
+
+<h1 id="wiki-page-name">Wiki page name</h1>
+
+<p>According to the rule used for capital letters in titles, <strong>capital letters should be avoided in wiki pages names</strong>.</p>
+
+<p>For example <strong>Main page</strong> is preferred to <strong>Main Page</strong>.</p>
+
+<h1 id="minor-vs-major-edits">Minor vs. Major edits</h1>
+
+<p>The border between major and minor is not that obvious, but the rule should be that when significant content is added, the edit should be major. If the edit consists only of typos, spaces, punctuation, it is minor.</p>
+
+<p>For the rest, it depends. As another rule, we can consider major all changes that:</p>
+
+<ul>
+  <li>add headers</li>
+  <li>change headers</li>
+  <li>add sentences or paragraphs</li>
+  <li>add elements to a list</li>
+</ul>
+
+<p>In practical terms, the difference between major and minor edits is used when displaying the <em>Recent changes</em> page, and allows a better overview on the edit activity.</p>
+
+<p>It is recommended for all users to set their preferences so that by default all edits are minor, and to manually mark major edits.</p>
+
+
+
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/micro-os-plus/ii/Wiki_pages_style_guide_(SE)/" data-layout="button"></div></li>
+</ul>
+
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="site-footer">
+  <div class="site-footer-links left">
+    <ul>
+  <li>© 2019 Liviu Ionescu</li>
+  <li>Hosted on GitHub</li>
+  <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
+  <li>
+<a href="http://twitter.com/micro_os_plus" class="twitter-follow-button" data-show-count="false">Follow @micro_os_plus</a><script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</li>
+</ul>
+
+
+  </div>
+  <a href="https://github.com/micro-os-plus/micro-os-plus-iii" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+  </a>
+  <div class="site-footer-links right">
+    <ul>
+  <li><a href="/web-preview/">Home</a></li>
+  <li><a href="/web-preview/blog/">News</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/releases">Releases</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues">Support</a></li>
+  <li><a href="/web-preview/about/">About</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</div>
+
+</body>
+</html>

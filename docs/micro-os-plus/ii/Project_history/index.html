@@ -9,16 +9,16 @@
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>The µOS++ IIIe Project</title>
+  <title>Project history</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="The µOS++ IIIe Project">
+  <meta property="og:title" content="Project history">
   <meta property="og:site_name" content="µOS++ IIIe">
 
   <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
 
 
-  <meta property="article:published_time" content="2016-03-03">
+  <meta property="article:published_time" content="2014-03-12">
 
 
 
@@ -32,7 +32,7 @@
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
 
-  <link rel="canonical" href="/web-preview/">
+  <link rel="canonical" href="/web-preview/micro-os-plus/ii/Project_history/">
 
 
 
@@ -239,58 +239,98 @@
       <div class="site-content">
 
         
-<h1 class="page-title">The µOS++ IIIe Project</h1>
+<h1 class="page-title">Project history - DEPRECATED</h1>
 <table id="last-modified">
   <tr>
-    <td id="last-modified">Last modified on Wed Dec 23 10:37:26 2020 UTC.</td>
-    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/home.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+    <td id="last-modified">Page date Wed Mar 12 21:47:32 2014 .</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/micro-os-plus/ii/Project_history.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
 
-
-<p>The <strong>µOS++ IIIe</strong> <em>(micro oh ɛs plus plus third edition)</em> project is the third iteration of µOS++, a POSIX-like, portable, open source, royalty-free, multi-tasking real-time framework intended for 32/64-bits embedded applications, written in C++. The project is hosted on GitHub as <a href="https://github.com/micro-os-plus">micro-os-plus</a>. It has a comprehensive <a href="/web-preview/user-manual/">User’s manual</a>. The APIs are documented in the <a href="/web-preview/reference/cmsis-plus/">µOS++ reference</a>.</p>
-
-<p><strong>POSIX++</strong> is another point of view of the project; with most system APIs using the POSIX semantics, but being written in C++, the <strong>µOS++ IIIe</strong> APIs can also be seen as a C++ version of POSIX, thus the name <strong>POSIX++</strong>.</p>
-
-<h2 id="manyfold-identity">Manyfold identity</h2>
-
-<p>The <strong>µOS++ IIIe</strong> project can be considered from several points of view.</p>
-
-<h3 id="the-µos-frameworkapis">The µOS++ framework/APIs</h3>
-
-<p>Although generally associated with its RTOS, <strong>µOS++ IIIe</strong> is actually a framework, a collection of APIs, components and technologies.</p>
-
-<p>One of the main APIs is the µOS++ RTOS API, but applications based on µOS++ may run very well without a RTOS, or even use a different RTOS.</p>
-
-<p>For a better portability, the entire framework is layered, the µOS++ RTOS API provides a common public interface to the applications, but the implementation is separate, it might be that of its own µOS++ RTOS reference implementation, but it may very well be another implementation, even a custom one specific to the application.</p>
-
-<h3 id="the-µos-rtos-implementation">The µOS++ RTOS implementation</h3>
-
-<p>From an embedded system point of view, <strong>µOS++ IIIe</strong> provides the <strong>reference implementation</strong> for the <strong>scheduler</strong> and <strong>portable synchronisation</strong> objects (like mutex, semaphore, etc).</p>
-
-<div style="text-align:center">
-<img alt="µOS++ RTOS" src="/web-preview/assets/images/2017/micro-os-plus-rtos.png">
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
 </div>
-
-<h3 id="the-µos-packages">The µOS++ packages</h3>
-
-<p>From a modular point of view, <strong>µOS++ IIIe</strong> is a <strong>collection of packages</strong> hosted on GitHub in two locations:</p>
-
 <ul>
-  <li>the original code is grouped under the <a href="https://github.com/micro-os-plus">µOS++ IIIe</a> GitHub collection of projects</li>
-  <li>projects based on third party code are grouped under the <a href="https://github.com/xpacks">xPacks</a> collection.</li>
+<li class="toc_level-1 toc_section-1">
+<a href="#mar-2014"><span class="tocnumber">1</span> <span class="toctext">Mar. 2014</span></a>
+</li>
+<li class="toc_level-1 toc_section-2">
+<a href="#feb-2014"><span class="tocnumber">2</span> <span class="toctext">Feb. 2014</span></a>
+</li>
+<li class="toc_level-1 toc_section-3">
+<a href="#oct-2013"><span class="tocnumber">3</span> <span class="toctext">Oct. 2013</span></a>
+</li>
+<li class="toc_level-1 toc_section-4">
+<a href="#apr-2013"><span class="tocnumber">4</span> <span class="toctext">Apr. 2013</span></a>
+</li>
+<li class="toc_level-1 toc_section-5">
+<a href="#jan-2013"><span class="tocnumber">5</span> <span class="toctext">Jan. 2013</span></a>
+</li>
+<li class="toc_level-1 toc_section-6">
+<a href="#early-history"><span class="tocnumber">6</span> <span class="toctext">Early history</span></a>
+</li>
 </ul>
-
-<div style="text-align:center">
-<img alt="µOS++ Collection" src="/web-preview/assets/images/2017/micro-os-plus-collection.png">
+</td>
+</tr>
+</tbody>
+</table>
 </div>
+<h2 id="mar-2014">Mar. 2014</h2>
 
-<h2 id="license">License</h2>
+<p>After experimenting with several implementation for the GpioPort &amp; Pin, it was concluded that best readability for accessing the hardware registers is offered by using the CMSIS large device header; the second choice was offered by using RegisterAccess policies, with the advantage of compile time checks for read/write violations, but with loss of readability.</p>
 
-<p>Unless otherwise mentioned, all <strong>µOS++ IIIe</strong> components are provided <strong>free of charge</strong> under the terms of the <a href="https://opensource.org/licenses/MIT">MIT License</a>, with all rights reserved to Liviu Ionescu.</p>
+<p>The documentation for the ARM CMSIS packages was studied and some tests were performed with the Keil tools; CMSIS packages might become the preferred distribution mechanism.</p>
+
+<p>A more C-friendly approach was adopted.</p>
+
+<h2 id="feb-2014">Feb. 2014</h2>
+
+<p>The need for the third edition of µOS++ become evident after the experience with GNU ARM Eclipse plug-ins and the obvious need to integrate µOS++ with Eclipse.</p>
+
+<p>Work on µOS++ IIIe officially started with creation of the new Git repository and the update of the Wiki.</p>
+
+<h2 id="oct-2013">Oct. 2013</h2>
+
+<p>The project grew steadily, with the core classes functional, the preemptive scheduler was functional on STM32Fx cores, and the cooperative also on synthetic POSIX platforms (OS X and GNU/Linux). The sources compiled without warnings on GCC 4.7, GCC 4.8 and LLVM clang 3.2/3.3, in 32/64-bit variants, and a multitude of tests were running on OS X and Ubuntu.</p>
+
+<p>The repository increased to more than 700 files, with more than 150K lines.</p>
+
+<p>Acknowledging the need for a better Eclipse integration, in Oct. 2013 the development was temporarily interrupted, with focus changes to <a href="http://gnuarmeclipse.livius.net/blog/">GNU ARM Eclipse plug-ins</a>.</p>
+
+<h2 id="apr-2013">Apr. 2013</h2>
+
+<p>The general framework with functional initialisation code is available for STM32F1 and STM32F4, for several development boards.</p>
+
+<h2 id="jan-2013">Jan. 2013</h2>
+
+<p>The need for second edition of µOS++ become obvious while using it for several commercial projects, but active work started in early 2013, after the XCDL (eXtended Components Definition Language) project become functional.</p>
+
+<p>The major critics of the first version was the lack of support for <a href="http://en.wikipedia.org/wiki/Continuous_integration">Continuous Integration</a> and <a href="http://en.wikipedia.org/wiki/Test-driven_development">Test Driven Development</a>, requirements more and more observed for modern projects.</p>
+
+<p>Starting from the beginning, the first version of a unit testing infrastructure is functional on the OS X synthetic platform.</p>
+
+<p>The SE project wiki was created, initially hosted in the SourceForge project web space, then moved to the livius.net domain due to major SourceForge shortcomings.</p>
+
+<h2 id="early-history">Early history</h2>
+
+<p>The <a href="/web-preview/micro-os-plus/ii/Early_history">early history</a>, copied from the first edition wiki, with the reasons for a new micro OS and the decision to use C++.</p>
 
 
 
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/micro-os-plus/ii/Project_history/" data-layout="button"></div></li>
+</ul>
 
 
 

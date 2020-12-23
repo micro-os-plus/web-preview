@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Prerequisites</title>
+  <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
+
+  <meta property="og:title" content="Prerequisites">
+  <meta property="og:site_name" content="µOS++ IIIe">
+
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+
+
+  <meta property="article:published_time" content="2013-09-06">
+
+
+
+
+
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
+
+  <link rel="canonical" href="/web-preview/micro-os-plus/ii/Prerequisites/">
+
+
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16767008-14', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+  <div class="site-header">
+  <table style="width:100%">
+    <tr>
+      <td>
+        <a href="/web-preview/">
+          <img alt="Icon" class="site-icon" src="/web-preview/assets/icons/wall-e-icon.png" height="100" width="100">
+      </a>
+      </td>
+      <td>
+        <table class="site-title" style="width:100%">
+          <tr>
+            <td class="site-title">
+              <a href="/web-preview/">µOS++ IIIe</a>
+            </td>
+            <td class="site-motto" align="right">
+              “Perfekt ist nicht gut genug”
+            </td>
+          </tr>
+          <tr>
+            <td class="site-description" colspan="2">
+              The third edition of µOS++, a POSIX inspired open source framework, written in C++.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+</div>
+
+<div class="container">
+
+  <div class="wrapper">
+    <div class="site-body">
+
+      <div class="site-sidebar">
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      <h4 id="news"><a href="/web-preview/blog/">News</a></h4>
+
+<ul>
+  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></li>
+  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ IIIe v6.3.14 released</a></li>
+  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ IIIe v6.3.13 released</a></li>
+  <li><a href="/web-preview/blog/2017/01/02/micro-os-plus-v6-3-11-released/">µOS++ IIIe v6.3.11 released</a></li>
+</ul>
+
+
+    </div>
+  </div>
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      
+      <h4 id="home"><a href="/web-preview/">Home</a></h4>
+
+<h4 id="µos-iiie">µOS++ IIIe</h4>
+
+<ul>
+  <li><a href="/web-preview/micro-os-plus/">Overview</a></li>
+</ul>
+
+<h4 id="apis">APIs</h4>
+
+<ul>
+  <li><a href="/web-preview/cmsis-plus/">Overview</a></li>
+  <li><a href="/web-preview/cmsis-plus/rtos/">RTOS API</a></li>
+</ul>
+
+<h4 id="xpacksxcdl">xPacks/XCDL</h4>
+
+<ul>
+  <li><a href="/web-preview/xpacks/">Overview</a></li>
+</ul>
+
+<h4 id="documentation">Documentation</h4>
+
+<ul>
+  <li>
+<a href="/web-preview/user-manual/">User’s <strong>manual</strong></a>
+    <ul>
+      <li><a href="/web-preview/user-manual/getting-started/">Getting started</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/">Basic concepts</a></li>
+      <li><a href="/web-preview/user-manual/features/">Features</a></li>
+      <li><a href="/web-preview/user-manual/threads/">Threads</a></li>
+      <li><a href="/web-preview/user-manual/thread-event-flags/">Thread event flags</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/">Semaphores</a></li>
+      <li><a href="/web-preview/user-manual/event-flags/">Event flags</a></li>
+      <li>Mutexes</li>
+      <li>Condition variables</li>
+      <li>Message queues</li>
+      <li>Memory pools</li>
+      <li>Software timers</li>
+      <li>Clocks</li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/reference/cmsis-plus/">µOS++ <strong>reference</strong></a></li>
+</ul>
+
+<h4 id="developer">Developer</h4>
+
+<ul>
+  <li><a href="/web-preview/develop/">Overview</a></li>
+  <li><a href="/web-preview/reference/cmsis-plus/md_doxygen_pages_change-log.html">Change log</a></li>
+  <li><a href="/web-preview/develop/coding-style/">C++ coding style</a></li>
+  <li><a href="/web-preview/develop/naming-conventions/">Naming conventions</a></li>
+  <li><a href="/web-preview/develop/references/">Links &amp; references</a></li>
+</ul>
+
+<h4 id="support">Support</h4>
+
+<ul>
+  <li><a href="/web-preview/support/">Overview</a></li>
+  <li><a href="/web-preview/support/known-issues/">Known issues</a></li>
+  <li><a href="/web-preview/support/faq/">FAQ</a></li>
+  <li><a href="/web-preview/support/forum/">Forum</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ IIIe issues</a></li>
+</ul>
+
+<h4 id="latest-articles">Latest Articles</h4>
+
+<ul>
+  <li><a href="/web-preview/articles/arm-com-2016-06-24/">CMSIS++ RTOS: fully functional reference implementation</a></li>
+  <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
+</ul>
+
+<h4 id="license">License</h4>
+
+<ul>
+  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+</ul>
+
+<h4 id="about"><a href="/web-preview/about/">About</a></h4>
+
+    </div>
+  </div>
+
+  <div class="site-theme">
+    This site uses the <a href="https://github.com/ilg-ul/github-jekyll-theme">GitHub Wiki-like</a> theme by <a href="https://github.com/ilg-ul">Liviu Ionescu</a>.
+  </div>
+
+</div>
+
+
+      <div class="site-content">
+
+        
+<h1 class="page-title">Prerequisites - DEPRECATED</h1>
+<table id="last-modified">
+  <tr>
+    <td id="last-modified">Page date Fri Sep  6 11:12:50 2013 .</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/micro-os-plus/ii/Prerequisites.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+  </tr>
+</table>
+
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toc_level-1 toc_section-1">
+<a href="#os-x"><span class="tocnumber">1</span> <span class="toctext">OS X</span></a>
+<ul>
+<li class="toc_level-2 toc_section-2">
+<a href="#llvm-clang"><span class="tocnumber">1.1</span> <span class="toctext">LLVM clang</span></a>
+</li>
+<li class="toc_level-2 toc_section-3">
+<a href="#git"><span class="tocnumber">1.2</span> <span class="toctext">Git</span></a>
+</li>
+<li class="toc_level-2 toc_section-4">
+<a href="#python"><span class="tocnumber">1.3</span> <span class="toctext">Python</span></a>
+</li>
+<li class="toc_level-2 toc_section-5">
+<a href="#macports-gcc"><span class="tocnumber">1.4</span> <span class="toctext">MacPorts GCC</span></a>
+</li>
+<li class="toc_level-2 toc_section-6">
+<a href="#arm-toolchains"><span class="tocnumber">1.5</span> <span class="toctext">ARM toolchains</span></a>
+</li>
+<li class="toc_level-2 toc_section-7">
+<a href="#avr8-toolchains"><span class="tocnumber">1.6</span> <span class="toctext">AVR8 toolchains</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-8">
+<a href="#gnulinux"><span class="tocnumber">2</span> <span class="toctext">GNU/Linux</span></a>
+<ul>
+<li class="toc_level-2 toc_section-9">
+<a href="#ubuntu-1304"><span class="tocnumber">2.1</span> <span class="toctext">Ubuntu 13.04</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-10">
+<a href="#eclipse-installation"><span class="tocnumber">3</span> <span class="toctext">Eclipse installation</span></a>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>There are several ways to evaluate <strong>µOS++ SE</strong>, from running the unit tests to inspecting the source code. Depending on your needs and on the platform you are using, one or more toolchains need to be installed. For inspecting the source code, although direct access to the repository is available, due to the high complexity of the project, the preferred method is via Eclipse, to take full advantage of the indexer and cross reference features.</p>
+
+<p>Currently the supported platforms for building µOS++ SE projects are <strong>OS X</strong> and <strong>GNU/Linux</strong>.</p>
+
+<p>If testing software is generally a delicate issue, testing embedded software is an even more complicated story, since images must be written into embedded processor flash and some form of interaction with the hardware is needed to validate the software behaviour.</p>
+
+<p>In order to simplify things, one of the early µOS++ design decision was to include a POSIX synthetic platform, running on OS X and GNU/Linux. In this configuration, each µOS++ application is executed within the context of a POSIX process, running as a command line application.</p>
+
+<h2 id="os-x">OS X</h2>
+
+<p>The main toolchain for building µOS++ SE synthetic POSIX applications is the default <strong>Apple LLVM clang</strong>.</p>
+
+<p>Optionally, µOS++ SE tests can be built with GNU GCC 4.7 and GCC 4.8.</p>
+
+<p>With all three compilers, in both the 32 and 64-bit versions, in both the <em>Debug</em> and <em>Release</em> configurations, a total of 12 versions for each test are checked.</p>
+
+<h3 id="llvm-clang">LLVM clang</h3>
+
+<p>The shortcut method for installing <strong>clang</strong> is to download and install the optional package <strong>Command Line Tools for Xcode</strong> available from the <a href="http://developer.apple.com/downloads/">Apple Developper site</a>.</p>
+
+<p>However, the recommended method is to first install <strong>Xcode</strong> from App Store, then to download the <strong>Command Line Tools</strong> additional component in the Preferences → Downloads → Components window.</p>
+
+<div style="text-align:center">
+<img alt="Xcode" src="/web-preview/assets/images/old/Xcode-clt.png">
+</div>
+
+<p>To check if the compiler is available, invoke the compiler using <strong>–version</strong>:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>clang++ --version
+
+Apple LLVM version 4.2 (clang-425.0.28) (based on LLVM 3.2svn)
+Target: x86_64-apple-darwin12.4.0
+Thread model: posix
+</code></pre>
+</div>
+</div>
+
+<h3 id="git">Git</h3>
+
+<p>Installing the <strong>Command Line Tools</strong> will also install the <strong>git</strong> support.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>git --version
+git version 1.7.12.4 (Apple Git-37)
+</code></pre>
+</div>
+</div>
+
+<p>For reference, here is the <strong>git</strong> global configuration that I use:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>git config --global user.name "Liviu Ionescu"
+git config --global user.email ilg@livius.net
+
+git config --global core.filemode false
+git config --global core.autocrlf input
+
+git config --global core.whitespace trailing-space,space-before-tab
+
+git config --global core.editor "vi"
+</code></pre>
+</div>
+</div>
+
+<p>(for more details, please check the <a href="http://git-scm.com/docs/git-config">git documentation</a>).</p>
+
+<h3 id="python">Python</h3>
+
+<p>Python should be also available (it is part of the standard OS X distribution):</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>python --version
+Python 2.7.2
+</code></pre>
+</div>
+</div>
+
+<h3 id="macports-gcc">MacPorts GCC</h3>
+
+<p>The GNU GCC compilers can be installed on OS X from multiple sources, but the recommended source is from <a href="http://www.macports.org">MacPorts</a>.</p>
+
+<p>Installing MacPorts is not mandatory for usual embedded developments, but running the POSIX tests it is recommended, since it provides the GCC compilers (otherwise only the clang tests will be performed).</p>
+
+<p>To install GCC 4.7 and GCC 4.8, run the following commands:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>sudo port install gcc47 +universal
+sudo port install gcc48 +universal
+</code></pre>
+</div>
+</div>
+
+<p>Please note that, by default, the modern MacPorts compilers support only 64-bit targets. To support both 32 and 64-bit targets, the <strong>+universal</strong> option must be used when installing the toolchains, otherwise the tests will fail to run the 32-bit executables.</p>
+
+<p>The toolchain binaries are available in <code class="language-plaintext highlighter-rouge">/opt/local/bin/</code> as:</p>
+
+<ul>
+  <li>g++-mp-4.7</li>
+  <li>g++-mp-4.8</li>
+</ul>
+
+<p>To check if the compilers are available, invoke the compilers using <strong>–version</strong>:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>/opt/local/bin/g++-mp-4.7 --version
+g++-mp-4.7 (MacPorts gcc47 4.7.3_1+universal) 4.7.3
+
+/opt/local/bin/g++-mp-4.8 --version
+g++-mp-4.8 (MacPorts gcc48 4.8.1_1+universal) 4.8.1
+</code></pre>
+</div>
+</div>
+
+<p>One detail to be considered: the PATH setting. When the MacPorts framework is installed, the .profile is modified to include the MacPorts path.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code># MacPorts Installer addition on 2012-12-05_at_23:48:38: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+</code></pre>
+</div>
+</div>
+
+<p>To avoid unwanted interactions between MacPorts and the system programs, it is recommended to disable this setting, and to add an explicit alias to update the PATH only when needed:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>alias mp='export PATH=/opt/local/bin:/opt/local/sbin:$PATH'
+</code></pre>
+</div>
+</div>
+
+<h3 id="arm-toolchains">ARM toolchains</h3>
+
+<p>There are many ARM toolchains available on OS X, more or less up-to-date.</p>
+
+<p>Until recently the ARM reference toolchain was <strong>Sourcery CodeBench Lite ARM</strong>, but more traction seems to gain now the <strong>GNU Tools for ARM Embedded Processors</strong>.</p>
+
+<h4 id="gnu-tools-for-arm-embedded-processors">GNU Tools for ARM Embedded Processors</h4>
+
+<p>It is a relatively new, but very active, toolchain (first release seems to date from end of 2011), is hosted on <a href="http://launchpad.net/gcc-arm-embedded">launchpad.net</a> and runs on all significant platforms. The current version is based on GCC 4.7.3.</p>
+
+<p>To use this toolchain, download the latest <code class="language-plaintext highlighter-rouge">gcc-arm-none-eabi-*.tar.bz2</code> file (there are separate files for OS X and GNU/Linux), unpack it and copy the resulting folder to <code class="language-plaintext highlighter-rouge">/usr/local</code>.</p>
+
+<p>To simplify path management, it is recommended to create a link to the latest release of a certain version, for example:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>cd ~/Downloads
+sudo cp gcc-arm-none-eabi-4_7-2013q1-20130313-mac.tar.bz2 /usr/local
+cd /usr/local
+sudo tar xjvf gcc-arm-none-eabi-4_7-2013q1-20130313-mac.tar.bz2
+sudo ln -s gcc-arm-none-eabi-4_7-2013q1 gcc-arm-none-eabi-4_7
+</code></pre>
+</div>
+</div>
+
+<p>(for GNU/Linux the sequence is identical, only the file name is different, instead of <strong>-mac</strong> they use <strong>-linux</strong>).</p>
+
+<p>To check if the compiler is available, invoke the compiler using <strong>–version</strong>:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>/usr/local/gcc-arm-none-eabi-4_7/bin/arm-none-eabi-g++ --version
+</code></pre>
+</div>
+</div>
+
+<p>which should produce something like:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>arm-none-eabi-g++ (GNU Tools for ARM Embedded Processors) 4.7.3
+     20130312 (release) [ARM/embedded-4_7-branch revision 196615]
+</code></pre>
+</div>
+</div>
+
+<h3 id="avr8-toolchains">AVR8 toolchains</h3>
+
+<h4 id="macports">MacPorts</h4>
+
+<p>The latest AVR8 toolchain (based on GCC 4.7.2) is available from MacPorts.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>sudo port install avr-gcc avr-binutils avr-gdb avr-libc avrdude
+</code></pre>
+</div>
+</div>
+
+<p>To check if the compiler is available, invoke the compiler using <strong>–version</strong>:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>/opt/local/bin/avr-g++ --version
+
+avr-g++ (GCC) 4.7.2
+</code></pre>
+</div>
+</div>
+
+<h4 id="crosspack">CrossPack</h4>
+
+<p>Another AVR8 toolchain is <a href="http://www.obdev.at/products/crosspack/index.html">CrossPack for AVR Development</a> published by <a href="http://www.obdev.at/">Objective Development</a>. The current version is based on GNU GCC 4.6.2.</p>
+
+<p>To use this toolchain, download the latest CrossPack-AVR-*.dmg version and install it as usual.</p>
+
+<p>The toolchain binaries are installed in <code class="language-plaintext highlighter-rouge">/usr/local/CrossPack-AVR/bin/</code> as:</p>
+
+<ul>
+  <li>avr-g++</li>
+  <li>avr-gcc</li>
+</ul>
+
+<p>To check if the compiler is available, invoke the compiler using <strong>–version</strong>:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>/usr/local/CrossPack-AVR/bin/avr-g++ --version
+
+avr-g++ (GCC) 4.6.2
+</code></pre>
+</div>
+</div>
+
+<p>Similarly to MacPorts, the CrossPack installer modifies the system settings to add the CrossPack path to the system path.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>cat /etc/paths.d/50-at.obdev.CrossPack-AVR
+
+/usr/local/CrossPack-AVR/bin
+</code></pre>
+</div>
+</div>
+
+<p>It is recommended to disable this setting, and to explicitly update the PATH only when needed:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>sudo rm /etc/paths.d/50-at.obdev.CrossPack-AVR
+</code></pre>
+</div>
+</div>
+
+<h2 id="gnulinux">GNU/Linux</h2>
+
+<p>Currently all tests are periodically checked on Ubuntu. Unfortunately the latest stable version (12.04 LTS) provides only GCC 4.6, which lacks the required C++11 features needed by µOS++ SE, so we currently use 13.04.</p>
+
+<h3 id="ubuntu-1304">Ubuntu 13.04</h3>
+
+<p>The current Ubuntu is 13.04, and both 64 and 32 bit tests are run on the 64 bit version of the operating system.</p>
+
+<p>The prerequisites for running the POSIX tests on Ubuntu are:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>sudo apt-get install g++-multilib
+sudo apt-get install git python openssh-server
+</code></pre>
+</div>
+</div>
+
+<p>The default GCC compiler for 13.04 is 4.7:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>g++ --version
+g++ (Ubuntu/Linaro 4.7.3-1ubuntu1) 4.7.3
+</code></pre>
+</div>
+</div>
+
+<p>For additional tests, on 13.04 it is also possible to install <strong>clang</strong>:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>sudo apt-get install clang
+
+clang --version
+Ubuntu clang version 3.2-1~exp9ubuntu1 (tags/RELEASE_32/final) (based on LLVM 3.2)
+Target: x86_64-pc-linux-gnu
+Thread model: posix
+</code></pre>
+</div>
+</div>
+
+<p>Git and Python should also be available:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>git --version
+git version 1.8.1.2
+
+python --version
+Python 2.7.4
+</code></pre>
+</div>
+</div>
+
+<h2 id="eclipse-installation">Eclipse installation</h2>
+
+<p>For details regarding Eclipse installation, please read the separate page <a href="/web-preview/micro-os-plus/ii/Eclipse_(install_and_config)">Eclipse (install and config)</a>.</p>
+
+
+
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/micro-os-plus/ii/Prerequisites/" data-layout="button"></div></li>
+</ul>
+
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="site-footer">
+  <div class="site-footer-links left">
+    <ul>
+  <li>© 2019 Liviu Ionescu</li>
+  <li>Hosted on GitHub</li>
+  <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
+  <li>
+<a href="http://twitter.com/micro_os_plus" class="twitter-follow-button" data-show-count="false">Follow @micro_os_plus</a><script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</li>
+</ul>
+
+
+  </div>
+  <a href="https://github.com/micro-os-plus/micro-os-plus-iii" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+  </a>
+  <div class="site-footer-links right">
+    <ul>
+  <li><a href="/web-preview/">Home</a></li>
+  <li><a href="/web-preview/blog/">News</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/releases">Releases</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues">Support</a></li>
+  <li><a href="/web-preview/about/">About</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</div>
+
+</body>
+</html>

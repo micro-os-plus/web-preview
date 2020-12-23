@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Class OSImpl</title>
+  <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
+
+  <meta property="og:title" content="Class OSImpl">
+  <meta property="og:site_name" content="µOS++ IIIe">
+
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+
+
+  <meta property="article:published_time" content="2011-02-21">
+
+
+
+
+
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
+
+  <link rel="canonical" href="/web-preview/micro-os-plus/i/Class_OSImpl/">
+
+
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16767008-14', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+  <div class="site-header">
+  <table style="width:100%">
+    <tr>
+      <td>
+        <a href="/web-preview/">
+          <img alt="Icon" class="site-icon" src="/web-preview/assets/icons/wall-e-icon.png" height="100" width="100">
+      </a>
+      </td>
+      <td>
+        <table class="site-title" style="width:100%">
+          <tr>
+            <td class="site-title">
+              <a href="/web-preview/">µOS++ IIIe</a>
+            </td>
+            <td class="site-motto" align="right">
+              “Perfekt ist nicht gut genug”
+            </td>
+          </tr>
+          <tr>
+            <td class="site-description" colspan="2">
+              The third edition of µOS++, a POSIX inspired open source framework, written in C++.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+</div>
+
+<div class="container">
+
+  <div class="wrapper">
+    <div class="site-body">
+
+      <div class="site-sidebar">
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      <h4 id="news"><a href="/web-preview/blog/">News</a></h4>
+
+<ul>
+  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></li>
+  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ IIIe v6.3.14 released</a></li>
+  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ IIIe v6.3.13 released</a></li>
+  <li><a href="/web-preview/blog/2017/01/02/micro-os-plus-v6-3-11-released/">µOS++ IIIe v6.3.11 released</a></li>
+</ul>
+
+
+    </div>
+  </div>
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      
+      <h4 id="home"><a href="/web-preview/">Home</a></h4>
+
+<h4 id="µos-iiie">µOS++ IIIe</h4>
+
+<ul>
+  <li><a href="/web-preview/micro-os-plus/">Overview</a></li>
+</ul>
+
+<h4 id="apis">APIs</h4>
+
+<ul>
+  <li><a href="/web-preview/cmsis-plus/">Overview</a></li>
+  <li><a href="/web-preview/cmsis-plus/rtos/">RTOS API</a></li>
+</ul>
+
+<h4 id="xpacksxcdl">xPacks/XCDL</h4>
+
+<ul>
+  <li><a href="/web-preview/xpacks/">Overview</a></li>
+</ul>
+
+<h4 id="documentation">Documentation</h4>
+
+<ul>
+  <li>
+<a href="/web-preview/user-manual/">User’s <strong>manual</strong></a>
+    <ul>
+      <li><a href="/web-preview/user-manual/getting-started/">Getting started</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/">Basic concepts</a></li>
+      <li><a href="/web-preview/user-manual/features/">Features</a></li>
+      <li><a href="/web-preview/user-manual/threads/">Threads</a></li>
+      <li><a href="/web-preview/user-manual/thread-event-flags/">Thread event flags</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/">Semaphores</a></li>
+      <li><a href="/web-preview/user-manual/event-flags/">Event flags</a></li>
+      <li>Mutexes</li>
+      <li>Condition variables</li>
+      <li>Message queues</li>
+      <li>Memory pools</li>
+      <li>Software timers</li>
+      <li>Clocks</li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/reference/cmsis-plus/">µOS++ <strong>reference</strong></a></li>
+</ul>
+
+<h4 id="developer">Developer</h4>
+
+<ul>
+  <li><a href="/web-preview/develop/">Overview</a></li>
+  <li><a href="/web-preview/reference/cmsis-plus/md_doxygen_pages_change-log.html">Change log</a></li>
+  <li><a href="/web-preview/develop/coding-style/">C++ coding style</a></li>
+  <li><a href="/web-preview/develop/naming-conventions/">Naming conventions</a></li>
+  <li><a href="/web-preview/develop/references/">Links &amp; references</a></li>
+</ul>
+
+<h4 id="support">Support</h4>
+
+<ul>
+  <li><a href="/web-preview/support/">Overview</a></li>
+  <li><a href="/web-preview/support/known-issues/">Known issues</a></li>
+  <li><a href="/web-preview/support/faq/">FAQ</a></li>
+  <li><a href="/web-preview/support/forum/">Forum</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ IIIe issues</a></li>
+</ul>
+
+<h4 id="latest-articles">Latest Articles</h4>
+
+<ul>
+  <li><a href="/web-preview/articles/arm-com-2016-06-24/">CMSIS++ RTOS: fully functional reference implementation</a></li>
+  <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
+</ul>
+
+<h4 id="license">License</h4>
+
+<ul>
+  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+</ul>
+
+<h4 id="about"><a href="/web-preview/about/">About</a></h4>
+
+    </div>
+  </div>
+
+  <div class="site-theme">
+    This site uses the <a href="https://github.com/ilg-ul/github-jekyll-theme">GitHub Wiki-like</a> theme by <a href="https://github.com/ilg-ul">Liviu Ionescu</a>.
+  </div>
+
+</div>
+
+
+      <div class="site-content">
+
+        
+<h1 class="page-title">Class OSImpl - DEPRECATED</h1>
+<table id="last-modified">
+  <tr>
+    <td id="last-modified">Page date Mon Feb 21 11:58:23 2011 .</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/micro-os-plus/i/Class_OSImpl.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+  </tr>
+</table>
+
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toc_level-1 toc_section-1">
+<a href="#inline-static-void-cpustackinitvoid-attributealways_inline"><span class="tocnumber">1</span> <span class="toctext">inline static void CPUstackInit(void) attribute((always_inline))</span></a>
+</li>
+<li class="toc_level-1 toc_section-2">
+<a href="#inline-static-void-cpuinitvoid-attributealways_inline"><span class="tocnumber">2</span> <span class="toctext">inline static void CPUinit(void) attribute((always_inline))</span></a>
+</li>
+<li class="toc_level-1 toc_section-3">
+<a href="#inline-static-void-cpuidlevoid-attributealways_inline"><span class="tocnumber">3</span> <span class="toctext">inline static void CPUidle(void) attribute((always_inline))</span></a>
+</li>
+<li class="toc_level-1 toc_section-4">
+<a href="#inline-static-void-cpusleepvoid-attributealways_inline"><span class="tocnumber">4</span> <span class="toctext">inline static void CPUsleep(void) attribute((always_inline))</span></a>
+</li>
+<li class="toc_level-1 toc_section-5">
+<a href="#inline-static-void-cpudeepsleepvoid-attributealways_inline"><span class="tocnumber">5</span> <span class="toctext">inline static void CPUdeepSleep(void) attribute((always_inline))</span></a>
+</li>
+<li class="toc_level-1 toc_section-6">
+<a href="#inline-static-osresetbits_t-cpufetchresetbitsvoid-attributealways_inline"><span class="tocnumber">6</span> <span class="toctext">inline static OSResetBits_t CPUfetchResetBits(void) attribute((always_inline))</span></a>
+</li>
+<li class="toc_level-1 toc_section-7">
+<a href="#inline-static-void-wdtresetvoid-attributealways_inline"><span class="tocnumber">7</span> <span class="toctext">inline static void WDTreset(void) attribute((always_inline))</span></a>
+</li>
+<li class="toc_level-1 toc_section-8">
+<a href="#inline-static-void-nopvoid-attributealways_inline"><span class="tocnumber">8</span> <span class="toctext">inline static void NOP(void) attribute((always_inline))</span></a>
+</li>
+<li class="toc_level-1 toc_section-9">
+<a href="#inline-static-void-softresetvoid-attributealways_inline"><span class="tocnumber">9</span> <span class="toctext">inline static void SOFTreset(void) attribute((always_inline))</span></a>
+</li>
+<li class="toc_level-1 toc_section-10">
+<a href="#inline-static-void-returnfrominterruptvoid-attributealways_inlinenoreturn"><span class="tocnumber">10</span> <span class="toctext">inline static void returnFromInterrupt(void) attribute((always_inline,noreturn))</span></a>
+</li>
+<li class="toc_level-1 toc_section-11">
+<a href="#inline-static-void-returnfromsubroutinevoid-attributealways_inlinenoreturn"><span class="tocnumber">11</span> <span class="toctext">inline static void returnFromSubroutine(void) attribute((always_inline,noreturn))</span></a>
+</li>
+<li class="toc_level-1 toc_section-12">
+<a href="#inline-static-void-interruptsenablevoid-attributealways_inline"><span class="tocnumber">12</span> <span class="toctext">inline static void interruptsEnable(void) attribute((always_inline))</span></a>
+</li>
+<li class="toc_level-1 toc_section-13">
+<a href="#inline-static-void-interruptsdisablevoid-attributealways_inline"><span class="tocnumber">13</span> <span class="toctext">inline static void interruptsDisable(void) attribute((always_inline))</span></a>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>OSImpl</p>
+
+<h1 id="constructors">Constructors</h1>
+
+<h1 id="methods">Methods</h1>
+
+<h2 id="inline-static-void-cpustackinitvoid-attributealways_inline">inline static void CPUstackInit(void) <strong>attribute</strong>((always_inline))</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Initialize the SP register in order to point to the stack section.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* none</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* none</p>
+
+<h2 id="inline-static-void-cpuinitvoid-attributealways_inline">inline static void CPUinit(void) <strong>attribute</strong>((always_inline))</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Perform some CPU initializations.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* none</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* none</p>
+
+<h2 id="inline-static-void-cpuidlevoid-attributealways_inline">inline static void CPUidle(void) <strong>attribute</strong>((always_inline))</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Put MCU to the idle sleep mode.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* none</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* none</p>
+
+<h2 id="inline-static-void-cpusleepvoid-attributealways_inline">inline static void CPUsleep(void) <strong>attribute</strong>((always_inline))</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Put MCU to sleep.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* none</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* none</p>
+
+<h2 id="inline-static-void-cpudeepsleepvoid-attributealways_inline">inline static void CPUdeepSleep(void) <strong>attribute</strong>((always_inline))</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Put MCU to deep sleep.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* none</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* none</p>
+
+<h2 id="inline-static-osresetbits_t-cpufetchresetbitsvoid-attributealways_inline">inline static OSResetBits_t CPUfetchResetBits(void) <strong>attribute</strong>((always_inline))</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Return the reset bits used to know the reset reason.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* none</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* The reset bits used to know the reset reason.</p>
+
+<h2 id="inline-static-void-wdtresetvoid-attributealways_inline">inline static void WDTreset(void) <strong>attribute</strong>((always_inline))</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Reset the WDT.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* none</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* none</p>
+
+<h2 id="inline-static-void-nopvoid-attributealways_inline">inline static void NOP(void) <strong>attribute</strong>((always_inline))</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>No operation performed. It embeds the asm “nop” assembly command.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* none</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* none</p>
+
+<h2 id="inline-static-void-softresetvoid-attributealways_inline">inline static void SOFTreset(void) <strong>attribute</strong>((always_inline))</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Generate a soft reset.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* none</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* none</p>
+
+<h2 id="inline-static-void-returnfrominterruptvoid-attributealways_inlinenoreturn">inline static void returnFromInterrupt(void) <strong>attribute</strong>((always_inline,noreturn))</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Wrapper for the asm “rete” instruction.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* none</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* none</p>
+
+<h2 id="inline-static-void-returnfromsubroutinevoid-attributealways_inlinenoreturn">inline static void returnFromSubroutine(void) <strong>attribute</strong>((always_inline,noreturn))</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Copy link register’s (LR) value into the PC. This will continue execution of the previously executed routine.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* none</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* none</p>
+
+<h2 id="inline-static-void-interruptsenablevoid-attributealways_inline">inline static void interruptsEnable(void) <strong>attribute</strong>((always_inline))</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Enable interrupts (global interrupt mask bit - GM from SR). If function must be always inline, it is required the definition of OS_INLINE_INTERRUPTS_ENABLE_DISABLE.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* none</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* none</p>
+
+<h2 id="inline-static-void-interruptsdisablevoid-attributealways_inline">inline static void interruptsDisable(void) <strong>attribute</strong>((always_inline))</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Disable all interrupts (global interrupt mask bit - GM from SR). If function must be always inline, it is required the definition of OS_INLINE_INTERRUPTS_ENABLE_DISABLE.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* none</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* none</p>
+
+
+
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/micro-os-plus/i/Class_OSImpl/" data-layout="button"></div></li>
+</ul>
+
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="site-footer">
+  <div class="site-footer-links left">
+    <ul>
+  <li>© 2019 Liviu Ionescu</li>
+  <li>Hosted on GitHub</li>
+  <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
+  <li>
+<a href="http://twitter.com/micro_os_plus" class="twitter-follow-button" data-show-count="false">Follow @micro_os_plus</a><script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</li>
+</ul>
+
+
+  </div>
+  <a href="https://github.com/micro-os-plus/micro-os-plus-iii" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+  </a>
+  <div class="site-footer-links right">
+    <ul>
+  <li><a href="/web-preview/">Home</a></li>
+  <li><a href="/web-preview/blog/">News</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/releases">Releases</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues">Support</a></li>
+  <li><a href="/web-preview/about/">About</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,2293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Coding style</title>
+  <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
+
+  <meta property="og:title" content="Coding style">
+  <meta property="og:site_name" content="µOS++ IIIe">
+
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+
+
+  <meta property="article:published_time" content="2016-01-10">
+
+
+
+
+
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
+
+  <link rel="canonical" href="/web-preview/micro-os-plus/ii/Coding_style/">
+
+
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16767008-14', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+  <div class="site-header">
+  <table style="width:100%">
+    <tr>
+      <td>
+        <a href="/web-preview/">
+          <img alt="Icon" class="site-icon" src="/web-preview/assets/icons/wall-e-icon.png" height="100" width="100">
+      </a>
+      </td>
+      <td>
+        <table class="site-title" style="width:100%">
+          <tr>
+            <td class="site-title">
+              <a href="/web-preview/">µOS++ IIIe</a>
+            </td>
+            <td class="site-motto" align="right">
+              “Perfekt ist nicht gut genug”
+            </td>
+          </tr>
+          <tr>
+            <td class="site-description" colspan="2">
+              The third edition of µOS++, a POSIX inspired open source framework, written in C++.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+</div>
+
+<div class="container">
+
+  <div class="wrapper">
+    <div class="site-body">
+
+      <div class="site-sidebar">
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      <h4 id="news"><a href="/web-preview/blog/">News</a></h4>
+
+<ul>
+  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></li>
+  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ IIIe v6.3.14 released</a></li>
+  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ IIIe v6.3.13 released</a></li>
+  <li><a href="/web-preview/blog/2017/01/02/micro-os-plus-v6-3-11-released/">µOS++ IIIe v6.3.11 released</a></li>
+</ul>
+
+
+    </div>
+  </div>
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      
+      <h4 id="home"><a href="/web-preview/">Home</a></h4>
+
+<h4 id="µos-iiie">µOS++ IIIe</h4>
+
+<ul>
+  <li><a href="/web-preview/micro-os-plus/">Overview</a></li>
+</ul>
+
+<h4 id="apis">APIs</h4>
+
+<ul>
+  <li><a href="/web-preview/cmsis-plus/">Overview</a></li>
+  <li><a href="/web-preview/cmsis-plus/rtos/">RTOS API</a></li>
+</ul>
+
+<h4 id="xpacksxcdl">xPacks/XCDL</h4>
+
+<ul>
+  <li><a href="/web-preview/xpacks/">Overview</a></li>
+</ul>
+
+<h4 id="documentation">Documentation</h4>
+
+<ul>
+  <li>
+<a href="/web-preview/user-manual/">User’s <strong>manual</strong></a>
+    <ul>
+      <li><a href="/web-preview/user-manual/getting-started/">Getting started</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/">Basic concepts</a></li>
+      <li><a href="/web-preview/user-manual/features/">Features</a></li>
+      <li><a href="/web-preview/user-manual/threads/">Threads</a></li>
+      <li><a href="/web-preview/user-manual/thread-event-flags/">Thread event flags</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/">Semaphores</a></li>
+      <li><a href="/web-preview/user-manual/event-flags/">Event flags</a></li>
+      <li>Mutexes</li>
+      <li>Condition variables</li>
+      <li>Message queues</li>
+      <li>Memory pools</li>
+      <li>Software timers</li>
+      <li>Clocks</li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/reference/cmsis-plus/">µOS++ <strong>reference</strong></a></li>
+</ul>
+
+<h4 id="developer">Developer</h4>
+
+<ul>
+  <li><a href="/web-preview/develop/">Overview</a></li>
+  <li><a href="/web-preview/reference/cmsis-plus/md_doxygen_pages_change-log.html">Change log</a></li>
+  <li><a href="/web-preview/develop/coding-style/">C++ coding style</a></li>
+  <li><a href="/web-preview/develop/naming-conventions/">Naming conventions</a></li>
+  <li><a href="/web-preview/develop/references/">Links &amp; references</a></li>
+</ul>
+
+<h4 id="support">Support</h4>
+
+<ul>
+  <li><a href="/web-preview/support/">Overview</a></li>
+  <li><a href="/web-preview/support/known-issues/">Known issues</a></li>
+  <li><a href="/web-preview/support/faq/">FAQ</a></li>
+  <li><a href="/web-preview/support/forum/">Forum</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ IIIe issues</a></li>
+</ul>
+
+<h4 id="latest-articles">Latest Articles</h4>
+
+<ul>
+  <li><a href="/web-preview/articles/arm-com-2016-06-24/">CMSIS++ RTOS: fully functional reference implementation</a></li>
+  <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
+</ul>
+
+<h4 id="license">License</h4>
+
+<ul>
+  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+</ul>
+
+<h4 id="about"><a href="/web-preview/about/">About</a></h4>
+
+    </div>
+  </div>
+
+  <div class="site-theme">
+    This site uses the <a href="https://github.com/ilg-ul/github-jekyll-theme">GitHub Wiki-like</a> theme by <a href="https://github.com/ilg-ul">Liviu Ionescu</a>.
+  </div>
+
+</div>
+
+
+      <div class="site-content">
+
+        
+<h1 class="page-title">Coding style - DEPRECATED</h1>
+<table id="last-modified">
+  <tr>
+    <td id="last-modified">Page date Sun Jan 10 21:52:38 2016 .</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/micro-os-plus/ii/Coding_style.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+  </tr>
+</table>
+
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toc_level-1 toc_section-1">
+<a href="#general-design"><span class="tocnumber">1</span> <span class="toctext">General Design</span></a>
+<ul>
+<li class="toc_level-2 toc_section-2">
+<a href="#coupling--cohesion"><span class="tocnumber">1.1</span> <span class="toctext">Coupling &amp; Cohesion</span></a>
+</li>
+<li class="toc_level-2 toc_section-3">
+<a href="#rules"><span class="tocnumber">1.2</span> <span class="toctext">Rules</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-4">
+<a href="#jsf-av-referenced-documents"><span class="tocnumber">2</span> <span class="toctext">JSF AV Referenced Documents</span></a>
+</li>
+<li class="toc_level-1 toc_section-5">
+<a href="#language-independent-issues"><span class="tocnumber">3</span> <span class="toctext">Language independent issues</span></a>
+<ul>
+<li class="toc_level-2 toc_section-6">
+<a href="#code-size-and-complexity"><span class="tocnumber">3.1</span> <span class="toctext">Code Size and Complexity</span></a>
+</li>
+<li class="toc_level-2 toc_section-7">
+<a href="#unnecessary-constructs"><span class="tocnumber">3.2</span> <span class="toctext">Unnecessary constructs</span></a>
+</li>
+<li class="toc_level-2 toc_section-8">
+<a href="#storage"><span class="tocnumber">3.3</span> <span class="toctext">Storage</span></a>
+</li>
+<li class="toc_level-2 toc_section-9">
+<a href="#runtime-features"><span class="tocnumber">3.4</span> <span class="toctext">Runtime features</span></a>
+</li>
+<li class="toc_level-2 toc_section-10">
+<a href="#arithmetic"><span class="tocnumber">3.5</span> <span class="toctext">Arithmetic</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-11">
+<a href="#general"><span class="tocnumber">4</span> <span class="toctext">General</span></a>
+<ul>
+<li class="toc_level-2 toc_section-12">
+<a href="#language"><span class="tocnumber">4.1</span> <span class="toctext">Language</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-13">
+<a href="#lexical-conventions"><span class="tocnumber">5</span> <span class="toctext">Lexical conventions</span></a>
+<ul>
+<li class="toc_level-2 toc_section-14">
+<a href="#character-sets"><span class="tocnumber">5.1</span> <span class="toctext">Character sets</span></a>
+</li>
+<li class="toc_level-2 toc_section-15">
+<a href="#trigraph-sequences"><span class="tocnumber">5.2</span> <span class="toctext">Trigraph sequences</span></a>
+</li>
+<li class="toc_level-2 toc_section-16">
+<a href="#alternative-tokens"><span class="tocnumber">5.3</span> <span class="toctext">Alternative tokens</span></a>
+</li>
+<li class="toc_level-2 toc_section-17">
+<a href="#comments"><span class="tocnumber">5.4</span> <span class="toctext">Comments</span></a>
+</li>
+<li class="toc_level-2 toc_section-18">
+<a href="#identifiers"><span class="tocnumber">5.5</span> <span class="toctext">Identifiers</span></a>
+</li>
+<li class="toc_level-2 toc_section-19">
+<a href="#literals"><span class="tocnumber">5.6</span> <span class="toctext">Literals</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-20">
+<a href="#basic-concepts"><span class="tocnumber">6</span> <span class="toctext">Basic concepts</span></a>
+<ul>
+<li class="toc_level-2 toc_section-21">
+<a href="#declarations-and-definitions"><span class="tocnumber">6.1</span> <span class="toctext">Declarations and definitions</span></a>
+</li>
+<li class="toc_level-2 toc_section-22">
+<a href="#one-definition-rule"><span class="tocnumber">6.2</span> <span class="toctext">One Definition Rule</span></a>
+</li>
+<li class="toc_level-2 toc_section-23">
+<a href="#declarative-regions-and-scope"><span class="tocnumber">6.3</span> <span class="toctext">Declarative regions and scope</span></a>
+</li>
+<li class="toc_level-2 toc_section-24">
+<a href="#name-lookup"><span class="tocnumber">6.4</span> <span class="toctext">Name lookup</span></a>
+</li>
+<li class="toc_level-2 toc_section-25">
+<a href="#types"><span class="tocnumber">6.5</span> <span class="toctext">Types</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-26">
+<a href="#standard-conversions"><span class="tocnumber">7</span> <span class="toctext">Standard conversions</span></a>
+<ul>
+<li class="toc_level-2 toc_section-27">
+<a href="#integral-promotions"><span class="tocnumber">7.1</span> <span class="toctext">Integral promotions</span></a>
+</li>
+<li class="toc_level-2 toc_section-28">
+<a href="#pointer-conversions"><span class="tocnumber">7.2</span> <span class="toctext">Pointer conversions</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-29">
+<a href="#expressions"><span class="tocnumber">8</span> <span class="toctext">Expressions</span></a>
+<ul>
+<li class="toc_level-2 toc_section-30">
+<a href="#general-1"><span class="tocnumber">8.1</span> <span class="toctext">General</span></a>
+</li>
+<li class="toc_level-2 toc_section-31">
+<a href="#type-conversions"><span class="tocnumber">8.2</span> <span class="toctext">Type conversions</span></a>
+</li>
+<li class="toc_level-2 toc_section-32">
+<a href="#postfix-expressions"><span class="tocnumber">8.3</span> <span class="toctext">Postfix expressions</span></a>
+</li>
+<li class="toc_level-2 toc_section-33">
+<a href="#unary-expressions"><span class="tocnumber">8.4</span> <span class="toctext">Unary expressions</span></a>
+</li>
+<li class="toc_level-2 toc_section-34">
+<a href="#shift-operators"><span class="tocnumber">8.5</span> <span class="toctext">Shift operators</span></a>
+</li>
+<li class="toc_level-2 toc_section-35">
+<a href="#logical-and-operator"><span class="tocnumber">8.6</span> <span class="toctext">Logical AND operator</span></a>
+</li>
+<li class="toc_level-2 toc_section-36">
+<a href="#assignment-operators"><span class="tocnumber">8.7</span> <span class="toctext">Assignment operators</span></a>
+</li>
+<li class="toc_level-2 toc_section-37">
+<a href="#comma-operator"><span class="tocnumber">8.8</span> <span class="toctext">Comma operator</span></a>
+</li>
+<li class="toc_level-2 toc_section-38">
+<a href="#constant-expressions"><span class="tocnumber">8.9</span> <span class="toctext">Constant expressions</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-39">
+<a href="#statements"><span class="tocnumber">9</span> <span class="toctext">Statements</span></a>
+<ul>
+<li class="toc_level-2 toc_section-40">
+<a href="#expression-statement"><span class="tocnumber">9.1</span> <span class="toctext">Expression statement</span></a>
+</li>
+<li class="toc_level-2 toc_section-41">
+<a href="#compound-statement"><span class="tocnumber">9.2</span> <span class="toctext">Compound statement</span></a>
+</li>
+<li class="toc_level-2 toc_section-42">
+<a href="#selection-statements"><span class="tocnumber">9.3</span> <span class="toctext">Selection statements</span></a>
+</li>
+<li class="toc_level-2 toc_section-43">
+<a href="#iteration-statements"><span class="tocnumber">9.4</span> <span class="toctext">Iteration statements</span></a>
+</li>
+<li class="toc_level-2 toc_section-44">
+<a href="#jump-statements"><span class="tocnumber">9.5</span> <span class="toctext">Jump statements</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-45">
+<a href="#declarations"><span class="tocnumber">10</span> <span class="toctext">Declarations</span></a>
+<ul>
+<li class="toc_level-2 toc_section-46">
+<a href="#general-2"><span class="tocnumber">10.1</span> <span class="toctext">General</span></a>
+</li>
+<li class="toc_level-2 toc_section-47">
+<a href="#meaning-of-declarators"><span class="tocnumber">10.2</span> <span class="toctext">Meaning of declarators</span></a>
+</li>
+<li class="toc_level-2 toc_section-48">
+<a href="#specifiers"><span class="tocnumber">10.3</span> <span class="toctext">Specifiers</span></a>
+</li>
+<li class="toc_level-2 toc_section-49">
+<a href="#enumeration-declarations"><span class="tocnumber">10.4</span> <span class="toctext">Enumeration declarations</span></a>
+</li>
+<li class="toc_level-2 toc_section-50">
+<a href="#namespaces"><span class="tocnumber">10.5</span> <span class="toctext">Namespaces</span></a>
+</li>
+<li class="toc_level-2 toc_section-51">
+<a href="#the-asm-declaration"><span class="tocnumber">10.6</span> <span class="toctext">The asm declaration</span></a>
+</li>
+<li class="toc_level-2 toc_section-52">
+<a href="#linkage-specifications"><span class="tocnumber">10.7</span> <span class="toctext">Linkage specifications</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-53">
+<a href="#definitions"><span class="tocnumber">11</span> <span class="toctext">Definitions</span></a>
+<ul>
+<li class="toc_level-2 toc_section-54">
+<a href="#function-definitions"><span class="tocnumber">11.1</span> <span class="toctext">Function definitions</span></a>
+</li>
+<li class="toc_level-2 toc_section-55">
+<a href="#inline-functions"><span class="tocnumber">11.2</span> <span class="toctext">Inline Functions</span></a>
+</li>
+<li class="toc_level-2 toc_section-56">
+<a href="#initialisation"><span class="tocnumber">11.3</span> <span class="toctext">Initialisation</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-57">
+<a href="#classes"><span class="tocnumber">12</span> <span class="toctext">Classes</span></a>
+<ul>
+<li class="toc_level-2 toc_section-58">
+<a href="#member-functions"><span class="tocnumber">12.1</span> <span class="toctext">Member functions</span></a>
+</li>
+<li class="toc_level-2 toc_section-59">
+<a href="#unions"><span class="tocnumber">12.2</span> <span class="toctext">Unions</span></a>
+</li>
+<li class="toc_level-2 toc_section-60">
+<a href="#bit-fields"><span class="tocnumber">12.3</span> <span class="toctext">Bit-fields</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-61">
+<a href="#derived-classes"><span class="tocnumber">13</span> <span class="toctext">Derived classes</span></a>
+<ul>
+<li class="toc_level-2 toc_section-62">
+<a href="#inheritance"><span class="tocnumber">13.1</span> <span class="toctext">Inheritance</span></a>
+</li>
+<li class="toc_level-2 toc_section-63">
+<a href="#multiple-base-classes"><span class="tocnumber">13.2</span> <span class="toctext">Multiple base classes</span></a>
+</li>
+<li class="toc_level-2 toc_section-64">
+<a href="#member-name-lookup"><span class="tocnumber">13.3</span> <span class="toctext">Member name lookup</span></a>
+</li>
+<li class="toc_level-2 toc_section-65">
+<a href="#virtual-functions"><span class="tocnumber">13.4</span> <span class="toctext">Virtual functions</span></a>
+</li>
+<li class="toc_level-2 toc_section-66">
+<a href="#testing"><span class="tocnumber">13.5</span> <span class="toctext">Testing</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-67">
+<a href="#member-access-control"><span class="tocnumber">14</span> <span class="toctext">Member access control</span></a>
+<ul>
+<li class="toc_level-2 toc_section-68">
+<a href="#general-3"><span class="tocnumber">14.1</span> <span class="toctext">General</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-69">
+<a href="#special-member-functions"><span class="tocnumber">15</span> <span class="toctext">Special member functions</span></a>
+<ul>
+<li class="toc_level-2 toc_section-70">
+<a href="#constructors"><span class="tocnumber">15.1</span> <span class="toctext">Constructors</span></a>
+</li>
+<li class="toc_level-2 toc_section-71">
+<a href="#copying-class-objects"><span class="tocnumber">15.2</span> <span class="toctext">Copying class objects</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-72">
+<a href="#templates"><span class="tocnumber">16</span> <span class="toctext">Templates</span></a>
+<ul>
+<li class="toc_level-2 toc_section-73">
+<a href="#template-declarations"><span class="tocnumber">16.1</span> <span class="toctext">Template declarations</span></a>
+</li>
+<li class="toc_level-2 toc_section-74">
+<a href="#name-resolution"><span class="tocnumber">16.2</span> <span class="toctext">Name resolution</span></a>
+</li>
+<li class="toc_level-2 toc_section-75">
+<a href="#template-instantiation-and-specialisation"><span class="tocnumber">16.3</span> <span class="toctext">Template instantiation and specialisation</span></a>
+</li>
+<li class="toc_level-2 toc_section-76">
+<a href="#function-template-specialisation"><span class="tocnumber">16.4</span> <span class="toctext">Function template specialisation</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-77">
+<a href="#exception-handling"><span class="tocnumber">17</span> <span class="toctext">Exception handling</span></a>
+<ul>
+<li class="toc_level-2 toc_section-78">
+<a href="#general-4"><span class="tocnumber">17.1</span> <span class="toctext">General</span></a>
+</li>
+<li class="toc_level-2 toc_section-79">
+<a href="#throwing-an-exception"><span class="tocnumber">17.2</span> <span class="toctext">Throwing an exception</span></a>
+</li>
+<li class="toc_level-2 toc_section-80">
+<a href="#handling-an-exception"><span class="tocnumber">17.3</span> <span class="toctext">Handling an exception</span></a>
+</li>
+<li class="toc_level-2 toc_section-81">
+<a href="#exception-specifications"><span class="tocnumber">17.4</span> <span class="toctext">Exception specifications</span></a>
+</li>
+<li class="toc_level-2 toc_section-82">
+<a href="#special-functions"><span class="tocnumber">17.5</span> <span class="toctext">Special functions</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-83">
+<a href="#preprocessing-directives"><span class="tocnumber">18</span> <span class="toctext">Preprocessing directives</span></a>
+<ul>
+<li class="toc_level-2 toc_section-84">
+<a href="#general-5"><span class="tocnumber">18.1</span> <span class="toctext">General</span></a>
+</li>
+<li class="toc_level-2 toc_section-85">
+<a href="#conditional-inclusion"><span class="tocnumber">18.2</span> <span class="toctext">Conditional inclusion</span></a>
+</li>
+<li class="toc_level-2 toc_section-86">
+<a href="#source-file-inclusion"><span class="tocnumber">18.3</span> <span class="toctext">Source file inclusion</span></a>
+</li>
+<li class="toc_level-2 toc_section-87">
+<a href="#macro-replacement"><span class="tocnumber">18.4</span> <span class="toctext">Macro replacement</span></a>
+</li>
+<li class="toc_level-2 toc_section-88">
+<a href="#pragma-directive"><span class="tocnumber">18.5</span> <span class="toctext">Pragma directive</span></a>
+</li>
+<li class="toc_level-2 toc_section-89">
+<a href="#library-introduction---general"><span class="tocnumber">18.6</span> <span class="toctext">Library introduction - General</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-90">
+<a href="#language-support-library"><span class="tocnumber">19</span> <span class="toctext">Language support library</span></a>
+<ul>
+<li class="toc_level-2 toc_section-91">
+<a href="#general-6"><span class="tocnumber">19.1</span> <span class="toctext">General</span></a>
+</li>
+<li class="toc_level-2 toc_section-92">
+<a href="#implementation-properties"><span class="tocnumber">19.2</span> <span class="toctext">Implementation properties</span></a>
+</li>
+<li class="toc_level-2 toc_section-93">
+<a href="#dynamic-memory-management"><span class="tocnumber">19.3</span> <span class="toctext">Dynamic memory management</span></a>
+</li>
+<li class="toc_level-2 toc_section-94">
+<a href="#other-runtime-support"><span class="tocnumber">19.4</span> <span class="toctext">Other runtime support</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-95">
+<a href="#diagnostics-library"><span class="tocnumber">20</span> <span class="toctext">Diagnostics library</span></a>
+<ul>
+<li class="toc_level-2 toc_section-96">
+<a href="#error-numbers"><span class="tocnumber">20.1</span> <span class="toctext">Error numbers</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-97">
+<a href="#inputoutput-library"><span class="tocnumber">21</span> <span class="toctext">Input/output library</span></a>
+<ul>
+<li class="toc_level-2 toc_section-98">
+<a href="#general-7"><span class="tocnumber">21.1</span> <span class="toctext">General</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-99">
+<a href="#miscellaneous"><span class="tocnumber">22</span> <span class="toctext">Miscellaneous</span></a>
+<ul>
+<li class="toc_level-2 toc_section-100">
+<a href="#style"><span class="tocnumber">22.1</span> <span class="toctext">Style</span></a>
+</li>
+<li class="toc_level-2 toc_section-101">
+<a href="#naming-files"><span class="tocnumber">22.2</span> <span class="toctext">Naming Files</span></a>
+</li>
+<li class="toc_level-2 toc_section-102">
+<a href="#data-representation"><span class="tocnumber">22.3</span> <span class="toctext">Data Representation</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The following rules are mainly based on <em>MISRA C++:2008 Guidelines for the use of the C++ language in critical systems</em>, by Motor Industry Software Reliability Association with additions from <em>Joint Strike Fighter Air Vehicle C++ Coding Standards</em>, Lockheed Martin Corporation Doc. No. 2RDU00001 Rev D, dated June 2007, with some changes and clarifications.</p>
+
+<h2 id="general-design">General Design</h2>
+
+<p>This coding standards document is intended to help programmers develop code that conforms to safety-critical software principles, i.e., code that does not contain defects that could lead to catastrophic failures resulting in significant harm to individuals and/or equipment. In general, the code produced should exhibit the following important qualities:</p>
+
+<ul>
+  <li>
+<strong>Reliability</strong>: Executable code should consistently fulfill all requirements in a predictable manner.</li>
+  <li>
+<strong>Portability</strong>: Source code should be portable (i.e. not compiler or linker dependent).</li>
+  <li>
+<strong>Maintainability</strong>: Source code should be written in a manner that is consistent, readable, simple in design, and easy to debug.</li>
+  <li>
+<strong>Testability</strong>: Source code should be written to facilitate testability. Minimizing the following characteristics for each software module will facilitate a more testable and maintainable module:
+    <ol>
+      <li>code size</li>
+      <li>complexity</li>
+      <li>static path count (number of paths through a piece of code)</li>
+    </ol>
+  </li>
+  <li>
+<strong>Reusability</strong>: The design of reusable components is encouraged. Component reuse can eliminate redundant development and test activities (i.e. reduce costs).</li>
+  <li>
+<strong>Extensibility</strong>: Requirements are expected to evolve over the life of a product. Thus, a system should be developed in an extensible manner (i.e. perturbations in requirements may be managed through local extensions rather than wholesale modifications).</li>
+  <li>
+<strong>Readability</strong>: Source code should be written in a manner that is easy to read, understand and comprehend.</li>
+</ul>
+
+<h3 id="coupling--cohesion">Coupling &amp; Cohesion</h3>
+
+<p>Source code should be developed as a set of modules as loosely coupled as is reasonably feasible. Note that <strong>generic programming</strong> (which requires the use of templates) allows source code to be written with loose coupling and without runtime overhead.</p>
+
+<h3 id="rules">Rules</h3>
+
+<h4 id="should-will-and-shall-rules">Should, Will, and Shall Rules</h4>
+
+<p>There are three types of rules: should, will, and shall rules. Each rule contains either a “should”, “will” or a “shall” in bold letters indicating its type.</p>
+
+<ul>
+  <li>
+<strong>Should</strong> rules are advisory rules. They strongly suggest the recommended way of doing things.</li>
+  <li>
+<strong>Will</strong> rules are intended to be mandatory requirements. It is expected that they will be followed, but they do not require verification. They are limited to non-safety-critical requirements that cannot be easily verified (e.g., naming conventions). Specific to JSF AV, MISRA C++ does not use them.</li>
+  <li>
+<strong>Shall</strong> rules are mandatory requirements. They must be followed and they require verification (either automatic or manual).</li>
+</ul>
+
+<h4 id="breaking-rules">Breaking Rules</h4>
+
+<ul>
+  <li>[JSF AV Rule 4] - To break a <strong>“should”</strong> rule, the following approval must be received by the developer:
+    <ul>
+      <li>approval from the software engineering lead (obtained by the unit approval in the developmental CM tool)</li>
+    </ul>
+  </li>
+  <li>[JSF AV Rule 5] - To break a <strong>“will”</strong> or a <strong>“shall”</strong> rule, the following approvals must be received by the developer:
+    <ul>
+      <li>approval from the software engineering lead (obtained by the unit approval in the developmental CM tool)</li>
+      <li>approval from the software product manager (obtained by the unit approval in the developmental CM tool)</li>
+    </ul>
+  </li>
+  <li>[JSF AV Rule 6] - Each deviation from a <strong>“shall”</strong> rule shall be documented in the file that contains the deviation). Deviations from this rule shall not be allowed, AV Rule 5 notwithstanding.</li>
+</ul>
+
+<h4 id="exceptions-to-rules">Exceptions to Rules</h4>
+
+<ul>
+  <li>[JSF AV Rule 7] - Approval <strong>will not</strong> be required for a deviation from a <strong>“shall”</strong> or <strong>“will”</strong> rule that complies with an exception specified by that rule.</li>
+</ul>
+
+<h2 id="jsf-av-referenced-documents">JSF AV Referenced Documents</h2>
+
+<ol>
+  <li>ANSI/IEEE Std 754, IEEE Standard for Binary Floating-Point Arithmetic, 1985.</li>
+  <li>Bjarne Stroustrup. <em>The C++ Programming Language, 3rd Edition</em>. Addison-Wesley, 2000.</li>
+  <li>Bjarne Stroustrup. <em>Bjarne Stroustrup’s C++ Glossary.</em>
+</li>
+  <li>Bjarne Stroustrup. <em>Bjarne Stroustrup’s C++ Style and Technique FAQ.</em>
+</li>
+  <li>Barbara Liskov. <em>Data Abstraction and Hierarchy, SIGPLAN Notices</em>, 23, 5 (May, 1988).</li>
+  <li>Scott Meyers. <em>Effective C++: 50 Specific Ways to Improve Your Programs and Design, 2nd Edition.</em> Addison-Wesley, 1998.</li>
+  <li>Scott Meyers. <em>More Effective C++: 35 New Ways to Improve Your Programs and Designs</em>. Addison-Wesley, 1996.</li>
+  <li>Motor Industry Software Reliability Association. <em>Guidelines for the Use of the C Language in Vehicle Based Software</em>, April 1998.</li>
+  <li>ISO/IEC 10646-1, Information technology - Universal Multiple-Octet Coded Character Set (UCS) - Part 1: Architecture and Basic Multilingual Plane, 1993.</li>
+  <li>ISO/IEC 14882:2003(E), <em>Programming Languages – C++</em>. American National Standards Institute, New York, New York 10036, 2003.</li>
+  <li>ISO/IEC 9899: 1990, <em>Programming languages - C</em>, ISO, 1990.</li>
+  <li>JSF Mission Systems Software Development Plan.</li>
+  <li>JSF System Safety Program Plan. DOC. No. 2YZA00045-0002.</li>
+  <li>
+<em>Programming in C++ Rules and Recommendations.</em> Copyright © by Ellemtel Telecommunication Systems Laboratories, Box 1505, 125 25 Alvsjo, Sweden, Document: M 90 0118 Uen, Rev. C, 27 April 1992.</li>
+  <li>RTCA/DO-178B, <em>Software Considerations in Airborne Systems and Equipment Certification</em>, December 1992.</li>
+</ol>
+
+<h2 id="language-independent-issues">Language independent issues</h2>
+
+<h3 id="code-size-and-complexity">Code Size and Complexity</h3>
+
+<ul>
+  <li>[JSF AV Rule 1] - Any one function (or method) <strong>will</strong> contain no more than 200 logical source lines of code (L- SLOCs).</li>
+  <li>[JSF AV Rule 2] - There <strong>shall not</strong> be any self-modifying code.</li>
+  <li>
+    <p>[JSF AV Rule 3] - All functions <strong>shall</strong> have a cyclomatic complexity number of 20 or less.</p>
+
+    <p><strong>Exception</strong>: A function containing a switch statement with many case labels may exceed this limit.</p>
+
+    <p>Node: Cyclomatic complexity is a structural metric based entirely on control flow through a piece of code; it is the number of non-repeating paths through the code.</p>
+  </li>
+</ul>
+
+<h3 id="unnecessary-constructs">Unnecessary constructs</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 0–1–1, Required] A <em>project</em> <strong>shall not</strong> contain <em>unreachable code</em>.</li>
+  <li>
+    <p>[JSV AV Rule 186 (MISRA C Rule 52)] - There <strong>shall</strong> be no unreachable code.</p>
+
+    <p>Note: For <em>reusable template components</em>, unused members will not be included in the object code.</p>
+  </li>
+  <li>[MISRA C++ Rule 0–1–2, Required] A <em>project</em> <strong>shall not</strong> contain <em>infeasible paths</em>.</li>
+  <li>[MISRA C++ Rule 0–1–3, Required] A <em>project</em> <strong>shall not</strong> contain <em>unused</em> variables.</li>
+  <li>[MISRA C++ Rule 0–1–4, Required] A <em>project</em> <strong>shall not</strong> contain non-volatile <em>POD</em> variables having only one use.</li>
+  <li>[MISRA C++ Rule 0–1–5, Required] A <em>project</em> <strong>shall not</strong> contain unused type declarations.</li>
+  <li>[MISRA C++ Rule 0–1–6, Required] A <em>project</em> <strong>shall not</strong> contain instances of non-volatile variables being given values that are never subsequently used.</li>
+  <li>[MISRA C++ Rule 0–1–7, Required] The value returned by a function having a non-<em>void</em> return type that is not an overloaded operator <strong>shall</strong> always be <em>used</em>.</li>
+  <li>[MISRA C++ Rule 0–1–8, Required] All functions with <em>void</em> return type <strong>shall</strong> have external side effect(s).</li>
+  <li>[JSV AV Rule 187 (MISRA C Rule 53, Revised)] - All non-null statements <strong>shall</strong> potentially have a side-effect.</li>
+  <li>[MISRA C++ Rule 0–1–9, Required] There <strong>shall</strong> be no <em>dead code</em> (redundant, code whose removal would not affect the program output).</li>
+  <li>[MISRA C++ Rule 0–1–10, Required] Every defined function <strong>shall</strong> be called at least once.</li>
+  <li>[MISRA C++ Rule 0–1–11, Required] There <strong>shall</strong> be no <em>unused</em> parameters (named or unnamed) in non-virtual functions.</li>
+  <li>[MISRA C++ Rule 0–1–12, Required] There <strong>shall</strong> be no <em>unused</em> parameters (named or unnamed) in the set of parameters for a virtual function and all the functions that override it.</li>
+</ul>
+
+<h3 id="storage">Storage</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 0–2–1, Required] An object <strong>shall not</strong> be assigned to an overlapping object (object storage shall not overlap).</li>
+</ul>
+
+<h3 id="runtime-features">Runtime features</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 0–3–1, Document] Minimization of run-time failures <strong>shall</strong> be ensured by the use of at least one of:
+    <ul>
+      <li>static analysis tools/techniques;</li>
+      <li>dynamic analysis tools/techniques;</li>
+      <li>explicit coding of checks to handle run-time faults.</li>
+    </ul>
+  </li>
+  <li>[MISRA C++ Rule 0–3–2, Required] If a function generates error information, then that error information <strong>shall</strong> be tested.</li>
+  <li>[JSF AV Rule 15 (MISRA C Rule 4, Revised)] - Provision <strong>shall</strong> be made for run-time checking (defensive programming).</li>
+  <li>[JSF AV Rule 125] - Unnecessary temporary objects <strong>should</strong> be avoided. See Meyers [7], item 19, 20, 21.</li>
+  <li>[JSV AV Rule 217] - Compile-time and link-time errors <strong>should</strong> be preferred over run-time errors. See Meyers [6], item 46.</li>
+</ul>
+
+<h3 id="arithmetic">Arithmetic</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 0–4–1, Document] - Use of scaled-integer or fixed-point arithmetic <strong>shall</strong> be documented.</li>
+  <li>[MISRA C++ Rule 0–4–2, Document] - Use of floating-point arithmetic <strong>shall</strong> be documented.</li>
+  <li>[MISRA C++ Rule 0–4–3, Document] - Floating-point implementations <strong>shall</strong> comply with a defined floating- point standard.</li>
+</ul>
+
+<h2 id="general">General</h2>
+
+<h3 id="language">Language</h3>
+
+<ul>
+  <li>
+<del>[MISRA C++ Rule 1–0–1, Required] - All code <strong>shall</strong> conform to ISO/IEC 14882:2003 “The C++ Standard Incorporating Technical Corrigendum 1”.</del> (updated to 14882:2011)</li>
+  <li>
+<del>[JSF AV Rule 8] - All code <strong>shall</strong> conform to ISO/IEC 14882:2002(E) standard C++. [10]</del> (updated to 14882:2011)</li>
+  <li>[ILG Rule 1–0–1 update, Required] - All code <strong>shall</strong> conform to ISO/IEC 14882:2011 The <em>C++ Programming languages — C++</em>
+</li>
+  <li>[MISRA C++ Rule 1–0–2, Document] - Multiple compilers <strong>shall</strong> only be used if they have a common, defined interface.</li>
+  <li>[ILG Rule 1-0-2, Advisory] - Both GNU GCC and LLVM Clang compilers <strong>should</strong> be considered.</li>
+  <li>[MISRA C++ Rule 1–0–3, Document] - The implementation of integer division in the chosen compiler <strong>shall</strong> be determined and documented.</li>
+</ul>
+
+<h2 id="lexical-conventions">Lexical conventions</h2>
+
+<h3 id="character-sets">Character sets</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 2–2–1, Document] - The character set and the corresponding encoding <strong>shall</strong> be documented.</li>
+  <li>[JSF AV Rule 9 (MISRA C Rule 5, Revised)] - Only those characters specified in the C++ basic source character set <strong>will</strong> be used. This set includes 96 characters: the space character, the control characters representing horizontal tab, vertical tab, form feed, and newline, and the following 91 graphical characters:</li>
+</ul>
+
+<!-- -->
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code> a b c d e f g h i j k l m n o p q r s t u v w x y z
+ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+ 0 1 2 3 4 5 6 7 8 9
+ _ { } [ ] - # ( ) &lt; &gt; % : ; . ? * + -
+ / ^ &amp; | ~ ! = , \ " ’
+</code></pre>
+</div>
+</div>
+
+<ul>
+  <li>[JSF AV Rule 10 (MISRA C Rule 6)] - Values of character types <strong>will</strong> be restricted to a defined and documented subset of ISO 10646-1. [9]</li>
+  <li><del>[JSF AV Rule 13 (MISRA C Rule 8)] - Multi-byte characters and wide string literals <strong>will not</strong> be used.</del></li>
+  <li>[ILG AV Rule 13 (MISRA C Rule 8)] - Multi-byte characters and wide string literals <strong>will not</strong> be used in variable names, but UTF-8 characters are legal in comments (and Doxygen documentation).</li>
+</ul>
+
+<h3 id="trigraph-sequences">Trigraph sequences</h3>
+
+<ul>
+  <li><del>[MISRA C++ Rule 2–3–1, Required] - <em>Trigraphs</em> <strong>shall</strong> not be used.</del></li>
+  <li>[JSF AV Rule 11 (MISRA C Rule 7)] - Trigraphs <strong>will not</strong> be used.</li>
+</ul>
+
+<h3 id="alternative-tokens">Alternative tokens</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 2–5–1, Advisory] - <em>Digraphs</em> <strong>should</strong> not be used.</li>
+  <li>[JSF AV Rule 12, (Extension of MISRA C Rule 7)] - The following digraphs <strong>will not</strong> be used:</li>
+</ul>
+
+<!-- -->
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code> &lt;% %&gt; &lt;: :&gt; %: %:%:
+</code></pre>
+</div>
+</div>
+
+<h3 id="comments">Comments</h3>
+
+<p>Comments in header files are meant for the users of classes and functions, while comments in implementation files are meant for those who maintain the classes.</p>
+
+<p>Comments are often said to be either strategic or tactical. A strategic comment describes what a function or section of code is intended to do, and is placed before the code. A tactical comment describes what a single line of code is intended to do. Unfortunately, too many tactical comments can make code unreadable. For this reason, comments should be primarily strategic, unless trying to explain very complicated code (i.e. one should avoid stating in a comment what is clearly stated in code).</p>
+
+<ul>
+  <li>[MISRA C++ Rule 2–7–1, Required] - The character sequence <code class="language-plaintext highlighter-rouge">/*</code> <strong>shall not</strong> be used within a C-style comment.</li>
+  <li>
+    <p>[JSF AV Rule 126] - Only valid C++ style comments (//) <strong>shall</strong> be used. See AV Rule 126 in Appendix A for additional details concerning valid C++ style comments.</p>
+
+    <p><strong>Exception</strong>: Automatic code generators that cannot be configured to use the “//” form.</p>
+  </li>
+  <li>[MISRA C++ Rule 2–7–2, Required] - Sections of code <strong>shall not</strong> be “commented out” using C-style comments.</li>
+  <li>[MISRA C++ Rule 2–7–3, Advisory] - Sections of code <strong>should not</strong> be “commented out” using C++ comments.</li>
+  <li>
+    <p>[JSF AV Rule 127] - Code that is not used (commented out) shall be deleted.</p>
+
+    <p><strong>Exception</strong>: Code that is simply part of an explanation may appear in comments.</p>
+  </li>
+  <li>[JSF AV Rule 128] - Comments that document actions or sources (e.g. tables, figures, paragraphs, etc.) outside of the file being documented <strong>will not</strong> be allowed.</li>
+  <li>[JSF AV Rule 129] - Comments in header files <strong>should</strong> describe the externally visible behavior of the functions or classes being documented.</li>
+  <li>[JSF AV Rule 130] - The purpose of every line of executable code <strong>should</strong> be explained by a comment, although one comment may describe more than one line of code.</li>
+  <li>[JSF AV Rule 131] - One <strong>should</strong> avoid stating in comments what is better stated in code (i.e. do not simply repeat what is in the code).</li>
+  <li>
+    <p>[JSF AV Rule 132] - Each variable declaration, typedef, enumeration value, and structure member <strong>will</strong> be commented.</p>
+
+    <p><strong>Exception</strong>: Cases where commenting would be unnecessarily redundant.</p>
+  </li>
+  <li>[JSF AV Rule 133] - Every source file <strong>will</strong> be documented with an introductory comment that provides information on the file name, its contents, and any program-required information (e.g. legal statements, copyright information, etc).</li>
+  <li>[JSF AV Rule 134] - Assumptions (limitations) made by functions <strong>should</strong> be documented in the function’s preamble.</li>
+</ul>
+
+<h3 id="identifiers">Identifiers</h3>
+
+<p>The choice of identifier names should:</p>
+
+<ol>
+  <li>Suggest the usage of the identifier.</li>
+  <li>Consist of a descriptive name that is short yet meaningful.</li>
+  <li>Be long enough to avoid name conflicts, but not excessive in length.</li>
+  <li>Include abbreviations that are generally accepted.</li>
+</ol>
+
+<ul>
+  <li>[MISRA C++ Rule 2–10–1, Required] - Different identifiers <strong>shall</strong> be typographically unambiguous.</li>
+  <li>[MISRA C++ Rule 2–10–2, Required] - Identifiers declared in an inner scope <strong>shall not</strong> hide an identifier declared in an outer scope.</li>
+  <li>[MISRA C++ Rule 2–10–3, Required] - A <em>typedef</em> name (including qualification, if any) <strong>shall</strong> be a <em>unique</em> identifier.</li>
+  <li>[MISRA C++ Rule 2–10–4, Required] - A <em>class</em>, <em>union</em> or <em>enum</em> name (including qualification, if any) <strong>shall</strong> be a <em>unique</em> identifier.</li>
+  <li>[MISRA C++ Rule 2–10–5, Advisory] - The identifier name of a non-member object or function with static storage duration <strong>should not</strong> be reused.</li>
+  <li>[MISRA C++ Rule 2–10–6, Required] - If an identifier refers to a type, it <strong>shall not</strong> also refer to an object or a function in the same scope.</li>
+  <li><del>[JSF AV Rule 45] - All words in an identifier <strong>will</strong> be separated by the ‘_’ character.</del></li>
+  <li>[ILG AV Rule 45 update] - The identifiers <strong>should</strong> use the CamelCase convention.</li>
+  <li>[JSF AV Rule 46 (MISRA C Rule 11, Revised)] - User-specified identifiers (internal and external) <strong>will not</strong> rely on significance of more than 64 characters.</li>
+  <li>[JSF AV Rule 47] - Identifiers <strong>will not</strong> begin with the underscore character ‘_’.</li>
+  <li>[JSF AV Rule 48] - Identifiers <strong>will not</strong> differ by:
+    <ul>
+      <li>Only a mixture of case</li>
+      <li>The presence/absence of the underscore character</li>
+      <li>The interchange of the letter ‘O’, with the number ‘0’ or the letter ‘D’</li>
+      <li>The interchange of the letter ‘I’, with the number ‘1’ or the letter ‘l’</li>
+      <li>The interchange of the letter ‘S’ with the number ‘5’</li>
+      <li>The interchange of the letter ‘Z’ with the number 2</li>
+      <li>The interchange of the letter ‘n’ with the letter ‘h’.</li>
+    </ul>
+  </li>
+  <li><del>[JSF AV Rule 49] - All acronyms in an identifier <strong>will</strong> be composed of uppercase letters.</del></li>
+  <li>[ILG AV Rule 49 update] - As all CamelCase words, acronyms <strong>will</strong> be transformed to have only the first letter in uppercase.</li>
+  <li>
+    <p><del>[JSF AV Rule 50] - The first word of the name of a class, structure, namespace, enumeration, or type created with typedef <strong>will</strong> begin with an uppercase letter. All others letters will be lowercase.</del></p>
+
+    <p><del><strong>Exception</strong>: The first letter of a <em>typedef</em> name may be in lowercase in order to conform to a standard library interface or when used as a replacement for fundamental types (see AV Rule 209).</del></p>
+  </li>
+  <li><del>[JSF AV Rule 51] - All letters contained in function and variable names <strong>will</strong> be composed entirely of lowercase letters.</del></li>
+  <li><del>[JSF AV Rule 52] - Identifiers for constant and enumerator values <strong>shall</strong> be lowercase.</del></li>
+  <li>[ILG AV Rule 50 update] - The first word of the name of a class, typedef class alias, constant definition <strong>will</strong> begin with an uppercase letter. Namespace, or scalar type definitions <strong>will</strong> begin with an lowercase letter. (structures? enumerations?)</li>
+</ul>
+
+<h3 id="literals">Literals</h3>
+
+<ul>
+  <li><del>[MISRA C++ Rule 2–13–1, Required] - Only those escape sequences that are defined in ISO/IEC 14882:2003 <strong>shall</strong> be used.</del></li>
+  <li>[ILG Rule 2–13–1, Required] - Only those escape sequences that are defined in ISO/IEC 14882:2011 <strong>shall</strong> be used.</li>
+  <li>[MISRA C++ Rule 2–13–2, Required] - Octal constants (other than zero) and octal escape sequences (other than “\0”) <strong>shall not</strong> be used.</li>
+  <li>
+    <p>[MISRA C++ Rule 2–13–3, Required] - A <em>“U”</em> suffix <strong>shall</strong> be applied to all octal or hexadecimal integer literals of unsigned type.</p>
+
+    <p>ILG: for example 0U.</p>
+  </li>
+  <li>
+    <p>[MISRA C++ Rule 2–13–4, Required] - Literal suffixes <strong>shall</strong> be upper case.</p>
+
+    <p>ILG: to avoid ambiguities with digit 1; for example 0L, 0UL, 0x0U, 1.2F.</p>
+  </li>
+  <li>[JSF AV Rule 14] - Literal suffixes <strong>shall</strong> use uppercase rather than lowercase letters.</li>
+  <li>[MISRA C++ Rule 2–13–5, Required] - Narrow and wide string literals <strong>shall not</strong> be concatenated.</li>
+</ul>
+
+<h2 id="basic-concepts">Basic concepts</h2>
+
+<h3 id="declarations-and-definitions">Declarations and definitions</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 3–1–1, Required] - It <strong>shall</strong> be possible to include any <em>header file</em> in multiple translation units without violating the <em>One Definition Rule</em>.</li>
+  <li>
+    <p>[MISRA C++ Rule 3–1–2, Required] - Functions <strong>shall</strong> not be declared at block scope.</p>
+
+    <p>ILG: but at namespace level.</p>
+  </li>
+  <li>
+    <p>[MISRA C++ Rule 3–1–3, Required] - When an array is declared, its size <strong>shall</strong> either be stated explicitly or defined implicitly by initialisation.</p>
+
+    <p>ILG: no extern arrays without explicit size.</p>
+  </li>
+</ul>
+
+<h3 id="one-definition-rule">One Definition Rule</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 3–2–1, Required] - All declarations of an object or function <strong>shall</strong> have <em>compatible types</em>.</li>
+  <li>[MISRA C++ Rule 3–2–2, Required] - The <em>One Definition Rule</em> <strong>shall not</strong> be violated.</li>
+  <li>[MISRA C++ Rule 3–2–3, Required] - A type, object or function that is used in multiple translation units <strong>shall</strong> be declared in one and only one file.</li>
+  <li>[MISRA C++ Rule 3–2–4, Required] - An identifier with external linkage <strong>shall</strong> have exactly one definition.</li>
+</ul>
+
+<h3 id="declarative-regions-and-scope">Declarative regions and scope</h3>
+
+<ul>
+  <li>
+    <p>[MISRA C++ Rule 3–3–1, Required] - Objects or functions with external linkage <strong>shall</strong> be declared in a <em>header file</em>.</p>
+
+    <p>ILG: to document that they are intended to be accessible from other translation units, otherwise isolate them as static.</p>
+  </li>
+  <li>
+    <p>[MISRA C++ Rule 3–3–2, Required] - If a function has internal linkage then all re-declarations <strong>shall</strong> include the <em>static</em> storage class specifier.</p>
+  </li>
+</ul>
+
+<h3 id="name-lookup">Name lookup</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 3–4–1, Required] - An identifier declared to be an object or type <strong>shall</strong> be defined in a block that minimizes its visibility.</li>
+</ul>
+
+<h3 id="types">Types</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 3–9–1, Required] - The types used for an object, a function return type, or a function parameter <strong>shall</strong> be token-for-token identical in all declarations and re-declarations.</li>
+  <li>[MISRA C++ Rule 3–9–2, Advisory] - <em>typedefs</em> that indicate size and signedness <strong>should</strong> be used in place of the basic numerical types.</li>
+  <li>[ILG Note] - The ISO (POSIX) typedefs as shown below are recommended and are used for all basic numerical and character types in this document. For a 32-bit integer machine, these are as follows:</li>
+</ul>
+
+<!-- -->
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>typedef          char   char_t;
+typedef signed   char   int8_t;
+typedef signed   short  int16_t;
+typedef signed   int    int32_t;
+typedef signed   long   int64_t;
+typedef unsigned char   uint8_t;
+typedef unsigned short  uint16_t;
+typedef unsigned int    uint32_t;
+typedef unsigned long   uint64_t;
+￼typedef float           float32_t;
+typedef double          float64_t;
+typedef long     double float128_t;
+</code></pre>
+</div>
+</div>
+
+<ul>
+  <li>
+    <p>[JSV AV Rule 209 (MISRA C Rule 13, Revised)] - The basic types of <em>int</em>, <em>short</em>, <em>long</em>, <em>float</em> and <em>double</em> <strong>shall not</strong> be used, but specific-length equivalents should be <em>typedef</em>’d accordingly for each compiler, and these type names used in the code.</p>
+
+    <p><strong>Exception</strong>: Basic types are permitted in low-level routines to assist in the management of word alignment issues (e.g. memory allocators).</p>
+
+    <p>MISRA C Rule was changed from should to shall.</p>
+  </li>
+  <li>[MISRA C++ Rule 3–9–3, Required] - The underlying bit representations of floating-point values <strong>shall not</strong> be used.</li>
+  <li>[JSF AV Rule 146 (MISRA C Rule 15)] - Floating point implementations <strong>shall</strong> comply with a defined floating point standard. The standard that will be used is the ANSI/IEEE Std 754 [1].</li>
+  <li>[JSF AV Rule 147 (MISRA C Rule 16)] - The underlying bit representations of floating point numbers <strong>shall not</strong> be used in any way by the programmer.</li>
+  <li>
+    <p>[JSF AV Rule 148] - Enumeration types <strong>shall</strong> be used instead of integer types (and constants) to select from a limited series of choices.</p>
+
+    <p>Note: This rule is not intended to exclude character constants (e.g.‘A’,‘B’,‘C’,etc.) from use as case labels.</p>
+  </li>
+</ul>
+
+<h2 id="standard-conversions">Standard conversions</h2>
+
+<h3 id="integral-promotions">Integral promotions</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 4–5–1, Required] - Expressions with type <em>bool</em> <strong>shall not</strong> be used as operands to built-in operators other than the assignment operator <code class="language-plaintext highlighter-rouge">=</code>, the logical operators <code class="language-plaintext highlighter-rouge">&amp;&amp;</code>, <code class="language-plaintext highlighter-rouge">||</code>, <code class="language-plaintext highlighter-rouge">!</code>, the equality operators <code class="language-plaintext highlighter-rouge">==</code> and <code class="language-plaintext highlighter-rouge">!=</code>, the unary <code class="language-plaintext highlighter-rouge">&amp;</code> operator, and the conditional operator.</li>
+  <li>[MISRA C++ Rule 4–5–2, Required] - Expressions with type <em>enum</em> <strong>shall not</strong> be used as operands to built- in operators other than the subscript operator <code class="language-plaintext highlighter-rouge">[ ]</code>, the assignment operator <code class="language-plaintext highlighter-rouge">=</code>, the equality operators <code class="language-plaintext highlighter-rouge">==</code> and <code class="language-plaintext highlighter-rouge">!=</code>, the unary <code class="language-plaintext highlighter-rouge">&amp;</code> operator, and the relational operators <code class="language-plaintext highlighter-rouge">&lt;</code>, <code class="language-plaintext highlighter-rouge">&lt;=</code>, <code class="language-plaintext highlighter-rouge">&gt;</code>, <code class="language-plaintext highlighter-rouge">&gt;=</code>.</li>
+  <li>
+    <p>[MISRA C++ Rule 4–5–3, Required] - Expressions with type (plain) <em>char</em> and <em>wchar_t</em> <strong>shall not</strong> be used as operands to built-in operators other than the assignment operator <code class="language-plaintext highlighter-rouge">=</code>, the equality operators <code class="language-plaintext highlighter-rouge">==</code> and <code class="language-plaintext highlighter-rouge">!=</code>, and the unary <code class="language-plaintext highlighter-rouge">&amp;</code> operator.</p>
+
+    <p><strong>Exceptions</strong>: Exceptionally, the following operators may be used if the associated restriction is observed:</p>
+
+    <ul>
+      <li>The binary + operator may be used to add an integral value in the range 0 to 9 to ‘0’;</li>
+      <li>The binary – operator may be used to subtract character ‘0’;</li>
+      <li>The relational operators &lt;, &lt;=, &gt;, &gt;= may be used to determine if a character (or wide character) represents a digit.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="pointer-conversions">Pointer conversions</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 4–10–1, Required] - <em>NULL</em> <strong>shall not</strong> be used as an integer value.</li>
+  <li>
+    <p>[MISRA C++ Rule 4–10–2, Required] - Literal zero (0) <strong>shall not</strong> be used as the <em>null-pointer-constant</em>.</p>
+
+    <p>ILG: use <strong>nullptr</strong>.</p>
+  </li>
+</ul>
+
+<h2 id="expressions">Expressions</h2>
+
+<h3 id="general-1">General</h3>
+
+<ul>
+  <li>
+    <p>[MISRA C++ Rule 5–0–1, Required] - The value of an expression <strong>shall</strong> be the same under any order of evaluation that the standard permits.</p>
+
+    <p>ILG: beware of increment/decrement in expressions, in function arguments, in nested statements.</p>
+  </li>
+  <li>[JSV AV Rule 204.1 (MISRA C Rule 46)] - The value of an expression <strong>shall be</strong> the same under any order of evaluation that the standard permits.</li>
+  <li>[JSF AV Rule 162] - Signed and unsigned values <strong>shall not</strong> be mixed in arithmetic or comparison operations.</li>
+  <li>[JSF AV Rule 163] - Unsigned arithmetic <strong>shall not</strong> be used.</li>
+  <li>
+    <p>[MISRA C++ Rule 5–0–2, Advisory] - Limited dependence <strong>should</strong> be placed on C++ operator precedence rules in expressions.</p>
+
+    <p>ILG: parentheses should be used to emphasise precedence rules.</p>
+  </li>
+  <li>
+    <p>[JSV AV Rule 213 (MISRA C Rule 47, Revised)] - No dependence <strong>shall</strong> be placed on C++’s operator precedence rules, below arithmetic operators, in expressions.</p>
+
+    <p>MISRA C Rule 47 changed by replacing should with shall.</p>
+  </li>
+  <li>
+    <p>[MISRA C++ Rule 5–0–3, Required] - A cvalue expression <strong>shall not</strong> be implicitly converted to a different <em>underlying type</em>.</p>
+
+    <p>ILG: avoid expressions like <code class="language-plaintext highlighter-rouge">s32 = s8+s8;</code>.</p>
+  </li>
+  <li>[MISRA C++ Rule 5–0–4, Required] - An implicit integral conversion <strong>shall not</strong> change the signedness of the <em>underlying type</em>.</li>
+  <li>[MISRA C++ Rule 5–0–5, Required] - There <strong>shall</strong> be no implicit <em>floating-integral</em> conversions.</li>
+  <li>[JSV AV Rule 184] - Floating point numbers <strong>shall not</strong> be converted to integers unless such a conversion is a specified algorithmic requirement or is necessary for a hardware interface.</li>
+  <li>[MISRA C++ Rule 5–0–6, Required] - An implicit integral or floating-point conversion <strong>shall not</strong> reduce the size of the <em>underlying type</em>.</li>
+  <li>[MISRA C++ Rule 5–0–7, Required] - There <strong>shall</strong> be no explicit <em>floating-integral</em> conversions of a cvalue expression.</li>
+  <li>
+    <p>[MISRA C++ Rule 5–0–8, Required] - An explicit integral or floating-point conversion <strong>shall not</strong> increase the size of the <em>underlying type</em> of a <em>cvalue</em> expression.</p>
+
+    <p>ILG: avoid <code class="language-plaintext highlighter-rouge">s32 = static_cast&lt; int32_t &gt; ( s16 + s16 );</code>.</p>
+  </li>
+  <li>
+    <p>[MISRA C++ Rule 5–0–9, Required] - An explicit integral conversion <strong>shall not</strong> change the signedness of the <em>underlying type</em> of a <em>cvalue</em> expression.</p>
+
+    <p>ILG: avoid <code class="language-plaintext highlighter-rouge">s8 = static_cast&lt; int8_t &gt;( u8 + u8 );</code>.</p>
+  </li>
+  <li>
+    <p>[JSV AV Rule 180 (MISRA C Rule 43)] - Implicit conversions that may result in a loss of information <strong>shall not</strong> be used.</p>
+
+    <p>Note: Templates can be used to resolve many type conversion issues. Also, any compiler flags that result in warnings for value-destroying conversions should be activated.</p>
+  </li>
+  <li>
+    <p>[MISRA C++ Rule 5–0–10, Required] - If the bitwise operators <code class="language-plaintext highlighter-rouge">~</code> and <code class="language-plaintext highlighter-rouge">&lt;&lt;</code> are applied to an operand with an <em>underlying type</em> of <em>unsigned char</em> or <em>unsigned short</em>, the result <strong>shall</strong> be immediately cast to the <em>underlying type</em> of the operand.</p>
+
+    <p>ILG: prefer explicit intermediate steps, avoid <code class="language-plaintext highlighter-rouge">result_16 = ((port_8 &lt;&lt; 4) &amp; mode_16) &gt;&gt; 6;</code>.</p>
+  </li>
+  <li>[MISRA C++ Rule 5–0–11, Required] - The plain <em>char</em> type <strong>shall</strong> only be used for the storage and use of character values.</li>
+  <li>[MISRA C++ Rule 5–0–12, Required] - <em>signed char</em> and <em>unsigned char</em> type <strong>shall</strong> only be used for the storage and use of numeric values.</li>
+  <li>
+    <p>[MISRA C++ Rule 5–0–13, Required] - The <em>condition</em> of an <em>if-statement</em> and the <em>condition</em> of an <em>iteration-statement</em> <strong>shall</strong> have type bool.</p>
+
+    <p>ILG: avoid <code class="language-plaintext highlighter-rouge">if (u8)</code>)</p>
+
+    <p><strong>Exception</strong>: A condition of the form type-specifier-seq declarator is not required to have type bool. This exception is introduced because alternative mechanisms for achieving the same effect are cumbersome and error-prone.</p>
+  </li>
+  <li>
+    <p>[MISRA C++ Rule 5–0–14, Required] - The first operand of a <em>conditional-operator</em> <strong>shall</strong> have type <em>bool</em>.</p>
+
+    <p>ILG: avoid <code class="language-plaintext highlighter-rouge">int32_a = int16_b ? int32_c : int32_d;</code>.</p>
+  </li>
+  <li>
+    <p>[MISRA C++ Rule 5–0–15, Required] - Array indexing <strong>shall</strong> be the only form of pointer arithmetic.</p>
+
+    <p>ILG: avoid pointer arithmetic.</p>
+
+    <p><strong>Exception</strong>: The increment/decrement operators may be used on iterators implemented by pointers to an array.</p>
+  </li>
+  <li>[JSV AV Rule 215 (MISRA C Rule 101)] - Pointer arithmetic <strong>will not</strong> be used.</li>
+  <li>
+    <p>[MISRA C++ Rule 5–0–16, Required] - A pointer operand and any pointer resulting from pointer arithmetic using that operand <strong>shall</strong> both address elements of the same array.</p>
+
+    <p><strong>Exception</strong>: Objects such as containers, iterators, and allocators that manage pointer arithmetic through well-defined interfaces are acceptable.</p>
+
+    <p>ILG: to avoid undefined behaviour.</p>
+  </li>
+  <li>[MISRA C++ Rule 5–0–17, Required] - Subtraction between pointers <strong>shall</strong> only be applied to pointers that address elements of the same array.</li>
+  <li>[MISRA C++ Rule 5–0–18, Required] - <code class="language-plaintext highlighter-rouge">&gt;</code>, <code class="language-plaintext highlighter-rouge">&gt;=</code>, <code class="language-plaintext highlighter-rouge">&lt;</code>, <code class="language-plaintext highlighter-rouge">&lt;=</code> <strong>shall not</strong> be applied to objects of pointer type, except where they point to the same array.</li>
+  <li>[JSV AV Rule 171 (MISRA C Rule 103)] - Relational operators <strong>shall not</strong> be applied to pointer types except where both operands are of the same type and point to:
+    <ul>
+      <li>the same object,</li>
+      <li>the same function,</li>
+      <li>members of the same object, or</li>
+      <li>elements of the same array (including one past the end of the same array).</li>
+    </ul>
+
+    <p>Note that if either operand is null, then both shall be null. Also, “members of the same object” should not be construed to include base class subobjects (See also AV Rule 210).</p>
+  </li>
+  <li>
+    <p>[MISRA C++ Rule 5–0–19, Required] - The declaration of objects <strong>shall</strong> contain no more than two levels of pointer indirection.</p>
+
+    <p>ILG: do not use <code class="language-plaintext highlighter-rouge">int8_t *** s3;</code>.</p>
+  </li>
+  <li>[JSV AV Rule 169] - Pointers to pointers <strong>should</strong> be avoided when possible.</li>
+  <li>
+    <p>[JSV AV Rule 170 (MISRA C Rule 102, Revised)] - More than 2 levels of pointer indirection <strong>shall not</strong> be used.</p>
+
+    <p>Note: This rule leaves no room for using more than 2 levels of pointer indirection. The word “shall” replaces the word “should” in MISRA C Rule 102.</p>
+  </li>
+  <li>
+    <p>[MISRA C++ Rule 5–0–20, Required] - Non-constant operands to a binary bitwise operator <strong>shall</strong> have the same <em>underlying type</em>.</p>
+
+    <p>ILG: avoid <code class="language-plaintext highlighter-rouge">value_16 ^= mask_8;</code>.</p>
+  </li>
+  <li>
+    <p>[MISRA C++ Rule 5–0–21, Required] - Bitwise operators <strong>shall</strong> only be applied to operands of unsigned <em>underlying type</em>.</p>
+
+    <p>ILG: Bitwise are not normally meaningful on signed integers.</p>
+  </li>
+  <li>
+    <p>[JSF AV Rule 160 (MISRA C Rule 35, Modified)] - An assignment expression <strong>shall</strong> be used only as the expression in an expression statement.</p>
+
+    <p>ILG: avoid <code class="language-plaintext highlighter-rouge">if (x=y)</code>.</p>
+  </li>
+  <li>[JSF AV Rule 167 (MISRA C Rule 41)] - The implementation of integer division in the chosen compiler <strong>shall</strong> be determined, documented and taken into account.</li>
+  <li>[JSV AV Rule 174 (MISRA C Rule 107)] - The null pointer <strong>shall not</strong> be de-referenced.</li>
+  <li><del>[JSV AV Rule 175] - A pointer <strong>shall not</strong> be compared to NULL or be assigned NULL; use plain 0 instead.</del></li>
+  <li>[ILG AV Rule 175] - A pointer <strong>shall not</strong> be compared to NULL or be assigned NULL; use <strong>nullptr</strong> instead.</li>
+  <li>[JSV AV Rule 176] - A typedef <strong>will</strong> be used to simplify program syntax when declaring function pointers.</li>
+  <li>[JSV AV Rule 177] - User-defined conversion functions <strong>should</strong> be avoided. See Meyers [7], item 5.</li>
+  <li>[JSV AV Rule 203 (MISRA C Rule 51, Revised)] - Evaluation of expressions <strong>shall not</strong> lead to overflow/underflow (unless required algorithmically and then should be heavily documented).</li>
+  <li>[JSV AV Rule 212] - Underflow or overflow functioning <strong>shall not</strong> be depended on in any special way.</li>
+  <li>[JSV AV Rule 204] - A single operation with side-effects <strong>shall</strong> only be used in the following contexts:
+    <ol>
+      <li>by itself</li>
+      <li>the right-hand side of an assignment</li>
+      <li>a condition</li>
+      <li>the only argument expression with a side-effect in a function call</li>
+      <li>condition of a loop</li>
+      <li>switch condition</li>
+      <li>single part of a chained operation.</li>
+    </ol>
+  </li>
+  <li><del>[JSV AV Rule 205] - The <em>volatile</em> keyword <strong>shall not</strong> be used unless directly interfacing with hardware.</del></li>
+  <li>[ILG AV Rule 205] - The <em>volatile</em> keyword <strong>shall not</strong> be used unless directly interfacing with hardware or with multithreaded, or foreground/interrupt applications.</li>
+  <li>[JSV AV Rule 214] - Assuming that non-local static objects, in separate translation units, are initialized in a special order <strong>shall not</strong> be done.</li>
+</ul>
+
+<h3 id="type-conversions">Type conversions</h3>
+
+<ul>
+  <li>
+    <p>[MISRA C++ Rule 5–2–2, Required] - A pointer to a virtual base class <strong>shall</strong> only be cast to a pointer to a derived class by means of <em>dynamic_cast</em>.</p>
+
+    <p>ILG: Casting from a virtual base to a derived class, using any means other than dynamic_cast has undefined behaviour.</p>
+  </li>
+  <li>[JSV AV Rule 179] - A pointer to a virtual base class <strong>shall not</strong> be converted to a pointer to a derived class.</li>
+  <li>
+    <p>[MISRA C++ Rule 5–2–3, Advisory] - Casts from a base class to a derived class <strong>should not</strong> be performed on polymorphic types.</p>
+
+    <p>ILG: Explicit casts bypass this layer of abstraction resulting in higher levels of coupling and dependency.</p>
+  </li>
+  <li>[JSV AV Rule 178] - Down casting (casting from base to derived class) <strong>shall</strong> only be allowed through one of the following mechanism:
+    <ul>
+      <li>Virtual functions that act like dynamic casts (most likely useful in relatively simple cases)</li>
+      <li>Use of the visitor (or similar) pattern (most likely useful in complicated cases)</li>
+    </ul>
+
+    <p>Note: Type fields <strong>shall not</strong> be used as they are too error prone.</p>
+
+    <p>Note: Dynamic casts are not allowed at this point due to lack of tool support, but could be considered at some point in the future after appropriate investigation has been performed for SEAL1/2 software. Dynamic casts are fine for general purpose software.</p>
+  </li>
+  <li>
+    <p>[MISRA C++ Rule 5–2–4, Required] - C-style casts (other than <em>void</em> casts) and functional notation casts (other than explicit constructor calls) <strong>shall not</strong> be used.</p>
+
+    <p><strong>Exception</strong> A C-style cast to void may be used to signify that the return value for a non-void function call is being ignored (see Rule 0–1–7).</p>
+  </li>
+  <li>[JSV AV Rule 185] - C++ style casts (<em>const_cast</em>, <em>reinterpret_cast</em>, and <em>static_cast</em>) shall be used instead of the traditional C-style casts. See Stroustrup [2], 15.4 and Meyers [7], item 2.</li>
+  <li>[MISRA C++ Rule 5–2–5, Required] - A cast <strong>shall not</strong> remove any const or <em>volatile</em> qualification from the type of a pointer or reference.</li>
+  <li>[MISRA C++ Rule 5–2–6, Required] - A cast <strong>shall not</strong> convert a pointer to a function to any other pointer type, including a pointer to function type.</li>
+  <li>[MISRA C++ Rule 5–2–7, Required] - An object with pointer type <strong>shall not</strong> be converted to an unrelated pointer type, either directly or indirectly.</li>
+  <li>[MISRA C++ Rule 5–2–8, Required] - An object with integer type or pointer to <em>void</em> type <strong>shall not</strong> be converted to an object with pointer type.</li>
+  <li>
+    <p>[MISRA C++ Rule 5–2–9, Advisory] - A cast <strong>should not</strong> convert a pointer type to an integral type.</p>
+
+    <p><strong>Rationale</strong>: The size of integer that is required when a pointer is converted to an integer is implementation- defined. Casting between a pointer and an integer type should be avoided where possible, but may be unavoidable when addressing memory mapped registers or other hardware specific features.</p>
+  </li>
+  <li>
+    <p>[JSV AV Rule 182 (MISRA C Rule 45)] - Type casting from any type to or from pointers <strong>shall not</strong> be used.</p>
+
+    <p><strong>Exception 1</strong>: Casting from <em>void*</em> to <em>T*</em> is permissible. In this case, <em>static_cast</em> should be used, but only if it is known that the object really is a <em>T</em>. Furthermore, such code should only occur in low level memory management routines.</p>
+
+    <p><strong>Exception 2</strong>: Conversion of literals (i.e. hardware addresses) to pointers.</p>
+  </li>
+  <li>[JSV AV Rule 181 (MISRA C Rule 44)] - Redundant explicit casts <strong>will not</strong> be used.</li>
+  <li>[JSV AV Rule 183] - Every possible measure <strong>should</strong> be taken to avoid type casting.</li>
+</ul>
+
+<h3 id="postfix-expressions">Postfix expressions</h3>
+
+<ul>
+  <li>
+    <p>[MISRA C++ Rule 5–2–1, Required] - Each operand of a logical <code class="language-plaintext highlighter-rouge">&amp;&amp;</code> or <code class="language-plaintext highlighter-rouge">||</code> <strong>shall</strong> be a <em>postfix-expression</em>.</p>
+
+    <p>ILG: The effect of this rule is to require that operands are appropriately parenthesized.</p>
+
+    <table>
+      <tbody>
+        <tr>
+          <td>
+<strong>Exception</strong> Where an expression consists of either a sequence of only logical &amp;&amp; or a sequence of only logical</td>
+          <td> </td>
+          <td>, extra parentheses are not required.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>[MISRA C++ Rule 5–2–10, Advisory] - The increment (<code class="language-plaintext highlighter-rouge">++</code>) and decrement (<code class="language-plaintext highlighter-rouge">--</code>) operators <strong>should not</strong> be mixed with other operators in an expression.</li>
+  <li>[MISRA C++ Rule 5–2–11, Required] - The comma operator, <code class="language-plaintext highlighter-rouge">&amp;&amp;</code> operator and the <code class="language-plaintext highlighter-rouge">||</code> operator <strong>shall not</strong> be overloaded.</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>[JSF AV Rule 159] - Operators</td>
+          <td> </td>
+          <td>, &amp;&amp;, and unary &amp; <strong>shall not</strong> be overloaded. See Meyers [7], item 7.</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>[MISRA C++ Rule 5–2–12, Required] - An identifier with array type passed as a function argument <strong>shall not</strong> decay to a pointer.</li>
+</ul>
+
+<h3 id="unary-expressions">Unary expressions</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 5–3–1, Required] - Each operand of the <code class="language-plaintext highlighter-rouge">!</code> operator, the logical <code class="language-plaintext highlighter-rouge">&amp;&amp;</code> or the logical <code class="language-plaintext highlighter-rouge">||</code> operators <strong>shall</strong> have type <em>bool</em>.</li>
+  <li>[MISRA C++ Rule 5–3–2, Required] - The unary minus operator <strong>shall not</strong> be applied to an expression whose <em>underlying type</em> is unsigned.</li>
+  <li>[JSF AV Rule 165 (MISRA C Rule 39)] - The unary minus operator <strong>shall not</strong> be applied to an unsigned expression.</li>
+  <li>[MISRA C++ Rule 5–3–3, Required] - The unary <code class="language-plaintext highlighter-rouge">&amp;</code> operator <strong>shall not</strong> be overloaded.</li>
+  <li>[MISRA C++ Rule 5–3–4, Required] - Evaluation of the operand to the <em>sizeof</em> operator <strong>shall not</strong> contain side effects.</li>
+  <li>[JSF AV Rule 166 (MISRA C Rule 40)] - The sizeof operator <strong>will not</strong> be used on expressions that contain side effects.</li>
+</ul>
+
+<h3 id="shift-operators">Shift operators</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 5–8–1, Required] - The right hand operand of a shift operator <strong>shall</strong> lie between zero and one less than the width in bits of the <em>underlying type</em> of the left hand operand.</li>
+  <li>[JSF AV Rule 164 (MISRA C Rule 38)] - The right hand operand of a shift operator <strong>shall</strong> lie between zero and one less than the width in bits of the left-hand operand (inclusive).</li>
+  <li>[JSF AV Rule 164.1] - The left-hand operand of a right-shift operator <strong>shall not</strong> have a negative value.</li>
+</ul>
+
+<h3 id="logical-and-operator">Logical AND operator</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 5–14–1, Required] - The right hand operand of a logical <code class="language-plaintext highlighter-rouge">&amp;&amp;</code> or <code class="language-plaintext highlighter-rouge">||</code> operator <strong>shall not</strong> contain side effects.</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>[JSF AV Rule 157 (MISRA C Rule 33)] - The right hand operand of a &amp;&amp; or</td>
+          <td> </td>
+          <td>operator <strong>shall not</strong> contain side effects.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>ILG: avoid <code class="language-plaintext highlighter-rouge">if ( logical_expression &amp;&amp; ++x)</code>.</p>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>[JSF AV Rule 158 (MISRA C Rule 34)] - The operands of a logical &amp;&amp; or</td>
+          <td> </td>
+          <td>
+<strong>shall</strong> be parenthesized if the operands contain binary operators.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>ILG: always use parenthesis.</p>
+  </li>
+</ul>
+
+<h3 id="assignment-operators">Assignment operators</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 5–17–1, Required] - The semantic equivalence between a binary operator and its assignment operator form <strong>shall</strong> be preserved.</li>
+  <li>[JSF AV Rule 81] - The assignment operator <strong>shall</strong> handle self-assignment correctly (see Stroustrup [2])</li>
+  <li>[JSF AV Rule 82] - An assignment operator <strong>shall</strong> return a reference to <em>*this</em>.</li>
+  <li>[JSF AV Rule 83] - An assignment operator <strong>shall</strong> assign all data members and bases that affect the class invariant (a data element representing a cache, for example, would not need to be copied).</li>
+</ul>
+
+<h3 id="comma-operator">Comma operator</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 5–18–1, Required] - The comma operator <strong>shall not</strong> be used.</li>
+  <li>[JSF AV Rule 168 (MISRA C Rule 42, Revised)] - The comma operator <strong>shall not</strong> be used.</li>
+</ul>
+
+<h3 id="constant-expressions">Constant expressions</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 5–19–1, Advisory] - Evaluation of constant unsigned integer expressions <strong>should not</strong> lead to wrap-around.</li>
+  <li>
+    <p>[JSF AV Rule 149 (MISRA C Rule 19)] - Octal constants (other than zero) <strong>shall not</strong> be used.</p>
+
+    <p>Note: Hexadecimal numbers and zero (which is also an octal constant) are allowed.</p>
+  </li>
+  <li>[JSF AV Rule 150] - Hexadecimal constants <strong>will</strong> be represented using all uppercase letters.</li>
+  <li>
+    <p>[JSF AV Rule 151] - Numeric values in code <strong>will not</strong> be used; symbolic values <strong>will</strong> be used instead.</p>
+
+    <p><strong>Exception</strong>: A class/structure constructor may initialize an array member with numeric values.</p>
+
+    <p>Note: In many cases ‘0’ and ‘1’ are not magic numbers but are part of the fundamental logic of the code (e.g. ‘0’ often represents a NULL pointer). In such cases, ‘0’ and ‘1’ may be used.</p>
+  </li>
+  <li>
+    <p>[JSF AV Rule 151.1] - A string literal <strong>shall not</strong> be modified.</p>
+
+    <p>Note that strictly conforming compilers should catch violations, but many do not.</p>
+  </li>
+</ul>
+
+<h2 id="statements">Statements</h2>
+
+<h3 id="expression-statement">Expression statement</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 6–2–1, Required] - Assignment operators <strong>shall not</strong> be used in sub-expressions.</li>
+  <li>[MISRA C++ Rule 6–2–2, Required] - Floating-point expressions <strong>shall not</strong> be directly or indirectly tested for equality or inequality.</li>
+  <li>[JSV AV Rule 202 (MISRA C Rule 50)] - Floating point variables <strong>shall not</strong> be tested for exact equality or inequality.</li>
+  <li>[MISRA C++ Rule 6–2–3, Required] - Before preprocessing, a null statement <strong>shall</strong> only occur on a line by itself; it may be followed by a comment, provided that the first character following the null statement is a white-space character.</li>
+</ul>
+
+<h3 id="compound-statement">Compound statement</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 6–3–1, Required] - The statement forming the body of a <em>switch</em>, <em>while</em>, <em>do … while</em> or <em>for</em> statement <strong>shall</strong> be a compound statement.</li>
+</ul>
+
+<h3 id="selection-statements">Selection statements</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 6–4–1, Required] - An <em>if ( condition )</em> construct <strong>shall</strong> be followed by a compound statement. The <em>else</em> keyword shall be followed by either a compound statement, or another <em>if</em> statement.</li>
+  <li>[MISRA C++ Rule 6–4–2, Required] - All <em>if … else if</em> constructs <strong>shall</strong> be terminated with an <em>else</em> clause.</li>
+  <li>[MISRA C++ Rule 6–4–3, Required] - A <em>switch</em> statement <strong>shall</strong> be a <em>well-formed switch statement</em>.</li>
+  <li>[MISRA C++ Rule 6–4–4, Required] - A <em>switch-label</em> <strong>shall</strong> only be used when the most closely-enclosing compound statement is the body of a <em>switch</em> statement.</li>
+  <li>[MISRA C++ Rule 6–4–5, Required] - An unconditional <em>throw</em> or <em>break</em> statement <strong>shall</strong> terminate every non-empty <em>switch-clause</em>.</li>
+  <li>[MISRA C++ Rule 6–4–6, Required] - The final clause of a <em>switch</em> statement <strong>shall</strong> be the <em>default-clause</em>.</li>
+  <li>[MISRA C++ Rule 6–4–7, Required] - The <em>condition</em> of a <em>switch</em> statement <strong>shall not</strong> have <em>bool</em> type.</li>
+  <li>[MISRA C++ Rule 6–4–8, Required] - Every <em>switch</em> statement <strong>shall</strong> have at least one <em>case-clause</em>.</li>
+  <li>[JSV AV Rule 188 (MISRA C Rule 55, Revised)] - Labels <strong>will not</strong> be used, except in switch statements.</li>
+  <li>
+    <p>[JSV AV Rule 189 (MISRA C Rule 56)] - The <em>goto</em> statement <strong>shall not</strong> be used.</p>
+
+    <p><strong>Exception</strong>: A goto may be used to break out of multiple nested loops provided the alternative would obscure or otherwise significantly complicate the control logic.</p>
+  </li>
+  <li>[JSV AV Rule 190 (MISRA C Rule 57)] - The <em>continue</em> statement <strong>shall not</strong> be used.</li>
+  <li>
+    <p>[JSV AV Rule 191 (MISRA C Rule 58)] - The <em>break</em> statement <strong>shall not</strong> be used (except to terminate the cases of a <em>switch</em> statement).</p>
+
+    <p><strong>Exception</strong>: The <em>break</em> statement may be used to “break” out of a single loop provided the alternative would obscure or otherwise significantly complicate the control logic.</p>
+  </li>
+  <li>
+    <p>[JSV AV Rule 192 (MISRA C Rule 60, Revised)] - All <em>if</em>, <em>else if</em> constructs <strong>will</strong> contain either a final <em>else</em> clause or a comment indicating why a final <em>else</em> clause is not necessary.</p>
+
+    <p>Note: This rule only applies when an <em>if</em> statement is followed by one or more <em>else if</em>’s.</p>
+  </li>
+  <li>[JSV AV Rule 193 (MISRA C Rule 61)] - Every non-empty <em>case</em> clause in a switch statement <strong>shall</strong> be terminated with a <em>break</em> statement.</li>
+  <li>
+    <p>[JSV AV Rule 194 (MISRA C Rule 62, Revised)] - All <em>switch</em> statements that do not intend to test for every enumeration value <strong>shall</strong> contain a final <em>default</em> clause.</p>
+
+    <p>MISRA revised with shall replacing should.</p>
+  </li>
+  <li>[JSV AV Rule 195 (MISRA C Rule 63)] - A <em>switch</em> expression <strong>will not</strong> represent a Boolean value.</li>
+  <li>[JSV AV Rule 196 (MISRA C Rule 64, Revised)] - Every <em>switch</em> statement <strong>will</strong> have at least two <em>cases</em> and a potential <em>default</em>.</li>
+</ul>
+
+<h3 id="iteration-statements">Iteration statements</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 6–5–1, Required] - A <em>for</em> loop shall contain a single <em>loop-counter</em> which <strong>shall not</strong> have floating type.</li>
+  <li>[MISRA C++ Rule 6–5–2, Required] - If <em>loop-counter</em> is not modified by <code class="language-plaintext highlighter-rouge">--</code> or <code class="language-plaintext highlighter-rouge">++</code>, then, within <em>condition</em>, the <em>loop-counter</em> <strong>shall</strong> only be used as an operand to <code class="language-plaintext highlighter-rouge">&lt;=</code>, <code class="language-plaintext highlighter-rouge">&lt;</code>, <code class="language-plaintext highlighter-rouge">&gt;</code> or <code class="language-plaintext highlighter-rouge">&gt;=</code>.</li>
+  <li>[MISRA C++ Rule 6–5–3, Required] - The <em>loop-counter</em> <strong>shall not</strong> be modified within <em>condition</em> or <em>statement</em>.</li>
+  <li>[MISRA C++ Rule 6–5–4, Required] - The <em>loop-counter</em> <strong>shall</strong> be modified by one of: <code class="language-plaintext highlighter-rouge">--</code>, <code class="language-plaintext highlighter-rouge">++</code>, <code class="language-plaintext highlighter-rouge">-=n</code>, or <code class="language-plaintext highlighter-rouge">+=n</code>; where <code class="language-plaintext highlighter-rouge">n</code> remains constant for the duration of the loop.</li>
+  <li>[MISRA C++ Rule 6–5–5, Required] - A <em>loop-control-variable</em> other than the <em>loop-counter</em> <strong>shall not</strong> be modified within <em>condition</em> or <em>expression</em>.</li>
+  <li>[MISRA C++ Rule 6–5–6, Required] - A <em>loop-control-variable</em> other than the <em>loop-counter</em> which is modified in <em>statement</em> <strong>shall</strong> have type <em>bool</em>.</li>
+  <li>[JSV AV Rule 197 (MISRA C Rule 65)] - Floating point variables <strong>shall not</strong> be used as loop counters.</li>
+  <li>
+    <p>[JSV AV Rule 198] - The initialization expression in a <em>for</em> loop <strong>will</strong> perform no actions other than to initialize the value of a single <em>for</em> loop parameter.</p>
+
+    <p>Note that the initialization expression may invoke an accessor that returns an initial element in a sequence:</p>
+  </li>
+  <li>[JSV AV Rule 199] - The increment expression in a <em>for</em> loop <strong>will</strong> perform no action other than to change a single loop parameter to the next value for the loop.</li>
+  <li>[JSV AV Rule 200] - Null initialize or increment expressions in <em>for</em> loops <strong>will not</strong> be used; a <em>while</em> loop will be used instead.</li>
+  <li>
+    <p>[JSV AV Rule 201 (MISRA C Rule 67, Revised)] - Numeric variables being used within a <em>for</em> loop for iteration counting <strong>shall not</strong> be modified in the body of the loop.</p>
+
+    <p>MISRA C Rule 67 was revised by changing should to shall.</p>
+  </li>
+</ul>
+
+<h3 id="jump-statements">Jump statements</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 6–6–1, Required] - Any label referenced by a <em>goto</em> statement <strong>shall</strong> be declared in the same block, or in a block enclosing the <em>goto</em> statement.</li>
+  <li>[MISRA C++ Rule 6–6–2, Required] - The <em>goto</em> statement <strong>shall</strong> jump to a label declared later in the same function body.</li>
+  <li>[MISRA C++ Rule 6–6–3, Required] - The <em>continue</em> statement <strong>shall</strong> only be used within a <em>well-formed for loop</em>.</li>
+  <li>[MISRA C++ Rule 6–6–4, Required] - For any iteration statement there <strong>shall</strong> be no more than one <em>break</em> or <em>goto</em> statement used for loop termination.</li>
+  <li>[MISRA C++ Rule 6–6–5, Required] - A function <strong>shall</strong> have a single point of exit at the end of the function.</li>
+</ul>
+
+<h2 id="declarations">Declarations</h2>
+
+<h3 id="general-2">General</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 8–0–1, Required] - An <em>init-declarator-list</em> or a <em>member-declarator-list</em> <strong>shall</strong> consist of a single <em>init-declarator</em> or <em>member-declarator</em> respectively.</li>
+  <li>[JSF AV Rule 135 (MISRA C Rule 21, Revised)] - Identifiers in an inner scope <strong>shall not</strong> use the same name as an identifier in an outer scope, and therefore hide that identifier.</li>
+  <li>[JSF AV Rule 136 (MISRA C Rule 22, Revised)] - Declarations <strong>should</strong> be at the smallest feasible scope. (See also AV Rule 143).</li>
+  <li>[JSF AV Rule 137 (MISRA C Rule 23)] - All declarations at file scope <strong>should</strong> be static where possible.</li>
+  <li>[JSF AV Rule 138 (MISRA C Rule 24)] - Identifiers <strong>shall not</strong> simultaneously have both internal and external linkage in the same translation unit.</li>
+  <li>[JSF AV Rule 139 (MISRA C Rule 27)] - External objects <strong>will not</strong> be declared in more than one file. (See also AV Rule 39.)</li>
+  <li>[JSF AV Rule 140 (MISRA C Rule 28, Revised)] - The <em>register</em> storage class specifier <strong>shall not</strong> be used.</li>
+  <li>[JSF AV Rule 141] - A class, structure, or enumeration <strong>will not</strong> be declared in the definition of its type.</li>
+</ul>
+
+<h3 id="meaning-of-declarators">Meaning of declarators</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 8–3–1, Required] - Parameters in an overriding virtual function <strong>shall</strong> either use the same default arguments as the function they override, or else shall not specify any default arguments.</li>
+</ul>
+
+<h3 id="specifiers">Specifiers</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 7–1–1, Required] - A variable which is not modified <strong>shall</strong> be <em>const</em> qualified.</li>
+  <li>[MISRA C++ Rule 7–1–2, Required] - A pointer or reference parameter in a function <strong>shall</strong> be declared as pointer to const or reference to const if the corresponding object is not modified.</li>
+</ul>
+
+<h3 id="enumeration-declarations">Enumeration declarations</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 7–2–1, Required] - An expression with <em>enum underlying type</em> <strong>shall</strong> only have values corresponding to the enumerators of the enumeration.</li>
+</ul>
+
+<h3 id="namespaces">Namespaces</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 7–3–1, Required] - The global namespace <strong>shall</strong> only contain main, namespace declarations and <em>extern “C”</em> declarations.</li>
+  <li>[JSF AV Rule 98] - Every nonlocal name, except main(), <strong>should</strong> be placed in some namespace. See Stroustrup [2], 8.2.</li>
+  <li>[MISRA C++ Rule 7–3–2, Required] - The identifier <em>main</em> <strong>shall not</strong> be used for a function other than the global function <em>main</em>.</li>
+  <li>[MISRA C++ Rule 7–3–3, Required] - There <strong>shall</strong> be no unnamed namespaces in <em>header files</em>.</li>
+  <li>[MISRA C++ Rule 7–3–4, Required] - <em>using-directives</em> <strong>shall not</strong> be used.</li>
+  <li>[MISRA C++ Rule 7–3–5, Required] - Multiple declarations for an identifier in the same namespace <strong>shall not</strong> straddle a <em>using-declaration</em> for that identifier.</li>
+  <li>[MISRA C++ Rule 7–3–6, Required] - <em>using-directives</em> and <em>using-declarations</em> (excluding class scope or function scope <em>using-declarations</em>) <strong>shall not</strong> be used in <em>header files</em>.</li>
+  <li>[JSF AV Rule 99] - Namespaces <strong>will not</strong> be nested more than two levels deep.</li>
+  <li>[JSF AV Rule 100] - Elements from a namespace <strong>should</strong> be selected as follows:
+    <ul>
+      <li>using declaration or explicit qualification for few (approximately five) names,</li>
+      <li>using directive for many names.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="the-asm-declaration">The <em>asm</em> declaration</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 7–4–1, Document] - All usage of assembler <strong>shall</strong> be documented.</li>
+  <li>[MISRA C++ Rule 7–4–2, Required] - Assembler instructions <strong>shall</strong> only be introduced using the <em>asm</em> declaration.</li>
+  <li>[MISRA C++ Rule 7–4–3, Required] - Assembly language <strong>shall</strong> be encapsulated and isolated.</li>
+</ul>
+
+<h3 id="linkage-specifications">Linkage specifications</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 7–5–1, Required] - A function <strong>shall not</strong> return a reference or a pointer to an automatic variable (including parameters), defined within the function.</li>
+  <li>[MISRA C++ Rule 7–5–2, Required] - The address of an object with automatic storage <strong>shall not</strong> be assigned to another object that may persist after the first object has ceased to exist.</li>
+  <li>[JSV AV Rule 173 (MISRA C Rule 106, Revised)] - The address of an object with automatic storage <strong>shall not</strong> be assigned to an object which persists after the object has ceased to exist.</li>
+  <li>[MISRA C++ Rule 7–5–3, Required] - A function <strong>shall not</strong> return a reference or a pointer to a parameter that is passed by reference or const reference.</li>
+  <li>[MISRA C++ Rule 7–5–4, Advisory] - Functions <strong>should not</strong> call themselves, either directly or indirectly.</li>
+</ul>
+
+<h2 id="definitions">Definitions</h2>
+
+<h3 id="function-definitions">Function definitions</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 8–4–1, Required] - Functions <strong>shall not</strong> be defined using the ellipsis notation.</li>
+  <li>[MISRA C++ Rule 8–4–2, Required] - The identifiers used for the parameters in a re-declaration of a function <strong>shall</strong> be identical to those in the declaration.</li>
+  <li>[MISRA C++ Rule 8–4–3, Required] - All exit paths from a function with non-<em>void</em> return type <strong>shall</strong> have an explicit <em>return</em> statement with an expression.</li>
+  <li>[MISRA C++ Rule 8–4–4, Required] - A function identifier <strong>shall</strong> either be used to call the function or it <strong>shall</strong> be preceded by &amp;.</li>
+  <li><del>[JSF AV Rule 58] - When declaring and defining functions with more than two parameters, the leading parenthesis and the first argument <strong>will</strong> be written on the same line as the function name. Each additional argument <strong>will</strong> be written on a separate line (with the closing parenthesis directly after the last argument).</del></li>
+  <li>[JSF AV Rule 107 (MISRA C Rule 68)] - Functions <strong>shall</strong> always be declared at file scope.</li>
+  <li>[JSF AV Rule 108 (MISRA C Rule 69)] - Functions with variable numbers of arguments <strong>shall not</strong> be used.</li>
+  <li>[JSF AV Rule 109] - A function definition <strong>should not</strong> be placed in a class specification unless the function is intended to be inlined.</li>
+  <li>[JSF AV Rule 110] - Functions with more than 7 arguments <strong>will not</strong> be used.</li>
+  <li>[JSF AV Rule 111] - A function <strong>shall not</strong> return a pointer or reference to a non-static local object.</li>
+  <li>[JSF AV Rule 112] - Function return values <strong>should not</strong> obscure resource ownership.</li>
+  <li>
+    <p>[JSF AV Rule 113 (MISRA C Rule 82, Revised)] - Functions <strong>will</strong> have a single exit point.</p>
+
+    <p><strong>Exception</strong>: A single exit is not required if such a structure would obscure or otherwise significantly complicate (such as the introduction of additional variables) a function’s control logic. Note that the usual resource clean-up must be managed at all exit points.</p>
+  </li>
+  <li>[JSF AV Rule 114 (MISRA C Rule 83, Revised)] - All exit points of value-returning functions <strong>shall be</strong> through return statements.</li>
+  <li>[JSF AV Rule 115 (MISRA C Rule 86)] - If a function returns error information, then that error information <strong>will</strong> be tested.</li>
+  <li>[JSF AV Rule 116] - Small, concrete-type arguments (two or three words in size) <strong>should</strong> be passed by value if changes made to formal parameters should not be reflected in the calling function.</li>
+  <li>[JSF AV Rule 117] - Arguments <strong>should</strong> be passed by reference if NULL values are not possible:
+    <ul>
+      <li>[JSF AV Rule 117.1] - An object <strong>should</strong> be passed as <em>const T&amp;</em> if the function should not change the value of the object.</li>
+      <li>[JSF AV Rule 117.2] - An object <strong>should</strong> be passed as <em>T&amp;</em> if the function may change the value of the object.</li>
+    </ul>
+  </li>
+  <li>[JSF AV Rule 118] - Arguments <strong>should</strong> be passed via pointers if NULL values are possible:
+    <ul>
+      <li>[JSF AV Rule 118.1] - An object <strong>should</strong> be passed as <em>const T*</em> if its value should not be modified.</li>
+      <li>[JSF AV Rule 118.2] - An object <strong>should</strong> be passed as <em>T*</em> if its value may be modified.</li>
+    </ul>
+  </li>
+  <li>
+    <p>[JSF AV Rule 119 (MISRA C Rule 70)] - Functions <strong>shall not</strong> call themselves, either directly or indirectly (i.e. recursion <strong>shall not</strong> be allowed).</p>
+
+    <p><strong>Exception</strong>: Recursion will be permitted under the following circumstances:</p>
+
+    <ol>
+      <li>development of SEAL 3 or general purpose software, or</li>
+      <li>it can be proven that adequate resources exist to support the maximum level of recursion possible.</li>
+    </ol>
+  </li>
+  <li>[JSF AV Rule 120] - Overloaded operations or methods <strong>should</strong> form families that use the same semantics, share the same name, have the same purpose, and that are differentiated by formal parameters.</li>
+</ul>
+
+<h3 id="inline-functions">Inline Functions</h3>
+
+<ul>
+  <li>[JSF AV Rule 121] - Only functions with 1 or 2 statements <strong>should</strong> be considered candidates for inline functions.</li>
+  <li>[JSF AV Rule 122] - Trivial accessor and mutator functions <strong>should</strong> be inlined.</li>
+  <li>
+    <p>[JSF AV Rule 123] - The number of accessor and mutator functions <strong>should</strong> be minimised.</p>
+
+    <p><strong>Rationale</strong>: Numerous accessors and mutators may indicate that a class simply serves to aggregate a collection of data rather than to embody an abstraction with a well-defined state or invariant. In this case, a struct with public data may be a better alternative (see section 4.10.2, AV Rule 65, and AV Rule 66).</p>
+  </li>
+  <li>[JSF AV Rule 124] - Trivial forwarding functions <strong>should</strong> be inlined.</li>
+</ul>
+
+<h3 id="initialisation">Initialisation</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 8–5–1, Required] - All variables <strong>shall</strong> have a defined value before they are used.</li>
+  <li>[MISRA C++ Rule 8–5–2, Required] - Braces <strong>shall</strong> be used to indicate and match the structure in the non- zero initialization of arrays and structures.</li>
+  <li>[MISRA C++ Rule 8–5–3, Required] - In an enumerator list, the = construct <strong>shall not</strong> be used to explicitly initialize members other than the first, unless all items are explicitly initialized.</li>
+  <li>
+    <p>[JSF AV Rule 142 (MISRA C Rule 30, Revised)] - All variables <strong>shall</strong> be initialized before use. (See also AV Rule 136, AV Rule 71, and AV Rule 73, and AV Rule 143 concerning declaration scope, object construction, default constructors, and the point of variable introduction respectively.)</p>
+
+    <p><strong>Exception</strong>: Exceptions are allowed where a name must be introduced before it can be initialized (e.g. value received via an input stream).</p>
+  </li>
+  <li>[JSF AV Rule 143] - Variables <strong>will not</strong> be introduced until they can be initialized with meaningful values. (See also AV Rule 136, AV Rule 142, and AV Rule 73 concerning declaration scope, initialization before use, and default constructors respectively.)</li>
+  <li>[JSF AV Rule 144 (MISRA C Rule 31)] - Braces <strong>shall</strong> be used to indicate and match the structure in the non-zero initialization of arrays and structures.</li>
+  <li>[JSF AV Rule 145 (MISRA C Rule 32)] - In an enumerator list, the ‘=‘ construct <strong>shall not</strong> be used to explicitly initialize members other than the first, unless all items are explicitly initialised.</li>
+</ul>
+
+<h2 id="classes">Classes</h2>
+
+<ul>
+  <li>[JSF AV Rule 64] - A class interface <strong>should</strong> be complete and minimal. See Meyers [6], item 18.</li>
+  <li>[JSF AV Rule 70] - A class <strong>will</strong> have friends only when a function or object requires access to the private elements of the class, but is unable to be a member of the class for logical or efficiency reasons.</li>
+  <li>[JSF AV Rule 84] - Operator overloading <strong>will</strong> be used sparingly and in a conventional manner.</li>
+  <li>[JSF AV Rule 85] - When two operators are opposites (such as == and !=), both <strong>will</strong> be defined and one <strong>will</strong> be defined in terms of the other.</li>
+</ul>
+
+<h3 id="member-functions">Member functions</h3>
+
+<ul>
+  <li>
+    <p>[JSF AV Rule 69] - A member function that does not affect the state of an object (its instance variables) <strong>will</strong> be declared <em>const</em>.</p>
+
+    <p><strong>Rationale</strong>: Member functions should be <em>const</em> by default. Only when there is a clear, explicit reason should the <em>const</em> modifier on member functions be omitted.</p>
+  </li>
+  <li>[MISRA C++ Rule 9–3–1, Required] - const member functions <strong>shall not</strong> return non-const pointers or references to <em>class-data</em>.</li>
+  <li>[MISRA C++ Rule 9–3–2, Required] - Member functions <strong>shall not</strong> return non-<em>const</em> <em>handles</em> to <em>class-data</em>.</li>
+  <li>[MISRA C++ Rule 9–3–3, Required] - If a member function can be made <em>static</em> then it <strong>shall</strong> be made <em>static</em>, otherwise if it can be made <em>const</em> then it <strong>shall</strong> be made <em>const</em>.</li>
+  <li>
+    <p>[JSF AV Rule 68] - Unneeded implicitly generated member functions <strong>shall</strong> be explicitly disallowed. See Meyers [6], item 27.</p>
+
+    <p>Note: If the copy constructor is explicitly disallowed, the assignment operator should be as well.</p>
+  </li>
+</ul>
+
+<h3 id="unions">Unions</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 9–5–1, Required] - Unions <strong>shall not</strong> be used.</li>
+  <li>[JSF AV Rule 153 (MISRA C Rule 110, Revised)] - Unions <strong>shall not</strong> be used.</li>
+</ul>
+
+<h3 id="bit-fields">Bit-fields</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 9–6–1, Document] - When the absolute positioning of bits representing a bit-field is required, then the behaviour and packing of bit-fields <strong>shall</strong> be documented.</li>
+  <li>[MISRA C++ Rule 9–6–2, Required] - Bit-fields <strong>shall</strong> be either bool type or an explicitly <em>unsigned</em> or <em>signed</em> integral type.</li>
+  <li>[MISRA C++ Rule 9–6–3, Required] - Bit-fields <strong>shall not</strong> have enum type.</li>
+  <li>[MISRA C++ Rule 9–6–4, Required] - Named bit-fields with <em>signed</em> integer type <strong>shall</strong> have a length of more than one bit.</li>
+  <li>
+    <p>[JSF AV Rule 154 (MISRA Rules 111 and 112, Revised)] - Bit-fields <strong>shall</strong> have explicitly unsigned integral or enumeration types only.</p>
+
+    <p>Note: MISRA C Rule 112 no longer applies since it discusses a two-bit minimum-length requirement for bit-fields of signed types.</p>
+  </li>
+  <li>
+    <p>[JSF AV Rule 155] - Bit-fields <strong>will not</strong> be used to pack data into a word for the sole purpose of saving space.</p>
+
+    <p>Note: Bit-packing should be reserved for use in interfacing to hardware or conformance to communication protocols.</p>
+
+    <p><strong>Warning</strong>: Certain aspects of bit-field manipulation are implementation-defined.</p>
+  </li>
+  <li>
+    <p>[JSF AV Rule 156 (MISRA C Rule 113)] - All the members of a structure (or class) <strong>shall</strong> be named and shall only be accessed via their names.</p>
+
+    <p><strong>Exception</strong>: An unnamed bit-field of width zero may be used to specify alignment of the next bit-field at an allocation boundary. [10], 9.6(2)</p>
+  </li>
+</ul>
+
+<h2 id="derived-classes">Derived classes</h2>
+
+<h3 id="inheritance">Inheritance</h3>
+
+<p>Class hierarchies are appropriate when run-time selection of implementation is required. If run-time resolution is not required, template parameterization should be considered (templates are better-behaved and faster than virtual functions). Finally, simple independent concepts should be expressed as concrete types. The method selected to express the solution should be commensurate with the complexity of the problem.</p>
+
+<p>The following rules provide additional detail and guidance when considering the structure of inheritance hierarchies.</p>
+
+<ul>
+  <li>
+    <p>[JSF AV Rule 86] - Concrete types <strong>should</strong> be used to represent simple independent concepts. See Stroustrup [2], 25.2.</p>
+
+    <p>[ILG] - Concrete types behave ‘‘just like built-in types.’’</p>
+  </li>
+  <li>[JSF AV Rule 87] - Hierarchies <strong>should</strong> be based on abstract classes. See Stroustrup [2], 12.5.</li>
+  <li>[JSF AV Rule 90] - Heavily used interfaces <strong>should</strong> be minimal, general and abstract. See Stroustrup [2] 23.4.</li>
+  <li>
+    <p>[JSF AV Rule 91] - Public inheritance <strong>will</strong> be used to implement “is-a” relationships. See Meyers [6], item 35.</p>
+
+    <p><strong>Rationale</strong>: In contrast to public inheritance, private and protected inheritance means “is-implemented- in-terms-of”. It is purely an implementation technique—the interface is ignored.</p>
+  </li>
+  <li>[JSF AV Rule 92] - A subtype (publicly derived classes) <strong>will</strong> conform to the following guidelines with respect to all classes involved in the polymorphic assignment of different subclass instances to the same variable or parameter during the execution of the system:
+    <ul>
+      <li>Preconditions of derived methods must be at least as weak as the preconditions of the methods they override.</li>
+      <li>Postconditions of derived methods must be at least as strong as the postconditions of the methods they override.</li>
+    </ul>
+
+    <p>In other words, subclass methods must expect less and deliver more than the base class methods they override. This rule implies that subtypes will conform to the <a href="https://en.wikipedia.org/wiki/Liskov_substitution_principle">Liskov Substitution Principle</a>.</p>
+  </li>
+  <li>[JSF AV Rule 93] - “has-a” or “is-implemented-in-terms-of” relationships <strong>will</strong> be modeled through membership or non-public inheritance. See Meyers [6], item 40.</li>
+  <li>[JSF AV Rule 94] - An inherited nonvirtual function <strong>shall not</strong> be redefined in a derived class. See Meyers [6], item 37.</li>
+  <li>[JSF AV Rule 95] - An inherited default parameter <strong>shall</strong> never be redefined. See Meyers [6], item 38.</li>
+  <li>[JSF AV Rule 96] - Arrays <strong>shall not</strong> be treated polymorphically. See Meyers [7], item 3.</li>
+  <li>[JSF AV Rule 97] - Arrays <strong>shall not</strong> be used in interfaces. Instead, the <em>Array</em> class should be used.</li>
+</ul>
+
+<h3 id="multiple-base-classes">Multiple base classes</h3>
+
+<ul>
+  <li>
+    <p>[JSF AV Rule 88] - Multiple inheritance <strong>shall</strong> only be allowed in the following restricted form: <em>n</em> interfaces plus <em>m</em> private implementations, plus at most one protected implementation.</p>
+
+    <p>[ILG] - this is a complex rule; for more details please consider JSF Appendix A page 98.</p>
+  </li>
+  <li>
+    <p>[JSF AV Rule 88.1] - A stateful virtual base <strong>shall</strong> be explicitly declared in each derived class that accesses it.</p>
+
+    <p>Example:</p>
+
+    <p>struct A {};</p>
+
+    <p>struct B : virtual A {};</p>
+
+    <p>struct C : virtual A {};</p>
+
+    <p>struct D : B, virtual A {};</p>
+
+    <p>struct E : C, virtual A {};</p>
+
+    <p>struct F : D, E, virtual A {};</p>
+  </li>
+  <li>
+    <p>[MISRA C++ Rule 10–1–1, Advisory] - Classes <strong>should not</strong> be derived from virtual bases.</p>
+
+    <p>[ILG] - JSF is more permissive, see above conditions.</p>
+  </li>
+  <li>[MISRA C++ Rule 10–1–2, Required] - A base class <strong>shall</strong> only be declared virtual if it is used in a diamond hierarchy.</li>
+  <li>[MISRA C++ Rule 10–1–3, Required] - An accessible base class <strong>shall not</strong> be both virtual and non-virtual in the same hierarchy.</li>
+  <li>[JSF AV Rule 89] - A base class <strong>shall not</strong> be both virtual and non-virtual in the same hierarchy.</li>
+</ul>
+
+<h3 id="member-name-lookup">Member name lookup</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 10–2–1, Advisory] - All accessible entity names within a multiple inheritance hierarchy <strong>should</strong> be <em>unique</em>.</li>
+</ul>
+
+<h3 id="virtual-functions">Virtual functions</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 10–3–1, Required] - There <strong>shall</strong> be no more than one definition of each virtual function on each path through the inheritance hierarchy.</li>
+  <li>[MISRA C++ Rule 10–3–2, Required] - Each overriding virtual function <strong>shall</strong> be declared with the <em>virtual</em> keyword.</li>
+  <li>[MISRA C++ Rule 10–3–3, Required] - A virtual function <strong>shall</strong> only be overridden by a <em>pure virtual function</em> if it is itself declared as <em>pure virtual</em>.</li>
+  <li>[JSF AV Rule 97.1] - Neither operand of an equality operator (== or !=) <strong>shall</strong> be a pointer to a virtual member function.</li>
+</ul>
+
+<h3 id="testing">Testing</h3>
+
+<ul>
+  <li>
+    <p>[JSV AV Rule 219] - All tests applied to a base class interface <strong>shall</strong> be applied to all derived class interfaces as well. If the derived class poses stronger postconditions/invariants, then the new postconditions /invariants shall be substituted in the derived class tests.</p>
+
+    <p>Note: This rule will often imply that every test case appearing in the set of test cases associated with a class will also appear in the set of test cases associated with each of its derived classes.</p>
+  </li>
+  <li>
+    <p>[JSV AV Rule 220] - Structural coverage algorithms <strong>shall</strong> be applied against <em>flattened</em> classes.</p>
+
+    <p>Note: When a class is viewed with respect to all of its components (both defined at the derived level as well as inherited from all of its base levels) it is said to be <em>flattened</em>.</p>
+  </li>
+  <li>
+    <p>[JSV AV Rule 221] - Structural coverage of a class within an inheritance hierarchy containing virtual functions <strong>shall</strong> include testing every possible resolution for each set of identical polymorphic references.</p>
+  </li>
+</ul>
+
+<h2 id="member-access-control">Member access control</h2>
+
+<h3 id="general-3">General</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 11–0–1, Required] - Member data in non-<em>POD</em> class types <strong>shall</strong> be private.</li>
+  <li>[JSF AV Rule 57] - The public, protected, and private sections of a class <strong>will</strong> be declared in that order (the public section is declared before the protected section which is declared before the private section).</li>
+  <li>
+    <p>[JSF AV Rule 65] - A structure <strong>should</strong> be used to model an entity that does not require an invariant.</p>
+
+    <p>[ILG] - in other words, an entity that essentially aggregates data.</p>
+  </li>
+  <li>
+    <p>[JSF AV Rule 66] - A class <strong>should</strong> be used to model an entity that maintains an invariant.</p>
+
+    <p>[ILG] - in other words, an entity that provides an abstraction while maintaining a well-defined state.</p>
+  </li>
+  <li>
+    <p>[JSF AV Rule 67] - Public and protected data <strong>should</strong> only be used in structs - not classes.</p>
+
+    <p><strong>Exception</strong>: Protected members may be used in a class as long as that class does not participate in a client interface. See AV Rule 88.</p>
+  </li>
+</ul>
+
+<h2 id="special-member-functions">Special member functions</h2>
+
+<h3 id="constructors">Constructors</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 12–1–1, Required] - An object’s dynamic type <strong>shall not</strong> be used from the body of its constructor or destructor.</li>
+  <li>[MISRA C++ Rule 12–1–2, Advisory] - All constructors of a class <strong>should</strong> explicitly call a constructor for all of its immediate base classes and all virtual base classes.</li>
+  <li>[MISRA C++ Rule 12–1–3, Required] - All constructors that are callable with a single argument of fundamental type <strong>shall</strong> be declared <em>explicit</em>.</li>
+  <li>[JSF AV Rule 70.1] - An object <strong>shall not</strong> be improperly used before its lifetime begins or after its lifetime ends.</li>
+  <li>[JSF AV Rule 71] - Calls to an externally visible operation of an object, other than its constructors, <strong>shall not</strong> be allowed until the object has been fully initialised.</li>
+  <li>[JSF AV Rule 71.1] - A class’s virtual functions <strong>shall not</strong> be invoked from its destructor or any of its constructors.</li>
+  <li>[JSF AV Rule 72] - The invariant for a class <strong>should</strong> be:
+    <ul>
+      <li>a part of the postcondition of every class constructor,</li>
+      <li>a part of the precondition of the class destructor (if any),</li>
+      <li>a part of the precondition and postcondition of every other publicly accessible operation.</li>
+    </ul>
+  </li>
+  <li>[JSF AV Rule 73] - Unnecessary default constructors shall not be defined. See Meyers [7], item 4. (See also AV Rule 143).</li>
+  <li>
+    <p>[JSF AV Rule 74] - Initialization of nonstatic class members <strong>will</strong> be performed through the member initialisation list rather than through assignment in the body of a constructor. See Meyers [6], item 12.</p>
+
+    <p><strong>Exception</strong>: Assignment should be used when an initial value cannot be represented by a simple expression (e.g. initialization of array values), or when a name must be introduced before it can be initialized (e.g. value received via an input stream).</p>
+  </li>
+  <li>
+    <p>[JSF AV Rule 75] - Members of the initialization list <strong>shall</strong> be listed in the order in which they are declared in the class. See Stroustrup [2], 10.4.5 and Meyers [6], item 13.</p>
+
+    <p>Note: Since base class members are initialised before derived class members, base class initializers should appear at the beginning of the member initialization list.</p>
+  </li>
+  <li>
+    <p>[JSF AV Rule 76] - A copy constructor and an assignment operator <strong>shall</strong> be declared for classes that contain pointers to data items or nontrivial destructors. See Meyers [6], item 11.</p>
+
+    <p>Note: See also AV Rule 80 which indicates that default copy and assignment operators are preferable when those operators offer reasonable semantics.</p>
+  </li>
+  <li>
+    <p>[JSF AV Rule 77] - A copy constructor <strong>shall</strong> copy all data members and bases that affect the class invariant (a data element representing a cache, for example, would not need to be copied).</p>
+
+    <p>Note: If a reference counting mechanism is employed by a class, a literal copy need not be performed in every case. See also AV Rule 83.</p>
+  </li>
+  <li>[JSF AV Rule 77.1] - The definition of a member function <strong>shall not</strong> contain default arguments that produce a signature identical to that of the implicitly-declared copy constructor for the corresponding class/structure.</li>
+  <li>
+    <p>[JSF AV Rule 78] - All base classes with a virtual function <strong>shall</strong> define a virtual destructor.</p>
+
+    <p>Note: This rule does not imply the use of dynamic memory (allocation/deallocation from the free store) will be used. See AV Rule 206.</p>
+  </li>
+  <li>[JSF AV Rule 79] - All resources acquired by a class <strong>shall</strong> be released by the class’s destructor. See Stroustrup [2], 14.4 and Meyers [7], item 9.</li>
+  <li>[JSF AV Rule 80] - The default copy and assignment operators <strong>will</strong> be used for classes when those operators offer reasonable semantics.</li>
+</ul>
+
+<h3 id="copying-class-objects">Copying class objects</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 12–8–1, Required] - A copy constructor <strong>shall</strong> only initialize its base classes and the non- static members of the class of which it is a member.</li>
+  <li>[MISRA C++ Rule 12–8–2, Required] - The copy assignment operator <strong>shall</strong> be declared <em>protected</em> or <em>private</em> in an abstract class.</li>
+</ul>
+
+<h2 id="templates">Templates</h2>
+
+<p>The following guidelines provided by Stroustrup[2], 13.8, offer advice when to prefer the use of templates over the use of inheritance:</p>
+
+<ol>
+  <li>Prefer a template over derived classes when run-time efficiency is at a premium.</li>
+  <li>Prefer derived classes over a template if adding new variants without recompilation is important.</li>
+  <li>Prefer a template over derived classes when no common base can be defined.</li>
+  <li>Prefer a template over derived classes when built-in types and structures with compatibility constraints are important.</li>
+</ol>
+
+<h3 id="template-declarations">Template declarations</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 14–5–1, Required] - A non-member <em>generic function</em> <strong>shall</strong> only be declared in a namespace that is not an <em>associated namespace</em>.</li>
+  <li>[MISRA C++ Rule 14–5–2, Required] - A <em>copy constructor</em> <strong>shall</strong> be declared when there is a template constructor with a single parameter that is a <em>generic parameter</em>.</li>
+  <li>[MISRA C++ Rule 14–5–3, Required] - A <em>copy assignment operator</em> <strong>shall</strong> be declared when there is a template assignment operator with a parameter that is a <em>generic parameter</em>.</li>
+  <li>[JSF AV Rule 101] - Templates <strong>shall</strong> be reviewed as follows:
+    <ol>
+      <li>with respect to the template in isolation considering assumptions or requirements placed on its arguments.</li>
+      <li>with respect to all functions instantiated by actual arguments.</li>
+    </ol>
+
+    <p>Note: The compiler should be configured to generate the list of actual template instantiations.</p>
+  </li>
+  <li>
+    <p>[JSF AV Rule 102] - Template tests <strong>shall</strong> be created to cover all actual template instantiations.</p>
+
+    <p>Note: The compiler should be configured to generate the list of actual template instantiations.</p>
+  </li>
+  <li>[JSF AV Rule 103] - Constraint checks <strong>should</strong> be applied to template arguments.</li>
+</ul>
+
+<h3 id="name-resolution">Name resolution</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 14–6–1, Required] - In a class template with a dependent base, any name that may be found in that dependent base <strong>shall</strong> be referred to using a <em>qualified-id</em> or <code class="language-plaintext highlighter-rouge">this-&gt;</code>.</li>
+  <li>[MISRA C++ Rule 14–6–2, Required] - The function chosen by overload resolution <strong>shall</strong> resolve to a function declared previously in the translation unit.</li>
+</ul>
+
+<h3 id="template-instantiation-and-specialisation">Template instantiation and specialisation</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 14–7–1, Required] - All class templates, function templates, class template member functions and class template static members <strong>shall</strong> be instantiated at least once.</li>
+  <li>[MISRA C++ Rule 14–7–2, Required] - For any given template specialization, an explicit instantiation of the template with the <em>template-arguments</em> used in the specialization <strong>shall not</strong> render the program ill-formed.</li>
+  <li>[MISRA C++ Rule 14–7–3, Required] - All partial and explicit specializations for a template <strong>shall</strong> be declared in the same file as the declaration of their <em>primary template</em>.</li>
+  <li>[JSF AV Rule 104] - A template specialization <strong>shall</strong> be declared before its use. See Stroustrup [2], 13.5.</li>
+  <li>[JSF AV Rule 105] - A template definition’s dependence on its instantiation contexts <strong>should</strong> be minimized. See Stroustrup [2], 13.2.5 and C.13.8.</li>
+  <li>[JSF AV Rule 106] - Specializations for pointer types <strong>should</strong> be made where appropriate. See Stroustrup [2], 13.5.</li>
+</ul>
+
+<h3 id="function-template-specialisation">Function template specialisation</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 14–8–1, Required] - Overloaded function templates <strong>shall not</strong> be explicitly specialized.</li>
+  <li>[MISRA C++ Rule 14–8–2, Advisory] - The viable <em>function set</em> for a function call <strong>should</strong> either contain no function specializations, or only contain function specialisations.</li>
+</ul>
+
+<h2 id="exception-handling">Exception handling</h2>
+
+<h3 id="general-4">General</h3>
+
+<ul>
+  <li>
+    <p><del>[JSV AV Rule 208] - C++ exceptions <strong>shall not</strong> be used (i.e. throw, catch and try shall not be used.)</del></p>
+
+    <p>[ILG] - until a thorough analyse of the implementation is completed, C++ exceptions <strong>shall not</strong> be used (to be further considered).</p>
+  </li>
+  <li>
+    <p>[MISRA C++ Rule 15–0–1, Document] - Exceptions <strong>shall</strong> only be used for error handling.</p>
+
+    <p>[ILG] - Exceptions shall be used only for ‘exceptional’ error handling, i.e. events that during normal usage do not occur.</p>
+
+    <p>[ILG] - Exceptions should not be used in time critical contexts (the time required between throw and catch cannot be computed, not even estimated).</p>
+  </li>
+  <li>[MISRA C++ Rule 15–0–2, Advisory] - An exception object <strong>should not</strong> have pointer type.</li>
+  <li>[MISRA C++ Rule 15–0–3, Required] - Control <strong>shall not</strong> be transferred into a <em>try</em> or <em>catch</em> block using a <em>goto</em> or a <em>switch</em> statement.</li>
+</ul>
+
+<h3 id="throwing-an-exception">Throwing an exception</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 15–1–1, Required] - The <em>assignment-expression</em> of a <em>throw</em> statement <strong>shall not</strong> itself cause an exception to be thrown.</li>
+  <li>[MISRA C++ Rule 15–1–2, Required] - <em>NULL</em> <strong>shall not</strong> be thrown explicitly.</li>
+  <li>[MISRA C++ Rule 15–1–3, Required] - An empty <em>throw</em> (<code class="language-plaintext highlighter-rouge">throw;</code>) <strong>shall</strong> only be used in the <em>compound-statement</em> of a <em>catch</em> handler.</li>
+</ul>
+
+<h3 id="handling-an-exception">Handling an exception</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 15–3–1, Required] - Exceptions <strong>shall</strong> be raised only after start-up and before termination of the program.</li>
+  <li>
+    <p>[MISRA C++ Rule 15–3–2, Advisory] - There <strong>should</strong> be at least one exception handler to catch all otherwise unhandled exceptions.</p>
+
+    <p>[ILG] - probably this advice applies per thread.</p>
+  </li>
+  <li>[MISRA C++ Rule 15–3–3, Required] - Handlers of a <em>function-try-block</em> implementation of a class constructor or destructor <strong>shall not</strong> reference non-static members from this class or its bases.</li>
+  <li>[MISRA C++ Rule 15–3–4, Required] - Each exception explicitly thrown in the code <strong>shall</strong> have a handler of a compatible type in all call paths that could lead to that point.</li>
+  <li>[MISRA C++ Rule 15–3–5, Required] - A class type exception <strong>shall</strong> always be caught by reference.</li>
+  <li>[MISRA C++ Rule 15–3–6, Required] - Where multiple handlers are provided in a single <em>try-catch</em> statement or <em>function-try-block</em> for a derived class and some or all of its bases, the handlers <strong>shall</strong> be ordered most-derived to base class.</li>
+  <li>[MISRA C++ Rule 15–3–7, Required] - Where multiple handlers are provided in a single <em>try-catch</em> statement or <em>function-try-block</em>, any ellipsis (catch-all) handler <strong>shall</strong> occur last.</li>
+</ul>
+
+<h3 id="exception-specifications">Exception specifications</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 15–4–1, Required] - If a function is declared with an exception-specification, then all declarations of the same function (in other translation units) <strong>shall</strong> be declared with the same set of type-ids.</li>
+</ul>
+
+<h3 id="special-functions">Special functions</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 15–5–1, Required] - A class destructor <strong>shall not</strong> exit with an exception.</li>
+  <li>[MISRA C++ Rule 15–5–2, Required] - Where a function’s declaration includes an exception-specification, the function <strong>shall</strong> only be capable of throwing exceptions of the indicated type(s).</li>
+  <li>[MISRA C++ Rule 15–5–3, Required] - The terminate() function <strong>shall not</strong> be called implicitly.</li>
+</ul>
+
+<h2 id="preprocessing-directives">Preprocessing directives</h2>
+
+<h3 id="general-5">General</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 16–0–1, Required] - <em>#include</em> directives in a file <strong>shall</strong> only be preceded by other preprocessor directives or comments.</li>
+  <li>[MISRA C++ Rule 16–0–2, Required] - Macros <strong>shall</strong> only be <em>#define</em>’d or <em>#undef</em>’d in the global namespace.</li>
+  <li>[MISRA C++ Rule 16–0–3, Required] - <em>#undef</em> <strong>shall not</strong> be used.</li>
+  <li>[MISRA C++ Rule 16–0–4, Required] - Function-like macros <strong>shall not</strong> be defined.</li>
+  <li>[MISRA C++ Rule 16–0–5, Required] - Arguments to a function-like macro <strong>shall not</strong> contain tokens that look like preprocessing directives.</li>
+  <li>[MISRA C++ Rule 16–0–6, Required] - In the definition of a function-like macro, each instance of a parameter <strong>shall</strong> be enclosed in parentheses, unless it is used as the operand of # or ##.</li>
+  <li>[JSF AV Rule 29] - The <em>#define</em> pre-processor directive <strong>shall not</strong> be used to create inline macros. Inline functions <strong>shall</strong> be used instead.</li>
+  <li>
+    <p>[JSF AV Rule 30] - The <em>#define</em> pre-processor directive <strong>shall not</strong> be used to define constant values. Instead, the <em>const</em> qualifier <strong>shall</strong> be applied to variable declarations to specify constant values.</p>
+
+    <p>The only exception to this rule is for constants that are commonly defined by third-party modules. For example, <em>#define</em> is typically used to define <em>NULL</em> in standard header files. Consequently, <em>NULL</em> may be treated as a macro for compatibility with third-party tools.</p>
+  </li>
+  <li>[MISRA C++ Rule 16–0–7, Required] - Undefined macro identifiers <strong>shall not</strong> be used in <em>#if</em> or <em>#elif</em> preprocessor directives, except as operands to the defined operator.</li>
+  <li>[MISRA C++ Rule 16–0–8, Required] - If the # token appears as the first token on a line, then it <strong>shall</strong> be immediately followed by a preprocessing token.</li>
+  <li>[JSF AV Rule 26] - Only the following pre-processor directives shall be used:
+    <ol>
+      <li><em>#ifndef</em></li>
+      <li><em>#define</em></li>
+      <li><em>#endif</em></li>
+      <li><em>#include</em></li>
+    </ol>
+  </li>
+  <li>[JSF AV Rule 27] - <em>#ifndef</em>, <em>#define</em> and <em>#endif</em> <strong>will</strong> be used to prevent multiple inclusions of the same header file. Other techniques to prevent the multiple inclusions of header files <strong>will not</strong> be used.</li>
+  <li>[JSF AV Rule 28] - The <em>#ifndef</em> and <em>#endif</em> pre-processor directives will only be used as defined in AV Rule 27 to prevent multiple inclusions of the same header file.</li>
+  <li>[JSF AV Rule 31] - The <em>#define</em> pre-processor directive <strong>will</strong> only be used as part of the technique to prevent multiple inclusions of the same header file.</li>
+</ul>
+
+<h3 id="conditional-inclusion">Conditional inclusion</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 16–1–1, Required] - The <em>defined</em> preprocessor operator <strong>shall</strong> only be used in one of the two standard forms.</li>
+</ul>
+
+<!-- -->
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code> defined ( identifier )
+ defined identifier
+</code></pre>
+</div>
+</div>
+
+<ul>
+  <li>[MISRA C++ Rule 16–1–2, Required] - All <em>#else</em>, <em>#elif</em> and <em>#endif</em> preprocessor directives <strong>shall</strong> reside in the same file as the <em>#if</em> or <em>#ifdef</em> directive to which they are related.</li>
+</ul>
+
+<h3 id="source-file-inclusion">Source file inclusion</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 16–2–1, Required] - The pre-processor <strong>shall</strong> only be used for file inclusion and include guards.</li>
+  <li>[MISRA C++ Rule 16–2–2, Required] - C++ macros <strong>shall</strong> only be used for: include guards, type qualifiers, or storage class specifiers.</li>
+  <li>[MISRA C++ Rule 16–2–3, Required] - Include guards <strong>shall</strong> be provided.</li>
+  <li>[MISRA C++ Rule 16–2–4, Required] - The ‘, “, /* or // characters <strong>shall not</strong> occur in a header file name.</li>
+  <li>[MISRA C++ Rule 16–2–5, Advisory] - The \ character <strong>should not</strong> occur in a header file name.</li>
+  <li>[MISRA C++ Rule 16–2–6, Required] - The <em>#include</em> directive <strong>shall</strong> be followed by either a *<filename>* or *"filename"* sequence.</filename>
+</li>
+  <li>
+    <p>[JSF AV Rule 32] - The <em>#include</em> pre-processor directive <strong>will</strong> only be used to include header (*.h) files.</p>
+
+    <p><strong>Exception</strong>: In the case of template class or function definitions, the code may be partitioned into separate header and implementation files. In this case, the implementation file may be included as a part of the header file. The implementation file is logically a part of the header and is not separately compilable.</p>
+  </li>
+  <li>[JSF AV Rule 33] - The <em>#include</em> directive <strong>shall</strong> use the <filename.h> notation to include header files.</filename.h>
+</li>
+  <li>[JSF AV Rule 34] - Header files <strong>should</strong> contain logically related declarations only.</li>
+  <li>[JSF AV Rule 35] - A header file <strong>will</strong> contain a mechanism that prevents multiple inclusions of itself.</li>
+  <li>[JSF AV Rule 36] - Compilation dependencies <strong>should</strong> be minimized when possible. (Stroustrup [2], Meyers [6], item 34)</li>
+  <li>[JSF AV Rule 37] - Header (include) files <strong>should</strong> include only those header files that are required for them to successfully compile. Files that are only used by the associated .cpp file should be placed in the .cpp file - not the .h file.</li>
+  <li>[JSF AV Rule 38] - Declarations of classes that are only accessed via pointers (*) or references (&amp;) <strong>should</strong> be supplied by forward headers that contain only forward declarations.</li>
+  <li>
+    <p>[JSF AV Rule 39] - Header files (*.h) <strong>will not</strong> contain non-const variable definitions or function definitions.</p>
+
+    <p><strong>Exception</strong>: Inline functions and template definitions may be included in header files.</p>
+  </li>
+  <li>[JSF AV Rule 40] - Every implementation file <strong>shall</strong> include the header files that uniquely define the inline functions, types, and templates used.</li>
+</ul>
+
+<h3 id="macro-replacement">Macro replacement</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 16–3–1, Required] - There <strong>shall</strong> be at most one occurrence of the # or ## operators in a single macro definition.</li>
+  <li>[MISRA C++ Rule 16–3–2, Advisory] - The # and ## operators <strong>should not</strong> be used.</li>
+</ul>
+
+<h3 id="pragma-directive">Pragma directive</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 16–6–1, Document] - All uses of the <em>#pragma</em> directive <strong>shall</strong> be documented.</li>
+</ul>
+
+<h3 id="library-introduction---general">Library introduction - General</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 17–0–1, Required] - Reserved identifiers, macros and functions in the standard library <strong>shall not</strong> be defined, redefined or undefined.</li>
+  <li>[MISRA C++ Rule 17–0–2, Required] - The names of standard library macros and objects <strong>shall not</strong> be reused.</li>
+  <li>[MISRA C++ Rule 17–0–3, Required] - The names of standard library functions <strong>shall not</strong> be overridden.</li>
+  <li>[MISRA C++ Rule 17–0–4, Document] - All library code <strong>shall</strong> conform to MISRA C++.</li>
+  <li>[MISRA C++ Rule 17–0–5, Required] - The <em>setjmp</em> macro and the <em>longjmp</em> function <strong>shall not</strong> be used.</li>
+  <li>
+<del>[JSF AV Rule 20 (MISRA C Rule 122)] - The <em>setjmp</em> macro and the <em>longjmp</em> function <strong>shall not</strong> be used.</del> (duplicate)</li>
+</ul>
+
+<h2 id="language-support-library">Language support library</h2>
+
+<h3 id="general-6">General</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 18–0–1, Required] - The C library <strong>shall not</strong> be used.</li>
+  <li>[MISRA C++ Rule 18–0–2, Required] - The library functions <em>atof</em>, <em>atoi</em> and <em>atol</em> from library *<cstdlib>* **shall not** be used.</cstdlib>
+</li>
+  <li>[JSF AV Rule 23 (MISRA C Rule 125] - The library functions <em>atof</em>, <em>atoi</em> and <em>atol</em> from library <stdlib.h> **shall not** be used.</stdlib.h>
+</li>
+  <li>[MISRA C++ Rule 18–0–3, Required] - The library functions <em>abort</em>, <em>exit</em>, <em>getenv</em> and <em>system</em> from library *<cstdlib>* **shall not** be used.</cstdlib>
+</li>
+  <li>[JSF AV Rule 24 (MISRA C Rule 126] - The library functions <em>abort</em>, <em>exit</em>, <em>getenv</em> and <em>system</em> from library <stdlib.h> **shall not** be used.</stdlib.h>
+</li>
+  <li>[MISRA C++ Rule 18–0–4, Required] - The time handling functions of library *<ctime>* **shall not** be used.</ctime>
+</li>
+  <li>[JSF AV Rule 25 (MISRA C Rule 127] - The time handling functions of library <time.h> **shall not** be used.</time.h>
+</li>
+  <li>[MISRA C++ Rule 18–0–5, Required] - The unbounded functions of library *<cstring>* **shall not** be used.</cstring>
+</li>
+  <li>[JSF AV Rule 19 (MISRA C Rule 121)] - <locale.h> and the *setlocale* function **shall not** be used.</locale.h>
+</li>
+  <li>[JSF AV Rule 16] - Only DO-178B level A [15] - certifiable or SEAL 1 C/C++ libraries shall be used with safety-critical (i.e. SEAL 1) code [13].</li>
+</ul>
+
+<h3 id="implementation-properties">Implementation properties</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 18–2–1, Required] - The macro <em>offsetof</em> <strong>shall not</strong> be used.</li>
+  <li>[JSF AV Rule 18 (MISRA C Rule 120)] - The macro <em>offsetof</em>, in library <stddef.h>, **shall not** be used.</stddef.h>
+</li>
+</ul>
+
+<h3 id="dynamic-memory-management">Dynamic memory management</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 18–4–1, Required] - Dynamic heap memory allocation <strong>shall not</strong> be used.</li>
+  <li>
+    <p>[JSV AV Rule 206 (MISRA C Rule 118, Revised)] - Allocation/deallocation from/to the free store (heap) <strong>shall not</strong> occur after initialization.</p>
+
+    <p>Note that the “placement” <em>operator new()</em>, although not technically dynamic memory, may only be used in low-level memory management routines. See AV Rule 70.1 for object lifetime issues associated with placement <em>operator new()</em>.</p>
+  </li>
+  <li>
+    <p>[JSV AV Rule 207] - Unencapsulated global data <strong>will</strong> be avoided.</p>
+
+    <p>Note: If multiple clients require access to a single resource, that resource should be wrapped in a class that manages access to that resource. For example, semantic controls that prohibit unrestricted access may be provided (e.g. singletons and input streams). See AV_Rule_207_Appendix_A for examples.</p>
+  </li>
+</ul>
+
+<h3 id="other-runtime-support">Other runtime support</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 18–7–1, Required] - The signal handling facilities of *<csignal>* **shall not** be used.</csignal>
+</li>
+  <li>[JSF AV Rule 21 (MISRA C Rule 123)] - The signal handling facilities of <signal.h> **shall not** be used.</signal.h>
+</li>
+</ul>
+
+<h2 id="diagnostics-library">Diagnostics library</h2>
+
+<h3 id="error-numbers">Error numbers</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 19–3–1, Required] - The error indicator <em>errno</em> <strong>shall not</strong> be used.</li>
+  <li>
+    <p><del>[JSF AV Rule 17 (MISRA C Rule 119)] - The error indicator <em>errno</em> <strong>shall not</strong> be used.</del> (duplicate)</p>
+
+    <p><strong>Exception</strong>: If there is no other reasonable way to communicate an error condition to an application, then <em>errno</em> may be used. For example, third party math libraries will often make use of <em>errno</em> to inform an application of underflow/overflow or out-of-range/domain conditions. Even in this case, <em>errno</em> should only be used if its design and implementation are well-defined and documented.</p>
+  </li>
+</ul>
+
+<h2 id="inputoutput-library">Input/output library</h2>
+
+<h3 id="general-7">General</h3>
+
+<ul>
+  <li>[MISRA C++ Rule 27–0–1, Required] - The stream input/output library *<cstdio>* **shall not** be used.</cstdio>
+</li>
+  <li>[JSF AV Rule 22 (MISRA C Rule 124, Revised)] - The input/output library <stdio.h> **shall not** be used.</stdio.h>
+</li>
+</ul>
+
+<h2 id="miscellaneous">Miscellaneous</h2>
+
+<h3 id="style">Style</h3>
+
+<p>Imposing constraints on the format of syntactic elements makes source code easier to read due to consistency in form and appearance.</p>
+
+<ul>
+  <li>[JSF AV Rule 41] - Source lines <strong>will</strong> be kept to a length of 120 characters or less.</li>
+  <li>[ILG Rule, Advisory] - Source lines <strong>should</strong> be kept to a length of 80 characters or less.</li>
+  <li>[JSF AV Rule 42] - Each expression-statement <strong>will</strong> be on a separate line.</li>
+  <li>[JSF AV Rule 43] - Tabs <strong>should</strong> be avoided.</li>
+  <li>[JSF AV Rule 44] - All indentations <strong>will</strong> be at least two spaces and be consistent within the same source file.</li>
+  <li>[JSF AV Rule 59 (MISRA C Rule 59, Revised)] - The statements forming the body of an <em>if</em>, <em>else if</em>, <em>else</em>, <em>while</em>, <em>do…while</em> or for statement shall always be enclosed in braces, even if the braces form an empty block.</li>
+  <li><del>[JSF AV Rule 60] - Braces (“{}”) which enclose a block will be placed in the same column, on separate lines directly before and after the block.</del></li>
+  <li><del>[JSF AV Rule 61] - Braces (“{}”) which enclose a block will have nothing else on the line except comments (if necessary).</del></li>
+  <li>[ILG Rule] - Indentation shall be consistent for all source files of a project.</li>
+  <li>[ILG Rule, Advisory] - The indentation style <strong>should</strong> be the GNU Style, preferably as implemented by default, without changes, by the IDE used for development (for example Eclipse CDT)</li>
+  <li>[JSF AV Rule 62] - The dereference operator ‘*’ and the address-of operator ‘&amp;’ <strong>will</strong> be directly connected with the type-specifier.</li>
+  <li>[JSF AV Rule 63] - Spaces <strong>will not</strong> be used around ‘.’ or ‘-&gt;’, nor between unary operators and operands.</li>
+  <li>[JSF AV Rule 152] - Multiple variable declarations shall not be allowed on the same line.</li>
+  <li>
+    <p>[JSV AV Rule 216] - Programmers <strong>should not</strong> attempt to prematurely optimize code. See Meyers [7], item 16.</p>
+
+    <p>Note: This rule does not preclude early consideration of fundamental algorithmic and data structure efficiencies.</p>
+
+    <p>See also AV Rule 125 and AV Rule 177 for performance recommendations.</p>
+  </li>
+  <li>[JSV AV Rule 218] - Compiler warning levels <strong>will</strong> be set in compliance with project policies.</li>
+  <li>[ILG Rule, Advisory] - Compiler warning levels <strong>should</strong> be set to maximum.</li>
+</ul>
+
+<h3 id="naming-files">Naming Files</h3>
+
+<ul>
+  <li>[JSF AV Rule 53] - Header files <strong>will</strong> always have a file name extension of “.h”.</li>
+  <li>[JSF AV Rule 53.1] - The following character sequences <strong>shall not</strong> appear in header file names: ‘, \, /*, //, or “.</li>
+  <li>[JSF AV Rule 54] - Implementation files <strong>will</strong> always have a file name extension of “.cpp”.</li>
+  <li>[JSF AV Rule 55] - The name of a header file <strong>should</strong> reflect the logical entity for which it provides declarations.</li>
+  <li>
+    <p>[JSF AV Rule 56] - The name of an implementation file <strong>should</strong> reflect the logical entity for which it provides definitions and have a “.cpp” extension (this name will normally be identical to the header file that provides the corresponding declarations.)</p>
+
+    <p>At times, more than one .cpp file for a given logical entity will be required. In these cases, a suffix should be appended to reflect a logical differentiation.</p>
+  </li>
+</ul>
+
+<h3 id="data-representation">Data Representation</h3>
+
+<ul>
+  <li>
+    <p>[JSV AV Rule 210] - Algorithms <strong>shall not</strong> make assumptions concerning how data is represented in memory (e.g. big endian vs. little endian, base class subobject ordering in derived classes, nonstatic data member ordering across access specifiers, etc.)</p>
+
+    <p><strong>Exception</strong>: Low level routines that are expressly written for the purpose of data formatting (e.g. marshalling data, endian conversions, etc.) are permitted.</p>
+  </li>
+  <li>[JSV AV Rule 210.1] - Algorithms <strong>shall not</strong> make assumptions concerning the order of allocation of nonstatic data members separated by an access specifier. See also AV Rule 210 on data representation.</li>
+  <li>
+    <p>[JSV AV Rule 211] - Algorithms shall not assume that <em>shorts</em>, <em>ints</em>, <em>longs</em>, <em>floats</em>, <em>doubles</em> or <em>long doubles</em> begin at particular addresses.</p>
+
+    <p><strong>Exception</strong>: Low level routines that are expressly written for the purpose of data formatting (e.g. marshalling data, endian conversions, etc.) are permitted.</p>
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/micro-os-plus/ii/Coding_style/" data-layout="button"></div></li>
+</ul>
+
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="site-footer">
+  <div class="site-footer-links left">
+    <ul>
+  <li>© 2019 Liviu Ionescu</li>
+  <li>Hosted on GitHub</li>
+  <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
+  <li>
+<a href="http://twitter.com/micro_os_plus" class="twitter-follow-button" data-show-count="false">Follow @micro_os_plus</a><script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</li>
+</ul>
+
+
+  </div>
+  <a href="https://github.com/micro-os-plus/micro-os-plus-iii" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+  </a>
+  <div class="site-footer-links right">
+    <ul>
+  <li><a href="/web-preview/">Home</a></li>
+  <li><a href="/web-preview/blog/">News</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/releases">Releases</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues">Support</a></li>
+  <li><a href="/web-preview/about/">About</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</div>
+
+</body>
+</html>

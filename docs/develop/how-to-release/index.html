@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>How to release</title>
+  <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
+
+  <meta property="og:title" content="How to release">
+  <meta property="og:site_name" content="µOS++ IIIe">
+
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+
+
+  <meta property="article:published_time" content="2016-07-11">
+
+
+
+
+
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
+
+  <link rel="canonical" href="/web-preview/develop/how-to-release/">
+
+
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16767008-14', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+  <div class="site-header">
+  <table style="width:100%">
+    <tr>
+      <td>
+        <a href="/web-preview/">
+          <img alt="Icon" class="site-icon" src="/web-preview/assets/icons/wall-e-icon.png" height="100" width="100">
+      </a>
+      </td>
+      <td>
+        <table class="site-title" style="width:100%">
+          <tr>
+            <td class="site-title">
+              <a href="/web-preview/">µOS++ IIIe</a>
+            </td>
+            <td class="site-motto" align="right">
+              “Perfekt ist nicht gut genug”
+            </td>
+          </tr>
+          <tr>
+            <td class="site-description" colspan="2">
+              The third edition of µOS++, a POSIX inspired open source framework, written in C++.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+</div>
+
+<div class="container">
+
+  <div class="wrapper">
+    <div class="site-body">
+
+      <div class="site-sidebar">
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      <h4 id="news"><a href="/web-preview/blog/">News</a></h4>
+
+<ul>
+  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></li>
+  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ IIIe v6.3.14 released</a></li>
+  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ IIIe v6.3.13 released</a></li>
+  <li><a href="/web-preview/blog/2017/01/02/micro-os-plus-v6-3-11-released/">µOS++ IIIe v6.3.11 released</a></li>
+</ul>
+
+
+    </div>
+  </div>
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      
+      <h4 id="home"><a href="/web-preview/">Home</a></h4>
+
+<h4 id="µos-iiie">µOS++ IIIe</h4>
+
+<ul>
+  <li><a href="/web-preview/micro-os-plus/">Overview</a></li>
+</ul>
+
+<h4 id="apis">APIs</h4>
+
+<ul>
+  <li><a href="/web-preview/cmsis-plus/">Overview</a></li>
+  <li><a href="/web-preview/cmsis-plus/rtos/">RTOS API</a></li>
+</ul>
+
+<h4 id="xpacksxcdl">xPacks/XCDL</h4>
+
+<ul>
+  <li><a href="/web-preview/xpacks/">Overview</a></li>
+</ul>
+
+<h4 id="documentation">Documentation</h4>
+
+<ul>
+  <li>
+<a href="/web-preview/user-manual/">User’s <strong>manual</strong></a>
+    <ul>
+      <li><a href="/web-preview/user-manual/getting-started/">Getting started</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/">Basic concepts</a></li>
+      <li><a href="/web-preview/user-manual/features/">Features</a></li>
+      <li><a href="/web-preview/user-manual/threads/">Threads</a></li>
+      <li><a href="/web-preview/user-manual/thread-event-flags/">Thread event flags</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/">Semaphores</a></li>
+      <li><a href="/web-preview/user-manual/event-flags/">Event flags</a></li>
+      <li>Mutexes</li>
+      <li>Condition variables</li>
+      <li>Message queues</li>
+      <li>Memory pools</li>
+      <li>Software timers</li>
+      <li>Clocks</li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/reference/cmsis-plus/">µOS++ <strong>reference</strong></a></li>
+</ul>
+
+<h4 id="developer">Developer</h4>
+
+<ul>
+  <li><a href="/web-preview/develop/">Overview</a></li>
+  <li><a href="/web-preview/reference/cmsis-plus/md_doxygen_pages_change-log.html">Change log</a></li>
+  <li><a href="/web-preview/develop/coding-style/">C++ coding style</a></li>
+  <li><a href="/web-preview/develop/naming-conventions/">Naming conventions</a></li>
+  <li><a href="/web-preview/develop/references/">Links &amp; references</a></li>
+</ul>
+
+<h4 id="support">Support</h4>
+
+<ul>
+  <li><a href="/web-preview/support/">Overview</a></li>
+  <li><a href="/web-preview/support/known-issues/">Known issues</a></li>
+  <li><a href="/web-preview/support/faq/">FAQ</a></li>
+  <li><a href="/web-preview/support/forum/">Forum</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ IIIe issues</a></li>
+</ul>
+
+<h4 id="latest-articles">Latest Articles</h4>
+
+<ul>
+  <li><a href="/web-preview/articles/arm-com-2016-06-24/">CMSIS++ RTOS: fully functional reference implementation</a></li>
+  <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
+</ul>
+
+<h4 id="license">License</h4>
+
+<ul>
+  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+</ul>
+
+<h4 id="about"><a href="/web-preview/about/">About</a></h4>
+
+    </div>
+  </div>
+
+  <div class="site-theme">
+    This site uses the <a href="https://github.com/ilg-ul/github-jekyll-theme">GitHub Wiki-like</a> theme by <a href="https://github.com/ilg-ul">Liviu Ionescu</a>.
+  </div>
+
+</div>
+
+
+      <div class="site-content">
+
+        
+<h1 class="page-title">How to release</h1>
+<table id="last-modified">
+  <tr>
+    <td id="last-modified">Last modified on Wed Dec 23 10:37:26 2020 UTC.</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/develop/how-to-release.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+  </tr>
+</table>
+
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toc_level-1 toc_section-1">
+<a href="#check-git-repos"><span class="tocnumber">1</span> <span class="toctext">Check git repos</span></a>
+</li>
+<li class="toc_level-1 toc_section-2">
+<a href="#commit-git-repos"><span class="tocnumber">2</span> <span class="toctext">Commit git repos</span></a>
+</li>
+<li class="toc_level-1 toc_section-3">
+<a href="#update-the-doxygen-change-log"><span class="tocnumber">3</span> <span class="toctext">Update the doxygen change log</span></a>
+</li>
+<li class="toc_level-1 toc_section-4">
+<a href="#update-the-doxygen-header-version"><span class="tocnumber">4</span> <span class="toctext">Update the doxygen header version</span></a>
+</li>
+<li class="toc_level-1 toc_section-5">
+<a href="#update-os-versionsh"><span class="tocnumber">5</span> <span class="toctext">Update os-versions.h</span></a>
+</li>
+<li class="toc_level-1 toc_section-6">
+<a href="#run-doxygen"><span class="tocnumber">6</span> <span class="toctext">Run doxygen</span></a>
+</li>
+<li class="toc_level-1 toc_section-7">
+<a href="#check-the-jekyll-site"><span class="tocnumber">7</span> <span class="toctext">Check the jekyll site</span></a>
+</li>
+<li class="toc_level-1 toc_section-8">
+<a href="#add-post-to-announce-new-release"><span class="tocnumber">8</span> <span class="toctext">Add post to announce new release</span></a>
+</li>
+<li class="toc_level-1 toc_section-9">
+<a href="#commit-git-repos-1"><span class="tocnumber">9</span> <span class="toctext">Commit git repos</span></a>
+</li>
+<li class="toc_level-1 toc_section-10">
+<a href="#publish-site"><span class="tocnumber">10</span> <span class="toctext">Publish site</span></a>
+</li>
+<li class="toc_level-1 toc_section-11">
+<a href="#update-os-versionsh-1"><span class="tocnumber">11</span> <span class="toctext">Update os-versions.h</span></a>
+</li>
+<li class="toc_level-1 toc_section-12">
+<a href="#share-on-social-media"><span class="tocnumber">12</span> <span class="toctext">Share on social media</span></a>
+<ul>
+<li class="toc_level-2 toc_section-13">
+<a href="#twitter"><span class="tocnumber">12.1</span> <span class="toctext">Twitter</span></a>
+</li>
+<li class="toc_level-2 toc_section-14">
+<a href="#facebook"><span class="tocnumber">12.2</span> <span class="toctext">Facebook</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="check-git-repos">Check git repos</h2>
+
+<p>In <code class="language-plaintext highlighter-rouge">xPacks/ilg/scripts.git</code>, run <code class="language-plaintext highlighter-rouge">xpacks-git-status.mac.command</code> to check 
+which repositories need to be updated.</p>
+
+<h2 id="commit-git-repos">Commit git repos</h2>
+
+<p>With SourceTree,</p>
+
+<ul>
+  <li>commit <code class="language-plaintext highlighter-rouge">micro-os-plus-iii.git</code>
+</li>
+  <li>possibly commit <code class="language-plaintext highlighter-rouge">micro-os-plus-iii-cortexm.git</code>, <code class="language-plaintext highlighter-rouge">posix-arch.git</code>, etc</li>
+</ul>
+
+<h2 id="update-the-doxygen-change-log">Update the doxygen change log</h2>
+
+<p>With Eclipse, edit <code class="language-plaintext highlighter-rouge">micro-os-plus-iii.git/doxygen/pages/changes-log.markdown</code></p>
+
+<ul>
+  <li>add new <code class="language-plaintext highlighter-rouge">###</code> section, with version and date</li>
+  <li>copy from SourceTree the relevant changes, in reverse chronological order</li>
+</ul>
+
+<h2 id="update-the-doxygen-header-version">Update the doxygen header version</h2>
+
+<p>With Eclipse, edit <code class="language-plaintext highlighter-rouge">micro-os-plus-iii.git/doxygen/config-common.doxyfile</code>.</p>
+
+<h2 id="update-os-versionsh">Update os-versions.h</h2>
+
+<p>With Visual Studio Code,</p>
+
+<ul>
+  <li>edit <code class="language-plaintext highlighter-rouge">micro-os-plus-iii.git/include/os-versions.h</code>, remove <code class="language-plaintext highlighter-rouge">-beta</code>
+</li>
+</ul>
+
+<h2 id="run-doxygen">Run doxygen</h2>
+
+<p>With Terminal,</p>
+
+<div class="language-console highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="gp">$</span><span class="w"> </span><span class="nb">cd</span> /Users/ilg/Library/xPacks/ilg/micro-os-plus-iii.git/doxygen
+<span class="gp">$</span><span class="w"> </span>axbb
+<span class="gp">$</span><span class="w"> </span>doxygen <span class="nt">--version</span>
+<span class="go">1.8.14
+</span><span class="gp">$</span><span class="w"> </span>doxygen config.doxyfile
+</code></pre>
+</div>
+</div>
+
+<p>If errors, fix them and repeat.</p>
+
+<h2 id="check-the-jekyll-site">Check the jekyll site</h2>
+
+<p>In Finder,</p>
+
+<ul>
+  <li>double click the <code class="language-plaintext highlighter-rouge">jekyll-serve.command</code>
+</li>
+  <li>double click the <code class="language-plaintext highlighter-rouge">localhost-4001.command</code>
+</li>
+</ul>
+
+<p>Verify the changed pages.</p>
+
+<h2 id="add-post-to-announce-new-release">Add post to announce new release</h2>
+
+<ul>
+  <li>in <code class="language-plaintext highlighter-rouge">_posts/releases/</code>
+</li>
+  <li>add a new post named file like <code class="language-plaintext highlighter-rouge">2016-11-27-micro-os-plus-v6-3-10-released.md</code>
+</li>
+</ul>
+
+<h2 id="commit-git-repos-1">Commit git repos</h2>
+
+<p>With SourceTree, update <code class="language-plaintext highlighter-rouge">micro-os-plus-iii.git</code></p>
+
+<ul>
+  <li>select the <code class="language-plaintext highlighter-rouge">develop</code> branch</li>
+  <li>commit, message like v6.3.10</li>
+  <li>select the <code class="language-plaintext highlighter-rouge">xpack</code> branch</li>
+  <li>merge the <code class="language-plaintext highlighter-rouge">develop</code> branch</li>
+  <li>click the <strong>Push</strong> button, select both branches</li>
+  <li>select the <code class="language-plaintext highlighter-rouge">develop</code> branch</li>
+</ul>
+
+<p>With SourceTree, update <code class="language-plaintext highlighter-rouge">micro-os-plus-iii-cortexm.git</code></p>
+
+<ul>
+  <li>select the <code class="language-plaintext highlighter-rouge">develop</code> branch</li>
+  <li>commit, message like v6.3.10</li>
+  <li>select the <code class="language-plaintext highlighter-rouge">xpack</code> branch</li>
+  <li>merge the <code class="language-plaintext highlighter-rouge">develop</code> branch</li>
+  <li>click the <strong>Push</strong> button, select both branches</li>
+  <li>select the <code class="language-plaintext highlighter-rouge">develop</code> branch</li>
+</ul>
+
+<h2 id="publish-site">Publish site</h2>
+
+<p>With SourceTree,</p>
+
+<p>With SourceTree, update <code class="language-plaintext highlighter-rouge">micro-os-plus.github.io-source</code></p>
+
+<ul>
+  <li>commit, message like v6.3.10</li>
+  <li>click the <strong>Push</strong> button</li>
+</ul>
+
+<h2 id="update-os-versionsh-1">Update os-versions.h</h2>
+
+<p>With Eclipse,</p>
+
+<ul>
+  <li>edit <code class="language-plaintext highlighter-rouge">include/os-versions.h</code>, increment version, add <code class="language-plaintext highlighter-rouge">-beta</code>
+</li>
+</ul>
+
+<p>With SourceTree, update <code class="language-plaintext highlighter-rouge">micro-os-plus-iii.git</code></p>
+
+<ul>
+  <li>select the <code class="language-plaintext highlighter-rouge">develop</code> branch</li>
+  <li>commit, message like ‘os-version.h: 6.3.11-beta’</li>
+</ul>
+
+<h2 id="share-on-social-media">Share on social media</h2>
+
+<h3 id="twitter">Twitter</h3>
+
+<p>Use <a href="https://tweetdeck.twitter.com">TweetDeck</a>, the <code class="language-plaintext highlighter-rouge">@micro_os_plus</code> account.</p>
+
+<ul>
+  <li>go to the new post and follow the Tweet link to create a new message</li>
+  <li>copy/paste the message to TweetDeck;</li>
+  <li>check https://twitter.com/micro_os_plus</li>
+</ul>
+
+<h3 id="facebook">Facebook</h3>
+
+<ul>
+  <li>go to the new post and follow the Share link to create a new post</li>
+  <li>DO NOT select <strong>On your own Timeline</strong>, but <strong>On a Page you manage</strong>
+</li>
+  <li>select <strong>The micro OS plus plus project</strong>
+</li>
+  <li>select posting as <strong>The micro OS plus plus project</strong>
+</li>
+  <li>click <strong>Post to Facebook</strong>
+</li>
+  <li>check the post in the <a href="https://www.facebook.com/micro.os.plus/">Facebook page</a>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/develop/how-to-release/" data-layout="button"></div></li>
+</ul>
+
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="site-footer">
+  <div class="site-footer-links left">
+    <ul>
+  <li>© 2019 Liviu Ionescu</li>
+  <li>Hosted on GitHub</li>
+  <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
+  <li>
+<a href="http://twitter.com/micro_os_plus" class="twitter-follow-button" data-show-count="false">Follow @micro_os_plus</a><script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</li>
+</ul>
+
+
+  </div>
+  <a href="https://github.com/micro-os-plus/micro-os-plus-iii" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+  </a>
+  <div class="site-footer-links right">
+    <ul>
+  <li><a href="/web-preview/">Home</a></li>
+  <li><a href="/web-preview/blog/">News</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/releases">Releases</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues">Support</a></li>
+  <li><a href="/web-preview/about/">About</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Class OSDeviceDebug</title>
+  <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
+
+  <meta property="og:title" content="Class OSDeviceDebug">
+  <meta property="og:site_name" content="µOS++ IIIe">
+
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+
+
+  <meta property="article:published_time" content="2011-02-25">
+
+
+
+
+
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
+
+  <link rel="canonical" href="/web-preview/micro-os-plus/i/Class_OSDeviceDebug/">
+
+
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16767008-14', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+  <div class="site-header">
+  <table style="width:100%">
+    <tr>
+      <td>
+        <a href="/web-preview/">
+          <img alt="Icon" class="site-icon" src="/web-preview/assets/icons/wall-e-icon.png" height="100" width="100">
+      </a>
+      </td>
+      <td>
+        <table class="site-title" style="width:100%">
+          <tr>
+            <td class="site-title">
+              <a href="/web-preview/">µOS++ IIIe</a>
+            </td>
+            <td class="site-motto" align="right">
+              “Perfekt ist nicht gut genug”
+            </td>
+          </tr>
+          <tr>
+            <td class="site-description" colspan="2">
+              The third edition of µOS++, a POSIX inspired open source framework, written in C++.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+</div>
+
+<div class="container">
+
+  <div class="wrapper">
+    <div class="site-body">
+
+      <div class="site-sidebar">
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      <h4 id="news"><a href="/web-preview/blog/">News</a></h4>
+
+<ul>
+  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></li>
+  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ IIIe v6.3.14 released</a></li>
+  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ IIIe v6.3.13 released</a></li>
+  <li><a href="/web-preview/blog/2017/01/02/micro-os-plus-v6-3-11-released/">µOS++ IIIe v6.3.11 released</a></li>
+</ul>
+
+
+    </div>
+  </div>
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      
+      <h4 id="home"><a href="/web-preview/">Home</a></h4>
+
+<h4 id="µos-iiie">µOS++ IIIe</h4>
+
+<ul>
+  <li><a href="/web-preview/micro-os-plus/">Overview</a></li>
+</ul>
+
+<h4 id="apis">APIs</h4>
+
+<ul>
+  <li><a href="/web-preview/cmsis-plus/">Overview</a></li>
+  <li><a href="/web-preview/cmsis-plus/rtos/">RTOS API</a></li>
+</ul>
+
+<h4 id="xpacksxcdl">xPacks/XCDL</h4>
+
+<ul>
+  <li><a href="/web-preview/xpacks/">Overview</a></li>
+</ul>
+
+<h4 id="documentation">Documentation</h4>
+
+<ul>
+  <li>
+<a href="/web-preview/user-manual/">User’s <strong>manual</strong></a>
+    <ul>
+      <li><a href="/web-preview/user-manual/getting-started/">Getting started</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/">Basic concepts</a></li>
+      <li><a href="/web-preview/user-manual/features/">Features</a></li>
+      <li><a href="/web-preview/user-manual/threads/">Threads</a></li>
+      <li><a href="/web-preview/user-manual/thread-event-flags/">Thread event flags</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/">Semaphores</a></li>
+      <li><a href="/web-preview/user-manual/event-flags/">Event flags</a></li>
+      <li>Mutexes</li>
+      <li>Condition variables</li>
+      <li>Message queues</li>
+      <li>Memory pools</li>
+      <li>Software timers</li>
+      <li>Clocks</li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/reference/cmsis-plus/">µOS++ <strong>reference</strong></a></li>
+</ul>
+
+<h4 id="developer">Developer</h4>
+
+<ul>
+  <li><a href="/web-preview/develop/">Overview</a></li>
+  <li><a href="/web-preview/reference/cmsis-plus/md_doxygen_pages_change-log.html">Change log</a></li>
+  <li><a href="/web-preview/develop/coding-style/">C++ coding style</a></li>
+  <li><a href="/web-preview/develop/naming-conventions/">Naming conventions</a></li>
+  <li><a href="/web-preview/develop/references/">Links &amp; references</a></li>
+</ul>
+
+<h4 id="support">Support</h4>
+
+<ul>
+  <li><a href="/web-preview/support/">Overview</a></li>
+  <li><a href="/web-preview/support/known-issues/">Known issues</a></li>
+  <li><a href="/web-preview/support/faq/">FAQ</a></li>
+  <li><a href="/web-preview/support/forum/">Forum</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ IIIe issues</a></li>
+</ul>
+
+<h4 id="latest-articles">Latest Articles</h4>
+
+<ul>
+  <li><a href="/web-preview/articles/arm-com-2016-06-24/">CMSIS++ RTOS: fully functional reference implementation</a></li>
+  <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
+</ul>
+
+<h4 id="license">License</h4>
+
+<ul>
+  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+</ul>
+
+<h4 id="about"><a href="/web-preview/about/">About</a></h4>
+
+    </div>
+  </div>
+
+  <div class="site-theme">
+    This site uses the <a href="https://github.com/ilg-ul/github-jekyll-theme">GitHub Wiki-like</a> theme by <a href="https://github.com/ilg-ul">Liviu Ionescu</a>.
+  </div>
+
+</div>
+
+
+      <div class="site-content">
+
+        
+<h1 class="page-title">Class OSDeviceDebug - DEPRECATED</h1>
+<table id="last-modified">
+  <tr>
+    <td id="last-modified">Page date Fri Feb 25 13:09:25 2011 .</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/micro-os-plus/i/Class_OSDeviceDebug.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+  </tr>
+</table>
+
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toc_level-1 toc_section-1">
+<a href="#osdevicedebug"><span class="tocnumber">1</span> <span class="toctext">OSDeviceDebug()</span></a>
+</li>
+<li class="toc_level-1 toc_section-2">
+<a href="#static-void-putcharunsigned-char-c"><span class="tocnumber">2</span> <span class="toctext">static void putChar(unsigned char c)</span></a>
+</li>
+<li class="toc_level-1 toc_section-3">
+<a href="#static-void-putnewlinevoid"><span class="tocnumber">3</span> <span class="toctext">static void putNewLine(void)</span></a>
+</li>
+<li class="toc_level-1 toc_section-4">
+<a href="#static-void-putstringconst-char-pc"><span class="tocnumber">4</span> <span class="toctext">static void putString(const char *pc)</span></a>
+</li>
+<li class="toc_level-1 toc_section-5">
+<a href="#static-void-putstring_pconst-char--progmem-pc"><span class="tocnumber">5</span> <span class="toctext">static void putString_P(const char * PROGMEM pc)</span></a>
+</li>
+<li class="toc_level-1 toc_section-6">
+<a href="#static-void-puthexunsigned-char-c"><span class="tocnumber">6</span> <span class="toctext">static void putHex(unsigned char c)</span></a>
+</li>
+<li class="toc_level-1 toc_section-7">
+<a href="#static-void-puthexunsigned-short-w"><span class="tocnumber">7</span> <span class="toctext">static void putHex(unsigned short w)</span></a>
+</li>
+<li class="toc_level-1 toc_section-8">
+<a href="#static-void-puthexunsigned-long-l"><span class="tocnumber">8</span> <span class="toctext">static void putHex(unsigned long l)</span></a>
+</li>
+<li class="toc_level-1 toc_section-9">
+<a href="#static-void-puthexunsigned-int-l"><span class="tocnumber">9</span> <span class="toctext">static void putHex(unsigned int l)</span></a>
+</li>
+<li class="toc_level-1 toc_section-10">
+<a href="#static-void-putptrconst-void-p"><span class="tocnumber">10</span> <span class="toctext">static void putPtr(const void *p)</span></a>
+</li>
+<li class="toc_level-1 toc_section-11">
+<a href="#static-void-putpcconst-char--progmem-pc"><span class="tocnumber">11</span> <span class="toctext">static void putPC(const char * PROGMEM pc)</span></a>
+</li>
+<li class="toc_level-1 toc_section-12">
+<a href="#static-void-__assertconst-char-func-const-char-file-int-lineno-const-char-sexp"><span class="tocnumber">12</span> <span class="toctext">static void __assert(const char *func, const char *file, int lineno, const char *sexp);</span></a>
+</li>
+<li class="toc_level-1 toc_section-13">
+<a href="#static-void-implwdresetvoid"><span class="tocnumber">13</span> <span class="toctext">static void implWDReset(void)</span></a>
+</li>
+<li class="toc_level-1 toc_section-14">
+<a href="#static-void-earlyinit"><span class="tocnumber">14</span> <span class="toctext">static void earlyInit()</span></a>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>OSDeviceDebug</p>
+
+<ul>
+  <li>The class OSDeviceDebug requires the definition of <strong>DEBUG</strong>.</li>
+  <li>If the <strong>OS_INCLUDE_OSDEVICEDEBUG_STREAMBUF</strong> is defined, this class is derived from <strong>streambuf</strong>.</li>
+</ul>
+
+<h1 id="constructors">Constructors</h1>
+
+<h2 id="osdevicedebug">OSDeviceDebug()</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Initialize the internal members.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* none</p>
+
+<h1 id="methods">Methods</h1>
+
+<h2 id="static-void-putcharunsigned-char-c">static void putChar(unsigned char c)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Output, on debug interface, one character.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* c - input, character to be output</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* none</p>
+
+<h2 id="static-void-putnewlinevoid">static void putNewLine(void)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Output, on debug interface, CR+LF.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* none</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* none</p>
+
+<h2 id="static-void-putstringconst-char-pc">static void putString(const char *pc)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Output, on debug interface, a string.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* pc - input, the string to be output</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* none</p>
+
+<h2 id="static-void-putstring_pconst-char--progmem-pc">static void putString_P(const char * PROGMEM pc)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Output, on debug interface, the bytes at pc address, until the first zero byte. It requires the definition of OS_CONFIG_ARCH_AVR8.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* pc - input, address of the first byte to be output</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* none</p>
+
+<h2 id="static-void-puthexunsigned-char-c">static void putHex(unsigned char c)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Output, on debug interface, the hex value of a byte; i.e. 2 hexadecimal characters.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* c - input, character to be output</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* none</p>
+
+<h2 id="static-void-puthexunsigned-short-w">static void putHex(unsigned short w)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Output, on debug interface, the hex value of a 2-byte word; i.e. 4 hexadecimal characters.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* w - input, 2-byte word to be output</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* none</p>
+
+<h2 id="static-void-puthexunsigned-long-l">static void putHex(unsigned long l)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Output, on debug interface, the hex value of a 4-byte word; i.e. 8 hexadecimal characters. It requires the definition of OS_INCLUDE_OSDEVICEDEBUG_PUTHEX_LONG.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* w - input, 4-byte word to be output</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* none</p>
+
+<h2 id="static-void-puthexunsigned-int-l">static void putHex(unsigned int l)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Output, on debug interface, the hex value of a integer; i.e. 8 hexadecimal characters. It requires the definition of OS_INCLUDE_OSDEVICEDEBUG_PUTHEX_INT.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* w - input, integer to be output</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* none</p>
+
+<p>== static void putDec(unsigned short w, unsigned short n = 0) == <strong>Description</strong></p>
+
+<p>Output, on debug interface, the decimal value of a 2-byte word, <n> last digits will not be output, max 5 decimal digits.</n></p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* w - input, 2-byte word to be output</p>
+
+<p>:* n - input, number of last digital digits which will not be output</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* none</p>
+
+<p>== static void putDec(unsigned long l, unsigned short n = 0) == <strong>Description</strong></p>
+
+<p>Output, on debug interface, the decimal value of a 4-byte word, <n> last digits will not be output, max 10 decimal digits. It requires definition of OS_INCLUDE_OSDEVICEDEBUG_PUTDEC_LONG.</n></p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* l - input, 4-byte word to be output</p>
+
+<p>:* n - input, number of last digital digits which will not be output</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* none</p>
+
+<h2 id="static-void-putptrconst-void-p">static void putPtr(const void *p)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Output, on debug interface, the address p, in hexadecimal.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* p - input, the address to be output</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* none</p>
+
+<h2 id="static-void-putpcconst-char--progmem-pc">static void putPC(const char * PROGMEM pc)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Output, on debug interface, the address p from program memory, in hexadecimal.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* pc - input, the address to be output</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* none</p>
+
+<h2 id="static-void-__assertconst-char-func-const-char-file-int-lineno-const-char-sexp">static void __assert(const char *func, const char *file, int lineno, const char *sexp);</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Output, on debug interface, function name, file name, line number and expression string. It is used in case of a failed assertion.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* funct - input, the function name</p>
+
+<p>:* file - input, the filename</p>
+
+<p>:* lineno - input, the line number</p>
+
+<p>:* sexp - input, the string expression</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* none</p>
+
+<h2 id="static-void-implwdresetvoid">static void implWDReset(void)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Watchdog reset; implementation specific.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* none</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* none</p>
+
+<h2 id="static-void-earlyinit">static void earlyInit()</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Initialise debug interface and print greeting and build strings.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* none</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* none</p>
+
+<h1 id="variables">Variables</h1>
+
+
+
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/micro-os-plus/i/Class_OSDeviceDebug/" data-layout="button"></div></li>
+</ul>
+
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="site-footer">
+  <div class="site-footer-links left">
+    <ul>
+  <li>© 2019 Liviu Ionescu</li>
+  <li>Hosted on GitHub</li>
+  <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
+  <li>
+<a href="http://twitter.com/micro_os_plus" class="twitter-follow-button" data-show-count="false">Follow @micro_os_plus</a><script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</li>
+</ul>
+
+
+  </div>
+  <a href="https://github.com/micro-os-plus/micro-os-plus-iii" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+  </a>
+  <div class="site-footer-links right">
+    <ul>
+  <li><a href="/web-preview/">Home</a></li>
+  <li><a href="/web-preview/blog/">News</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/releases">Releases</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues">Support</a></li>
+  <li><a href="/web-preview/about/">About</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Scheduler</title>
+  <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
+
+  <meta property="og:title" content="Scheduler">
+  <meta property="og:site_name" content="µOS++ IIIe">
+
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+
+
+  <meta property="article:published_time" content="2011-03-03">
+
+
+
+
+
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
+
+  <link rel="canonical" href="/web-preview/micro-os-plus/i/Scheduler/">
+
+
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16767008-14', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+  <div class="site-header">
+  <table style="width:100%">
+    <tr>
+      <td>
+        <a href="/web-preview/">
+          <img alt="Icon" class="site-icon" src="/web-preview/assets/icons/wall-e-icon.png" height="100" width="100">
+      </a>
+      </td>
+      <td>
+        <table class="site-title" style="width:100%">
+          <tr>
+            <td class="site-title">
+              <a href="/web-preview/">µOS++ IIIe</a>
+            </td>
+            <td class="site-motto" align="right">
+              “Perfekt ist nicht gut genug”
+            </td>
+          </tr>
+          <tr>
+            <td class="site-description" colspan="2">
+              The third edition of µOS++, a POSIX inspired open source framework, written in C++.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+</div>
+
+<div class="container">
+
+  <div class="wrapper">
+    <div class="site-body">
+
+      <div class="site-sidebar">
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      <h4 id="news"><a href="/web-preview/blog/">News</a></h4>
+
+<ul>
+  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></li>
+  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ IIIe v6.3.14 released</a></li>
+  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ IIIe v6.3.13 released</a></li>
+  <li><a href="/web-preview/blog/2017/01/02/micro-os-plus-v6-3-11-released/">µOS++ IIIe v6.3.11 released</a></li>
+</ul>
+
+
+    </div>
+  </div>
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      
+      <h4 id="home"><a href="/web-preview/">Home</a></h4>
+
+<h4 id="µos-iiie">µOS++ IIIe</h4>
+
+<ul>
+  <li><a href="/web-preview/micro-os-plus/">Overview</a></li>
+</ul>
+
+<h4 id="apis">APIs</h4>
+
+<ul>
+  <li><a href="/web-preview/cmsis-plus/">Overview</a></li>
+  <li><a href="/web-preview/cmsis-plus/rtos/">RTOS API</a></li>
+</ul>
+
+<h4 id="xpacksxcdl">xPacks/XCDL</h4>
+
+<ul>
+  <li><a href="/web-preview/xpacks/">Overview</a></li>
+</ul>
+
+<h4 id="documentation">Documentation</h4>
+
+<ul>
+  <li>
+<a href="/web-preview/user-manual/">User’s <strong>manual</strong></a>
+    <ul>
+      <li><a href="/web-preview/user-manual/getting-started/">Getting started</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/">Basic concepts</a></li>
+      <li><a href="/web-preview/user-manual/features/">Features</a></li>
+      <li><a href="/web-preview/user-manual/threads/">Threads</a></li>
+      <li><a href="/web-preview/user-manual/thread-event-flags/">Thread event flags</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/">Semaphores</a></li>
+      <li><a href="/web-preview/user-manual/event-flags/">Event flags</a></li>
+      <li>Mutexes</li>
+      <li>Condition variables</li>
+      <li>Message queues</li>
+      <li>Memory pools</li>
+      <li>Software timers</li>
+      <li>Clocks</li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/reference/cmsis-plus/">µOS++ <strong>reference</strong></a></li>
+</ul>
+
+<h4 id="developer">Developer</h4>
+
+<ul>
+  <li><a href="/web-preview/develop/">Overview</a></li>
+  <li><a href="/web-preview/reference/cmsis-plus/md_doxygen_pages_change-log.html">Change log</a></li>
+  <li><a href="/web-preview/develop/coding-style/">C++ coding style</a></li>
+  <li><a href="/web-preview/develop/naming-conventions/">Naming conventions</a></li>
+  <li><a href="/web-preview/develop/references/">Links &amp; references</a></li>
+</ul>
+
+<h4 id="support">Support</h4>
+
+<ul>
+  <li><a href="/web-preview/support/">Overview</a></li>
+  <li><a href="/web-preview/support/known-issues/">Known issues</a></li>
+  <li><a href="/web-preview/support/faq/">FAQ</a></li>
+  <li><a href="/web-preview/support/forum/">Forum</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ IIIe issues</a></li>
+</ul>
+
+<h4 id="latest-articles">Latest Articles</h4>
+
+<ul>
+  <li><a href="/web-preview/articles/arm-com-2016-06-24/">CMSIS++ RTOS: fully functional reference implementation</a></li>
+  <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
+</ul>
+
+<h4 id="license">License</h4>
+
+<ul>
+  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+</ul>
+
+<h4 id="about"><a href="/web-preview/about/">About</a></h4>
+
+    </div>
+  </div>
+
+  <div class="site-theme">
+    This site uses the <a href="https://github.com/ilg-ul/github-jekyll-theme">GitHub Wiki-like</a> theme by <a href="https://github.com/ilg-ul">Liviu Ionescu</a>.
+  </div>
+
+</div>
+
+
+      <div class="site-content">
+
+        
+<h1 class="page-title">Scheduler - DEPRECATED</h1>
+<table id="last-modified">
+  <tr>
+    <td id="last-modified">Page date Thu Mar  3 13:35:53 2011 .</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/micro-os-plus/i/Scheduler.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+  </tr>
+</table>
+
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toc_level-1 toc_section-1">
+<a href="#starting-methods"><span class="tocnumber">1</span> <span class="toctext">Starting methods</span></a>
+</li>
+<li class="toc_level-1 toc_section-2">
+<a href="#locking-methods"><span class="tocnumber">2</span> <span class="toctext">Locking methods</span></a>
+</li>
+<li class="toc_level-1 toc_section-3">
+<a href="#preemption-methods"><span class="tocnumber">3</span> <span class="toctext">Preemption methods</span></a>
+</li>
+<li class="toc_level-1 toc_section-4">
+<a href="#task-management-methods"><span class="tocnumber">4</span> <span class="toctext">Task management methods</span></a>
+</li>
+<li class="toc_level-1 toc_section-5">
+<a href="#system-critical-section-methods"><span class="tocnumber">5</span> <span class="toctext">System critical section methods</span></a>
+</li>
+<li class="toc_level-1 toc_section-6">
+<a href="#yield-method"><span class="tocnumber">6</span> <span class="toctext">Yield method</span></a>
+</li>
+<li class="toc_level-1 toc_section-7">
+<a href="#using-application-critical-sections"><span class="tocnumber">7</span> <span class="toctext">Using application critical sections</span></a>
+</li>
+<li class="toc_level-1 toc_section-8">
+<a href="#using-system-critical-sections"><span class="tocnumber">8</span> <span class="toctext">Using system critical sections</span></a>
+</li>
+<li class="toc_level-1 toc_section-9">
+<a href="#enumerating-registered-tasks"><span class="tocnumber">9</span> <span class="toctext">Enumerating registered tasks</span></a>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="overview">Overview</h1>
+
+<p>As for most embedded operating systems, the scheduler is the heart of µOS++.</p>
+
+<p>The two main requirements behind the design of the µOS++ scheduler are:</p>
+
+<ul>
+  <li>conveniently and efficiently run multiple execution threads at the same time</li>
+  <li>help conserve power</li>
+</ul>
+
+<h1 id="why-multiple-threads">Why multiple threads?</h1>
+
+<p>The <a href="http://www.amazon.com/Java-Threads-Scott-Oaks/dp/0596007825/">Java Threads</a> book (one of the inspiration source for this project) states:</p>
+
+<p>
+<em>Historically, threading was first exploited to make certain programs easier to write: if a program can be split into separate tasks, it’s often easier to program the algorithm as separate tasks or threads… while it is possible to write a single-threaded program to perform multiple tasks, it’s easier and more elegant to place each task in its own thread.</em>
+</p>
+
+<p>As a multitasking system, µOS++ allows several independent threads to run in the context of a shared common memory space (for simplicity, in µOS++ the threads are named <strong>tasks</strong>).</p>
+
+<h1 id="task-states">Task states</h1>
+
+<p>From the scheduler point of view, at any moment of time, tasks can be in one of the following states:</p>
+
+<ul>
+  <li>running</li>
+  <li>active</li>
+  <li>waiting</li>
+  <li>suspended</li>
+</ul>
+
+<p>On a single core CPU, there is only one task in the <strong>running</strong> state at a given moment, and this is the task currently using the CPU. From <strong>running</strong>, a task may voluntarily change to <strong>waiting</strong>, or may be turned to <strong>active</strong> by a rescheduling interrupt.</p>
+
+<p><strong>Active</strong> tasks are all other tasks actively competing for the CPU. From the implementation point of view, active tasks are those present in the list of active tasks, or in other words tasks ready to run. The task with the highest priority becomes <strong>running</strong> after the next rescheduling moment.</p>
+
+<p>When a task needs some data that is not currently available, it calls eventWait(), and the task status is changed to <strong>waiting</strong>, until the new data is available.</p>
+
+<p>The last state, <strong>suspended</strong>, although not so widely used, represents the condition when a task is completely isolated from the scheduler. It is still present in the system, it still occupies a task slot, but regardless of its priority, it is never inserted in the active list and it is never notified for any events.</p>
+
+<h1 id="blocking-io">Blocking I/O</h1>
+
+<p>One of the most encountered scenario when implementing tasks, is to wait for some kind of input data, for example by performing a <strong>read()</strong>, then process the data and most of the time proceed in a loop. When the system executes the read(), the thread needs to wait for the required data to become available before it can continue to the next statement. This type of I/O is called <em>blocking I/O:</em> the thread blocks until some data is available to satisfy the read() method. One possible implementation is to simply loop until the data becomes available, but this type of behaviour simply wastes resources (CPU cycles and implicitly power) and should be avoided by all means.</p>
+
+<p>Well behaved applications should never enter (long) busy loops waiting for conditions to occur, but instead arrange for an event to be triggered and put the task to a special mode, while waiting for the event to occur. During this period the task releases the CPU, so the CPU will be fully available for the other active tasks. Another names for this special mode are idle/waiting/blocked/sleeping. You might encounter them equally in the µOS++ documentation, all with the same meaning when referring to tasks.</p>
+
+<p>For the sake of completeness, it should be noted that the only exception to the rule applies to short delays, where short means delays with durations comparable with the multitasking overhead (i.e. interrupt enter, context save, interrupt service routine, event notify, context restore and interrupt exit). On most processors this is usually in the range of some tens of microseconds.</p>
+
+<h1 id="idlesleep-modes">Idle/Sleep modes</h1>
+
+<p>Please note that a waiting/sleeping task does not immediately mean the entire CPU is put to sleep (technically enter either the <strong>idle</strong> mode or a <strong>deeper sleep</strong> mode), it just means that the task will no longer be scheduled to use the CPU until the event will be triggered. When all tasks enter the waiting state and there is nothing else to do, the special idle task will usually arrange for the CPU to enter idle mode, waiting for an interrupt to occur.</p>
+
+<p>In idle mode the processor is fully functional, with all internal peripherals active, except that it does not run any instructions, so it is able to save a certain amount of power.</p>
+
+<p>If the application has relatively long inactive moments, further savings are possible, i.e. power down all peripherals except a low frequency real time timer, usually triggered once a second. In this case the idle task can arrange for the CPU to enter a deep sleep mode, saving a significantly higher amount of power.</p>
+
+<p>As a summary, the multilevel strategy used to reduce power consumption implies:</p>
+
+<ul>
+  <li>if nothing to do, each task should enter the idle/waiting state as soon as possible, and release the CPU to the other active tasks</li>
+  <li>if no active tasks are available, the idle task should arrange for the CPU to enter the idle mode as soon as possible</li>
+  <li>if all tasks know they will be inactive for a longer period, the idle task should arrange for the CPU to enter a deep sleep mode</li>
+</ul>
+
+<p>In conclusion, by providing a wide range of power management features, µOS++ can be successfully used in very low power applications.</p>
+
+<h1 id="scheduling-strategies">Scheduling strategies</h1>
+
+<p>Althought in a well behaved system most of the time the CPU is idle waiting for events and there are no tasks scheduled to run, there are moments when multiple events occur in parallel and thus multiple tasks may be scheduled to run in parallel.</p>
+
+<p>The main criterion the scheduler uses to order the tasks waiting for execution is a static priority, ranging from 0x01 to 0xFF, with higher values representing higher priorities, i.e. faster execution. If no special priority policies are needed, all tasks are created with equal (default) priority.</p>
+
+<h1 id="round-robin-scheduling">Round-robin scheduling</h1>
+
+<p>When multiple tasks with equal priorities are detected, µOS++ uses a <strong>round robin</strong> policy to schedule them, i.e. after loosing the CPU, a task will always be inserted in the running list <strong>after</strong> all existing tasks with equal priority. There are many scheduling policies available, but for simple embedded applications it is considered that by using such a policy, tasks with equal priority are given a more or less fair access to the CPU.</p>
+
+<h1 id="cooperative-multitasking">Cooperative multitasking</h1>
+
+<p>This is the simplest multitasking method, speculating the usual behaviour of applications to politely wait for events to occur. Each time such a wait is needed, the application releases the CPU to the next waiting task. When all tasks are waiting, execution reaches the idle task, where the entire CPU is put to idle/sleep until an interrupt occurs. When an interrupt is triggered, the interrupt service routine notifies the waiting task about the event, and the scheduler inserts it back into the active tasks list, so that sooner or later the task will be given a chance to process the event. If there are no active tasks, the idle task will automatically release the CPU to the new task, so the reaction is immediate. If the interrupt occurs when the processor is executing code for another task, even with lower priority, this task will continue to run until explicitly releasing the CPU. With a careful design (like properly sized buffers where interrupts store the incoming data), for usual short tasks this delay is not a problem.</p>
+
+<p>However, in case of very long computational sequences, the applications should be polite and explicitly release the CPU, to give the other tasks a fair chance to run and process the incoming data.</p>
+
+<p>In general cooperative multitasking is easier to implement, and, since the CPU is release under the application control, inter-task synchronisation race conditions are avoided. However, at a more thorough analysis, this is not necessarily a feature, but a subtle way to hide other application synchronisation bugs, like the lack of explicit critical sections. In other words, a well behaved application should protect a shared resource by use of a critical section anyway, since although another task cannot execute inside another task, interrupt service routines can, and without the critical section it is very likely that a race condition may occur.</p>
+
+<p>As disadvantages of cooperative multitasking, we can name the delay between the moment when the event occurs and the moment the corresponding task is scheduled to process it, entirely at the mercy of the other running applications.</p>
+
+<h1 id="preemptive-multitasking">Preemptive multitasking</h1>
+
+<p>This is an enhancement to cooperative multitasking, intended to reduce the reaction time to notified events. From the implementation point of view, preemptive multitasking implies the existence of a mechanism to be used in the interrupt that generate the events that require faster reaction.</p>
+
+<p>This mechanism should allow to perform a full context save at the beginning of the interrupt, and a context switch to select the task with the highest priority, followed by a full restore of the context at the end of the interrupt.</p>
+
+<p>By using such a mechanism, if the interrupt notifies a high priority task, at the end of the interrupt the CPU is no longer continuing the interrupted task, but automatically executes the code of the notified task.</p>
+
+<p>There can be many interrupts using the context save/restore code, at the limit all of them.</p>
+
+<p>Traditionally, most multitasking systems use a periodical system timer interrupt for time services, like performing timer sleep(), or counting timeouts. Adding the context save/restore code to this interrupt has several additional benefits:</p>
+
+<ul>
+  <li>no task can grab the CPU for more than the system timer period, since at the end of each interrupt the system will reschedule the CPU to the task with the highest priority at that moment</li>
+  <li>since the rescheduling occurs automatically no later than the system timer period, it is not mandatory for the other interrupts to include the context save/restore code (except those that require faster reaction time than the system timer period)</li>
+</ul>
+
+<h1 id="isr-vs-yield-context-layout">ISR vs. yield() context layout</h1>
+
+<p>One obvious condition in order for the preemptive multitasking to co-exist with cooperative multitasking is to use a common context layout, i.e. the order for saving the registers on the stack when entering a rescheduling interrupt service routine should be identical with the order used when entering yield(), so yield() will be able to restore contexts saved by interrupts, and interrupts will be able to return to contexts saved by yield().</p>
+
+<p>As a metter of personal preferences, one of the criteria I use to measure the elegance of a microprocessor design is the required effort to implement the context saving/restoring code for the given architecture. From this point of view, my preffered design is the ARM Cortex-M3, which provides not only a unified context layout for both ISRs and yield(), but also hardware support for ISR context switch, a very elegant and easy to use solution.</p>
+
+<p>On the other side of the spectrum, the Avr32 is the architecture requiring the most effort to implement the scheduler, with three different context restore routines and the need to rewrite the context saved by yield() to match that needed by interrupts.</p>
+
+<h1 id="preemptive-vs-cooperative">Preemptive vs. cooperative</h1>
+
+<p>Based on our experience, applications should be written portably, i.e. do not rely on a specific implementation and do all synchronisation with system event primitives.</p>
+
+<p>The µOS++ scheduler can work both in cooperative and in preemptive mode. The decision can be made at build time, by using the OS_EXCLUDE_PREEMPTION definition. Even more, when built in preemptive mode, the µOS++ can be dynamically configured to work in cooperative mode, by using the setPreemptive() method.</p>
+
+<p>For most applications, the recommended mode is the default one, i.e. the preemptive multitasking mode. The cooperative mode might be used for special applications, but we cannot refer to something special here.</p>
+
+<p>One special useful application of the cooperative mode is for debugging possible inter-task race conditions. In case of strange behaviours that might be associated with synchronisation problems, if building the entire application in cooperative mode solves the problem, then an inter-task race condition is highly probable. It the problem is still present in cooperative mode, than most probably the race condition involves the interrupt service routines. In both cases, the cure is to use critical sections where needed.</p>
+
+<h1 id="rescheduling-moments">Rescheduling moments</h1>
+
+<p>A task may release the CPU to other tasks (technically perform a context switch) when:</p>
+
+<ul>
+  <li>it needs to wait for an external event by calling <strong>eventWait()</strong>
+</li>
+  <li>upon explicit request by calling <strong>yield()</strong>
+</li>
+  <li>a processor interrupt occurs and the interrupt service routine is equipped with a context handler, that calls the scheduler</li>
+</ul>
+
+<p>If preemptive scheduling is available, a context switch is performed at least on each system timer interrupt, usually 1000 times per second, plus on faster interrupts; at the limit, context switch can be performed on all interrupts, excluding the Real Time interrupts.</p>
+
+<h1 id="critical-sections">Critical sections</h1>
+
+<p>Scheduler critical sections are regions of code that are guaranteed for not being interrupted by regular interrupts (excluding Real Time interrupts).</p>
+
+<p>They represent the only safe synchronisation mechanism between task code and interrupt code, and also between nested interrupts code.</p>
+
+<p>By default, the µOS++ scheduler implements the critical sections with a full interrupts disable/enable pair. When Real Time interrupts are needed, the system critical sections are implemented with a mask, to disable only the non Real Time interrupts.</p>
+
+<h1 id="critical-sections-nesting">Critical sections nesting</h1>
+
+<p>By design, the µOS++ critical sections can nest, at any depth.</p>
+
+<p>For this to be possible, the µOS++ critical sections implementation is based on using the stack for storing the interrupts mask:</p>
+
+<ul>
+  <li>the interrupt mask is pushed onto the stack at <strong>criticalEnter()</strong> and interrupts disabled</li>
+  <li>the interrupt mask is poped from the stack and restored to the system at <strong>criticalExit()</strong>
+</li>
+</ul>
+
+<p>The implementation is very light, but using the stack has a minor drawback, the flow should be linear and always a a criticalEnter() must be matched by a criticalExit() within the same context; it is not possible to return from within a critical section.</p>
+
+<h1 id="task-priorities">Task priorities</h1>
+
+<p>µOS++ uses a static priority mechanism. Static does not mean the values are set at build time, but that once <strong>setPriority()</strong> is called for a task, the importance of this value when the scheduler determines the order of the tasks, is static, i.e. is not influenced by other conditions, like the processor load, time waiting, time running, and other such values. In other words, the actual priority does not vary according to other parameters, but it is always equal to the static priority.</p>
+
+<p>The task priority is used only in one place, in the scheduler code used to insert tasks in the running list. This code guarantees that any newly inserted task with a priority higher than any existing task in the list, will always be in the top of the list.</p>
+
+<p>If tasks with higher priorities are already in the list, the new task will be inserted after all tasks with higher priority and before all tasks with lower priorities.</p>
+
+<p>A special case occurs when one or several tasks with identical priorities are already in the list, and in this case, to satisfy the round-robin policy, the task is inserted after the last task with identical priority and before any tasks with lower priorities.</p>
+
+<p>Usually the task priority is set when the task constructor is called and does not change durring the task lifetime, but µOS++ does not impose any restrictions for setting the priorities, and <strong>setPriority()</strong> can be called at any time. However, when changing the priorities on the fly, the usual precautions should be be taken to avoid scheduling problems.</p>
+
+<p>Obviously any application may have unique requirements, and µOS++ can be tuned to meet most of them, but in order to avid problems, the first approach would be to start with all tasks using the default priority, and adjust if needed.</p>
+
+<h1 id="priority-inversion">Priority inversion</h1>
+
+<p>When sharing resources between tasks with different priorities, one special case that should always be considered, is avoiding <a href="http://en.wikipedia.org/wiki/Priority_inversion">priority inversions</a>.</p>
+
+<p>In order to avoid additional complexity, special solutions like priority ceiling or priority inheritance are currently not included in the OSMutex implementation, but support for dynamically changing task priorities is available, so custom versions of any synchronised object can always be added, if needed.</p>
+
+<h1 id="strategies-for-reordering-the-active-tasks-list">Strategies for reordering the active tasks list</h1>
+
+<p>As mentioned before, the scheduler maintains a list of all active tasks, and each time a context switch is performed, the top priority task is selected for execution.</p>
+
+<p>There might be many possible strategies regarding when to do these operations, but we considered only the following:</p>
+
+<ul>
+  <li>always insert tasks at the end of the list and when the context switch is performed, enumerate the list and determine the task with the highest priority</li>
+  <li>always keep the list of active tasks ordered, and when the context switch is performed just peek the top of the list</li>
+</ul>
+
+<p>In the first strategy, inserting tasks to the list is extremely fast, but determining the top priority task requires a complete list enumeration.</p>
+
+<p>In the second strategy, inserting in an ordered structure is more expensive, but determining the top priority task is extremely light.</p>
+
+<p>For a better decision, it should be noted that determining the top priority task is done at each and every context switch, while inserting taks in the active list is done when notifying events and when performing the round-robin algorithm. Also to be noted that for the round robin algorithm, the task is inserted close to the end of the list.</p>
+
+<p>Given the current µOS++ implementation and case usage, we considered that the second strategy is more appropriate. However alternate strategies might be considered for future implementations.</p>
+
+<h1 id="strategies-for-implementing-the-active-task-list">Strategies for implementing the active task list</h1>
+
+<p>Assuming that most of the time tasks are in waiting mode, it is expected that the active list is usually short, most of the time with a single entry, the Idle task.</p>
+
+<p>For very short lists, one of the most efficient implementations is a simple array. Given the µOS++ case usage, the most frequent operations are reinserting the current task before the last element of the list and getting the top of the list, and both operations are quite fast on short arrays. However alternate strategies might be considered for future implementations.</p>
+
+<h1 id="task-interruptioncancellation">Task interruption/cancellation</h1>
+
+<p>In real life applications, there are certain cases when due to special conditions, some tasks, otherwise perfectly functioning, should be cancelled.</p>
+
+<p>µOS++ tasks include support for interruption, but this support is cooperative, i.e. tasks that might be interrupted should check for interruption requests and quit inner loops in an ordered manner.</p>
+
+<p>Things are complicated by the fact that tasks may be waiting for events that no longer occur, so the scheduler should artificially notify tasks to force them return from eventWait(). Even worse, these notifications should be repeated until the task positively acknowledges that it reached a stable status.</p>
+
+<p>TODO: write a detailed explanation of the mechanism on a separate page</p>
+
+<h1 id="methods-overview">Methods overview</h1>
+
+<p>TODO: this sections needs to be updated, content moved to the API section and here only a short summary kept.</p>
+
+<h2 id="starting-methods">Starting methods</h2>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>void start(void);
+</code></pre>
+</div>
+</div>
+
+<p>Enable the scheduler to run and start the task with the highest priority. This function is automatically called in the default <strong>main()</strong> function, called after all static constructors were executed.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>bool isRunning(void);
+</code></pre>
+</div>
+</div>
+
+<p>Return true if the the scheduler was started. Please note that once started, the scheduler cannot be stopped, so this function will return false before <strong>main()</strong> (i.e. while running static constructors) and true after <strong>main()</strong>.</p>
+
+<h2 id="locking-methods">Locking methods</h2>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>void lock(void);
+</code></pre>
+</div>
+</div>
+
+<p>Lock the scheduler to the current task, i.e. do not allow the scheduler to switch to another task. Please note that interrupts are not affected, the interrupt service routines will be executed normally and event notifications might wakeup tasks with higher priorities, but switching to another task will be permited only after <strong>unlock()</strong>. While locked, <strong>yield()</strong> will immediately return to the same task, and <strong>eventWait()</strong> will immediately return with OSEventWaitReturn::OS_LOCKED.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>void unlock(void);
+</code></pre>
+</div>
+</div>
+
+<p>Unlock the scheduler, so at the next rescheduling moment another task might get the CPU.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>bool isLocked(void);
+</code></pre>
+</div>
+</div>
+
+<p>Return true if the scheduler is locked.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>void setLock(bool flag);
+</code></pre>
+</div>
+</div>
+
+<p>Lock the scheduler if the flag is true, unlock otherwise.</p>
+
+<h2 id="preemption-methods">Preemption methods</h2>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>bool isPreemptive(void);
+</code></pre>
+</div>
+</div>
+
+<p>Return true if the scheduler runs in preemptive mode.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>void setPreemptive(bool flag);
+</code></pre>
+</div>
+</div>
+
+<p>Set the scheduler to run in cooperative mode if flag is false, set to preemptive mode if flag is true (default).</p>
+
+<h2 id="task-management-methods">Task management methods</h2>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>OSTask *getTaskCurrent(void);
+</code></pre>
+</div>
+</div>
+
+<p>Return a pointer to the task currently running on the CPU.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>OSTask *getTaskIdle(void);
+</code></pre>
+</div>
+</div>
+
+<p>Return a pointer to the Idle task.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>int getTasksCount(void);
+</code></pre>
+</div>
+</div>
+
+<p>Return the number of tasks registered to the scheduler.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>OSTask *getTask(int i);
+</code></pre>
+</div>
+</div>
+
+<p>Return the i-th task registered to the scheduler, or <strong>OS_TASK_NONE</strong> for illegal index.</p>
+
+<h2 id="system-critical-section-methods">System critical section methods</h2>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>void criticalEnter(void);
+</code></pre>
+</div>
+</div>
+
+<p>Enter a critical section, i.e. a section where interrupts are not allowed. It is mandatory to be braced by a <strong>criticalExit()</strong>, failure to do so leads to unexpected results. The usual implementations save the current status of the interrupt flag and disable interrupts.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>void criticalExit(void);
+</code></pre>
+</div>
+</div>
+
+<p>Exit critical section. Usual implementations restore the interrupt flag to the value saved by <strong>criticalEnter()</strong>.</p>
+
+<h2 id="yield-method">Yield method</h2>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>void yield(void);
+</code></pre>
+</div>
+</div>
+
+<p>Suspend the current task and reschedule the CPU to the next task.</p>
+
+<hr>
+
+<h1 id="examples">Examples</h1>
+
+<p>Althoght most of the scheduler methods are static, for both portability and aestetic reasons, the recommended way to call them in application code is by prefixing with <strong>os.sched.</strong> like <strong>os.sched.yield();</strong>. However, in system code it is recommended to avoid references to application objects like <strong>os.</strong> so calls are to be written like <strong>OSScheduler::yield()</strong>.</p>
+
+<h2 id="using-application-critical-sections">Using application critical sections</h2>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>// ...
+os.sched.lock();
+  {
+    // ...
+    // ...
+  }
+os.sched.unlock();
+// ...
+</code></pre>
+</div>
+</div>
+
+<p>Application critical sections are required for syncronization events triggered by other application tasks. The braced code is guaranteed to be executed atomically within the current task, without sharing the CPU with other tasks. However interrupts remain active and interrupts services routines are normally executed; for synchronization events triggered by interrupts please use system critical sections.</p>
+
+<h2 id="using-system-critical-sections">Using system critical sections</h2>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>// ...
+os.sched.criticalEnter();
+  {
+    // ...
+    // ...
+  }
+os.sched.criticalExit();
+// ...
+</code></pre>
+</div>
+</div>
+
+<p>System critical sections are required for syncronization events triggered by interrupt service routines. The braced code is guaranteed to be executed atomically with interrupts disabled. Should be used with caution, since long critical sections may degrade system performance.</p>
+
+<h2 id="enumerating-registered-tasks">Enumerating registered tasks</h2>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>// ...
+os.sched.lock();
+  {
+    int i;
+    for (i = 0; i &lt; os.sched.getTasksCount(); ++i)
+      {
+        OSTask *pTask;
+        pTask = os.sched.getTask(i);
+
+        if (os.isDebug())
+          clog &lt;&lt; (*pTask);    // dump task data on debug device
+
+        // ...
+      }
+  }
+os.sched.unlock();
+// ...
+</code></pre>
+</div>
+</div>
+
+<p>Enumerate all registered tasks, including the idle task.</p>
+
+
+
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/micro-os-plus/i/Scheduler/" data-layout="button"></div></li>
+</ul>
+
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="site-footer">
+  <div class="site-footer-links left">
+    <ul>
+  <li>© 2019 Liviu Ionescu</li>
+  <li>Hosted on GitHub</li>
+  <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
+  <li>
+<a href="http://twitter.com/micro_os_plus" class="twitter-follow-button" data-show-count="false">Follow @micro_os_plus</a><script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</li>
+</ul>
+
+
+  </div>
+  <a href="https://github.com/micro-os-plus/micro-os-plus-iii" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+  </a>
+  <div class="site-footer-links right">
+    <ul>
+  <li><a href="/web-preview/">Home</a></li>
+  <li><a href="/web-preview/blog/">News</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/releases">Releases</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues">Support</a></li>
+  <li><a href="/web-preview/about/">About</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</div>
+
+</body>
+</html>

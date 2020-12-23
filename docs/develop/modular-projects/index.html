@@ -1,0 +1,2649 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Modular projects</title>
+  <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
+
+  <meta property="og:title" content="Modular projects">
+  <meta property="og:site_name" content="µOS++ IIIe">
+
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+
+
+  <meta property="article:published_time" content="2017-09-26">
+
+
+
+
+
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
+
+  <link rel="canonical" href="/web-preview/develop/modular-projects/">
+
+
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16767008-14', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+  <div class="site-header">
+  <table style="width:100%">
+    <tr>
+      <td>
+        <a href="/web-preview/">
+          <img alt="Icon" class="site-icon" src="/web-preview/assets/icons/wall-e-icon.png" height="100" width="100">
+      </a>
+      </td>
+      <td>
+        <table class="site-title" style="width:100%">
+          <tr>
+            <td class="site-title">
+              <a href="/web-preview/">µOS++ IIIe</a>
+            </td>
+            <td class="site-motto" align="right">
+              “Perfekt ist nicht gut genug”
+            </td>
+          </tr>
+          <tr>
+            <td class="site-description" colspan="2">
+              The third edition of µOS++, a POSIX inspired open source framework, written in C++.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+</div>
+
+<div class="container">
+
+  <div class="wrapper">
+    <div class="site-body">
+
+      <div class="site-sidebar">
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      <h4 id="news"><a href="/web-preview/blog/">News</a></h4>
+
+<ul>
+  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></li>
+  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ IIIe v6.3.14 released</a></li>
+  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ IIIe v6.3.13 released</a></li>
+  <li><a href="/web-preview/blog/2017/01/02/micro-os-plus-v6-3-11-released/">µOS++ IIIe v6.3.11 released</a></li>
+</ul>
+
+
+    </div>
+  </div>
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      
+      <h4 id="home"><a href="/web-preview/">Home</a></h4>
+
+<h4 id="µos-iiie">µOS++ IIIe</h4>
+
+<ul>
+  <li><a href="/web-preview/micro-os-plus/">Overview</a></li>
+</ul>
+
+<h4 id="apis">APIs</h4>
+
+<ul>
+  <li><a href="/web-preview/cmsis-plus/">Overview</a></li>
+  <li><a href="/web-preview/cmsis-plus/rtos/">RTOS API</a></li>
+</ul>
+
+<h4 id="xpacksxcdl">xPacks/XCDL</h4>
+
+<ul>
+  <li><a href="/web-preview/xpacks/">Overview</a></li>
+</ul>
+
+<h4 id="documentation">Documentation</h4>
+
+<ul>
+  <li>
+<a href="/web-preview/user-manual/">User’s <strong>manual</strong></a>
+    <ul>
+      <li><a href="/web-preview/user-manual/getting-started/">Getting started</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/">Basic concepts</a></li>
+      <li><a href="/web-preview/user-manual/features/">Features</a></li>
+      <li><a href="/web-preview/user-manual/threads/">Threads</a></li>
+      <li><a href="/web-preview/user-manual/thread-event-flags/">Thread event flags</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/">Semaphores</a></li>
+      <li><a href="/web-preview/user-manual/event-flags/">Event flags</a></li>
+      <li>Mutexes</li>
+      <li>Condition variables</li>
+      <li>Message queues</li>
+      <li>Memory pools</li>
+      <li>Software timers</li>
+      <li>Clocks</li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/reference/cmsis-plus/">µOS++ <strong>reference</strong></a></li>
+</ul>
+
+<h4 id="developer">Developer</h4>
+
+<ul>
+  <li><a href="/web-preview/develop/">Overview</a></li>
+  <li><a href="/web-preview/reference/cmsis-plus/md_doxygen_pages_change-log.html">Change log</a></li>
+  <li><a href="/web-preview/develop/coding-style/">C++ coding style</a></li>
+  <li><a href="/web-preview/develop/naming-conventions/">Naming conventions</a></li>
+  <li><a href="/web-preview/develop/references/">Links &amp; references</a></li>
+</ul>
+
+<h4 id="support">Support</h4>
+
+<ul>
+  <li><a href="/web-preview/support/">Overview</a></li>
+  <li><a href="/web-preview/support/known-issues/">Known issues</a></li>
+  <li><a href="/web-preview/support/faq/">FAQ</a></li>
+  <li><a href="/web-preview/support/forum/">Forum</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ IIIe issues</a></li>
+</ul>
+
+<h4 id="latest-articles">Latest Articles</h4>
+
+<ul>
+  <li><a href="/web-preview/articles/arm-com-2016-06-24/">CMSIS++ RTOS: fully functional reference implementation</a></li>
+  <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
+</ul>
+
+<h4 id="license">License</h4>
+
+<ul>
+  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+</ul>
+
+<h4 id="about"><a href="/web-preview/about/">About</a></h4>
+
+    </div>
+  </div>
+
+  <div class="site-theme">
+    This site uses the <a href="https://github.com/ilg-ul/github-jekyll-theme">GitHub Wiki-like</a> theme by <a href="https://github.com/ilg-ul">Liviu Ionescu</a>.
+  </div>
+
+</div>
+
+
+      <div class="site-content">
+
+        
+<h1 class="page-title">Modular projects</h1>
+<table id="last-modified">
+  <tr>
+    <td id="last-modified">Last modified on Wed Dec 23 10:37:26 2020 UTC.</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/develop/modular-projects.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+  </tr>
+</table>
+
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toc_level-1 toc_section-1">
+<a href="#objectives--benefits"><span class="tocnumber">1</span> <span class="toctext">Objectives &amp; benefits</span></a>
+<ul>
+<li class="toc_level-2 toc_section-2">
+<a href="#challenges"><span class="tocnumber">1.1</span> <span class="toctext">Challenges</span></a>
+</li>
+<li class="toc_level-2 toc_section-3">
+<a href="#solution"><span class="tocnumber">1.2</span> <span class="toctext">Solution</span></a>
+</li>
+<li class="toc_level-2 toc_section-4">
+<a href="#benefits"><span class="tocnumber">1.3</span> <span class="toctext">Benefits</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-5">
+<a href="#examples"><span class="tocnumber">2</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toc_level-2 toc_section-6">
+<a href="#command-line-usage"><span class="tocnumber">2.1</span> <span class="toctext">Command line usage</span></a>
+</li>
+<li class="toc_level-2 toc_section-7">
+<a href="#eclipse-project"><span class="tocnumber">2.2</span> <span class="toctext">Eclipse project</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-8">
+<a href="#project-structure"><span class="tocnumber">3</span> <span class="toctext">Project structure</span></a>
+<ul>
+<li class="toc_level-2 toc_section-9">
+<a href="#application-vs-packages"><span class="tocnumber">3.1</span> <span class="toctext">Application vs packages</span></a>
+</li>
+<li class="toc_level-2 toc_section-10">
+<a href="#example"><span class="tocnumber">3.2</span> <span class="toctext">Example</span></a>
+</li>
+<li class="toc_level-2 toc_section-11">
+<a href="#dependencies"><span class="tocnumber">3.3</span> <span class="toctext">Dependencies</span></a>
+</li>
+<li class="toc_level-2 toc_section-12">
+<a href="#tools"><span class="tocnumber">3.4</span> <span class="toctext">Tools</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-13">
+<a href="#embedded-projects-specifics"><span class="tocnumber">4</span> <span class="toctext">Embedded projects specifics</span></a>
+<ul>
+<li class="toc_level-2 toc_section-14">
+<a href="#the-startup-code"><span class="tocnumber">4.1</span> <span class="toctext">The startup code</span></a>
+</li>
+<li class="toc_level-2 toc_section-15">
+<a href="#board-vs-device-vs-architecture"><span class="tocnumber">4.2</span> <span class="toctext">Board vs Device vs Architecture</span></a>
+</li>
+<li class="toc_level-2 toc_section-16">
+<a href="#interrupts"><span class="tocnumber">4.3</span> <span class="toctext">Interrupts</span></a>
+</li>
+<li class="toc_level-2 toc_section-17">
+<a href="#linker-scripts"><span class="tocnumber">4.4</span> <span class="toctext">Linker scripts</span></a>
+</li>
+<li class="toc_level-2 toc_section-18">
+<a href="#the-c-and-c-libraries"><span class="tocnumber">4.5</span> <span class="toctext">The C and C++ libraries</span></a>
+</li>
+<li class="toc_level-2 toc_section-19">
+<a href="#tracing-support"><span class="tocnumber">4.6</span> <span class="toctext">Tracing support</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-20">
+<a href="#future-plans"><span class="tocnumber">5</span> <span class="toctext">Future plans</span></a>
+<ul>
+<li class="toc_level-2 toc_section-21">
+<a href="#new-device-drivers"><span class="tocnumber">5.1</span> <span class="toctext">New device drivers</span></a>
+</li>
+<li class="toc_level-2 toc_section-22">
+<a href="#peripheral-register-view-in-eclipse"><span class="tocnumber">5.2</span> <span class="toctext">Peripheral register view in Eclipse</span></a>
+</li>
+<li class="toc_level-2 toc_section-23">
+<a href="#support-for-applications-using-an-rtos-and-middleware"><span class="tocnumber">5.3</span> <span class="toctext">Support for applications using an RTOS and middleware</span></a>
+</li>
+<li class="toc_level-2 toc_section-24">
+<a href="#new-and-improved-xpack-tools"><span class="tocnumber">5.4</span> <span class="toctext">New and improved xPack tools</span></a>
+</li>
+<li class="toc_level-2 toc_section-25">
+<a href="#better-integration-with-eclipse"><span class="tocnumber">5.5</span> <span class="toctext">Better integration with Eclipse</span></a>
+</li>
+<li class="toc_level-2 toc_section-26">
+<a href="#integration-with-other-editorsides"><span class="tocnumber">5.6</span> <span class="toctext">Integration with other editors/IDEs</span></a>
+</li>
+<li class="toc_level-2 toc_section-27">
+<a href="#improved-qemu-with-graphical-animated-leds--buttons"><span class="tocnumber">5.7</span> <span class="toctext">Improved QEMU with graphical animated LEDs &amp; buttons</span></a>
+</li>
+<li class="toc_level-2 toc_section-28">
+<a href="#documentation-pages"><span class="tocnumber">5.8</span> <span class="toctext">Documentation pages</span></a>
+</li>
+<li class="toc_level-2 toc_section-29">
+<a href="#many-more"><span class="tocnumber">5.9</span> <span class="toctext">Many more</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-30">
+<a href="#feedback"><span class="tocnumber">6</span> <span class="toctext">Feedback</span></a>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="objectives--benefits">Objectives &amp; benefits</h2>
+
+<h3 id="challenges">Challenges</h3>
+
+<p>One of the major challenges when developing software is reusing various pieces of code among applications and sharing code with other developers.</p>
+
+<p>The trivial approach is to simply copy/paste routines or entire files from one application to another. This is ok as long as the code does not change; once the code changes, manually updating all projects is no longer trivial.</p>
+
+<p>A slightly better solution is to create separate libraries, and include them <em>as is</em> in different projects. Initially this may look ok, but when having many libraries, especially with multiple inter-dependencies, knowing which libraries are compatible with each other may no longer be as easy as expected.</p>
+
+<p>The problem is aggravated by the fact that each library has its own life cycle, and new versions may no longer be compatible with existing or newer versions of any of the other libraries.</p>
+
+<h3 id="solution">Solution</h3>
+
+<p>Instead of a monolithic project, where the build process has to deal with a complicated folder hierarchy, one possible solution is to build the project from separate components, stored as one or more files in separate packages.</p>
+
+<p>In practical terms, each package should have, in addition to the source files, some <strong>metadata</strong>, to define its own <strong>identity</strong> and a list of <strong>dependencies</strong> from other packages.</p>
+
+<h3 id="benefits">Benefits</h3>
+
+<p>This modular approach with structured metadata greatly increase the code <strong>reusability</strong> and <strong>upgradability</strong>, by allowing automated tools to bring into the project the required components, and to automatically manage the dependencies, accepting only combinations of compatible packages.</p>
+
+<p>Such solutions are already available for other languages, the most successful one being <a href="https://www.npmjs.com">npm</a> (The Node Package Manager), for Node.js/JavaScript modules.</p>
+
+<p>There were also several attempts to create similar solutions for C/C++ embedded applications, but they had limited success (for example CMSIS Packs, which uses huge packages and is more or less specific to Keil MDK, and yotta, originally from ARM mbed, now abandoned, based upon cmake and python).</p>
+
+<p>The current proposal uses a new technology, called <strong>xPack</strong>, that addresses the management of multi-version packages (for both source code and binary tools), and provides support for an automated build process, advanced application configuration and convenient debug (the <a href="https://xpack.github.io">project web</a> site is currently under construction).</p>
+
+<h2 id="examples">Examples</h2>
+
+<p>The following examples use the new SiFive project templates, that generate functional projects for the current SiFive boards (<strong>HiFive1</strong>, <strong>Coreplex E31 Arty</strong>, <strong>Coreplex E51 Arty</strong>).</p>
+
+<p>The templates can be invoked both from <strong>command line</strong> environments and from <strong>GNU MCU Eclipse</strong>.</p>
+
+<h3 id="command-line-usage">Command line usage</h3>
+
+<p>To create a new project based on existing xPacks, the most convenient way is to use a project template.</p>
+
+<p>Create an empty folder and invoke <code class="language-plaintext highlighter-rouge">xpm init</code> in interactive mode, pointing to the desired template.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>$ mkdir -p /tmp/hifive1-blinky-cpp
+$ cd /tmp/hifive1-blinky-cpp
+$ xpm init --template @sifive/coreplex-templates
+Generate a SiFive Coreplex C/C++ project
+
+Programming language? (c, cpp, ?) [cpp]: 
+Board? (hifive1, e31arty, e51arty, ?) [hifive1]: 
+Content? (empty, blinky, ?) [blinky]: 
+Use system calls? (none, retarget, ?) [retarget]: 
+Trace output? (none, uart0ftdi, ?) [uart0ftdi]: 
+Check some warnings? (true, false, ?) [true]: 
+Check most warnings? (true, false, ?) [false]: 
+Enable -Werror? (true, false, ?) [false]: 
+Use -Og on debug? (true, false, ?) [false]: 
+Use newlib nano? (true, false, ?) [true]: 
+
+Creating the C++ project 'hifive1-blinky-cpp'...
+File 'LICENSE' generated.
+File 'oocd.launch' generated.
+File 'package.json' generated.
+File 'README.md' generated.
+File 'xmake.json' generated.
+File 'include/led.h' copied.
+File 'include/sysclock.h' copied.
+File 'ldscripts/libs.ld' copied.
+File 'ldscripts/mem.ld' copied.
+File 'ldscripts/sections.ld' copied.
+File 'src/initialize-hardware.cpp' generated.
+File 'src/interrupts-handlers.cpp' generated.
+File 'src/led.cpp' copied.
+File 'src/main.cpp' generated.
+File 'src/newlib-syscalls.c' copied.
+File 'src/sysclock.cpp' copied.
+Folder 'xpacks/micro-os-plus-c-libs' copied.
+Folder 'xpacks/micro-os-plus-cpp-libs' copied.
+Folder 'xpacks/micro-os-plus-diag-trace' copied.
+Folder 'xpacks/micro-os-plus-riscv-arch' copied.
+Folder 'xpacks/micro-os-plus-startup' copied.
+Folder 'xpacks/sifive-hifive1-board' copied.
+Folder 'xpacks/sifive-coreplex-devices' copied.
+
+'xpm init' completed in 253 ms.
+</code></pre>
+</div>
+</div>
+
+<p>In the interactive part, at any time it is possible to ask for more details by entering a question mark:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>$ xpm init --template @sifive/coreplex-templates
+Generate a SiFive Coreplex C/C++ project
+
+Programming language? (c, cpp, ?) [cpp]: ?
+Select the preferred programming language
+- C for the application files, C and C++ for the system
+- C++ for the application files, C++ and C for the system
+Programming language? (c, cpp, ?) [cpp]: 
+Board? (hifive1, e31arty, e51arty, ?) [hifive1]: ?
+Select the SiFive board name
+- Freedom E310 HiFive1
+- Coreplex E31 Arty
+- Coreplex E51 Arty
+Board? (hifive1, e31arty, e51arty, ?) [hifive1]: 
+Content? (empty, blinky, ?) [blinky]: ?
+Choose the project content
+- Empty (add your own content)
+- Blinky (blink one or more LEDs)
+Content? (empty, blinky, ?) [blinky]: 
+Use system calls? (none, retarget, ?) [retarget]: ?
+Control how system calls are implemented
+- Freestanding (no POSIX system calls)
+- POSIX (system calls implemented by application code)
+Use system calls? (none, retarget, ?) [retarget]: 
+Trace output? (none, uart0ftdi, ?) [uart0ftdi]: ?
+Control where the trace output messages are forwarded
+- None (no trace output)
+- UART0 (via FTDI)
+Trace output? (none, uart0ftdi, ?) [uart0ftdi]: 
+Check some warnings? (true, false, ?) [true]: ?
+Enable -Wall and -Wextra to catch most common warnings
+Check some warnings? (true, false, ?) [true]: 
+Check most warnings? (true, false, ?) [false]: ?
+Enable as many warnings as possible
+Check most warnings? (true, false, ?) [false]: 
+Enable -Werror? (true, false, ?) [false]: ?
+Instruct the compiler to stop on warnings
+Enable -Werror? (true, false, ?) [false]:  
+Use -Og on debug? (true, false, ?) [false]: ?
+Use the new optimization flag for the debug configurations
+Use -Og on debug? (true, false, ?) [false]:  
+Use newlib nano? (true, false, ?) [true]: ?
+Use the size optimised version of newlib
+Use newlib nano? (true, false, ?) [true]: 
+
+Creating the C++ project 'hifive1-blinky-cpp'...
+...
+</code></pre>
+</div>
+</div>
+
+<p>For scripting environments (like automated tests), it is also possible to pass all configuration choices as command line options. The only mandatory property is <code class="language-plaintext highlighter-rouge">boardName</code>, all other have reasonable defaults:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>$ xpm init --template @sifive/coreplex-templates --property boardName=hifive1
+Generate a SiFive Coreplex C/C++ project
+
+Creating the C++ project 'hifive1-blinky-cpp'...
+- boardName=hifive1
+- content=blinky
+- syscalls=retarget
+- trace=uart0ftdi
+- useSomeWarnings=true
+- useMostWarnings=false
+- useWerror=false
+- useOg=false
+- useNano=true
+
+File 'LICENSE' generated.
+File 'oocd.launch' generated.
+File 'package.json' generated.
+File 'README.md' generated.
+File 'xmake.json' generated.
+File 'include/led.h' copied.
+File 'include/sysclock.h' copied.
+File 'ldscripts/libs.ld' copied.
+File 'ldscripts/mem.ld' copied.
+File 'ldscripts/sections.ld' copied.
+File 'src/initialize-hardware.cpp' generated.
+File 'src/interrupts-handlers.cpp' generated.
+File 'src/led.cpp' copied.
+File 'src/main.cpp' generated.
+File 'src/newlib-syscalls.c' copied.
+File 'src/sysclock.cpp' copied.
+Folder 'xpacks/micro-os-plus-c-libs' copied.
+Folder 'xpacks/micro-os-plus-cpp-libs' copied.
+Folder 'xpacks/micro-os-plus-diag-trace' copied.
+Folder 'xpacks/micro-os-plus-riscv-arch' copied.
+Folder 'xpacks/micro-os-plus-startup' copied.
+Folder 'xpacks/sifive-hifive1-board' copied.
+Folder 'xpacks/sifive-coreplex-devices' copied.
+
+'xpm init' completed in 176 ms.
+</code></pre>
+</div>
+</div>
+
+<p>Both methods produce the same result. The project itself is quite generic, and does not include any <code class="language-plaintext highlighter-rouge">make</code> files, or any other specific build system files. Instead, it includes a structured file (<code class="language-plaintext highlighter-rouge">xmake.json</code>) that contains all required details for an automated tool to generate the specific build system files.</p>
+
+<p>The approach is similar to <code class="language-plaintext highlighter-rouge">cmake</code>, just that instead of using a proprietary scripting language (with a syntax not at all easy to parse), it uses a JSON file, which can be easily parsed by any 3rd party tools.</p>
+
+<p>The first such tool is <code class="language-plaintext highlighter-rouge">xmake</code>, the xPack builder; it consumes <code class="language-plaintext highlighter-rouge">xmake.json</code> directly and generates <code class="language-plaintext highlighter-rouge">make</code> files. Future versions will also import/export Eclipse CDT configurations.</p>
+
+<p>To build the project, the standard method is to use <code class="language-plaintext highlighter-rouge">xpm build</code>, which, for the current project, invokes <code class="language-plaintext highlighter-rouge">xmake build</code>, which performs the following steps:</p>
+
+<ul>
+  <li>create the usual debug and release build configurations</li>
+  <li>generate the <code class="language-plaintext highlighter-rouge">make</code> files</li>
+  <li>finally invoke <code class="language-plaintext highlighter-rouge">make</code> to run the actual build.</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>$ xpm build
+Build the package
+
+Changing current folder to '/tmp/hifive1-blinky-cpp'...
+Invoking 'xmake build -- all'...
+
+Build one or all project configurations
+
+Generating the build files for 'hifive1-blinky-cpp', target 'hifive1', toolchain 'riscv64-elf-gcc', profile 'debug'...
+Generating 'make' files...
+'make' files generated in 90 ms.
+
+Changing current folder to 'build/hifive1-blinky-cpp-hifive1-riscv64-elf-gcc-debug'...
+
+Invoking builder: 'make all'...
+[riscv64-unknown-elf-gcc]: src/newlib-syscalls.c
+[riscv64-unknown-elf-g++]: src/initialize-hardware.cpp
+[riscv64-unknown-elf-g++]: src/interrupts-handlers.cpp
+[riscv64-unknown-elf-g++]: src/led.cpp
+[riscv64-unknown-elf-g++]: src/main.cpp
+[riscv64-unknown-elf-g++]: src/sysclock.cpp
+[riscv64-unknown-elf-gcc]: xpacks/micro-os-plus-c-libs/src/_sbrk.c
+[riscv64-unknown-elf-gcc]: xpacks/micro-os-plus-c-libs/src/c-syscalls-empty.c
+[riscv64-unknown-elf-gcc]: xpacks/micro-os-plus-c-libs/src/stdlib/assert.c
+[riscv64-unknown-elf-gcc]: xpacks/micro-os-plus-c-libs/src/stdlib/exit.c
+[riscv64-unknown-elf-gcc]: xpacks/micro-os-plus-c-libs/src/stdlib/init-fini.c
+[riscv64-unknown-elf-g++]: xpacks/micro-os-plus-c-libs/src/stdlib/atexit.cpp
+[riscv64-unknown-elf-g++]: xpacks/micro-os-plus-cpp-libs/src/cxx.cpp
+[riscv64-unknown-elf-g++]: xpacks/micro-os-plus-diag-trace/src/trace.cpp
+[riscv64-unknown-elf-g++]: xpacks/micro-os-plus-riscv-arch/src/arch-functions.cpp
+[riscv64-unknown-elf-g++]: xpacks/micro-os-plus-riscv-arch/src/traps.cpp
+[riscv64-unknown-elf-gcc]: xpacks/micro-os-plus-riscv-arch/src/reset-entry.S
+[riscv64-unknown-elf-gcc]: xpacks/micro-os-plus-riscv-arch/src/trap-entry.S
+[riscv64-unknown-elf-g++]: xpacks/micro-os-plus-startup/src/startup.cpp
+[riscv64-unknown-elf-g++]: xpacks/sifive-coreplex-devices/src/device-functions.cpp
+[riscv64-unknown-elf-g++]: xpacks/sifive-coreplex-devices/src/device-interrupts.cpp
+[riscv64-unknown-elf-g++]: xpacks/sifive-coreplex-devices/src/plic-functions.cpp
+[riscv64-unknown-elf-gcc]: xpacks/sifive-coreplex-devices/src/sifive/fe300prci_driver.c
+[riscv64-unknown-elf-g++]: xpacks/sifive-hifive1-board/src/board-functions.cpp
+[riscv64-unknown-elf-g++]: xpacks/sifive-hifive1-board/src/trace-uart.cpp
+[riscv64-unknown-elf-g++]: hifive1-blinky-cpp.elf
+'make all' completed in 5.705 sec.
+
+Generating the build files for 'hifive1-blinky-cpp', target 'hifive1', toolchain 'riscv64-elf-gcc', profile 'release'...
+Generating 'make' files...
+'make' files generated in 76 ms.
+
+Changing current folder to 'build/hifive1-blinky-cpp-hifive1-riscv64-elf-gcc-release'...
+
+Invoking builder: 'make all'...
+[riscv64-unknown-elf-gcc]: src/newlib-syscalls.c
+[riscv64-unknown-elf-g++]: src/initialize-hardware.cpp
+[riscv64-unknown-elf-g++]: src/interrupts-handlers.cpp
+[riscv64-unknown-elf-g++]: src/led.cpp
+[riscv64-unknown-elf-g++]: src/main.cpp
+[riscv64-unknown-elf-g++]: src/sysclock.cpp
+[riscv64-unknown-elf-gcc]: xpacks/micro-os-plus-c-libs/src/_sbrk.c
+[riscv64-unknown-elf-gcc]: xpacks/micro-os-plus-c-libs/src/c-syscalls-empty.c
+[riscv64-unknown-elf-gcc]: xpacks/micro-os-plus-c-libs/src/stdlib/assert.c
+[riscv64-unknown-elf-gcc]: xpacks/micro-os-plus-c-libs/src/stdlib/exit.c
+[riscv64-unknown-elf-gcc]: xpacks/micro-os-plus-c-libs/src/stdlib/init-fini.c
+[riscv64-unknown-elf-g++]: xpacks/micro-os-plus-c-libs/src/stdlib/atexit.cpp
+[riscv64-unknown-elf-g++]: xpacks/micro-os-plus-cpp-libs/src/cxx.cpp
+[riscv64-unknown-elf-g++]: xpacks/micro-os-plus-diag-trace/src/trace.cpp
+[riscv64-unknown-elf-g++]: xpacks/micro-os-plus-riscv-arch/src/arch-functions.cpp
+[riscv64-unknown-elf-g++]: xpacks/micro-os-plus-riscv-arch/src/traps.cpp
+[riscv64-unknown-elf-gcc]: xpacks/micro-os-plus-riscv-arch/src/reset-entry.S
+[riscv64-unknown-elf-gcc]: xpacks/micro-os-plus-riscv-arch/src/trap-entry.S
+[riscv64-unknown-elf-g++]: xpacks/micro-os-plus-startup/src/startup.cpp
+[riscv64-unknown-elf-g++]: xpacks/sifive-coreplex-devices/src/device-functions.cpp
+[riscv64-unknown-elf-g++]: xpacks/sifive-coreplex-devices/src/device-interrupts.cpp
+[riscv64-unknown-elf-g++]: xpacks/sifive-coreplex-devices/src/plic-functions.cpp
+[riscv64-unknown-elf-gcc]: xpacks/sifive-coreplex-devices/src/sifive/fe300prci_driver.c
+[riscv64-unknown-elf-g++]: xpacks/sifive-hifive1-board/src/board-functions.cpp
+[riscv64-unknown-elf-g++]: xpacks/sifive-hifive1-board/src/trace-uart.cpp
+[riscv64-unknown-elf-g++]: hifive1-blinky-cpp.elf
+'make all' completed in 5.199 sec.
+
+'xmake build' completed in 11.157 sec.
+
+'xpm build' completed in 11.346 sec.
+</code></pre>
+</div>
+</div>
+
+<p>As for any modern builder, subsequent invocations process only the changed files, if any:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>$ xpm build
+Build the package
+
+Changing current folder to '/tmp/hifive1-blinky-cpp'...
+Invoking 'xmake build -- all'...
+
+Build one or all project configurations
+
+Generating the build files for 'hifive1-blinky-cpp', target 'hifive1', toolchain 'riscv64-elf-gcc', profile 'debug'...
+Generating 'make' files...
+'make' files generated in 87 ms.
+
+Changing current folder to 'build/hifive1-blinky-cpp-hifive1-riscv64-elf-gcc-debug'...
+
+Invoking builder: 'make all'...
+make: Nothing to be done for `all'.
+'make all' completed in 52 ms.
+
+Generating the build files for 'hifive1-blinky-cpp', target 'hifive1', toolchain 'riscv64-elf-gcc', profile 'release'...
+Generating 'make' files...
+'make' files generated in 82 ms.
+
+Changing current folder to 'build/hifive1-blinky-cpp-hifive1-riscv64-elf-gcc-release'...
+
+Invoking builder: 'make all'...
+make: Nothing to be done for `all'.
+'make all' completed in 51 ms.
+
+'xmake build' completed in 350 ms.
+
+'xpm build' completed in 538 ms.
+</code></pre>
+</div>
+</div>
+
+<p>To clean all builds, the project includes a <code class="language-plaintext highlighter-rouge">clean</code> script, which invokes <code class="language-plaintext highlighter-rouge">xmake</code>, which finally invokes <code class="language-plaintext highlighter-rouge">make</code> with the <code class="language-plaintext highlighter-rouge">clean</code> target:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>$ xpm run clean
+Run package specific script
+
+Changing current folder to '/tmp/hifive1-blinky-cpp'...
+Invoking 'xmake build -- clean'...
+
+Build one or all project configurations
+
+Generating the build files for 'hifive1-blinky-cpp', target 'hifive1', toolchain 'riscv64-elf-gcc', profile 'debug'...
+Generating 'make' files...
+'make' files generated in 86 ms.
+
+Changing current folder to 'build/hifive1-blinky-cpp-hifive1-riscv64-elf-gcc-debug'...
+
+Invoking builder: 'make clean'...
+[rm]: *
+Build completed in 52 ms.
+
+Generating the build files for 'hifive1-blinky-cpp', target 'hifive1', toolchain 'riscv64-elf-gcc', profile 'release'...
+Generating 'make' files...
+'make' files generated in 84 ms.
+
+Changing current folder to 'build/hifive1-blinky-cpp-hifive1-riscv64-elf-gcc-release'...
+
+Invoking builder: 'make clean'...
+[rm]: *
+Build completed in 48 ms.
+
+'xmake build' completed in 350 ms.
+
+'xpm run clean' completed in 530 ms.
+</code></pre>
+</div>
+</div>
+
+<p>An even more verbose output can be obtained by invoking <code class="language-plaintext highlighter-rouge">xmake</code> with the <code class="language-plaintext highlighter-rouge">-v</code> option:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>$ xmake build -v
+Build one or all project configurations
+
+Generating the build files for 'hifive1-blinky-cpp', target 'hifive1', toolchain 'riscv64-elf-gcc', profile 'debug'...
+
+Source folders: 'src', 'xpacks/micro-os-plus-c-libs/src', 'xpacks/micro-os-plus-c-libs/src/stdlib', 'xpacks/micro-os-plus-cpp-libs/src', 'xpacks/micro-os-plus-diag-trace/src', 'xpacks/micro-os-plus-riscv-arch/src', 'xpacks/micro-os-plus-startup/src', 'xpacks/sifive-coreplex-devices/src', 'xpacks/sifive-coreplex-devices/src/sifive', 'xpacks/sifive-hifive1-board/src'
+Include folders: 'include', 'xpacks/micro-os-plus-c-libs/include', 'xpacks/micro-os-plus-cpp-libs/include', 'xpacks/micro-os-plus-diag-trace/include', 'xpacks/micro-os-plus-riscv-arch/include', 'xpacks/micro-os-plus-startup/include', 'xpacks/sifive-coreplex-devices/include', 'xpacks/sifive-hifive1-board/include'
+Tool C: -march=rv32imac -mabi=ilp32 -mcmodel=medany -msmall-data-limit=8  -g3   -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -std=gnu11 -Wall -Wextra    -DSIFIVE_FREEDOM_E310 -DSIFIVE_HIFIVE1_BOARD -DDEBUG -DOS_USE_TRACE_UART0 -DTRACE 
+Tool C++: -march=rv32imac -mabi=ilp32 -mcmodel=medany -msmall-data-limit=8  -g3   -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -std=gnu++14 -fabi-version=0 -fno-exceptions -fno-rtti -fno-use-cxa-atexit -fno-threadsafe-statics -Wall -Wextra    -DSIFIVE_FREEDOM_E310 -DSIFIVE_HIFIVE1_BOARD -DDEBUG -DOS_USE_TRACE_UART0 -DTRACE 
+Tool AS: -march=rv32imac -mabi=ilp32 -mcmodel=medany -msmall-data-limit=8  -g3   -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections   -Wall -Wextra    -x assembler-with-cpp -DSIFIVE_FREEDOM_E310 -DSIFIVE_HIFIVE1_BOARD -DDEBUG -DOS_USE_TRACE_UART0 -DTRACE 
+Tool Linker: -march=rv32imac -mabi=ilp32 -mcmodel=medany -msmall-data-limit=8  -g3   -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections   -Wall -Wextra    -nostartfiles -Xlinker --gc-sections --specs=nano.specs -L"../../ldscripts" -T mem.ld -T libs.ld -T sections.ld
+
+Creating folder 'src'...
+Creating folder 'xpacks/micro-os-plus-c-libs/src'...
+Creating folder 'xpacks/micro-os-plus-c-libs/src/stdlib'...
+Creating folder 'xpacks/micro-os-plus-cpp-libs/src'...
+Creating folder 'xpacks/micro-os-plus-diag-trace/src'...
+Creating folder 'xpacks/micro-os-plus-riscv-arch/src'...
+Creating folder 'xpacks/micro-os-plus-startup/src'...
+Creating folder 'xpacks/sifive-coreplex-devices/src'...
+Creating folder 'xpacks/sifive-coreplex-devices/src/sifive'...
+Creating folder 'xpacks/sifive-hifive1-board/src'...
+
+Generating file 'build/hifive1-blinky-cpp-hifive1-riscv64-elf-gcc-debug/makefile'...
+Generating file 'build/hifive1-blinky-cpp-hifive1-riscv64-elf-gcc-debug/objects.mk'...
+Generating file 'build/hifive1-blinky-cpp-hifive1-riscv64-elf-gcc-debug/variables.mk'...
+Generating file 'build/hifive1-blinky-cpp-hifive1-riscv64-elf-gcc-debug/src/subdir.mk'...
+Generating file 'build/hifive1-blinky-cpp-hifive1-riscv64-elf-gcc-debug/xpacks/micro-os-plus-c-libs/src/subdir.mk'...
+Generating file 'build/hifive1-blinky-cpp-hifive1-riscv64-elf-gcc-debug/xpacks/micro-os-plus-c-libs/src/stdlib/subdir.mk'...
+Generating file 'build/hifive1-blinky-cpp-hifive1-riscv64-elf-gcc-debug/xpacks/micro-os-plus-cpp-libs/src/subdir.mk'...
+Generating file 'build/hifive1-blinky-cpp-hifive1-riscv64-elf-gcc-debug/xpacks/micro-os-plus-diag-trace/src/subdir.mk'...
+Generating file 'build/hifive1-blinky-cpp-hifive1-riscv64-elf-gcc-debug/xpacks/micro-os-plus-riscv-arch/src/subdir.mk'...
+Generating file 'build/hifive1-blinky-cpp-hifive1-riscv64-elf-gcc-debug/xpacks/micro-os-plus-startup/src/subdir.mk'...
+Generating file 'build/hifive1-blinky-cpp-hifive1-riscv64-elf-gcc-debug/xpacks/sifive-coreplex-devices/src/subdir.mk'...
+Generating file 'build/hifive1-blinky-cpp-hifive1-riscv64-elf-gcc-debug/xpacks/sifive-coreplex-devices/src/sifive/subdir.mk'...
+Generating file 'build/hifive1-blinky-cpp-hifive1-riscv64-elf-gcc-debug/xpacks/sifive-hifive1-board/src/subdir.mk'...
+Generating file 'build/hifive1-blinky-cpp-hifive1-riscv64-elf-gcc-debug/src/sources.mk'...
+Generating file 'build/hifive1-blinky-cpp-hifive1-riscv64-elf-gcc-debug/xpacks/micro-os-plus-c-libs/src/sources.mk'...
+Generating file 'build/hifive1-blinky-cpp-hifive1-riscv64-elf-gcc-debug/xpacks/micro-os-plus-c-libs/src/stdlib/sources.mk'...
+Generating file 'build/hifive1-blinky-cpp-hifive1-riscv64-elf-gcc-debug/xpacks/micro-os-plus-cpp-libs/src/sources.mk'...
+Generating file 'build/hifive1-blinky-cpp-hifive1-riscv64-elf-gcc-debug/xpacks/micro-os-plus-diag-trace/src/sources.mk'...
+Generating file 'build/hifive1-blinky-cpp-hifive1-riscv64-elf-gcc-debug/xpacks/micro-os-plus-riscv-arch/src/sources.mk'...
+Generating file 'build/hifive1-blinky-cpp-hifive1-riscv64-elf-gcc-debug/xpacks/micro-os-plus-startup/src/sources.mk'...
+Generating file 'build/hifive1-blinky-cpp-hifive1-riscv64-elf-gcc-debug/xpacks/sifive-coreplex-devices/src/sources.mk'...
+Generating file 'build/hifive1-blinky-cpp-hifive1-riscv64-elf-gcc-debug/xpacks/sifive-coreplex-devices/src/sifive/sources.mk'...
+Generating file 'build/hifive1-blinky-cpp-hifive1-riscv64-elf-gcc-debug/xpacks/sifive-hifive1-board/src/sources.mk'...
+
+'make' files generated in 89 ms.
+
+Changing current folder to 'build/hifive1-blinky-cpp-hifive1-riscv64-elf-gcc-debug'...
+
+Invoking builder: 'make'...
+ 
+Building file: src/newlib-syscalls.c
+Invoking: GCC C Compiler
+riscv64-unknown-elf-gcc -c -march=rv32imac -mabi=ilp32 -mcmodel=medany -msmall-data-limit=8  -g3   -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -std=gnu11 -Wall -Wextra    -DSIFIVE_FREEDOM_E310 -DSIFIVE_HIFIVE1_BOARD -DDEBUG -DOS_USE_TRACE_UART0 -DTRACE  -I"../../include" -I"../../xpacks/micro-os-plus-c-libs/include" -I"../../xpacks/micro-os-plus-cpp-libs/include" -I"../../xpacks/micro-os-plus-diag-trace/include" -I"../../xpacks/micro-os-plus-riscv-arch/include" -I"../../xpacks/micro-os-plus-startup/include" -I"../../xpacks/sifive-coreplex-devices/include" -I"../../xpacks/sifive-hifive1-board/include" -MMD -MP -MF"src/newlib-syscalls.d" -MT"src/newlib-syscalls.o" -o "src/newlib-syscalls.o" "../../src/newlib-syscalls.c"
+Finished building: src/newlib-syscalls.c
+...
+Building target: hifive1-blinky-cpp.elf
+Invoking: GCC Linker
+riscv64-unknown-elf-g++ -march=rv32imac -mabi=ilp32 -mcmodel=medany -msmall-data-limit=8  -g3   -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections   -Wall -Wextra    -nostartfiles -Xlinker --gc-sections --specs=nano.specs -L"../../ldscripts" -T mem.ld -T libs.ld -T sections.ld src/newlib-syscalls.o src/initialize-hardware.o src/interrupts-handlers.o src/led.o src/main.o src/sysclock.o xpacks/micro-os-plus-c-libs/src/_sbrk.o xpacks/micro-os-plus-c-libs/src/c-syscalls-empty.o xpacks/micro-os-plus-c-libs/src/stdlib/assert.o xpacks/micro-os-plus-c-libs/src/stdlib/exit.o xpacks/micro-os-plus-c-libs/src/stdlib/init-fini.o xpacks/micro-os-plus-c-libs/src/stdlib/atexit.o xpacks/micro-os-plus-cpp-libs/src/cxx.o xpacks/micro-os-plus-diag-trace/src/trace.o xpacks/micro-os-plus-riscv-arch/src/arch-functions.o xpacks/micro-os-plus-riscv-arch/src/traps.o xpacks/micro-os-plus-riscv-arch/src/reset-entry.o xpacks/micro-os-plus-riscv-arch/src/trap-entry.o xpacks/micro-os-plus-startup/src/startup.o xpacks/sifive-coreplex-devices/src/device-functions.o xpacks/sifive-coreplex-devices/src/device-interrupts.o xpacks/sifive-coreplex-devices/src/plic-functions.o xpacks/sifive-coreplex-devices/src/sifive/fe300prci_driver.o xpacks/sifive-hifive1-board/src/board-functions.o xpacks/sifive-hifive1-board/src/trace-uart.o   -o "hifive1-blinky-cpp.elf"
+Finished building target: hifive1-blinky-cpp.elf
+Build completed in 5.580 sec.
+... 
+'xmake build' completed in 10.799 sec.
+</code></pre>
+</div>
+</div>
+
+<p>Note: at the time of preparing this page, the <code class="language-plaintext highlighter-rouge">xpm</code> tool is under development and the generic <code class="language-plaintext highlighter-rouge">xpm init</code> mechanism is not yet functional. As a temporary workaround, use the <code class="language-plaintext highlighter-rouge">xpm-init-sifive-coreplex-project</code> tool, available in the <code class="language-plaintext highlighter-rouge">@sifive/templates</code> <a href="https://www.npmjs.com/package/@sifive/templates">xPack</a>.</p>
+
+<h3 id="eclipse-project">Eclipse project</h3>
+
+<p>To create a new Eclipse project, start the new project wizard (File → New → C++ Project), enter a name and select <strong>SiFive C/C++ Project</strong>:</p>
+
+<p>
+<img src="/web-preview/assets/images/2017/new-sifive-cpp.png" alt="New SiFive C++ project">
+</p>
+
+<p>Select the board (HiFive1, Coreplex E31 Arty, Coreplex E51 Arty), the content (Empty, Blinky), and set the other configuration options:</p>
+
+<p>
+<img src="/web-preview/assets/images/2017/new-sifive-cpp-settings.png" alt="New SiFive C++ project settings">
+</p>
+
+<p>The result is a project with the following structure:</p>
+
+<p>
+<img src="/web-preview/assets/images/2017/hifive1-blinky-cpp.png" alt="HiFive1 blinky">
+</p>
+
+<p>Build the project as usual and possibly run/debug it on the board.</p>
+
+<p>Note: Note: at the time of preparing this page, the SiFive C/C++ project template is available only from the experimental update site  <a href="http://gnu-mcu-eclipse.netlify.com/v4-neon-updates-experimental/">http://gnu-mcu-eclipse.netlify.com/v4-neon-updates-experimental/</a>.</p>
+
+<h2 id="project-structure">Project structure</h2>
+
+<h3 id="application-vs-packages">Application vs packages</h3>
+
+<p>In the proposed modular approach, the application code is clearly separated from the external packages; the application folders are under full control of the user, who can edit/add/remove any files, while the packages are under the strict control of the package manager, and generally are read only, to prevent inadvertent changes.</p>
+
+<h3 id="example">Example</h3>
+
+<p>The <strong>SiFive project templates</strong> created in the previous sections use this structure; most of the files are part of the application; the packages are grouped under the <code class="language-plaintext highlighter-rouge">xpacks</code> folder, and the package metadata is located in <code class="language-plaintext highlighter-rouge">package.json</code> and <code class="language-plaintext highlighter-rouge">xmake.json</code>:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>$ tree -L 2 hifive1-blinky-cpp
+hifive1-blinky-cpp
+├── LICENSE
+├── README.md
+├── include
+│   ├── led.h
+│   └── sysclock.h
+├── ldscripts
+│   ├── libs.ld
+│   ├── mem.ld
+│   └── sections.ld
+├── oocd.launch
+├── package.json
+├── src
+│   ├── initialize-hardware.cpp
+│   ├── interrupts-handlers.cpp
+│   ├── led.cpp
+│   ├── main.cpp
+│   ├── newlib-syscalls.c
+│   └── sysclock.cpp
+├── xmake.json
+└── xpacks
+    ├── micro-os-plus-c-libs
+    ├── micro-os-plus-cpp-libs
+    ├── micro-os-plus-diag-trace
+    ├── micro-os-plus-riscv-arch
+    ├── micro-os-plus-startup
+    ├── sifive-coreplex-devices
+    └── sifive-hifive1-board
+
+11 directories, 16 files
+</code></pre>
+</div>
+</div>
+
+<h3 id="dependencies">Dependencies</h3>
+
+<p>Each package keeps a list of dependencies to other packages, and the package manager ensures that all required packages are downloaded and made available to the project before the build starts.</p>
+
+<p>For the above project, the <code class="language-plaintext highlighter-rouge">package.json</code> file includes the following dependencies:</p>
+
+<div class="language-json highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>
+<span class="p">{</span>
+<span class="w">
+  </span>
+<span class="nl">"..."</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"..."</span>
+<span class="p">,</span>
+<span class="w">
+  </span>
+<span class="nl">"dependencies"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{},</span>
+<span class="w">
+  </span>
+<span class="nl">"devDependencies"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+    </span>
+<span class="nl">"xmake"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"~0.3.5"</span>
+<span class="w">
+  </span>
+<span class="p">},</span>
+<span class="w">
+  </span>
+<span class="nl">"xpack"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+    </span>
+<span class="nl">"dependencies"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+      </span>
+<span class="nl">"@micro-os-plus/diag-trace"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"~1.0.2"</span>
+<span class="p">,</span>
+<span class="w">
+      </span>
+<span class="nl">"@sifive/hifive1-board"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"~0.0.5"</span>
+<span class="w">
+    </span>
+<span class="p">},</span>
+<span class="w">
+    </span>
+<span class="nl">"devDependencies"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+      </span>
+<span class="nl">"@gnu-mcu-eclipse/riscv-none-gcc"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"~0.0.1"</span>
+<span class="p">,</span>
+<span class="w">
+      </span>
+<span class="nl">"@gnu-mcu-eclipse/openocd"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"~0.0.1"</span>
+<span class="w">
+    </span>
+<span class="p">}</span>
+<span class="w">
+  </span>
+<span class="p">}</span>
+<span class="w">
+</span>
+<span class="p">}</span>
+<span class="w">
+</span>
+</code></pre>
+</div>
+</div>
+
+<p>In other words, the application requires explicit support only for diagnostics and for the <strong>SiFive HiFive1</strong> board. Inspecting the project’s structure, it is easy to identify seven packages, not two. The explanation is that the <code class="language-plaintext highlighter-rouge">@sifive/hifive1-board</code> xPack pulled <code class="language-plaintext highlighter-rouge">@sifive/coreplex-devices</code>, which pulled <code class="language-plaintext highlighter-rouge">@micro-os-plus/riscv-arch</code>, which pulled <code class="language-plaintext highlighter-rouge">@micro-os-plus/startup</code> and the two libraries.</p>
+
+<h3 id="tools">Tools</h3>
+
+<p>To further automate the build process, xPacks can refer not only to other <strong>source packages</strong>, but to <strong>tools packages</strong>, which include separate applications required during the development cycle, like toolchains, debuggers, builders, etc.</p>
+
+<p>This is a very powerful feature, that ensures, in a portable way, that a built process can be started immediately after the install is completed.</p>
+
+<p>In the current project, there are three tools required during development:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">xmake</code></li>
+  <li><code class="language-plaintext highlighter-rouge">@gnu-mcu-eclipse/riscv-none-gcc</code></li>
+  <li><code class="language-plaintext highlighter-rouge">@gnu-mcu-eclipse/openocd</code></li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">xmake</code> is a <code class="language-plaintext highlighter-rouge">npm</code> module, and is installed in <code class="language-plaintext highlighter-rouge">node_modules</code>, as required by the Node.js specifications.</p>
+
+<p>The other two are tool xPacks; they download and install, in a central location, platform specific binaries for the toolchain and OpenOCD, and make the path available to the current xPack.</p>
+
+<p>All tools are installed in version specific folders, so it is perfectl possible for different xPacks to use different versions of the same tools (for example multiple toolchain versions).</p>
+
+<h2 id="embedded-projects-specifics">Embedded projects specifics</h2>
+
+<h3 id="the-startup-code">The startup code</h3>
+
+<p>Traditionally, the startup code is written in assembly, the justification being that, right after reset, the run-time is not yet suitable for higher level languages, like C/C++. For some modern architectures, like Cortex-M, this is not necessary, since the core automatically loads the stack pointer before calling the <code class="language-plaintext highlighter-rouge">Reset_Handler</code>, and the startup code can be written in C/C++ from the very beginning (assuming some extra attention when using global variables and avoid excessive optimizations).</p>
+
+<h4 id="the-assembly-entry-code">The assembly entry code</h4>
+
+<p>The more traditional architectures still require some small assembly code to explicitly set several registers.</p>
+
+<p>For RISC-V, the current architecture specs require to manually load the SP and GP registers. However, after preparing these registers, it is perfectly possible to pass control to a portable C/C++ function, traditionally named <code class="language-plaintext highlighter-rouge">_start()</code>:</p>
+
+<div class="language-as highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>	<span class="p">.</span><span class="nx">section</span>	<span class="p">.</span><span class="nx">reset_entry</span><span class="p">,</span><span class="s2">"ax"</span><span class="p">,</span><span class="err">@</span><span class="nx">progbits</span>
+	<span class="p">.</span><span class="nx">align</span>		<span class="mi">2</span> <span class="c1">// number of low order zeros, i.e. align to a multiple of 4</span>
+	<span class="p">.</span><span class="nx">globl</span>		<span class="nx">riscv_reset_entry</span>
+	<span class="p">.</span><span class="nx">type</span>		<span class="nx">riscv_reset_entry</span><span class="p">,</span> <span class="err">@</span><span class="kd">function</span>
+<span class="nx">riscv_reset_entry</span><span class="o">:</span>
+
+<span class="p">.</span><span class="nx">option</span> <span class="nx">push</span>
+	<span class="c1">// Ensure the instruction is not optimised, since gp is not yet set.</span>
+<span class="p">.</span><span class="nx">option</span> <span class="nx">norelax</span>
+	<span class="c1">// __global_pointer$ is a magic symbol, known by the linker.</span>
+	<span class="c1">// Unless instructed not to do so, the linker optimises</span>
+	<span class="c1">// accesses +/- 2KB around this to gp-relative.</span>
+	<span class="nx">la</span> <span class="nx">gp</span><span class="p">,</span> <span class="nx">__global_pointer$</span>
+<span class="p">.</span><span class="nx">option</span> <span class="nx">pop</span>
+
+	<span class="c1">// The linker script usually defines the stack at the end of RAM.</span>
+	<span class="nx">la</span> <span class="nx">sp</span><span class="p">,</span> <span class="nx">__stack</span>
+
+	<span class="c1">// Proceed with the standard C _start() routine.</span>
+	<span class="nx">j</span> <span class="nx">_start</span>
+
+</code></pre>
+</div>
+</div>
+
+<h4 id="the-portable-startup-code">The portable startup code</h4>
+
+<p>The traditional functionality is to initialize the data &amp; bss sections, to call the C++ static constructors and then pass control to the application <code class="language-plaintext highlighter-rouge">main()</code>.</p>
+
+<p>For embedded applications, the sequence is basically the same, just that several specific initialization routines are added.</p>
+
+<p>A simplified version of the portable startup code is:</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="kt">void</span>
+<span class="nf">_start</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">os_startup_initialize_hardware_early</span> <span class="p">();</span>
+
+    <span class="n">os_initialize_data</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">__data_load_addr__</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">__data_begin__</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">__data_end__</span><span class="p">);</span>
+    <span class="n">os_initialize_bss</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">__bss_begin__</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">__bss_end__</span><span class="p">);</span>
+
+    <span class="n">os</span><span class="o">::</span><span class="n">trace</span><span class="o">::</span><span class="n">initialize</span> <span class="p">();</span>
+
+    <span class="n">os_startup_initialize_hardware</span> <span class="p">();</span>
+    <span class="n">os</span><span class="o">::</span><span class="n">trace</span><span class="o">::</span><span class="n">printf</span> <span class="p">(</span><span class="s">"Hardware initialized.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+
+    <span class="n">os_startup_initialize_free_store</span> <span class="p">(...);</span>
+
+    <span class="n">os_run_init_array</span> <span class="p">();</span>
+
+    <span class="kt">int</span> <span class="n">argc</span><span class="p">;</span>
+    <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">;</span>
+    <span class="n">os_startup_initialize_args</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">argc</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">argv</span><span class="p">);</span>
+
+    <span class="kt">int</span> <span class="n">code</span> <span class="o">=</span> <span class="n">main</span> <span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+
+    <span class="n">exit</span><span class="p">(</span><span class="n">code</span><span class="p">);</span>
+    <span class="cm">/* NOTREACHED */</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+</div>
+
+<p>The code is more or less self-documented. Perhaps some questions may be raised by the hardware initialization hooks, especially why not doing the initializations inside <code class="language-plaintext highlighter-rouge">main()</code>, and why are needed two hardware initialization routines.</p>
+
+<h4 id="os_startup_initialize_hardware-">
+<code class="language-plaintext highlighter-rouge">os_startup_initialize_hardware ()</code>
+</h4>
+
+<p>For very simple C applications, it is true that the initialization code can be called from <code class="language-plaintext highlighter-rouge">main()</code>.</p>
+
+<p>But for more complex applications, like most C++ applications, it is common to execute code before entering <code class="language-plaintext highlighter-rouge">main()</code> (like calling constructors for static objects).</p>
+
+<p>This implies that the hardware should be initialized <em>before</em> entering <code class="language-plaintext highlighter-rouge">main()</code>, thus the <code class="language-plaintext highlighter-rouge">os_startup_initialize_hardware ()</code> hook, that must be defined by the application, and is called after the data &amp; bss are initialized and before the static constructors.</p>
+
+<h4 id="os_startup_initialize_hardware_early-">
+<code class="language-plaintext highlighter-rouge">os_startup_initialize_hardware_early ()</code>
+</h4>
+
+<p>This approach is usually enough, but, for some cases, running the first initializations after the data &amp; bss inits might be too late. What if the board uses external RAM? If so, it obviously must be configured and enabled <em>before</em> initializing the data &amp; bss sections. Also, if the core starts at a very slow speed, it might be useful to raise the speed as early as possible, to ensure a fast startup. Another interesting case is when the device starts with a watchdog enabled; if the watchdog is not properly tailored to the application, it might trigger a reset before the application reaches the main code.</p>
+
+<h4 id="the-os-prefix-or-namespace">The <code class="language-plaintext highlighter-rouge">os</code> prefix or namespace</h4>
+
+<p>µOS++ is not exactly the traditional RTOS, it is more a run-time environment and a collection of APIs for embedded systems. It does include its own scheduler (written in C++), but it does not mandate its use, it can also run on top of other RTOS (like FreeRTOS).</p>
+
+<p>As such, the <code class="language-plaintext highlighter-rouge">os</code> prefix or namespace does not imply the presence of a scheduler, it is mainly used to differentiate functions that <strong>are not</strong> part of the application.</p>
+
+<h4 id="code">Code</h4>
+
+<p>The entire startup library consists of only two files (one header and one source file), and is available as a separate GitHub project <a href="https://github.com/micro-os-plus/startup-xpack.git">micro-os-plus/startup-xpack</a>.</p>
+
+<h3 id="board-vs-device-vs-architecture">Board vs Device vs Architecture</h3>
+
+<p>Traditionally, boards come with a BSP (Board Support Package), that provides all board specific definitions and drivers.</p>
+
+<p>However, for reusability reasons, in the µOS++ implementation, the BSP is not monolithic, but modular, with three explicit layers:</p>
+
+<ul>
+  <li>board (like <strong>HiFive1</strong>)</li>
+  <li>device (like <strong>FE310-G000</strong>)</li>
+  <li>architecture (like <strong>RISC-V</strong>)</li>
+</ul>
+
+<p>In other words, multiple boards can share the definitions of a single device, and multiple devices can share the definitions specific to a common architecture.</p>
+
+<h4 id="use-of-c">Use of C++</h4>
+
+<p>The following examples include C++ code; actually most of µOS++ is written in C++, but this is only an implementation detail, the application can be entirely written in C, as equivalent C APIs are available at all levels.</p>
+
+<p>Although some voices advocate against using C++ in system/embedded code, these opinions are usually based more on believes, than on facts. C++ <strong>can</strong> be successfully used in embedded systems, and modern features, like constexpr, inline templates, can generate even smaller code.</p>
+
+<h4 id="board">Board</h4>
+
+<p>The board definitions can be included in the application with a single <code class="language-plaintext highlighter-rouge">#include</code> line:</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>
+<span class="cp">#include &lt;micro-os-plus/board.h&gt;
+</span>
+</code></pre>
+</div>
+</div>
+
+<p>For RISC-V, there are currently not many mandatory definitions at board level, except a function that returns the frequency of the RTC oscillator.</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="k">namespace</span> <span class="n">riscv</span>
+<span class="p">{</span>
+  <span class="k">namespace</span> <span class="n">board</span>
+  <span class="p">{</span>
+    <span class="kt">uint32_t</span>
+    <span class="n">rtc_frequency_hz</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+  <span class="p">}</span> <span class="cm">/* namespace board */</span>
+<span class="p">}</span> <span class="cm">/* namespace riscv */</span>
+</code></pre>
+</div>
+</div>
+
+<p>The board xPack also includes some metadata, used to automatically configure projects using the board, for example:</p>
+
+<div class="language-json highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>
+<span class="p">{</span>
+<span class="w">
+	</span>
+<span class="nl">"schemaVersion"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"0.1.0"</span>
+<span class="p">,</span>
+<span class="w">
+	</span>
+<span class="nl">"boards"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+		</span>
+<span class="nl">"hifive1"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+			</span>
+<span class="nl">"vendor"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+				</span>
+<span class="nl">"name"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"sifive"</span>
+<span class="p">,</span>
+<span class="w">
+				</span>
+<span class="nl">"id"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"1"</span>
+<span class="p">,</span>
+<span class="w">
+				</span>
+<span class="nl">"displayName"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"SiFive"</span>
+<span class="p">,</span>
+<span class="w">
+				</span>
+<span class="nl">"fullName"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"SiFive, Inc."</span>
+<span class="p">,</span>
+<span class="w">
+				</span>
+<span class="nl">"contact"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"info@sifive.com"</span>
+<span class="w">
+			</span>
+<span class="p">},</span>
+<span class="w">
+			</span>
+<span class="nl">"revision"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"A01"</span>
+<span class="p">,</span>
+<span class="w">
+			</span>
+<span class="nl">"url"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"https://www.sifive.com/products/hifive1/"</span>
+<span class="p">,</span>
+<span class="w">
+			</span>
+<span class="nl">"orderForm"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"https://www.crowdsupply.com/sifive/hifive1/"</span>
+<span class="p">,</span>
+<span class="w">
+			</span>
+<span class="nl">"name"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"HiFive1"</span>
+<span class="p">,</span>
+<span class="w">
+			</span>
+<span class="nl">"description"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"The HiFive1 is an Arduino-Compatible development kit featuring the Freedom E310, the industry’s first commercially available RISC-V SoC."</span>
+<span class="p">,</span>
+<span class="w">
+			</span>
+<span class="nl">"installedDevice"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+				</span>
+<span class="nl">"vendor"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"sifive"</span>
+<span class="p">,</span>
+<span class="w">
+				</span>
+<span class="nl">"id"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"1"</span>
+<span class="p">,</span>
+<span class="w">
+				</span>
+<span class="nl">"name"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"fe310-g000"</span>
+<span class="w">
+			</span>
+<span class="p">},</span>
+<span class="w">
+			</span>
+<span class="nl">"compatibleDevices"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">[],</span>
+<span class="w">
+			</span>
+<span class="nl">"features"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+				</span>
+<span class="nl">"flash"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+					</span>
+<span class="nl">"size"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"128 Mb"</span>
+<span class="p">,</span>
+<span class="w">
+					</span>
+<span class="nl">"interface"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"spi0"</span>
+<span class="p">,</span>
+<span class="w">
+					</span>
+<span class="nl">"memoryRegion"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"rom"</span>
+<span class="w">
+				</span>
+<span class="p">},</span>
+<span class="w">
+				</span>
+<span class="nl">"hfxtal"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"16 MHz"</span>
+<span class="p">,</span>
+<span class="w">
+				</span>
+<span class="nl">"lfxtal"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"32768 Hz"</span>
+<span class="w">
+			</span>
+<span class="p">},</span>
+<span class="w">
+			</span>
+<span class="nl">"debug"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+				</span>
+<span class="nl">"interface"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"ftdi"</span>
+<span class="p">,</span>
+<span class="w">
+				</span>
+<span class="nl">"connector"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"micro-usb"</span>
+<span class="p">,</span>
+<span class="w">
+				</span>
+<span class="nl">"openocd"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"-f &amp;quot;board/sifive-freedom-e300-hifive1.cfg&amp;quot;"</span>
+<span class="p">,</span>
+<span class="w">
+				</span>
+<span class="nl">"jlink"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+				    </span>
+<span class="nl">"device"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"fe310-g000"</span>
+<span class="w">
+				</span>
+<span class="p">}</span>
+<span class="w">
+			</span>
+<span class="p">},</span>
+<span class="w">
+			</span>
+<span class="nl">"compile"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+				</span>
+<span class="nl">"headers"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">[</span>
+<span class="w">
+					</span>
+<span class="s2">"&lt;micro-os-plus/board.h&gt;"</span>
+<span class="w">
+				</span>
+<span class="p">],</span>
+<span class="w">
+				</span>
+<span class="nl">"macros"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">[</span>
+<span class="w">
+					</span>
+<span class="s2">"SIFIVE_HIFIVE1_BOARD"</span>
+<span class="w">
+				</span>
+<span class="p">]</span>
+<span class="w">
+			</span>
+<span class="p">}</span>
+<span class="w">
+		</span>
+<span class="p">}</span>
+<span class="w">
+	</span>
+<span class="p">}</span>
+<span class="w">
+</span>
+<span class="p">}</span>
+<span class="w">
+</span>
+</code></pre>
+</div>
+</div>
+
+<h5 id="code-1">Code</h5>
+
+<p>The SiFive boards libraries are available as two separate GitHub projects <a href="https://github.com/micro-os-plus/sifive-hifive1-board-xpack.git">micro-os-plus/sifive-hifive1-board-xpack</a> and <a href="https://github.com/micro-os-plus/sifive-coreplex-arty-boards-xpack.git">micro-os-plus/sifive-coreplex-arty-boards-xpack</a> that requires the <code class="language-plaintext highlighter-rouge">@sifive/coreplex-devices</code> xPack.</p>
+
+<h4 id="device">Device</h4>
+
+<p>The device definitions can be included in the application with a single <code class="language-plaintext highlighter-rouge">#include</code> line:</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>
+<span class="cp">#include &lt;micro-os-plus/device.h&gt;
+</span>
+</code></pre>
+</div>
+</div>
+
+<p>For RISC-V, the device definitions include functions to access the memory mapped system registers, for example:</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="k">namespace</span> <span class="n">riscv</span>
+<span class="p">{</span>
+  <span class="k">namespace</span> <span class="n">device</span>
+  <span class="p">{</span>
+    <span class="kt">uint64_t</span>
+    <span class="n">mtime</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+    <span class="kt">void</span>
+    <span class="n">mtime</span> <span class="p">(</span><span class="kt">uint64_t</span> <span class="n">value</span><span class="p">);</span>
+
+    <span class="kt">uint64_t</span>
+    <span class="n">mtimecmp</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+    <span class="kt">void</span>
+    <span class="n">mtimecmp</span> <span class="p">(</span><span class="kt">uint64_t</span> <span class="n">value</span><span class="p">);</span>
+
+    <span class="c1">// ...</span>
+  <span class="p">}</span> <span class="cm">/* namespace device */</span>
+<span class="p">}</span> <span class="cm">/* namespace riscv */</span>
+</code></pre>
+</div>
+</div>
+
+<p>There are also functions to access the PLIC registers:</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="k">namespace</span> <span class="n">riscv</span>
+<span class="p">{</span>
+  <span class="k">namespace</span> <span class="n">plic</span>
+  <span class="p">{</span>
+    <span class="kt">void</span>
+    <span class="n">initialize</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+    <span class="kt">void</span>
+    <span class="n">clear_priorities</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+    <span class="n">priority_t</span>
+    <span class="n">threshold</span> <span class="p">(</span><span class="n">priority_t</span> <span class="n">priority</span><span class="p">);</span>
+
+    <span class="n">priority_t</span>
+    <span class="n">threshold</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+    <span class="kt">void</span>
+    <span class="n">enable_interrupt</span> <span class="p">(</span><span class="n">source_t</span> <span class="n">global_interrupt_id</span><span class="p">);</span>
+
+    <span class="kt">void</span>
+    <span class="n">disable_interrupt</span> <span class="p">(</span><span class="n">source_t</span> <span class="n">global_interrupt_id</span><span class="p">);</span>
+
+    <span class="kt">bool</span>
+    <span class="n">is_interrupt_enabled</span> <span class="p">(</span><span class="n">source_t</span> <span class="n">global_interrupt_id</span><span class="p">);</span>
+
+    <span class="kt">void</span>
+    <span class="n">priority</span> <span class="p">(</span><span class="n">source_t</span> <span class="n">global_interrupt_id</span><span class="p">,</span> <span class="n">priority_t</span> <span class="n">priority</span><span class="p">);</span>
+
+    <span class="n">priority_t</span>
+    <span class="n">priority</span> <span class="p">(</span><span class="n">source_t</span> <span class="n">global_interrupt_id</span><span class="p">);</span>
+
+    <span class="n">source_t</span>
+    <span class="n">claim_interrupt</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+    <span class="kt">void</span>
+    <span class="n">complete_interrupt</span> <span class="p">(</span><span class="n">source_t</span> <span class="n">global_interrupt_id</span><span class="p">);</span>
+
+  <span class="p">}</span> <span class="cm">/* namespace plic */</span>
+<span class="p">}</span> <span class="cm">/* namespace riscv */</span>
+</code></pre>
+</div>
+</div>
+
+<p>There are also declarations for the local and global interrupt handlers, for example:</p>
+
+<div class="language-c highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>  <span class="c1">// ...</span>
+
+  <span class="kt">void</span>
+  <span class="nf">riscv_interrupt_global_handle_wdogcmp</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+  <span class="kt">void</span>
+  <span class="nf">riscv_interrupt_global_handle_rtccmp</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+  <span class="kt">void</span>
+  <span class="nf">riscv_interrupt_global_handle_uart0</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+  <span class="kt">void</span>
+  <span class="nf">riscv_interrupt_global_handle_uart1</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+  <span class="kt">void</span>
+  <span class="nf">riscv_interrupt_global_handle_qspi0</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+  <span class="kt">void</span>
+  <span class="nf">riscv_interrupt_global_handle_qspi1</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+  <span class="kt">void</span>
+  <span class="nf">riscv_interrupt_global_handle_qspi2</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+  <span class="kt">void</span>
+  <span class="nf">riscv_interrupt_global_handle_gpio0</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+  <span class="c1">// ...</span>
+</code></pre>
+</div>
+</div>
+
+<p>The device xPacks also include some metadata, to be consumed by automated tools, for example:</p>
+
+<div class="language-json highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>
+<span class="p">{</span>
+<span class="w">
+    </span>
+<span class="nl">"schemaVersion"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"0.1.0"</span>
+<span class="p">,</span>
+<span class="w">
+    </span>
+<span class="nl">"devices"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+        </span>
+<span class="nl">"families"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+            </span>
+<span class="nl">"fe300"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+                </span>
+<span class="nl">"vendor"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+                    </span>
+<span class="nl">"name"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"sifive"</span>
+<span class="p">,</span>
+<span class="w">
+                    </span>
+<span class="nl">"id"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"1"</span>
+<span class="p">,</span>
+<span class="w">
+                    </span>
+<span class="nl">"fullName"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"SiFive, Inc."</span>
+<span class="p">,</span>
+<span class="w">
+                    </span>
+<span class="nl">"contact"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"info@sifive.com"</span>
+<span class="w">
+                </span>
+<span class="p">},</span>
+<span class="w">
+                </span>
+<span class="nl">"name"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"Freedom E300"</span>
+<span class="p">,</span>
+<span class="w">
+                </span>
+<span class="nl">"devices"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+                    </span>
+<span class="nl">"fe310-g000"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+                        </span>
+<span class="nl">"name"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"Freedom E310-G000"</span>
+<span class="p">,</span>
+<span class="w">
+                        </span>
+<span class="nl">"description"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"The FE310-G000 is the first Freedom E300 SoC, and is the industrys first commercially available RISC-V SoC. The FE310-G000 is built around the E31 Coreplex instantiated in the Freedom E300 platform."</span>
+<span class="p">,</span>
+<span class="w">
+                        </span>
+<span class="nl">"url"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"https://www.sifive.com/products/freedom-e310/"</span>
+<span class="p">,</span>
+<span class="w">
+                        </span>
+<span class="nl">"compile"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+                            </span>
+<span class="nl">"headers"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">[</span>
+<span class="w">
+                                </span>
+<span class="s2">"&lt;micro-os-plus/device.h&gt;"</span>
+<span class="w">
+                            </span>
+<span class="p">],</span>
+<span class="w">
+                            </span>
+<span class="nl">"macros"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">[</span>
+<span class="w">
+                                </span>
+<span class="s2">"SIFIVE_FREEDOM_E310"</span>
+<span class="w">
+                            </span>
+<span class="p">],</span>
+<span class="w">
+                            </span>
+<span class="nl">"target"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">[</span>
+<span class="w">
+                                </span>
+<span class="s2">"-march=rv32imac"</span>
+<span class="p">,</span>
+<span class="w">
+                                </span>
+<span class="s2">"-mabi=ilp32"</span>
+<span class="p">,</span>
+<span class="w">
+                                </span>
+<span class="s2">"-mcmodel=medany"</span>
+<span class="p">,</span>
+<span class="w">
+                                </span>
+<span class="s2">"-msmall-data-limit=8"</span>
+<span class="w">
+                            </span>
+<span class="p">]</span>
+<span class="w">
+                        </span>
+<span class="p">},</span>
+<span class="w">
+                        </span>
+<span class="nl">"features"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+                            </span>
+<span class="nl">"core"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"RV32IMAC"</span>
+<span class="p">,</span>
+<span class="w">
+                            </span>
+<span class="nl">"width"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"32 bits"</span>
+<span class="p">,</span>
+<span class="w">
+                            </span>
+<span class="nl">"hfosc"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"13800 kHz"</span>
+<span class="p">,</span>
+<span class="w">
+                            </span>
+<span class="nl">"lfosc"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"32768 Hz"</span>
+<span class="p">,</span>
+<span class="w">
+                            </span>
+<span class="nl">"maxClock"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"320 MHz"</span>
+<span class="p">,</span>
+<span class="w">
+                            </span>
+<span class="nl">"package"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"qfn"</span>
+<span class="p">,</span>
+<span class="w">
+                            </span>
+<span class="nl">"leads"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"48"</span>
+<span class="p">,</span>
+<span class="w">
+                            </span>
+<span class="nl">"vcc"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">[</span>
+<span class="w"> </span>
+<span class="s2">"1.8 V"</span>
+<span class="p">,</span>
+<span class="w"> </span>
+<span class="s2">"3.3 V"</span>
+<span class="w"> </span>
+<span class="p">]</span>
+<span class="w">
+                        </span>
+<span class="p">},</span>
+<span class="w">
+                        </span>
+<span class="nl">"memoryRegions"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+                            </span>
+<span class="nl">"ram"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+                                </span>
+<span class="nl">"onChip"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"true"</span>
+<span class="p">,</span>
+<span class="w">
+                                </span>
+<span class="nl">"address"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"0x80000000"</span>
+<span class="p">,</span>
+<span class="w">
+                                </span>
+<span class="nl">"size"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"16 KiB"</span>
+<span class="p">,</span>
+<span class="w">
+                                </span>
+<span class="nl">"access"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"rwx"</span>
+<span class="p">,</span>
+<span class="w">
+                                </span>
+<span class="nl">"description"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"On-Chip Volatile Memory - Data Tightly Integrated Memory (DTIM)"</span>
+<span class="w">
+                            </span>
+<span class="p">},</span>
+<span class="w">
+                            </span>
+<span class="nl">"rom"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+                                </span>
+<span class="nl">"onChip"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"false"</span>
+<span class="p">,</span>
+<span class="w">
+                                </span>
+<span class="nl">"address"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"0x20000000"</span>
+<span class="p">,</span>
+<span class="w">
+                                </span>
+<span class="nl">"maxSize"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"512 MiB"</span>
+<span class="p">,</span>
+<span class="w">
+                                </span>
+<span class="nl">"access"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"rx"</span>
+<span class="p">,</span>
+<span class="w">
+                                </span>
+<span class="nl">"description"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"Off-Chip Non-Volatile Memory - QSPI 0 eXecute-In-Place (XIP)"</span>
+<span class="w">
+                            </span>
+<span class="p">}</span>
+<span class="w">
+                        </span>
+<span class="p">},</span>
+<span class="w">
+                        </span>
+<span class="nl">"debug"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+                            </span>
+<span class="nl">"jtag"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+                                </span>
+<span class="nl">"tapindex"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"0"</span>
+<span class="p">,</span>
+<span class="w">
+                                </span>
+<span class="nl">"idcode"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"0x10e31913"</span>
+<span class="p">,</span>
+<span class="w">
+                                </span>
+<span class="nl">"irlen"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"5"</span>
+<span class="w">
+                            </span>
+<span class="p">}</span>
+<span class="w">
+                        </span>
+<span class="p">},</span>
+<span class="w">
+                        </span>
+<span class="nl">"xsvd"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"xsvd/fe310-g000-xsvd.json"</span>
+<span class="w">
+                    </span>
+<span class="p">}</span>
+<span class="w">
+                </span>
+<span class="p">}</span>
+<span class="w">
+            </span>
+<span class="p">}</span>
+<span class="w">
+        </span>
+<span class="p">}</span>
+<span class="w">
+    </span>
+<span class="p">}</span>
+<span class="w">
+</span>
+<span class="p">}</span>
+<span class="w">
+</span>
+</code></pre>
+</div>
+</div>
+
+<p>To support debuggers and emulators, a special file with the structured definitions of the peripheral registered is used:</p>
+
+<div class="language-json highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>
+<span class="p">{</span>
+<span class="w">
+    </span>
+<span class="nl">"schemaVersion"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"0.1.0"</span>
+<span class="p">,</span>
+<span class="w">
+    </span>
+<span class="nl">"devices"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+        </span>
+<span class="nl">"fe310-g000"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+            </span>
+<span class="nl">"version"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"1.0.0"</span>
+<span class="p">,</span>
+<span class="w">
+            </span>
+<span class="nl">"name"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"Freedom E310-G000"</span>
+<span class="p">,</span>
+<span class="w">
+            </span>
+<span class="nl">"description"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"The FE310-G000 is the first Freedom E300 SoC, and is the industrys first commercially available RISC-V SoC. The FE310-G000 is built around the E31 Coreplex instantiated in the Freedom E300 platform."</span>
+<span class="p">,</span>
+<span class="w">
+            </span>
+<span class="nl">"busWidth"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"32"</span>
+<span class="p">,</span>
+<span class="w">
+            </span>
+<span class="nl">"size"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"32"</span>
+<span class="p">,</span>
+<span class="w">
+            </span>
+<span class="nl">"resetValue"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"0x00000000"</span>
+<span class="p">,</span>
+<span class="w">
+            </span>
+<span class="nl">"resetMask"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"0xFFFFFFFF"</span>
+<span class="p">,</span>
+<span class="w">
+            </span>
+<span class="nl">"access"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"rw"</span>
+<span class="p">,</span>
+<span class="w">
+            </span>
+<span class="nl">"peripherals"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+                </span>
+<span class="nl">"clint"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+                    </span>
+<span class="nl">"description"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"Coreplex-Local Interruptor (CLINT)"</span>
+<span class="p">,</span>
+<span class="w">
+                    </span>
+<span class="nl">"baseAddress"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"0x02000000"</span>
+<span class="p">,</span>
+<span class="w">
+                    </span>
+<span class="nl">"size"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"0x10000"</span>
+<span class="p">,</span>
+<span class="w">
+                    </span>
+<span class="nl">"registers"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+                        </span>
+<span class="nl">"msip0"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+                            </span>
+<span class="nl">"description"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"MSIP for hart 0"</span>
+<span class="p">,</span>
+<span class="w">
+                            </span>
+<span class="nl">"addressOffset"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"0x0000"</span>
+<span class="w">
+                        </span>
+<span class="p">},</span>
+<span class="w">
+                        </span>
+<span class="nl">"mtimecmp0"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+                            </span>
+<span class="nl">"description"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"Timer compare register for hart 0"</span>
+<span class="p">,</span>
+<span class="w">
+                            </span>
+<span class="nl">"addressOffset"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"0x4000"</span>
+<span class="p">,</span>
+<span class="w">
+                            </span>
+<span class="nl">"size"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"64"</span>
+<span class="w">
+                        </span>
+<span class="p">},</span>
+<span class="w">
+                        </span>
+<span class="nl">"mtime"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="p">{</span>
+<span class="w">
+                            </span>
+<span class="nl">"description"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"Timer register"</span>
+<span class="p">,</span>
+<span class="w">
+                            </span>
+<span class="nl">"addressOffset"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"0xBFF8"</span>
+<span class="p">,</span>
+<span class="w">
+                            </span>
+<span class="nl">"access"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"ro"</span>
+<span class="p">,</span>
+<span class="w">
+                            </span>
+<span class="nl">"size"</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"64"</span>
+<span class="w">
+                        </span>
+<span class="p">}</span>
+<span class="w">
+                    </span>
+<span class="p">}</span>
+<span class="w">
+                </span>
+<span class="p">},</span>
+<span class="w">
+                </span>
+<span class="nl">"..."</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"..."</span>
+<span class="w">
+            </span>
+<span class="p">},</span>
+<span class="w">
+            </span>
+<span class="nl">"..."</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"..."</span>
+<span class="w">
+        </span>
+<span class="p">},</span>
+<span class="w">
+        </span>
+<span class="nl">"..."</span>
+<span class="p">:</span>
+<span class="w"> </span>
+<span class="s2">"..."</span>
+<span class="w">
+    </span>
+<span class="p">}</span>
+<span class="w">
+</span>
+<span class="p">}</span>
+<span class="w">
+</span>
+</code></pre>
+</div>
+</div>
+
+<h5 id="code-2">Code</h5>
+
+<p>The SiFive devices library is available as a separate GitHub project <a href="https://github.com/micro-os-plus/sifive-coreplex-devices-xpack.git">micro-os-plus/sifive-coreplex-devices-xpack</a> that requires the <code class="language-plaintext highlighter-rouge">@micro-os-plus/riscv-arch</code> xPack.</p>
+
+<h4 id="architecture">Architecture</h4>
+
+<p>The architecture definitions can be included in the application with a single <code class="language-plaintext highlighter-rouge">#include</code> line:</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>
+<span class="cp">#include &lt;micro-os-plus/architecture.h&gt;
+</span>
+</code></pre>
+</div>
+</div>
+
+<p>For RISC-V, the architecture definitions include functions to access the CSRs, for example:</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="k">namespace</span> <span class="n">riscv</span>
+<span class="p">{</span>
+  <span class="k">namespace</span> <span class="n">csr</span>
+  <span class="p">{</span>
+    <span class="n">arch</span><span class="o">::</span><span class="n">register_t</span>
+    <span class="n">mstatus</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+    <span class="kt">void</span>
+    <span class="n">mstatus</span> <span class="p">(</span><span class="n">arch</span><span class="o">::</span><span class="n">register_t</span> <span class="n">value</span><span class="p">);</span>
+
+    <span class="kt">void</span>
+    <span class="n">clear_mstatus</span> <span class="p">(</span><span class="n">arch</span><span class="o">::</span><span class="n">register_t</span> <span class="n">mask</span><span class="p">);</span>
+
+    <span class="kt">void</span>
+    <span class="n">set_mstatus</span> <span class="p">(</span><span class="n">arch</span><span class="o">::</span><span class="n">register_t</span> <span class="n">mask</span><span class="p">);</span>
+
+    <span class="n">arch</span><span class="o">::</span><span class="n">register_t</span>
+    <span class="n">mtvec</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+    <span class="kt">void</span>
+    <span class="n">mtvec</span> <span class="p">(</span><span class="n">arch</span><span class="o">::</span><span class="n">register_t</span> <span class="n">value</span><span class="p">);</span>
+
+    <span class="n">arch</span><span class="o">::</span><span class="n">register_t</span>
+    <span class="n">mcause</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+    <span class="n">arch</span><span class="o">::</span><span class="n">register_t</span>
+    <span class="n">mie</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+    <span class="kt">void</span>
+    <span class="n">mie</span> <span class="p">(</span><span class="n">arch</span><span class="o">::</span><span class="n">register_t</span> <span class="n">value</span><span class="p">);</span>
+
+    <span class="kt">void</span>
+    <span class="n">clear_mie</span> <span class="p">(</span><span class="n">arch</span><span class="o">::</span><span class="n">register_t</span> <span class="n">mask</span><span class="p">);</span>
+
+    <span class="kt">void</span>
+    <span class="n">set_mie</span> <span class="p">(</span><span class="n">arch</span><span class="o">::</span><span class="n">register_t</span> <span class="n">mask</span><span class="p">);</span>
+
+    <span class="kt">uint64_t</span>
+    <span class="n">mcycle</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+    <span class="kt">uint32_t</span>
+    <span class="n">mcycle_low</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+    <span class="kt">uint32_t</span>
+    <span class="n">mcycle_high</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+    <span class="n">arch</span><span class="o">::</span><span class="n">register_t</span>
+    <span class="n">mhartid</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+    <span class="c1">// ...</span>
+  <span class="p">}</span> <span class="cm">/* namespace csr */</span>
+<span class="p">}</span> <span class="cm">/* namespace riscv */</span>
+</code></pre>
+</div>
+</div>
+
+<p>There are also declarations for the synchronous exceptions and the common local interrupt handlers, for example:</p>
+
+<div class="language-c highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>  <span class="kt">void</span>
+  <span class="nf">riscv_exception_handle_misaligned_fetch</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+  <span class="kt">void</span>
+  <span class="nf">riscv_exception_handle_fault_fetch</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+  <span class="kt">void</span>
+  <span class="nf">riscv_exception_handle_illegal_instruction</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+  <span class="kt">void</span>
+  <span class="nf">riscv_exception_handle_breakpoint</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+  <span class="c1">// ...</span>
+</code></pre>
+</div>
+</div>
+
+<h5 id="code-3">Code</h5>
+
+<p>The RISC-V architecture library is available as a separate GitHub project <a href="https://github.com/micro-os-plus/riscv-arch-xpack.git">micro-os-plus/riscv-arch-xpack</a> that requires the <code class="language-plaintext highlighter-rouge">@micro-os-plus/startup</code> xPack.</p>
+
+<h3 id="interrupts">Interrupts</h3>
+
+<p>In modern architectures, the software requirements for interrupt processing are minimal, there is almost nothing to do, apart from providing a list of pointers to interrupt handlers.</p>
+
+<p>The current µOS++ implementation tries to provide a similar user experience for the RISC-V architecture too, by hiding all the implementation details. The application has nothing else to do but define some fixed name functions and enable interrupts.</p>
+
+<p>For example, to handle the machine timer interrupt, the application code looks like this:</p>
+
+<div class="language-c highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="cp">#include &lt;micro-os-plus/device.h&gt;
+</span>
+<span class="kt">void</span>
+<span class="nf">riscv_interrupt_local_handle_machine_timer</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+</div>
+
+<p>Similar definitions are available for global interrupts, for example to handle the interrupts generated by GPIO pin 4, the application code looks like this:</p>
+
+<div class="language-c highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="kt">void</span>
+<span class="nf">riscv_interrupt_global_handle_gpio4</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+</div>
+
+<p>The prototypes of these functions are provided by the device or architecture xPacks.</p>
+
+<h3 id="linker-scripts">Linker scripts</h3>
+
+<p>As with most other projects generated by the GNU MCU Eclipse templates, the linker script is split into three parts:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>$ tree ldscripts
+ldscripts
+├── libs.ld
+├── mem.ld
+└── sections.ld
+
+0 directories, 3 files
+</code></pre>
+</div>
+</div>
+
+<p>The names should indicate the content: <code class="language-plaintext highlighter-rouge">libs.ld</code> defines the additional libraries, <code class="language-plaintext highlighter-rouge">mem.ld</code> defines the memory regions and <code class="language-plaintext highlighter-rouge">sections.ld</code> defines the  sections and the mapping to the memory regions.</p>
+
+<p>To make the build use them all, add something like this when invoking the linker:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>$ &lt;prefix&gt;-g++ ... -L ldscripts -T libs.ld -T mem.ld -T sections.ld ...
+</code></pre>
+</div>
+</div>
+
+<h3 id="the-c-and-c-libraries">The C and C++ libraries</h3>
+
+<p>These two xPacks complement the system libraries and provide missing functions or have lighter implementations, more suitable for embedded applications.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>$ tree c-libs.git 
+c-libs.git
+├── LICENSE
+├── README.md
+├── include
+│   └── newlib
+│       └── c-syscalls.h
+├── package-lock.json
+├── package.json
+└── src
+    ├── _sbrk.c
+    ├── c-syscalls-empty.c
+    └── stdlib
+        ├── assert.c
+        ├── atexit.cpp
+        ├── atexit.h
+        ├── exit.c
+        └── init-fini.c
+
+4 directories, 12 files
+
+$ tree cpp-libs.git
+cpp-libs.git
+├── LICENSE
+├── README.md
+├── include
+├── package-lock.json
+├── package.json
+└── src
+    └── cxx.cpp
+
+2 directories, 5 files
+</code></pre>
+</div>
+</div>
+
+<h4 id="code-4">Code</h4>
+
+<p>The complementary libraries are available as two separate GitHub projects <a href="https://github.com/micro-os-plus/c-libs-xpack.git">micro-os-plus/c-libs-xpack</a> and <a href="https://github.com/micro-os-plus/cpp-libs-xpack.git">micro-os-plus/cpp-libs-xpack</a> that have no other dependencies and can be included in any application.</p>
+
+<h3 id="tracing-support">Tracing support</h3>
+
+<p>Although modern debuggers are quite advanced and can display lots of useful information, there are many cases when the classical <code class="language-plaintext highlighter-rouge">printf()</code>, placed at the right location, can be more efficient in spotting bugs.</p>
+
+<h4 id="the-traditional-approach-redirect-stdoutstderr">The traditional approach, redirect STDOUT/STDERR</h4>
+
+<p>Using <code class="language-plaintext highlighter-rouge">printf()</code> in Unix environments is as easy as it can be since standard IO support is always available, but in embedded environments the full standard IO libraries may be too expensive, in terms of program size and especially in complexity; without system operating support, the traditional solution to make the trace messages go out via a dedicated peripheral (a hardware debug channel, like ARM ITM, or even an USART port), is to rewrite a low level function, like <code class="language-plaintext highlighter-rouge">_write()</code> in newlib; unfortunately, the path from <code class="language-plaintext highlighter-rouge">printf()</code> to the actual <code class="language-plaintext highlighter-rouge">_write()</code> is quite long.</p>
+
+<p>Plus in some applications, like those using semihosting, the standard output and standard error are already used for normal functionality (like outputting test results) and intermixing trace messages may interfere with the normal behaviour.</p>
+
+<h4 id="use-a-separate-trace-channel">Use a separate trace channel</h4>
+
+<p>Since for debug purposes things should be as simple as possible, the preferred solution is to avoid using STDOUT or STDERR at all, and use a completely separated trace channel, that does not depend at all on the usual redirected system functions.</p>
+
+<p>Using these functions is very simple, the prototypes being identical to the standard calls, but placed in a separate namespace (in C++) or a separate prefix (in C):</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="cp">#include &lt;micro-os-plus/diag/trace.h&gt;
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">os</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">f</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">str</span><span class="p">,</span> <span class="kt">int</span> <span class="n">num</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+    <span class="n">trace</span><span class="o">::</span><span class="n">printf</span><span class="p">(</span><span class="s">"Hello %s %d</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span> <span class="c1">// in C++</span>
+    <span class="n">trace_printf</span><span class="p">(</span><span class="s">"Hello %s %d</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span> <span class="c1">// in C</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+</div>
+
+<p>The complete public C++ API is:</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="kt">int</span> <span class="n">os</span><span class="o">::</span><span class="n">trace</span><span class="o">::</span><span class="n">printf</span> <span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">format</span><span class="p">,</span> <span class="p">...);</span>
+<span class="kt">int</span> <span class="n">os</span><span class="o">::</span><span class="n">trace</span><span class="o">::</span><span class="n">putchar</span> <span class="p">(</span><span class="kt">int</span> <span class="n">c</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">os</span><span class="o">::</span><span class="n">trace</span><span class="o">::</span><span class="n">puts</span> <span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">s</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">os</span><span class="o">::</span><span class="n">trace</span><span class="o">::</span><span class="n">vprintf</span> <span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">format</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">va_list</span> <span class="n">args</span><span class="p">);</span>
+<span class="kt">ssize_t</span> <span class="n">os</span><span class="o">::</span><span class="n">trace</span><span class="o">::</span><span class="n">write</span> <span class="p">(</span><span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">buf</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">nbyte</span><span class="p">);</span>
+</code></pre>
+</div>
+</div>
+
+<h4 id="the-trace-macro">The TRACE macro</h4>
+
+<p>Support for the trace functions is enabled by adding the <code class="language-plaintext highlighter-rouge">TRACE</code> preprocessor definition when invoking the compiler. Without it, the header defines empty inline functions, so there is no need to explicitly brace the <code class="language-plaintext highlighter-rouge">trace::prinf()</code> calls with <code class="language-plaintext highlighter-rouge">#if defined(TRACE) / #endif</code>, which is quite convenient.</p>
+
+<h4 id="implementation">Implementation</h4>
+
+<p>The implementation is simple, it uses <code class="language-plaintext highlighter-rouge">vsnprintf()</code> to output to a local buffer, then calls <code class="language-plaintext highlighter-rouge">trace::write()</code> (which must be implemented by the application) to transfer the buffer to the desired peripheral.</p>
+
+<p>The custom functions that need to be implemented by the application have a simple and unsurprising API:</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="k">namespace</span> <span class="n">os</span>
+<span class="p">{</span>
+  <span class="k">namespace</span> <span class="n">trace</span>
+  <span class="p">{</span>
+    <span class="kt">void</span>
+    <span class="n">initialize</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+    <span class="kt">ssize_t</span>
+    <span class="n">write</span> <span class="p">(</span><span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">buf</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">nbyte</span><span class="p">);</span>
+
+    <span class="kt">void</span>
+    <span class="n">flush</span> <span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+
+  <span class="p">}</span> <span class="cm">/* namespace trace */</span>
+<span class="p">}</span> <span class="cm">/* namespace os */</span>
+</code></pre>
+</div>
+</div>
+
+<h4 id="code-5">Code</h4>
+
+<p>The entire trace library consists of only two files (one header and one source file), and is available as a separate GitHub project <a href="https://github.com/micro-os-plus/diag-trace-xpack.git">micro-os-plus/diag-trace-xpack</a> that has no other dependencies and can be included in any application.</p>
+
+<h2 id="future-plans">Future plans</h2>
+
+<p>Although the current templates are already able to generate functional projects, there are many things that can be added/improved.</p>
+
+<h3 id="new-device-drivers">New device drivers</h3>
+
+<p>First and foremost is better support for all SiFive device peripherals; new definitions of the memory mapped registers are already under way; new APIs for the Coreplex device drivers are currently in design phase, and will be implemented soon (as soon as the OpenCOD issues the hamper development will be addressed).</p>
+
+<h3 id="peripheral-register-view-in-eclipse">Peripheral register view in Eclipse</h3>
+
+<p>With the new RISC-V device packages including the structured definitions of the peripheral registers, it is perfecly possible to use these definitions to show the register bitfields during an Eclipse debug session, similarly to using ARM SVD definitions.</p>
+
+<h3 id="support-for-applications-using-an-rtos-and-middleware">Support for applications using an RTOS and middleware</h3>
+
+<p>In addition to the simple blinky projects generated now, the future templates should be able to generate more complex RISC-V embedded projects, including those using a RTOS and possibly some middleware (like POSIX IO, File System, Network).</p>
+
+<p>Support for FreeRTOS and µOS++ is planned, with the focus shifted to µOS++, as it has a modern code and supports both C and C++.</p>
+
+<h3 id="new-and-improved-xpack-tools">New and improved xPack tools</h3>
+
+<p>In order to support scriptable builds and automated testing, the xPack tools (<code class="language-plaintext highlighter-rouge">xpm</code>, <code class="language-plaintext highlighter-rouge">xmake</code>, <code class="language-plaintext highlighter-rouge">xsvd</code>, <code class="language-plaintext highlighter-rouge">xcdl</code>, etc) will be enhanced with new features.</p>
+
+<h3 id="better-integration-with-eclipse">Better integration with Eclipse</h3>
+
+<p>The <strong>SiFive C/C++ Project template</strong> is only the first step towards using RISC-V xPacks in Eclipse.</p>
+
+<p>After the command line tools will be fully functional and stable, more xPack support will be added to Eclipse, first to complement the CMSIS Packs, then possibly as an alternate solution to the managed build support available now in Eclipse CDT.</p>
+
+<h3 id="integration-with-other-editorsides">Integration with other editors/IDEs</h3>
+
+<p>As a design decision, the main xPack tools will continue to be developed as command line tools.</p>
+
+<p>However, new editors and graphical IDEs are under continuous developpment and some of them get more and more traction (for example Visual Studio Code), so using them to build RISC-V embedded applications based on xPacks may become an attractive option.</p>
+
+<h3 id="improved-qemu-with-graphical-animated-leds--buttons">Improved QEMU with graphical animated LEDs &amp; buttons</h3>
+
+<p>Similarly to the way Cortex-M board are support in GNU MCU Eclipse QEMU, the HiFive1 board can be emulated in graphical mode, with animated LEDs and buttons.</p>
+
+<p>The first step is to emulate the board at such a level that not only to allow the ‘blinky’ projects generated by the template to run, but also to show the LEDs blinking on top of the board image, and to trigger button actions when the button images are clicked on.</p>
+
+<p>In order to do this, the structured peripheral registers definitions available in the SiFive device xPack need to be validated, since the actual QEMU implementation code is automatically generated from the xsvd definitions.</p>
+
+<h3 id="documentation-pages">Documentation pages</h3>
+
+<p>The current code already includes lots of Doxygen definitions, aiming to allowing the full reference manuals to be generated from the source code, using the same approach for RISC-V code as as for the existing <a href="http://micro-os-plus.github.io/reference/cmsis-plus/">µOS++ reference pages</a>.</p>
+
+<p>Tutorials and User’s Manuals are also planned, similar to those partly available in the <a href="http://micro-os-plus.github.io/user-manual/">µOS++ User’s Manual</a>.</p>
+
+<h3 id="many-more">Many more</h3>
+
+<p>Being driven by the community needs, the list is open, and is limited only by our imagination.</p>
+
+<h2 id="feedback">Feedback</h2>
+
+<p>As usual for open source projects, any comments/criticism/suggestions are highly appreciated!</p>
+
+
+
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/develop/modular-projects/" data-layout="button"></div></li>
+</ul>
+
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="site-footer">
+  <div class="site-footer-links left">
+    <ul>
+  <li>© 2019 Liviu Ionescu</li>
+  <li>Hosted on GitHub</li>
+  <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
+  <li>
+<a href="http://twitter.com/micro_os_plus" class="twitter-follow-button" data-show-count="false">Follow @micro_os_plus</a><script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</li>
+</ul>
+
+
+  </div>
+  <a href="https://github.com/micro-os-plus/micro-os-plus-iii" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+  </a>
+  <div class="site-footer-links right">
+    <ul>
+  <li><a href="/web-preview/">Home</a></li>
+  <li><a href="/web-preview/blog/">News</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/releases">Releases</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues">Support</a></li>
+  <li><a href="/web-preview/about/">About</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</div>
+
+</body>
+</html>

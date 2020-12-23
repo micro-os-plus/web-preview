@@ -9,16 +9,16 @@
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>The µOS++ IIIe Project</title>
+  <title>FAQ</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="The µOS++ IIIe Project">
+  <meta property="og:title" content="FAQ">
   <meta property="og:site_name" content="µOS++ IIIe">
 
   <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
 
 
-  <meta property="article:published_time" content="2016-03-03">
+  <meta property="article:published_time" content="2011-03-03">
 
 
 
@@ -32,7 +32,7 @@
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
 
-  <link rel="canonical" href="/web-preview/">
+  <link rel="canonical" href="/web-preview/micro-os-plus/i/FAQ/">
 
 
 
@@ -239,58 +239,115 @@
       <div class="site-content">
 
         
-<h1 class="page-title">The µOS++ IIIe Project</h1>
+<h1 class="page-title">FAQ - DEPRECATED</h1>
 <table id="last-modified">
   <tr>
-    <td id="last-modified">Last modified on Wed Dec 23 10:37:26 2020 UTC.</td>
-    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/home.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+    <td id="last-modified">Page date Thu Mar  3 13:32:58 2011 .</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/micro-os-plus/i/FAQ.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
 
-
-<p>The <strong>µOS++ IIIe</strong> <em>(micro oh ɛs plus plus third edition)</em> project is the third iteration of µOS++, a POSIX-like, portable, open source, royalty-free, multi-tasking real-time framework intended for 32/64-bits embedded applications, written in C++. The project is hosted on GitHub as <a href="https://github.com/micro-os-plus">micro-os-plus</a>. It has a comprehensive <a href="/web-preview/user-manual/">User’s manual</a>. The APIs are documented in the <a href="/web-preview/reference/cmsis-plus/">µOS++ reference</a>.</p>
-
-<p><strong>POSIX++</strong> is another point of view of the project; with most system APIs using the POSIX semantics, but being written in C++, the <strong>µOS++ IIIe</strong> APIs can also be seen as a C++ version of POSIX, thus the name <strong>POSIX++</strong>.</p>
-
-<h2 id="manyfold-identity">Manyfold identity</h2>
-
-<p>The <strong>µOS++ IIIe</strong> project can be considered from several points of view.</p>
-
-<h3 id="the-µos-frameworkapis">The µOS++ framework/APIs</h3>
-
-<p>Although generally associated with its RTOS, <strong>µOS++ IIIe</strong> is actually a framework, a collection of APIs, components and technologies.</p>
-
-<p>One of the main APIs is the µOS++ RTOS API, but applications based on µOS++ may run very well without a RTOS, or even use a different RTOS.</p>
-
-<p>For a better portability, the entire framework is layered, the µOS++ RTOS API provides a common public interface to the applications, but the implementation is separate, it might be that of its own µOS++ RTOS reference implementation, but it may very well be another implementation, even a custom one specific to the application.</p>
-
-<h3 id="the-µos-rtos-implementation">The µOS++ RTOS implementation</h3>
-
-<p>From an embedded system point of view, <strong>µOS++ IIIe</strong> provides the <strong>reference implementation</strong> for the <strong>scheduler</strong> and <strong>portable synchronisation</strong> objects (like mutex, semaphore, etc).</p>
-
-<div style="text-align:center">
-<img alt="µOS++ RTOS" src="/web-preview/assets/images/2017/micro-os-plus-rtos.png">
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
 </div>
-
-<h3 id="the-µos-packages">The µOS++ packages</h3>
-
-<p>From a modular point of view, <strong>µOS++ IIIe</strong> is a <strong>collection of packages</strong> hosted on GitHub in two locations:</p>
-
 <ul>
-  <li>the original code is grouped under the <a href="https://github.com/micro-os-plus">µOS++ IIIe</a> GitHub collection of projects</li>
-  <li>projects based on third party code are grouped under the <a href="https://github.com/xpacks">xPacks</a> collection.</li>
+<li class="toc_level-1 toc_section-1">
+<a href="#what-does-putstring_ppstr-mean-when-to-use-it"><span class="tocnumber">1</span> <span class="toctext">What does putString_P(PSTR(“…”)) mean? When to use it?</span></a>
+</li>
+<li class="toc_level-1 toc_section-2">
+<a href="#the-content-of-the-system-file-i-want-to-study-is-grey-how-can-i-view-it-properly"><span class="tocnumber">2</span> <span class="toctext">The content of the system file I want to study is grey. How can I view it properly?</span></a>
+</li>
+<li class="toc_level-1 toc_section-3">
+<a href="#embedded-criticalenterexit-calls-how-does-this-work"><span class="tocnumber">3</span> <span class="toctext">Embedded criticalEnter()/exit() calls? How does this work?</span></a>
+</li>
 </ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="what-does-putstring_ppstr-mean-when-to-use-it">What does putString_P(PSTR(“…”)) mean? When to use it?</h2>
 
-<div style="text-align:center">
-<img alt="µOS++ Collection" src="/web-preview/assets/images/2017/micro-os-plus-collection.png">
+<p>This is a method of OSDeviceDebug, the debug tracer facility. It is similar to putString(), i.e. it sends a string to the trace output.</p>
+
+<p>The difference is that it accepts a string stored in the program space, i.e. a constant string.</p>
+
+<p>The reason for this method to be here is that on Avr8 the program space is different from the data space; the ram is addressed with normal pointers, while the flash needs special calls. With lots of debug messages present on the Debug build configuration, we may ran out of ram on small devices, thus the need to store the debug messages in flash. This is done by using the PSTR() macro. Since this results in a different type than regular strings, the new putString_P() was added.</p>
+
+<p>On more advanced architectures the PSTR() macro does nothing special, and the putString_P() is replaced by putString(), so both are functionally identical.</p>
+
+<p>The complicated syntax should be used only in portable code sections that have good chances to be executed on Avr8, i.e. system internals and Avr8 drivers. It might be also used on applications designed to also run on Avr8.</p>
+
+<h2 id="the-content-of-the-system-file-i-want-to-study-is-grey-how-can-i-view-it-properly">The content of the system file I want to study is grey. How can I view it properly?</h2>
+
+<p>Showing parts of a source file as gray blocks of text is a feature provided by Eclipse CDT to hide parts of the code that are not compiled.</p>
+
+<p>If the entire content of a source file is gray, this means that you did not informed the µOS++ build process that you need the given functionality, and by default it is disabled.</p>
+
+<p>To enable it, the first step to do is to look at the beginning of the file and note the preprocessor definition used:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>#if defined(OS_INCLUDE_OSMUTEX)
+</code></pre>
+</div>
 </div>
 
-<h2 id="license">License</h2>
+<p>Then go to the project OS_App_Defines.h file and add the needed definition:</p>
 
-<p>Unless otherwise mentioned, all <strong>µOS++ IIIe</strong> components are provided <strong>free of charge</strong> under the terms of the <a href="https://opensource.org/licenses/MIT">MIT License</a>, with all rights reserved to Liviu Ionescu.</p>
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>#define OS_INCLUDE_OSMUTEX (1)
+</code></pre>
+</div>
+</div>
+
+<p>Save the file and give the indexer some time to update the screen. The greyed code should shortly turn to normal code.</p>
+
+<h2 id="embedded-criticalenterexit-calls-how-does-this-work">Embedded criticalEnter()/exit() calls? How does this work?</h2>
+
+<p>In other words, it looks like embedded critical sections no longer execute properly.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>os.sched.criticalEnter();
+{
+  ..
+  os.sched.criticalEnter();
+  {
+    ...
+  }
+  os.sched.criticalExit();
+  // Are we still in the critical section here?
+}
+os.sched.criticalExit();
+</code></pre>
+</div>
+</div>
+
+<p>As presented above, the inner critialExit() seems to reenable interrupts and the critical section ends.</p>
+
+<p>The truth is that criticalEnter()/Exit() were specifically designed to allow embedded critical sections, i.e. they do not simply disable/enable interrupts, but use a stack mechanism to save the initial interrupt status and restore it at exit. So, the inner criticalEnter() finds the interrupts already disabled and when executing criticalExit(0 and restoring the interrupts status, interrupts remain disabled.</p>
 
 
 
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/micro-os-plus/i/FAQ/" data-layout="button"></div></li>
+</ul>
 
 
 

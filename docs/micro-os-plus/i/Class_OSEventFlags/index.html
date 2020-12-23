@@ -9,16 +9,16 @@
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>The µOS++ IIIe Project</title>
+  <title>Class OSEventFlags</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="The µOS++ IIIe Project">
+  <meta property="og:title" content="Class OSEventFlags">
   <meta property="og:site_name" content="µOS++ IIIe">
 
   <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
 
 
-  <meta property="article:published_time" content="2016-03-03">
+  <meta property="article:published_time" content="2011-02-25">
 
 
 
@@ -32,7 +32,7 @@
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
 
-  <link rel="canonical" href="/web-preview/">
+  <link rel="canonical" href="/web-preview/micro-os-plus/i/Class_OSEventFlags/">
 
 
 
@@ -239,58 +239,183 @@
       <div class="site-content">
 
         
-<h1 class="page-title">The µOS++ IIIe Project</h1>
+<h1 class="page-title">Class OSEventFlags - DEPRECATED</h1>
 <table id="last-modified">
   <tr>
-    <td id="last-modified">Last modified on Wed Dec 23 10:37:26 2020 UTC.</td>
-    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/home.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+    <td id="last-modified">Page date Fri Feb 25 13:06:54 2011 .</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/micro-os-plus/i/CLass_OSEventFlags.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
 
-
-<p>The <strong>µOS++ IIIe</strong> <em>(micro oh ɛs plus plus third edition)</em> project is the third iteration of µOS++, a POSIX-like, portable, open source, royalty-free, multi-tasking real-time framework intended for 32/64-bits embedded applications, written in C++. The project is hosted on GitHub as <a href="https://github.com/micro-os-plus">micro-os-plus</a>. It has a comprehensive <a href="/web-preview/user-manual/">User’s manual</a>. The APIs are documented in the <a href="/web-preview/reference/cmsis-plus/">µOS++ reference</a>.</p>
-
-<p><strong>POSIX++</strong> is another point of view of the project; with most system APIs using the POSIX semantics, but being written in C++, the <strong>µOS++ IIIe</strong> APIs can also be seen as a C++ version of POSIX, thus the name <strong>POSIX++</strong>.</p>
-
-<h2 id="manyfold-identity">Manyfold identity</h2>
-
-<p>The <strong>µOS++ IIIe</strong> project can be considered from several points of view.</p>
-
-<h3 id="the-µos-frameworkapis">The µOS++ framework/APIs</h3>
-
-<p>Although generally associated with its RTOS, <strong>µOS++ IIIe</strong> is actually a framework, a collection of APIs, components and technologies.</p>
-
-<p>One of the main APIs is the µOS++ RTOS API, but applications based on µOS++ may run very well without a RTOS, or even use a different RTOS.</p>
-
-<p>For a better portability, the entire framework is layered, the µOS++ RTOS API provides a common public interface to the applications, but the implementation is separate, it might be that of its own µOS++ RTOS reference implementation, but it may very well be another implementation, even a custom one specific to the application.</p>
-
-<h3 id="the-µos-rtos-implementation">The µOS++ RTOS implementation</h3>
-
-<p>From an embedded system point of view, <strong>µOS++ IIIe</strong> provides the <strong>reference implementation</strong> for the <strong>scheduler</strong> and <strong>portable synchronisation</strong> objects (like mutex, semaphore, etc).</p>
-
-<div style="text-align:center">
-<img alt="µOS++ RTOS" src="/web-preview/assets/images/2017/micro-os-plus-rtos.png">
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
 </div>
-
-<h3 id="the-µos-packages">The µOS++ packages</h3>
-
-<p>From a modular point of view, <strong>µOS++ IIIe</strong> is a <strong>collection of packages</strong> hosted on GitHub in two locations:</p>
-
 <ul>
-  <li>the original code is grouped under the <a href="https://github.com/micro-os-plus">µOS++ IIIe</a> GitHub collection of projects</li>
-  <li>projects based on third party code are grouped under the <a href="https://github.com/xpacks">xPacks</a> collection.</li>
+<li class="toc_level-1 toc_section-1">
+<a href="#oseventflags"><span class="tocnumber">1</span> <span class="toctext">OSEventFlags()</span></a>
+</li>
+<li class="toc_level-1 toc_section-2">
+<a href="#oseventflagsbits_t-notifyoseventflagsbits_t-bits"><span class="tocnumber">2</span> <span class="toctext">OSEventFlagsBits_t notify(OSEventFlagsBits_t bits)</span></a>
+</li>
+<li class="toc_level-1 toc_section-3">
+<a href="#oseventflagsbits_t-getvoid"><span class="tocnumber">3</span> <span class="toctext">OSEventFlagsBits_t get(void)</span></a>
+</li>
+<li class="toc_level-1 toc_section-4">
+<a href="#oseventflagsbits_t-clearoseventflagsbits_t-bits"><span class="tocnumber">4</span> <span class="toctext">OSEventFlagsBits_t clear(OSEventFlagsBits_t bits)</span></a>
+</li>
+<li class="toc_level-1 toc_section-5">
+<a href="#osevent_t-geteventvoid"><span class="tocnumber">5</span> <span class="toctext">OSEvent_t getEvent(void)</span></a>
+</li>
 </ul>
-
-<div style="text-align:center">
-<img alt="µOS++ Collection" src="/web-preview/assets/images/2017/micro-os-plus-collection.png">
+</td>
+</tr>
+</tbody>
+</table>
 </div>
+<p>OSEventFlags</p>
 
-<h2 id="license">License</h2>
+<p>The class OSEventFlags requires the definition of <strong>OS_INCLUDE_OSEVENTFLAGS</strong>.</p>
 
-<p>Unless otherwise mentioned, all <strong>µOS++ IIIe</strong> components are provided <strong>free of charge</strong> under the terms of the <a href="https://opensource.org/licenses/MIT">MIT License</a>, with all rights reserved to Liviu Ionescu.</p>
+<h1 id="constructors">Constructors</h1>
+
+<h2 id="oseventflags">OSEventFlags()</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Initialize the internal members.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* none</p>
+
+<h1 id="methods">Methods</h1>
+
+<h2 id="oseventflagsbits_t-notifyoseventflagsbits_t-bits">
+<a href="/web-preview/micro-os-plus/i/Typedef_OSEventFlagsBits_t">OSEventFlagsBits_t</a> notify(<a href="/web-preview/micro-os-plus/i/Typedef_OSEventFlagsBits_t">OSEventFlagsBits_t</a> bits)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Set bits and send an internally identified event. Return the new flags.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* bits - input, the mask of flags which must be set</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* the new flags</p>
+
+<h2 id="oseventflagsbits_t-getvoid">
+<a href="/web-preview/micro-os-plus/i/Typedef_OSEventFlagsBits_t">OSEventFlagsBits_t</a> get(void)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Return the current flags value.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* none</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* the current flags value</p>
+
+<h2 id="oseventflagsbits_t-clearoseventflagsbits_t-bits">
+<a href="/web-preview/micro-os-plus/i/Typedef_OSEventFlagsBits_t">OSEventFlagsBits_t</a> clear(<a href="/web-preview/micro-os-plus/i/Typedef_OSEventFlagsBits_t">OSEventFlagsBits_t</a> bits)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Clear the given flags.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* bits - input, the flags which must be cleared</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* the new flags</p>
+
+<p>== <a href="/web-preview/micro-os-plus/i/Typedef_OSReturn_t">OSReturn_t</a> wait(<a href="/web-preview/micro-os-plus/i/Typedef_OSEventFlagsBits_t">OSEventFlagsBits_t</a> bits, bool isStrict = true) == <strong>Description</strong></p>
+
+<p>Loop until one the requested bits are set. If isStrict is true all the requested bits must be set, in order to return. If isStrict is false just one of the requested bits must be set, in order to return. If any flag is already set, return immediately (with code OSReturn::OS_IMMEDIATELY). For timeouts please set timers to send events; this function will return the timer event.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* bits - input, the mask of bits which is waiting for</p>
+
+<p>:* isStrict - input, specifies is all bits or just one bit must be waited for</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* OSReturn::OS_IMMEDIATELY - code returned if any flag is already set</p>
+
+<p>:* OSReturn::OS_OK - code returned if the requested bits were set</p>
+
+<h2 id="osevent_t-geteventvoid">
+<a href="/web-preview/micro-os-plus/i/Typedef_OSEvent_t">OSEvent_t</a> getEvent(void)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Return the event used for notification.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* none</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* the event used for notification</p>
+
+<h1 id="variables">Variables</h1>
 
 
 
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/micro-os-plus/i/Class_OSEventFlags/" data-layout="button"></div></li>
+</ul>
 
 
 

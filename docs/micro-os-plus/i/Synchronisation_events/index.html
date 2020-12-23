@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Synchronisation events</title>
+  <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
+
+  <meta property="og:title" content="Synchronisation events">
+  <meta property="og:site_name" content="µOS++ IIIe">
+
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+
+
+  <meta property="article:published_time" content="2011-03-08">
+
+
+
+
+
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
+
+  <link rel="canonical" href="/web-preview/micro-os-plus/i/Synchronisation_events/">
+
+
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16767008-14', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+  <div class="site-header">
+  <table style="width:100%">
+    <tr>
+      <td>
+        <a href="/web-preview/">
+          <img alt="Icon" class="site-icon" src="/web-preview/assets/icons/wall-e-icon.png" height="100" width="100">
+      </a>
+      </td>
+      <td>
+        <table class="site-title" style="width:100%">
+          <tr>
+            <td class="site-title">
+              <a href="/web-preview/">µOS++ IIIe</a>
+            </td>
+            <td class="site-motto" align="right">
+              “Perfekt ist nicht gut genug”
+            </td>
+          </tr>
+          <tr>
+            <td class="site-description" colspan="2">
+              The third edition of µOS++, a POSIX inspired open source framework, written in C++.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+</div>
+
+<div class="container">
+
+  <div class="wrapper">
+    <div class="site-body">
+
+      <div class="site-sidebar">
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      <h4 id="news"><a href="/web-preview/blog/">News</a></h4>
+
+<ul>
+  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></li>
+  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ IIIe v6.3.14 released</a></li>
+  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ IIIe v6.3.13 released</a></li>
+  <li><a href="/web-preview/blog/2017/01/02/micro-os-plus-v6-3-11-released/">µOS++ IIIe v6.3.11 released</a></li>
+</ul>
+
+
+    </div>
+  </div>
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      
+      <h4 id="home"><a href="/web-preview/">Home</a></h4>
+
+<h4 id="µos-iiie">µOS++ IIIe</h4>
+
+<ul>
+  <li><a href="/web-preview/micro-os-plus/">Overview</a></li>
+</ul>
+
+<h4 id="apis">APIs</h4>
+
+<ul>
+  <li><a href="/web-preview/cmsis-plus/">Overview</a></li>
+  <li><a href="/web-preview/cmsis-plus/rtos/">RTOS API</a></li>
+</ul>
+
+<h4 id="xpacksxcdl">xPacks/XCDL</h4>
+
+<ul>
+  <li><a href="/web-preview/xpacks/">Overview</a></li>
+</ul>
+
+<h4 id="documentation">Documentation</h4>
+
+<ul>
+  <li>
+<a href="/web-preview/user-manual/">User’s <strong>manual</strong></a>
+    <ul>
+      <li><a href="/web-preview/user-manual/getting-started/">Getting started</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/">Basic concepts</a></li>
+      <li><a href="/web-preview/user-manual/features/">Features</a></li>
+      <li><a href="/web-preview/user-manual/threads/">Threads</a></li>
+      <li><a href="/web-preview/user-manual/thread-event-flags/">Thread event flags</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/">Semaphores</a></li>
+      <li><a href="/web-preview/user-manual/event-flags/">Event flags</a></li>
+      <li>Mutexes</li>
+      <li>Condition variables</li>
+      <li>Message queues</li>
+      <li>Memory pools</li>
+      <li>Software timers</li>
+      <li>Clocks</li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/reference/cmsis-plus/">µOS++ <strong>reference</strong></a></li>
+</ul>
+
+<h4 id="developer">Developer</h4>
+
+<ul>
+  <li><a href="/web-preview/develop/">Overview</a></li>
+  <li><a href="/web-preview/reference/cmsis-plus/md_doxygen_pages_change-log.html">Change log</a></li>
+  <li><a href="/web-preview/develop/coding-style/">C++ coding style</a></li>
+  <li><a href="/web-preview/develop/naming-conventions/">Naming conventions</a></li>
+  <li><a href="/web-preview/develop/references/">Links &amp; references</a></li>
+</ul>
+
+<h4 id="support">Support</h4>
+
+<ul>
+  <li><a href="/web-preview/support/">Overview</a></li>
+  <li><a href="/web-preview/support/known-issues/">Known issues</a></li>
+  <li><a href="/web-preview/support/faq/">FAQ</a></li>
+  <li><a href="/web-preview/support/forum/">Forum</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ IIIe issues</a></li>
+</ul>
+
+<h4 id="latest-articles">Latest Articles</h4>
+
+<ul>
+  <li><a href="/web-preview/articles/arm-com-2016-06-24/">CMSIS++ RTOS: fully functional reference implementation</a></li>
+  <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
+</ul>
+
+<h4 id="license">License</h4>
+
+<ul>
+  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+</ul>
+
+<h4 id="about"><a href="/web-preview/about/">About</a></h4>
+
+    </div>
+  </div>
+
+  <div class="site-theme">
+    This site uses the <a href="https://github.com/ilg-ul/github-jekyll-theme">GitHub Wiki-like</a> theme by <a href="https://github.com/ilg-ul">Liviu Ionescu</a>.
+  </div>
+
+</div>
+
+
+      <div class="site-content">
+
+        
+<h1 class="page-title">Synchronisation events - DEPRECATED</h1>
+<table id="last-modified">
+  <tr>
+    <td id="last-modified">Page date Tue Mar  8 22:24:45 2011 .</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/micro-os-plus/i/Synchronisation_events.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+  </tr>
+</table>
+
+<p>Synchronisation primitives are required to avoid busy waits; instead of looping until a condition is met, it is far more efficient to put the given task to sleep and to wake it up when the condition is fulfilled.</p>
+
+<p>µOS++ synchronisation primitives are based on Unix sleep/wakeup mechanism; the semantics are more or less preserved, however, in an attempt to increase readability, the functions were renamed to <strong>eventWait()/eventNotify()</strong>.</p>
+
+<p>In addition to the Unix save/restore roots, the design of µOS++ was also inspired by Java Threads, at least the wait/notify names were used. One difference from the Java implementation is that in µOS++ the wait/notify methods are linked only to tasks, not to all objects as in Java.</p>
+
+<h1 id="what-waitnotify-is-not">What wait/notify is not?</h1>
+
+<p>The wait/notify mechanism does not include any condition that the program is waiting for; i.e. if the waiting task is notified, this does not necessarily mean that the condition was met, and the reverse, if the task was not notified, this does not mean that the condition was not met.</p>
+
+<p>From a more general point of view, the wait/notify mechanism is not a communication mechanism, since it is not designed to carry any information payload between objects in general or not even between tasks in particular.</p>
+
+<p>The wait/notify mechanism is also not a full synchronisation mechanism, since it does not include critical sections or any other mechanisms to protect variables from being accessed simultaneously from multiple tasks.</p>
+
+<h1 id="what-waitnotify-is">What wait/notify is?</h1>
+
+<p>The <strong>eventWait()</strong>/<strong>eventNotify()</strong> methods represent the µOS++ basic bricks for building complete synchronisation objects, like blocked I/O, mutex, event flags, etc.</p>
+
+<p>From the scheduler point of view, the truly basic operations would be <strong>yield()</strong> and <strong>setWaiting(true)</strong>/<strong>setWaiting(false)</strong>; these are the absolute minimum requirements for a highly general design; using these and external data structures, any other mechanism could be designed.</p>
+
+<p>However, we decided that implementing the event mechanism outside the scheduler would be less efficient, and trading efficiency for generality would not be worth in an embedded system. Based on the success of the Unix sleep/wakeup mechanism, we considered that it should also be enough for µOS++, and the need for other mechanisms would be quite remote.</p>
+
+<p>Based on the above, we decided to incorporate the event synchronisation mechanism into the task and scheduler classes, so that a task cannot just wait in general, but always wait for an event.</p>
+
+<h1 id="how-does-it-work">How does it work?</h1>
+
+<p>At the first glance, for eventWait(), the behaviour seems quite straightforward, the event is stored in the current task structure, the task is marked as <strong>waiting</strong> and the CPU is released to other tasks with a yield().</p>
+
+<p>As expected, eventNotify() does the oposite, if the task is waiting and the and the notified event matches the event the ask is waiting for, the task is marked as no longer waiting and it is inserted in the list with active tasks.</p>
+
+<h1 id="what-happens-if-a-task-is-notified-several-times">What happens if a task is notified several times?</h1>
+
+<p>When a waiting task is notified, it changes status to active and it is no longer able to receive any further notifications.</p>
+
+<p>So only the first notification is accounted for, all other are silently ignored.</p>
+
+<p>To inform the user that the task was notified, the task method eventNotify() returns 1, otherwise returns 0.</p>
+
+<h1 id="what-happens-if-there-is-no-task-waiting-for-the-given-event">What happens if there is no task waiting for the given event?</h1>
+
+<p>As we can foresee from the above section… nothing happens. The call is silently ignored and eventNotify() returns 0.</p>
+
+<h1 id="the-race-condition-between-wait-and-notify">The race condition between wait and notify</h1>
+
+<p>Although the mechanism seems straightforward, <em>the Devil is in the details</em>.</p>
+
+<p>The usual scenario when using wait and notify is:</p>
+
+<ol>
+  <li>one task tests the condition and decides it must wait, so it arranges for another task or an interrupt service routine to notify it when the condition is met</li>
+  <li>this first task calls eventWait() and releases the CPU</li>
+  <li>another task, or an interrupt service routine, calls the eventNotify()</li>
+  <li>the first task is marked as active, and scheduled when possible</li>
+</ol>
+
+<p>What if, for one reason or another, the first task is interrupted exactly between step 1 and 2, i.e. before having the chance to perform the eventWait()?</p>
+
+<p>The scenario in this case would be the following:</p>
+
+<ol>
+  <li>one task tests the condition and decides it must wait</li>
+  <li>another task, or an interrupt service routine, calls the eventNotify()</li>
+  <li>this first task performs eventWait()</li>
+</ol>
+
+<p>The correct answer is: a possible deadlock. When the eventNotify() is called, since the first task did not have the chance to call the eventWait(), the notified event is ignored. Later on, after the first task calls eventWait(), probably there will be no task to notify it, since the task originating the event already notified the event.</p>
+
+<p>For periodic events, like those generated by a timer, the problem might pass unnoticed if the next tick will notify the task, but the timer precision is affected.</p>
+
+<p>Also for devices that receive streams of bytes and generate interrupts for each byte, the race condition may occur on the first interrupt, but if the byte is buffered, it might also pass unnoticed, the reading task being notified by the next interrupts.</p>
+
+<p>However, this is a potentially serious problem, and well behaved programs should always avoid race conditions, by using critical sections.</p>
+
+<h1 id="solutions-to-the-race-condition">Solutions to the race condition</h1>
+
+<p>The first and simplest solution for the race condition is to include both the test of the condition and the eventWait() in a critical section</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>os.sched.criticalEnter();
+{
+  if (!isAvailable())
+    eventWait(event);
+}
+os.sched.criticalExit();
+</code></pre>
+</div>
+</div>
+
+<p>For applications that decide to squeeze every cycle from the CPU by minimising the critical sections, µOS++ also provides a finer grain access to the eventWait() internals: the eventWaitPrepare() and eventWaitPerform() methods.</p>
+
+<p>The rationale behind this is that within eventWait() only the code required to register the event in the system structures needs to run in a critical section with the code testing the condition; the code that performs the yield() is imune to race conditions.</p>
+
+<p>So, a more elaborate solution for the race condition would look like</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>bool doWait;
+doWait = false;
+
+setEventWaitReturn(OSEventWaitReturn::OS_IMMEDIATELY);
+
+os.sched.criticalEnter();
+{
+  doWait = (!isAvailable()) &amp;&amp; eventWaitPrepare(event);
+}
+os.sched.criticalExit();
+
+if (somethingWrong)
+{
+  eventWaitClear();
+  return;
+}
+
+if (doWait)
+  eventWaitPerform();
+
+OSEventWaitReturn_t ret;
+ret = getEventWaitReturn();
+</code></pre>
+</div>
+</div>
+
+<h1 id="scheduler-vs-task-notifications">Scheduler vs. task notifications</h1>
+
+<p>One interesting characteristic of the original Unix sleep/wakeup mechanism was that one single wakeup() call was able to wake multiple threads waiting for the same event.</p>
+
+<p>Although this seems more of a theoretical problem than a practical need, one classical example where multiple tasks should be notified by a single call is the mutex implementation, or any similar synchronisation object used by multiple tasks to serialise access to a common resource. The keyword here is <strong>multiple</strong>: if several tasks are competing for a common resource, when one releases the resource, it should notify <strong>all</strong> tasks waiting for the resource.</p>
+
+<p>µOS++ provides such a functionality, in the OSScheduler class. When calling the OSScheduler::eventNotify(), all tasks are enumerated, and those waiting for the given event are notified.</p>
+
+<p>In fact, using OSScheduler::eventNotify() is the recommended way of sending notifications. The alternative of sending notifications directly to the tasks should be used as an optimisation, but only when it is absolutely obvious there is only one task waiting for the given event.</p>
+
+<h1 id="notifying-all-tasks">Notifying all tasks</h1>
+
+<p>µOS++ implements a special case when a single eventNotify() can be automatically addressed to all waiting tasks. For this case µOS++ reserves a special event code, defined as OSEvent::OS_ALL.</p>
+
+<p>The reasons for notifying all tasks may vary, one of them being the case when there are more than one conditions to wait for, on multiple tasks. Each of the events notify all tasks, and the first task that gets the CPU may acquire a shared resource.</p>
+
+<p>When using this feature, it is recommended to explicitly set the return value to OSEventReturn::OS_ALL.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>os.sched.eventNotify(OSEvent::OS_ALL, OSEventReturn::OS_ALL);
+</code></pre>
+</div>
+</div>
+
+<h1 id="waiting-for-any-event">Waiting for any event</h1>
+
+<p>Similarly, a task can arrange to be waken by all incoming events. For this, the same OSEvent::OS_ALL can be used.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>os.sched.eventWait(OSEvent::OS_ALL);
+</code></pre>
+</div>
+</div>
+
+<p>Obviously, after waking up, the task should check for the condition it is expecting, and if not fulfilled, to loop to eventWait().</p>
+
+<p>However It should be noted that this is not an optimal use of the multitasking mechanisms.</p>
+
+<h1 id="why-is-eventwait-returning-a-value">Why is eventWait() returning a value?</h1>
+
+<p>As already mentioned, a returning eventWait() does not guarantee that the condition it was waiting for really occurred. It just means someone called an eventNotify() on the same event, or even worse, called an eventNotify(OSEvent::OS_ALL). Possible reasons for someone to call eventNotify() even when the condition is not true can be timeouts or task cancellation requests.</p>
+
+<p>In order to differentiate between all these possible cases, µOS++ provides an additional argument to eventNotify(event, ret). When the eventNotify() is processed, this value is simply passed as a return value for eventWait(). The default for this value is defined as OSEventReturn::OS_VOID, but it is recommended to duplicate the event as the event return value.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>os.sched.eventNotify(event, (OSEventReturn_t)event);
+</code></pre>
+</div>
+</div>
+
+<p>Other special values for OSEventReturn are defined for timeouts (OSEventReturn::OS_TIMEOUT), cancelled tasks (OSEventReturn::OS_CANCELLED and other cases. It is recommended to use these values for similar functionality.</p>
+
+<p>In addition, depending on the application’s specifics, it is recommended to check the value returned by eventWait() and if needed, loop to eventWait().</p>
+
+<h1 id="methods-overview">Methods overview</h1>
+
+<p>TODO: this sections needs to be updated, content moved to the API section and here only a short summary kept.</p>
+
+<h2 id="wait-for-event">Wait for event</h2>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>OSEventWaitReturn_t eventWait(OSEvent_t event);
+</code></pre>
+</div>
+</div>
+
+<p>Block the current task and wait for the event to occur (task is <em>put to sleep</em>). The task is removed from the running list and will no longer be scheduled to run until the event occurs. The first notification addressed to the given event will unblock the task and the specified value will be returned (<em>wake up</em> the task).</p>
+
+<p>In addition to application managed return values, it is recommended to consider processing the following special return values:</p>
+
+<ul>
+  <li>OSEventWaitReturn::OS_LOCKED: the scheduler is locked and the call returned immediatelly</li>
+  <li>OSEventWaitReturn::OS_TIMEOUT: a timeout event occured (usually triggered by a timer)</li>
+  <li>OSEventWaitReturn::OS_CANCELED: another task cancelled this wait</li>
+  <li>OSEventWaitReturn::OS_ALL: a notification was sent to all tasks</li>
+</ul>
+
+<p>Return: the value used by the nofitication call.</p>
+
+<h2 id="notify-event">Notify event</h2>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>int eventNotify(OSEvent_t event, OSEventWaitReturn_t ret=OSEventWaitReturn::OS_VOID);
+</code></pre>
+</div>
+</div>
+
+<p>Notifies all tasks waiting on the given event. Notified tasks are inserted into the running list (in the order they were registered to the schedulers) and will wait their turn for the CPU. Only the first notification addresed to a blocked task is significative, i.e. only the ‘ret’ value of the first notification will be returned by corresponding <strong>evenWait()</strong> functions; all further notifications addressed to a task waiting to run or running will be silently discarded.</p>
+
+<p>A special case is when the event is OSEvent::OS_ALL since all waiting tasks are notified, regardless of the event they are waiting for (in other words, OSEvent::OS_ALL acts like a wildcard matching all events). For a consistent processing, it is recommended to pair this special event with the special return value OSEventWaitReturn::OS_ALL.</p>
+
+<p>Return: the number of tasks notified.</p>
+
+
+
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/micro-os-plus/i/Synchronisation_events/" data-layout="button"></div></li>
+</ul>
+
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="site-footer">
+  <div class="site-footer-links left">
+    <ul>
+  <li>© 2019 Liviu Ionescu</li>
+  <li>Hosted on GitHub</li>
+  <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
+  <li>
+<a href="http://twitter.com/micro_os_plus" class="twitter-follow-button" data-show-count="false">Follow @micro_os_plus</a><script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</li>
+</ul>
+
+
+  </div>
+  <a href="https://github.com/micro-os-plus/micro-os-plus-iii" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+  </a>
+  <div class="site-footer-links right">
+    <ul>
+  <li><a href="/web-preview/">Home</a></li>
+  <li><a href="/web-preview/blog/">News</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/releases">Releases</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues">Support</a></li>
+  <li><a href="/web-preview/about/">About</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</div>
+
+</body>
+</html>

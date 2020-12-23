@@ -9,16 +9,16 @@
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>The µOS++ IIIe Project</title>
+  <title>Discussions forum</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="The µOS++ IIIe Project">
+  <meta property="og:title" content="Discussions forum">
   <meta property="og:site_name" content="µOS++ IIIe">
 
   <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
 
 
-  <meta property="article:published_time" content="2016-03-03">
+  <meta property="article:published_time" content="2015-09-12">
 
 
 
@@ -32,7 +32,7 @@
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
 
-  <link rel="canonical" href="/web-preview/">
+  <link rel="canonical" href="/web-preview/support/forum/">
 
 
 
@@ -239,58 +239,109 @@
       <div class="site-content">
 
         
-<h1 class="page-title">The µOS++ IIIe Project</h1>
+<h1 class="page-title">Discussions forum</h1>
 <table id="last-modified">
   <tr>
     <td id="last-modified">Last modified on Wed Dec 23 10:37:26 2020 UTC.</td>
-    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/home.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/support/forum.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
 
-
-<p>The <strong>µOS++ IIIe</strong> <em>(micro oh ɛs plus plus third edition)</em> project is the third iteration of µOS++, a POSIX-like, portable, open source, royalty-free, multi-tasking real-time framework intended for 32/64-bits embedded applications, written in C++. The project is hosted on GitHub as <a href="https://github.com/micro-os-plus">micro-os-plus</a>. It has a comprehensive <a href="/web-preview/user-manual/">User’s manual</a>. The APIs are documented in the <a href="/web-preview/reference/cmsis-plus/">µOS++ reference</a>.</p>
-
-<p><strong>POSIX++</strong> is another point of view of the project; with most system APIs using the POSIX semantics, but being written in C++, the <strong>µOS++ IIIe</strong> APIs can also be seen as a C++ version of POSIX, thus the name <strong>POSIX++</strong>.</p>
-
-<h2 id="manyfold-identity">Manyfold identity</h2>
-
-<p>The <strong>µOS++ IIIe</strong> project can be considered from several points of view.</p>
-
-<h3 id="the-µos-frameworkapis">The µOS++ framework/APIs</h3>
-
-<p>Although generally associated with its RTOS, <strong>µOS++ IIIe</strong> is actually a framework, a collection of APIs, components and technologies.</p>
-
-<p>One of the main APIs is the µOS++ RTOS API, but applications based on µOS++ may run very well without a RTOS, or even use a different RTOS.</p>
-
-<p>For a better portability, the entire framework is layered, the µOS++ RTOS API provides a common public interface to the applications, but the implementation is separate, it might be that of its own µOS++ RTOS reference implementation, but it may very well be another implementation, even a custom one specific to the application.</p>
-
-<h3 id="the-µos-rtos-implementation">The µOS++ RTOS implementation</h3>
-
-<p>From an embedded system point of view, <strong>µOS++ IIIe</strong> provides the <strong>reference implementation</strong> for the <strong>scheduler</strong> and <strong>portable synchronisation</strong> objects (like mutex, semaphore, etc).</p>
-
-<div style="text-align:center">
-<img alt="µOS++ RTOS" src="/web-preview/assets/images/2017/micro-os-plus-rtos.png">
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
 </div>
-
-<h3 id="the-µos-packages">The µOS++ packages</h3>
-
-<p>From a modular point of view, <strong>µOS++ IIIe</strong> is a <strong>collection of packages</strong> hosted on GitHub in two locations:</p>
-
 <ul>
-  <li>the original code is grouped under the <a href="https://github.com/micro-os-plus">µOS++ IIIe</a> GitHub collection of projects</li>
-  <li>projects based on third party code are grouped under the <a href="https://github.com/xpacks">xPacks</a> collection.</li>
+<li class="toc_level-1 toc_section-1">
+<a href="#overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a>
+</li>
+<li class="toc_level-1 toc_section-2">
+<a href="#goals"><span class="tocnumber">2</span> <span class="toctext">Goals</span></a>
+</li>
+<li class="toc_level-1 toc_section-3">
+<a href="#access"><span class="tocnumber">3</span> <span class="toctext">Access</span></a>
+</li>
+<li class="toc_level-1 toc_section-4">
+<a href="#start-a-discussion"><span class="tocnumber">4</span> <span class="toctext">Start a discussion</span></a>
+</li>
+<li class="toc_level-1 toc_section-5">
+<a href="#no-support-for-markdown"><span class="tocnumber">5</span> <span class="toctext">No support for markdown</span></a>
+</li>
+<li class="toc_level-1 toc_section-6">
+<a href="#categories"><span class="tocnumber">6</span> <span class="toctext">Categories</span></a>
+</li>
+<li class="toc_level-1 toc_section-7">
+<a href="#mark-your-questions-as-answered"><span class="tocnumber">7</span> <span class="toctext">Mark your questions as Answered</span></a>
+</li>
 </ul>
-
-<div style="text-align:center">
-<img alt="µOS++ Collection" src="/web-preview/assets/images/2017/micro-os-plus-collection.png">
+</td>
+</tr>
+</tbody>
+</table>
 </div>
+<h2 id="overview">Overview</h2>
 
-<h2 id="license">License</h2>
+<p>A dedicated <a href="https://www.element14.com/community/groups/gnu-arm-eclipse">user discussions forum</a> was created on the <a href="https://www.element14.com/community/welcome">element14 Community server</a>.</p>
 
-<p>Unless otherwise mentioned, all <strong>µOS++ IIIe</strong> components are provided <strong>free of charge</strong> under the terms of the <a href="https://opensource.org/licenses/MIT">MIT License</a>, with all rights reserved to Liviu Ionescu.</p>
+<p>
+<img src="/web-preview/assets/images/2016/forum-overview.png" alt="GNU ARM Eclipse forum">
+</p>
+
+<h2 id="goals">Goals</h2>
+
+<p>The forum goal was initially to facilitate experience sharing between GNU ARM Eclipse users but later was extended and more categories were added, including µOS++. It serves as a place to post questions and support requests; just be sure you select the right category when posting messages.</p>
+
+<p>In case a problem is identified as bug or feature request, please use the <a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">µOS++ IIIe GitHub Issues</a>.</p>
+
+<h2 id="access">Access</h2>
+
+<p>The forum URL is:</p>
+
+<p>
+<code class="language-plaintext highlighter-rouge">https://www.element14.com/community/groups/gnu-arm-eclipse</code>
+</p>
+
+<p>The forum type is open, and anyone can contribute. Access is free, based on registration.</p>
+
+<h2 id="start-a-discussion">Start a discussion</h2>
+
+<p>The element14 Community Group is actually more than a simple forum, it is also a blog, it can manage polls, calendar events, and many more.</p>
+
+<p>For common usage, to start a new discussion, use the top right link <em>Start a discussion</em>.</p>
+
+<h2 id="no-support-for-markdown">No support for markdown</h2>
+
+<p>Unfortunatelly the Jive powered server currently has no support for markdown, so follow the server formatting rules.</p>
+
+<h2 id="categories">Categories</h2>
+
+<p>The GNU ARM Eclipse Group is also home for discussions related to other subprojects, like µOS++, and xPacks.</p>
+
+<p>
+<img src="/web-preview/assets/images/2016/forum-categories.png" alt="GNU ARM Eclipse categories">
+</p>
+
+<p>Please be sure you select the <strong>µOS++</strong> category.</p>
+
+<h2 id="mark-your-questions-as-answered">Mark your questions as Answered</h2>
+
+<p>If you receive the expected answer, please let the server know this, for an efficient way to manage the issues.</p>
 
 
 
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/support/forum/" data-layout="button"></div></li>
+</ul>
 
 
 

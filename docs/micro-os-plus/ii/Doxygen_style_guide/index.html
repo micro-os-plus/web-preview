@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Doxygen style guide</title>
+  <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
+
+  <meta property="og:title" content="Doxygen style guide">
+  <meta property="og:site_name" content="µOS++ IIIe">
+
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+
+
+  <meta property="article:published_time" content="2013-08-10">
+
+
+
+
+
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
+
+  <link rel="canonical" href="/web-preview/micro-os-plus/ii/Doxygen_style_guide/">
+
+
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16767008-14', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+  <div class="site-header">
+  <table style="width:100%">
+    <tr>
+      <td>
+        <a href="/web-preview/">
+          <img alt="Icon" class="site-icon" src="/web-preview/assets/icons/wall-e-icon.png" height="100" width="100">
+      </a>
+      </td>
+      <td>
+        <table class="site-title" style="width:100%">
+          <tr>
+            <td class="site-title">
+              <a href="/web-preview/">µOS++ IIIe</a>
+            </td>
+            <td class="site-motto" align="right">
+              “Perfekt ist nicht gut genug”
+            </td>
+          </tr>
+          <tr>
+            <td class="site-description" colspan="2">
+              The third edition of µOS++, a POSIX inspired open source framework, written in C++.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+</div>
+
+<div class="container">
+
+  <div class="wrapper">
+    <div class="site-body">
+
+      <div class="site-sidebar">
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      <h4 id="news"><a href="/web-preview/blog/">News</a></h4>
+
+<ul>
+  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></li>
+  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ IIIe v6.3.14 released</a></li>
+  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ IIIe v6.3.13 released</a></li>
+  <li><a href="/web-preview/blog/2017/01/02/micro-os-plus-v6-3-11-released/">µOS++ IIIe v6.3.11 released</a></li>
+</ul>
+
+
+    </div>
+  </div>
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      
+      <h4 id="home"><a href="/web-preview/">Home</a></h4>
+
+<h4 id="µos-iiie">µOS++ IIIe</h4>
+
+<ul>
+  <li><a href="/web-preview/micro-os-plus/">Overview</a></li>
+</ul>
+
+<h4 id="apis">APIs</h4>
+
+<ul>
+  <li><a href="/web-preview/cmsis-plus/">Overview</a></li>
+  <li><a href="/web-preview/cmsis-plus/rtos/">RTOS API</a></li>
+</ul>
+
+<h4 id="xpacksxcdl">xPacks/XCDL</h4>
+
+<ul>
+  <li><a href="/web-preview/xpacks/">Overview</a></li>
+</ul>
+
+<h4 id="documentation">Documentation</h4>
+
+<ul>
+  <li>
+<a href="/web-preview/user-manual/">User’s <strong>manual</strong></a>
+    <ul>
+      <li><a href="/web-preview/user-manual/getting-started/">Getting started</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/">Basic concepts</a></li>
+      <li><a href="/web-preview/user-manual/features/">Features</a></li>
+      <li><a href="/web-preview/user-manual/threads/">Threads</a></li>
+      <li><a href="/web-preview/user-manual/thread-event-flags/">Thread event flags</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/">Semaphores</a></li>
+      <li><a href="/web-preview/user-manual/event-flags/">Event flags</a></li>
+      <li>Mutexes</li>
+      <li>Condition variables</li>
+      <li>Message queues</li>
+      <li>Memory pools</li>
+      <li>Software timers</li>
+      <li>Clocks</li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/reference/cmsis-plus/">µOS++ <strong>reference</strong></a></li>
+</ul>
+
+<h4 id="developer">Developer</h4>
+
+<ul>
+  <li><a href="/web-preview/develop/">Overview</a></li>
+  <li><a href="/web-preview/reference/cmsis-plus/md_doxygen_pages_change-log.html">Change log</a></li>
+  <li><a href="/web-preview/develop/coding-style/">C++ coding style</a></li>
+  <li><a href="/web-preview/develop/naming-conventions/">Naming conventions</a></li>
+  <li><a href="/web-preview/develop/references/">Links &amp; references</a></li>
+</ul>
+
+<h4 id="support">Support</h4>
+
+<ul>
+  <li><a href="/web-preview/support/">Overview</a></li>
+  <li><a href="/web-preview/support/known-issues/">Known issues</a></li>
+  <li><a href="/web-preview/support/faq/">FAQ</a></li>
+  <li><a href="/web-preview/support/forum/">Forum</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ IIIe issues</a></li>
+</ul>
+
+<h4 id="latest-articles">Latest Articles</h4>
+
+<ul>
+  <li><a href="/web-preview/articles/arm-com-2016-06-24/">CMSIS++ RTOS: fully functional reference implementation</a></li>
+  <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
+</ul>
+
+<h4 id="license">License</h4>
+
+<ul>
+  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+</ul>
+
+<h4 id="about"><a href="/web-preview/about/">About</a></h4>
+
+    </div>
+  </div>
+
+  <div class="site-theme">
+    This site uses the <a href="https://github.com/ilg-ul/github-jekyll-theme">GitHub Wiki-like</a> theme by <a href="https://github.com/ilg-ul">Liviu Ionescu</a>.
+  </div>
+
+</div>
+
+
+      <div class="site-content">
+
+        
+<h1 class="page-title">Doxygen style guide - DEPRECATED</h1>
+<table id="last-modified">
+  <tr>
+    <td id="last-modified">Page date Sat Aug 10 13:52:32 2013 .</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/micro-os-plus/ii/Doxygen_style_guide.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+  </tr>
+</table>
+
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toc_level-1 toc_section-1">
+<a href="#-comments"><span class="tocnumber">1</span> <span class="toctext">/// Comments</span></a>
+</li>
+<li class="toc_level-1 toc_section-2">
+<a href="#-commands"><span class="tocnumber">2</span> <span class="toctext">\ Commands</span></a>
+</li>
+<li class="toc_level-1 toc_section-3">
+<a href="#explicit-brief"><span class="tocnumber">3</span> <span class="toctext">Explicit \brief</span></a>
+</li>
+<li class="toc_level-1 toc_section-4">
+<a href="#explicit-details"><span class="tocnumber">4</span> <span class="toctext">Explicit \details</span></a>
+</li>
+<li class="toc_level-1 toc_section-5">
+<a href="#use-brief-with-declarations-and-details-with-definitions"><span class="tocnumber">5</span> <span class="toctext">Use \brief with declarations and \details with definitions</span></a>
+</li>
+<li class="toc_level-1 toc_section-6">
+<a href="#back-apostrophes-for-references-to-code"><span class="tocnumber">6</span> <span class="toctext">Back apostrophes for references to code</span></a>
+</li>
+<li class="toc_level-1 toc_section-7">
+<a href="#asterisks-for-italics"><span class="tocnumber">7</span> <span class="toctext">Asterisks for italics</span></a>
+</li>
+<li class="toc_level-1 toc_section-8">
+<a href="#html-b-for-bold"><span class="tocnumber">8</span> <span class="toctext">HTML &lt;b&gt; for bold</span></a>
+</li>
+<li class="toc_level-1 toc_section-9">
+<a href="#use-code-for-sequences-of-source-lines"><span class="tocnumber">9</span> <span class="toctext">Use \code for sequences of source lines</span></a>
+</li>
+<li class="toc_level-1 toc_section-10">
+<a href="#use-verbatim-for-other-pre-formatted-lines"><span class="tocnumber">10</span> <span class="toctext">Use \verbatim for other pre-formatted lines</span></a>
+</li>
+<li class="toc_level-1 toc_section-11">
+<a href="#lists"><span class="tocnumber">11</span> <span class="toctext">Lists</span></a>
+</li>
+<li class="toc_level-1 toc_section-12">
+<a href="#tables"><span class="tocnumber">12</span> <span class="toctext">Tables</span></a>
+</li>
+<li class="toc_level-1 toc_section-13">
+<a href="#external-links"><span class="tocnumber">13</span> <span class="toctext">External links</span></a>
+</li>
+<li class="toc_level-1 toc_section-14">
+<a href="#use-tparam-for-template-parameters"><span class="tocnumber">14</span> <span class="toctext">Use \tparam for template parameters</span></a>
+</li>
+<li class="toc_level-1 toc_section-15">
+<a href="#use-param-for-function-parameters"><span class="tocnumber">15</span> <span class="toctext">Use \param for function parameters</span></a>
+</li>
+<li class="toc_level-1 toc_section-16">
+<a href="#use-return-or-retval-for-the-returned-result"><span class="tocnumber">16</span> <span class="toctext">Use \return or \retval for the returned result</span></a>
+</li>
+<li class="toc_level-1 toc_section-17">
+<a href="#use-headerfile-to-define-the-header-full-path"><span class="tocnumber">17</span> <span class="toctext">Use \headerfile to define the header full path</span></a>
+</li>
+<li class="toc_level-1 toc_section-18">
+<a href="#use-nosubgrouping-and-name-to-define-custom-member-grouping"><span class="tocnumber">18</span> <span class="toctext">Use \nosubgrouping and \name to define custom member grouping</span></a>
+</li>
+<li class="toc_level-1 toc_section-19">
+<a href="#template-sample"><span class="tocnumber">19</span> <span class="toctext">Template sample</span></a>
+</li>
+<li class="toc_level-1 toc_section-20">
+<a href="#grouping"><span class="tocnumber">20</span> <span class="toctext">Grouping</span></a>
+<ul>
+<li class="toc_level-2 toc_section-21">
+<a href="#ingroup"><span class="tocnumber">20.1</span> <span class="toctext">\ingroup</span></a>
+</li>
+<li class="toc_level-2 toc_section-22">
+<a href="#name"><span class="tocnumber">20.2</span> <span class="toctext">\name</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Doxygen has many, many features, and accepts various syntaxes for its commands.</p>
+
+<p>The recommended syntax is the one specific to to C++, with // for comments, and \ for escape characters and commands.</p>
+
+<h2 id="-comments">/// Comments</h2>
+
+<p>Use sequences of lines prefixed with /// instead of C style blocks of /** */</p>
+
+<p>Warning: be sure the sequence of /// lines is uninterrupted, otherwise the documentation will not refer to the same object.</p>
+
+<h2 id="-commands">\ Commands</h2>
+
+<p>Use \ to prefix commands, instead of @.</p>
+
+<h2 id="explicit-brief">Explicit \brief</h2>
+
+<p>Explicitly use the \brief command before the brief description. End the text with a dot. For visibility reasons, add an empty line inside the same comment block.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>/// \brief Base for all architecture implementation classes.
+///
+</code></pre>
+</div>
+</div>
+
+<h2 id="explicit-details">Explicit \details</h2>
+
+<p>Explicitly use the \details command, on a separate line, before the main documentation text.</p>
+
+<p>For class member functions, the details should be placed before the implementation; although allowed by Doxygen, avoid placing details both at the declaration and definitions, since it is difficult to keep them consistent (see below).</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>///
+/// \details
+/// The TraceOstreamBase class implements an ostream class
+/// to be used by the Trace class.
+</code></pre>
+</div>
+</div>
+
+<h2 id="use-brief-with-declarations-and-details-with-definitions">Use \brief with declarations and \details with definitions</h2>
+
+<p>Contrary to Java, the C++ sources are usually split between a .h file with declarations and a .cpp file with the method/functions definitions.</p>
+
+<p>Always add the \brief, \param and \return commands in the header file before the member declaration, and the detailed part of the documentation before the member definition (be it in .h for inline definitions or in .cpp for regular definitions).</p>
+
+<h2 id="back-apostrophes-for-references-to-code">Back apostrophes for references to code</h2>
+
+<p>Always use `something` instead of \c something, or \p something, or <code class="language-plaintext highlighter-rouge">&lt;code&gt;something</code>&lt;/code&gt;.</p>
+
+<h2 id="asterisks-for-italics">Asterisks for italics</h2>
+
+<p>Use asterisks to mark *italics* texts.</p>
+
+<h2 id="html-b-for-bold">HTML &lt;b&gt; for bold</h2>
+
+<p>Unfortunately Doxygen does not provide a bold metadata command, so the HTML &lt;b&gt;xyz&lt;/b&gt; should be used.</p>
+
+<h2 id="use-code-for-sequences-of-source-lines">Use \code for sequences of source lines</h2>
+
+<p>When including lines of code, surround them by \code, \endcode and add the language. For visibility reasons, add empty lines inside the comment block.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>///
+/// \code{.cpp}
+/// setClassName("os::infra::TestSuite");
+/// \endcode
+///
+</code></pre>
+</div>
+</div>
+
+<h2 id="use-verbatim-for-other-pre-formatted-lines">Use \verbatim for other pre-formatted lines</h2>
+
+<p>When including other lines, like shell commands, surround them by \verbatim, \endverbatim:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>///
+/// \verbatim
+/// /bin/bash micro-os-plus-se.git/scripts/runTests.sh
+/// \endverbatim
+///
+</code></pre>
+</div>
+</div>
+
+<h2 id="lists">Lists</h2>
+
+<p>Use - to enter bulleted lists, and -# to enter numbered lists.</p>
+
+<p>For multiple levels use additional indentations.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>- first level 1
+  - first level 2
+  - second level 2
+- second level 1
+</code></pre>
+</div>
+</div>
+
+<h2 id="tables">Tables</h2>
+
+<p>Use the below syntax to enter tables. Columns can be left/right aligned.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>| Right | Center | Left  |
+| ----: | :----: | :---- |
+| 10    | 10     | 10    |
+| 1000  | 1000   | 1000  |
+</code></pre>
+</div>
+</div>
+
+<h2 id="external-links">External links</h2>
+
+<p>Links to other pages can be expressed with the following markup:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>[The link text](http://example.net/)
+</code></pre>
+</div>
+</div>
+
+<h2 id="use-tparam-for-template-parameters">Use \tparam for template parameters</h2>
+
+<p>Use \tparam for template parameters. Start the explanation with upper case and end it with dot.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>/// \tparam Implementation_T  Type of the implementation class.
+</code></pre>
+</div>
+</div>
+
+<h2 id="use-param-for-function-parameters">Use \param for function parameters</h2>
+
+<p>Use <strong>\param [in]</strong> for usual input parameters, and occasionally <strong>[out]</strong> for output parameters. Start the explanation with upper case and end the line with a dot.</p>
+
+<p>To make the explanation more readable, use tabs to right align the content.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>/// \param [in]  c  An additional character to consume.
+</code></pre>
+</div>
+</div>
+
+<p>If the function has no parameters, use a custom paragraph containing <strong>None</strong>, indented with a tab and terminated with a dot.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>/// \par Parameters
+///    None.
+</code></pre>
+</div>
+</div>
+
+<h2 id="use-return-or-retval-for-the-returned-result">Use \return or \retval for the returned result</h2>
+
+<p>If the function returns discrete values, enumerate them with <strong>\retval</strong> and terminate the list with an empty line.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>/// \retval -1 Error
+/// \retval 0 OK
+///
+</code></pre>
+</div>
+</div>
+
+<p>If the function returns a scalar value, use a <strong>\return</strong> and explain what the value represents.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>/// \return The number of bytes actually written.
+</code></pre>
+</div>
+</div>
+
+<p>If the function has no return value, use a custom paragraph containing <strong>Nothing</strong>, indented with a tab and terminated with a dot.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>/// \par Returns
+///    Nothing.
+</code></pre>
+</div>
+</div>
+
+<h2 id="use-headerfile-to-define-the-header-full-path">Use \headerfile to define the header full path</h2>
+
+<p>For each class, structure, enum or other object definition, use \headerfile to specify the full header path.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>/// \headerfile CoreInterruptNumbers.h "hal/architecture/arm/cortexm/include/CoreInterruptNumbers.h"
+/// \nosubgrouping
+///
+/// \brief ARM Cortex-M architecture interrupt numbers base
+/// \details
+/// Interrupt numbers defined by the Cortex-M0 light architecture.
+class CortexM0InterruptNumber ...
+</code></pre>
+</div>
+</div>
+
+<p>The first name should be present in the filesystem, so it might need some prefixing. The second name is passed to the output.</p>
+
+<p>The comment block should be continuous to the object comments, otherwise the header file definition is not attached to the object.</p>
+
+<h2 id="use-nosubgrouping-and-name-to-define-custom-member-grouping">Use \nosubgrouping and \name to define custom member grouping</h2>
+
+<p>For a better look, it is recommended to group class definitions based on their logic, instead of the default class visibility grouping.</p>
+
+<p>Groups have names and descriptions (be sure the comments are continuous up to the <strong>@{</strong> opening brace).</p>
+
+<p>It is recommended to repeat the name in the closing <strong>@}</strong> brace, as seen below.</p>
+
+<p>For readability, use an empty line after opening braces and before closing braces.</p>
+
+<p>Note: Groups do not nest.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>/// \name Standard template types
+///
+/// These types permit a standardised way of
+/// referring to names of (or names dependent on) the template
+/// parameters, which are specific to the implementation. Except
+/// when referring to the template, (in which case the templates
+/// parameters are required), use these types everywhere
+/// else instead of usual types.
+/// @{
+
+typedef Implementation_T Implementation;
+
+/// @}  end of name Standard template types
+
+/// \name Constructors/destructor
+/// @{
+
+/// \brief  Base constructor.
+///
+/// \param [in] implementation Reference to the implementation class.
+TTraceStreambufBase(Implementation&amp; implementation);
+
+/// \brief  Base destructor.
+virtual
+~TTraceStreambufBase();
+
+/// @} end of name Constructors/destructor
+</code></pre>
+</div>
+</div>
+
+<h2 id="template-sample">Template sample</h2>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>/// \headerfile Trace.h "portable/diagnostics/include/Trace.h"
+/// \ingroup diag
+/// \nosubgrouping
+///
+/// \brief Trace light base class.
+///
+/// \tparam Implementation_T  Type of the implementation class.
+///
+/// \details
+/// This class provides no functionality, it is used only as a
+/// light alternative to TraceOstreamBase.
+template&lt;class Implementation_T&gt;
+  class TTraceLightBase
+  {
+    ...
+  };
+</code></pre>
+</div>
+</div>
+
+<h2 id="grouping">Grouping</h2>
+
+<h3 id="ingroup">\ingroup</h3>
+
+<p>To include a definition in one or more modules, use \ingroup.</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>/// \brief Stack size type.
+/// \ingroup core_thread
+///
+</code></pre>
+</div>
+</div>
+
+<p>If multiple definition are from the same group, they can be grouped with <strong>@{</strong> … <strong>@}</strong>:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>/// \ingroup core_thread
+/// @{
+        &lt;- mandatory empty line
+/// \brief Stack element type.
+typedef hal::arch::stackElement_t element_t;
+
+/// \brief Stack size type.
+typedef hal::arch::stackSize_t size_t;
+        &lt;- mandatory empty line
+/// @} end of ingroup core_thread
+</code></pre>
+</div>
+</div>
+
+<p>Please note the mandatory empty lines after <strong>@{</strong> and before <strong>@}</strong>.</p>
+
+<p>Also please note that when using together with \name, \ingroup with must be inside \name.</p>
+
+<h3 id="name">\name</h3>
+
+<p>This command allows to define the name of the section within a page. Usually it is used with <strong>@{</strong> … <strong>@}</strong>:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>/// \name Constructors/destructor
+/// @{
+        &lt;- mandatory empty line
+/// \brief Constructor.
+MainThread(void);
+
+/// \brief Destructor.
+~MainThread();
+        &lt;- mandatory empty line
+/// @} end of name Constructors/destructor
+</code></pre>
+</div>
+</div>
+
+<p>Recommended sections name are:</p>
+
+<div class="language-plaintext highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>/// \name Types and constants
+
+/// \name Constructors/destructor
+
+/// \name Operators
+
+/// \name Public member functions
+
+/// \name Private friends
+
+/// \name Private member variables
+</code></pre>
+</div>
+</div>
+
+
+
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/micro-os-plus/ii/Doxygen_style_guide/" data-layout="button"></div></li>
+</ul>
+
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="site-footer">
+  <div class="site-footer-links left">
+    <ul>
+  <li>© 2019 Liviu Ionescu</li>
+  <li>Hosted on GitHub</li>
+  <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
+  <li>
+<a href="http://twitter.com/micro_os_plus" class="twitter-follow-button" data-show-count="false">Follow @micro_os_plus</a><script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</li>
+</ul>
+
+
+  </div>
+  <a href="https://github.com/micro-os-plus/micro-os-plus-iii" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+  </a>
+  <div class="site-footer-links right">
+    <ul>
+  <li><a href="/web-preview/">Home</a></li>
+  <li><a href="/web-preview/blog/">News</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/releases">Releases</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues">Support</a></li>
+  <li><a href="/web-preview/about/">About</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</div>
+
+</body>
+</html>

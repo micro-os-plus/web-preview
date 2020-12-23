@@ -9,16 +9,16 @@
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>The µOS++ IIIe Project</title>
+  <title>Class OSTimerSeconds</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="The µOS++ IIIe Project">
+  <meta property="og:title" content="Class OSTimerSeconds">
   <meta property="og:site_name" content="µOS++ IIIe">
 
   <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
 
 
-  <meta property="article:published_time" content="2016-03-03">
+  <meta property="article:published_time" content="2011-02-16">
 
 
 
@@ -32,7 +32,7 @@
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
 
-  <link rel="canonical" href="/web-preview/">
+  <link rel="canonical" href="/web-preview/micro-os-plus/i/Class_OSTimerSeconds/">
 
 
 
@@ -239,58 +239,199 @@
       <div class="site-content">
 
         
-<h1 class="page-title">The µOS++ IIIe Project</h1>
+<h1 class="page-title">Class OSTimerSeconds - DEPRECATED</h1>
 <table id="last-modified">
   <tr>
-    <td id="last-modified">Last modified on Wed Dec 23 10:37:26 2020 UTC.</td>
-    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/home.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+    <td id="last-modified">Page date Wed Feb 16 13:06:56 2011 .</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/micro-os-plus/i/Class_OSTimerSeconds.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
 
-
-<p>The <strong>µOS++ IIIe</strong> <em>(micro oh ɛs plus plus third edition)</em> project is the third iteration of µOS++, a POSIX-like, portable, open source, royalty-free, multi-tasking real-time framework intended for 32/64-bits embedded applications, written in C++. The project is hosted on GitHub as <a href="https://github.com/micro-os-plus">micro-os-plus</a>. It has a comprehensive <a href="/web-preview/user-manual/">User’s manual</a>. The APIs are documented in the <a href="/web-preview/reference/cmsis-plus/">µOS++ reference</a>.</p>
-
-<p><strong>POSIX++</strong> is another point of view of the project; with most system APIs using the POSIX semantics, but being written in C++, the <strong>µOS++ IIIe</strong> APIs can also be seen as a C++ version of POSIX, thus the name <strong>POSIX++</strong>.</p>
-
-<h2 id="manyfold-identity">Manyfold identity</h2>
-
-<p>The <strong>µOS++ IIIe</strong> project can be considered from several points of view.</p>
-
-<h3 id="the-µos-frameworkapis">The µOS++ framework/APIs</h3>
-
-<p>Although generally associated with its RTOS, <strong>µOS++ IIIe</strong> is actually a framework, a collection of APIs, components and technologies.</p>
-
-<p>One of the main APIs is the µOS++ RTOS API, but applications based on µOS++ may run very well without a RTOS, or even use a different RTOS.</p>
-
-<p>For a better portability, the entire framework is layered, the µOS++ RTOS API provides a common public interface to the applications, but the implementation is separate, it might be that of its own µOS++ RTOS reference implementation, but it may very well be another implementation, even a custom one specific to the application.</p>
-
-<h3 id="the-µos-rtos-implementation">The µOS++ RTOS implementation</h3>
-
-<p>From an embedded system point of view, <strong>µOS++ IIIe</strong> provides the <strong>reference implementation</strong> for the <strong>scheduler</strong> and <strong>portable synchronisation</strong> objects (like mutex, semaphore, etc).</p>
-
-<div style="text-align:center">
-<img alt="µOS++ RTOS" src="/web-preview/assets/images/2017/micro-os-plus-rtos.png">
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
 </div>
-
-<h3 id="the-µos-packages">The µOS++ packages</h3>
-
-<p>From a modular point of view, <strong>µOS++ IIIe</strong> is a <strong>collection of packages</strong> hosted on GitHub in two locations:</p>
-
 <ul>
-  <li>the original code is grouped under the <a href="https://github.com/micro-os-plus">µOS++ IIIe</a> GitHub collection of projects</li>
-  <li>projects based on third party code are grouped under the <a href="https://github.com/xpacks">xPacks</a> collection.</li>
+<li class="toc_level-1 toc_section-1">
+<a href="#ostimerseconds"><span class="tocnumber">1</span> <span class="toctext">OSTimerSeconds()</span></a>
+</li>
+<li class="toc_level-1 toc_section-2">
+<a href="#static-ostimerticks_t-getschedulerticksvoid"><span class="tocnumber">2</span> <span class="toctext">static OSTimerTicks_t getSchedulerTicks(void)</span></a>
+</li>
+<li class="toc_level-1 toc_section-3">
+<a href="#void-interruptserviceroutinevoid"><span class="tocnumber">3</span> <span class="toctext">void interruptServiceRoutine(void)</span></a>
+</li>
+<li class="toc_level-1 toc_section-4">
+<a href="#static-void-incrementuptimevoid"><span class="tocnumber">4</span> <span class="toctext">static void incrementUptime(void)</span></a>
+</li>
+<li class="toc_level-1 toc_section-5">
+<a href="#static-unsigned-long-getuptimevoid"><span class="tocnumber">5</span> <span class="toctext">static unsigned long getUptime(void)</span></a>
+</li>
+<li class="toc_level-1 toc_section-6">
+<a href="#static-void-checkvirtualwatchdogsvoid"><span class="tocnumber">6</span> <span class="toctext">static void checkVirtualWatchdogs(void)</span></a>
+</li>
+<li class="toc_level-1 toc_section-7">
+<a href="#static-ostimerticks_t-ms_schedulerticks"><span class="tocnumber">7</span> <span class="toctext">static OSTimerTicks_t ms_schedulerTicks</span></a>
+</li>
 </ul>
-
-<div style="text-align:center">
-<img alt="µOS++ Collection" src="/web-preview/assets/images/2017/micro-os-plus-collection.png">
+</td>
+</tr>
+</tbody>
+</table>
 </div>
+<p>
+<a href="/web-preview/micro-os-plus/i/Class_OSTimer">OSTimer</a>
+</p>
 
-<h2 id="license">License</h2>
+<p>OSTimerSeconds</p>
 
-<p>Unless otherwise mentioned, all <strong>µOS++ IIIe</strong> components are provided <strong>free of charge</strong> under the terms of the <a href="https://opensource.org/licenses/MIT">MIT License</a>, with all rights reserved to Liviu Ionescu.</p>
+<p>This class requires the definition of <strong>OS_INCLUDE_OSSCHEDULER_TIMERSECONDS</strong>.</p>
+
+<p>For systems equipped with a Real Time Clock (and <strong>OS_INCLUDE_32KHZ_TIMER</strong> defined), this timer runs completely independently, even when the device is in sleep or deep sleep mode. For systems not equipped with a RTC (and <strong>OS_INCLUDE_32KHZ_TIMER</strong> not defined), this time is derived from the existing OSTimerTicks.</p>
+
+<h1 id="constructors">Constructors</h1>
+
+<h2 id="ostimerseconds">OSTimerSeconds()</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Initializes the internal members.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* none</p>
+
+<h1 id="methods">Methods</h1>
+
+<h2 id="static-ostimerticks_t-getschedulerticksvoid">static <a href="/web-preview/micro-os-plus/i/Typedef_OSTimerTicks_t">OSTimerTicks_t</a> getSchedulerTicks(void)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Return the current number of ticks within the current second.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* none</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* n - the number of ticks</p>
+
+<h2 id="void-interruptserviceroutinevoid">void interruptServiceRoutine(void)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Interrupt service routine called each second.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* none</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* none</p>
+
+<h2 id="static-void-incrementuptimevoid">static void incrementUptime(void)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Increment the current seconds number. It requires definition of OS_INCLUDE_OSTIMERSECONDS_UPTIME.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* none</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* none</p>
+
+<h2 id="static-unsigned-long-getuptimevoid">static unsigned long getUptime(void)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Return the current seconds number. It requires definition of OS_INCLUDE_OSTIMERSECONDS_UPTIME.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* none</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* n - current number of seconds</p>
+
+<h2 id="static-void-checkvirtualwatchdogsvoid">static void checkVirtualWatchdogs(void)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Check for every task if the software watchdog (counter) expired. If any software watchdog expired, the CPU is forced to be restarted by the hardware watchdog. It is periodically called in the OSTimerSeconds::interruptServiceRoutine. It requires definition of OS_INCLUDE_OSTASK_VIRTUALWATCHDOG.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* none</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* none</p>
+
+<h1 id="variables">Variables</h1>
+
+<h2 id="static-ostimerticks_t-ms_schedulerticks">static <a href="/web-preview/micro-os-plus/i/Typedef_OSTimerTicks_t">OSTimerTicks_t</a> ms_schedulerTicks</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>The number of OS ticks within current second.</p>
 
 
 
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/micro-os-plus/i/Class_OSTimerSeconds/" data-layout="button"></div></li>
+</ul>
 
 
 

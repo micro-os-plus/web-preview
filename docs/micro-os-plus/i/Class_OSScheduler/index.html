@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Class OSScheduler</title>
+  <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
+
+  <meta property="og:title" content="Class OSScheduler">
+  <meta property="og:site_name" content="µOS++ IIIe">
+
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+
+
+  <meta property="article:published_time" content="2011-02-23">
+
+
+
+
+
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
+
+  <link rel="canonical" href="/web-preview/micro-os-plus/i/Class_OSScheduler/">
+
+
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16767008-14', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+  <div class="site-header">
+  <table style="width:100%">
+    <tr>
+      <td>
+        <a href="/web-preview/">
+          <img alt="Icon" class="site-icon" src="/web-preview/assets/icons/wall-e-icon.png" height="100" width="100">
+      </a>
+      </td>
+      <td>
+        <table class="site-title" style="width:100%">
+          <tr>
+            <td class="site-title">
+              <a href="/web-preview/">µOS++ IIIe</a>
+            </td>
+            <td class="site-motto" align="right">
+              “Perfekt ist nicht gut genug”
+            </td>
+          </tr>
+          <tr>
+            <td class="site-description" colspan="2">
+              The third edition of µOS++, a POSIX inspired open source framework, written in C++.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+</div>
+
+<div class="container">
+
+  <div class="wrapper">
+    <div class="site-body">
+
+      <div class="site-sidebar">
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      <h4 id="news"><a href="/web-preview/blog/">News</a></h4>
+
+<ul>
+  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></li>
+  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ IIIe v6.3.14 released</a></li>
+  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ IIIe v6.3.13 released</a></li>
+  <li><a href="/web-preview/blog/2017/01/02/micro-os-plus-v6-3-11-released/">µOS++ IIIe v6.3.11 released</a></li>
+</ul>
+
+
+    </div>
+  </div>
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      
+      <h4 id="home"><a href="/web-preview/">Home</a></h4>
+
+<h4 id="µos-iiie">µOS++ IIIe</h4>
+
+<ul>
+  <li><a href="/web-preview/micro-os-plus/">Overview</a></li>
+</ul>
+
+<h4 id="apis">APIs</h4>
+
+<ul>
+  <li><a href="/web-preview/cmsis-plus/">Overview</a></li>
+  <li><a href="/web-preview/cmsis-plus/rtos/">RTOS API</a></li>
+</ul>
+
+<h4 id="xpacksxcdl">xPacks/XCDL</h4>
+
+<ul>
+  <li><a href="/web-preview/xpacks/">Overview</a></li>
+</ul>
+
+<h4 id="documentation">Documentation</h4>
+
+<ul>
+  <li>
+<a href="/web-preview/user-manual/">User’s <strong>manual</strong></a>
+    <ul>
+      <li><a href="/web-preview/user-manual/getting-started/">Getting started</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/">Basic concepts</a></li>
+      <li><a href="/web-preview/user-manual/features/">Features</a></li>
+      <li><a href="/web-preview/user-manual/threads/">Threads</a></li>
+      <li><a href="/web-preview/user-manual/thread-event-flags/">Thread event flags</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/">Semaphores</a></li>
+      <li><a href="/web-preview/user-manual/event-flags/">Event flags</a></li>
+      <li>Mutexes</li>
+      <li>Condition variables</li>
+      <li>Message queues</li>
+      <li>Memory pools</li>
+      <li>Software timers</li>
+      <li>Clocks</li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/reference/cmsis-plus/">µOS++ <strong>reference</strong></a></li>
+</ul>
+
+<h4 id="developer">Developer</h4>
+
+<ul>
+  <li><a href="/web-preview/develop/">Overview</a></li>
+  <li><a href="/web-preview/reference/cmsis-plus/md_doxygen_pages_change-log.html">Change log</a></li>
+  <li><a href="/web-preview/develop/coding-style/">C++ coding style</a></li>
+  <li><a href="/web-preview/develop/naming-conventions/">Naming conventions</a></li>
+  <li><a href="/web-preview/develop/references/">Links &amp; references</a></li>
+</ul>
+
+<h4 id="support">Support</h4>
+
+<ul>
+  <li><a href="/web-preview/support/">Overview</a></li>
+  <li><a href="/web-preview/support/known-issues/">Known issues</a></li>
+  <li><a href="/web-preview/support/faq/">FAQ</a></li>
+  <li><a href="/web-preview/support/forum/">Forum</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ IIIe issues</a></li>
+</ul>
+
+<h4 id="latest-articles">Latest Articles</h4>
+
+<ul>
+  <li><a href="/web-preview/articles/arm-com-2016-06-24/">CMSIS++ RTOS: fully functional reference implementation</a></li>
+  <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
+</ul>
+
+<h4 id="license">License</h4>
+
+<ul>
+  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+</ul>
+
+<h4 id="about"><a href="/web-preview/about/">About</a></h4>
+
+    </div>
+  </div>
+
+  <div class="site-theme">
+    This site uses the <a href="https://github.com/ilg-ul/github-jekyll-theme">GitHub Wiki-like</a> theme by <a href="https://github.com/ilg-ul">Liviu Ionescu</a>.
+  </div>
+
+</div>
+
+
+      <div class="site-content">
+
+        
+<h1 class="page-title">Class OSScheduler - DEPRECATED</h1>
+<table id="last-modified">
+  <tr>
+    <td id="last-modified">Page date Wed Feb 23 10:44:36 2011 .</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/micro-os-plus/i/Class_OSScheduler.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+  </tr>
+</table>
+
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toc_level-1 toc_section-1">
+<a href="#osscheduler"><span class="tocnumber">1</span> <span class="toctext">OSScheduler()</span></a>
+</li>
+<li class="toc_level-1 toc_section-2">
+<a href="#static-void-earlyinitvoid"><span class="tocnumber">2</span> <span class="toctext">static void earlyInit(void)</span></a>
+</li>
+<li class="toc_level-1 toc_section-3">
+<a href="#static-void-startvoid-attribute--noreturn--"><span class="tocnumber">3</span> <span class="toctext">static void start(void) attribute( ( noreturn ) )</span></a>
+</li>
+<li class="toc_level-1 toc_section-4">
+<a href="#static-bool-isrunningvoid"><span class="tocnumber">4</span> <span class="toctext">static bool isRunning(void)</span></a>
+</li>
+<li class="toc_level-1 toc_section-5">
+<a href="#static-void-lockvoid"><span class="tocnumber">5</span> <span class="toctext">static void lock(void)</span></a>
+</li>
+<li class="toc_level-1 toc_section-6">
+<a href="#static-void-unlockvoid"><span class="tocnumber">6</span> <span class="toctext">static void unlock(void)</span></a>
+</li>
+<li class="toc_level-1 toc_section-7">
+<a href="#static-bool-islockedvoid"><span class="tocnumber">7</span> <span class="toctext">static bool isLocked(void)</span></a>
+</li>
+<li class="toc_level-1 toc_section-8">
+<a href="#static-void-setlockbool-flag"><span class="tocnumber">8</span> <span class="toctext">static void setLock(bool flag)</span></a>
+</li>
+<li class="toc_level-1 toc_section-9">
+<a href="#inline-static-bool-ispreemptivevoid"><span class="tocnumber">9</span> <span class="toctext">inline static bool isPreemptive(void)</span></a>
+</li>
+<li class="toc_level-1 toc_section-10">
+<a href="#static-void-setpreemptivebool-flag"><span class="tocnumber">10</span> <span class="toctext">static void setPreemptive(bool flag)</span></a>
+</li>
+<li class="toc_level-1 toc_section-11">
+<a href="#static-ostask-gettaskcurrentvoid"><span class="tocnumber">11</span> <span class="toctext">static OSTask *getTaskCurrent(void)</span></a>
+</li>
+<li class="toc_level-1 toc_section-12">
+<a href="#static-ostask-gettaskidlevoid"><span class="tocnumber">12</span> <span class="toctext">static OSTask *getTaskIdle(void)</span></a>
+</li>
+<li class="toc_level-1 toc_section-13">
+<a href="#static-int-gettaskscountvoid"><span class="tocnumber">13</span> <span class="toctext">static int getTasksCount(void)</span></a>
+</li>
+<li class="toc_level-1 toc_section-14">
+<a href="#static-ostask-gettaskint-i"><span class="tocnumber">14</span> <span class="toctext">static OSTask *getTask(int i)</span></a>
+</li>
+<li class="toc_level-1 toc_section-15">
+<a href="#static-bool-isallowdeepsleepvoid"><span class="tocnumber">15</span> <span class="toctext">static bool isAllowDeepSleep(void)</span></a>
+</li>
+<li class="toc_level-1 toc_section-16">
+<a href="#static-void-setallowdeepsleepbool-flag"><span class="tocnumber">16</span> <span class="toctext">static void setAllowDeepSleep(bool flag)</span></a>
+</li>
+<li class="toc_level-1 toc_section-17">
+<a href="#inline-static-void-criticalentervoid-attribute--always_inline--"><span class="tocnumber">17</span> <span class="toctext">inline static void criticalEnter(void) attribute( ( always_inline ) )</span></a>
+</li>
+<li class="toc_level-1 toc_section-18">
+<a href="#inline-static-void-criticalexitvoid-attribute--always_inline--"><span class="tocnumber">18</span> <span class="toctext">inline static void criticalExit(void) attribute( ( always_inline ) )</span></a>
+</li>
+<li class="toc_level-1 toc_section-19">
+<a href="#static-oseventwaitreturn_t-eventwaitosevent_t-event"><span class="tocnumber">19</span> <span class="toctext">static OSEventWaitReturn_t eventWait(OSEvent_t event)</span></a>
+</li>
+<li class="toc_level-1 toc_section-20">
+<a href="#static-void-yieldvoid"><span class="tocnumber">20</span> <span class="toctext">static void yield(void)</span></a>
+</li>
+<li class="toc_level-1 toc_section-21">
+<a href="#static-unsigned-char-taskregisterostask-ptask"><span class="tocnumber">21</span> <span class="toctext">static unsigned char taskRegister(OSTask *pTask)</span></a>
+</li>
+<li class="toc_level-1 toc_section-22">
+<a href="#static-bool-iscontextswitchrequiredvoid"><span class="tocnumber">22</span> <span class="toctext">static bool isContextSwitchRequired(void)</span></a>
+</li>
+<li class="toc_level-1 toc_section-23">
+<a href="#static-void-performcontextswitchvoid"><span class="tocnumber">23</span> <span class="toctext">static void performContextSwitch(void)</span></a>
+</li>
+<li class="toc_level-1 toc_section-24">
+<a href="#inline-static-void-interruptentervoid-attribute--always_inline--"><span class="tocnumber">24</span> <span class="toctext">inline static void interruptEnter(void) attribute( ( always_inline ) )</span></a>
+</li>
+<li class="toc_level-1 toc_section-25">
+<a href="#inline-static-void-interruptentervoid-attribute--always_inline---1"><span class="tocnumber">25</span> <span class="toctext">inline static void interruptEnter(void) attribute( ( always_inline ) )</span></a>
+</li>
+<li class="toc_level-1 toc_section-26">
+<a href="#static-ostimerticks-timerticks"><span class="tocnumber">26</span> <span class="toctext">static OSTimerTicks timerTicks</span></a>
+</li>
+<li class="toc_level-1 toc_section-27">
+<a href="#static-ostimerseconds-timerseconds"><span class="tocnumber">27</span> <span class="toctext">static OSTimerSeconds timerSeconds</span></a>
+</li>
+<li class="toc_level-1 toc_section-28">
+<a href="#static-ostask-ms_ptaskrunning"><span class="tocnumber">28</span> <span class="toctext">static OSTask *ms_pTaskRunning</span></a>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>OSScheduler</p>
+
+<h1 id="constructors">Constructors</h1>
+
+<h2 id="osscheduler">OSScheduler()</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>This constructor print a trace messsage (if debug is active).</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* None.</p>
+
+<h1 id="methods">Methods</h1>
+
+<h2 id="static-void-earlyinitvoid">static void earlyInit(void)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>This method performs early initialisations of the OSScheduler task. It must be called before all constructors.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* None.</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* None.</p>
+
+<h2 id="static-void-startvoid-attribute--noreturn--">static void start(void) <strong>attribute</strong>( ( noreturn ) )</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Enable the scheduler to run and start the task with the highes priority. This function is automatically called in the default main() function, called after all static constructors were executed.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* None.</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* None.</p>
+
+<h2 id="static-bool-isrunningvoid">static bool isRunning(void)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Return true if the the scheduler was started. Please note that once started, the scheduler cannot be stopped, so this function will return false before main() (i.e. while running static constructors) and true after main().</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* None.</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* True if the the scheduler was started. False otherwise.</p>
+
+<h2 id="static-void-lockvoid">static void lock(void)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Lock the scheduler to the current task, i.e. do not allow the scheduler to switch to another task. Please note that interrupts are not affected, the interrupt service routines will be executed normally and event notifications might wakeup tasks with higher priorities, but switching to another task will be permited only after unlock(). While locked, yield() will immediately return to the same task, and eventWait() will immediately return with OSEventWaitReturn::OS_LOCKED.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* None.</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* None.</p>
+
+<h2 id="static-void-unlockvoid">static void unlock(void)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Unlock the scheduler, so at the next rescheduling moment another task might get the CPU.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* None.</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* None.</p>
+
+<h2 id="static-bool-islockedvoid">static bool isLocked(void)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Return true if the scheduler is locked.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* None.</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* TRUE if the scheduler is locked, FALSE otherwise.</p>
+
+<h2 id="static-void-setlockbool-flag">static void setLock(bool flag)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Lock the scheduler if the flag is true, unlock otherwise.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* flag - if is TRUE the scheduler will be locked.</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* None.</p>
+
+<h2 id="inline-static-bool-ispreemptivevoid">inline static bool isPreemptive(void)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Return true if the scheduler runs in preemptive mode.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* None.</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* TRUE if the preemptive mode was activated, FALSE otherwise.</p>
+
+<h2 id="static-void-setpreemptivebool-flag">static void setPreemptive(bool flag)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Return true if the scheduler runs in preemptive mode.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* flag - if is TRUE, set the preemptive mode.</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* None.</p>
+
+<h2 id="static-ostask-gettaskcurrentvoid">static OSTask *getTaskCurrent(void)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Return a pointer to the task currently running on the CPU.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* None.</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* Pointer to the task currently running on the CPU.</p>
+
+<h2 id="static-ostask-gettaskidlevoid">static OSTask *getTaskIdle(void)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Return a pointer to the Idle task.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* None.</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* Pointer to the Idle task.</p>
+
+<h2 id="static-int-gettaskscountvoid">static int getTasksCount(void)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Return the number of tasks registered to the scheduler.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* None.</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* The number of tasks registered to the scheduler.</p>
+
+<h2 id="static-ostask-gettaskint-i">static OSTask *getTask(int i)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Return the i-th task registered to the scheduler, or OS_TASK_NONE for illegal index.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* None.</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* The i-th task registered to the scheduler, or OS_TASK_NONE for illegal index.</p>
+
+<h2 id="static-bool-isallowdeepsleepvoid">static bool isAllowDeepSleep(void)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Return true if the deep sleep flag was set to true. Requires definition of OS_INCLUDE_OSTASK_SLEEP.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* None.</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* Return true if the deep sleep flag was set to true.</p>
+
+<h2 id="static-void-setallowdeepsleepbool-flag">static void setAllowDeepSleep(bool flag)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Set the value of the deep sleep flag. Requires definition of OS_INCLUDE_OSTASK_SLEEP.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* bool - the value where the deep sleep flag will be set to.</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* None.</p>
+
+<h2 id="inline-static-void-criticalentervoid-attribute--always_inline--">inline static void criticalEnter(void) <strong>attribute</strong>( ( always_inline ) )</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Enter a critical section, i.e. a section where interrupts are not allowed. It is mandatory to be braced by a criticalExit(), failure to do so leads to unexpected results. The usual implementations save the current status of the interrupt flag and disable interrupts.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* None.</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* None.</p>
+
+<h2 id="inline-static-void-criticalexitvoid-attribute--always_inline--">inline static void criticalExit(void) <strong>attribute</strong>( ( always_inline ) )</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Exit critical section. Usual implementations restore the interrupt flag to the value saved by criticalEnter().</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* None.</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* None.</p>
+
+<h2 id="static-oseventwaitreturn_t-eventwaitosevent_t-event">static OSEventWaitReturn_t eventWait(OSEvent_t event)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Put the active task to sleep until an event occurs.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* event - the event used to wake up the task.</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* Status of the operation.</p>
+
+<p>== static int eventNotify(OSEvent_t event, OSEventWaitReturn_t ret = OSEventWaitReturn::OS_VOID) == <strong>Description</strong></p>
+
+<p>Wakeup all tasks waiting for event.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* event - the event used to wake up the tasks.</p>
+
+<p>:* ret - suplimentary information used to determine more informations about the source of the event.</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* The number of notified tasks.</p>
+
+<h2 id="static-void-yieldvoid">static void yield(void)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Suspend the current task and reschedule the CPU to the next task.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* None.</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* None.</p>
+
+<h2 id="static-unsigned-char-taskregisterostask-ptask">static unsigned char taskRegister(OSTask *pTask)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Register a task to the scheduler.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* None.</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* None.</p>
+
+<h2 id="static-bool-iscontextswitchrequiredvoid">static bool isContextSwitchRequired(void)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Quick check if a context switch is necessary.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* None.</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* TRUE if a context switch is needed.</p>
+
+<h2 id="static-void-performcontextswitchvoid">static void performContextSwitch(void)</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Make the context switch to the first task from the tasks ReadyList.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* None.</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* None.</p>
+
+<h2 id="inline-static-void-interruptentervoid-attribute--always_inline--">inline static void interruptEnter(void) <strong>attribute</strong>( ( always_inline ) )</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Called in order to save the context of the current task must be called in conjunction with interruptExit.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* None.</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* None.</p>
+
+<h2 id="inline-static-void-interruptentervoid-attribute--always_inline---1">inline static void interruptEnter(void) <strong>attribute</strong>( ( always_inline ) )</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Called in order to perform the context switch must be called in conjunction with interruptEnter.</p>
+
+<p>
+<strong>Parameters</strong>
+</p>
+
+<p>:* None.</p>
+
+<p>
+<strong>Return value</strong>
+</p>
+
+<p>:* None.</p>
+
+<h1 id="variables">Variables</h1>
+
+<h2 id="static-ostimerticks-timerticks">static OSTimerTicks timerTicks</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Timer, expressed in ticks, used to schedule the next task.</p>
+
+<h2 id="static-ostimerseconds-timerseconds">static OSTimerSeconds timerSeconds</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Timer expressed in seconds.</p>
+
+<h2 id="static-ostask-ms_ptaskrunning">static OSTask *ms_pTaskRunning</h2>
+
+<p>
+<strong>Description</strong>
+</p>
+
+<p>Pointer to the active task (running task).</p>
+
+
+
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/micro-os-plus/i/Class_OSScheduler/" data-layout="button"></div></li>
+</ul>
+
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="site-footer">
+  <div class="site-footer-links left">
+    <ul>
+  <li>© 2019 Liviu Ionescu</li>
+  <li>Hosted on GitHub</li>
+  <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
+  <li>
+<a href="http://twitter.com/micro_os_plus" class="twitter-follow-button" data-show-count="false">Follow @micro_os_plus</a><script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</li>
+</ul>
+
+
+  </div>
+  <a href="https://github.com/micro-os-plus/micro-os-plus-iii" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+  </a>
+  <div class="site-footer-links right">
+    <ul>
+  <li><a href="/web-preview/">Home</a></li>
+  <li><a href="/web-preview/blog/">News</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/releases">Releases</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues">Support</a></li>
+  <li><a href="/web-preview/about/">About</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</div>
+
+</body>
+</html>

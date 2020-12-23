@@ -9,16 +9,16 @@
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>The µOS++ IIIe Project</title>
+  <title>How to install Eclipse SVN</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="The µOS++ IIIe Project">
+  <meta property="og:title" content="How to install Eclipse SVN">
   <meta property="og:site_name" content="µOS++ IIIe">
 
   <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
 
 
-  <meta property="article:published_time" content="2016-03-03">
+  <meta property="article:published_time" content="2012-04-02">
 
 
 
@@ -32,7 +32,7 @@
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
 
-  <link rel="canonical" href="/web-preview/">
+  <link rel="canonical" href="/web-preview/micro-os-plus/i/How_to_install_Eclipse_SVN/">
 
 
 
@@ -239,58 +239,117 @@
       <div class="site-content">
 
         
-<h1 class="page-title">The µOS++ IIIe Project</h1>
+<h1 class="page-title">How to install Eclipse SVN - DEPRECATED</h1>
 <table id="last-modified">
   <tr>
-    <td id="last-modified">Last modified on Wed Dec 23 10:37:26 2020 UTC.</td>
-    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/home.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+    <td id="last-modified">Page date Mon Apr  2 14:13:00 2012 .</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/micro-os-plus/i/How_to_install_Eclipse_SVN.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
 
-
-<p>The <strong>µOS++ IIIe</strong> <em>(micro oh ɛs plus plus third edition)</em> project is the third iteration of µOS++, a POSIX-like, portable, open source, royalty-free, multi-tasking real-time framework intended for 32/64-bits embedded applications, written in C++. The project is hosted on GitHub as <a href="https://github.com/micro-os-plus">micro-os-plus</a>. It has a comprehensive <a href="/web-preview/user-manual/">User’s manual</a>. The APIs are documented in the <a href="/web-preview/reference/cmsis-plus/">µOS++ reference</a>.</p>
-
-<p><strong>POSIX++</strong> is another point of view of the project; with most system APIs using the POSIX semantics, but being written in C++, the <strong>µOS++ IIIe</strong> APIs can also be seen as a C++ version of POSIX, thus the name <strong>POSIX++</strong>.</p>
-
-<h2 id="manyfold-identity">Manyfold identity</h2>
-
-<p>The <strong>µOS++ IIIe</strong> project can be considered from several points of view.</p>
-
-<h3 id="the-µos-frameworkapis">The µOS++ framework/APIs</h3>
-
-<p>Although generally associated with its RTOS, <strong>µOS++ IIIe</strong> is actually a framework, a collection of APIs, components and technologies.</p>
-
-<p>One of the main APIs is the µOS++ RTOS API, but applications based on µOS++ may run very well without a RTOS, or even use a different RTOS.</p>
-
-<p>For a better portability, the entire framework is layered, the µOS++ RTOS API provides a common public interface to the applications, but the implementation is separate, it might be that of its own µOS++ RTOS reference implementation, but it may very well be another implementation, even a custom one specific to the application.</p>
-
-<h3 id="the-µos-rtos-implementation">The µOS++ RTOS implementation</h3>
-
-<p>From an embedded system point of view, <strong>µOS++ IIIe</strong> provides the <strong>reference implementation</strong> for the <strong>scheduler</strong> and <strong>portable synchronisation</strong> objects (like mutex, semaphore, etc).</p>
-
-<div style="text-align:center">
-<img alt="µOS++ RTOS" src="/web-preview/assets/images/2017/micro-os-plus-rtos.png">
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
 </div>
+<ul>
+<li class="toc_level-1 toc_section-1">
+<a href="#svn-team-provider"><span class="tocnumber">1</span> <span class="toctext">SVN Team Provider</span></a>
+</li>
+<li class="toc_level-1 toc_section-2">
+<a href="#svn-connectors"><span class="tocnumber">2</span> <span class="toctext">SVN Connectors</span></a>
+</li>
+<li class="toc_level-1 toc_section-3">
+<a href="#svn-configuration-check"><span class="tocnumber">3</span> <span class="toctext">SVN Configuration Check</span></a>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The SVN client provides Eclipse a way to use the SVN repository. For µOS++ versions later than spring 2012, SVN support is no longer mandatory, install it only if you need to acces your own repositories.</p>
 
-<h3 id="the-µos-packages">The µOS++ packages</h3>
+<h2 id="svn-team-provider">SVN Team Provider</h2>
 
-<p>From a modular point of view, <strong>µOS++ IIIe</strong> is a <strong>collection of packages</strong> hosted on GitHub in two locations:</p>
+<p><a href="http://www.polarion.com/products/svn/subversive.php">Polarion</a> contributed the main code to Eclipse, and from 3.6 it is available in the standard distribution, it just needs to be installed.</p>
+
+<p><strong>Eclipse</strong> menu: <strong>Help</strong> → <strong>Install New Software</strong></p>
 
 <ul>
-  <li>the original code is grouped under the <a href="https://github.com/micro-os-plus">µOS++ IIIe</a> GitHub collection of projects</li>
-  <li>projects based on third party code are grouped under the <a href="https://github.com/xpacks">xPacks</a> collection.</li>
+  <li>Work with: Helios</li>
+  <li>Expand <strong>Collaboration</strong>
+</li>
+  <li>select <strong>Subversive SVN Team Provider (Incubation)</strong>
+</li>
+  <li>click the <strong>Next</strong> button</li>
 </ul>
 
-<div style="text-align:center">
-<img alt="µOS++ Collection" src="/web-preview/assets/images/2017/micro-os-plus-collection.png">
-</div>
+<h2 id="svn-connectors">SVN Connectors</h2>
 
-<h2 id="license">License</h2>
+<p>As it is organised now, the Team Provider code uses some separate connectors to access the SVN. Polarion provided an automated Connector Discovery page, that pops up after installing the Team Provider.</p>
 
-<p>Unless otherwise mentioned, all <strong>µOS++ IIIe</strong> components are provided <strong>free of charge</strong> under the terms of the <a href="https://opensource.org/licenses/MIT">MIT License</a>, with all rights reserved to Liviu Ionescu.</p>
+<p>This page is also reachable at</p>
+
+<p><strong>Eclipse</strong> menu: <strong>Window</strong> → <strong>Preferences</strong> → <strong>Team</strong> → <strong>SVN</strong></p>
+
+<p>Usually the portable SVNKit connector is the best choice. On my setup, SVNKit 1.3.2 worked just fine, allowing access to SVN 1.6.</p>
+
+<p>As of Jan. 2010, the automated Connector Discovery procedure fails, and the alternative is to install manually from <a href="http://community.polarion.com/projects/subversive/download/eclipse/2.0/helios-site/">Polarion Helios Site</a></p>
+
+<p><strong>Eclipse</strong> menu: <strong>Help</strong> → <strong>Install New Software</strong></p>
+
+<ul>
+  <li>in the <em>Install</em> window, click the <strong>Add…</strong> button (on future updates, just select the URL)
+    <ul>
+      <li>fill in <strong>Location:</strong> with <a href="http://community.polarion.com/projects/subversive/download/eclipse/2.0/helios-site/">http://community.polarion.com/projects/subversive/download/eclipse/2.0/helios-site/</a>
+</li>
+      <li>fill in <strong>Name:</strong> with <strong>Polarion Helios Site</strong>
+</li>
+      <li>click the <strong>OK</strong> button</li>
+    </ul>
+  </li>
+  <li>in the main window, expand the <em>‘Subversive SVN Connectors</em> section</li>
+  <li>select <strong>SVNKit 1.3.2 Implementation</strong>
+</li>
+  <li>click the <strong>Next</strong> button</li>
+  <li>restart Eclipse, if asked</li>
+</ul>
+
+<h2 id="svn-configuration-check">SVN Configuration Check</h2>
+
+<p>Since a functional SVN configuration is mandatory for using the latest repository versions, we recommend a configuration check.</p>
+
+<p><strong>Eclipse</strong> menu: <strong>Window</strong> → <strong>Preferences</strong> → <strong>Team</strong></p>
+
+<ul>
+  <li>if there is no SVN entry below, go back to <strong>SVN Team Provider</strong>
+</li>
+  <li>if there is a SVN entry; click on it
+    <ul>
+      <li>the right window should change to SVN configuration, with multiple tabs</li>
+      <li>select the <strong>SVN Connector</strong> tab</li>
+      <li>check if the <strong>SVNKit 1.3.2</strong> connector is selected</li>
+      <li>if the SVN Connector field is empty, go back to <strong>SVN Connectors</strong>
+</li>
+    </ul>
+  </li>
+</ul>
 
 
 
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/micro-os-plus/i/How_to_install_Eclipse_SVN/" data-layout="button"></div></li>
+</ul>
 
 
 

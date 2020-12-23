@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Manual do usuário</title>
+  <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
+
+  <meta property="og:title" content="Manual do usuário">
+  <meta property="og:site_name" content="µOS++ IIIe">
+
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+
+
+  <meta property="article:published_time" content="2016-06-28">
+
+
+
+
+
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
+
+  <link rel="canonical" href="/web-preview/pt/user-manual/">
+
+
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16767008-14', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+  <div class="site-header">
+  <table style="width:100%">
+    <tr>
+      <td>
+        <a href="/web-preview/">
+          <img alt="Icon" class="site-icon" src="/web-preview/assets/icons/wall-e-icon.png" height="100" width="100">
+      </a>
+      </td>
+      <td>
+        <table class="site-title" style="width:100%">
+          <tr>
+            <td class="site-title">
+              <a href="/web-preview/">µOS++ IIIe</a>
+            </td>
+            <td class="site-motto" align="right">
+              “Perfekt ist nicht gut genug”
+            </td>
+          </tr>
+          <tr>
+            <td class="site-description" colspan="2">
+              The third edition of µOS++, a POSIX inspired open source framework, written in C++.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+</div>
+
+<div class="container">
+
+  <div class="wrapper">
+    <div class="site-body">
+
+      <div class="site-sidebar">
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      <h4 id="news"><a href="/web-preview/blog/">News</a></h4>
+
+<ul>
+  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></li>
+  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ IIIe v6.3.14 released</a></li>
+  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ IIIe v6.3.13 released</a></li>
+  <li><a href="/web-preview/blog/2017/01/02/micro-os-plus-v6-3-11-released/">µOS++ IIIe v6.3.11 released</a></li>
+</ul>
+
+
+    </div>
+  </div>
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      
+      <h4 id="início"><a href="/web-preview/pt/">Início</a></h4>
+
+<h4 id="µos-iiie">µOS++ IIIe</h4>
+
+<ul>
+  <li><a href="/web-preview/micro-os-plus/">Visão Geral</a></li>
+</ul>
+
+<h4 id="cmsis">CMSIS++</h4>
+
+<ul>
+  <li><a href="/web-preview/cmsis-plus/">Visão Geral</a></li>
+  <li><a href="/web-preview/cmsis-plus/rtos/">RTOS API</a></li>
+</ul>
+
+<h4 id="xpacksxcdl">xPacks/XCDL</h4>
+
+<ul>
+  <li><a href="/web-preview/xpacks/">Visão Geral</a></li>
+</ul>
+
+<h4 id="documentação">Documentação</h4>
+
+<ul>
+  <li>
+<a href="/web-preview/pt/user-manual/">Manual do usuário</a>
+    <ul>
+      <li><a href="/web-preview/pt/user-manual/getting-started/">Começando</a></li>
+      <li><a href="/web-preview/pt/user-manual/basic-concepts/">Conceitos básicos</a></li>
+      <li><a href="/web-preview/user-manual/features/">Características</a></li>
+      <li><a href="/web-preview/user-manual/threads/">Threads</a></li>
+      <li><a href="/web-preview/user-manual/thread-event-flags/">Thread event flags</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/">Semaphores</a></li>
+      <li><a href="/web-preview/user-manual/event-flags/">Event flags</a></li>
+      <li><a href="/web-preview/user-manual/mutexes/">Mutexes</a></li>
+      <li>Condition variables</li>
+      <li>Message queues</li>
+      <li>Memory pools</li>
+      <li>Software timers</li>
+      <li>Clocks</li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/reference/cmsis-plus/">CMSIS++ <strong>reference</strong></a></li>
+</ul>
+
+<h4 id="desenvolvedor">Desenvolvedor</h4>
+
+<ul>
+  <li><a href="/web-preview/develop/">Visão Geral</a></li>
+  <li><a href="/web-preview/reference/cmsis-plus/md_doxygen_pages_change-log.html">Change log</a></li>
+  <li><a href="/web-preview/develop/coding-style/">Estilo de codificação C++</a></li>
+  <li><a href="/web-preview/develop/references/">Links &amp; referencias</a></li>
+</ul>
+
+<h4 id="suporte">Suporte</h4>
+
+<ul>
+  <li><a href="/web-preview/support/">Visão Geral</a></li>
+  <li><a href="/web-preview/support/known-issues/">Problemas conhecidos</a></li>
+  <li><a href="/web-preview/support/faq/">FAQ</a></li>
+  <li><a href="/web-preview/support/forum/">Forum</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Relatar problemas no µOS++ IIIe</a></li>
+</ul>
+
+<h4 id="últimos-artigos">Últimos Artigos</h4>
+
+<ul>
+  <li><a href="/web-preview/articles/arm-com-2016-06-24/">CMSIS++ RTOS: fully functional reference implementation</a></li>
+  <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
+</ul>
+
+<h4 id="licença">Licença</h4>
+
+<ul>
+  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+</ul>
+
+<h4 id="sobre"><a href="/web-preview/about/">Sobre</a></h4>
+
+    </div>
+  </div>
+
+  <div class="site-theme">
+    This site uses the <a href="https://github.com/ilg-ul/github-jekyll-theme">GitHub Wiki-like</a> theme by <a href="https://github.com/ilg-ul">Liviu Ionescu</a>.
+  </div>
+
+</div>
+
+
+      <div class="site-content">
+
+        
+<h1 class="page-title">Manual do usuário</h1>
+<table id="last-modified">
+  <tr>
+    <td id="last-modified">Last modified on Wed Dec 23 10:37:26 2020 UTC.</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/user-manual/toc.pt.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+  </tr>
+</table>
+
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Conteúdo</h2>
+</div>
+<ul>
+<li class="toc_level-1 toc_section-1">
+<a href="#rtos"><span class="tocnumber">1</span> <span class="toctext">RTOS</span></a>
+<ul>
+<li class="toc_level-2 toc_section-2">
+<a href="#come%C3%A7ando-com-%CE%BCos"><span class="tocnumber">1.1</span> <span class="toctext">Começando com μOS++</span></a>
+</li>
+<li class="toc_level-2 toc_section-3">
+<a href="#conceitos-b%C3%A1sicos"><span class="tocnumber">1.2</span> <span class="toctext">Conceitos básicos</span></a>
+</li>
+<li class="toc_level-2 toc_section-4">
+<a href="#features"><span class="tocnumber">1.3</span> <span class="toctext">Features</span></a>
+</li>
+<li class="toc_level-2 toc_section-5">
+<a href="#threads"><span class="tocnumber">1.4</span> <span class="toctext">Threads</span></a>
+</li>
+<li class="toc_level-2 toc_section-6">
+<a href="#thread-event-flags"><span class="tocnumber">1.5</span> <span class="toctext">Thread event flags</span></a>
+</li>
+<li class="toc_level-2 toc_section-7">
+<a href="#semaphores"><span class="tocnumber">1.6</span> <span class="toctext">Semaphores</span></a>
+</li>
+<li class="toc_level-2 toc_section-8">
+<a href="#event-flags"><span class="tocnumber">1.7</span> <span class="toctext">Event flags</span></a>
+</li>
+<li class="toc_level-2 toc_section-9">
+<a href="#mutexes"><span class="tocnumber">1.8</span> <span class="toctext">Mutexes</span></a>
+</li>
+<li class="toc_level-2 toc_section-10">
+<a href="#condition-variables"><span class="tocnumber">1.9</span> <span class="toctext">Condition variables</span></a>
+</li>
+<li class="toc_level-2 toc_section-11">
+<a href="#message-queues"><span class="tocnumber">1.10</span> <span class="toctext">Message queues</span></a>
+</li>
+<li class="toc_level-2 toc_section-12">
+<a href="#fixed-size-memory-pools"><span class="tocnumber">1.11</span> <span class="toctext">Fixed size memory pools</span></a>
+</li>
+<li class="toc_level-2 toc_section-13">
+<a href="#software-timers"><span class="tocnumber">1.12</span> <span class="toctext">Software timers</span></a>
+</li>
+<li class="toc_level-2 toc_section-14">
+<a href="#clocks"><span class="tocnumber">1.13</span> <span class="toctext">Clocks</span></a>
+</li>
+<li class="toc_level-2 toc_section-15">
+<a href="#interrupts--critical-sections"><span class="tocnumber">1.14</span> <span class="toctext">Interrupts &amp; critical sections</span></a>
+</li>
+<li class="toc_level-2 toc_section-16">
+<a href="#memory-allocators"><span class="tocnumber">1.15</span> <span class="toctext">Memory allocators</span></a>
+</li>
+<li class="toc_level-2 toc_section-17">
+<a href="#the-scheduler"><span class="tocnumber">1.16</span> <span class="toctext">The scheduler</span></a>
+</li>
+<li class="toc_level-2 toc_section-18">
+<a href="#run-time-statistics"><span class="tocnumber">1.17</span> <span class="toctext">Run-time statistics</span></a>
+</li>
+<li class="toc_level-2 toc_section-19">
+<a href="#iterating-threads"><span class="tocnumber">1.18</span> <span class="toctext">Iterating threads</span></a>
+</li>
+<li class="toc_level-2 toc_section-20">
+<a href="#credits"><span class="tocnumber">1.19</span> <span class="toctext">Credits</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Note: The User’s Manual is currently work in progress. Add <code class="language-plaintext highlighter-rouge">/pt/</code> after sub-headers are translated.</p>
+
+<h2 id="rtos">RTOS</h2>
+
+<h3 id="começando-com-μos">
+<a href="/web-preview/pt/user-manual/getting-started/">Começando com μOS++</a>
+</h3>
+<ul>
+  <li>
+<a href="/web-preview/user-manual/getting-started/#overview">Overview</a>
+    <ul>
+      <li><a href="/web-preview/user-manual/getting-started/#multiple-apis">Multiple APIs</a></li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/user-manual/getting-started/#the-os_main-and-the-main-thread">The <code class="language-plaintext highlighter-rouge">os_main()</code> and the main thread</a></li>
+  <li><a href="/web-preview/user-manual/getting-started/#multiple-thread-applications">Multiple thread applications</a></li>
+</ul>
+
+<h3 id="conceitos-básicos">
+<a href="/web-preview/pt/user-manual/basic-concepts/">Conceitos básicos</a>
+</h3>
+
+<ul>
+  <li><a href="/web-preview/user-manual/basic-concepts/#soft-vs-hard-real-time-systems">Soft vs hard real-time systems</a></li>
+  <li><a href="/web-preview/user-manual/basic-concepts/#superloop-foregroundbackground-applications">Superloop (foreground/background) applications</a></li>
+  <li>
+<a href="/web-preview/user-manual/basic-concepts/#multi-tasking">Multi-tasking</a>
+    <ul>
+      <li><a href="/web-preview/user-manual/basic-concepts/#tasks">Tasks</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/#why-multiple-threads">Why multiple threads?</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/#threads-vs-processes">Threads &amp; processes</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/#blocking-io">Blocking I/O</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/#the-idle-thread">The idle thread</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/#sleep-modes-and-power-savings">Sleep modes and power savings</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/#context-switching">Context switching</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/#thread-stacks">Thread stacks</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/#cooperative-vs-preemptive-multi-tasking">Cooperative vs preemptive multi-tasking</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/#thread-interruptioncancellation">Thread interruption/cancellation</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="/web-preview/user-manual/basic-concepts/#scheduling">Scheduling</a>
+    <ul>
+      <li><a href="/web-preview/user-manual/basic-concepts/#thread-states">Thread states</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/#the-ready-list">The READY list</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/#scheduling-algorithms">Scheduling algorithms</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/#round-robin-vs-priority-scheduling">Round-robin vs priority scheduling</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/#selecting-thread-priorities">Selecting thread priorities</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/#priority-inversion--priority-inheritance">Priority inversion / priority inheritance</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="/web-preview/user-manual/basic-concepts/#communicating-between-threads-andor-isrs">Communicating between threads and/or ISRs</a>
+    <ul>
+      <li><a href="/web-preview/user-manual/basic-concepts/#periodic-polling-vs-event-waiting">Periodic polling vs event waiting</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/#passing-messages">Passing messages</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/#event-flags">Event flags</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/#semaphores">Semaphores</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="/web-preview/user-manual/basic-concepts/#managing-common-resources">Managing common resources</a>
+    <ul>
+      <li><a href="/web-preview/user-manual/basic-concepts/#disableenable-interrupts">Disable/enable interrupts</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/#lockunlock-the-scheduler">Lock/unlock the scheduler</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/#counting-semaphores">Counting semaphores</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/#mutual-exclusion-mutex">Mutual exclusion (mutex)</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/#should-a-semaphore-or-a-mutex-be-used">Should a semaphore or a mutex be used?</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/#deadlock-or-deadly-embrace">Deadlock (or deadly embrace)</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="/web-preview/user-manual/basic-concepts/#statically-vs-dynamically-allocated-objects">Statically vs. dynamically allocated objects</a>
+    <ul>
+      <li><a href="/web-preview/user-manual/basic-concepts/#the-system-allocator">The system allocator</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/#fragmentation">Fragmentation</a></li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/user-manual/basic-concepts/#real-time-clock">Real-time clock</a></li>
+  <li>
+<a href="/web-preview/user-manual/basic-concepts/#terms-to-use-with-caution">Terms to use with caution</a>
+    <ul>
+      <li><a href="/web-preview/user-manual/basic-concepts/#kernel">Kernel</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/#tasks-vs-threads">Tasks vs threads</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="features">
+<a href="/web-preview/user-manual/features/">Features</a>
+</h3>
+
+<h3 id="threads">
+<a href="/web-preview/user-manual/threads/">Threads</a>
+</h3>
+<ul>
+  <li><a href="/web-preview/user-manual/threads/#overview">Overview</a></li>
+  <li><a href="/web-preview/user-manual/threads/#thread-functions">Thread functions</a></li>
+  <li><a href="/web-preview/user-manual/threads/#thread-priorities">Thread priorities</a></li>
+  <li><a href="/web-preview/user-manual/threads/#creating-threads">Creating threads</a></li>
+  <li><a href="/web-preview/user-manual/threads/#changing-thread-priorities">Changing thread priorities</a></li>
+  <li><a href="/web-preview/user-manual/threads/#other-thread-functions">Other thread functions</a></li>
+  <li><a href="/web-preview/user-manual/threads/#destroying-threads">Destroying threads</a></li>
+  <li><a href="/web-preview/user-manual/threads/#the-current-thread">The current thread</a></li>
+  <li><a href="/web-preview/user-manual/threads/#thread-states">Thread states</a></li>
+  <li><a href="/web-preview/user-manual/threads/#the-thread-stack">The thread stack</a></li>
+  <li><a href="/web-preview/user-manual/threads/#the-idle-thread">The idle thread</a></li>
+  <li><a href="/web-preview/user-manual/threads/#the-main-thread">The main thread</a></li>
+</ul>
+
+<h3 id="thread-event-flags">
+<a href="/web-preview/user-manual/thread-event-flags/">Thread event flags</a>
+</h3>
+<ul>
+  <li><a href="/web-preview/user-manual/thread-event-flags/#overview">Overview</a></li>
+  <li><a href="/web-preview/user-manual/thread-event-flags/#raising-thread-event-flags">Raising thread event flags</a></li>
+  <li><a href="/web-preview/user-manual/thread-event-flags/#waiting-for-thread-event-flags">Waiting for thread event flags</a></li>
+  <li><a href="/web-preview/user-manual/thread-event-flags/#other-thread-event-flags-functions">Other thread event flags functions</a></li>
+</ul>
+
+<h3 id="semaphores">
+<a href="/web-preview/user-manual/semaphores/">Semaphores</a>
+</h3>
+<ul>
+  <li><a href="/web-preview/user-manual/semaphores/#overview">Overview</a></li>
+  <li>
+<a href="/web-preview/user-manual/semaphores/#semaphore-types">Semaphore types</a>
+    <ul>
+      <li><a href="/web-preview/user-manual/semaphores/#binary-semaphores">Binary semaphores</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/#counting-semaphores">Counting semaphores</a></li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/user-manual/semaphores/#creating-semaphores">Creating semaphores</a></li>
+  <li>
+<a href="/web-preview/user-manual/semaphores/#posting-to-semaphores">Posting to semaphores</a>
+    <ul>
+      <li><a href="/web-preview/user-manual/semaphores/#posting-to-semaphores-from-isrs">Posting to semaphores from ISRs</a></li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/user-manual/semaphores/#waiting-on-semaphores">Waiting on semaphores</a></li>
+  <li><a href="/web-preview/user-manual/semaphores/#multiple-threads-waiting-on-a-semaphore">Multiple threads waiting on a semaphore</a></li>
+  <li>
+<a href="/web-preview/user-manual/semaphores/#other-semaphore-functions">Other semaphore functions</a>
+    <ul>
+      <li><a href="/web-preview/user-manual/semaphores/#getting-the-semaphore-name">Getting the semaphore name</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/#getting-the-semaphore-value">Getting the semaphore value</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/#getting-the-semaphore-maximum-value">Getting the semaphore maximum value</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/#getting-the-semaphore-initial-value">Getting the semaphore initial value</a></li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/user-manual/semaphores/#destroying-semaphores">Destroying semaphores</a></li>
+  <li><a href="/web-preview/user-manual/semaphores/#using-semaphores-for-resource-management">Using semaphores for resource management</a></li>
+  <li><a href="/web-preview/user-manual/semaphores/#unilateral-rendezvous">Unilateral rendezvous</a></li>
+  <li>
+<a href="/web-preview/user-manual/semaphores/#semaphore-pitfalls">Semaphore pitfalls</a>
+    <ul>
+      <li><a href="/web-preview/user-manual/semaphores/#unbalanced-waitpost">Unbalanced wait()/post()</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/#recursive-deadlock">Recursive deadlock</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/#thread-termination-deadlock">Thread-termination deadlock</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/#priority-inversion">Priority inversion</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/#wrong-initialisation">Wrong initialisation</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="event-flags">
+<a href="/web-preview/user-manual/event-flags/">Event flags</a>
+</h3>
+<ul>
+  <li><a href="/web-preview/user-manual/event-flags/#overview">Overview</a></li>
+  <li><a href="/web-preview/user-manual/event-flags/#creating-event-flags">Creating event flags</a></li>
+  <li>
+<a href="/web-preview/user-manual/event-flags/#raising-event-flags">Raising event flags</a>
+    <ul>
+      <li><a href="/web-preview/user-manual/event-flags/#raising-event-flags-from-isrs">Raising event flags from ISRs</a></li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/user-manual/event-flags/#waiting-for-event-flags">Waiting for event flags</a></li>
+  <li><a href="/web-preview/user-manual/event-flags/#multiple-threads-waiting-on-event-flags">Multiple threads waiting on event flags</a></li>
+  <li>
+<a href="/web-preview/user-manual/event-flags/#other-event-flags-functions">Other event flags functions</a>
+    <ul>
+      <li><a href="/web-preview/user-manual/event-flags/#getting-the-event-flags-name">Getting the event flags name</a></li>
+      <li><a href="/web-preview/user-manual/event-flags/#getting-individual-flags">Getting individual flags</a></li>
+      <li><a href="/web-preview/user-manual/event-flags/#clearing-individual-flags">Clearing individual flags</a></li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/user-manual/event-flags/#destroying-event-flags">Destroying event flags</a></li>
+</ul>
+
+<h3 id="mutexes">
+<a href="/web-preview/user-manual/mutexes/">Mutexes</a>
+</h3>
+<ul>
+  <li>
+<a href="/web-preview/user-manual/mutexes/#overview">Overview</a>
+    <ul>
+      <li>Normal mutexes</li>
+      <li>Recursive mutexes</li>
+    </ul>
+  </li>
+  <li>Creating mutexes</li>
+  <li>Acquiring a mutex</li>
+  <li>Releasing a mutex</li>
+  <li>Multiple threads waiting on a mutex</li>
+  <li>Other mutex functions</li>
+  <li>Destroying mutexes</li>
+  <li>Priority inversion</li>
+  <li>Priority inheritance</li>
+  <li>Deadlock (or deadly embrace)</li>
+</ul>
+
+<h3 id="condition-variables">Condition variables</h3>
+<ul>
+  <li>Overview</li>
+  <li>TODO</li>
+</ul>
+
+<h3 id="message-queues">Message queues</h3>
+<ul>
+  <li>Overview</li>
+  <li>Queue storage</li>
+  <li>Message priorities</li>
+  <li>Creating queues</li>
+  <li>Sending messages to queues
+    <ul>
+      <li>Sending messages from ISRs</li>
+    </ul>
+  </li>
+  <li>Receiving messages from queues</li>
+  <li>Other message queue functions</li>
+  <li>Multiple threads waiting on message queues</li>
+  <li>Destroying queues</li>
+</ul>
+
+<h3 id="fixed-size-memory-pools">Fixed size memory pools</h3>
+<ul>
+  <li>Overview</li>
+  <li>Pool storage</li>
+  <li>Creating memory pools</li>
+  <li>Getting a memory block
+    <ul>
+      <li>Getting a memory block from ISRs</li>
+    </ul>
+  </li>
+  <li>Returning a memory block</li>
+  <li>Other memory pools functions</li>
+  <li>Multiple threads waiting on memory pools</li>
+  <li>Destroying memory pools</li>
+</ul>
+
+<h3 id="software-timers">Software timers</h3>
+<ul>
+  <li>Overview</li>
+  <li>Timer functions</li>
+  <li>Creating timers</li>
+  <li>Start a timer</li>
+  <li>Stop a timer</li>
+  <li>Other timer functions</li>
+  <li>Destroying timers</li>
+</ul>
+
+<h3 id="clocks">Clocks</h3>
+<ul>
+  <li>Overview</li>
+  <li>The system clock</li>
+  <li>The real time clock</li>
+  <li>The high resolution clock</li>
+</ul>
+
+<h3 id="interrupts--critical-sections">Interrupts &amp; critical sections</h3>
+<ul>
+  <li>Overview</li>
+  <li>High/low priority interrupts</li>
+  <li>Interrupt nesting</li>
+  <li>Critical sections</li>
+  <li>Uncritical sections</li>
+</ul>
+
+<h3 id="memory-allocators">Memory allocators</h3>
+<ul>
+  <li>TODO</li>
+</ul>
+
+<h3 id="the-scheduler">The scheduler</h3>
+<ul>
+  <li>Scheduling points</li>
+  <li>The ready list</li>
+  <li>The scheduling algorithm</li>
+  <li>Waiting lists</li>
+  <li>The idle thread</li>
+</ul>
+
+<h3 id="run-time-statistics">Run-time statistics</h3>
+<ul>
+  <li>Per-thread number of context switches</li>
+  <li>Per-thread number of CPU clocks used</li>
+</ul>
+
+<h3 id="iterating-threads">Iterating threads</h3>
+
+<h3 id="credits">Credits</h3>
+
+<p>As the saying goes, <em>“Books are written from books, and software from software”</em>. As such, this manual too did not appear from nothing, but was influenced by the following manuals:</p>
+
+<ul>
+  <li>
+<em>“Using the FreeRTOS Real Time Kernel”</em>, by Richard Barry</li>
+  <li>
+<em>“µC/OC-III The Real-Time Kernel - User’s Manual”</em>, by Micriµm</li>
+  <li>
+<em>“embOS &amp; embOS-MPU - Real-Time Operating System - CPU-independent - User &amp; Reference Guide”</em>, by SEGGER</li>
+</ul>
+
+<p>Other links:</p>
+
+<ul>
+  <li><a href="https://blog.feabhas.com/category/rtos/">The Feabhas Blog</a></li>
+</ul>
+
+<p>Many thanks for their impressive work and for providing the inspiration.</p>
+
+
+
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/pt/user-manual/" data-layout="button"></div></li>
+</ul>
+
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="site-footer">
+  <div class="site-footer-links left">
+    <ul>
+  <li>© 2019 Liviu Ionescu</li>
+  <li>Hosted on GitHub</li>
+  <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
+  <li>
+<a href="http://twitter.com/micro_os_plus" class="twitter-follow-button" data-show-count="false">Follow @micro_os_plus</a><script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</li>
+</ul>
+
+
+  </div>
+  <a href="https://github.com/micro-os-plus/micro-os-plus-iii" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+  </a>
+  <div class="site-footer-links right">
+    <ul>
+  <li><a href="/web-preview/">Home</a></li>
+  <li><a href="/web-preview/blog/">News</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/releases">Releases</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues">Support</a></li>
+  <li><a href="/web-preview/about/">About</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</div>
+
+</body>
+</html>

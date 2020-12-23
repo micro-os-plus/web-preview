@@ -9,16 +9,16 @@
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>The µOS++ IIIe Project</title>
+  <title>Test boards</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="The µOS++ IIIe Project">
+  <meta property="og:title" content="Test boards">
   <meta property="og:site_name" content="µOS++ IIIe">
 
   <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
 
 
-  <meta property="article:published_time" content="2016-03-03">
+  <meta property="article:published_time" content="2016-08-17">
 
 
 
@@ -32,7 +32,7 @@
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
 
-  <link rel="canonical" href="/web-preview/">
+  <link rel="canonical" href="/web-preview/develop/boards/">
 
 
 
@@ -239,58 +239,193 @@
       <div class="site-content">
 
         
-<h1 class="page-title">The µOS++ IIIe Project</h1>
+<h1 class="page-title">Test boards</h1>
 <table id="last-modified">
   <tr>
     <td id="last-modified">Last modified on Wed Dec 23 10:37:26 2020 UTC.</td>
-    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/home.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/micro-os-plus.github.io-source/edit/master/pages/develop/boards.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
 
-
-<p>The <strong>µOS++ IIIe</strong> <em>(micro oh ɛs plus plus third edition)</em> project is the third iteration of µOS++, a POSIX-like, portable, open source, royalty-free, multi-tasking real-time framework intended for 32/64-bits embedded applications, written in C++. The project is hosted on GitHub as <a href="https://github.com/micro-os-plus">micro-os-plus</a>. It has a comprehensive <a href="/web-preview/user-manual/">User’s manual</a>. The APIs are documented in the <a href="/web-preview/reference/cmsis-plus/">µOS++ reference</a>.</p>
-
-<p><strong>POSIX++</strong> is another point of view of the project; with most system APIs using the POSIX semantics, but being written in C++, the <strong>µOS++ IIIe</strong> APIs can also be seen as a C++ version of POSIX, thus the name <strong>POSIX++</strong>.</p>
-
-<h2 id="manyfold-identity">Manyfold identity</h2>
-
-<p>The <strong>µOS++ IIIe</strong> project can be considered from several points of view.</p>
-
-<h3 id="the-µos-frameworkapis">The µOS++ framework/APIs</h3>
-
-<p>Although generally associated with its RTOS, <strong>µOS++ IIIe</strong> is actually a framework, a collection of APIs, components and technologies.</p>
-
-<p>One of the main APIs is the µOS++ RTOS API, but applications based on µOS++ may run very well without a RTOS, or even use a different RTOS.</p>
-
-<p>For a better portability, the entire framework is layered, the µOS++ RTOS API provides a common public interface to the applications, but the implementation is separate, it might be that of its own µOS++ RTOS reference implementation, but it may very well be another implementation, even a custom one specific to the application.</p>
-
-<h3 id="the-µos-rtos-implementation">The µOS++ RTOS implementation</h3>
-
-<p>From an embedded system point of view, <strong>µOS++ IIIe</strong> provides the <strong>reference implementation</strong> for the <strong>scheduler</strong> and <strong>portable synchronisation</strong> objects (like mutex, semaphore, etc).</p>
-
-<div style="text-align:center">
-<img alt="µOS++ RTOS" src="/web-preview/assets/images/2017/micro-os-plus-rtos.png">
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
 </div>
+<ul>
+<li class="toc_level-1 toc_section-1">
+<a href="#stm32"><span class="tocnumber">1</span> <span class="toctext">STM32</span></a>
+</li>
+<li class="toc_level-1 toc_section-2">
+<a href="#nxpfrescale"><span class="tocnumber">2</span> <span class="toctext">NXP/Frescale</span></a>
+</li>
+<li class="toc_level-1 toc_section-3">
+<a href="#infineon"><span class="tocnumber">3</span> <span class="toctext">Infineon</span></a>
+</li>
+<li class="toc_level-1 toc_section-4">
+<a href="#ti"><span class="tocnumber">4</span> <span class="toctext">TI</span></a>
+</li>
+<li class="toc_level-1 toc_section-5">
+<a href="#analog-devices"><span class="tocnumber">5</span> <span class="toctext">Analog Devices</span></a>
+</li>
+<li class="toc_level-1 toc_section-6">
+<a href="#wish-list"><span class="tocnumber">6</span> <span class="toctext">Wish list</span></a>
+</li>
+<li class="toc_level-1 toc_section-7">
+<a href="#segger-st-link-to-j-link-conversion"><span class="tocnumber">7</span> <span class="toctext">SEGGER ST-Link to J-Link conversion</span></a>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The available test boards are:</p>
 
-<h3 id="the-µos-packages">The µOS++ packages</h3>
+<h2 id="stm32">STM32</h2>
 
-<p>From a modular point of view, <strong>µOS++ IIIe</strong> is a <strong>collection of packages</strong> hosted on GitHub in two locations:</p>
+<p>Discovery boards:</p>
 
 <ul>
-  <li>the original code is grouped under the <a href="https://github.com/micro-os-plus">µOS++ IIIe</a> GitHub collection of projects</li>
-  <li>projects based on third party code are grouped under the <a href="https://github.com/xpacks">xPacks</a> collection.</li>
+  <li>
+<a href="http://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-eval-tools/stm32-mcu-eval-tools/stm32-mcu-discovery-kits/stm32f4discovery.html">STM32F4-DISCOVERY</a> (M4, STM32F407VGT6)
+    <ul>
+      <li>
+<a href="http://www.st.com/en/evaluation-tools/stm32f4dis-ext.html">STM32F4DIS-BB</a> STM32F4DIS-BB Base Board for STM32F4DISCOVERY (Ethernet)</li>
+    </ul>
+  </li>
+  <li>
+<a href="http://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-eval-tools/stm32-mcu-eval-tools/stm32-mcu-discovery-kits/32f429idiscovery.html">32F429IDISCOVERY</a> (M4, STM32F429ZIT6)</li>
+  <li>
+<a href="http://www.st.com/en/evaluation-tools/stm32f3discovery.html">STM32F3DISCOVERY</a> (M4, STM32F303VCT6)</li>
+  <li>
+<a href="http://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-eval-tools/stm32-mcu-eval-tools/stm32-mcu-discovery-kits/stm32vldiscovery.html">STM32VLDISCOVERY</a> (M3, STM32F100RBT6B)</li>
+  <li>
+<a href="http://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-eval-tools/stm32-mcu-eval-tools/stm32-mcu-discovery-kits/stm32f0discovery.html">STM32F0DISCOVERY</a> (M0, <a href="http://www.st.com/content/st_com/en/products/microcontrollers/stm32-32-bit-arm-cortex-mcus/stm32f0-series/stm32f0x1/stm32f051r8.html">STM32F051R8T6</a>, 64KB, 8KB)</li>
 </ul>
 
-<div style="text-align:center">
-<img alt="µOS++ Collection" src="/web-preview/assets/images/2017/micro-os-plus-collection.png">
-</div>
+<p>Nucleo boards:</p>
 
-<h2 id="license">License</h2>
+<ul>
+  <li>
+<a href="http://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-eval-tools/stm32-mcu-eval-tools/stm32-mcu-nucleo/nucleo-f103rb.html">NUCLEO-F103RB</a> (M3, STM32F103RBT6)</li>
+  <li>
+<a href="http://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-eval-tools/stm32-mcu-eval-tools/stm32-mcu-nucleo/nucleo-l152re.html">NUCLEO-L152RE</a> (M3, STM32L152RET6)</li>
+  <li>
+<a href="http://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-eval-tools/stm32-mcu-eval-tools/stm32-mcu-nucleo/nucleo-f334r8.html">NUCLEO-F334R8</a> (M4, STM32F334R8T6)</li>
+  <li>
+    <p><a href="http://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-eval-tools/stm32-mcu-eval-tools/stm32-mcu-nucleo/nucleo-f411re.html">NUCLEO-F411RE</a> (M4, STM32F411RET6)</p>
+  </li>
+  <li>
+<a href="http://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-eval-tools/stm32-mcu-eval-tools/stm32-mcu-nucleo/nucleo-l073rz.html">NUCLEO-L073RZ</a> (M0+, STM32L073RZ, 192KB, 20KB)</li>
+</ul>
 
-<p>Unless otherwise mentioned, all <strong>µOS++ IIIe</strong> components are provided <strong>free of charge</strong> under the terms of the <a href="https://opensource.org/licenses/MIT">MIT License</a>, with all rights reserved to Liviu Ionescu.</p>
+<p>Olimex boards:</p>
+
+<ul>
+  <li>STM32-H103</li>
+  <li>STM32-P107</li>
+  <li>OLIMEXINO-STM32 * 2</li>
+</ul>
+
+<h2 id="nxpfrescale">NXP/Frescale</h2>
+
+<ul>
+  <li>FRDM-K20D50M</li>
+  <li>FRDM-KL25Z</li>
+  <li>FRDM-KL26Z</li>
+  <li>FRDM-KL46Z</li>
+  <li>FRDM-K64F</li>
+  <li>
+    <p>TWR-K60F120M</p>
+  </li>
+  <li>LPCXpresso LPC1769</li>
+</ul>
+
+<h2 id="infineon">Infineon</h2>
+
+<ul>
+  <li>XMC1100 Boot Kit</li>
+  <li>XMC1200 Boot Kit</li>
+  <li>XMC1300 Boot Kit</li>
+  <li>XMC4500 Relax Lite Kit</li>
+  <li>XMC-2GO (XMC1100)</li>
+  <li>XMC4200 Enterprise Kit</li>
+  <li>XMC4400 Enterprise Kit</li>
+  <li>XMC4500 Enterprise Kit</li>
+</ul>
+
+<h2 id="ti">TI</h2>
+
+<ul>
+  <li>Tiva TM4C123G (M4, TM4C123GH6PMI)</li>
+  <li>Hercules RM42L432 (R4)</li>
+</ul>
+
+<h2 id="analog-devices">Analog Devices</h2>
+
+<ul>
+  <li>EVAL-ADUCM360 ARDZ</li>
+</ul>
+
+<hr>
+
+<h2 id="wish-list">Wish list</h2>
+
+<p>
+<a href="http://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-eval-tools/stm32-mcu-eval-tools.html?querycriteria=productId=SS1532">STM32 MCU Eval Tools </a>
+</p>
+
+<p>F7 boards:</p>
+
+<ul>
+  <li>
+<a href="http://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-eval-tools/stm32-mcu-eval-tools/stm32-mcu-discovery-kits/32f769idiscovery.html">32F769IDISCOVERY</a> (M7, STM32F769NI, 2MB, 512KB), Ethernet, display, many, $77</li>
+  <li>
+<a href="http://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-eval-tools/stm32-mcu-eval-tools/stm32-mcu-nucleo/nucleo-f767zi.html">NUCLEO-F767ZI</a> (M7, STM32F767ZI, 2MB, 512KB) $23</li>
+</ul>
+
+<p>Possibly more F4 boards:</p>
+
+<ul>
+  <li><a href="http://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-eval-tools/stm32-mcu-eval-tools/stm32-mcu-nucleo/nucleo-f446ze.html">NUCLEO-F446ZE</a></li>
+  <li><a href="http://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-eval-tools/stm32-mcu-eval-tools/stm32-mcu-nucleo/nucleo-l476rg.html">NUCLEO-L476RG</a></li>
+</ul>
+
+<p>Possibly the L0 device, for the e-paper display:</p>
+
+<ul>
+  <li>
+<a href="http://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-eval-tools/stm32-mcu-eval-tools/stm32-mcu-discovery-kits/32l0538discovery.html">32L0538DISCOVERY</a> (M0+, STM32L053C8T6, 64KB, 8KB), e-paper display, 172x72, $23</li>
+</ul>
+
+<p>Possibly one other M0 device</p>
+
+<ul>
+  <li>
+<a href="http://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-eval-tools/stm32-mcu-eval-tools/stm32-mcu-nucleo/nucleo-f091rc.html">NUCLEO-F091RC</a> (M0, STM32F091RC, 256KB, 32KB)</li>
+  <li>
+<a href="http://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-eval-tools/stm32-mcu-eval-tools/stm32-mcu-nucleo/nucleo-f070rb.html">NUCLEO-F070RB</a> (M0, STM32F070RB, 128KB, 16KB, USB)</li>
+</ul>
+
+<h2 id="segger-st-link-to-j-link-conversion">SEGGER ST-Link to J-Link conversion</h2>
+
+<p>Except STM32VLDISCOVERY, which uses an unsupported version, <strong>all other ST boards were converted to J-Link</strong>, using the <a href="https://www.segger.com/products/debug-probes/j-link/models/other-j-links/st-link-on-board/">SEGGER Converting ST-LINK On-Board Into a J-Link</a>. Highly recommended!</p>
 
 
 
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/develop/boards/" data-layout="button"></div></li>
+</ul>
 
 
 
