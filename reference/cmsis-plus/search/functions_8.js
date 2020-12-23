@@ -1,0 +1,8 @@
+var searchData=
+[
+  ['hardfault_5fhandler',['HardFault_Handler',['../exception-handlers_8h.html#a2bffc10d5bd4106753b7c30e86903bea',1,'exception-handlers.h']]],
+  ['hardfault_5fhandler_5fc',['HardFault_Handler_C',['../exception-handlers_8h.html#a4ba78f8ed935db412d82624817946eab',1,'exception-handlers.h']]],
+  ['hardware_5fconcurrency',['hardware_concurrency',['../classthread.html#a4f818a659a028faad0ad523751385010',1,'thread::hardware_concurrency()'],['../classos_1_1estd_1_1thread.html#a4f818a659a028faad0ad523751385010',1,'os::estd::thread::hardware_concurrency()']]],
+  ['head',['head',['../classos_1_1rtos_1_1internal_1_1ready__threads__list.html#afad9bc69ecef5371316259ae20f631db',1,'os::rtos::internal::ready_threads_list::head()'],['../classos_1_1rtos_1_1internal_1_1waiting__threads__list.html#adf33320618dfc3ccf074a732bacdb118',1,'os::rtos::internal::waiting_threads_list::head()'],['../classos_1_1rtos_1_1internal_1_1clock__timestamps__list.html#a2a9c8e2b4baedc929d37386a1833f58b',1,'os::rtos::internal::clock_timestamps_list::head()'],['../classos_1_1rtos_1_1internal_1_1terminated__threads__list.html#a8d17c1ce528f6955c16bfe853a567d5e',1,'os::rtos::internal::terminated_threads_list::head()'],['../classos_1_1utils_1_1static__double__list.html#ac2c4bb24cbda1349931e3b22a8b99623',1,'os::utils::static_double_list::head()']]],
+  ['host',['Host',['../classos_1_1driver_1_1usb_1_1Host.html#a247401845dc8fd26967f01947bf49557',1,'os::driver::usb::Host::Host() noexcept'],['../classos_1_1driver_1_1usb_1_1Host.html#a0673c1ec19ce71229ebd2993fa4d8141',1,'os::driver::usb::Host::Host(const Host &amp;)=delete'],['../classos_1_1driver_1_1usb_1_1Host.html#a595ecceabb0b1ce8a4465354579c63ff',1,'os::driver::usb::Host::Host(Host &amp;&amp;)=delete']]]
+];
