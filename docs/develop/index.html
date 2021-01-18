@@ -242,7 +242,7 @@
 <h1 class="page-title">Developer resources</h1>
 <table id="last-modified">
   <tr>
-    <td id="last-modified">Last modified on Wed Jan 13 23:27:06 2021 UTC.</td>
+    <td id="last-modified">Last modified on Mon Jan 18 12:48:53 2021 UTC.</td>
     <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/web-jekyll/edit/master/pages/develop/overview.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
@@ -257,19 +257,22 @@
 </div>
 <ul>
 <li class="toc_level-1 toc_section-1">
-<a href="#coding-styles"><span class="tocnumber">1</span> <span class="toctext">Coding styles</span></a>
+<a href="#standards"><span class="tocnumber">1</span> <span class="toctext">Standards</span></a>
 </li>
 <li class="toc_level-1 toc_section-2">
-<a href="#misc"><span class="tocnumber">2</span> <span class="toctext">Misc</span></a>
+<a href="#coding-styles"><span class="tocnumber">2</span> <span class="toctext">Coding styles</span></a>
 </li>
 <li class="toc_level-1 toc_section-3">
-<a href="#procedures"><span class="tocnumber">3</span> <span class="toctext">Procedures</span></a>
+<a href="#misc"><span class="tocnumber">3</span> <span class="toctext">Misc</span></a>
 </li>
 <li class="toc_level-1 toc_section-4">
-<a href="#links--references"><span class="tocnumber">4</span> <span class="toctext">Links &amp; References</span></a>
+<a href="#procedures"><span class="tocnumber">4</span> <span class="toctext">Procedures</span></a>
 </li>
 <li class="toc_level-1 toc_section-5">
-<a href="#hardware"><span class="tocnumber">5</span> <span class="toctext">Hardware</span></a>
+<a href="#links--references"><span class="tocnumber">5</span> <span class="toctext">Links &amp; References</span></a>
+</li>
+<li class="toc_level-1 toc_section-6">
+<a href="#hardware"><span class="tocnumber">6</span> <span class="toctext">Hardware</span></a>
 </li>
 </ul>
 </td>
@@ -277,6 +280,25 @@
 </tbody>
 </table>
 </div>
+<h2 id="standards">Standards</h2>
+
+<p>µOS++ source should comply with <strong>C++ 17</strong> and <strong>C 11</strong></p>
+
+<ul>
+  <li>GCC: <code class="language-plaintext highlighter-rouge">-std=c++-17</code> or <code class="language-plaintext highlighter-rouge">-std=c11</code>
+</li>
+  <li>clang: <code class="language-plaintext highlighter-rouge">-std=c++-17</code> or <code class="language-plaintext highlighter-rouge">-std=c11</code>
+</li>
+</ul>
+
+<p>It should be possible to compile it with <strong>GCC 8</strong> or newer, or with
+<strong>LLVM clang 7</strong> or newer.</p>
+
+<ul>
+  <li><a href="https://gcc.gnu.org/projects/cxx-status.html">GCC C++ status</a></li>
+  <li><a href="https://clang.llvm.org/cxx_status.html">clang C++ status</a></li>
+</ul>
+
 <h2 id="coding-styles">Coding styles</h2>
 
 <blockquote>
