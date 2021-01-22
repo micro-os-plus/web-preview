@@ -5,9 +5,29 @@
     <description>The third edition of µOS++, a POSIX inspired open source framework, written in C++.</description>
     <link>http://micro-os-plus.github.io/web-preview/</link>
     <atom:link href="http://micro-os-plus.github.io/web-preview/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 22 Jan 2021 14:43:27 +0000</pubDate>
-    <lastBuildDate>Fri, 22 Jan 2021 14:43:27 +0000</lastBuildDate>
+    <pubDate>Fri, 22 Jan 2021 20:26:22 +0000</pubDate>
+    <lastBuildDate>Fri, 22 Jan 2021 20:26:22 +0000</lastBuildDate>
     <generator>Jekyll v3.9.0</generator>
+    
+      <item>
+        <title>First µOS++ scriptable build</title>
+        <description>&lt;p&gt;In preparation for the future 7.x release, a major milestone was
+reached: the modularised µOS++ was, for the first time, fully built
+without Eclipse.&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 22 Jan 2021 20:18:00 +0000</pubDate>
+        <link>http://micro-os-plus.github.io/web-preview/blog/2021/01/22/micro-os-plus-first-scriptable-build/</link>
+        <guid isPermaLink="true">http://micro-os-plus.github.io/web-preview/blog/2021/01/22/micro-os-plus-first-scriptable-build/</guid>
+        
+        
+        <category>releases</category>
+        
+        <category>rtos</category>
+        
+        <category>micro-os-plus</category>
+        
+      </item>
     
       <item>
         <title>µOS++ IIIe v6.3.15 released</title>
@@ -178,22 +198,6 @@ block devices and file systems.&lt;/p&gt;
         <category>news</category>
         
         <category>article</category>
-        
-      </item>
-    
-      <item>
-        <title>The µOS++ IIIe new web site (using GitHub Pages)</title>
-        <description>&lt;p&gt;After the µOS++ IIIe project was migrated from &lt;a href=&quot;http://sourceforge.net/projects/micro-os-plus/&quot;&gt;SourceForge&lt;/a&gt; to &lt;a href=&quot;https://github.com/micro-os-plus&quot;&gt;GitHub&lt;/a&gt;, a new web site was created, to replace the previous wikis.&lt;/p&gt;
-
-</description>
-        <pubDate>Thu, 03 Mar 2016 19:10:00 +0000</pubDate>
-        <link>http://micro-os-plus.github.io/web-preview/blog/2016/03/03/web-new-look/</link>
-        <guid isPermaLink="true">http://micro-os-plus.github.io/web-preview/blog/2016/03/03/web-new-look/</guid>
-        
-        
-        <category>news</category>
-        
-        <category>web</category>
         
       </item>
     

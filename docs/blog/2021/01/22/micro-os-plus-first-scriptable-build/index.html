@@ -9,18 +9,21 @@
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>Typedef OSReturn t</title>
-  <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
+  <title>First µOS++ scriptable build</title>
+  <meta name="description" content="In preparation for the future 7.x release, a major milestone wasreached: the modularised µOS++ was, for the first time, fully builtwithout Eclipse.">
 
-  <meta property="og:title" content="Typedef OSReturn t">
+  <meta property="og:title" content="First µOS++ scriptable build">
   <meta property="og:site_name" content="µOS++ IIIe">
 
   <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
 
 
-  <meta property="article:published_time" content="2011-02-17">
+  <meta property="article:published_time" content="2021-01-22">
 
 
+  <meta property="article:section" content="releases">
+  <meta property="article:section" content="rtos">
+  <meta property="article:section" content="micro-os-plus">
 
 
 
@@ -32,7 +35,7 @@
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
 
-  <link rel="canonical" href="/web-preview/micro-os-plus/i/Typedef_OSReturn_t/">
+  <link rel="canonical" href="/web-preview/blog/2021/01/22/micro-os-plus-first-scriptable-build/">
 
 
 
@@ -238,31 +241,53 @@
 
       <div class="site-content">
 
-        
-<h1 class="page-title">Typedef OSReturn t - DEPRECATED</h1>
-<table id="last-modified">
+        <table id="post-navigation">
   <tr>
-    <td id="last-modified">Page date Thu Feb 17 13:05:20 2011 .</td>
-    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/web-jekyll/edit/master/pages/micro-os-plus/i/Typedef_OSReturn_t.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+    <td><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">←</a></td>
+    <td><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></td>
+    <td></td>
+    <td></td>
+    <td></td>
   </tr>
 </table>
 
-<p>Typedef_OSReturn_t</p>
 
-<p>[TODO]</p>
-
+<h1 class="post-title">First µOS++ scriptable build</h1>
 
 
+<p class="post-meta">
+Posted on January 22, 2021 by Liviu Ionescu.
+</p>
 
+<p>In preparation for the future 7.x release, a major milestone was
+reached: the modularised µOS++ was, for the first time, fully built
+without Eclipse.</p>
 
+<p>The preliminary version uses a simplified CMake configuration, that
+performs monolithic builds for all demo platforms:</p>
 
-
-
-<ul class="share-buttons">
-  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
-  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/micro-os-plus/i/Typedef_OSReturn_t/" data-layout="button"></div></li>
+<ul>
+  <li>STM32F4DISCOVERY (Cortex-M4)</li>
+  <li>STM32F0DISCOVERY (Cortex-M0)</li>
+  <li>SiFive HiFive1 (RISC-V)</li>
+  <li>Synthetic POSIX (user process on macOS/Linux)</li>
 </ul>
 
+<p>The CMake scripts will be further refined; support for meson is also
+planned.</p>
+
+
+<div class="post-footer">
+<p>Posted in
+
+<strong>releases</strong>, <strong>rtos</strong>, <strong>micro-os-plus</strong>.</p>
+<p>Last modified on Fri Jan 22 20:25:26 2021 UTC.</p>
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/blog/2021/01/22/micro-os-plus-first-scriptable-build/" data-layout="button"></div></li>
+</ul>
+
+</div>
 
 
       </div>
