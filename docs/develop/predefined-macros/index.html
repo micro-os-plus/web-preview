@@ -242,7 +242,7 @@
 <h1 class="page-title">Predefined compiler macros</h1>
 <table id="last-modified">
   <tr>
-    <td id="last-modified">Last modified on Mon Jan 18 12:48:53 2021 UTC.</td>
+    <td id="last-modified">Last modified on Fri Jan 22 14:42:14 2021 UTC.</td>
     <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/web-jekyll/edit/master/pages/develop/predefined-macros.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
@@ -313,7 +313,22 @@
 <code>
 <span class="cp">#if defined(__APPLE__)
 #if defined(__linux__)
-#if defined(__x86_64__)
+#if defined(__unix__)
+#if defined(WIN32)
+#if defined(__MINGW32__)
+#if defined(__MINGW64__)
+</span>
+</code></pre>
+</div>
+</div>
+
+<p>To check if not running native on a desktop machine:</p>
+
+<div class="language-c highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="cp">#if (!(defined(__APPLE__) || defined(__linux__) || defined(__unix__))) \
+    || defined(__DOXYGEN__)
 </span>
 </code></pre>
 </div>
