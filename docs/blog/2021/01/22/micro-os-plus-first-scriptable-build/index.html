@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>First µOS++ scriptable build</title>
-  <meta name="description" content="In preparation for the future 7.x release, a major milestone wasreached: the modularised µOS++ was, for the first time, fully builtwithout Eclipse.">
+  <meta name="description" content="In preparation for the future 7.x release, a major milestone wasreached: the modularised µOS++ was, for the first time, fully builtin a terminal, without Ecl...">
 
   <meta property="og:title" content="First µOS++ scriptable build">
   <meta property="og:site_name" content="µOS++ IIIe">
@@ -259,9 +259,12 @@
 Posted on January 22, 2021 by Liviu Ionescu.
 </p>
 
-<p>In preparation for the future 7.x release, a major milestone was
-reached: the modularised µOS++ was, for the first time, fully built
-without Eclipse.</p>
+<p>In preparation for the future 7.x release, <strong>a major milestone</strong> was
+reached: <strong>the modularised µOS++ was, for the first time, fully built
+in a terminal</strong>, without Eclipse.</p>
+
+<p>Scriptable builds open the way for adding unit tests to each package,
+which will help preserve the robustness of the project.</p>
 
 <p>The preliminary version uses a simplified CMake configuration, that
 performs monolithic builds for all demo platforms:</p>
@@ -276,12 +279,19 @@ performs monolithic builds for all demo platforms:</p>
 <p>The CMake scripts will be further refined; support for meson is also
 planned.</p>
 
+<p>The test project is <code class="language-plaintext highlighter-rouge">blinky-rtos</code>, part of <code class="language-plaintext highlighter-rouge">xpack-study-projects</code>,
+available from GitHub:</p>
+
+<ul>
+  <li>https://github.com/micro-os-plus/xpack-study-projects</li>
+</ul>
+
 
 <div class="post-footer">
 <p>Posted in
 
 <strong>releases</strong>, <strong>rtos</strong>, <strong>micro-os-plus</strong>.</p>
-<p>Last modified on Fri Jan 22 20:25:26 2021 UTC.</p>
+<p>Last modified on Fri Jan 22 20:34:37 2021 UTC.</p>
 <ul class="share-buttons">
   <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
   <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/blog/2021/01/22/micro-os-plus-first-scriptable-build/" data-layout="button"></div></li>
