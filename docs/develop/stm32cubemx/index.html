@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>STM32CubeMX</title>
+  <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
+
+  <meta property="og:title" content="STM32CubeMX">
+  <meta property="og:site_name" content="µOS++ IIIe">
+
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+
+
+  <meta property="article:published_time" content="2021-01-23">
+
+
+
+
+
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+
+  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?201807041643" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?201807041643" media="print">
+
+  <link rel="canonical" href="/web-preview/develop/stm32cubemx/">
+
+
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16767008-14', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+  <div class="site-header">
+  <table style="width:100%">
+    <tr>
+      <td>
+        <a href="/web-preview/">
+          <img alt="Icon" class="site-icon" src="/web-preview/assets/icons/wall-e-icon.png" height="100" width="100">
+      </a>
+      </td>
+      <td>
+        <table class="site-title" style="width:100%">
+          <tr>
+            <td class="site-title">
+              <a href="/web-preview/">µOS++ IIIe</a>
+            </td>
+            <td class="site-motto" align="right">
+              “Perfekt ist nicht gut genug”
+            </td>
+          </tr>
+          <tr>
+            <td class="site-description" colspan="2">
+              The third edition of µOS++, a POSIX inspired open source framework, written in C++.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+</div>
+
+<div class="container">
+
+  <div class="wrapper">
+    <div class="site-body">
+
+      <div class="site-sidebar">
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      <h4 id="news"><a href="/web-preview/blog/">News</a></h4>
+
+<ul>
+  <li><a href="/web-preview/blog/2021/01/22/micro-os-plus-first-scriptable-build/">First µOS++ scriptable build</a></li>
+  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></li>
+  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ IIIe v6.3.14 released</a></li>
+  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ IIIe v6.3.13 released</a></li>
+</ul>
+
+
+    </div>
+  </div>
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      
+      <h4 id="home"><a href="/web-preview/">Home</a></h4>
+
+<h4 id="µos-iiie">µOS++ IIIe</h4>
+
+<ul>
+  <li><a href="/web-preview/micro-os-plus/">Overview</a></li>
+</ul>
+
+<h4 id="apis">APIs</h4>
+
+<ul>
+  <li><a href="/web-preview/cmsis-plus/">Overview</a></li>
+  <li><a href="/web-preview/cmsis-plus/rtos/">RTOS API</a></li>
+</ul>
+
+<h4 id="xpacksxcdl">xPacks/XCDL</h4>
+
+<ul>
+  <li><a href="/web-preview/xpacks/">Overview</a></li>
+</ul>
+
+<h4 id="documentation">Documentation</h4>
+
+<ul>
+  <li>
+<a href="/web-preview/user-manual/">User’s <strong>manual</strong></a>
+    <ul>
+      <li><a href="/web-preview/user-manual/getting-started/">Getting started</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/">Basic concepts</a></li>
+      <li><a href="/web-preview/user-manual/features/">Features</a></li>
+      <li><a href="/web-preview/user-manual/threads/">Threads</a></li>
+      <li><a href="/web-preview/user-manual/thread-event-flags/">Thread event flags</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/">Semaphores</a></li>
+      <li><a href="/web-preview/user-manual/event-flags/">Event flags</a></li>
+      <li>Mutexes</li>
+      <li>Condition variables</li>
+      <li>Message queues</li>
+      <li>Memory pools</li>
+      <li>Software timers</li>
+      <li>Clocks</li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/reference/cmsis-plus/">µOS++ <strong>reference</strong></a></li>
+</ul>
+
+<h4 id="developer">Developer</h4>
+
+<ul>
+  <li><a href="/web-preview/develop/">Overview</a></li>
+  <li><a href="/web-preview/reference/cmsis-plus/md_doxygen_pages_change-log.html">Change log</a></li>
+  <li><a href="/web-preview/develop/coding-style/">C++ coding style</a></li>
+  <li><a href="/web-preview/develop/naming-conventions/">Naming conventions</a></li>
+  <li><a href="/web-preview/develop/references/">Links &amp; references</a></li>
+</ul>
+
+<h4 id="support">Support</h4>
+
+<ul>
+  <li><a href="/web-preview/support/">Overview</a></li>
+  <li><a href="/web-preview/support/known-issues/">Known issues</a></li>
+  <li><a href="/web-preview/support/faq/">FAQ</a></li>
+  <li><a href="/web-preview/support/forum/">Forum</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ IIIe issues</a></li>
+</ul>
+
+<h4 id="latest-articles">Latest Articles</h4>
+
+<ul>
+  <li><a href="/web-preview/articles/arm-com-2016-06-24/">CMSIS++ RTOS: fully functional reference implementation</a></li>
+  <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
+</ul>
+
+<h4 id="license">License</h4>
+
+<ul>
+  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+</ul>
+
+<h4 id="about"><a href="/web-preview/about/">About</a></h4>
+
+    </div>
+  </div>
+
+  <div class="site-theme">
+    This site uses the <a href="https://github.com/ilg-ul/github-jekyll-theme">GitHub Wiki-like</a> theme by <a href="https://github.com/ilg-ul">Liviu Ionescu</a>.
+  </div>
+
+</div>
+
+
+      <div class="site-content">
+
+        
+<h1 class="page-title">STM32CubeMX</h1>
+<table id="last-modified">
+  <tr>
+    <td id="last-modified">Last modified on Sat Jan 23 19:21:29 2021 UTC.</td>
+    <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/web-jekyll/edit/master/pages/develop/stm32cubemx.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
+  </tr>
+</table>
+
+<div id="toc-container">
+<table class="toc" id="toc">
+<tbody>
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toc_level-1 toc_section-1">
+<a href="#overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a>
+</li>
+<li class="toc_level-1 toc_section-2">
+<a href="#prerequisites"><span class="tocnumber">2</span> <span class="toctext">Prerequisites</span></a>
+</li>
+<li class="toc_level-1 toc_section-3">
+<a href="#download--install"><span class="tocnumber">3</span> <span class="toctext">Download &amp; install</span></a>
+</li>
+<li class="toc_level-1 toc_section-4">
+<a href="#start"><span class="tocnumber">4</span> <span class="toctext">Start</span></a>
+</li>
+<li class="toc_level-1 toc_section-5">
+<a href="#install-the-f4-package"><span class="tocnumber">5</span> <span class="toctext">Install the F4 package</span></a>
+</li>
+<li class="toc_level-1 toc_section-6">
+<a href="#create-a-new-project"><span class="tocnumber">6</span> <span class="toctext">Create a new project</span></a>
+</li>
+<li class="toc_level-1 toc_section-7">
+<a href="#configure-the-project"><span class="tocnumber">7</span> <span class="toctext">Configure the project</span></a>
+</li>
+<li class="toc_level-1 toc_section-8">
+<a href="#generate-code"><span class="tocnumber">8</span> <span class="toctext">Generate code</span></a>
+<ul>
+<li class="toc_level-2 toc_section-9">
+<a href="#source-folders"><span class="tocnumber">8.1</span> <span class="toctext">Source folders</span></a>
+</li>
+<li class="toc_level-2 toc_section-10">
+<a href="#include-folders"><span class="tocnumber">8.2</span> <span class="toctext">Include folders</span></a>
+</li>
+</ul>
+</li>
+<li class="toc_level-1 toc_section-11">
+<a href="#customisations"><span class="tocnumber">9</span> <span class="toctext">Customisations</span></a>
+</li>
+<li class="toc_level-1 toc_section-12">
+<a href="#include-trace-header"><span class="tocnumber">10</span> <span class="toctext">Include trace header</span></a>
+</li>
+<li class="toc_level-1 toc_section-13">
+<a href="#implement-error_handler"><span class="tocnumber">11</span> <span class="toctext">Implement Error_Handler()</span></a>
+</li>
+<li class="toc_level-1 toc_section-14">
+<a href="#implement-assert_failed"><span class="tocnumber">12</span> <span class="toctext">Implement assert_failed()</span></a>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="overview">Overview</h2>
+
+<p><a href="https://www.st.com/en/development-tools/stm32cubemx.html">STM32CubeMX</a>
+is a graphical tool provided by ST Microelectornics,
+that allows a very easy configuration
+of STM32 microcontrollers, as well as the generation
+of the corresponding initialization C code for the Arm® Cortex-M.</p>
+
+<p>This page documents the procedure to create the initialisation code
+for the <strong>STM32F4DISCOVERY</strong> blinky projects.</p>
+
+<p>For other boards/devices, adjust the steps accordingly.</p>
+
+<p>Note: STM32CubeMX has a very weird implementation, and you may face many
+small issues with the interface;</p>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<p>The application requires Java. Install OpenJava or any Java distribution.</p>
+
+<h2 id="download--install">Download &amp; install</h2>
+
+<p>Register to the STM site and download the latest version.</p>
+
+<p>The result is a file like <code class="language-plaintext highlighter-rouge">en.stm32cubemx_v6-1-1.zip</code>. Unpack it and follow
+the instructions.</p>
+
+<p>Note: for macOS, if the user account has no administrative rights
+(as it should not have!), run the install manually, with sudo:</p>
+
+<div class="language-sh highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="nb">sudo </span>java <span class="nt">-jar</span> SetupSTM32CubeMX-6.1.1.exe
+</code></pre>
+</div>
+</div>
+
+<p>On macOS, the application is installed as
+<code class="language-plaintext highlighter-rouge">/Applications/STMicroelectronics/STM32CubeMX</code>
+and the packages repository is stored at <code class="language-plaintext highlighter-rouge">${HOME}/tmp/STM32Cube</code></p>
+
+<h2 id="start">Start</h2>
+
+<p>Start the application. The current top window looks like:</p>
+
+<p>
+<img src="/web-preview/assets/images/2021/stm32cubemx.png" alt="STM32CubeMX">
+</p>
+
+<h2 id="install-the-f4-package">Install the F4 package</h2>
+
+<p>STM provides separate packages for each family. Install the F4 package.</p>
+
+<ul>
+  <li>in the top page, click the <strong>INSTALL/REMOVE</strong> button</li>
+  <li>scroll to the <strong>STM32F4</strong> family</li>
+  <li>enable the latest available version</li>
+  <li>click the <strong>Install Now</strong> button</li>
+  <li>click the <strong>Close</strong> button</li>
+</ul>
+
+<p>
+<img src="/web-preview/assets/images/2021/cubemx-install-f4.png" alt="Install STM32F4">
+</p>
+
+<h2 id="create-a-new-project">Create a new project</h2>
+
+<p>Before creating a new project, create a new folder in the project,
+for example <code class="language-plaintext highlighter-rouge">stm32cubemx</code>.</p>
+
+<p>To create a new project, start by selecting the board:</p>
+
+<ul>
+  <li>click the <strong>ACCESS TO BOARD SELECTOR</strong>
+</li>
+  <li>in the Commercial Part Number, enter <strong>STM32F407G-DISC1</strong>
+</li>
+  <li>in the list, select the board</li>
+  <li>click the <strong>Start Project</strong> button</li>
+</ul>
+
+<p>
+<img src="/web-preview/assets/images/2021/cubemx-select-f4disco.png" alt="Select STM32F4DISCO">
+</p>
+
+<ul>
+  <li>at the <strong>Initialize all peripherals with their default Mode</strong>
+click the <strong>No</strong> button for a minimal configuration</li>
+  <li>in CubeMX, File -&gt; Save Project as -&gt; select the destination
+(like <code class="language-plaintext highlighter-rouge">&lt;project&gt;/stm32cubemx</code>), <strong>Save</strong>
+</li>
+  <li>check if a file called <code class="language-plaintext highlighter-rouge">stm32cubemx.ioc</code> was created in the
+destination folder</li>
+</ul>
+
+<h2 id="configure-the-project">Configure the project</h2>
+
+<ul>
+  <li>in the top window, click the <strong>Project Manager</strong> tab</li>
+  <li>select the <strong>Project</strong> category
+    <ul>
+      <li>check the <strong>Project Name: stm32cubemx</strong>
+</li>
+      <li>check the <strong>Project Location: platform-stm32f407g-disc1</strong>
+</li>
+      <li>check the <strong>Application Structure: Advanced</strong>
+</li>
+      <li>enable <strong>Do not generate the main()</strong>
+</li>
+      <li>ignore the <strong>Toolchain Folder Location</strong> (no idea what it might be)</li>
+      <li>in the <strong>Toolchain/IDE</strong> combo, select <strong>Other Toolchains (GPDSC)</strong>
+</li>
+      <li>in the <strong>Mcu and Firmware Package</strong> area
+        <ul>
+          <li>enable <strong>Use latest available version</strong>
+</li>
+          <li>enable <strong>Use Default Firmware Location</strong>
+</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>
+<img src="/web-preview/assets/images/2021/cubemx-project.png" alt="Project settings">
+</p>
+
+<ul>
+  <li>select the <strong>Code Generation</strong> category
+    <ul>
+      <li>select the <strong>Copy only the necessary library files</strong>
+</li>
+      <li>in the <strong>Generated files</strong> group
+        <ul>
+          <li>enable <strong>Generate peripheral initialization as a pair of <code class="language-plaintext highlighter-rouge">.c/.h</code> files per peripheral</strong>
+</li>
+          <li>enable <strong>Keep User Code when re-generating</strong>
+</li>
+          <li>enable <strong>Delete previously gnerated files when not re-generated</strong>
+</li>
+        </ul>
+      </li>
+      <li>in the <strong>HAL Settings</strong> group
+        <ul>
+          <li>disable <strong>Set all free pins as analog</strong>
+</li>
+          <li>enable <strong>Enable Full Assert</strong>
+</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>
+<img src="/web-preview/assets/images/2021/cubemx-code-generator.png" alt="Code Generator settings">
+</p>
+
+<ul>
+  <li>select the <strong>Advanced Settings</strong>
+    <ul>
+      <li>enable <strong>MX_GPIO_Init</strong>, with visibility (static)</li>
+      <li>enable <strong>SystemClock_Config</strong>
+</li>
+      <li>disable all register callbacks (on the right)</li>
+    </ul>
+  </li>
+</ul>
+
+<p>
+<img src="/web-preview/assets/images/2021/cubemx-advanced.png" alt="Advanced settings">
+</p>
+
+<ul>
+  <li>in the top window, click the <strong>Pinout &amp; Configuration</strong> tab
+    <ul>
+      <li>expand the <strong>System Core</strong> category</li>
+      <li>select NVIC</li>
+      <li>in the NVIC tab
+        <ul>
+          <li>enable all system interrupts, up to System tick timer</li>
+        </ul>
+      </li>
+      <li>in the Code generation tab
+        <ul>
+          <li>disable <strong>Generate IRQ handler</strong>
+</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/web-preview/assets/images/2021/cubemx-nvic.png" alt="NVIC">
+<img src="/web-preview/assets/images/2021/cubemx-nvic-code.png" alt="NVIC Code"></p>
+
+<h2 id="generate-code">Generate code</h2>
+
+<p>Click the top right <strong>GENERATE CODE</strong> button.</p>
+
+<p>The result is a file system hierarchy like:</p>
+
+<div class="language-console highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>
+<span class="go">ilg@wks % tree stm32cubemx
+stm32cubemx
+├── Core
+│   ├── Inc
+│   │   ├── gpio.h
+│   │   ├── main.h
+│   │   ├── stm32f4xx_hal_conf.h
+│   │   └── stm32f4xx_it.h
+│   └── Src
+│       ├── gpio.c
+│       ├── main.c
+│       ├── stm32f4xx_hal_msp.c
+│       ├── stm32f4xx_it.c
+│       └── system_stm32f4xx.c
+├── Drivers
+│   ├── CMSIS
+│   │   ├── Device
+│   │   │   └── ST
+│   │   │       └── STM32F4xx
+│   │   │           ├── Include
+│   │   │           │   ├── stm32f407xx.h
+│   │   │           │   ├── stm32f4xx.h
+│   │   │           │   └── system_stm32f4xx.h
+│   │   │           └── Source
+│   │   │               └── Templates
+│   │   └── Include
+│   │       ├── cmsis_armcc.h
+│   │       ├── cmsis_armclang.h
+│   │       ├── cmsis_compiler.h
+│   │       ├── cmsis_gcc.h
+│   │       ├── cmsis_iccarm.h
+│   │       ├── cmsis_version.h
+│   │       ├── core_armv8mbl.h
+│   │       ├── core_armv8mml.h
+│   │       ├── core_cm0.h
+│   │       ├── core_cm0plus.h
+│   │       ├── core_cm1.h
+│   │       ├── core_cm23.h
+│   │       ├── core_cm3.h
+│   │       ├── core_cm33.h
+│   │       ├── core_cm4.h
+│   │       ├── core_cm7.h
+│   │       ├── core_sc000.h
+│   │       ├── core_sc300.h
+│   │       ├── mpu_armv7.h
+│   │       ├── mpu_armv8.h
+│   │       └── tz_context.h
+│   └── STM32F4xx_HAL_Driver
+│       ├── Inc
+│       │   ├── Legacy
+│       │   │   └── stm32_hal_legacy.h
+│       │   ├── stm32f4xx_hal.h
+│       │   ├── stm32f4xx_hal_cortex.h
+│       │   ├── stm32f4xx_hal_def.h
+│       │   ├── stm32f4xx_hal_dma.h
+│       │   ├── stm32f4xx_hal_dma_ex.h
+│       │   ├── stm32f4xx_hal_exti.h
+│       │   ├── stm32f4xx_hal_flash.h
+│       │   ├── stm32f4xx_hal_flash_ex.h
+│       │   ├── stm32f4xx_hal_flash_ramfunc.h
+│       │   ├── stm32f4xx_hal_gpio.h
+│       │   ├── stm32f4xx_hal_gpio_ex.h
+│       │   ├── stm32f4xx_hal_pwr.h
+│       │   ├── stm32f4xx_hal_pwr_ex.h
+│       │   ├── stm32f4xx_hal_rcc.h
+│       │   ├── stm32f4xx_hal_rcc_ex.h
+│       │   ├── stm32f4xx_hal_tim.h
+│       │   └── stm32f4xx_hal_tim_ex.h
+│       └── Src
+│           ├── stm32f4xx_hal.c
+│           ├── stm32f4xx_hal_cortex.c
+│           ├── stm32f4xx_hal_dma.c
+│           ├── stm32f4xx_hal_dma_ex.c
+│           ├── stm32f4xx_hal_exti.c
+│           ├── stm32f4xx_hal_flash.c
+│           ├── stm32f4xx_hal_flash_ex.c
+│           ├── stm32f4xx_hal_flash_ramfunc.c
+│           ├── stm32f4xx_hal_gpio.c
+│           ├── stm32f4xx_hal_pwr.c
+│           ├── stm32f4xx_hal_pwr_ex.c
+│           ├── stm32f4xx_hal_rcc.c
+│           ├── stm32f4xx_hal_rcc_ex.c
+│           ├── stm32f4xx_hal_tim.c
+│           └── stm32f4xx_hal_tim_ex.c
+├── stm32cubemx.gpdsc
+└── stm32cubemx.ioc
+
+16 directories, 68 files
+</span>
+</code></pre>
+</div>
+</div>
+
+<h3 id="source-folders">Source folders</h3>
+
+<p>Add the following source folders to the build:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">stm32cubemx/Core/Src</code></li>
+  <li><code class="language-plaintext highlighter-rouge">stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src</code></li>
+</ul>
+
+<h3 id="include-folders">Include folders</h3>
+
+<p>Add the following include folders to the build:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">stm32cubemx/Core/Inc</code></li>
+  <li><code class="language-plaintext highlighter-rouge">stm32cubemx/Drivers/CMSIS/Device/ST/STM32F4xx/Include</code></li>
+  <li><code class="language-plaintext highlighter-rouge">stm32cubemx/Drivers/CMSIS/Include</code></li>
+  <li><code class="language-plaintext highlighter-rouge">stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Inc</code></li>
+</ul>
+
+<h2 id="customisations">Customisations</h2>
+
+<p>Although not critical, for a better error reporting, some small changes
+can be performed to the <code class="language-plaintext highlighter-rouge">stm32cubemx/Core/Src/main.c</code> file.</p>
+
+<p>Being braced by the special comments, these changes survive regenerations
+with CubeMX.</p>
+
+<h2 id="include-trace-header">Include trace header</h2>
+
+<div class="language-c highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="cm">/* USER CODE BEGIN Includes */</span>
+
+<span class="cp">#if defined(OS_INCLUDE_MICRO_OS_PLUS_DIAG_TRACE)
+#include &lt;micro-os-plus/diag/trace.h&gt;
+#endif
+</span>
+<span class="cm">/* USER CODE END Includes */</span>
+</code></pre>
+</div>
+</div>
+
+<h2 id="implement-error_handler">Implement Error_Handler()</h2>
+
+<div class="language-c highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>  <span class="cm">/* USER CODE BEGIN Error_Handler_Debug */</span>
+  <span class="cm">/* User can add his own implementation to report the HAL error return state */</span>
+
+<span class="cp">#if defined(OS_INCLUDE_MICRO_OS_PLUS_DIAG_TRACE)
+</span>  <span class="n">trace_printf</span><span class="p">(</span><span class="s">"Error_Handler()</span><span class="se">\r\n</span><span class="s">"</span><span class="p">);</span>
+<span class="cp">#endif
+</span>
+  <span class="n">__disable_irq</span><span class="p">();</span>
+  <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  <span class="p">{</span>
+  <span class="p">}</span>
+  <span class="cm">/* USER CODE END Error_Handler_Debug */</span>
+</code></pre>
+</div>
+</div>
+
+<h2 id="implement-assert_failed">Implement assert_failed()</h2>
+
+<div class="language-c highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>  <span class="cm">/* USER CODE BEGIN 6 */</span>
+  <span class="cm">/* User can add his own implementation to report the file name and line number,
+     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */</span>
+
+<span class="cp">#if defined(OS_INCLUDE_MICRO_OS_PLUS_DIAG_TRACE)
+</span>  <span class="n">trace_printf</span><span class="p">(</span><span class="s">"Wrong parameters value: file %s on line %d</span><span class="se">\r\n</span><span class="s">"</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">line</span><span class="p">);</span>
+<span class="cp">#endif
+</span>
+    <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{}</span>
+
+  <span class="cm">/* USER CODE END 6 */</span>
+</code></pre>
+</div>
+</div>
+
+
+
+
+
+
+
+
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/develop/stm32cubemx/" data-layout="button"></div></li>
+</ul>
+
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="site-footer">
+  <div class="site-footer-links left">
+    <ul>
+  <li>© 2019 Liviu Ionescu</li>
+  <li>Hosted on GitHub</li>
+  <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
+  <li>
+<a href="http://twitter.com/micro_os_plus" class="twitter-follow-button" data-show-count="false">Follow @micro_os_plus</a><script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</li>
+</ul>
+
+
+  </div>
+  <a href="https://github.com/micro-os-plus/micro-os-plus-iii" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+  </a>
+  <div class="site-footer-links right">
+    <ul>
+  <li><a href="/web-preview/">Home</a></li>
+  <li><a href="/web-preview/blog/">News</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/releases">Releases</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues">Support</a></li>
+  <li><a href="/web-preview/about/">About</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</div>
+
+</body>
+</html>
