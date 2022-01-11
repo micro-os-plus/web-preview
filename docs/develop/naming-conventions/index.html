@@ -242,7 +242,7 @@
 <h1 class="page-title">C/C++ naming conventions</h1>
 <table id="last-modified">
   <tr>
-    <td id="last-modified">Last modified on Sat Jan 23 19:21:29 2021 UTC.</td>
+    <td id="last-modified">Last modified on Tue Jan 11 20:47:18 2022 UTC.</td>
     <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/web-jekyll/edit/master/pages/develop/naming-conventions.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
@@ -257,129 +257,135 @@
 </div>
 <ul>
 <li class="toc_level-1 toc_section-1">
-<a href="#underscore-separated-lower-case-names"><span class="tocnumber">1</span> <span class="toctext">Underscore separated lower case names</span></a>
+<a href="#snake-case"><span class="tocnumber">1</span> <span class="toctext">Snake case</span></a>
 </li>
 <li class="toc_level-1 toc_section-2">
 <a href="#full-words-vs-short-words"><span class="tocnumber">2</span> <span class="toctext">Full words vs. short words</span></a>
 </li>
 <li class="toc_level-1 toc_section-3">
-<a href="#avoid-context-duplication"><span class="tocnumber">3</span> <span class="toctext">Avoid context duplication</span></a>
+<a href="#favor-descriptive-over-concise"><span class="tocnumber">3</span> <span class="toctext">Favor Descriptive Over Concise</span></a>
 </li>
 <li class="toc_level-1 toc_section-4">
-<a href="#singular-vs-plural"><span class="tocnumber">4</span> <span class="toctext">Singular vs. plural</span></a>
+<a href="#avoid-context-duplication"><span class="tocnumber">4</span> <span class="toctext">Avoid context duplication</span></a>
 </li>
 <li class="toc_level-1 toc_section-5">
-<a href="#pairs-of-opposed-actions-or-names"><span class="tocnumber">5</span> <span class="toctext">Pairs of opposed actions or names</span></a>
-<ul>
-<li class="toc_level-2 toc_section-6">
-<a href="#antonyms"><span class="tocnumber">5.1</span> <span class="toctext">Antonyms</span></a>
+<a href="#singular-vs-plural"><span class="tocnumber">5</span> <span class="toctext">Singular vs. plural</span></a>
 </li>
+<li class="toc_level-1 toc_section-6">
+<a href="#pairs-of-opposed-actions-or-names"><span class="tocnumber">6</span> <span class="toctext">Pairs of opposed actions or names</span></a>
+<ul>
 <li class="toc_level-2 toc_section-7">
-<a href="#technical-terms"><span class="tocnumber">5.2</span> <span class="toctext">Technical terms</span></a>
+<a href="#antonyms"><span class="tocnumber">6.1</span> <span class="toctext">Antonyms</span></a>
 </li>
 <li class="toc_level-2 toc_section-8">
-<a href="#startstop-vs-beginend"><span class="tocnumber">5.3</span> <span class="toctext">start/stop vs. begin/end</span></a>
+<a href="#technical-terms"><span class="tocnumber">6.2</span> <span class="toctext">Technical terms</span></a>
+</li>
+<li class="toc_level-2 toc_section-9">
+<a href="#startstop-vs-beginend"><span class="tocnumber">6.3</span> <span class="toctext">start/stop vs. begin/end</span></a>
 </li>
 </ul>
 </li>
-<li class="toc_level-1 toc_section-9">
-<a href="#class-names"><span class="tocnumber">6</span> <span class="toctext">Class names</span></a>
+<li class="toc_level-1 toc_section-10">
+<a href="#class-names"><span class="tocnumber">7</span> <span class="toctext">Class names</span></a>
 <ul>
-<li class="toc_level-2 toc_section-10">
-<a href="#derived-class-names"><span class="tocnumber">6.1</span> <span class="toctext">Derived class names</span></a>
-</li>
 <li class="toc_level-2 toc_section-11">
-<a href="#abstract-base-classes"><span class="tocnumber">6.2</span> <span class="toctext">Abstract base classes</span></a>
+<a href="#derived-class-names"><span class="tocnumber">7.1</span> <span class="toctext">Derived class names</span></a>
+</li>
+<li class="toc_level-2 toc_section-12">
+<a href="#abstract-base-classes"><span class="tocnumber">7.2</span> <span class="toctext">Abstract base classes</span></a>
 </li>
 </ul>
 </li>
-<li class="toc_level-1 toc_section-12">
-<a href="#templates"><span class="tocnumber">7</span> <span class="toctext">Templates</span></a>
+<li class="toc_level-1 toc_section-13">
+<a href="#templates"><span class="tocnumber">8</span> <span class="toctext">Templates</span></a>
 <ul>
-<li class="toc_level-2 toc_section-13">
-<a href="#class-template-vs-template-class"><span class="tocnumber">7.1</span> <span class="toctext">Class template vs template class?</span></a>
-</li>
 <li class="toc_level-2 toc_section-14">
-<a href="#class-template-names"><span class="tocnumber">7.2</span> <span class="toctext">Class template names</span></a>
+<a href="#class-template-vs-template-class"><span class="tocnumber">8.1</span> <span class="toctext">Class template vs template class?</span></a>
 </li>
 <li class="toc_level-2 toc_section-15">
-<a href="#template-parameter-types"><span class="tocnumber">7.3</span> <span class="toctext">Template parameter types</span></a>
+<a href="#class-template-names"><span class="tocnumber">8.2</span> <span class="toctext">Class template names</span></a>
+</li>
+<li class="toc_level-2 toc_section-16">
+<a href="#template-parameter-types"><span class="tocnumber">8.3</span> <span class="toctext">Template parameter types</span></a>
 </li>
 </ul>
 </li>
-<li class="toc_level-1 toc_section-16">
-<a href="#member-function-names"><span class="tocnumber">8</span> <span class="toctext">Member function names</span></a>
+<li class="toc_level-1 toc_section-17">
+<a href="#member-function-names"><span class="tocnumber">9</span> <span class="toctext">Member function names</span></a>
 <ul>
-<li class="toc_level-2 toc_section-17">
-<a href="#actions-prefixes"><span class="tocnumber">8.1</span> <span class="toctext">Actions prefixes</span></a>
-</li>
 <li class="toc_level-2 toc_section-18">
-<a href="#accessorsmutators"><span class="tocnumber">8.2</span> <span class="toctext">Accessors/mutators</span></a>
+<a href="#actions-prefixes"><span class="tocnumber">9.1</span> <span class="toctext">Actions prefixes</span></a>
 </li>
 <li class="toc_level-2 toc_section-19">
-<a href="#getset-vs-readwrite"><span class="tocnumber">8.3</span> <span class="toctext">get/set vs. read/write</span></a>
+<a href="#accessorsmutators"><span class="tocnumber">9.2</span> <span class="toctext">Accessors/mutators</span></a>
 </li>
 <li class="toc_level-2 toc_section-20">
-<a href="#boolean-functions"><span class="tocnumber">8.4</span> <span class="toctext">Boolean functions</span></a>
+<a href="#getset-vs-readwrite"><span class="tocnumber">9.3</span> <span class="toctext">get/set vs. read/write</span></a>
 </li>
 <li class="toc_level-2 toc_section-21">
-<a href="#initialise-vs-configure"><span class="tocnumber">8.5</span> <span class="toctext">initialise() vs. configure()</span></a>
+<a href="#boolean-functions"><span class="tocnumber">9.4</span> <span class="toctext">Boolean functions</span></a>
 </li>
 <li class="toc_level-2 toc_section-22">
-<a href="#set-vs-configure"><span class="tocnumber">8.6</span> <span class="toctext">set() vs. configure()</span></a>
+<a href="#initialise-vs-configure"><span class="tocnumber">9.5</span> <span class="toctext">initialise() vs. configure()</span></a>
+</li>
+<li class="toc_level-2 toc_section-23">
+<a href="#set-vs-configure"><span class="tocnumber">9.6</span> <span class="toctext">set() vs. configure()</span></a>
 </li>
 </ul>
 </li>
-<li class="toc_level-1 toc_section-23">
-<a href="#member-variables-names"><span class="tocnumber">9</span> <span class="toctext">Member variables names</span></a>
+<li class="toc_level-1 toc_section-24">
+<a href="#member-variables-names"><span class="tocnumber">10</span> <span class="toctext">Member variables names</span></a>
 <ul>
-<li class="toc_level-2 toc_section-24">
-<a href="#private-member-variables-names"><span class="tocnumber">9.1</span> <span class="toctext">Private member variables names</span></a>
-</li>
 <li class="toc_level-2 toc_section-25">
-<a href="#static-member-variables-names"><span class="tocnumber">9.2</span> <span class="toctext">Static member variables names</span></a>
+<a href="#private-member-variables-names"><span class="tocnumber">10.1</span> <span class="toctext">Private member variables names</span></a>
 </li>
 <li class="toc_level-2 toc_section-26">
-<a href="#public-member-names"><span class="tocnumber">9.3</span> <span class="toctext">Public member names</span></a>
+<a href="#static-member-variables-names"><span class="tocnumber">10.2</span> <span class="toctext">Static member variables names</span></a>
 </li>
 <li class="toc_level-2 toc_section-27">
-<a href="#array-members"><span class="tocnumber">9.4</span> <span class="toctext">Array members</span></a>
+<a href="#public-member-names"><span class="tocnumber">10.3</span> <span class="toctext">Public member names</span></a>
+</li>
+<li class="toc_level-2 toc_section-28">
+<a href="#array-members"><span class="tocnumber">10.4</span> <span class="toctext">Array members</span></a>
 </li>
 </ul>
-</li>
-<li class="toc_level-1 toc_section-28">
-<a href="#const--volatile"><span class="tocnumber">10</span> <span class="toctext">const &amp; volatile</span></a>
 </li>
 <li class="toc_level-1 toc_section-29">
-<a href="#constants"><span class="tocnumber">11</span> <span class="toctext">Constants</span></a>
+<a href="#const--volatile"><span class="tocnumber">11</span> <span class="toctext">const &amp; volatile</span></a>
+</li>
+<li class="toc_level-1 toc_section-30">
+<a href="#constants"><span class="tocnumber">12</span> <span class="toctext">Constants</span></a>
 <ul>
-<li class="toc_level-2 toc_section-30">
-<a href="#static-constexpr-vs-constexpr-static"><span class="tocnumber">11.1</span> <span class="toctext">static constexpr vs. constexpr static</span></a>
+<li class="toc_level-2 toc_section-31">
+<a href="#static-constexpr-vs-constexpr-static"><span class="tocnumber">12.1</span> <span class="toctext">static constexpr vs. constexpr static</span></a>
 </li>
 </ul>
 </li>
-<li class="toc_level-1 toc_section-31">
-<a href="#type-definitions"><span class="tocnumber">12</span> <span class="toctext">Type definitions</span></a>
+<li class="toc_level-1 toc_section-32">
+<a href="#type-definitions"><span class="tocnumber">13</span> <span class="toctext">Type definitions</span></a>
 <ul>
-<li class="toc_level-2 toc_section-32">
-<a href="#language-type-definition"><span class="tocnumber">12.1</span> <span class="toctext">Language type definition</span></a>
-</li>
 <li class="toc_level-2 toc_section-33">
-<a href="#user-type-definitions"><span class="tocnumber">12.2</span> <span class="toctext">User type definitions</span></a>
+<a href="#language-type-definition"><span class="tocnumber">13.1</span> <span class="toctext">Language type definition</span></a>
 </li>
 <li class="toc_level-2 toc_section-34">
-<a href="#enumeration-definitions"><span class="tocnumber">12.3</span> <span class="toctext">Enumeration definitions</span></a>
+<a href="#user-type-definitions"><span class="tocnumber">13.2</span> <span class="toctext">User type definitions</span></a>
 </li>
 <li class="toc_level-2 toc_section-35">
-<a href="#structure-definitions"><span class="tocnumber">12.4</span> <span class="toctext">Structure definitions</span></a>
+<a href="#enumeration-definitions"><span class="tocnumber">13.3</span> <span class="toctext">Enumeration definitions</span></a>
 </li>
 <li class="toc_level-2 toc_section-36">
-<a href="#aliases-to-classes"><span class="tocnumber">12.5</span> <span class="toctext">Aliases to classes</span></a>
+<a href="#structure-definitions"><span class="tocnumber">13.4</span> <span class="toctext">Structure definitions</span></a>
+</li>
+<li class="toc_level-2 toc_section-37">
+<a href="#aliases-to-classes"><span class="tocnumber">13.5</span> <span class="toctext">Aliases to classes</span></a>
 </li>
 </ul>
 </li>
-<li class="toc_level-1 toc_section-37">
-<a href="#measuring-units"><span class="tocnumber">13</span> <span class="toctext">Measuring units</span></a>
+<li class="toc_level-1 toc_section-38">
+<a href="#measuring-units"><span class="tocnumber">14</span> <span class="toctext">Measuring units</span></a>
+</li>
+<li class="toc_level-1 toc_section-39">
+<a href="#links"><span class="tocnumber">15</span> <span class="toctext">Links</span></a>
 </li>
 </ul>
 </td>
@@ -387,9 +393,15 @@
 </tbody>
 </table>
 </div>
-<h2 id="underscore-separated-lower-case-names">Underscore separated lower case names</h2>
+<h2 id="snake-case">Snake case</h2>
 
-<p>In previous versions, µOS++ used the <a href="http://en.wikipedia.org/wiki/CamelCase">CamelCase</a> naming convention, but, after a long consideration, the naming was brought back to what the ISO standard libraries use, and to what existing coding styles (like MISRA, JSF) recommend, which is <strong>underscore separated lower case names</strong>.</p>
+<p>In previous versions, µOS++ used the
+<a href="http://en.wikipedia.org/wiki/CamelCase">CamelCase</a> naming convention,
+but, after a long consideration, the naming was brought back to what the
+ISO standard libraries use, and to what existing coding styles
+(like MISRA, JSF) recommend, which is
+<strong>underscore separated lower case names</strong> (or
+<a href="https://en.wikipedia.org/wiki/Snake_case">snake case</a>).</p>
 
 <h2 id="full-words-vs-short-words">Full words vs. short words</h2>
 
@@ -402,6 +414,19 @@
 <span class="kt">int</span> <span class="nf">configure</span><span class="p">();</span> <span class="c1">// instead of config();</span>
 <span class="p">...</span>
 <span class="kt">int</span> <span class="n">delay_seconds</span><span class="p">;</span> <span class="c1">// instead of delay_sec;</span>
+</code></pre>
+</div>
+</div>
+
+<h2 id="favor-descriptive-over-concise">Favor Descriptive Over Concise</h2>
+
+<p>Names should be self explanatory, such that they do not need comments to
+further explain what they do.</p>
+
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="n">search_user_by_phone_number</span><span class="p">(</span><span class="n">phone</span><span class="p">);</span> <span class="c1">// instead of search_user()</span>
 </code></pre>
 </div>
 </div>
@@ -437,19 +462,23 @@
 </div>
 </div>
 
-<p>Even better, arrays and collections can be suffixed with the type:</p>
+<p>When the same data is represented by multiple types, for example
+arrays and collections, the names should be suffixed with the type:</p>
 
 <div class="language-c++ highlighter-rouge">
 <div class="highlight">
 <pre class="highlight">
-<code><span class="n">thread_t</span><span class="o">*</span> <span class="n">waiting_threads_array</span><span class="p">[];</span>
-
-<span class="n">thread_t</span><span class="o">*</span> <span class="n">waiting_threads_list</span><span class="p">;</span>
-<span class="n">property_t</span><span class="o">*</span> <span class="n">properties_map</span><span class="p">;</span>
-<span class="kt">char</span><span class="o">*</span> <span class="n">known_client_ids_set</span><span class="p">;</span>
+<code><span class="n">thread_t</span><span class="o">*</span> <span class="n">properties_list</span><span class="p">;</span>
+<span class="n">thread_t</span><span class="o">*</span> <span class="n">properties_array</span><span class="p">[];</span>
 </code></pre>
 </div>
 </div>
+
+<p>It is still debatable whether the extra type should be suffixed to all
+names. Modern editors, with accurate indexers, are capable of showing
+the variable definition when hovering over the name, thus providing help
+in case it is not clear when the variable is an array or not. Plus that
+the presense of parenthesis is a clear sign of an array.</p>
 
 <h2 id="pairs-of-opposed-actions-or-names">Pairs of opposed actions or names</h2>
 
@@ -500,7 +529,7 @@
 </div>
 </div>
 
-<p>However, when the meaning is adjectival, for example adding determinants to a noun, the pair begin/end is preferred.</p>
+<p>However, when the meaning is adjectival, for example adding determinants to a noun, the pair <strong>begin</strong>/<strong>end</strong> is preferred.</p>
 
 <div class="language-c++ highlighter-rouge">
 <div class="highlight">
@@ -513,7 +542,7 @@
 
 <h2 id="class-names">Class names</h2>
 
-<p>Class names are singular names or nominative constructs; they do not need to start with upper case letters.</p>
+<p>Class names are singular nouns or nominative constructs; they do not need to start with upper case letters.</p>
 
 <div class="language-c++ highlighter-rouge">
 <div class="highlight">
@@ -991,12 +1020,16 @@
 <div class="highlight">
 <pre class="highlight">
 <code><span class="k">typedef</span> <span class="kt">uint8_t</span> <span class="n">thread_priority_t</span><span class="p">;</span>
-<span class="err">```</span><span class="n">c</span><span class="o">++</span>
+</code></pre>
+</div>
+</div>
 
-<span class="n">If</span> <span class="n">the</span> <span class="k">new</span> <span class="n">type</span> <span class="n">can</span> <span class="n">be</span> <span class="n">an</span> <span class="n">alias</span><span class="p">,</span> <span class="n">that</span> <span class="n">does</span> <span class="n">not</span> <span class="n">introduce</span> <span class="n">a</span> <span class="k">new</span> <span class="n">type</span> <span class="n">definition</span><span class="p">,</span> <span class="n">the</span> <span class="n">C</span><span class="o">++</span><span class="mi">11</span> <span class="n">syntax</span> <span class="n">is</span><span class="o">:</span>
+<p>If the new type can be an alias, that does not introduce a new type definition, the C++11 syntax is:</p>
 
-<span class="err">```</span><span class="n">c</span><span class="o">++</span>
-<span class="k">using</span> <span class="n">thread_priority_t</span> <span class="o">=</span> <span class="kt">uint8_t</span><span class="p">;</span>
+<div class="language-c++ highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="k">using</span> <span class="n">thread_priority_t</span> <span class="o">=</span> <span class="kt">uint8_t</span><span class="p">;</span>
 </code></pre>
 </div>
 </div>
@@ -1081,6 +1114,12 @@
 </div>
 
 <p>If possible, use the full unit names.</p>
+
+<h2 id="links">Links</h2>
+
+<ul>
+  <li><a href="https://github.com/kettanaito/naming-cheatsheet">kettanaito Naming Cheatsheet</a></li>
+</ul>
 
 
 

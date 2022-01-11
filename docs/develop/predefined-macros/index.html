@@ -242,7 +242,7 @@
 <h1 class="page-title">Predefined compiler macros</h1>
 <table id="last-modified">
   <tr>
-    <td id="last-modified">Last modified on Sat Jan 23 19:21:29 2021 UTC.</td>
+    <td id="last-modified">Last modified on Tue Jan 11 20:47:18 2022 UTC.</td>
     <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/web-jekyll/edit/master/pages/develop/predefined-macros.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
@@ -476,12 +476,12 @@
 <span class="gp">#</span>define __ARM_PCS 1
 <span class="gp">#</span>define __ARM_SIZEOF_MINIMAL_ENUM 1
 <span class="gp">#</span>define __ARM_SIZEOF_WCHAR_T 4
-<span class="gp">#</span>define __GXX_ABI_VERSION 1009
+<span class="gp">#</span>define __GXX_ABI_VERSION 1014
 <span class="gp">#</span>define __SOFTFP__ 1
-<span class="gp">#</span>define __STDC_VERSION__ 201112L
+<span class="gp">#</span>define __STDC_VERSION__ 201710L
 <span class="gp">#</span>define __THUMBEL__ 1
 <span class="gp">#</span>define __THUMB_INTERWORK__ 1
-<span class="gp">#</span>define __VERSION__ <span class="s2">"5.4.1 20160919 (release) [ARM/embedded-5-branch revision 240496]"</span>
+<span class="gp">#</span>define __VERSION__ <span class="s2">"10.3.1 20210824 (release)"</span>
 <span class="gp">#</span>define __VFP_FP__ 1
 <span class="gp">#</span>define __arm__ 1
 <span class="gp">#</span>define __thumb__ 1
@@ -496,12 +496,12 @@
 <span class="gp">#</span>define __ARM_PCS 1
 <span class="gp">#</span>define __ARM_SIZEOF_MINIMAL_ENUM 1
 <span class="gp">#</span>define __ARM_SIZEOF_WCHAR_T 4
-<span class="gp">#</span>define __GXX_ABI_VERSION 1009
+<span class="gp">#</span>define __GXX_ABI_VERSION 1014
 <span class="gp">#</span>define __SOFTFP__ 1
-<span class="gp">#</span>define __STDC_VERSION__ 201112L
+<span class="gp">#</span>define __STDC_VERSION__ 201710L
 <span class="gp">#</span>define __THUMBEL__ 1
 <span class="gp">#</span>define __THUMB_INTERWORK__ 1
-<span class="gp">#</span>define __VERSION__ <span class="s2">"5.4.1 20160919 (release) [ARM/embedded-5-branch revision 240496]"</span>
+<span class="gp">#</span>define __VERSION__ <span class="s2">"10.3.1 20210824 (release)"</span>
 <span class="gp">#</span>define __VFP_FP__ 1
 <span class="gp">#</span>define __arm__ 1
 <span class="gp">#</span>define __thumb__ 1
@@ -525,6 +525,7 @@
 <span class="gp">#</span>define __ARM_ASM_SYNTAX_UNIFIED__ 1
 <span class="gp">#</span>define __ARM_EABI__ 1
 <span class="gp">#</span>define __ARM_FEATURE_CLZ 1
+<span class="gp">#</span>define __ARM_FEATURE_COPROC 15
 <span class="gp">#</span>define __ARM_FEATURE_IDIV 1
 <span class="gp">#</span>define __ARM_FEATURE_LDREX 7
 <span class="gp">#</span>define __ARM_FEATURE_QBIT 1
@@ -533,12 +534,12 @@
 <span class="gp">#</span>define __ARM_PCS 1
 <span class="gp">#</span>define __ARM_SIZEOF_MINIMAL_ENUM 1
 <span class="gp">#</span>define __ARM_SIZEOF_WCHAR_T 4
-<span class="gp">#</span>define __GXX_ABI_VERSION 1009
+<span class="gp">#</span>define __GXX_ABI_VERSION 1014
 <span class="gp">#</span>define __SOFTFP__ 1
-<span class="gp">#</span>define __STDC_VERSION__ 201112L
+<span class="gp">#</span>define __STDC_VERSION__ 201710L
 <span class="gp">#</span>define __THUMBEL__ 1
 <span class="gp">#</span>define __THUMB_INTERWORK__ 1
-<span class="gp">#</span>define __VERSION__ <span class="s2">"5.4.1 20160919 (release) [ARM/embedded-5-branch revision 240496]"</span>
+<span class="gp">#</span>define __VERSION__ <span class="s2">"10.3.1 20210824 (release)"</span>
 <span class="gp">#</span>define __VFP_FP__ 1
 <span class="gp">#</span>define __arm__ 1
 <span class="gp">#</span>define __thumb2__ 1
@@ -552,7 +553,7 @@
 <div class="language-console highlighter-rouge">
 <div class="highlight">
 <pre class="highlight">
-<code><span class="gp">$</span><span class="w"> </span>./arm-none-eabi-gcc <span class="nt">-mcpu</span><span class="o">=</span>cortex-m7 <span class="nt">-mthumb</span> <span class="nt">-mfloat-abi</span><span class="o">=</span>soft <span class="nt">-E</span> <span class="nt">-dM</span> - &lt; /dev/null | egrep <span class="nt">-i</span> <span class="s1">'thumb|arm|cortex|fp[^-]|version|abi'</span> | <span class="nb">sort</span>
+<code><span class="gp">$</span><span class="w"> </span>./arm-none-eabi-gcc <span class="nt">-mcpu</span><span class="o">=</span>cortex-m4 <span class="nt">-mthumb</span> <span class="nt">-mfloat-abi</span><span class="o">=</span>soft <span class="nt">-E</span> <span class="nt">-dM</span> - &lt; /dev/null | egrep <span class="nt">-i</span> <span class="s1">'thumb|arm|cortex|fp[^-]|version|abi'</span> | <span class="nb">sort</span>
 <span class="gp">#</span>define __ARMEL__ 1
 <span class="gp">#</span>define __ARM_32BIT_STATE 1
 <span class="gp">#</span>define __ARM_ARCH 7
@@ -563,6 +564,7 @@
 <span class="gp">#</span>define __ARM_ASM_SYNTAX_UNIFIED__ 1
 <span class="gp">#</span>define __ARM_EABI__ 1
 <span class="gp">#</span>define __ARM_FEATURE_CLZ 1
+<span class="gp">#</span>define __ARM_FEATURE_COPROC 15
 <span class="gp">#</span>define __ARM_FEATURE_DSP 1
 <span class="gp">#</span>define __ARM_FEATURE_IDIV 1
 <span class="gp">#</span>define __ARM_FEATURE_LDREX 7
@@ -573,18 +575,18 @@
 <span class="gp">#</span>define __ARM_PCS 1
 <span class="gp">#</span>define __ARM_SIZEOF_MINIMAL_ENUM 1
 <span class="gp">#</span>define __ARM_SIZEOF_WCHAR_T 4
-<span class="gp">#</span>define __GXX_ABI_VERSION 1009
+<span class="gp">#</span>define __GXX_ABI_VERSION 1014
 <span class="gp">#</span>define __SOFTFP__ 1
-<span class="gp">#</span>define __STDC_VERSION__ 201112L
+<span class="gp">#</span>define __STDC_VERSION__ 201710L
 <span class="gp">#</span>define __THUMBEL__ 1
 <span class="gp">#</span>define __THUMB_INTERWORK__ 1
-<span class="gp">#</span>define __VERSION__ <span class="s2">"5.4.1 20160919 (release) [ARM/embedded-5-branch revision 240496]"</span>
+<span class="gp">#</span>define __VERSION__ <span class="s2">"10.3.1 20210824 (release)"</span>
 <span class="gp">#</span>define __VFP_FP__ 1
 <span class="gp">#</span>define __arm__ 1
 <span class="gp">#</span>define __thumb2__ 1
 <span class="gp">#</span>define __thumb__ 1
 <span class="go">
-</span><span class="gp">$</span><span class="w"> </span>./arm-none-eabi-gcc <span class="nt">-mcpu</span><span class="o">=</span>cortex-m7 <span class="nt">-mthumb</span> <span class="nt">-mfloat-abi</span><span class="o">=</span>softfp <span class="nt">-E</span> <span class="nt">-dM</span> - &lt; /dev/null | egrep <span class="nt">-i</span> <span class="s1">'thumb|arm|cortex|fp[^-]|version|abi'</span> | <span class="nb">sort</span>
+</span><span class="gp">$</span><span class="w"> </span>./arm-none-eabi-gcc <span class="nt">-mcpu</span><span class="o">=</span>cortex-m4 <span class="nt">-mthumb</span> <span class="nt">-mfloat-abi</span><span class="o">=</span>softfp <span class="nt">-E</span> <span class="nt">-dM</span> - &lt; /dev/null | egrep <span class="nt">-i</span> <span class="s1">'thumb|arm|cortex|fp[^-]|version|abi'</span> | <span class="nb">sort</span>
 <span class="gp">#</span>define __ARMEL__ 1
 <span class="gp">#</span>define __ARM_32BIT_STATE 1
 <span class="gp">#</span>define __ARM_ARCH 7
@@ -595,28 +597,33 @@
 <span class="gp">#</span>define __ARM_ASM_SYNTAX_UNIFIED__ 1
 <span class="gp">#</span>define __ARM_EABI__ 1
 <span class="gp">#</span>define __ARM_FEATURE_CLZ 1
+<span class="gp">#</span>define __ARM_FEATURE_COPROC 15
 <span class="gp">#</span>define __ARM_FEATURE_DSP 1
+<span class="gp">#</span>define __ARM_FEATURE_FMA 1
 <span class="gp">#</span>define __ARM_FEATURE_IDIV 1
 <span class="gp">#</span>define __ARM_FEATURE_LDREX 7
 <span class="gp">#</span>define __ARM_FEATURE_QBIT 1
 <span class="gp">#</span>define __ARM_FEATURE_SAT 1
 <span class="gp">#</span>define __ARM_FEATURE_SIMD32 1
 <span class="gp">#</span>define __ARM_FEATURE_UNALIGNED 1
-<span class="gp">#</span>define __ARM_FP 12
+<span class="gp">#</span>define __ARM_FP 4
 <span class="gp">#</span>define __ARM_PCS 1
 <span class="gp">#</span>define __ARM_SIZEOF_MINIMAL_ENUM 1
 <span class="gp">#</span>define __ARM_SIZEOF_WCHAR_T 4
-<span class="gp">#</span>define __GXX_ABI_VERSION 1009
-<span class="gp">#</span>define __STDC_VERSION__ 201112L
+<span class="gp">#</span>define __FP_FAST_FMAF 1
+<span class="gp">#</span>define __FP_FAST_FMAF32 1
+<span class="gp">#</span>define __GXX_ABI_VERSION 1014
+<span class="gp">#</span>define __STDC_VERSION__ 201710L
 <span class="gp">#</span>define __THUMBEL__ 1
 <span class="gp">#</span>define __THUMB_INTERWORK__ 1
-<span class="gp">#</span>define __VERSION__ <span class="s2">"5.4.1 20160919 (release) [ARM/embedded-5-branch revision 240496]"</span>
+<span class="gp">#</span>define __VERSION__ <span class="s2">"10.3.1 20210824 (release)"</span>
 <span class="gp">#</span>define __VFP_FP__ 1
 <span class="gp">#</span>define __arm__ 1
 <span class="gp">#</span>define __thumb2__ 1
 <span class="gp">#</span>define __thumb__ 1
 <span class="go">
-</span><span class="gp">$</span><span class="w"> </span>./arm-none-eabi-gcc <span class="nt">-mcpu</span><span class="o">=</span>cortex-m7 <span class="nt">-mthumb</span> <span class="nt">-mfloat-abi</span><span class="o">=</span>hard <span class="nt">-E</span> <span class="nt">-dM</span> - &lt; /dev/null | egrep <span class="nt">-i</span> <span class="s1">'thumb|arm|cortex|fp[^-]|version|abi'</span> | <span class="nb">sort</span>
+
+</span><span class="gp">$</span><span class="w"> </span>./arm-none-eabi-gcc <span class="nt">-mcpu</span><span class="o">=</span>cortex-m4 <span class="nt">-mthumb</span> <span class="nt">-mfloat-abi</span><span class="o">=</span>hard <span class="nt">-E</span> <span class="nt">-dM</span> - &lt; /dev/null | egrep <span class="nt">-i</span> <span class="s1">'thumb|arm|cortex|fp[^-]|version|abi'</span> | <span class="nb">sort</span>
 <span class="gp">#</span>define __ARMEL__ 1
 <span class="gp">#</span>define __ARM_32BIT_STATE 1
 <span class="gp">#</span>define __ARM_ARCH 7
@@ -627,22 +634,26 @@
 <span class="gp">#</span>define __ARM_ASM_SYNTAX_UNIFIED__ 1
 <span class="gp">#</span>define __ARM_EABI__ 1
 <span class="gp">#</span>define __ARM_FEATURE_CLZ 1
+<span class="gp">#</span>define __ARM_FEATURE_COPROC 15
 <span class="gp">#</span>define __ARM_FEATURE_DSP 1
+<span class="gp">#</span>define __ARM_FEATURE_FMA 1
 <span class="gp">#</span>define __ARM_FEATURE_IDIV 1
 <span class="gp">#</span>define __ARM_FEATURE_LDREX 7
 <span class="gp">#</span>define __ARM_FEATURE_QBIT 1
 <span class="gp">#</span>define __ARM_FEATURE_SAT 1
 <span class="gp">#</span>define __ARM_FEATURE_SIMD32 1
 <span class="gp">#</span>define __ARM_FEATURE_UNALIGNED 1
-<span class="gp">#</span>define __ARM_FP 12
+<span class="gp">#</span>define __ARM_FP 4
 <span class="gp">#</span>define __ARM_PCS_VFP 1
 <span class="gp">#</span>define __ARM_SIZEOF_MINIMAL_ENUM 1
 <span class="gp">#</span>define __ARM_SIZEOF_WCHAR_T 4
-<span class="gp">#</span>define __GXX_ABI_VERSION 1009
-<span class="gp">#</span>define __STDC_VERSION__ 201112L
+<span class="gp">#</span>define __FP_FAST_FMAF 1
+<span class="gp">#</span>define __FP_FAST_FMAF32 1
+<span class="gp">#</span>define __GXX_ABI_VERSION 1014
+<span class="gp">#</span>define __STDC_VERSION__ 201710L
 <span class="gp">#</span>define __THUMBEL__ 1
 <span class="gp">#</span>define __THUMB_INTERWORK__ 1
-<span class="gp">#</span>define __VERSION__ <span class="s2">"5.4.1 20160919 (release) [ARM/embedded-5-branch revision 240496]"</span>
+<span class="gp">#</span>define __VERSION__ <span class="s2">"10.3.1 20210824 (release)"</span>
 <span class="gp">#</span>define __VFP_FP__ 1
 <span class="gp">#</span>define __arm__ 1
 <span class="gp">#</span>define __thumb2__ 1
@@ -667,6 +678,7 @@
 <span class="gp">#</span>define __ARM_ASM_SYNTAX_UNIFIED__ 1
 <span class="gp">#</span>define __ARM_EABI__ 1
 <span class="gp">#</span>define __ARM_FEATURE_CLZ 1
+<span class="gp">#</span>define __ARM_FEATURE_COPROC 15
 <span class="gp">#</span>define __ARM_FEATURE_DSP 1
 <span class="gp">#</span>define __ARM_FEATURE_IDIV 1
 <span class="gp">#</span>define __ARM_FEATURE_LDREX 7
@@ -677,12 +689,12 @@
 <span class="gp">#</span>define __ARM_PCS 1
 <span class="gp">#</span>define __ARM_SIZEOF_MINIMAL_ENUM 1
 <span class="gp">#</span>define __ARM_SIZEOF_WCHAR_T 4
-<span class="gp">#</span>define __GXX_ABI_VERSION 1009
+<span class="gp">#</span>define __GXX_ABI_VERSION 1014
 <span class="gp">#</span>define __SOFTFP__ 1
-<span class="gp">#</span>define __STDC_VERSION__ 201112L
+<span class="gp">#</span>define __STDC_VERSION__ 201710L
 <span class="gp">#</span>define __THUMBEL__ 1
 <span class="gp">#</span>define __THUMB_INTERWORK__ 1
-<span class="gp">#</span>define __VERSION__ <span class="s2">"5.4.1 20160919 (release) [ARM/embedded-5-branch revision 240496]"</span>
+<span class="gp">#</span>define __VERSION__ <span class="s2">"10.3.1 20210824 (release)"</span>
 <span class="gp">#</span>define __VFP_FP__ 1
 <span class="gp">#</span>define __arm__ 1
 <span class="gp">#</span>define __thumb2__ 1
@@ -699,22 +711,30 @@
 <span class="gp">#</span>define __ARM_ASM_SYNTAX_UNIFIED__ 1
 <span class="gp">#</span>define __ARM_EABI__ 1
 <span class="gp">#</span>define __ARM_FEATURE_CLZ 1
+<span class="gp">#</span>define __ARM_FEATURE_COPROC 15
 <span class="gp">#</span>define __ARM_FEATURE_DSP 1
+<span class="gp">#</span>define __ARM_FEATURE_FMA 1
 <span class="gp">#</span>define __ARM_FEATURE_IDIV 1
 <span class="gp">#</span>define __ARM_FEATURE_LDREX 7
 <span class="gp">#</span>define __ARM_FEATURE_QBIT 1
 <span class="gp">#</span>define __ARM_FEATURE_SAT 1
 <span class="gp">#</span>define __ARM_FEATURE_SIMD32 1
 <span class="gp">#</span>define __ARM_FEATURE_UNALIGNED 1
-<span class="gp">#</span>define __ARM_FP 12
+<span class="gp">#</span>define __ARM_FP 14
 <span class="gp">#</span>define __ARM_PCS 1
 <span class="gp">#</span>define __ARM_SIZEOF_MINIMAL_ENUM 1
 <span class="gp">#</span>define __ARM_SIZEOF_WCHAR_T 4
-<span class="gp">#</span>define __GXX_ABI_VERSION 1009
-<span class="gp">#</span>define __STDC_VERSION__ 201112L
+<span class="gp">#</span>define __FP_FAST_FMA 1
+<span class="gp">#</span>define __FP_FAST_FMAF 1
+<span class="gp">#</span>define __FP_FAST_FMAF32 1
+<span class="gp">#</span>define __FP_FAST_FMAF32x 1
+<span class="gp">#</span>define __FP_FAST_FMAF64 1
+<span class="gp">#</span>define __FP_FAST_FMAL 1
+<span class="gp">#</span>define __GXX_ABI_VERSION 1014
+<span class="gp">#</span>define __STDC_VERSION__ 201710L
 <span class="gp">#</span>define __THUMBEL__ 1
 <span class="gp">#</span>define __THUMB_INTERWORK__ 1
-<span class="gp">#</span>define __VERSION__ <span class="s2">"5.4.1 20160919 (release) [ARM/embedded-5-branch revision 240496]"</span>
+<span class="gp">#</span>define __VERSION__ <span class="s2">"10.3.1 20210824 (release)"</span>
 <span class="gp">#</span>define __VFP_FP__ 1
 <span class="gp">#</span>define __arm__ 1
 <span class="gp">#</span>define __thumb2__ 1
@@ -731,22 +751,30 @@
 <span class="gp">#</span>define __ARM_ASM_SYNTAX_UNIFIED__ 1
 <span class="gp">#</span>define __ARM_EABI__ 1
 <span class="gp">#</span>define __ARM_FEATURE_CLZ 1
+<span class="gp">#</span>define __ARM_FEATURE_COPROC 15
 <span class="gp">#</span>define __ARM_FEATURE_DSP 1
+<span class="gp">#</span>define __ARM_FEATURE_FMA 1
 <span class="gp">#</span>define __ARM_FEATURE_IDIV 1
 <span class="gp">#</span>define __ARM_FEATURE_LDREX 7
 <span class="gp">#</span>define __ARM_FEATURE_QBIT 1
 <span class="gp">#</span>define __ARM_FEATURE_SAT 1
 <span class="gp">#</span>define __ARM_FEATURE_SIMD32 1
 <span class="gp">#</span>define __ARM_FEATURE_UNALIGNED 1
-<span class="gp">#</span>define __ARM_FP 12
+<span class="gp">#</span>define __ARM_FP 14
 <span class="gp">#</span>define __ARM_PCS_VFP 1
 <span class="gp">#</span>define __ARM_SIZEOF_MINIMAL_ENUM 1
 <span class="gp">#</span>define __ARM_SIZEOF_WCHAR_T 4
-<span class="gp">#</span>define __GXX_ABI_VERSION 1009
-<span class="gp">#</span>define __STDC_VERSION__ 201112L
+<span class="gp">#</span>define __FP_FAST_FMA 1
+<span class="gp">#</span>define __FP_FAST_FMAF 1
+<span class="gp">#</span>define __FP_FAST_FMAF32 1
+<span class="gp">#</span>define __FP_FAST_FMAF32x 1
+<span class="gp">#</span>define __FP_FAST_FMAF64 1
+<span class="gp">#</span>define __FP_FAST_FMAL 1
+<span class="gp">#</span>define __GXX_ABI_VERSION 1014
+<span class="gp">#</span>define __STDC_VERSION__ 201710L
 <span class="gp">#</span>define __THUMBEL__ 1
 <span class="gp">#</span>define __THUMB_INTERWORK__ 1
-<span class="gp">#</span>define __VERSION__ <span class="s2">"5.4.1 20160919 (release) [ARM/embedded-5-branch revision 240496]"</span>
+<span class="gp">#</span>define __VERSION__ <span class="s2">"10.3.1 20210824 (release)"</span>
 <span class="gp">#</span>define __VFP_FP__ 1
 <span class="gp">#</span>define __arm__ 1
 <span class="gp">#</span>define __thumb2__ 1
@@ -763,7 +791,22 @@
 <div class="highlight">
 <pre class="highlight">
 <code>
-<span class="cp">#define __ARM_FP 12
+<span class="cp">#define __ARM_FP 4
+#define __ARM_FP 14
+</span>
+</code></pre>
+</div>
+</div>
+
+<p>(4 for Cortex-M4, 14 for Cortex-M7)</p>
+
+<p>For <code class="language-plaintext highlighter-rouge">-mfloat-abi=hard</code>:</p>
+
+<div class="language-c highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code>
+<span class="cp">#define __ARM_PCS_VFP 1
 </span>
 </code></pre>
 </div>
@@ -1173,7 +1216,7 @@ Copyright (C) 2019 Free Software Foundation, Inc.
 <span class="gp">#</span>define __PTRDIFF_MAX__ 0x7fffffffffffffffL
 <span class="gp">#</span>define __PTRDIFF_TYPE__ long int
 <span class="gp">#</span>define __PTRDIFF_WIDTH__ 64
-<span class="gp">#</span>define __REGISTER_PREFIX__ 
+<span class="gp">#</span>define __REGISTER_PREFIX__
 <span class="gp">#</span>define __SCHAR_MAX__ 0x7f
 <span class="gp">#</span>define __SCHAR_WIDTH__ 8
 <span class="gp">#</span>define __SEG_FS 1
@@ -1252,7 +1295,7 @@ Copyright (C) 2019 Free Software Foundation, Inc.
 <span class="gp">#</span>define __unix 1
 <span class="gp">#</span>define __unix__ 1
 <span class="gp">#</span>define unix 1
-<span class="gp">#</span>define __USER_LABEL_PREFIX__ 
+<span class="gp">#</span>define __USER_LABEL_PREFIX__
 <span class="gp">#</span>define __VERSION__ <span class="s2">"9.3.0"</span>
 <span class="gp">#</span>define __WCHAR_MAX__ 0x7fffffff
 <span class="gp">#</span>define __WCHAR_MIN__ <span class="o">(</span><span class="nt">-__WCHAR_MAX__</span> - 1<span class="o">)</span>
@@ -1264,7 +1307,7 @@ Copyright (C) 2019 Free Software Foundation, Inc.
 <span class="gp">#</span>define __WINT_WIDTH__ 32
 <span class="gp">#</span>define __x86_64 1
 <span class="gp">#</span>define __x86_64__ 1
-<span class="gp">ilg@ubu20:~$</span><span class="w"> 
+<span class="gp">ilg@ubu20:~$</span><span class="w">
 </span></code></pre>
 </div>
 </div>
@@ -1379,12 +1422,12 @@ ilg@wks ~ % gcc -E -dM - &lt; /dev/null
 <span class="gp">#</span>define __GNUC_STDC_INLINE__ 1
 <span class="gp">#</span>define __GNUC__ 4
 <span class="gp">#</span>define __GXX_ABI_VERSION 1002
-<span class="gp">#</span>define __INT16_C_SUFFIX__ 
+<span class="gp">#</span>define __INT16_C_SUFFIX__
 <span class="gp">#</span>define __INT16_FMTd__ <span class="s2">"hd"</span>
 <span class="gp">#</span>define __INT16_FMTi__ <span class="s2">"hi"</span>
 <span class="gp">#</span>define __INT16_MAX__ 32767
 <span class="gp">#</span>define __INT16_TYPE__ short
-<span class="gp">#</span>define __INT32_C_SUFFIX__ 
+<span class="gp">#</span>define __INT32_C_SUFFIX__
 <span class="gp">#</span>define __INT32_FMTd__ <span class="s2">"d"</span>
 <span class="gp">#</span>define __INT32_FMTi__ <span class="s2">"i"</span>
 <span class="gp">#</span>define __INT32_MAX__ 2147483647
@@ -1394,7 +1437,7 @@ ilg@wks ~ % gcc -E -dM - &lt; /dev/null
 <span class="gp">#</span>define __INT64_FMTi__ <span class="s2">"lli"</span>
 <span class="gp">#</span>define __INT64_MAX__ 9223372036854775807LL
 <span class="gp">#</span>define __INT64_TYPE__ long long int
-<span class="gp">#</span>define __INT8_C_SUFFIX__ 
+<span class="gp">#</span>define __INT8_C_SUFFIX__
 <span class="gp">#</span>define __INT8_FMTd__ <span class="s2">"hhd"</span>
 <span class="gp">#</span>define __INT8_FMTi__ <span class="s2">"hhi"</span>
 <span class="gp">#</span>define __INT8_MAX__ 127
@@ -1482,7 +1525,7 @@ ilg@wks ~ % gcc -E -dM - &lt; /dev/null
 <span class="gp">#</span>define __PTRDIFF_MAX__ 9223372036854775807L
 <span class="gp">#</span>define __PTRDIFF_TYPE__ long int
 <span class="gp">#</span>define __PTRDIFF_WIDTH__ 64
-<span class="gp">#</span>define __REGISTER_PREFIX__ 
+<span class="gp">#</span>define __REGISTER_PREFIX__
 <span class="gp">#</span>define __SCHAR_MAX__ 127
 <span class="gp">#</span>define __SEG_FS 1
 <span class="gp">#</span>define __SEG_GS 1
@@ -1523,7 +1566,7 @@ ilg@wks ~ % gcc -E -dM - &lt; /dev/null
 <span class="gp">#</span>define __STDC_UTF_32__ 1
 <span class="gp">#</span>define __STDC_VERSION__ 201112L
 <span class="gp">#</span>define __STDC__ 1
-<span class="gp">#</span>define __UINT16_C_SUFFIX__ 
+<span class="gp">#</span>define __UINT16_C_SUFFIX__
 <span class="gp">#</span>define __UINT16_FMTX__ <span class="s2">"hX"</span>
 <span class="gp">#</span>define __UINT16_FMTo__ <span class="s2">"ho"</span>
 <span class="gp">#</span>define __UINT16_FMTu__ <span class="s2">"hu"</span>
@@ -1544,7 +1587,7 @@ ilg@wks ~ % gcc -E -dM - &lt; /dev/null
 <span class="gp">#</span>define __UINT64_FMTx__ <span class="s2">"llx"</span>
 <span class="gp">#</span>define __UINT64_MAX__ 18446744073709551615ULL
 <span class="gp">#</span>define __UINT64_TYPE__ long long unsigned int
-<span class="gp">#</span>define __UINT8_C_SUFFIX__ 
+<span class="gp">#</span>define __UINT8_C_SUFFIX__
 <span class="gp">#</span>define __UINT8_FMTX__ <span class="s2">"hhX"</span>
 <span class="gp">#</span>define __UINT8_FMTo__ <span class="s2">"hho"</span>
 <span class="gp">#</span>define __UINT8_FMTu__ <span class="s2">"hhu"</span>
@@ -1641,9 +1684,9 @@ ilg@wks ~ % gcc -E -dM - &lt; /dev/null
 <span class="gp">#</span>define __pic__ 2
 <span class="gp">#</span>define __seg_fs __attribute__<span class="o">((</span>address_space<span class="o">(</span>257<span class="o">)))</span>
 <span class="gp">#</span>define __seg_gs __attribute__<span class="o">((</span>address_space<span class="o">(</span>256<span class="o">)))</span>
-<span class="gp">#</span>define __strong 
+<span class="gp">#</span>define __strong
 <span class="gp">#</span>define __tune_core2__ 1
-<span class="gp">#</span>define __unsafe_unretained 
+<span class="gp">#</span>define __unsafe_unretained
 <span class="gp">#</span>define __weak __attribute__<span class="o">((</span>objc_gc<span class="o">(</span>weak<span class="o">)))</span>
 <span class="gp">#</span>define __x86_64 1
 <span class="gp">#</span>define __x86_64__ 1
