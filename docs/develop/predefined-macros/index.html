@@ -242,7 +242,7 @@
 <h1 class="page-title">Predefined compiler macros</h1>
 <table id="last-modified">
   <tr>
-    <td id="last-modified">Last modified on Tue Jan 11 20:47:18 2022 UTC.</td>
+    <td id="last-modified">Last modified on Sun Feb 20 09:49:34 2022 UTC.</td>
     <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/web-jekyll/edit/master/pages/develop/predefined-macros.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
@@ -286,16 +286,19 @@
 <a href="#c-exceptions"><span class="tocnumber">5</span> <span class="toctext">C++ Exceptions</span></a>
 </li>
 <li class="toc_level-1 toc_section-10">
-<a href="#other-macros"><span class="tocnumber">6</span> <span class="toctext">Other macros</span></a>
+<a href="#pic"><span class="tocnumber">6</span> <span class="toctext">PIC</span></a>
 </li>
 <li class="toc_level-1 toc_section-11">
-<a href="#warnings"><span class="tocnumber">7</span> <span class="toctext">Warnings</span></a>
+<a href="#other-macros"><span class="tocnumber">7</span> <span class="toctext">Other macros</span></a>
 </li>
 <li class="toc_level-1 toc_section-12">
-<a href="#ubuntu-gcc-macros"><span class="tocnumber">8</span> <span class="toctext">Ubuntu GCC macros</span></a>
+<a href="#warnings"><span class="tocnumber">8</span> <span class="toctext">Warnings</span></a>
 </li>
 <li class="toc_level-1 toc_section-13">
-<a href="#apple-clang-macros"><span class="tocnumber">9</span> <span class="toctext">Apple clang macros</span></a>
+<a href="#ubuntu-gcc-macros"><span class="tocnumber">9</span> <span class="toctext">Ubuntu GCC macros</span></a>
+</li>
+<li class="toc_level-1 toc_section-14">
+<a href="#apple-clang-macros"><span class="tocnumber">10</span> <span class="toctext">Apple clang macros</span></a>
 </li>
 </ul>
 </td>
@@ -839,6 +842,24 @@
 <span class="cp">#define __EXCEPTIONS 1
 </span>
 </code></pre>
+</div>
+</div>
+
+<h2 id="pic">PIC</h2>
+
+<p>To detect when position independent code is generated, check for:</p>
+
+<div class="language-c highlighter-rouge">
+<div class="highlight">
+<pre class="highlight">
+<code><span class="c1">// -fpic</span>
+<span class="cp">#define __pic__ 1
+#define __PIC__ 1
+</span>
+<span class="c1">// -fPIC</span>
+<span class="cp">#define __pic__ 2
+#define __PIC__ 2
+</span></code></pre>
 </div>
 </div>
 

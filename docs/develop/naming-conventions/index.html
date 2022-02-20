@@ -242,7 +242,7 @@
 <h1 class="page-title">C/C++ naming conventions</h1>
 <table id="last-modified">
   <tr>
-    <td id="last-modified">Last modified on Tue Jan 11 20:47:18 2022 UTC.</td>
+    <td id="last-modified">Last modified on Sun Feb 20 09:49:34 2022 UTC.</td>
     <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/web-jekyll/edit/master/pages/develop/naming-conventions.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
@@ -385,7 +385,10 @@
 <a href="#measuring-units"><span class="tocnumber">14</span> <span class="toctext">Measuring units</span></a>
 </li>
 <li class="toc_level-1 toc_section-39">
-<a href="#links"><span class="tocnumber">15</span> <span class="toctext">Links</span></a>
+<a href="#configuration-macros"><span class="tocnumber">15</span> <span class="toctext">Configuration macros</span></a>
+</li>
+<li class="toc_level-1 toc_section-40">
+<a href="#links"><span class="tocnumber">16</span> <span class="toctext">Links</span></a>
 </li>
 </ul>
 </td>
@@ -441,7 +444,7 @@ further explain what they do.</p>
 <code><span class="k">class</span> <span class="nc">menu_item</span> <span class="p">{</span>
   <span class="c1">// Bad.</span>
   <span class="kt">void</span> <span class="n">handle_menu_item_click</span><span class="p">();</span>
-  
+
   <span class="c1">// Good.</span>
   <span class="kt">void</span> <span class="n">handle_click</span><span class="p">();</span>
 <span class="p">}</span>
@@ -619,7 +622,7 @@ the presense of parenthesis is a clear sign of an array.</p>
 <span class="c1">// Explicit instantiation</span>
 <span class="k">template</span> <span class="k">class</span> <span class="nc">pin</span><span class="o">&lt;</span><span class="n">GPIOC1</span><span class="p">&gt;;</span>
 
-<span class="c1">// Define a type alias. </span>
+<span class="c1">// Define a type alias.</span>
 <span class="k">using</span> <span class="n">my_pin</span> <span class="o">=</span> <span class="k">class</span> <span class="nc">pin</span><span class="o">&lt;</span><span class="n">GPIOC1</span><span class="o">&gt;</span><span class="p">;</span>
 </code></pre>
 </div>
@@ -798,7 +801,7 @@ the presense of parenthesis is a clear sign of an array.</p>
 <div class="language-c++ highlighter-rouge">
 <div class="highlight">
 <pre class="highlight">
-<code><span class="kt">bool</span> <span class="nf">does_return</span><span class="p">();</span>  
+<code><span class="kt">bool</span> <span class="nf">does_return</span><span class="p">();</span>
 
 <span class="c1">// Bad</span>
 <span class="kt">bool</span> <span class="nf">returns</span><span class="p">();</span>
@@ -1045,9 +1048,9 @@ the presense of parenthesis is a clear sign of an array.</p>
 
 <span class="k">enum</span> <span class="k">class</span> <span class="nc">mode</span> <span class="o">:</span> <span class="n">mode_t</span>
 <span class="p">{</span>
-    <span class="n">input</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> 
-    <span class="n">output</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> 
-    <span class="n">alternate</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> 
+    <span class="n">input</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">alternate</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
     <span class="n">analog</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="p">};</span>
 
@@ -1114,6 +1117,44 @@ the presense of parenthesis is a clear sign of an array.</p>
 </div>
 
 <p>If possible, use the full unit names.</p>
+
+<h2 id="configuration-macros">Configuration macros</h2>
+
+<p>Applications using µOS++ can be configured during build time using several
+proprocessor definitions, grouped in a header file named
+&lt;micro-os-plus/config.h&gt;, included when <code class="language-plaintext highlighter-rouge">MICRO_OS_PLUS_INCLUDE_CONFIG_H</code> is
+defined on the compiler line.</p>
+
+<p>There are several kinds of definitions:</p>
+
+<ul>
+  <li>command line (<code class="language-plaintext highlighter-rouge">NDEBUG</code>, <code class="language-plaintext highlighter-rouge">MICRO_OS_PLUS_INCLUDE_CONFIG_H</code>)</li>
+  <li>generic (<code class="language-plaintext highlighter-rouge">MICRO_OS_PLUS_DEBUG</code>, <code class="language-plaintext highlighter-rouge">MICRO_OS_PLUS_TRACE</code>)</li>
+  <li>definitions without values (<code class="language-plaintext highlighter-rouge">MICRO_OS_PLUS_INCLUDE_&lt;name&gt;</code>,
+<code class="language-plaintext highlighter-rouge">MICRO_OS_PLUS_EXCLUDE_&lt;name&gt;</code>, <code class="language-plaintext highlighter-rouge">MICRO_OS_PLUS_TRACE_*</code>,
+<code class="language-plaintext highlighter-rouge">MICRO_OS_PLUS_&lt;name&gt;_*</code>, ); for these definitions only the
+presence should be tested; <code class="language-plaintext highlighter-rouge">INCLUDE</code>/<code class="language-plaintext highlighter-rouge">EXCLUDE</code> should surround large blocks
+of code definitions/declarations implementing various features;</li>
+  <li>definitions with values; are more flexible, since they can have different
+defaults, and are prefered to definitions without values, which, when not
+present, default to false; should be
+used in expressions of the given type; to avoid misunderstandings,
+parenthesis are recommended; action properties must start with a verb;
+    <ul>
+      <li>boolean (<code class="language-plaintext highlighter-rouge">MICRO_OS_PLUS_BOOL_USE_&lt;name&gt;</code>, <code class="language-plaintext highlighter-rouge">MICRO_OS_PLUS_BOOL_HAS_*</code>
+<code class="language-plaintext highlighter-rouge">MICRO_OS_PLUS_BOOL_&lt;name&gt;_&lt;action&gt;</code>, <code class="language-plaintext highlighter-rouge">MICRO_OS_PLUS_BOOL_&lt;name&gt;_&lt;property&gt;</code>);
+<code class="language-plaintext highlighter-rouge">HAS</code> should be used for physical characteristics,
+like hardware peripherals;
+<code class="language-plaintext highlighter-rouge">USE</code> should surround optional code that calls a feature (assuming a
+corresponding <code class="language-plaintext highlighter-rouge">INCLUDE</code> is also defined)</li>
+      <li>integer (<code class="language-plaintext highlighter-rouge">MICRO_OS_PLUS_INTEGER_&lt;name&gt;_&lt;property&gt;</code>)</li>
+      <li>string (<code class="language-plaintext highlighter-rouge">MICRO_OS_PLUS_STRING_&lt;name&gt;_&lt;property&gt;</code>);</li>
+    </ul>
+  </li>
+  <li>definitions of types (<code class="language-plaintext highlighter-rouge">MICRO_OS_PLUS_TYPE_*</code>); the values are special
+and represent expressions that can be used as types to define variables or
+other types.</li>
+</ul>
 
 <h2 id="links">Links</h2>
 
