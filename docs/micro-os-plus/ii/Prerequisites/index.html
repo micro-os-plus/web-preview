@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <meta charset="utf-8">
+  <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>Prerequisites</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="Prerequisites">
-  <meta property="og:site_name" content="µOS++ IIIe">
+  <meta property="og:title" content="Prerequisites" />
+  <meta property="og:site_name" content="µOS++ IIIe" />
 
-  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml" />
 
 
   <meta property="article:published_time" content="2013-09-06">
@@ -24,9 +24,9 @@
 
 
 
-  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c" />
 
-  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?202211100849" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?202211100849" media="screen">
@@ -217,13 +217,13 @@
   <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
 </ul>
 
-<h4 id="license">License</h4>
+<h4 id="project">Project</h4>
 
 <ul>
-  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+  <li><a href="/web-preview/project/about/">About</a></li>
+  <li><a href="/web-preview/project/history/">History</a></li>
+  <li><a href="https://opensource.org/licenses/MIT">License</a></li>
 </ul>
-
-<h4 id="about"><a href="/web-preview/about/">About</a></h4>
 
     </div>
   </div>
@@ -246,55 +246,6 @@
   </tr>
 </table>
 
-<div id="toc-container">
-<table class="toc" id="toc">
-<tbody>
-<tr>
-<td>
-<div id="toctitle">
-<h2>Contents</h2>
-</div>
-<ul>
-<li class="toc_level-1 toc_section-1">
-<a href="#os-x"><span class="tocnumber">1</span> <span class="toctext">OS X</span></a>
-<ul>
-<li class="toc_level-2 toc_section-2">
-<a href="#llvm-clang"><span class="tocnumber">1.1</span> <span class="toctext">LLVM clang</span></a>
-</li>
-<li class="toc_level-2 toc_section-3">
-<a href="#git"><span class="tocnumber">1.2</span> <span class="toctext">Git</span></a>
-</li>
-<li class="toc_level-2 toc_section-4">
-<a href="#python"><span class="tocnumber">1.3</span> <span class="toctext">Python</span></a>
-</li>
-<li class="toc_level-2 toc_section-5">
-<a href="#macports-gcc"><span class="tocnumber">1.4</span> <span class="toctext">MacPorts GCC</span></a>
-</li>
-<li class="toc_level-2 toc_section-6">
-<a href="#arm-toolchains"><span class="tocnumber">1.5</span> <span class="toctext">ARM toolchains</span></a>
-</li>
-<li class="toc_level-2 toc_section-7">
-<a href="#avr8-toolchains"><span class="tocnumber">1.6</span> <span class="toctext">AVR8 toolchains</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-8">
-<a href="#gnulinux"><span class="tocnumber">2</span> <span class="toctext">GNU/Linux</span></a>
-<ul>
-<li class="toc_level-2 toc_section-9">
-<a href="#ubuntu-1304"><span class="tocnumber">2.1</span> <span class="toctext">Ubuntu 13.04</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-10">
-<a href="#eclipse-installation"><span class="tocnumber">3</span> <span class="toctext">Eclipse installation</span></a>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <p>There are several ways to evaluate <strong>µOS++ SE</strong>, from running the unit tests to inspecting the source code. Depending on your needs and on the platform you are using, one or more toolchains need to be installed. For inspecting the source code, although direct access to the repository is available, due to the high complexity of the project, the preferred method is via Eclipse, to take full advantage of the indexer and cross reference features.</p>
 
 <p>Currently the supported platforms for building µOS++ SE projects are <strong>OS X</strong> and <strong>GNU/Linux</strong>.</p>
@@ -323,37 +274,24 @@
 
 <p>To check if the compiler is available, invoke the compiler using <strong>–version</strong>:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>clang++ --version
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clang++ --version
 
 Apple LLVM version 4.2 (clang-425.0.28) (based on LLVM 3.2svn)
 Target: x86_64-apple-darwin12.4.0
 Thread model: posix
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h3 id="git">Git</h3>
 
 <p>Installing the <strong>Command Line Tools</strong> will also install the <strong>git</strong> support.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>git --version
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git --version
 git version 1.7.12.4 (Apple Git-37)
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>For reference, here is the <strong>git</strong> global configuration that I use:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>git config --global user.name "Liviu Ionescu"
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config --global user.name "Liviu Ionescu"
 git config --global user.email ilg@livius.net
 
 git config --global core.filemode false
@@ -362,9 +300,7 @@ git config --global core.autocrlf input
 git config --global core.whitespace trailing-space,space-before-tab
 
 git config --global core.editor "vi"
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>(for more details, please check the <a href="http://git-scm.com/docs/git-config">git documentation</a>).</p>
 
@@ -372,14 +308,9 @@ git config --global core.editor "vi"
 
 <p>Python should be also available (it is part of the standard OS X distribution):</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>python --version
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python --version
 Python 2.7.2
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h3 id="macports-gcc">MacPorts GCC</h3>
 
@@ -389,14 +320,9 @@ Python 2.7.2
 
 <p>To install GCC 4.7 and GCC 4.8, run the following commands:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>sudo port install gcc47 +universal
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo port install gcc47 +universal
 sudo port install gcc48 +universal
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>Please note that, by default, the modern MacPorts compilers support only 64-bit targets. To support both 32 and 64-bit targets, the <strong>+universal</strong> option must be used when installing the toolchains, otherwise the tests will fail to run the 32-bit executables.</p>
 
@@ -409,39 +335,24 @@ sudo port install gcc48 +universal
 
 <p>To check if the compilers are available, invoke the compilers using <strong>–version</strong>:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>/opt/local/bin/g++-mp-4.7 --version
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/opt/local/bin/g++-mp-4.7 --version
 g++-mp-4.7 (MacPorts gcc47 4.7.3_1+universal) 4.7.3
 
 /opt/local/bin/g++-mp-4.8 --version
 g++-mp-4.8 (MacPorts gcc48 4.8.1_1+universal) 4.8.1
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>One detail to be considered: the PATH setting. When the MacPorts framework is installed, the .profile is modified to include the MacPorts path.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code># MacPorts Installer addition on 2012-12-05_at_23:48:38: adding an appropriate PATH variable for use with MacPorts.
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># MacPorts Installer addition on 2012-12-05_at_23:48:38: adding an appropriate PATH variable for use with MacPorts.
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>To avoid unwanted interactions between MacPorts and the system programs, it is recommended to disable this setting, and to add an explicit alias to update the PATH only when needed:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>alias mp='export PATH=/opt/local/bin:/opt/local/sbin:$PATH'
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>alias mp='export PATH=/opt/local/bin:/opt/local/sbin:$PATH'
+</code></pre></div></div>
 
 <h3 id="arm-toolchains">ARM toolchains</h3>
 
@@ -457,40 +368,25 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
 <p>To simplify path management, it is recommended to create a link to the latest release of a certain version, for example:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>cd ~/Downloads
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd ~/Downloads
 sudo cp gcc-arm-none-eabi-4_7-2013q1-20130313-mac.tar.bz2 /usr/local
 cd /usr/local
 sudo tar xjvf gcc-arm-none-eabi-4_7-2013q1-20130313-mac.tar.bz2
 sudo ln -s gcc-arm-none-eabi-4_7-2013q1 gcc-arm-none-eabi-4_7
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>(for GNU/Linux the sequence is identical, only the file name is different, instead of <strong>-mac</strong> they use <strong>-linux</strong>).</p>
 
 <p>To check if the compiler is available, invoke the compiler using <strong>–version</strong>:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>/usr/local/gcc-arm-none-eabi-4_7/bin/arm-none-eabi-g++ --version
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/local/gcc-arm-none-eabi-4_7/bin/arm-none-eabi-g++ --version
+</code></pre></div></div>
 
 <p>which should produce something like:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>arm-none-eabi-g++ (GNU Tools for ARM Embedded Processors) 4.7.3
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>arm-none-eabi-g++ (GNU Tools for ARM Embedded Processors) 4.7.3
      20130312 (release) [ARM/embedded-4_7-branch revision 196615]
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h3 id="avr8-toolchains">AVR8 toolchains</h3>
 
@@ -498,25 +394,15 @@ sudo ln -s gcc-arm-none-eabi-4_7-2013q1 gcc-arm-none-eabi-4_7
 
 <p>The latest AVR8 toolchain (based on GCC 4.7.2) is available from MacPorts.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>sudo port install avr-gcc avr-binutils avr-gdb avr-libc avrdude
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo port install avr-gcc avr-binutils avr-gdb avr-libc avrdude
+</code></pre></div></div>
 
 <p>To check if the compiler is available, invoke the compiler using <strong>–version</strong>:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>/opt/local/bin/avr-g++ --version
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/opt/local/bin/avr-g++ --version
 
 avr-g++ (GCC) 4.7.2
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h4 id="crosspack">CrossPack</h4>
 
@@ -533,37 +419,22 @@ avr-g++ (GCC) 4.7.2
 
 <p>To check if the compiler is available, invoke the compiler using <strong>–version</strong>:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>/usr/local/CrossPack-AVR/bin/avr-g++ --version
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/local/CrossPack-AVR/bin/avr-g++ --version
 
 avr-g++ (GCC) 4.6.2
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>Similarly to MacPorts, the CrossPack installer modifies the system settings to add the CrossPack path to the system path.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>cat /etc/paths.d/50-at.obdev.CrossPack-AVR
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat /etc/paths.d/50-at.obdev.CrossPack-AVR
 
 /usr/local/CrossPack-AVR/bin
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>It is recommended to disable this setting, and to explicitly update the PATH only when needed:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>sudo rm /etc/paths.d/50-at.obdev.CrossPack-AVR
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo rm /etc/paths.d/50-at.obdev.CrossPack-AVR
+</code></pre></div></div>
 
 <h2 id="gnulinux">GNU/Linux</h2>
 
@@ -575,54 +446,34 @@ avr-g++ (GCC) 4.6.2
 
 <p>The prerequisites for running the POSIX tests on Ubuntu are:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>sudo apt-get install g++-multilib
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install g++-multilib
 sudo apt-get install git python openssh-server
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>The default GCC compiler for 13.04 is 4.7:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>g++ --version
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>g++ --version
 g++ (Ubuntu/Linaro 4.7.3-1ubuntu1) 4.7.3
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>For additional tests, on 13.04 it is also possible to install <strong>clang</strong>:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>sudo apt-get install clang
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install clang
 
 clang --version
 Ubuntu clang version 3.2-1~exp9ubuntu1 (tags/RELEASE_32/final) (based on LLVM 3.2)
 Target: x86_64-pc-linux-gnu
 Thread model: posix
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>Git and Python should also be available:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>git --version
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git --version
 git version 1.8.1.2
 
 python --version
 Python 2.7.4
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h2 id="eclipse-installation">Eclipse installation</h2>
 
@@ -654,7 +505,7 @@ Python 2.7.4
   <div class="site-footer">
   <div class="site-footer-links left">
     <ul>
-  <li>© 2022 Liviu Ionescu</li>
+  <li>© 2023 Liviu Ionescu</li>
   <li>Hosted on GitHub</li>
   <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
   <li>

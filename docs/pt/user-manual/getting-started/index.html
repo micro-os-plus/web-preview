@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="pt">
 
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <meta charset="utf-8">
+  <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>Começando com μOS++ IIIe</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="Começando com μOS++ IIIe">
-  <meta property="og:site_name" content="µOS++ IIIe">
+  <meta property="og:title" content="Começando com μOS++ IIIe" />
+  <meta property="og:site_name" content="µOS++ IIIe" />
 
-  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml" />
 
 
   <meta property="article:published_time" content="2016-06-29">
@@ -24,9 +24,9 @@
 
 
 
-  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c" />
 
-  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?202211100849" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?202211100849" media="screen">
@@ -240,40 +240,11 @@
 <h1 class="page-title">Começando com μOS++ IIIe</h1>
 <table id="last-modified">
   <tr>
-    <td id="last-modified">Last modified on Mon Nov 14 08:50:12 2022 UTC.</td>
+    <td id="last-modified">Last modified on Sat May 20 21:14:21 2023 UTC.</td>
     <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/web-jekyll/edit/master/pages/user-manual/getting-started.pt.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
 
-<div id="toc-container">
-<table class="toc" id="toc">
-<tbody>
-<tr>
-<td>
-<div id="toctitle">
-<h2>Conteúdo</h2>
-</div>
-<ul>
-<li class="toc_level-1 toc_section-1">
-<a href="#overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a>
-<ul>
-<li class="toc_level-2 toc_section-2">
-<a href="#multiple-apis"><span class="tocnumber">1.1</span> <span class="toctext">Multiple APIs</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-3">
-<a href="#the-os_main-and-the-main-thread"><span class="tocnumber">2</span> <span class="toctext">The os_main() and the main thread</span></a>
-</li>
-<li class="toc_level-1 toc_section-4">
-<a href="#multiple-thread-applications"><span class="tocnumber">3</span> <span class="toctext">Multiple thread applications</span></a>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <h2 id="overview">Overview</h2>
 
 <p><strong>µOS++ IIIe</strong> <em>(micro oh ɛs plus plus third edition)</em> is the third iteration of µOS++, a POSIX-like, portable, open source, royalty-free, multi-tasking real-time operating system intended for 32/64-bits embedded applications.</p>
@@ -315,10 +286,7 @@
 
 <p>A simple C++ <em>blinky</em> application that toggles a LED at 1 Hz might look like this:</p>
 
-<div class="language-c++ highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="c1">/// @file app-main.cpp</span>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">/// @file app-main.cpp</span>
 <span class="cp">#include &lt;cmsis-plus/rtos/os.h&gt;
 #include &lt;user-led.h&gt;
 </span>
@@ -344,18 +312,13 @@
 
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>The example is generally self explanatory. The LED functions are provided by the application. The only system function used is <code class="language-plaintext highlighter-rouge">sleep_for()</code>, which, when called for the <code class="language-plaintext highlighter-rouge">sysclock</code> object, puts the current thread to sleep for the given number of ticks, which, in this case, is the number of SysTick ticks per second, resulting in an 1 second sleep.</p>
 
 <p>A similar application, but written in C:</p>
 
-<div class="language-c highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="c1">/// @file app-main.c</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">/// @file app-main.c</span>
 <span class="cp">#include &lt;cmsis-plus/rtos/os-c-api.h&gt;
 #include &lt;user-led.h&gt;
 </span>
@@ -378,9 +341,7 @@
 
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>Please note that for plain C applications, the system include header is different.</p>
 
@@ -388,10 +349,7 @@
 
 <p>In addition to the blinking LED, the next example adds a message queue where messages are enqueued from an interrupt callback, and a user thread that gets messages from the queue and prints them on the trace channel.</p>
 
-<div class="language-c++ highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="c1">/// @file app-main.cpp</span>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">/// @file app-main.cpp</span>
 <span class="cp">#include &lt;cmsis-plus/rtos/os.h&gt;
 #include &lt;user-led.h&gt;
 </span>
@@ -456,16 +414,11 @@
 
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>A similar application, but written in C:</p>
 
-<div class="language-c highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="c1">/// @file app-main.c</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">/// @file app-main.c</span>
 <span class="cp">#include &lt;cmsis-plus/rtos/os-c-api.h&gt;
 #include &lt;user-led.h&gt;
 </span>
@@ -534,9 +487,7 @@
 
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>The visible difference is that in C the queue and the thread objects need to be explicitly created, while in C++ the constructors are called implicitly by the compiler.</p>
 
@@ -566,7 +517,7 @@
   <div class="site-footer">
   <div class="site-footer-links left">
     <ul>
-  <li>© 2022 Liviu Ionescu</li>
+  <li>© 2023 Liviu Ionescu</li>
   <li>Hosted on GitHub</li>
   <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
   <li>

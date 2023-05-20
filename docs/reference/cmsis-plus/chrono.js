@@ -8,5 +8,5 @@ var chrono =
     [ "steady_clock", "chrono.html#a4535e70924a65f0882603f36ef784f28", null ],
     [ "systicks", "chrono.html#a9b7ab9a98367ac210a415d0848738ea8", null ],
     [ "ceil", "chrono.html#a542c9fa0314d389294aed1aeb93a9419", null ],
-    [ "operator\"\" _ticks", "chrono.html#a0dbb04002d6ec0b65e089943bdefc4ff", null ]
+    [ "operator\"\"_ticks", "chrono.html#ae19219287a894b41cb0eff9ad0a18bfc", null ]
 ];

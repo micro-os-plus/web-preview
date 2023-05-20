@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <meta charset="utf-8">
+  <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>Class OSEventFlags</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="Class OSEventFlags">
-  <meta property="og:site_name" content="µOS++ IIIe">
+  <meta property="og:title" content="Class OSEventFlags" />
+  <meta property="og:site_name" content="µOS++ IIIe" />
 
-  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml" />
 
 
   <meta property="article:published_time" content="2011-02-25">
@@ -24,9 +24,9 @@
 
 
 
-  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c" />
 
-  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?202211100849" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?202211100849" media="screen">
@@ -217,13 +217,13 @@
   <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
 </ul>
 
-<h4 id="license">License</h4>
+<h4 id="project">Project</h4>
 
 <ul>
-  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+  <li><a href="/web-preview/project/about/">About</a></li>
+  <li><a href="/web-preview/project/history/">History</a></li>
+  <li><a href="https://opensource.org/licenses/MIT">License</a></li>
 </ul>
-
-<h4 id="about"><a href="/web-preview/about/">About</a></h4>
 
     </div>
   </div>
@@ -246,36 +246,6 @@
   </tr>
 </table>
 
-<div id="toc-container">
-<table class="toc" id="toc">
-<tbody>
-<tr>
-<td>
-<div id="toctitle">
-<h2>Contents</h2>
-</div>
-<ul>
-<li class="toc_level-1 toc_section-1">
-<a href="#oseventflags"><span class="tocnumber">1</span> <span class="toctext">OSEventFlags()</span></a>
-</li>
-<li class="toc_level-1 toc_section-2">
-<a href="#oseventflagsbits_t-notifyoseventflagsbits_t-bits"><span class="tocnumber">2</span> <span class="toctext">OSEventFlagsBits_t notify(OSEventFlagsBits_t bits)</span></a>
-</li>
-<li class="toc_level-1 toc_section-3">
-<a href="#oseventflagsbits_t-getvoid"><span class="tocnumber">3</span> <span class="toctext">OSEventFlagsBits_t get(void)</span></a>
-</li>
-<li class="toc_level-1 toc_section-4">
-<a href="#oseventflagsbits_t-clearoseventflagsbits_t-bits"><span class="tocnumber">4</span> <span class="toctext">OSEventFlagsBits_t clear(OSEventFlagsBits_t bits)</span></a>
-</li>
-<li class="toc_level-1 toc_section-5">
-<a href="#osevent_t-geteventvoid"><span class="tocnumber">5</span> <span class="toctext">OSEvent_t getEvent(void)</span></a>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <p>OSEventFlags</p>
 
 <p>The class OSEventFlags requires the definition of <strong>OS_INCLUDE_OSEVENTFLAGS</strong>.</p>
@@ -284,15 +254,11 @@
 
 <h2 id="oseventflags">OSEventFlags()</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Initialize the internal members.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
@@ -301,63 +267,45 @@
 <h2 id="oseventflagsbits_t-notifyoseventflagsbits_t-bits">
 <a href="/web-preview/micro-os-plus/i/Typedef_OSEventFlagsBits_t">OSEventFlagsBits_t</a> notify(<a href="/web-preview/micro-os-plus/i/Typedef_OSEventFlagsBits_t">OSEventFlagsBits_t</a> bits)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Set bits and send an internally identified event. Return the new flags.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* bits - input, the mask of flags which must be set</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* the new flags</p>
 
 <h2 id="oseventflagsbits_t-getvoid">
 <a href="/web-preview/micro-os-plus/i/Typedef_OSEventFlagsBits_t">OSEventFlagsBits_t</a> get(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Return the current flags value.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* the current flags value</p>
 
 <h2 id="oseventflagsbits_t-clearoseventflagsbits_t-bits">
 <a href="/web-preview/micro-os-plus/i/Typedef_OSEventFlagsBits_t">OSEventFlagsBits_t</a> clear(<a href="/web-preview/micro-os-plus/i/Typedef_OSEventFlagsBits_t">OSEventFlagsBits_t</a> bits)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Clear the given flags.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* bits - input, the flags which must be cleared</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* the new flags</p>
 
@@ -365,17 +313,13 @@
 
 <p>Loop until one the requested bits are set. If isStrict is true all the requested bits must be set, in order to return. If isStrict is false just one of the requested bits must be set, in order to return. If any flag is already set, return immediately (with code OSReturn::OS_IMMEDIATELY). For timeouts please set timers to send events; this function will return the timer event.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* bits - input, the mask of bits which is waiting for</p>
 
 <p>:* isStrict - input, specifies is all bits or just one bit must be waited for</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* OSReturn::OS_IMMEDIATELY - code returned if any flag is already set</p>
 
@@ -384,21 +328,15 @@
 <h2 id="osevent_t-geteventvoid">
 <a href="/web-preview/micro-os-plus/i/Typedef_OSEvent_t">OSEvent_t</a> getEvent(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Return the event used for notification.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* the event used for notification</p>
 
@@ -430,7 +368,7 @@
   <div class="site-footer">
   <div class="site-footer-links left">
     <ul>
-  <li>© 2022 Liviu Ionescu</li>
+  <li>© 2023 Liviu Ionescu</li>
   <li>Hosted on GitHub</li>
   <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
   <li>

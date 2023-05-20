@@ -16,6 +16,6 @@ var classos_1_1posix_1_1file__impl =
     [ "do_write", "classos_1_1posix_1_1file__impl.html#aaf72efcd064d35f9b93012ce18fd47c4", null ],
     [ "do_writev", "classos_1_1posix_1_1file__impl.html#a435c0abcb3e507c8d535038771943b8c", null ],
     [ "file_system", "classos_1_1posix_1_1file__impl.html#a8019dec29fef736eabd2b6b2e3de95d2", null ],
-    [ "offset", "classos_1_1posix_1_1file__impl.html#a5e5f831b8554dd3cc40cdb0382c462a8", null ],
-    [ "offset", "classos_1_1posix_1_1file__impl.html#aac61bc01f58e13064a34d1a34ca44293", null ]
+    [ "offset", "classos_1_1posix_1_1file__impl.html#aac61bc01f58e13064a34d1a34ca44293", null ],
+    [ "offset", "classos_1_1posix_1_1file__impl.html#a5e5f831b8554dd3cc40cdb0382c462a8", null ]
 ];

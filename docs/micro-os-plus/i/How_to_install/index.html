@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <meta charset="utf-8">
+  <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>How to install</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="How to install">
-  <meta property="og:site_name" content="µOS++ IIIe">
+  <meta property="og:title" content="How to install" />
+  <meta property="og:site_name" content="µOS++ IIIe" />
 
-  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml" />
 
 
   <meta property="article:published_time" content="2012-11-01">
@@ -24,9 +24,9 @@
 
 
 
-  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c" />
 
-  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?202211100849" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?202211100849" media="screen">
@@ -217,13 +217,13 @@
   <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
 </ul>
 
-<h4 id="license">License</h4>
+<h4 id="project">Project</h4>
 
 <ul>
-  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+  <li><a href="/web-preview/project/about/">About</a></li>
+  <li><a href="/web-preview/project/history/">History</a></li>
+  <li><a href="https://opensource.org/licenses/MIT">License</a></li>
 </ul>
-
-<h4 id="about"><a href="/web-preview/about/">About</a></h4>
 
     </div>
   </div>
@@ -246,59 +246,6 @@
   </tr>
 </table>
 
-<div id="toc-container">
-<table class="toc" id="toc">
-<tbody>
-<tr>
-<td>
-<div id="toctitle">
-<h2>Contents</h2>
-</div>
-<ul>
-<li class="toc_level-1 toc_section-1">
-<a href="#java"><span class="tocnumber">1</span> <span class="toctext">Java</span></a>
-</li>
-<li class="toc_level-1 toc_section-2">
-<a href="#eclipse"><span class="tocnumber">2</span> <span class="toctext">Eclipse</span></a>
-</li>
-<li class="toc_level-1 toc_section-3">
-<a href="#gnu-toolchain--eclipse-plug-ins"><span class="tocnumber">3</span> <span class="toctext">GNU Toolchain &amp; Eclipse Plug-ins</span></a>
-<ul>
-<li class="toc_level-2 toc_section-4">
-<a href="#arm"><span class="tocnumber">3.1</span> <span class="toctext">ARM</span></a>
-</li>
-<li class="toc_level-2 toc_section-5">
-<a href="#avr8"><span class="tocnumber">3.2</span> <span class="toctext">AVR8</span></a>
-</li>
-<li class="toc_level-2 toc_section-6">
-<a href="#avr32"><span class="tocnumber">3.3</span> <span class="toctext">AVR32</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-7">
-<a href="#eclipse-git-client"><span class="tocnumber">4</span> <span class="toctext">Eclipse Git client</span></a>
-</li>
-<li class="toc_level-1 toc_section-8">
-<a href="#eclipse-svn-client"><span class="tocnumber">5</span> <span class="toctext">Eclipse SVN client</span></a>
-</li>
-<li class="toc_level-1 toc_section-9">
-<a href="#preferences-reference-manual-setup"><span class="tocnumber">6</span> <span class="toctext">Preferences reference (manual setup)</span></a>
-</li>
-<li class="toc_level-1 toc_section-10">
-<a href="#importexport-preferences"><span class="tocnumber">7</span> <span class="toctext">Import/Export preferences</span></a>
-</li>
-<li class="toc_level-1 toc_section-11">
-<a href="#indexer-configuration"><span class="tocnumber">8</span> <span class="toctext">Indexer configuration</span></a>
-</li>
-<li class="toc_level-1 toc_section-12">
-<a href="#other-setting"><span class="tocnumber">9</span> <span class="toctext">Other setting</span></a>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <p>Since the usual development platform is based on Windows, most of the below programs are Windows programs. However GNU/Linux and OS X versions of the toolchains are also available, so it should pe perfectly possible to use other platforms for µOS++ development.</p>
 
 <h1 id="overview">Overview</h1>
@@ -321,14 +268,9 @@
 
 <p>The default Eclipse is configured to use limited amounts of memory. For large workspaces, it is recommended you edit the eclipse.ini file and increase it:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>-Xms256m
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-Xms256m
 -Xmx768m
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>Although using a single Eclipse for multiple projects in different languages is perfectly possible, it is recommended to try to keep things as modular and separate as possible, and preferably install a dedicated Eclipse instance for the µOS++ projects.</p>
 
@@ -393,25 +335,15 @@
 
 <p>If, for any reasons, you need to set the PATH, you can do it via an AppleScript saved in .app format:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>do shell script "export PATH=$PATH:/usr/local/CrossPack-AVR-20100115/bin;$HOME/'My Files/MacBookPro Vault/Projects/uOS/Eclipses/eclipse-3.7.2-cdt/eclipse'"
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>do shell script "export PATH=$PATH:/usr/local/CrossPack-AVR-20100115/bin;$HOME/'My Files/MacBookPro Vault/Projects/uOS/Eclipses/eclipse-3.7.2-cdt/eclipse'"
+</code></pre></div></div>
 
 <p>Alternately you can use a Finder .command script with the following content</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>#!/bin/bash
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#!/bin/bash
 export PATH=$PATH:/usr/local/CrossPack-AVR-20100115/bin
 $HOME/'My Files/MacBookPro Vault/Projects/uOS/Eclipses/eclipse-3.7.2-cdt/eclipse'
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h4 id="eclipse-plug-in-1">Eclipse Plug-in</h4>
 
@@ -661,7 +593,7 @@ $HOME/'My Files/MacBookPro Vault/Projects/uOS/Eclipses/eclipse-3.7.2-cdt/eclipse
   <div class="site-footer">
   <div class="site-footer-links left">
     <ul>
-  <li>© 2022 Liviu Ionescu</li>
+  <li>© 2023 Liviu Ionescu</li>
   <li>Hosted on GitHub</li>
   <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
   <li>

@@ -29,6 +29,6 @@ var classos_1_1posix_1_1socket__impl =
     [ "do_vfcntl", "classos_1_1posix_1_1socket__impl.html#aa350b4f251fa74bf1d029898ad7e2a69", null ],
     [ "do_write", "classos_1_1posix_1_1socket__impl.html#aaf72efcd064d35f9b93012ce18fd47c4", null ],
     [ "do_writev", "classos_1_1posix_1_1socket__impl.html#a435c0abcb3e507c8d535038771943b8c", null ],
-    [ "offset", "classos_1_1posix_1_1socket__impl.html#a5e5f831b8554dd3cc40cdb0382c462a8", null ],
-    [ "offset", "classos_1_1posix_1_1socket__impl.html#aac61bc01f58e13064a34d1a34ca44293", null ]
+    [ "offset", "classos_1_1posix_1_1socket__impl.html#aac61bc01f58e13064a34d1a34ca44293", null ],
+    [ "offset", "classos_1_1posix_1_1socket__impl.html#a5e5f831b8554dd3cc40cdb0382c462a8", null ]
 ];

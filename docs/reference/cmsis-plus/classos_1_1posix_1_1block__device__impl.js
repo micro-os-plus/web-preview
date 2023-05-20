@@ -19,8 +19,8 @@ var classos_1_1posix_1_1block__device__impl =
     [ "do_write", "classos_1_1posix_1_1block__device__impl.html#a9b57e0d768392c44fa21479a0f181e91", null ],
     [ "do_write_block", "classos_1_1posix_1_1block__device__impl.html#ae3b713a1faae0ada0baf7631eae42ed3", null ],
     [ "do_writev", "classos_1_1posix_1_1block__device__impl.html#a435c0abcb3e507c8d535038771943b8c", null ],
-    [ "offset", "classos_1_1posix_1_1block__device__impl.html#a5e5f831b8554dd3cc40cdb0382c462a8", null ],
     [ "offset", "classos_1_1posix_1_1block__device__impl.html#aac61bc01f58e13064a34d1a34ca44293", null ],
+    [ "offset", "classos_1_1posix_1_1block__device__impl.html#a5e5f831b8554dd3cc40cdb0382c462a8", null ],
     [ "open_count", "classos_1_1posix_1_1block__device__impl.html#ac26644dfc21194430ee02c07b87ef16f", null ],
     [ "block_device", "classos_1_1posix_1_1block__device__impl.html#ad2d723f73d85486848c370609e36091c", null ]
 ];

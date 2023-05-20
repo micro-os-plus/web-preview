@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <meta charset="utf-8">
+  <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>C++ source code style guide</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="C++ source code style guide">
-  <meta property="og:site_name" content="µOS++ IIIe">
+  <meta property="og:title" content="C++ source code style guide" />
+  <meta property="og:site_name" content="µOS++ IIIe" />
 
-  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml" />
 
 
   <meta property="article:published_time" content="2011-05-21">
@@ -24,9 +24,9 @@
 
 
 
-  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c" />
 
-  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?202211100849" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?202211100849" media="screen">
@@ -217,13 +217,13 @@
   <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
 </ul>
 
-<h4 id="license">License</h4>
+<h4 id="project">Project</h4>
 
 <ul>
-  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+  <li><a href="/web-preview/project/about/">About</a></li>
+  <li><a href="/web-preview/project/history/">History</a></li>
+  <li><a href="https://opensource.org/licenses/MIT">License</a></li>
 </ul>
-
-<h4 id="about"><a href="/web-preview/about/">About</a></h4>
 
     </div>
   </div>
@@ -246,50 +246,6 @@
   </tr>
 </table>
 
-<div id="toc-container">
-<table class="toc" id="toc">
-<tbody>
-<tr>
-<td>
-<div id="toctitle">
-<h2>Contents</h2>
-</div>
-<ul>
-<li class="toc_level-1 toc_section-1">
-<a href="#formatting-style"><span class="tocnumber">1</span> <span class="toctext">Formatting style</span></a>
-</li>
-<li class="toc_level-1 toc_section-2">
-<a href="#line-length"><span class="tocnumber">2</span> <span class="toctext">Line length</span></a>
-</li>
-<li class="toc_level-1 toc_section-3">
-<a href="#spaces"><span class="tocnumber">3</span> <span class="toctext">Spaces</span></a>
-<ul>
-<li class="toc_level-2 toc_section-4">
-<a href="#no-space-operators"><span class="tocnumber">3.1</span> <span class="toctext">No space operators</span></a>
-</li>
-<li class="toc_level-2 toc_section-5">
-<a href="#one-space-operators"><span class="tocnumber">3.2</span> <span class="toctext">One space operators</span></a>
-</li>
-<li class="toc_level-2 toc_section-6">
-<a href="#one-space-keywords"><span class="tocnumber">3.3</span> <span class="toctext">One space keywords</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-7">
-<a href="#explicit-parenthesis"><span class="tocnumber">4</span> <span class="toctext">Explicit parenthesis</span></a>
-</li>
-<li class="toc_level-1 toc_section-8">
-<a href="#indentation"><span class="tocnumber">5</span> <span class="toctext">Indentation</span></a>
-</li>
-<li class="toc_level-1 toc_section-9">
-<a href="#separator-lines"><span class="tocnumber">6</span> <span class="toctext">Separator lines</span></a>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <h1 id="overview">Overview</h1>
 
 <p>This document describes the recommended approaches for the format and structure of C++ source code files.</p>
@@ -394,10 +350,7 @@
 
 <p>Paired open and close parenthesis must have the same position:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>class Parser
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Parser
 {
 public:
   Parser();
@@ -406,16 +359,11 @@ protected:
   unsigned char* m_pLine;
   ...
 };
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>The statement following any of the keywords (if, else, while, for, switch, case, do) must be compound, that is, use of braces is obligatory, even if the actual statement is singular.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>  if (condition)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  if (condition)
     {
       i = 1;
     }
@@ -423,25 +371,18 @@ protected:
     {
       i = 100;
     }
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h2 id="separator-lines">Separator lines</h2>
 
 <p>Use C++ comments, one space separator and continue up to column 79. If text is used, it comes after 5 dashes, and is delimited by spaces.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>// ----------------------------------------------------------------------------
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// ----------------------------------------------------------------------------
 
 // ----- Static data ----------------------------------------------------------
 
 // ----- Constructors ---------------------------------------------------------
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 
 
@@ -469,7 +410,7 @@ protected:
   <div class="site-footer">
   <div class="site-footer-links left">
     <ul>
-  <li>© 2022 Liviu Ionescu</li>
+  <li>© 2023 Liviu Ionescu</li>
   <li>Hosted on GitHub</li>
   <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
   <li>

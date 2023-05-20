@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <meta charset="utf-8">
+  <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>Tasks</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="Tasks">
-  <meta property="og:site_name" content="µOS++ IIIe">
+  <meta property="og:title" content="Tasks" />
+  <meta property="og:site_name" content="µOS++ IIIe" />
 
-  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml" />
 
 
   <meta property="article:published_time" content="2010-12-13">
@@ -24,9 +24,9 @@
 
 
 
-  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c" />
 
-  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?202211100849" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?202211100849" media="screen">
@@ -217,13 +217,13 @@
   <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
 </ul>
 
-<h4 id="license">License</h4>
+<h4 id="project">Project</h4>
 
 <ul>
-  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+  <li><a href="/web-preview/project/about/">About</a></li>
+  <li><a href="/web-preview/project/history/">History</a></li>
+  <li><a href="https://opensource.org/licenses/MIT">License</a></li>
 </ul>
-
-<h4 id="about"><a href="/web-preview/about/">About</a></h4>
 
     </div>
   </div>
@@ -246,58 +246,6 @@
   </tr>
 </table>
 
-<div id="toc-container">
-<table class="toc" id="toc">
-<tbody>
-<tr>
-<td>
-<div id="toctitle">
-<h2>Contents</h2>
-</div>
-<ul>
-<li class="toc_level-1 toc_section-1">
-<a href="#constructors"><span class="tocnumber">1</span> <span class="toctext">Constructors</span></a>
-</li>
-<li class="toc_level-1 toc_section-2">
-<a href="#methods"><span class="tocnumber">2</span> <span class="toctext">Methods</span></a>
-<ul>
-<li class="toc_level-2 toc_section-3">
-<a href="#info-methods"><span class="tocnumber">2.1</span> <span class="toctext">Info Methods</span></a>
-</li>
-<li class="toc_level-2 toc_section-4">
-<a href="#status-methods"><span class="tocnumber">2.2</span> <span class="toctext">Status Methods</span></a>
-</li>
-<li class="toc_level-2 toc_section-5">
-<a href="#stack-methods"><span class="tocnumber">2.3</span> <span class="toctext">Stack Methods</span></a>
-</li>
-<li class="toc_level-2 toc_section-6">
-<a href="#priority-methods"><span class="tocnumber">2.4</span> <span class="toctext">Priority Methods</span></a>
-</li>
-<li class="toc_level-2 toc_section-7">
-<a href="#events-methods"><span class="tocnumber">2.5</span> <span class="toctext">Events Methods</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-8">
-<a href="#examples"><span class="tocnumber">3</span> <span class="toctext">Examples</span></a>
-<ul>
-<li class="toc_level-2 toc_section-9">
-<a href="#taskblinkh"><span class="tocnumber">3.1</span> <span class="toctext">TaskBlink.h</span></a>
-</li>
-<li class="toc_level-2 toc_section-10">
-<a href="#taskblinkcpp"><span class="tocnumber">3.2</span> <span class="toctext">TaskBlink.cpp</span></a>
-</li>
-<li class="toc_level-2 toc_section-11">
-<a href="#mainc"><span class="tocnumber">3.3</span> <span class="toctext">main.c</span></a>
-</li>
-</ul>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <p>µOS++ tasks allow the application developer to create and manage independent threads of execution. All defined tasks are automatically registered to the scheduler and thus all tasks are scheduled to use the CPU in a order based on their static priority (see the <a href="/web-preview/micro-os-plus/i/Scheduler">scheduler</a> page). Tasks cannot be unregistered from the scheduler.</p>
 
 <p>Each µOS++ task has its own stack where all task calls are performed. On architectures that do not have a separate exception stack (like AVR), when the task is running, interrupt service routines will use the task stack, so please be aware that a ‘deep’ interrupt service routine will affect all tasks running. When the task is created, the stack is initialized to a known static pattern. Stack activity overwrite this value, so when <strong>getStackUsed()</strong> is invoked it is possible to compute the maximum usage of the stack.</p>
@@ -316,14 +264,9 @@
 
 <h2 id="constructors">Constructors</h2>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>OSTask(const char *pName, const OSStack_t *pStack, unsigned short stackSize,
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OSTask(const char *pName, const OSStack_t *pStack, unsigned short stackSize,
        OSTaskPriority_t priority = OS_TASK_DEFAULT_PRIORITY);
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>This constructor defines the task name, the stack and optionally a priority.</p>
 
@@ -331,151 +274,81 @@
 
 <h3 id="info-methods">Info Methods</h3>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>char const *getName(void);
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>char const *getName(void);
+</code></pre></div></div>
 
 <p>Return the task name.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>int getID(void);
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int getID(void);
+</code></pre></div></div>
 
 <p>Return the task ID.</p>
 
 <h3 id="status-methods">Status Methods</h3>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>void suspend(void);
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void suspend(void);
+</code></pre></div></div>
 
 <p>Mark the task as suspended and remove it from the list of running tasks.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>void resume(void);
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void resume(void);
+</code></pre></div></div>
 
 <p>Clean the suspended status and add the task to the list of running tasks.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>bool isSuspended(void);
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bool isSuspended(void);
+</code></pre></div></div>
 
 <p>Return true if the task is suspended.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>bool isWaiting(void);
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bool isWaiting(void);
+</code></pre></div></div>
 
 <p>Return true if the task is waiting for an event.</p>
 
 <h3 id="stack-methods">Stack Methods</h3>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>unsigned char *getStackBottom(void);
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unsigned char *getStackBottom(void);
+</code></pre></div></div>
 
 <p>Return the address of the stack bottom. Stack grows from high address to low address, so this is the maximum address the stack can grow.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>unsigned short getStackSize(void);
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unsigned short getStackSize(void);
+</code></pre></div></div>
 
 <p>Return the stack size given at task creation.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>OSStack_t *getStack(void);
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OSStack_t *getStack(void);
+</code></pre></div></div>
 
 <p>Return the current stack pointer of the task. This value is stored only during context switch, so the running task will not get the actual value.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>unsigned short getStackUsed(void);
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unsigned short getStackUsed(void);
+</code></pre></div></div>
 
 <p>Return the maximum usage of the stack.</p>
 
 <h3 id="priority-methods">Priority Methods</h3>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>OSTaskPriority_t getPriority(void);
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OSTaskPriority_t getPriority(void);
+</code></pre></div></div>
 
 <p>Return task priority.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>void setPriority(OSTaskPriority_t priority);
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void setPriority(OSTaskPriority_t priority);
+</code></pre></div></div>
 
 <p>Set task priority to given value. Should be used with caution to avoid deadlocks and priority inversions.</p>
 
 <h3 id="events-methods">Events Methods</h3>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>OSEvent_t getEvent(void);
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OSEvent_t getEvent(void);
+</code></pre></div></div>
 
 <p>Return the event the task is waiting for. Cancelling a waiting task can be done by notifying this event with a return value of OS_EVENT_WAIT_RETURN_CANCELED.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>void setEvent(OSEvent_t event);
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void setEvent(OSEvent_t event);
+</code></pre></div></div>
 
 <p>Set the event the task is waiting for (defined only for completness, normally not necessary).</p>
 
@@ -485,10 +358,7 @@
 
 <h3 id="taskblinkh">TaskBlink.h</h3>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>#include "portable/kernel/include/OS.h"
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include "portable/kernel/include/OS.h"
 
 #include "config_app.h"
 
@@ -505,16 +375,11 @@ private:
     OSStack_t m_stack[(OS_MINIMAL_STACK_SIZE + 200) / sizeof(OSStack_t)];
     schedTicks_t m_rate;
   };
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h3 id="taskblinkcpp">TaskBlink.cpp</h3>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>#include "TaskBlink.h"
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include "TaskBlink.h"
 
 TaskBlink::TaskBlink(const char *pName, schedTicks_t rate) :
   OSTask(pName, m_stack, sizeof(m_stack))
@@ -534,22 +399,15 @@ void TaskBlink::taskMain(void)
         ledToggle();
       }
   }
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h3 id="mainc">main.c</h3>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>// ...
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// ...
 #include "TaskBlink.h"
 // ...
 TaskBlink t("blink"); // the new task is declared as a static object
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 
 
@@ -577,7 +435,7 @@ TaskBlink t("blink"); // the new task is declared as a static object
   <div class="site-footer">
   <div class="site-footer-links left">
     <ul>
-  <li>© 2022 Liviu Ionescu</li>
+  <li>© 2023 Liviu Ionescu</li>
   <li>Hosted on GitHub</li>
   <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
   <li>

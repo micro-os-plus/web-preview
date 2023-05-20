@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <meta charset="utf-8">
+  <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>C++ naming convention</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="C++ naming convention">
-  <meta property="og:site_name" content="µOS++ IIIe">
+  <meta property="og:title" content="C++ naming convention" />
+  <meta property="og:site_name" content="µOS++ IIIe" />
 
-  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml" />
 
 
   <meta property="article:published_time" content="2011-07-30">
@@ -24,9 +24,9 @@
 
 
 
-  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c" />
 
-  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?202211100849" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?202211100849" media="screen">
@@ -217,13 +217,13 @@
   <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
 </ul>
 
-<h4 id="license">License</h4>
+<h4 id="project">Project</h4>
 
 <ul>
-  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+  <li><a href="/web-preview/project/about/">About</a></li>
+  <li><a href="/web-preview/project/history/">History</a></li>
+  <li><a href="https://opensource.org/licenses/MIT">License</a></li>
 </ul>
-
-<h4 id="about"><a href="/web-preview/about/">About</a></h4>
 
     </div>
   </div>
@@ -246,102 +246,17 @@
   </tr>
 </table>
 
-<div id="toc-container">
-<table class="toc" id="toc">
-<tbody>
-<tr>
-<td>
-<div id="toctitle">
-<h2>Contents</h2>
-</div>
-<ul>
-<li class="toc_level-1 toc_section-1">
-<a href="#antonyms"><span class="tocnumber">1</span> <span class="toctext">Antonyms</span></a>
-</li>
-<li class="toc_level-1 toc_section-2">
-<a href="#technical-terms"><span class="tocnumber">2</span> <span class="toctext">Technical terms</span></a>
-</li>
-<li class="toc_level-1 toc_section-3">
-<a href="#startstop-vs-beginend"><span class="tocnumber">3</span> <span class="toctext">start/stop vs. begin/end</span></a>
-</li>
-<li class="toc_level-1 toc_section-4">
-<a href="#derived-class-names"><span class="tocnumber">4</span> <span class="toctext">Derived class names</span></a>
-</li>
-<li class="toc_level-1 toc_section-5">
-<a href="#abstract-base-classes"><span class="tocnumber">5</span> <span class="toctext">Abstract base classes</span></a>
-</li>
-<li class="toc_level-1 toc_section-6">
-<a href="#getterssetters"><span class="tocnumber">6</span> <span class="toctext">Getters/Setters</span></a>
-</li>
-<li class="toc_level-1 toc_section-7">
-<a href="#boolean-methods"><span class="tocnumber">7</span> <span class="toctext">Boolean methods</span></a>
-</li>
-<li class="toc_level-1 toc_section-8">
-<a href="#initialise-vs-configure"><span class="tocnumber">8</span> <span class="toctext">initialise() vs. configure()</span></a>
-</li>
-<li class="toc_level-1 toc_section-9">
-<a href="#set-vs-configure"><span class="tocnumber">9</span> <span class="toctext">set() vs. configure()</span></a>
-</li>
-<li class="toc_level-1 toc_section-10">
-<a href="#private-member-variables-names"><span class="tocnumber">10</span> <span class="toctext">Private member variables names</span></a>
-</li>
-<li class="toc_level-1 toc_section-11">
-<a href="#static-member-variables-names"><span class="tocnumber">11</span> <span class="toctext">Static member variables names</span></a>
-</li>
-<li class="toc_level-1 toc_section-12">
-<a href="#public-member-names"><span class="tocnumber">12</span> <span class="toctext">Public member names</span></a>
-</li>
-<li class="toc_level-1 toc_section-13">
-<a href="#array-members"><span class="tocnumber">13</span> <span class="toctext">Array members</span></a>
-</li>
-<li class="toc_level-1 toc_section-14">
-<a href="#language-type-definition"><span class="tocnumber">14</span> <span class="toctext">Language type definition</span></a>
-<ul>
-<li class="toc_level-2 toc_section-15">
-<a href="#explicit-size-definitions"><span class="tocnumber">14.1</span> <span class="toctext">Explicit size definitions</span></a>
-</li>
-<li class="toc_level-2 toc_section-16">
-<a href="#platform-size-definitions"><span class="tocnumber">14.2</span> <span class="toctext">Platform size definitions</span></a>
-</li>
-<li class="toc_level-2 toc_section-17">
-<a href="#explicit-size-versus-platform-size"><span class="tocnumber">14.3</span> <span class="toctext">Explicit size versus platform size</span></a>
-</li>
-<li class="toc_level-2 toc_section-18">
-<a href="#signed-versus-unsigned"><span class="tocnumber">14.4</span> <span class="toctext">Signed versus unsigned</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-19">
-<a href="#user-type-definitions"><span class="tocnumber">15</span> <span class="toctext">User type definitions</span></a>
-</li>
-<li class="toc_level-1 toc_section-20">
-<a href="#enumeration-definitions"><span class="tocnumber">16</span> <span class="toctext">Enumeration definitions</span></a>
-</li>
-<li class="toc_level-1 toc_section-21">
-<a href="#structure-definitions"><span class="tocnumber">17</span> <span class="toctext">Structure definitions</span></a>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <p>µOS++ uses the common C++ naming convention, based on the <a href="http://en.wikipedia.org/wiki/CamelCase">CamelCase</a> convention.</p>
 
 <h1 id="full-words-vs-short-words">Full words vs. short words</h1>
 
 <p>Whenever possible, it is recommended to use the full words; shortening words in member or method names does not make the program shorter or faster, but, when used properly, highly increases the readability of the program.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>  int initialise(); &lt;- instead of init();
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  int initialise(); &lt;- instead of init();
   int configure(); &lt;- instead of config();
   ..
   int delaySeconds; &lt;- instead of delaySec;
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h1 id="pairs-of-opposed-actions-or-names">Pairs of opposed actions or names</h1>
 
@@ -349,102 +264,67 @@
 
 <p>When defining pairs of opposed actions, use the proper antonyms:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>  int startAcquisition();
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  int startAcquisition();
   int stopAcquisition();
   ...
   int enableInterrupts();
   int disableInterrupts();
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h2 id="technical-terms">Technical terms</h2>
 
 <p>Sometimes, even if the words are not listed in dictionaries as antonyms, the pairs of opposed names are defined by practice:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>  // For hardware signals, like chip select
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  // For hardware signals, like chip select
   int assert();
   int deassert();
   ...
   // For synchronisation objects, like mutex
   int acquire();
   int release();
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h2 id="startstop-vs-beginend">start/stop vs. begin/end</h2>
 
 <p>When defining actions, prefer <strong>start</strong>/<strong>stop</strong> to <strong>begin</strong>/<strong>end</strong>, since they have a stronger verb-like meaning (end is more an adjective than a verb).</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>  int startAcquisition(); &lt;- instead of beginAcquisition()
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  int startAcquisition(); &lt;- instead of beginAcquisition()
   int stopAcquisition(); &lt;- instead of endAcquisition()
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>However, when the meaning is adjectival, for example adding determinants to a noun, the pair begin/end is preferred.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>  int listBegin; &lt;- instead of listStart
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  int listBegin; &lt;- instead of listStart
   int listEnd; &lt;- instead of listStop
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h1 id="class-names">Class names</h1>
 
 <p>Class names start with upper case letters.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>class Logger;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Logger;
 class CircularBuffer;
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h2 id="derived-class-names">Derived class names</h2>
 
 <p>Derived class names should extend the base class name, by adding a differentiator at the end.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>class OSDeviceCharacterBuffered : public OSDeviceCharacter
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class OSDeviceCharacterBuffered : public OSDeviceCharacter
 {
  ...
 };
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h2 id="abstract-base-classes">Abstract base classes</h2>
 
 <p>When an abstract class is used as a base class for concrete implementations, the word Base can be used in the name, and this name can be skipped in the derived class name:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>class DeviceCharacterBufferedUsart0 : public DeviceCharacterBufferedBase
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class DeviceCharacterBufferedUsart0 : public DeviceCharacterBufferedBase
 {
  ...
 };
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h1 id="method-names">Method names</h1>
 
@@ -452,64 +332,39 @@ class CircularBuffer;
 
 <p>Since methods define actions to be performed upon the object, the method name should have the function of a predicate, and usually <strong>start with an imperative verb</strong>.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>  int read();
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  int read();
+</code></pre></div></div>
 
 <p>If there are multiple methods that perform similar functions, they should differentiate by the following noun, with the function of a direct complement.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>  int readByte();
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  int readByte();
   long readLong();
   ...
   void readBlock();
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>The rule of starting with a verb is not absolute, when multiple methods are logically grouped by a common criteria, then predicative groups can be used as method names, and the verb is placed at the end.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>  bool eventWaitPrepare(OSEvent_t event);
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  bool eventWaitPrepare(OSEvent_t event);
   OSEventWaitReturn_t eventWaitPerform(void);
 
   int eventNotify(OSEvent_t event, OSEventWaitReturn_t ret = OSEventWaitReturn::OS_VOID);
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>However, when such names occur, it might be a sign that the design can be further refined by defining additional objects, for example instead of</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>  void criticalEnter();
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  void criticalEnter();
   void criticalExit();
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>in the new version of µOS++ we use a separate object to manage critical sections, like</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>class OSCriticalSection
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class OSCriticalSection
 {
   void enter(void);
   void exit(void);
 };
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>In this case the naming convention is again simplified, according to the initial recommendation to use a verb.</p>
 
@@ -519,34 +374,24 @@ class CircularBuffer;
 
 <p>The name should contain exactly the variable name, prefixed with <strong>get</strong> or <strong>set</strong>.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>private:
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>private:
   int m_count;
 
 public:
   int getCount(void);
   void setCount(int);
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h2 id="boolean-methods">Boolean methods</h2>
 
 <p>Methods that return boolean values should start with boolean verbs, like <strong>is</strong>, <strong>has</strong>, <strong>does</strong>. Depending on the context, past or future tense versions, like <strong>was</strong> or <strong>will</strong> may be more appropriate.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>  bool isAvailable();
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  bool isAvailable();
   bool wasInterrupted();
   bool willBlock();
   bool hasMembers();
   bool doesReturn();  &lt;-- instead of 'bool returns();'
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h2 id="initialise-vs-configure">initialise() vs. configure()</h2>
 
@@ -554,16 +399,11 @@ public:
 
 <p>To mark this distinction, the recommended names should start with <strong>initialise</strong> for methods that are used before the device is enabled and with <strong>configure</strong> for methods that can be used at any moment.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>  bool initialiseSomething(void);
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  bool initialiseSomething(void);
   ...
   bool configureBaudRate(BaudRate_t baudRate);
   bool configureHighSpeed(void);
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>It is recommended to use the full words, shortening initialise() to init() or configure() to config() does not make the program shorter or faster.</p>
 
@@ -581,62 +421,42 @@ public:
 
 <p>As the most common type of member variable names, the private member variables should be prefixed with <strong>m_</strong>.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>private:
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>private:
   int m_count;
   char* m_bufferAddress;
   int m_bufferSize;
 
   bool m_isRunning;
   bool m_wasCancelled;
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h2 id="static-member-variables-names">Static member variables names</h2>
 
 <p>Static member variables should be prefixed with <strong>ms_</strong>.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>  static OSThread* volatile ms_pThreadRunning;
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  static OSThread* volatile ms_pThreadRunning;
+</code></pre></div></div>
 
 <h2 id="public-member-names">Public member names</h2>
 
 <p>As an exception to the above rules, some globally available member variables, like those in the global <strong>os</strong> or <strong>app</strong> objects, can be named without the <strong>m_</strong> prefix.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>class OS : public OSImpl
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class OS : public OSImpl
 {
 public:
   ...
   OSScheduler sched;
   ...
 };
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h2 id="array-members">Array members</h2>
 
 <p>For a better code readability, it is recommended to name array members or pointers to arrays explicitly, like this:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>OSTask** m_pWaitingTasksArray;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OSTask** m_pWaitingTasksArray;
 unsigned short m_waitingTasksArraySize;
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h1 id="constant-members">Constant members</h1>
 
@@ -646,13 +466,8 @@ unsigned short m_waitingTasksArraySize;
 
 <p>Another possibility would be the use of the C <strong>enum</strong> statement, but the C++ recommended way is to use static <strong>const members</strong>. The main advantage is that these constants are typed, and the compiler can catch some errors.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>  static const OSReturn_t OS_OK = 0;
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  static const OSReturn_t OS_OK = 0;
+</code></pre></div></div>
 
 <p>Depending on the specific scope, if the constants are to be used only inside the given class, they can be made private. where needed,</p>
 
@@ -716,38 +531,25 @@ unsigned short m_waitingTasksArraySize;
 
 <p>These are custom definitions, made to increase code readability and maintainability. Preferably they should rely on the previous type definitions.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>typedef uint8_t OSThreadPriority_t;
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>typedef uint8_t OSThreadPriority_t;
+</code></pre></div></div>
 
 <h2 id="enumeration-definitions">Enumeration definitions</h2>
 
 <p>When defining enumerations, it is recommended to define both the key and the type, using the following syntax:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>typedef enum Channel_e
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>typedef enum Channel_e
   {
     channelA = 0,
     channelB = 1
   } Channel_t;
 ...
 someMethod(channelA);
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>However, since in the current language definition, enumerations are not typed, it is recommended to use separate a classes with constant members.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>typedef uint8_t Channel_t;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>typedef uint8_t Channel_t;
 
 class Channel
 {
@@ -756,9 +558,7 @@ class Channel
 };
 ...
 someMethod(Channel::A);
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h2 id="structure-definitions">Structure definitions</h2>
 
@@ -766,35 +566,25 @@ someMethod(Channel::A);
 
 <p>However, if for any reasons, struct definitions are needed, it is recommended to define both the struct name and the type, using the following syntax:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>typedef struct Region_s
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>typedef struct Region_s
   {
     RegionAddress_t address;
     RegionSize_t size;
   } Region_t;
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h1 id="measuring-units">Measuring units</h1>
 
 <p>Whenever not absolutely obvious, append the measuring units to the member or method name.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>int busFrequencyHz;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int busFrequencyHz;
 int delaySeconds;
 int delayMilliseconds;
 int delayMicroseconds;
 int lengthMetres;
 int lengthCentimetres;
 int lengthMillimetres;
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>If possible, use the full unit names;</p>
 
@@ -802,15 +592,10 @@ int lengthMillimetres;
 
 <p>Normally under camelCase rules, the underscore is no longer necessary. However, in special cases the underscore can be used as a class specifier.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>  inline static void ledActiveOn(void) __attribute__((always_inline));
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  inline static void ledActiveOn(void) __attribute__((always_inline));
 
   inline static void ISR_ledActiveOn(void) __attribute__((always_inline));
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 
 
@@ -838,7 +623,7 @@ int lengthMillimetres;
   <div class="site-footer">
   <div class="site-footer-links left">
     <ul>
-  <li>© 2022 Liviu Ionescu</li>
+  <li>© 2023 Liviu Ionescu</li>
   <li>Hosted on GitHub</li>
   <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
   <li>

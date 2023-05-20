@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <meta charset="utf-8">
+  <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>User's manual</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="User's manual">
-  <meta property="og:site_name" content="µOS++ IIIe">
+  <meta property="og:title" content="User's manual" />
+  <meta property="og:site_name" content="µOS++ IIIe" />
 
-  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml" />
 
 
   <meta property="article:published_time" content="2016-06-28">
@@ -24,9 +24,9 @@
 
 
 
-  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c" />
 
-  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?202211100849" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?202211100849" media="screen">
@@ -217,13 +217,13 @@
   <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
 </ul>
 
-<h4 id="license">License</h4>
+<h4 id="project">Project</h4>
 
 <ul>
-  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+  <li><a href="/web-preview/project/about/">About</a></li>
+  <li><a href="/web-preview/project/history/">History</a></li>
+  <li><a href="https://opensource.org/licenses/MIT">License</a></li>
 </ul>
-
-<h4 id="about"><a href="/web-preview/about/">About</a></h4>
 
     </div>
   </div>
@@ -241,95 +241,16 @@
 <h1 class="page-title">User's manual</h1>
 <table id="last-modified">
   <tr>
-    <td id="last-modified">Last modified on Mon Nov 14 08:50:12 2022 UTC.</td>
+    <td id="last-modified">Last modified on Sat May 20 21:14:21 2023 UTC.</td>
     <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/web-jekyll/edit/master/pages/user-manual/toc.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
 
-<div id="toc-container">
-<table class="toc" id="toc">
-<tbody>
-<tr>
-<td>
-<div id="toctitle">
-<h2>Contents</h2>
-</div>
-<ul>
-<li class="toc_level-1 toc_section-1">
-<a href="#rtos"><span class="tocnumber">1</span> <span class="toctext">RTOS</span></a>
-<ul>
-<li class="toc_level-2 toc_section-2">
-<a href="#getting-started-with-%C2%B5os"><span class="tocnumber">1.1</span> <span class="toctext">Getting started with µOS++</span></a>
-</li>
-<li class="toc_level-2 toc_section-3">
-<a href="#basic-concepts"><span class="tocnumber">1.2</span> <span class="toctext">Basic concepts</span></a>
-</li>
-<li class="toc_level-2 toc_section-4">
-<a href="#features"><span class="tocnumber">1.3</span> <span class="toctext">Features</span></a>
-</li>
-<li class="toc_level-2 toc_section-5">
-<a href="#threads"><span class="tocnumber">1.4</span> <span class="toctext">Threads</span></a>
-</li>
-<li class="toc_level-2 toc_section-6">
-<a href="#thread-event-flags"><span class="tocnumber">1.5</span> <span class="toctext">Thread event flags</span></a>
-</li>
-<li class="toc_level-2 toc_section-7">
-<a href="#semaphores"><span class="tocnumber">1.6</span> <span class="toctext">Semaphores</span></a>
-</li>
-<li class="toc_level-2 toc_section-8">
-<a href="#event-flags"><span class="tocnumber">1.7</span> <span class="toctext">Event flags</span></a>
-</li>
-<li class="toc_level-2 toc_section-9">
-<a href="#mutexes"><span class="tocnumber">1.8</span> <span class="toctext">Mutexes</span></a>
-</li>
-<li class="toc_level-2 toc_section-10">
-<a href="#condition-variables"><span class="tocnumber">1.9</span> <span class="toctext">Condition variables</span></a>
-</li>
-<li class="toc_level-2 toc_section-11">
-<a href="#message-queues"><span class="tocnumber">1.10</span> <span class="toctext">Message queues</span></a>
-</li>
-<li class="toc_level-2 toc_section-12">
-<a href="#fixed-size-memory-pools"><span class="tocnumber">1.11</span> <span class="toctext">Fixed size memory pools</span></a>
-</li>
-<li class="toc_level-2 toc_section-13">
-<a href="#software-timers"><span class="tocnumber">1.12</span> <span class="toctext">Software timers</span></a>
-</li>
-<li class="toc_level-2 toc_section-14">
-<a href="#clocks"><span class="tocnumber">1.13</span> <span class="toctext">Clocks</span></a>
-</li>
-<li class="toc_level-2 toc_section-15">
-<a href="#interrupts--critical-sections"><span class="tocnumber">1.14</span> <span class="toctext">Interrupts &amp; critical sections</span></a>
-</li>
-<li class="toc_level-2 toc_section-16">
-<a href="#memory-allocators"><span class="tocnumber">1.15</span> <span class="toctext">Memory allocators</span></a>
-</li>
-<li class="toc_level-2 toc_section-17">
-<a href="#the-scheduler"><span class="tocnumber">1.16</span> <span class="toctext">The scheduler</span></a>
-</li>
-<li class="toc_level-2 toc_section-18">
-<a href="#run-time-statistics"><span class="tocnumber">1.17</span> <span class="toctext">Run-time statistics</span></a>
-</li>
-<li class="toc_level-2 toc_section-19">
-<a href="#iterating-threads"><span class="tocnumber">1.18</span> <span class="toctext">Iterating threads</span></a>
-</li>
-<li class="toc_level-2 toc_section-20">
-<a href="#credits"><span class="tocnumber">1.19</span> <span class="toctext">Credits</span></a>
-</li>
-</ul>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <p>Note: The User’s Manual is currently work in progress.</p>
 
 <h2 id="rtos">RTOS</h2>
 
-<h3 id="getting-started-with-µos">
-<a href="/web-preview/user-manual/getting-started/">Getting started with µOS++</a>
-</h3>
+<h3 id="getting-started-with-µos"><a href="/web-preview/user-manual/getting-started/">Getting started with µOS++</a></h3>
 <ul>
   <li>
 <a href="/web-preview/user-manual/getting-started/#overview">Overview</a>
@@ -341,9 +262,7 @@
   <li><a href="/web-preview/user-manual/getting-started/#multiple-thread-applications">Multiple thread applications</a></li>
 </ul>
 
-<h3 id="basic-concepts">
-<a href="/web-preview/user-manual/basic-concepts/">Basic concepts</a>
-</h3>
+<h3 id="basic-concepts"><a href="/web-preview/user-manual/basic-concepts/">Basic concepts</a></h3>
 
 <ul>
   <li><a href="/web-preview/user-manual/basic-concepts/#soft-vs-hard-real-time-systems">Soft vs hard real-time systems</a></li>
@@ -411,13 +330,9 @@
   </li>
 </ul>
 
-<h3 id="features">
-<a href="/web-preview/user-manual/features/">Features</a>
-</h3>
+<h3 id="features"><a href="/web-preview/user-manual/features/">Features</a></h3>
 
-<h3 id="threads">
-<a href="/web-preview/user-manual/threads/">Threads</a>
-</h3>
+<h3 id="threads"><a href="/web-preview/user-manual/threads/">Threads</a></h3>
 <ul>
   <li><a href="/web-preview/user-manual/threads/#overview">Overview</a></li>
   <li><a href="/web-preview/user-manual/threads/#thread-functions">Thread functions</a></li>
@@ -433,9 +348,7 @@
   <li><a href="/web-preview/user-manual/threads/#the-main-thread">The main thread</a></li>
 </ul>
 
-<h3 id="thread-event-flags">
-<a href="/web-preview/user-manual/thread-event-flags/">Thread event flags</a>
-</h3>
+<h3 id="thread-event-flags"><a href="/web-preview/user-manual/thread-event-flags/">Thread event flags</a></h3>
 <ul>
   <li><a href="/web-preview/user-manual/thread-event-flags/#overview">Overview</a></li>
   <li><a href="/web-preview/user-manual/thread-event-flags/#raising-thread-event-flags">Raising thread event flags</a></li>
@@ -443,9 +356,7 @@
   <li><a href="/web-preview/user-manual/thread-event-flags/#other-thread-event-flags-functions">Other thread event flags functions</a></li>
 </ul>
 
-<h3 id="semaphores">
-<a href="/web-preview/user-manual/semaphores/">Semaphores</a>
-</h3>
+<h3 id="semaphores"><a href="/web-preview/user-manual/semaphores/">Semaphores</a></h3>
 <ul>
   <li><a href="/web-preview/user-manual/semaphores/#overview">Overview</a></li>
   <li>
@@ -488,9 +399,7 @@
   </li>
 </ul>
 
-<h3 id="event-flags">
-<a href="/web-preview/user-manual/event-flags/">Event flags</a>
-</h3>
+<h3 id="event-flags"><a href="/web-preview/user-manual/event-flags/">Event flags</a></h3>
 <ul>
   <li><a href="/web-preview/user-manual/event-flags/#overview">Overview</a></li>
   <li><a href="/web-preview/user-manual/event-flags/#creating-event-flags">Creating event flags</a></li>
@@ -513,9 +422,7 @@
   <li><a href="/web-preview/user-manual/event-flags/#destroying-event-flags">Destroying event flags</a></li>
 </ul>
 
-<h3 id="mutexes">
-<a href="/web-preview/user-manual/mutexes/">Mutexes</a>
-</h3>
+<h3 id="mutexes"><a href="/web-preview/user-manual/mutexes/">Mutexes</a></h3>
 <ul>
   <li>
 <a href="/web-preview/user-manual/mutexes/#overview">Overview</a>
@@ -671,7 +578,7 @@
   <div class="site-footer">
   <div class="site-footer-links left">
     <ul>
-  <li>© 2022 Liviu Ionescu</li>
+  <li>© 2023 Liviu Ionescu</li>
   <li>Hosted on GitHub</li>
   <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
   <li>

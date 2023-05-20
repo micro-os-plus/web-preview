@@ -9,7 +9,6 @@ var classthread =
     [ "thread", "classthread.html#a73cafa43d0589c7e597bae4f0b7887c0", null ],
     [ "thread", "classthread.html#a2d05a472a5a1b4a55424ed546d839d56", null ],
     [ "thread", "classthread.html#ad627d6468b51570c90bb8f91b8701554", null ],
-    [ "thread", "classthread.html#ad627d6468b51570c90bb8f91b8701554", null ],
     [ "delete_function_object", "classthread.html#a2abe8177ddf11f7bbe01a4d29ae2f9bd", null ],
     [ "delete_system_thread", "classthread.html#a09b9ad5bb8412cf7b97351252205a17c", null ],
     [ "detach", "classthread.html#a5607159f9b9c9152d2bb8d207be241b4", null ],

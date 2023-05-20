@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <meta charset="utf-8">
+  <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>System Timers</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="System Timers">
-  <meta property="og:site_name" content="µOS++ IIIe">
+  <meta property="og:title" content="System Timers" />
+  <meta property="og:site_name" content="µOS++ IIIe" />
 
-  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml" />
 
 
   <meta property="article:published_time" content="2010-11-10">
@@ -24,9 +24,9 @@
 
 
 
-  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c" />
 
-  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?202211100849" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?202211100849" media="screen">
@@ -217,13 +217,13 @@
   <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
 </ul>
 
-<h4 id="license">License</h4>
+<h4 id="project">Project</h4>
 
 <ul>
-  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+  <li><a href="/web-preview/project/about/">About</a></li>
+  <li><a href="/web-preview/project/history/">History</a></li>
+  <li><a href="https://opensource.org/licenses/MIT">License</a></li>
 </ul>
-
-<h4 id="about"><a href="/web-preview/about/">About</a></h4>
 
     </div>
   </div>
@@ -246,38 +246,6 @@
   </tr>
 </table>
 
-<div id="toc-container">
-<table class="toc" id="toc">
-<tbody>
-<tr>
-<td>
-<div id="toctitle">
-<h2>Contents</h2>
-</div>
-<ul>
-<li class="toc_level-1 toc_section-1">
-<a href="#methods"><span class="tocnumber">1</span> <span class="toctext">Methods</span></a>
-<ul>
-<li class="toc_level-2 toc_section-2">
-<a href="#sleep-method"><span class="tocnumber">1.1</span> <span class="toctext">Sleep method</span></a>
-</li>
-<li class="toc_level-2 toc_section-3">
-<a href="#event-methods"><span class="tocnumber">1.2</span> <span class="toctext">Event methods</span></a>
-</li>
-<li class="toc_level-2 toc_section-4">
-<a href="#get-ticks-method"><span class="tocnumber">1.3</span> <span class="toctext">Get Ticks method</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-5">
-<a href="#examples"><span class="tocnumber">2</span> <span class="toctext">Examples</span></a>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <p>The main function of µOS++ system timers is to schedule the generation of events after a number of ticks.</p>
 
 <p>There are at least two timers, one using scheduler ticks and the other using seconds. The variables used to store ticks should be of type <strong>OSTimerTicks_t</strong>. Usually this is an unsigned short, giving a range of max 65535 ticks. For the timer counting seconds this means about 18 hours, and for the timer counting scheduler ticks, at, let’s say, 1000 ticks/second, this means about 65 seconds.</p>
@@ -286,34 +254,19 @@
 
 <p>The two timers are static members of the <strong>os.sched</strong> object and the recommended way to access them is:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>os.sched.timerTicks
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>os.sched.timerTicks
 os.sched.timerSeconds
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>Please note that the seconds timer is optional. To include it in the build please add the following line to the system configuration header:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>#define OS_INCLUDE_OSSCHEDULER_TIMERSECONDS                1
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#define OS_INCLUDE_OSSCHEDULER_TIMERSECONDS                1
+</code></pre></div></div>
 
 <p>Since specifying scheduler ticks might not be as intuitive as usual time units, the following macro was defined in OS.h and can be used whenever needed. However two issues should be considered: first, the result is aproximative, the higher the tick rate the better the approximation, and second, the result should fit the range of <strong>OSTimerTicks_t</strong>, otherwise results are erroneous. To increase precission it is recommended to define the parameter of this macro as long (by using the L suffix, like 15000L).</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>#define OS_MICROS_TO_TICKS(x) (((x)+(OS_CFGINT_TICK_RATE_HZ-1))/OS_CFGINT_TICK_RATE_HZ)
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#define OS_MICROS_TO_TICKS(x) (((x)+(OS_CFGINT_TICK_RATE_HZ-1))/OS_CFGINT_TICK_RATE_HZ)
+</code></pre></div></div>
 
 <p>If the above excessive rounding is not necessarry, the user can always define and use a customized version of this macro.</p>
 
@@ -321,13 +274,8 @@ os.sched.timerSeconds
 
 <h3 id="sleep-method">Sleep method</h3>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>OSEventWaitReturn_t sleep(OSTimerTicks_t ticks);
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OSEventWaitReturn_t sleep(OSTimerTicks_t ticks);
+</code></pre></div></div>
 
 <p>Put the current task to sleep for the number of ticks. A value of 1 means ‘next’ tick, so it might be less than one full tick.</p>
 
@@ -335,23 +283,13 @@ os.sched.timerSeconds
 
 <h3 id="event-methods">Event methods</h3>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>void eventNotify(OSTimerTicks_t ticks, OSEvent_t event, OSEventWaitReturn_t ret);
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void eventNotify(OSTimerTicks_t ticks, OSEvent_t event, OSEventWaitReturn_t ret);
+</code></pre></div></div>
 
 <p>Schedule a notification after a number of ticks. It is functionally equivalent with os.sched.eventNotify(event, ret) executed exactly after the given number of ticks.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>int eventRemove(OSEvent_t event);
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int eventRemove(OSEvent_t event);
+</code></pre></div></div>
 
 <p>Remove all notifications scheduled for the given event, regardless the task that issued them. Usefull when a timeout is set and the expected event occurs, making the timeout useless or even harmfull.</p>
 
@@ -359,13 +297,8 @@ os.sched.timerSeconds
 
 <h3 id="get-ticks-method">Get Ticks method</h3>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>OSTimerTicks_t getTicks(void);
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OSTimerTicks_t getTicks(void);
+</code></pre></div></div>
 
 <p>Return the current value of the ticks counter. Ticks are automatically counted by the interrupt service routine. Due to the nature of unsigned arithmetic, you can safely compute the duration of an operation by subtracting the counter at the begining of the operation from the counter at the end of the operation, as long as the duration is not higher than the max range of the OSTimerTicks_t (usually an unsigned short).</p>
 
@@ -373,34 +306,21 @@ os.sched.timerSeconds
 
 <h2 id="examples">Examples</h2>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>// ...
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// ...
 os.sched.timerTicks.sleep(OS_MICROS_TO_TICKS(15000L)); // 15 ms
 // ...
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>Put the current task to sleep for 15 miliseconds.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>// ...
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// ...
 os.sched.timerSeconds.sleep(3); // 3 sec
 // ...
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>Put the current task to sleep for 3 seconds.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>// ...
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// ...
 OSEventWaitReturn_t startSeconds;
 startTicks = os.sched.timerSeconds.getTicks();
   {
@@ -409,16 +329,11 @@ startTicks = os.sched.timerSeconds.getTicks();
 OSEventWaitReturn_t durationSeconds;
 durationSeconds = os.sched.timerSeconds.getTicks() - startSeconds;
 // ...
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>Compute the duration in seconds of a block of code.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>// ...
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// ...
 OSEvent_t event;
 event = ...;
 os.sched.timerTicks.eventNotify(OS_MICROS_TO_TICKS(25000L), event, OS_EVENT_WAIT_RETURN_TIMEOUT);
@@ -427,9 +342,7 @@ ret = os.sched.eventWait(event);
 if (ret != OS_EVENT_WAIT_RETURN_TIMEOUT)
   os.sched.timerTicks.eventRemove(event);
 // ...
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>Add a 25 miliseconds timeout to an <strong>eventWait()</strong>.</p>
 
@@ -459,7 +372,7 @@ if (ret != OS_EVENT_WAIT_RETURN_TIMEOUT)
   <div class="site-footer">
   <div class="site-footer-links left">
     <ul>
-  <li>© 2022 Liviu Ionescu</li>
+  <li>© 2023 Liviu Ionescu</li>
   <li>Hosted on GitHub</li>
   <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
   <li>

@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <meta charset="utf-8">
+  <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>Class Timer</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="Class Timer">
-  <meta property="og:site_name" content="µOS++ IIIe">
+  <meta property="og:title" content="Class Timer" />
+  <meta property="og:site_name" content="µOS++ IIIe" />
 
-  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml" />
 
 
   <meta property="article:published_time" content="2011-02-21">
@@ -24,9 +24,9 @@
 
 
 
-  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c" />
 
-  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?202211100849" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?202211100849" media="screen">
@@ -217,13 +217,13 @@
   <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
 </ul>
 
-<h4 id="license">License</h4>
+<h4 id="project">Project</h4>
 
 <ul>
-  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+  <li><a href="/web-preview/project/about/">About</a></li>
+  <li><a href="/web-preview/project/history/">History</a></li>
+  <li><a href="https://opensource.org/licenses/MIT">License</a></li>
 </ul>
-
-<h4 id="about"><a href="/web-preview/about/">About</a></h4>
 
     </div>
   </div>
@@ -246,60 +246,17 @@
   </tr>
 </table>
 
-<div id="toc-container">
-<table class="toc" id="toc">
-<tbody>
-<tr>
-<td>
-<div id="toctitle">
-<h2>Contents</h2>
-</div>
-<ul>
-<li class="toc_level-1 toc_section-1">
-<a href="#timer"><span class="tocnumber">1</span> <span class="toctext">Timer()</span></a>
-</li>
-<li class="toc_level-1 toc_section-2">
-<a href="#virtual-timer"><span class="tocnumber">2</span> <span class="toctext">virtual ~Timer()</span></a>
-</li>
-<li class="toc_level-1 toc_section-3">
-<a href="#void-stop"><span class="tocnumber">3</span> <span class="toctext">void stop()</span></a>
-</li>
-<li class="toc_level-1 toc_section-4">
-<a href="#oseventwaitreturn_t-eventwaitvoid"><span class="tocnumber">4</span> <span class="toctext">OSEventWaitReturn_t eventWait(void)</span></a>
-</li>
-<li class="toc_level-1 toc_section-5">
-<a href="#bool-isperiodic"><span class="tocnumber">5</span> <span class="toctext">bool isPeriodic()</span></a>
-</li>
-<li class="toc_level-1 toc_section-6">
-<a href="#ostimerticks_t-getticksstart"><span class="tocnumber">6</span> <span class="toctext">OSTimerTicks_t getTicksStart()</span></a>
-</li>
-<li class="toc_level-1 toc_section-7">
-<a href="#ostimerticks_t-getticks"><span class="tocnumber">7</span> <span class="toctext">OSTimerTicks_t getTicks()</span></a>
-</li>
-<li class="toc_level-1 toc_section-8">
-<a href="#virtual-void-timereventvoid"><span class="tocnumber">8</span> <span class="toctext">virtual void timerEvent(void)</span></a>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <p>Timer</p>
 
 <h1 id="constructors">Constructors</h1>
 
 <h2 id="timer">Timer()</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Initialize the internal members.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
@@ -307,9 +264,7 @@
 
 <h2 id="virtual-timer">virtual ~Timer()</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Destroy the custom timer.</p>
 
@@ -319,37 +274,27 @@
 
 <p>Start the timer to trigger an event after the given number of ticks. If periodic is true, the event will periodically be triggered.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* ticks - input, the number of ticks after which the event is triggered</p>
 
 <p>:* periodic - input, if true the event will periodically be triggered</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
 <h2 id="void-stop">void stop()</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Stop a periodic timer after the pending event is completed, i.e. do not reschedule another event. The number of ticks will be set to zero and periodic to false.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
@@ -357,15 +302,11 @@
 
 <p>Cancel the pending event, by notifying it with the given return value.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* ret - input, the event wait return value, used for notifying the pending event</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
@@ -373,120 +314,86 @@
 
 <p>Set the event, which is going to be triggered by the timer, and the return value.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* event - input, the event which is going to be set</p>
 
 <p>:* ret - input, the return value which is transmitted to the event</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
 <h2 id="oseventwaitreturn_t-eventwaitvoid">
 <a href="/web-preview/micro-os-plus/i/Typedef_OSEventWaitReturn_t">OSEventWaitReturn_t</a> eventWait(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Wait for the trigger event to occur.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* event return value</p>
 
 <h2 id="bool-isperiodic">bool isPeriodic()</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Return true if the timer is set to periodic mode.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* true if the timer is periodic</p>
 
 <h2 id="ostimerticks_t-getticksstart">
 <a href="/web-preview/micro-os-plus/i/Typedef_OSTimerTicks_t">OSTimerTicks_t</a> getTicksStart()</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Return the number of ticks set by start(). If the timer is stopped, the returned value is zero.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* the number of ticks set by start</p>
 
 <h2 id="ostimerticks_t-getticks">
 <a href="/web-preview/micro-os-plus/i/Typedef_OSTimerTicks_t">OSTimerTicks_t</a> getTicks()</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Return the current ticks counter of the associated timer.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* the current number of ticks</p>
 
 <h2 id="virtual-void-timereventvoid">virtual void timerEvent(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>This is the callback invoked by the timer interrupt. The default action is notify the event programmed by eventSet().</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
@@ -516,7 +423,7 @@
   <div class="site-footer">
   <div class="site-footer-links left">
     <ul>
-  <li>© 2022 Liviu Ionescu</li>
+  <li>© 2023 Liviu Ionescu</li>
   <li>Hosted on GitHub</li>
   <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
   <li>

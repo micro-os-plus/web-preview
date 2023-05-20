@@ -10,8 +10,8 @@ var group__cmsis_plus_rtos_memres =
       [ "allocator_deleter", "classos_1_1rtos_1_1memory_1_1allocator__deleter.html#a59be59065e37e7e7d80b8a33e9adb1b2", null ],
       [ "~allocator_deleter", "classos_1_1rtos_1_1memory_1_1allocator__deleter.html#ae63698c4f4c8b3f40b7e6d727521edda", null ],
       [ "operator()", "classos_1_1rtos_1_1memory_1_1allocator__deleter.html#ab50a510e24c4945e992d0472e6be4cf8", null ],
-      [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__deleter.html#a5cbffd2d61b3d464e6940b0daecb793c", null ],
-      [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__deleter.html#aa070186f485374bb65ba50794902d37e", null ]
+      [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__deleter.html#aa070186f485374bb65ba50794902d37e", null ],
+      [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__deleter.html#a5cbffd2d61b3d464e6940b0daecb793c", null ]
     ] ],
     [ "allocator_stateless_default_resource", "classos_1_1rtos_1_1memory_1_1allocator__stateless__default__resource.html", [
       [ "value_type", "classos_1_1rtos_1_1memory_1_1allocator__stateless__default__resource.html#aeb7246fa47822a38531255853313e044", null ],
@@ -23,8 +23,8 @@ var group__cmsis_plus_rtos_memres =
       [ "allocate", "classos_1_1rtos_1_1memory_1_1allocator__stateless__default__resource.html#a4dc637e5907bfede60e811fbc71a94be", null ],
       [ "deallocate", "classos_1_1rtos_1_1memory_1_1allocator__stateless__default__resource.html#a070977f77b4fef4e886f045c940a3dd2", null ],
       [ "max_size", "classos_1_1rtos_1_1memory_1_1allocator__stateless__default__resource.html#a2be513e467355a587f117e38e3fbc432", null ],
-      [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__stateless__default__resource.html#a6994e769f1a7d1fd1ce6c505cd8c9d91", null ],
-      [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__stateless__default__resource.html#a8f07e5d8a3cbe35378ded2305da19cac", null ]
+      [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__stateless__default__resource.html#a8f07e5d8a3cbe35378ded2305da19cac", null ],
+      [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__stateless__default__resource.html#a6994e769f1a7d1fd1ce6c505cd8c9d91", null ]
     ] ],
     [ "allocator_stateless_polymorphic_synchronized", "classos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized.html", [
       [ "rebind", "structos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized_1_1rebind.html", [
@@ -40,8 +40,8 @@ var group__cmsis_plus_rtos_memres =
       [ "allocate", "classos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized.html#ae64f670fadc2e2eb19d7425273bdb4fd", null ],
       [ "deallocate", "classos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized.html#a0fe5b1668b2a24865f1c21a0912067f7", null ],
       [ "max_size", "classos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized.html#a37f182f75eff0bf7e460f4f376d643a4", null ],
-      [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized.html#ade2e4dd568847914396266e8da6c3381", null ],
-      [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized.html#ae54805b4187877d09d5f8db699911a9e", null ]
+      [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized.html#ae54805b4187877d09d5f8db699911a9e", null ],
+      [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized.html#ade2e4dd568847914396266e8da6c3381", null ]
     ] ],
     [ "block_pool", "classos_1_1memory_1_1block__pool.html", [
       [ "block_pool", "classos_1_1memory_1_1block__pool.html#a0b3c224b4f4424a665c716303d68e2c1", null ],
@@ -522,19 +522,19 @@ var group__cmsis_plus_rtos_memres =
     [ "new_delete_resource", "group__cmsis-plus-rtos-memres.html#gaa0efdbc11c98e94893825fc05c6a7615", null ],
     [ "null_memory_resource", "group__cmsis-plus-rtos-memres.html#ga1a429398eefddb1ca8a103006ace1387", null ],
     [ "operator delete", "group__cmsis-plus-rtos-memres.html#gafa145befcf5e7b83424408ca503c8637", null ],
-    [ "operator delete", "group__cmsis-plus-rtos-memres.html#gaeca15c4f631258b9c4987f804f6796c3", null ],
     [ "operator delete", "group__cmsis-plus-rtos-memres.html#ga82af5bcb97f91e73d40aa6390554920a", null ],
+    [ "operator delete", "group__cmsis-plus-rtos-memres.html#gaeca15c4f631258b9c4987f804f6796c3", null ],
     [ "operator delete[]", "group__cmsis-plus-rtos-memres.html#ga22aea74a1155aa798d6032da46da2391", null ],
-    [ "operator delete[]", "group__cmsis-plus-rtos-memres.html#ga813195142d16c1a016cc2ba960d69087", null ],
     [ "operator delete[]", "group__cmsis-plus-rtos-memres.html#ga2f192d7375b5f82e6bec075a834762ca", null ],
+    [ "operator delete[]", "group__cmsis-plus-rtos-memres.html#ga813195142d16c1a016cc2ba960d69087", null ],
     [ "operator new", "group__cmsis-plus-rtos-memres.html#ga98d1fa89f048e8bde29089fccc11a3fc", null ],
     [ "operator new", "group__cmsis-plus-rtos-memres.html#gaa47e694d5a1ed7a76f371e75d20ad584", null ],
     [ "operator new[]", "group__cmsis-plus-rtos-memres.html#ga0b71e89e72e6b0db306d6897d9e2533e", null ],
     [ "operator new[]", "group__cmsis-plus-rtos-memres.html#ga9a58a6def1abeffe81a6f146f8736025", null ],
-    [ "operator!=", "group__cmsis-plus-rtos-memres.html#ga9042825a60e194355f0424b3a36e442e", null ],
     [ "operator!=", "group__cmsis-plus-rtos-memres.html#ga1362aa6b80e1d9a0bf85db6ab6953e46", null ],
-    [ "operator==", "group__cmsis-plus-rtos-memres.html#ga4769d08c721d5e897a8792837d5eccf7", null ],
+    [ "operator!=", "group__cmsis-plus-rtos-memres.html#ga9042825a60e194355f0424b3a36e442e", null ],
     [ "operator==", "group__cmsis-plus-rtos-memres.html#gaa114b293300994ebcc1ec965b78de8f4", null ],
+    [ "operator==", "group__cmsis-plus-rtos-memres.html#ga4769d08c721d5e897a8792837d5eccf7", null ],
     [ "set_default_resource", "group__cmsis-plus-rtos-memres.html#gacbb72d3cad1991160e1c3c5c8538f6c4", null ],
     [ "set_default_resource", "group__cmsis-plus-rtos-memres.html#ga34cf8ec3444242cb4c9bd0849c7ce439", null ],
     [ "set_resource_typed", "group__cmsis-plus-rtos-memres.html#ga48ba4db7f3bd283b637c3f47dc0fdc7b", null ],

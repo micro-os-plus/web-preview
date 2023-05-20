@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <meta charset="utf-8">
+  <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>Configuration variables</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="Configuration variables">
-  <meta property="og:site_name" content="µOS++ IIIe">
+  <meta property="og:title" content="Configuration variables" />
+  <meta property="og:site_name" content="µOS++ IIIe" />
 
-  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml" />
 
 
   <meta property="article:published_time" content="2011-08-10">
@@ -24,9 +24,9 @@
 
 
 
-  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c" />
 
-  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?202211100849" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?202211100849" media="screen">
@@ -217,13 +217,13 @@
   <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
 </ul>
 
-<h4 id="license">License</h4>
+<h4 id="project">Project</h4>
 
 <ul>
-  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+  <li><a href="/web-preview/project/about/">About</a></li>
+  <li><a href="/web-preview/project/history/">History</a></li>
+  <li><a href="https://opensource.org/licenses/MIT">License</a></li>
 </ul>
-
-<h4 id="about"><a href="/web-preview/about/">About</a></h4>
 
     </div>
   </div>
@@ -246,75 +246,6 @@
   </tr>
 </table>
 
-<div id="toc-container">
-<table class="toc" id="toc">
-<tbody>
-<tr>
-<td>
-<div id="toctitle">
-<h2>Contents</h2>
-</div>
-<ul>
-<li class="toc_level-1 toc_section-1">
-<a href="#conditional-inclusionexclusion-of-classes"><span class="tocnumber">1</span> <span class="toctext">Conditional inclusion/exclusion of classes</span></a>
-</li>
-<li class="toc_level-1 toc_section-2">
-<a href="#conditional-inclusionexclusion-of-class-member-variables"><span class="tocnumber">2</span> <span class="toctext">Conditional inclusion/exclusion of class member variables</span></a>
-</li>
-<li class="toc_level-1 toc_section-3">
-<a href="#conditional-inclusionexclusion-of-class-methods"><span class="tocnumber">3</span> <span class="toctext">Conditional inclusion/exclusion of class methods</span></a>
-</li>
-<li class="toc_level-1 toc_section-4">
-<a href="#conditional-exclusion-of-isr-preemption"><span class="tocnumber">4</span> <span class="toctext">Conditional exclusion of ISR preemption</span></a>
-</li>
-<li class="toc_level-1 toc_section-5">
-<a href="#other-conditional-exclusion-variables"><span class="tocnumber">5</span> <span class="toctext">Other conditional exclusion variables</span></a>
-</li>
-<li class="toc_level-1 toc_section-6">
-<a href="#booleans"><span class="tocnumber">6</span> <span class="toctext">Booleans</span></a>
-</li>
-<li class="toc_level-1 toc_section-7">
-<a href="#integers"><span class="tocnumber">7</span> <span class="toctext">Integers</span></a>
-</li>
-<li class="toc_level-1 toc_section-8">
-<a href="#hardware-registers"><span class="tocnumber">8</span> <span class="toctext">Hardware registers</span></a>
-</li>
-<li class="toc_level-1 toc_section-9">
-<a href="#gpio-pins"><span class="tocnumber">9</span> <span class="toctext">GPIO pins</span></a>
-</li>
-<li class="toc_level-1 toc_section-10">
-<a href="#variables"><span class="tocnumber">10</span> <span class="toctext">Variables</span></a>
-</li>
-<li class="toc_level-1 toc_section-11">
-<a href="#pointer-to-variables-addresses"><span class="tocnumber">11</span> <span class="toctext">Pointer to variables (addresses)</span></a>
-</li>
-<li class="toc_level-1 toc_section-12">
-<a href="#strings"><span class="tocnumber">12</span> <span class="toctext">Strings</span></a>
-</li>
-<li class="toc_level-1 toc_section-13">
-<a href="#generic-definitions"><span class="tocnumber">13</span> <span class="toctext">Generic definitions</span></a>
-</li>
-<li class="toc_level-1 toc_section-14">
-<a href="#specific-definitions"><span class="tocnumber">14</span> <span class="toctext">Specific definitions</span></a>
-</li>
-<li class="toc_level-1 toc_section-15">
-<a href="#arrays"><span class="tocnumber">15</span> <span class="toctext">Arrays</span></a>
-</li>
-<li class="toc_level-1 toc_section-16">
-<a href="#measurement-units"><span class="tocnumber">16</span> <span class="toctext">Measurement units</span></a>
-</li>
-<li class="toc_level-1 toc_section-17">
-<a href="#if-defined-instead-of-ifdef"><span class="tocnumber">17</span> <span class="toctext">#if defined() instead of #ifdef</span></a>
-</li>
-<li class="toc_level-1 toc_section-18">
-<a href="#parenthesis"><span class="tocnumber">18</span> <span class="toctext">Parenthesis</span></a>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <p>As a highly configurable system, µOS++ makes extensive use of preprocessor variables and conditional compilation. In fact it is highly recommended that all decision that can be made at build time, to be done with configuration variables.</p>
 
 <p>There are many types of configuration variables, some defined by the application and needed to configure various components of the system, and some computed by the system and presented to the application.</p>
@@ -325,81 +256,51 @@
 
 <p>All debug build configurations should include the DEBUG=1 definition, added by the Eclipse CDT managed builder to all compile steps:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>g++ ... -DDEBUG=1
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>g++ ... -DDEBUG=1
+</code></pre></div></div>
 
 <p>This definition is used for conditional compiling as usual:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>#if defined(DEBUG)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#if defined(DEBUG)
 ...
 #endif /* defined(DEBUG) */
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>Notice: Although the actual value of the DEBUG variable is not relevant, since only the existence of the definition is checked, it is recommended to avoid empty definitions and always use the value of 1.</p>
 
 <p>Enabling more specific configurations is done with more specific definitions. The specific condition may apply to a group of classes, to a certain class or to a certain method of a class. In addition to the condition, the convention to name these definitions may hierarchically include the class name and eventually the method name:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>#define OS_DEBUG_MYCONDITION                            (1)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#define OS_DEBUG_MYCONDITION                            (1)
 #define OS_DEBUG_MYCLASS                                (1)
 #define OS_DEBUG_MYCLASS_MYCONDITION                (1)
 #define OS_DEBUG_MYCLASS_MYMETHOD                   (1)
 #define OS_DEBUG_MYCLASS_MYMETHOD_MYCONDITION   (1)
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>The name MYCLASS is the full class name, converted to uppercase. Similarly MYMETHOD is the full name of the method where the definition applies.</p>
 
 <p>Example of such definitions are</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>#define OS_DEBUG_CONSTRUCTORS           (1)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#define OS_DEBUG_CONSTRUCTORS           (1)
 #define OS_DEBUG_OSSCHEDULER_START      (1)
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>When checking for the presence of such definitions, it is recommended to combine the specific definitions with the generic definition of DEBUG:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>#if defined(DEBUG) &amp;&amp; defined(OS_DEBUG_CONSTRUCTORS)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#if defined(DEBUG) &amp;&amp; defined(OS_DEBUG_CONSTRUCTORS)
 ...
 #endif /* defined(DEBUG) &amp;&amp; defined(OS_DEBUG_CONSTRUCTORS) */
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h1 id="variables-provided-by-the-system">Variables provided by the system</h1>
 
 <p>These are variables intended to help the programmer taylor the build according to some generally agreed criteria. For example, based on the board definition, passed to the build mechanism as a compile option like “-DOS_CONFIG_BOARD_STK525=1”, the system exposes definitions of the architecture, family and variant of the processor used.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>#define OS_CONFIG_ARCH_AVR                  1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#define OS_CONFIG_ARCH_AVR                  1
 #define OS_CONFIG_FAMILY_AT90USB                1
 #define OS_CONFIG_VARIANT_AT90USB1287       1
 #define OS_CONFIG_BOARD_STK525              1
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>These definitions can be used later for conditional compilation.</p>
 
@@ -411,10 +312,7 @@
 
 <p>Similarly, if the default functionality is not needed, parts of the source code can be excluded by using OS_EXCLUDE_xxx.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>// conditionally include code
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// conditionally include code
 #define OS_INCLUDE_xxx          (1)
 
 #if defined(OS_INCLUDE_xxx)
@@ -427,16 +325,11 @@
 #if !defined(OS_EXCLUDE_xxx)
 ...
 #endif /* !defined(OS_EXCLUDE_xxx) */
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>The scope of the inclusion/exclusion can be an entire class, a variable, a method, or part of a method:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>#define OS_INCLUDE_MYCLASS                              (1)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#define OS_INCLUDE_MYCLASS                              (1)
 #define OS_INCLUDE_MYCLASS_MYVARIABLE                   (1)
 #define OS_INCLUDE_MYCLASS_MYMETHOD                 (1)
 #define OS_INCLUDE_MYCLASS_MYMETHOD_MYCONDITION (1)
@@ -445,16 +338,11 @@
 #define OS_EXCLUDE_MYCLASS_MYVARIABLE               (1)
 #define OS_EXCLUDE_MYCLASS_MYMETHOD                 (1)
 #define OS_EXCLUDE_MYCLASS_MYMETHOD_MYCONDITION (1)
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h2 id="conditional-inclusionexclusion-of-classes">Conditional inclusion/exclusion of classes</h2>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>// conditionally include class
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// conditionally include class
 #define OS_INCLUDE_MYCLASS                              (1)
 
 #if defined(OS_INCLUDE_MYCLASS)
@@ -473,16 +361,11 @@ class MyClass
  ...
 }
 #endif /* !defined(OS_EXCLUDE_MYCLASS) */
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h2 id="conditional-inclusionexclusion-of-class-member-variables">Conditional inclusion/exclusion of class member variables</h2>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>// conditionally include class member variable
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// conditionally include class member variable
 #define OS_INCLUDE_MYCLASS_MYVARIABLE                   (1)
 
 class MyClass
@@ -505,18 +388,13 @@ myType_t m_myVariable;
 #endif /* !defined(OS_EXCLUDE_MYCLASS_MYVARIABLE) */
 ...
 }
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h2 id="conditional-inclusionexclusion-of-class-methods">Conditional inclusion/exclusion of class methods</h2>
 
 <p>This feature is useful for virtual methods, since they are referred from a virtual method table; exclusion for regular methods is not of great concern, since the linker is configured to automatically exclude methods not referred.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>// conditionally include class method
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// conditionally include class method
 #define OS_INCLUDE_MYCLASS_MYMETHOD                 (1)
 
 #if defined(OS_INCLUDE_MYCLASS_MYMETHOD)
@@ -535,48 +413,31 @@ MyClass::myMethod()
 ...
 }
 #endif /* !defined(OS_EXCLUDE_MYCLASS_MYMETHOD) */
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h2 id="conditional-exclusion-of-isr-preemption">Conditional exclusion of ISR preemption</h2>
 
 <p>By default, interrupt service routines include preemption code. To selectively exclude the preemption code, it is recommended to use the following definitions:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>#define OS_EXCLUDE_MYCLASS_ISR_PREEMPTION                   (1)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#define OS_EXCLUDE_MYCLASS_ISR_PREEMPTION                   (1)
 #define OS_EXCLUDE_MYCLASS_MYCONDITION_ISR_PREEMPTION   (1)
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h2 id="other-conditional-exclusion-variables">Other conditional exclusion variables</h2>
 
 <p>Another general example of variables are:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>#define OS_EXCLUDE_MYCLASS_USE_SOMETHING                    (1)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#define OS_EXCLUDE_MYCLASS_USE_SOMETHING                    (1)
 #define OS_EXCLUDE_MYCLASS_MYMETHOD_USE_SOMETHING   (1)
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h1 id="inline-code-generation">Inline code generation</h1>
 
 <p>It is possible to explicitly ask the compiler to inline some of the class methods.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>#define OS_INLINE_MYCLASS_MYMETHOD            (1)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#define OS_INLINE_MYCLASS_MYMETHOD            (1)
 #define OS_INLINE_MYCLASS_MYCONDITION          (1)
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h1 id="definitions-used-to-configure-the-system">Definitions used to configure the system</h1>
 
@@ -596,115 +457,70 @@ MyClass::myMethod()
 
 <p>The usage of the configuration variables should always provide defaults for the case when the definition is missing, for example:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>#if defined(OS_CFGBOOL_STATUSLED_ISACTIVE_LOW) &amp;&amp; (OS_CFGBOOL_STATUSLED_ISACTIVE_LOW)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#if defined(OS_CFGBOOL_STATUSLED_ISACTIVE_LOW) &amp;&amp; (OS_CFGBOOL_STATUSLED_ISACTIVE_LOW)
 typedef LedActiveLow StatusLed_t;
 #else
 typedef LedActiveHigh StatusLed_t;
 #endif
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h2 id="booleans">Booleans</h2>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>#define OS_CFGBOOL_xxx      (true)
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#define OS_CFGBOOL_xxx      (true)
+</code></pre></div></div>
 
 <p>The boolean true/false values.</p>
 
 <h2 id="integers">Integers</h2>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>#define OS_CFGINT_xxx       (1)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#define OS_CFGINT_xxx       (1)
 #define OS_CFGINT8_xxx      (1)
 #define OS_CFGINT16_xxx     (1)
 #define OS_CFGLONG_xxx      (1)
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>All integer values. If the value is assigned to a variable/register with a known size, and it is useful to remind it to the programmer, use the INT8/INT16 variants.</p>
 
 <h2 id="hardware-registers">Hardware registers</h2>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>#define OS_CFGREG_xxx       (hardware register)
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#define OS_CFGREG_xxx       (hardware register)
+</code></pre></div></div>
 
 <p>Memory mapped hardware registers also fit here.</p>
 
 <h2 id="gpio-pins">GPIO pins</h2>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>#define OS_CFGPIN_xxx_GPIO_PIN      (pin number)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#define OS_CFGPIN_xxx_GPIO_PIN      (pin number)
 #define OS_CFGPIN_xxx_PORT_PIN      (pin number)
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>An integer value, defining the GPIO pin, either uniquely or within a port.</p>
 
 <h2 id="variables">Variables</h2>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>#define OS_CFGVAR_xxx       (variable)
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#define OS_CFGVAR_xxx       (variable)
+</code></pre></div></div>
 
 <p>The name of a variable.</p>
 
 <h2 id="pointer-to-variables-addresses">Pointer to variables (addresses)</h2>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>#define OS_CFGPTR_xxx       (&amp;variable)
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#define OS_CFGPTR_xxx       (&amp;variable)
+</code></pre></div></div>
 
 <p>The address of a variable or of a memory location.</p>
 
 <h2 id="strings">Strings</h2>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>#define OS_CFGSTR_xxx       "Today " __DATE__
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#define OS_CFGSTR_xxx       "Today " __DATE__
+</code></pre></div></div>
 
 <p>Generic strings. According to C/C++ rules, may be a sequence of strings to be concatenated.</p>
 
 <h2 id="generic-definitions">Generic definitions</h2>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>#define OS_CONFIG_xxx       (1)
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#define OS_CONFIG_xxx       (1)
+</code></pre></div></div>
 
 <p>To be used for anything else, that does not fit the above definitions. However, if such cases occur frequently, it might be worth defining new categories of variables.</p>
 
@@ -712,15 +528,10 @@ typedef LedActiveHigh StatusLed_t;
 
 <p>Since these variables usually refer to a specific class or variable, it is recommended to explicitly append the name of the class/variable.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>#define OS_CFGINT_OSSCHEDULER_TASKS_ARRAY_SIZE                      (3)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#define OS_CFGINT_OSSCHEDULER_TASKS_ARRAY_SIZE                      (3)
 #define OS_CFGLONG_OSCILLATOR_HZ                        (16000000UL)
 #define OS_CFGINT_OSTIMERTICKS_RATE_HZ                          (1000)
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h2 id="arrays">Arrays</h2>
 
@@ -744,13 +555,8 @@ typedef LedActiveHigh StatusLed_t;
 
 <p>The major advantage is that the new syntax allows to check multiple variables, by using logical expressions. For example:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>#if defined(DEBUG) &amp;&amp; defined(OS_DEBUG_CONSTRUCTORS)
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#if defined(DEBUG) &amp;&amp; defined(OS_DEBUG_CONSTRUCTORS)
+</code></pre></div></div>
 
 <h2 id="parenthesis">Parenthesis</h2>
 
@@ -766,10 +572,7 @@ typedef LedActiveHigh StatusLed_t;
 
 <p>Example of application variables are the versioning variables:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>// Application versioning and greeting definitions
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// Application versioning and greeting definitions
 // More definitions will be computed in uOS.h
 
 #define APP_CFGSTR_APPLICATION_NAME                     "minimal"
@@ -779,9 +582,7 @@ typedef LedActiveHigh StatusLed_t;
 #define APP_CFGINT_VERSION_MAJOR                        1
 #define APP_CFGINT_VERSION_MINOR                        1
 #define APP_CFGINT_VERSION_REVISION                     1630
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h1 id="local-configuration-variables">Local configuration variables</h1>
 
@@ -815,7 +616,7 @@ typedef LedActiveHigh StatusLed_t;
   <div class="site-footer">
   <div class="site-footer-links left">
     <ul>
-  <li>© 2022 Liviu Ionescu</li>
+  <li>© 2023 Liviu Ionescu</li>
   <li>Hosted on GitHub</li>
   <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
   <li>

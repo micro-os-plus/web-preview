@@ -12,8 +12,8 @@ var group__cmsis_plus_rtos_c_mutex =
     [ "os_mutex_create", "group__cmsis-plus-rtos-c-thread.html#ga51fef3c2f3c13308703222400c8d8f4e", null ],
     [ "os_mutex_destroy", "group__cmsis-plus-rtos-c-thread.html#ga9ee2f67c2960220de825b3a1a6c7ca4a", null ],
     [ "os_mutex_recursive_create", "group__cmsis-plus-rtos-c-thread.html#ga2623a258859a6088a083d4aadeda5d92", null ],
-    [ "os_mutex_attr_t", "group__cmsis-plus-rtos-c-mutex.html#ga6eee076e88523711841844ed92d40bdb", null ],
-    [ "os_mutex_t", "group__cmsis-plus-rtos-c-mutex.html#gafab3c85c5a0ce6cfc7f784f2cc7b230f", [
+    [ "os_mutex_attr_t", "group__cmsis-plus-rtos-c-mutex.html#ga77c55f9a697dc405ce1c22d96d3563c5", null ],
+    [ "os_mutex_t", "group__cmsis-plus-rtos-c-mutex.html#gab8c891a88e1f8b2592c4cbe6f314a202", [
       [ "os_mutex_protocol_none", "group__cmsis-plus-rtos-c-mutex.html#gga0411cd49bb5b71852cecd93bcbf0ca2daa0b813f55aa683d73fe2eae3ce92c4b9", null ],
       [ "os_mutex_protocol_inherit", "group__cmsis-plus-rtos-c-mutex.html#gga0411cd49bb5b71852cecd93bcbf0ca2da1db0193befd5f5b6932ad1dec14b9f0f", null ],
       [ "os_mutex_protocol_protect", "group__cmsis-plus-rtos-c-mutex.html#gga0411cd49bb5b71852cecd93bcbf0ca2da833c6218717a9f577e97ad4567968f45", null ],

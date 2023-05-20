@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <meta charset="utf-8">
+  <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>Coding style</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="Coding style">
-  <meta property="og:site_name" content="µOS++ IIIe">
+  <meta property="og:title" content="Coding style" />
+  <meta property="og:site_name" content="µOS++ IIIe" />
 
-  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml" />
 
 
   <meta property="article:published_time" content="2016-01-10">
@@ -24,9 +24,9 @@
 
 
 
-  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c" />
 
-  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?202211100849" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?202211100849" media="screen">
@@ -217,13 +217,13 @@
   <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
 </ul>
 
-<h4 id="license">License</h4>
+<h4 id="project">Project</h4>
 
 <ul>
-  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+  <li><a href="/web-preview/project/about/">About</a></li>
+  <li><a href="/web-preview/project/history/">History</a></li>
+  <li><a href="https://opensource.org/licenses/MIT">License</a></li>
 </ul>
-
-<h4 id="about"><a href="/web-preview/about/">About</a></h4>
 
     </div>
   </div>
@@ -246,369 +246,6 @@
   </tr>
 </table>
 
-<div id="toc-container">
-<table class="toc" id="toc">
-<tbody>
-<tr>
-<td>
-<div id="toctitle">
-<h2>Contents</h2>
-</div>
-<ul>
-<li class="toc_level-1 toc_section-1">
-<a href="#general-design"><span class="tocnumber">1</span> <span class="toctext">General Design</span></a>
-<ul>
-<li class="toc_level-2 toc_section-2">
-<a href="#coupling--cohesion"><span class="tocnumber">1.1</span> <span class="toctext">Coupling &amp; Cohesion</span></a>
-</li>
-<li class="toc_level-2 toc_section-3">
-<a href="#rules"><span class="tocnumber">1.2</span> <span class="toctext">Rules</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-4">
-<a href="#jsf-av-referenced-documents"><span class="tocnumber">2</span> <span class="toctext">JSF AV Referenced Documents</span></a>
-</li>
-<li class="toc_level-1 toc_section-5">
-<a href="#language-independent-issues"><span class="tocnumber">3</span> <span class="toctext">Language independent issues</span></a>
-<ul>
-<li class="toc_level-2 toc_section-6">
-<a href="#code-size-and-complexity"><span class="tocnumber">3.1</span> <span class="toctext">Code Size and Complexity</span></a>
-</li>
-<li class="toc_level-2 toc_section-7">
-<a href="#unnecessary-constructs"><span class="tocnumber">3.2</span> <span class="toctext">Unnecessary constructs</span></a>
-</li>
-<li class="toc_level-2 toc_section-8">
-<a href="#storage"><span class="tocnumber">3.3</span> <span class="toctext">Storage</span></a>
-</li>
-<li class="toc_level-2 toc_section-9">
-<a href="#runtime-features"><span class="tocnumber">3.4</span> <span class="toctext">Runtime features</span></a>
-</li>
-<li class="toc_level-2 toc_section-10">
-<a href="#arithmetic"><span class="tocnumber">3.5</span> <span class="toctext">Arithmetic</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-11">
-<a href="#general"><span class="tocnumber">4</span> <span class="toctext">General</span></a>
-<ul>
-<li class="toc_level-2 toc_section-12">
-<a href="#language"><span class="tocnumber">4.1</span> <span class="toctext">Language</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-13">
-<a href="#lexical-conventions"><span class="tocnumber">5</span> <span class="toctext">Lexical conventions</span></a>
-<ul>
-<li class="toc_level-2 toc_section-14">
-<a href="#character-sets"><span class="tocnumber">5.1</span> <span class="toctext">Character sets</span></a>
-</li>
-<li class="toc_level-2 toc_section-15">
-<a href="#trigraph-sequences"><span class="tocnumber">5.2</span> <span class="toctext">Trigraph sequences</span></a>
-</li>
-<li class="toc_level-2 toc_section-16">
-<a href="#alternative-tokens"><span class="tocnumber">5.3</span> <span class="toctext">Alternative tokens</span></a>
-</li>
-<li class="toc_level-2 toc_section-17">
-<a href="#comments"><span class="tocnumber">5.4</span> <span class="toctext">Comments</span></a>
-</li>
-<li class="toc_level-2 toc_section-18">
-<a href="#identifiers"><span class="tocnumber">5.5</span> <span class="toctext">Identifiers</span></a>
-</li>
-<li class="toc_level-2 toc_section-19">
-<a href="#literals"><span class="tocnumber">5.6</span> <span class="toctext">Literals</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-20">
-<a href="#basic-concepts"><span class="tocnumber">6</span> <span class="toctext">Basic concepts</span></a>
-<ul>
-<li class="toc_level-2 toc_section-21">
-<a href="#declarations-and-definitions"><span class="tocnumber">6.1</span> <span class="toctext">Declarations and definitions</span></a>
-</li>
-<li class="toc_level-2 toc_section-22">
-<a href="#one-definition-rule"><span class="tocnumber">6.2</span> <span class="toctext">One Definition Rule</span></a>
-</li>
-<li class="toc_level-2 toc_section-23">
-<a href="#declarative-regions-and-scope"><span class="tocnumber">6.3</span> <span class="toctext">Declarative regions and scope</span></a>
-</li>
-<li class="toc_level-2 toc_section-24">
-<a href="#name-lookup"><span class="tocnumber">6.4</span> <span class="toctext">Name lookup</span></a>
-</li>
-<li class="toc_level-2 toc_section-25">
-<a href="#types"><span class="tocnumber">6.5</span> <span class="toctext">Types</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-26">
-<a href="#standard-conversions"><span class="tocnumber">7</span> <span class="toctext">Standard conversions</span></a>
-<ul>
-<li class="toc_level-2 toc_section-27">
-<a href="#integral-promotions"><span class="tocnumber">7.1</span> <span class="toctext">Integral promotions</span></a>
-</li>
-<li class="toc_level-2 toc_section-28">
-<a href="#pointer-conversions"><span class="tocnumber">7.2</span> <span class="toctext">Pointer conversions</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-29">
-<a href="#expressions"><span class="tocnumber">8</span> <span class="toctext">Expressions</span></a>
-<ul>
-<li class="toc_level-2 toc_section-30">
-<a href="#general-1"><span class="tocnumber">8.1</span> <span class="toctext">General</span></a>
-</li>
-<li class="toc_level-2 toc_section-31">
-<a href="#type-conversions"><span class="tocnumber">8.2</span> <span class="toctext">Type conversions</span></a>
-</li>
-<li class="toc_level-2 toc_section-32">
-<a href="#postfix-expressions"><span class="tocnumber">8.3</span> <span class="toctext">Postfix expressions</span></a>
-</li>
-<li class="toc_level-2 toc_section-33">
-<a href="#unary-expressions"><span class="tocnumber">8.4</span> <span class="toctext">Unary expressions</span></a>
-</li>
-<li class="toc_level-2 toc_section-34">
-<a href="#shift-operators"><span class="tocnumber">8.5</span> <span class="toctext">Shift operators</span></a>
-</li>
-<li class="toc_level-2 toc_section-35">
-<a href="#logical-and-operator"><span class="tocnumber">8.6</span> <span class="toctext">Logical AND operator</span></a>
-</li>
-<li class="toc_level-2 toc_section-36">
-<a href="#assignment-operators"><span class="tocnumber">8.7</span> <span class="toctext">Assignment operators</span></a>
-</li>
-<li class="toc_level-2 toc_section-37">
-<a href="#comma-operator"><span class="tocnumber">8.8</span> <span class="toctext">Comma operator</span></a>
-</li>
-<li class="toc_level-2 toc_section-38">
-<a href="#constant-expressions"><span class="tocnumber">8.9</span> <span class="toctext">Constant expressions</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-39">
-<a href="#statements"><span class="tocnumber">9</span> <span class="toctext">Statements</span></a>
-<ul>
-<li class="toc_level-2 toc_section-40">
-<a href="#expression-statement"><span class="tocnumber">9.1</span> <span class="toctext">Expression statement</span></a>
-</li>
-<li class="toc_level-2 toc_section-41">
-<a href="#compound-statement"><span class="tocnumber">9.2</span> <span class="toctext">Compound statement</span></a>
-</li>
-<li class="toc_level-2 toc_section-42">
-<a href="#selection-statements"><span class="tocnumber">9.3</span> <span class="toctext">Selection statements</span></a>
-</li>
-<li class="toc_level-2 toc_section-43">
-<a href="#iteration-statements"><span class="tocnumber">9.4</span> <span class="toctext">Iteration statements</span></a>
-</li>
-<li class="toc_level-2 toc_section-44">
-<a href="#jump-statements"><span class="tocnumber">9.5</span> <span class="toctext">Jump statements</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-45">
-<a href="#declarations"><span class="tocnumber">10</span> <span class="toctext">Declarations</span></a>
-<ul>
-<li class="toc_level-2 toc_section-46">
-<a href="#general-2"><span class="tocnumber">10.1</span> <span class="toctext">General</span></a>
-</li>
-<li class="toc_level-2 toc_section-47">
-<a href="#meaning-of-declarators"><span class="tocnumber">10.2</span> <span class="toctext">Meaning of declarators</span></a>
-</li>
-<li class="toc_level-2 toc_section-48">
-<a href="#specifiers"><span class="tocnumber">10.3</span> <span class="toctext">Specifiers</span></a>
-</li>
-<li class="toc_level-2 toc_section-49">
-<a href="#enumeration-declarations"><span class="tocnumber">10.4</span> <span class="toctext">Enumeration declarations</span></a>
-</li>
-<li class="toc_level-2 toc_section-50">
-<a href="#namespaces"><span class="tocnumber">10.5</span> <span class="toctext">Namespaces</span></a>
-</li>
-<li class="toc_level-2 toc_section-51">
-<a href="#the-asm-declaration"><span class="tocnumber">10.6</span> <span class="toctext">The asm declaration</span></a>
-</li>
-<li class="toc_level-2 toc_section-52">
-<a href="#linkage-specifications"><span class="tocnumber">10.7</span> <span class="toctext">Linkage specifications</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-53">
-<a href="#definitions"><span class="tocnumber">11</span> <span class="toctext">Definitions</span></a>
-<ul>
-<li class="toc_level-2 toc_section-54">
-<a href="#function-definitions"><span class="tocnumber">11.1</span> <span class="toctext">Function definitions</span></a>
-</li>
-<li class="toc_level-2 toc_section-55">
-<a href="#inline-functions"><span class="tocnumber">11.2</span> <span class="toctext">Inline Functions</span></a>
-</li>
-<li class="toc_level-2 toc_section-56">
-<a href="#initialisation"><span class="tocnumber">11.3</span> <span class="toctext">Initialisation</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-57">
-<a href="#classes"><span class="tocnumber">12</span> <span class="toctext">Classes</span></a>
-<ul>
-<li class="toc_level-2 toc_section-58">
-<a href="#member-functions"><span class="tocnumber">12.1</span> <span class="toctext">Member functions</span></a>
-</li>
-<li class="toc_level-2 toc_section-59">
-<a href="#unions"><span class="tocnumber">12.2</span> <span class="toctext">Unions</span></a>
-</li>
-<li class="toc_level-2 toc_section-60">
-<a href="#bit-fields"><span class="tocnumber">12.3</span> <span class="toctext">Bit-fields</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-61">
-<a href="#derived-classes"><span class="tocnumber">13</span> <span class="toctext">Derived classes</span></a>
-<ul>
-<li class="toc_level-2 toc_section-62">
-<a href="#inheritance"><span class="tocnumber">13.1</span> <span class="toctext">Inheritance</span></a>
-</li>
-<li class="toc_level-2 toc_section-63">
-<a href="#multiple-base-classes"><span class="tocnumber">13.2</span> <span class="toctext">Multiple base classes</span></a>
-</li>
-<li class="toc_level-2 toc_section-64">
-<a href="#member-name-lookup"><span class="tocnumber">13.3</span> <span class="toctext">Member name lookup</span></a>
-</li>
-<li class="toc_level-2 toc_section-65">
-<a href="#virtual-functions"><span class="tocnumber">13.4</span> <span class="toctext">Virtual functions</span></a>
-</li>
-<li class="toc_level-2 toc_section-66">
-<a href="#testing"><span class="tocnumber">13.5</span> <span class="toctext">Testing</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-67">
-<a href="#member-access-control"><span class="tocnumber">14</span> <span class="toctext">Member access control</span></a>
-<ul>
-<li class="toc_level-2 toc_section-68">
-<a href="#general-3"><span class="tocnumber">14.1</span> <span class="toctext">General</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-69">
-<a href="#special-member-functions"><span class="tocnumber">15</span> <span class="toctext">Special member functions</span></a>
-<ul>
-<li class="toc_level-2 toc_section-70">
-<a href="#constructors"><span class="tocnumber">15.1</span> <span class="toctext">Constructors</span></a>
-</li>
-<li class="toc_level-2 toc_section-71">
-<a href="#copying-class-objects"><span class="tocnumber">15.2</span> <span class="toctext">Copying class objects</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-72">
-<a href="#templates"><span class="tocnumber">16</span> <span class="toctext">Templates</span></a>
-<ul>
-<li class="toc_level-2 toc_section-73">
-<a href="#template-declarations"><span class="tocnumber">16.1</span> <span class="toctext">Template declarations</span></a>
-</li>
-<li class="toc_level-2 toc_section-74">
-<a href="#name-resolution"><span class="tocnumber">16.2</span> <span class="toctext">Name resolution</span></a>
-</li>
-<li class="toc_level-2 toc_section-75">
-<a href="#template-instantiation-and-specialisation"><span class="tocnumber">16.3</span> <span class="toctext">Template instantiation and specialisation</span></a>
-</li>
-<li class="toc_level-2 toc_section-76">
-<a href="#function-template-specialisation"><span class="tocnumber">16.4</span> <span class="toctext">Function template specialisation</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-77">
-<a href="#exception-handling"><span class="tocnumber">17</span> <span class="toctext">Exception handling</span></a>
-<ul>
-<li class="toc_level-2 toc_section-78">
-<a href="#general-4"><span class="tocnumber">17.1</span> <span class="toctext">General</span></a>
-</li>
-<li class="toc_level-2 toc_section-79">
-<a href="#throwing-an-exception"><span class="tocnumber">17.2</span> <span class="toctext">Throwing an exception</span></a>
-</li>
-<li class="toc_level-2 toc_section-80">
-<a href="#handling-an-exception"><span class="tocnumber">17.3</span> <span class="toctext">Handling an exception</span></a>
-</li>
-<li class="toc_level-2 toc_section-81">
-<a href="#exception-specifications"><span class="tocnumber">17.4</span> <span class="toctext">Exception specifications</span></a>
-</li>
-<li class="toc_level-2 toc_section-82">
-<a href="#special-functions"><span class="tocnumber">17.5</span> <span class="toctext">Special functions</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-83">
-<a href="#preprocessing-directives"><span class="tocnumber">18</span> <span class="toctext">Preprocessing directives</span></a>
-<ul>
-<li class="toc_level-2 toc_section-84">
-<a href="#general-5"><span class="tocnumber">18.1</span> <span class="toctext">General</span></a>
-</li>
-<li class="toc_level-2 toc_section-85">
-<a href="#conditional-inclusion"><span class="tocnumber">18.2</span> <span class="toctext">Conditional inclusion</span></a>
-</li>
-<li class="toc_level-2 toc_section-86">
-<a href="#source-file-inclusion"><span class="tocnumber">18.3</span> <span class="toctext">Source file inclusion</span></a>
-</li>
-<li class="toc_level-2 toc_section-87">
-<a href="#macro-replacement"><span class="tocnumber">18.4</span> <span class="toctext">Macro replacement</span></a>
-</li>
-<li class="toc_level-2 toc_section-88">
-<a href="#pragma-directive"><span class="tocnumber">18.5</span> <span class="toctext">Pragma directive</span></a>
-</li>
-<li class="toc_level-2 toc_section-89">
-<a href="#library-introduction---general"><span class="tocnumber">18.6</span> <span class="toctext">Library introduction - General</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-90">
-<a href="#language-support-library"><span class="tocnumber">19</span> <span class="toctext">Language support library</span></a>
-<ul>
-<li class="toc_level-2 toc_section-91">
-<a href="#general-6"><span class="tocnumber">19.1</span> <span class="toctext">General</span></a>
-</li>
-<li class="toc_level-2 toc_section-92">
-<a href="#implementation-properties"><span class="tocnumber">19.2</span> <span class="toctext">Implementation properties</span></a>
-</li>
-<li class="toc_level-2 toc_section-93">
-<a href="#dynamic-memory-management"><span class="tocnumber">19.3</span> <span class="toctext">Dynamic memory management</span></a>
-</li>
-<li class="toc_level-2 toc_section-94">
-<a href="#other-runtime-support"><span class="tocnumber">19.4</span> <span class="toctext">Other runtime support</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-95">
-<a href="#diagnostics-library"><span class="tocnumber">20</span> <span class="toctext">Diagnostics library</span></a>
-<ul>
-<li class="toc_level-2 toc_section-96">
-<a href="#error-numbers"><span class="tocnumber">20.1</span> <span class="toctext">Error numbers</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-97">
-<a href="#inputoutput-library"><span class="tocnumber">21</span> <span class="toctext">Input/output library</span></a>
-<ul>
-<li class="toc_level-2 toc_section-98">
-<a href="#general-7"><span class="tocnumber">21.1</span> <span class="toctext">General</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-99">
-<a href="#miscellaneous"><span class="tocnumber">22</span> <span class="toctext">Miscellaneous</span></a>
-<ul>
-<li class="toc_level-2 toc_section-100">
-<a href="#style"><span class="tocnumber">22.1</span> <span class="toctext">Style</span></a>
-</li>
-<li class="toc_level-2 toc_section-101">
-<a href="#naming-files"><span class="tocnumber">22.2</span> <span class="toctext">Naming Files</span></a>
-</li>
-<li class="toc_level-2 toc_section-102">
-<a href="#data-representation"><span class="tocnumber">22.3</span> <span class="toctext">Data Representation</span></a>
-</li>
-</ul>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <p>The following rules are mainly based on <em>MISRA C++:2008 Guidelines for the use of the C++ language in critical systems</em>, by Motor Industry Software Reliability Association with additions from <em>Joint Strike Fighter Air Vehicle C++ Coding Standards</em>, Lockheed Martin Corporation Doc. No. 2RDU00001 Rev D, dated June 2007, with some changes and clarifications.</p>
 
 <h2 id="general-design">General Design</h2>
@@ -799,17 +436,12 @@
 
 <!-- -->
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code> a b c d e f g h i j k l m n o p q r s t u v w x y z
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> a b c d e f g h i j k l m n o p q r s t u v w x y z
  A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
  0 1 2 3 4 5 6 7 8 9
  _ { } [ ] - # ( ) &lt; &gt; % : ; . ? * + -
  / ^ &amp; | ~ ! = , \ " ’
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li>[JSF AV Rule 10 (MISRA C Rule 6)] - Values of character types <strong>will</strong> be restricted to a defined and documented subset of ISO 10646-1. [9]</li>
@@ -833,13 +465,8 @@
 
 <!-- -->
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code> &lt;% %&gt; &lt;: :&gt; %: %:%:
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> &lt;% %&gt; &lt;: :&gt; %: %:%:
+</code></pre></div></div>
 
 <h3 id="comments">Comments</h3>
 
@@ -995,10 +622,7 @@
 
 <!-- -->
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>typedef          char   char_t;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>typedef          char   char_t;
 typedef signed   char   int8_t;
 typedef signed   short  int16_t;
 typedef signed   int    int32_t;
@@ -1010,9 +634,7 @@ typedef unsigned long   uint64_t;
 ￼typedef float           float32_t;
 typedef double          float64_t;
 typedef long     double float128_t;
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li>
@@ -2023,14 +1645,9 @@ typedef long     double float128_t;
 
 <!-- -->
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code> defined ( identifier )
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> defined ( identifier )
  defined identifier
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li>[MISRA C++ Rule 16–1–2, Required] - All <em>#else</em>, <em>#elif</em> and <em>#endif</em> preprocessor directives <strong>shall</strong> reside in the same file as the <em>#if</em> or <em>#ifdef</em> directive to which they are related.</li>
@@ -2260,7 +1877,7 @@ typedef long     double float128_t;
   <div class="site-footer">
   <div class="site-footer-links left">
     <ul>
-  <li>© 2022 Liviu Ionescu</li>
+  <li>© 2023 Liviu Ionescu</li>
   <li>Hosted on GitHub</li>
   <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
   <li>

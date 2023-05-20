@@ -1,7 +1,7 @@
 var exception_handlers_8h =
 [
     [ "exception_stack_frame_s", "structexception__stack__frame__s.html", "structexception__stack__frame__s" ],
-    [ "exception_stack_frame_t", "exception-handlers_8h.html#a01d21df787c54b04e011eb8401fe2e0c", null ],
+    [ "exception_stack_frame_t", "exception-handlers_8h.html#af07e898a945eee2d05e3146b07eca8ba", null ],
     [ "HardFault_Handler", "exception-handlers_8h.html#a2bffc10d5bd4106753b7c30e86903bea", null ],
     [ "HardFault_Handler_C", "exception-handlers_8h.html#a4ba78f8ed935db412d82624817946eab", null ],
     [ "NMI_Handler", "exception-handlers_8h.html#a6ad7a5e3ee69cb6db6a6b9111ba898bc", null ],

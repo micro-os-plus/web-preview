@@ -3,7 +3,7 @@ var group__cmsis_plus_rtos_c_memres =
     [ "os_memory_s", "structos__memory__s.html", [
       [ "dummy", "structos__memory__s.html#a718bc3fe85cd070d19b52c98c38a6a52", null ]
     ] ],
-    [ "os_memory_t", "group__cmsis-plus-rtos-c-memres.html#gaa6f623e2561070f971359374c18bd40e", null ],
+    [ "os_memory_t", "group__cmsis-plus-rtos-c-memres.html#ga97fc30d85338c68e624e27aa599211a3", null ],
     [ "calloc", "group__cmsis-plus-rtos-c-memres.html#ga4caf6b14a04c9e260ea0e3b7dafbbe49", null ],
     [ "free", "group__cmsis-plus-rtos-c-memres.html#gafbedc913aa4651b3c3b4b3aecd9b4711", null ],
     [ "malloc", "group__cmsis-plus-rtos-c-memres.html#ga0a234be5915426ab4736b4519ce4e152", null ],

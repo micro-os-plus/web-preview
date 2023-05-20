@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="pt">
 
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <meta charset="utf-8">
+  <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>Conceitos básicos</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="Conceitos básicos">
-  <meta property="og:site_name" content="µOS++ IIIe">
+  <meta property="og:title" content="Conceitos básicos" />
+  <meta property="og:site_name" content="µOS++ IIIe" />
 
-  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml" />
 
 
   <meta property="article:published_time" content="2016-06-30">
@@ -24,9 +24,9 @@
 
 
 
-  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c" />
 
-  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?202211100849" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?202211100849" media="screen">
@@ -240,173 +240,11 @@
 <h1 class="page-title">Conceitos básicos</h1>
 <table id="last-modified">
   <tr>
-    <td id="last-modified">Last modified on Mon Nov 14 08:50:12 2022 UTC.</td>
+    <td id="last-modified">Last modified on Sat May 20 21:14:21 2023 UTC.</td>
     <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/web-jekyll/edit/master/pages/user-manual/basic-concepts.pt.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
 
-<div id="toc-container">
-<table class="toc" id="toc">
-<tbody>
-<tr>
-<td>
-<div id="toctitle">
-<h2>Conteúdo</h2>
-</div>
-<ul>
-<li class="toc_level-1 toc_section-1">
-<a href="#embedded-systems"><span class="tocnumber">1</span> <span class="toctext">Embedded systems</span></a>
-</li>
-<li class="toc_level-1 toc_section-2">
-<a href="#bare-metal-embedded-systems"><span class="tocnumber">2</span> <span class="toctext">Bare-metal embedded systems</span></a>
-</li>
-<li class="toc_level-1 toc_section-3">
-<a href="#real-time-systems"><span class="tocnumber">3</span> <span class="toctext">Real-time systems</span></a>
-</li>
-<li class="toc_level-1 toc_section-4">
-<a href="#soft-vs-hard-real-time-systems"><span class="tocnumber">4</span> <span class="toctext">Soft vs hard real-time systems</span></a>
-</li>
-<li class="toc_level-1 toc_section-5">
-<a href="#superloop-foregroundbackground-applications"><span class="tocnumber">5</span> <span class="toctext">Superloop (foreground/background) applications</span></a>
-</li>
-<li class="toc_level-1 toc_section-6">
-<a href="#multi-tasking"><span class="tocnumber">6</span> <span class="toctext">Multi-tasking</span></a>
-<ul>
-<li class="toc_level-2 toc_section-7">
-<a href="#tasks"><span class="tocnumber">6.1</span> <span class="toctext">Tasks</span></a>
-</li>
-<li class="toc_level-2 toc_section-8">
-<a href="#why-multiple-threads"><span class="tocnumber">6.2</span> <span class="toctext">Why multiple threads?</span></a>
-</li>
-<li class="toc_level-2 toc_section-9">
-<a href="#threads-vs-processes"><span class="tocnumber">6.3</span> <span class="toctext">Threads vs processes</span></a>
-</li>
-<li class="toc_level-2 toc_section-10">
-<a href="#blocking-io"><span class="tocnumber">6.4</span> <span class="toctext">Blocking I/O</span></a>
-</li>
-<li class="toc_level-2 toc_section-11">
-<a href="#the-idle-thread"><span class="tocnumber">6.5</span> <span class="toctext">The idle thread</span></a>
-</li>
-<li class="toc_level-2 toc_section-12">
-<a href="#sleep-modes-and-power-savings"><span class="tocnumber">6.6</span> <span class="toctext">Sleep modes and power savings</span></a>
-</li>
-<li class="toc_level-2 toc_section-13">
-<a href="#running-vs-suspended-threads"><span class="tocnumber">6.7</span> <span class="toctext">Running vs suspended threads</span></a>
-</li>
-<li class="toc_level-2 toc_section-14">
-<a href="#context-switching"><span class="tocnumber">6.8</span> <span class="toctext">Context switching</span></a>
-</li>
-<li class="toc_level-2 toc_section-15">
-<a href="#thread-stacks"><span class="tocnumber">6.9</span> <span class="toctext">Thread stacks</span></a>
-</li>
-<li class="toc_level-2 toc_section-16">
-<a href="#cooperative-vs-preemptive-multi-tasking"><span class="tocnumber">6.10</span> <span class="toctext">Cooperative vs preemptive multi-tasking</span></a>
-</li>
-<li class="toc_level-2 toc_section-17">
-<a href="#the-scheduler-timer"><span class="tocnumber">6.11</span> <span class="toctext">The scheduler timer</span></a>
-</li>
-<li class="toc_level-2 toc_section-18">
-<a href="#thread-interruptioncancellation"><span class="tocnumber">6.12</span> <span class="toctext">Thread interruption/cancellation</span></a>
-</li>
-<li class="toc_level-2 toc_section-19">
-<a href="#thread-control-blocks-tcbs"><span class="tocnumber">6.13</span> <span class="toctext">Thread Control Blocks (TCBs)</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-20">
-<a href="#scheduling"><span class="tocnumber">7</span> <span class="toctext">Scheduling</span></a>
-<ul>
-<li class="toc_level-2 toc_section-21">
-<a href="#thread-states"><span class="tocnumber">7.1</span> <span class="toctext">Thread states</span></a>
-</li>
-<li class="toc_level-2 toc_section-22">
-<a href="#the-ready-list"><span class="tocnumber">7.2</span> <span class="toctext">The READY list</span></a>
-</li>
-<li class="toc_level-2 toc_section-23">
-<a href="#scheduling-algorithms"><span class="tocnumber">7.3</span> <span class="toctext">Scheduling algorithms</span></a>
-</li>
-<li class="toc_level-2 toc_section-24">
-<a href="#round-robin-vs-priority-scheduling"><span class="tocnumber">7.4</span> <span class="toctext">Round-robin vs priority scheduling</span></a>
-</li>
-<li class="toc_level-2 toc_section-25">
-<a href="#selecting-thread-priorities"><span class="tocnumber">7.5</span> <span class="toctext">Selecting thread priorities</span></a>
-</li>
-<li class="toc_level-2 toc_section-26">
-<a href="#priority-inversion--priority-inheritance"><span class="tocnumber">7.6</span> <span class="toctext">Priority inversion / priority inheritance</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-27">
-<a href="#communicating-between-threads-andor-isrs"><span class="tocnumber">8</span> <span class="toctext">Communicating between threads and/or ISRs</span></a>
-<ul>
-<li class="toc_level-2 toc_section-28">
-<a href="#periodic-polling-vs-event-waiting"><span class="tocnumber">8.1</span> <span class="toctext">Periodic polling vs event waiting</span></a>
-</li>
-<li class="toc_level-2 toc_section-29">
-<a href="#passing-messages"><span class="tocnumber">8.2</span> <span class="toctext">Passing messages</span></a>
-</li>
-<li class="toc_level-2 toc_section-30">
-<a href="#semaphores"><span class="tocnumber">8.3</span> <span class="toctext">Semaphores</span></a>
-</li>
-<li class="toc_level-2 toc_section-31">
-<a href="#event-flags"><span class="tocnumber">8.4</span> <span class="toctext">Event flags</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-32">
-<a href="#managing-common-resources"><span class="tocnumber">9</span> <span class="toctext">Managing common resources</span></a>
-<ul>
-<li class="toc_level-2 toc_section-33">
-<a href="#disableenable-interrupts"><span class="tocnumber">9.1</span> <span class="toctext">Disable/enable interrupts</span></a>
-</li>
-<li class="toc_level-2 toc_section-34">
-<a href="#lockunlock-the-scheduler"><span class="tocnumber">9.2</span> <span class="toctext">Lock/unlock the scheduler</span></a>
-</li>
-<li class="toc_level-2 toc_section-35">
-<a href="#counting-semaphores"><span class="tocnumber">9.3</span> <span class="toctext">Counting semaphores</span></a>
-</li>
-<li class="toc_level-2 toc_section-36">
-<a href="#mutual-exclusion-mutex"><span class="tocnumber">9.4</span> <span class="toctext">Mutual exclusion (mutex)</span></a>
-</li>
-<li class="toc_level-2 toc_section-37">
-<a href="#should-a-semaphore-or-a-mutex-be-used"><span class="tocnumber">9.5</span> <span class="toctext">Should a semaphore or a mutex be used?</span></a>
-</li>
-<li class="toc_level-2 toc_section-38">
-<a href="#deadlock-or-deadly-embrace"><span class="tocnumber">9.6</span> <span class="toctext">Deadlock (or deadly embrace)</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-39">
-<a href="#statically-vs-dynamically-allocated-objects"><span class="tocnumber">10</span> <span class="toctext">Statically vs. dynamically allocated objects</span></a>
-<ul>
-<li class="toc_level-2 toc_section-40">
-<a href="#the-system-allocator"><span class="tocnumber">10.1</span> <span class="toctext">The system allocator</span></a>
-</li>
-<li class="toc_level-2 toc_section-41">
-<a href="#fragmentation"><span class="tocnumber">10.2</span> <span class="toctext">Fragmentation</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-42">
-<a href="#real-time-clock"><span class="tocnumber">11</span> <span class="toctext">Real-time clock</span></a>
-</li>
-<li class="toc_level-1 toc_section-43">
-<a href="#terms-to-use-with-caution"><span class="tocnumber">12</span> <span class="toctext">Terms to use with caution</span></a>
-<ul>
-<li class="toc_level-2 toc_section-44">
-<a href="#kernel"><span class="tocnumber">12.1</span> <span class="toctext">Kernel</span></a>
-</li>
-<li class="toc_level-2 toc_section-45">
-<a href="#tasks-vs-threads"><span class="tocnumber">12.2</span> <span class="toctext">Tasks vs threads</span></a>
-</li>
-</ul>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <h2 id="embedded-systems">Embedded systems</h2>
 
 <p>From the software point of view, an <a href="https://en.wikipedia.org/wiki/Embedded_system">embedded system</a> is a small computer, built for a dedicated function (as opposed to general purpose <a href="https://en.wikipedia.org/wiki/Computer">computers</a>).</p>
@@ -913,7 +751,7 @@
   <div class="site-footer">
   <div class="site-footer-links left">
     <ul>
-  <li>© 2022 Liviu Ionescu</li>
+  <li>© 2023 Liviu Ionescu</li>
   <li>Hosted on GitHub</li>
   <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
   <li>

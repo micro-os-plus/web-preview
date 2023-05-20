@@ -45,6 +45,10 @@ var classos_1_1driver_1_1usbh__wrapper =
     [ "c_cb_pipe_func_", "classos_1_1driver_1_1usbh__wrapper.html#a20e3ef3c5fec8fab04b4e084e927ccb9", null ],
     [ "c_cb_port_func_", "classos_1_1driver_1_1usbh__wrapper.html#a503658d0a00691259d7579f661860ed0", null ],
     [ "capa_", "classos_1_1driver_1_1usbh__wrapper.html#a6ed14352b22dadd359a4191e0b8395fc", null ],
+    [ "cb_pipe_func_", "classos_1_1driver_1_1usbh__wrapper.html#a81e8486afa78c916d176c29031a025ee", null ],
+    [ "cb_pipe_object_", "classos_1_1driver_1_1usbh__wrapper.html#ab0d8807dcacdd5c19fa61471317fad66", null ],
+    [ "cb_port_func_", "classos_1_1driver_1_1usbh__wrapper.html#a0ce9349be326da851572768f1188259a", null ],
+    [ "cb_port_object_", "classos_1_1driver_1_1usbh__wrapper.html#ac24876f1c6e8c8cc186fa3121937d402", null ],
     [ "driver_", "classos_1_1driver_1_1usbh__wrapper.html#aad7aebf62530d580820556f9e4992de7", null ],
     [ "status_", "classos_1_1driver_1_1usbh__wrapper.html#a648795cb8ff9d126152dfa744ffc521e", null ],
     [ "version_", "classos_1_1driver_1_1usbh__wrapper.html#aaded8479b0be99ffd3aa8835c63cd219", null ]

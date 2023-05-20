@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <meta charset="utf-8">
+  <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>Mutexes</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="Mutexes">
-  <meta property="og:site_name" content="µOS++ IIIe">
+  <meta property="og:title" content="Mutexes" />
+  <meta property="og:site_name" content="µOS++ IIIe" />
 
-  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml" />
 
 
   <meta property="article:published_time" content="2016-07-19">
@@ -24,9 +24,9 @@
 
 
 
-  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c" />
 
-  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?202211100849" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?202211100849" media="screen">
@@ -217,13 +217,13 @@
   <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
 </ul>
 
-<h4 id="license">License</h4>
+<h4 id="project">Project</h4>
 
 <ul>
-  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+  <li><a href="/web-preview/project/about/">About</a></li>
+  <li><a href="/web-preview/project/history/">History</a></li>
+  <li><a href="https://opensource.org/licenses/MIT">License</a></li>
 </ul>
-
-<h4 id="about"><a href="/web-preview/about/">About</a></h4>
 
     </div>
   </div>
@@ -241,64 +241,11 @@
 <h1 class="page-title">Mutexes</h1>
 <table id="last-modified">
   <tr>
-    <td id="last-modified">Last modified on Mon Nov 14 08:50:12 2022 UTC.</td>
+    <td id="last-modified">Last modified on Sat May 20 21:14:21 2023 UTC.</td>
     <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/web-jekyll/edit/master/pages/user-manual/mutexes.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
 
-<div id="toc-container">
-<table class="toc" id="toc">
-<tbody>
-<tr>
-<td>
-<div id="toctitle">
-<h2>Contents</h2>
-</div>
-<ul>
-<li class="toc_level-1 toc_section-1">
-<a href="#overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a>
-<ul>
-<li class="toc_level-2 toc_section-2">
-<a href="#normal-mutexes"><span class="tocnumber">1.1</span> <span class="toctext">Normal mutexes</span></a>
-</li>
-<li class="toc_level-2 toc_section-3">
-<a href="#recursive-mutexes"><span class="tocnumber">1.2</span> <span class="toctext">Recursive mutexes</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-4">
-<a href="#creating-mutexes"><span class="tocnumber">2</span> <span class="toctext">Creating mutexes</span></a>
-</li>
-<li class="toc_level-1 toc_section-5">
-<a href="#acquiring-a-mutex"><span class="tocnumber">3</span> <span class="toctext">Acquiring a mutex</span></a>
-</li>
-<li class="toc_level-1 toc_section-6">
-<a href="#releasing-a-mutex"><span class="tocnumber">4</span> <span class="toctext">Releasing a mutex</span></a>
-</li>
-<li class="toc_level-1 toc_section-7">
-<a href="#multiple-threads-waiting-on-a-mutex"><span class="tocnumber">5</span> <span class="toctext">Multiple threads waiting on a mutex</span></a>
-</li>
-<li class="toc_level-1 toc_section-8">
-<a href="#other-mutex-functions"><span class="tocnumber">6</span> <span class="toctext">Other mutex functions</span></a>
-</li>
-<li class="toc_level-1 toc_section-9">
-<a href="#destroying-mutexes"><span class="tocnumber">7</span> <span class="toctext">Destroying mutexes</span></a>
-</li>
-<li class="toc_level-1 toc_section-10">
-<a href="#priority-inversion"><span class="tocnumber">8</span> <span class="toctext">Priority inversion</span></a>
-</li>
-<li class="toc_level-1 toc_section-11">
-<a href="#priority-inheritance"><span class="tocnumber">9</span> <span class="toctext">Priority inheritance</span></a>
-</li>
-<li class="toc_level-1 toc_section-12">
-<a href="#deadlock-or-deadly-embrace"><span class="tocnumber">10</span> <span class="toctext">Deadlock (or deadly embrace)</span></a>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <h2 id="overview">Overview</h2>
 
 <h3 id="normal-mutexes">Normal mutexes</h3>
@@ -349,7 +296,7 @@
   <div class="site-footer">
   <div class="site-footer-links left">
     <ul>
-  <li>© 2022 Liviu Ionescu</li>
+  <li>© 2023 Liviu Ionescu</li>
   <li>Hosted on GitHub</li>
   <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
   <li>

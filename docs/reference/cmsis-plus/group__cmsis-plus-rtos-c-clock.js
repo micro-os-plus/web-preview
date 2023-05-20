@@ -1,7 +1,7 @@
 var group__cmsis_plus_rtos_c_clock =
 [
     [ "os_clock_s", "structos__clock__s.html", null ],
-    [ "os_clock_t", "group__cmsis-plus-rtos-c-clock.html#ga6e1c36bd6f6421b3565c262b5d77874e", null ],
+    [ "os_clock_t", "group__cmsis-plus-rtos-c-clock.html#ga44ba577219411050f947e194d1b404db", null ],
     [ "os_clock_get_hrclock", "group__cmsis-plus-rtos-c-clock.html#ga181619f09a43310e8add2c7e0cb94cb6", null ],
     [ "os_clock_get_name", "group__cmsis-plus-rtos-c-clock.html#ga4d4a96cd3f25cf32bdaf27c3439fc0a4", null ],
     [ "os_clock_get_offset", "group__cmsis-plus-rtos-c-clock.html#ga5bf21e10e72c6abc8c23d76cb1385938", null ],

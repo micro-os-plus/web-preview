@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <meta charset="utf-8">
+  <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>Class OSTimer</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="Class OSTimer">
-  <meta property="og:site_name" content="µOS++ IIIe">
+  <meta property="og:title" content="Class OSTimer" />
+  <meta property="og:site_name" content="µOS++ IIIe" />
 
-  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml" />
 
 
   <meta property="article:published_time" content="2011-02-16">
@@ -24,9 +24,9 @@
 
 
 
-  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c" />
 
-  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?202211100849" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?202211100849" media="screen">
@@ -217,13 +217,13 @@
   <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
 </ul>
 
-<h4 id="license">License</h4>
+<h4 id="project">Project</h4>
 
 <ul>
-  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+  <li><a href="/web-preview/project/about/">About</a></li>
+  <li><a href="/web-preview/project/history/">History</a></li>
+  <li><a href="https://opensource.org/licenses/MIT">License</a></li>
 </ul>
-
-<h4 id="about"><a href="/web-preview/about/">About</a></h4>
 
     </div>
   </div>
@@ -246,57 +246,17 @@
   </tr>
 </table>
 
-<div id="toc-container">
-<table class="toc" id="toc">
-<tbody>
-<tr>
-<td>
-<div id="toctitle">
-<h2>Contents</h2>
-</div>
-<ul>
-<li class="toc_level-1 toc_section-1">
-<a href="#ostimerostimerstruct_t-parray-int-size"><span class="tocnumber">1</span> <span class="toctext">OSTimer(OSTimerStruct_t *pArray, int size)</span></a>
-</li>
-<li class="toc_level-1 toc_section-2">
-<a href="#void-eventnotifyostimerticks_t-ticks-osevent_t-eventoseventwaitreturn_t-ret"><span class="tocnumber">2</span> <span class="toctext">void eventNotify(OSTimerTicks_t ticks, OSEvent_t event,OSEventWaitReturn_t ret)</span></a>
-</li>
-<li class="toc_level-1 toc_section-3">
-<a href="#int-eventremoveosevent_t-event"><span class="tocnumber">3</span> <span class="toctext">int eventRemove(OSEvent_t event)</span></a>
-</li>
-<li class="toc_level-1 toc_section-4">
-<a href="#ostimerticks_t-getticksvoid"><span class="tocnumber">4</span> <span class="toctext">OSTimerTicks_t getTicks(void)</span></a>
-</li>
-<li class="toc_level-1 toc_section-5">
-<a href="#int-getcountvoid"><span class="tocnumber">5</span> <span class="toctext">int getCount(void)</span></a>
-</li>
-<li class="toc_level-1 toc_section-6">
-<a href="#void-interrupttickvoid"><span class="tocnumber">6</span> <span class="toctext">void interruptTick(void)</span></a>
-</li>
-<li class="toc_level-1 toc_section-7">
-<a href="#void-incrementticksvoid"><span class="tocnumber">7</span> <span class="toctext">void incrementTicks(void)</span></a>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <p>OSTimer</p>
 
 <h1 id="constructors">Constructors</h1>
 
 <h2 id="ostimerostimerstruct_t-parray-int-size">OSTimer(<a href="/web-preview/micro-os-plus/i/Typedef_OSTimerStruct_t">OSTimerStruct_t</a> *pArray, int size)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Initialize the internal members with the given array.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* *pArray - input, the array of timeouts which are going to be used</p>
 
@@ -308,17 +268,13 @@
 
 <p>Put a task to sleep for the given number of ticks. If the given event is not null, when the timeout expires, it is notified. Else the task is resumed.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* ticks - input, the number of ticks while the current task is put to sleep</p>
 
 <p>:* event - input, the event which should be notified when the sleep expires, if present and not null</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* OSEventWaitReturn::OS_VOID - if normal execution</p>
 
@@ -326,15 +282,11 @@
 
 <h2 id="void-eventnotifyostimerticks_t-ticks-osevent_t-eventoseventwaitreturn_t-ret">void eventNotify(<a href="/web-preview/micro-os-plus/i/Typedef_OSTimerTicks_t">OSTimerTicks_t</a> ticks, <a href="/web-preview/micro-os-plus/i/Typedef_OSEvent_t">OSEvent_t</a> event,<a href="/web-preview/micro-os-plus/i/Typedef_OSEventWaitReturn_t">OSEventWaitReturn_t</a> ret)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Schedule the timer to notify the event after the number of ticks. If the event is OSEvent::OS_CUSTOM_TIMER, the ret value is the address of the custom timer.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* ticks - input, the number of ticks after which the event is notified</p>
 
@@ -342,110 +294,78 @@
 
 <p>:* ret - input, it is the address of the custom timer; used only if the event is OSEvent::OS_CUSTOM_TIMER</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
 <h2 id="int-eventremoveosevent_t-event">int eventRemove(<a href="/web-preview/micro-os-plus/i/Typedef_OSEvent_t">OSEvent_t</a> event)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Remove the scheduled timer notifications associated with the given event.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* event - input, the event which is associated with the scheduled timer notifications</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* n - the number of removed scheduled timer notifications</p>
 
 <h2 id="ostimerticks_t-getticksvoid">
 <a href="/web-preview/micro-os-plus/i/Typedef_OSTimerTicks_t">OSTimerTicks_t</a> getTicks(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Return the current number of ticks.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* n - the current number of ticks</p>
 
 <h2 id="int-getcountvoid">int getCount(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Return the number of scheduled timers.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* n - the current number of scheduled timers</p>
 
 <h2 id="void-interrupttickvoid">void interruptTick(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Update and notify the scheduled time events. It is called from the interrupt routine.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none.</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
 <h2 id="void-incrementticksvoid">void incrementTicks(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Update the current ticks number. This function is called from the interrupt routine.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
@@ -477,7 +397,7 @@
   <div class="site-footer">
   <div class="site-footer-links left">
     <ul>
-  <li>© 2022 Liviu Ionescu</li>
+  <li>© 2023 Liviu Ionescu</li>
   <li>Hosted on GitHub</li>
   <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
   <li>

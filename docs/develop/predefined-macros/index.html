@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <meta charset="utf-8">
+  <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>Predefined compiler macros</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="Predefined compiler macros">
-  <meta property="og:site_name" content="µOS++ IIIe">
+  <meta property="og:title" content="Predefined compiler macros" />
+  <meta property="og:site_name" content="µOS++ IIIe" />
 
-  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml" />
 
 
   <meta property="article:published_time" content="2015-08-05">
@@ -24,9 +24,9 @@
 
 
 
-  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c" />
 
-  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?202211100849" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?202211100849" media="screen">
@@ -217,13 +217,13 @@
   <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
 </ul>
 
-<h4 id="license">License</h4>
+<h4 id="project">Project</h4>
 
 <ul>
-  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+  <li><a href="/web-preview/project/about/">About</a></li>
+  <li><a href="/web-preview/project/history/">History</a></li>
+  <li><a href="https://opensource.org/licenses/MIT">License</a></li>
 </ul>
-
-<h4 id="about"><a href="/web-preview/about/">About</a></h4>
 
     </div>
   </div>
@@ -241,235 +241,84 @@
 <h1 class="page-title">Predefined compiler macros</h1>
 <table id="last-modified">
   <tr>
-    <td id="last-modified">Last modified on Mon Nov 14 08:50:12 2022 UTC.</td>
+    <td id="last-modified">Last modified on Sat May 20 21:14:21 2023 UTC.</td>
     <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/web-jekyll/edit/master/pages/develop/predefined-macros.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
 
-<div id="toc-container">
-<table class="toc" id="toc">
-<tbody>
-<tr>
-<td>
-<div id="toctitle">
-<h2>Contents</h2>
-</div>
-<ul>
-<li class="toc_level-1 toc_section-1">
-<a href="#platform-dependencies"><span class="tocnumber">1</span> <span class="toctext">Platform dependencies</span></a>
-</li>
-<li class="toc_level-1 toc_section-2">
-<a href="#arm-cortex-m"><span class="tocnumber">2</span> <span class="toctext">ARM Cortex-M</span></a>
-<ul>
-<li class="toc_level-2 toc_section-3">
-<a href="#arm-cortex-m0m0"><span class="tocnumber">2.1</span> <span class="toctext">ARM Cortex-M0/M0+</span></a>
-</li>
-<li class="toc_level-2 toc_section-4">
-<a href="#arm-cortex-m3"><span class="tocnumber">2.2</span> <span class="toctext">ARM Cortex-M3</span></a>
-</li>
-<li class="toc_level-2 toc_section-5">
-<a href="#arm-cortex-m4"><span class="tocnumber">2.3</span> <span class="toctext">ARM Cortex-M4</span></a>
-</li>
-<li class="toc_level-2 toc_section-6">
-<a href="#arm-cortex-m7"><span class="tocnumber">2.4</span> <span class="toctext">ARM Cortex-M7</span></a>
-</li>
-<li class="toc_level-2 toc_section-7">
-<a href="#arm-cortex-a15"><span class="tocnumber">2.5</span> <span class="toctext">ARM Cortex-A15</span></a>
-</li>
-<li class="toc_level-2 toc_section-8">
-<a href="#arm-cortex-a72"><span class="tocnumber">2.6</span> <span class="toctext">ARM Cortex-A72</span></a>
-</li>
-<li class="toc_level-2 toc_section-9">
-<a href="#risc-v-rv32-no-fp"><span class="tocnumber">2.7</span> <span class="toctext">RISC-V rv32 no FP</span></a>
-</li>
-<li class="toc_level-2 toc_section-10">
-<a href="#risc-v-rv64-fp"><span class="tocnumber">2.8</span> <span class="toctext">RISC-V rv64 FP</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-11">
-<a href="#floating-point"><span class="tocnumber">3</span> <span class="toctext">Floating point</span></a>
-</li>
-<li class="toc_level-1 toc_section-12">
-<a href="#freestanding"><span class="tocnumber">4</span> <span class="toctext">Freestanding</span></a>
-</li>
-<li class="toc_level-1 toc_section-13">
-<a href="#c-exceptions"><span class="tocnumber">5</span> <span class="toctext">C++ Exceptions</span></a>
-</li>
-<li class="toc_level-1 toc_section-14">
-<a href="#pic"><span class="tocnumber">6</span> <span class="toctext">PIC</span></a>
-</li>
-<li class="toc_level-1 toc_section-15">
-<a href="#other-macros"><span class="tocnumber">7</span> <span class="toctext">Other macros</span></a>
-</li>
-<li class="toc_level-1 toc_section-16">
-<a href="#warnings"><span class="tocnumber">8</span> <span class="toctext">Warnings</span></a>
-</li>
-<li class="toc_level-1 toc_section-17">
-<a href="#ubuntu-gcc-macros"><span class="tocnumber">9</span> <span class="toctext">Ubuntu GCC macros</span></a>
-</li>
-<li class="toc_level-1 toc_section-18">
-<a href="#apple-clang-macros"><span class="tocnumber">10</span> <span class="toctext">Apple clang macros</span></a>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <h2 id="platform-dependencies">Platform dependencies</h2>
 
 <p>If some parts of the code are platform dependent, test the following preprocessor definitions:</p>
 
-<div class="language-c highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>
-<span class="cp">#if defined(__APPLE__)
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#if defined(__APPLE__)
 #if defined(__linux__)
 #if defined(__unix__)
 #if defined(WIN32)
 #if defined(__MINGW32__)
 #if defined(__MINGW64__)
-</span>
-</code></pre>
-</div>
-</div>
+</span></code></pre></div></div>
 
 <p>To check if not running native on a desktop machine:</p>
 
-<div class="language-c highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="cp">#if (!(defined(__APPLE__) || defined(__linux__) || defined(__unix__))) \
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#if (!(defined(__APPLE__) || defined(__linux__) || defined(__unix__))) \
     || defined(__DOXYGEN__)
 </span>
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>To check the compiler:</p>
 
-<div class="language-c highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>
-<span class="cp">#if defined (__GNUC__)
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#if defined (__GNUC__)
 #if __GNUC__ == 4 &amp;&amp; __GNUC_MINOR__ == 7
 #if defined(__clang__)
-</span>
-</code></pre>
-</div>
-</div>
+</span></code></pre></div></div>
 
 <p>To check if GCC only:</p>
 
-<div class="language-c highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>
-<span class="cp">#if defined(__GNUC__) &amp;&amp; !defined(__clang__)
-</span>
-</code></pre>
-</div>
-</div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#if defined(__GNUC__) &amp;&amp; !defined(__clang__)
+</span></code></pre></div></div>
 
 <p>To check the size of the pointer:</p>
 
-<div class="language-c highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>
-<span class="cp">#if __SIZEOF_POINTER__ == __SIZEOF_INT__
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#if __SIZEOF_POINTER__ == __SIZEOF_INT__
 #elif __SIZEOF_POINTER__ == __SIZEOF_LONG__
 #elif __SIZEOF_POINTER__ == __SIZEOF_LONG_LONG__
-</span>
-</code></pre>
-</div>
-</div>
+</span></code></pre></div></div>
 
 <p>To check if there are no <strong>long long</strong> variables:</p>
 
-<div class="language-c highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>
-<span class="cp">#if !defined(__SIZEOF_LONG_LONG)
-</span>
-</code></pre>
-</div>
-</div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#if !defined(__SIZEOF_LONG_LONG)
+</span></code></pre></div></div>
 
 <p>To check if the compiling unit is C++:</p>
 
-<div class="language-c highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>
-<span class="cp">#if defined (__cplusplus)
-</span>
-</code></pre>
-</div>
-</div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#if defined (__cplusplus)
+</span></code></pre></div></div>
 
 <p>To check if the compiling unit is an assembly file:</p>
 
-<div class="language-c highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>
-<span class="cp">#if defined(__ASSEMBLER__)
-</span>
-</code></pre>
-</div>
-</div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#if defined(__ASSEMBLER__)
+</span></code></pre></div></div>
 
 <p>To check if optimisation is enabled (more than <code class="language-plaintext highlighter-rouge">-O0</code>):</p>
 
-<div class="language-c highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>
-<span class="cp">#if defined(__OPTIMIZE__)
-</span>
-</code></pre>
-</div>
-</div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#if defined(__OPTIMIZE__)
+</span></code></pre></div></div>
 
 <p>To check if optimisation for size is enabled (<code class="language-plaintext highlighter-rouge">-Os</code>):</p>
 
-<div class="language-c highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>
-<span class="cp">#if defined(__OPTIMIZE_SIZE__)
-</span>
-</code></pre>
-</div>
-</div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#if defined(__OPTIMIZE_SIZE__)
+</span></code></pre></div></div>
 
 <p>To check if no inlines are enabled:</p>
 
-<div class="language-c highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>
-<span class="cp">#if defined(__NO_INLINE__)
-</span>
-</code></pre>
-</div>
-</div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#if defined(__NO_INLINE__)
+</span></code></pre></div></div>
 
 <p>To see the built-in definitions:</p>
 
-<div class="language-console highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="gp">$</span><span class="w"> </span>g++ <span class="nt">-dM</span> <span class="nt">-E</span> - &lt; /dev/null
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>g++ <span class="nt">-dM</span> <span class="nt">-E</span> - &lt; /dev/null
 <span class="gp">$</span><span class="w"> </span>clang++ <span class="nt">-dM</span> <span class="nt">-E</span> - &lt; /dev/null
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h2 id="arm-cortex-m">ARM Cortex-M</h2>
 
@@ -477,10 +326,7 @@
 
 <h3 id="arm-cortex-m0m0">ARM Cortex-M0/M0+</h3>
 
-<div class="language-console highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="gp">$</span><span class="w"> </span>.../arm-none-eabi-gcc <span class="nt">-mcpu</span><span class="o">=</span>cortex-m0 <span class="nt">-mthumb</span> <span class="nt">-E</span> <span class="nt">-dM</span> - &lt; /dev/null | egrep <span class="nt">-i</span> <span class="s1">'thumb|arm|cortex|fp[^-]|version|abi'</span> | <span class="nb">sort</span>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>.../arm-none-eabi-gcc <span class="nt">-mcpu</span><span class="o">=</span>cortex-m0 <span class="nt">-mthumb</span> <span class="nt">-E</span> <span class="nt">-dM</span> - &lt; /dev/null | egrep <span class="nt">-i</span> <span class="s1">'thumb|arm|cortex|fp[^-]|version|abi'</span> | <span class="nb">sort</span>
 <span class="gp">#</span>define __ARMEL__ 1
 <span class="gp">#</span>define __ARM_ARCH 6
 <span class="gp">#</span>define __ARM_ARCH_6M__ 1
@@ -519,16 +365,11 @@
 <span class="gp">#</span>define __VFP_FP__ 1
 <span class="gp">#</span>define __arm__ 1
 <span class="gp">#</span>define __thumb__ 1
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h3 id="arm-cortex-m3">ARM Cortex-M3</h3>
 
-<div class="language-console highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="gp">$</span><span class="w"> </span>.../arm-none-eabi-gcc <span class="nt">-mcpu</span><span class="o">=</span>cortex-m3 <span class="nt">-mthumb</span> <span class="nt">-E</span> <span class="nt">-dM</span> - &lt; /dev/null | egrep <span class="nt">-i</span> <span class="s1">'thumb|arm|cortex|fp[^-]|version|abi'</span> | <span class="nb">sort</span>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>.../arm-none-eabi-gcc <span class="nt">-mcpu</span><span class="o">=</span>cortex-m3 <span class="nt">-mthumb</span> <span class="nt">-E</span> <span class="nt">-dM</span> - &lt; /dev/null | egrep <span class="nt">-i</span> <span class="s1">'thumb|arm|cortex|fp[^-]|version|abi'</span> | <span class="nb">sort</span>
 <span class="gp">#</span>define __ARMEL__ 1
 <span class="gp">#</span>define __ARM_32BIT_STATE 1
 <span class="gp">#</span>define __ARM_ARCH 7
@@ -558,16 +399,11 @@
 <span class="gp">#</span>define __arm__ 1
 <span class="gp">#</span>define __thumb2__ 1
 <span class="gp">#</span>define __thumb__ 1
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h3 id="arm-cortex-m4">ARM Cortex-M4</h3>
 
-<div class="language-console highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="gp">$</span><span class="w"> </span>.../arm-none-eabi-gcc <span class="nt">-mcpu</span><span class="o">=</span>cortex-m4 <span class="nt">-mthumb</span> <span class="nt">-mfloat-abi</span><span class="o">=</span>soft <span class="nt">-E</span> <span class="nt">-dM</span> - &lt; /dev/null | egrep <span class="nt">-i</span> <span class="s1">'thumb|arm|cortex|fp[^-]|version|abi'</span> | <span class="nb">sort</span>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>.../arm-none-eabi-gcc <span class="nt">-mcpu</span><span class="o">=</span>cortex-m4 <span class="nt">-mthumb</span> <span class="nt">-mfloat-abi</span><span class="o">=</span>soft <span class="nt">-E</span> <span class="nt">-dM</span> - &lt; /dev/null | egrep <span class="nt">-i</span> <span class="s1">'thumb|arm|cortex|fp[^-]|version|abi'</span> | <span class="nb">sort</span>
 <span class="gp">#</span>define __ARMEL__ 1
 <span class="gp">#</span>define __ARM_32BIT_STATE 1
 <span class="gp">#</span>define __ARM_ARCH 7
@@ -672,16 +508,11 @@
 <span class="gp">#</span>define __arm__ 1
 <span class="gp">#</span>define __thumb2__ 1
 <span class="gp">#</span>define __thumb__ 1
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h3 id="arm-cortex-m7">ARM Cortex-M7</h3>
 
-<div class="language-console highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="gp">$</span><span class="w"> </span>.../arm-none-eabi-gcc <span class="nt">-mcpu</span><span class="o">=</span>cortex-m7 <span class="nt">-mthumb</span> <span class="nt">-mfloat-abi</span><span class="o">=</span>soft <span class="nt">-E</span> <span class="nt">-dM</span> - &lt; /dev/null | egrep <span class="nt">-i</span> <span class="s1">'thumb|arm|cortex|fp[^-]|version|abi'</span> | <span class="nb">sort</span>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>.../arm-none-eabi-gcc <span class="nt">-mcpu</span><span class="o">=</span>cortex-m7 <span class="nt">-mthumb</span> <span class="nt">-mfloat-abi</span><span class="o">=</span>soft <span class="nt">-E</span> <span class="nt">-dM</span> - &lt; /dev/null | egrep <span class="nt">-i</span> <span class="s1">'thumb|arm|cortex|fp[^-]|version|abi'</span> | <span class="nb">sort</span>
 <span class="gp">#</span>define __ARMEL__ 1
 <span class="gp">#</span>define __ARM_32BIT_STATE 1
 <span class="gp">#</span>define __ARM_ARCH 7
@@ -793,16 +624,11 @@
 <span class="gp">#</span>define __arm__ 1
 <span class="gp">#</span>define __thumb2__ 1
 <span class="gp">#</span>define __thumb__ 1
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h3 id="arm-cortex-a15">ARM Cortex-A15</h3>
 
-<div class="language-console highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="gp">$</span><span class="w"> </span>.../arm-none-eabi-gcc <span class="nt">-mcpu</span><span class="o">=</span>cortex-a15 <span class="nt">-E</span> <span class="nt">-dM</span> - &lt; /dev/null | egrep <span class="nt">-i</span> <span class="s1">'thumb|arm|cortex|aarch|fp[^-]|version|abi|atomic|gnuc|lp'</span> | <span class="nb">sort</span>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>.../arm-none-eabi-gcc <span class="nt">-mcpu</span><span class="o">=</span>cortex-a15 <span class="nt">-E</span> <span class="nt">-dM</span> - &lt; /dev/null | egrep <span class="nt">-i</span> <span class="s1">'thumb|arm|cortex|aarch|fp[^-]|version|abi|atomic|gnuc|lp'</span> | <span class="nb">sort</span>
 <span class="gp">#</span>define __ARMEL__ 1
 <span class="gp">#</span>define __ARM_32BIT_STATE 1
 <span class="gp">#</span>define __ARM_ARCH 7
@@ -859,16 +685,11 @@
 <span class="gp">#</span>define __VFP_FP__ 1
 <span class="gp">#</span>define __arm__ 1
 <span class="go">
-</span></code></pre>
-</div>
-</div>
+</span></code></pre></div></div>
 
 <h3 id="arm-cortex-a72">ARM Cortex-A72</h3>
 
-<div class="language-console highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="gp">$</span><span class="w"> </span>.../aarch64-none-elf-gcc <span class="nt">-mcpu</span><span class="o">=</span>cortex-a72 <span class="nt">-E</span> <span class="nt">-dM</span> - &lt; /dev/null | egrep <span class="nt">-i</span> <span class="s1">'thumb|arm|cortex|aarch|fp[^-]|version|abi|atomic|gnuc|lp'</span> | <span class="nb">sort</span>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>.../aarch64-none-elf-gcc <span class="nt">-mcpu</span><span class="o">=</span>cortex-a72 <span class="nt">-E</span> <span class="nt">-dM</span> - &lt; /dev/null | egrep <span class="nt">-i</span> <span class="s1">'thumb|arm|cortex|aarch|fp[^-]|version|abi|atomic|gnuc|lp'</span> | <span class="nb">sort</span>
 <span class="gp">#</span>define _LP64 1
 <span class="gp">#</span>define __AARCH64EL__ 1
 <span class="gp">#</span>define __AARCH64_CMODEL_SMALL__ 1
@@ -929,16 +750,11 @@
 <span class="gp">#</span>define __STDC_VERSION__ 201710L
 <span class="gp">#</span>define __VERSION__ <span class="s2">"11.2.1 20220111"</span>
 <span class="gp">#</span>define __aarch64__ 1
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h3 id="risc-v-rv32-no-fp">RISC-V rv32 no FP</h3>
 
-<div class="language-console highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="gp">$</span><span class="w"> </span>./riscv-none-elf-gcc <span class="nt">-march</span><span class="o">=</span>rv32imac_zicsr <span class="nt">-mabi</span><span class="o">=</span>ilp32 <span class="nt">-mcmodel</span><span class="o">=</span>medany  <span class="nt">-msmall-data-limit</span><span class="o">=</span>8 <span class="nt">-E</span> <span class="nt">-dM</span> - &lt; /dev/null | egrep <span class="nt">-i</span> <span class="s1">'risc|abi|atomic|float|fp|gcc|gnu|end|diff|lp|size|stdc|version'</span> | <span class="nb">sort</span>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>./riscv-none-elf-gcc <span class="nt">-march</span><span class="o">=</span>rv32imac_zicsr <span class="nt">-mabi</span><span class="o">=</span>ilp32 <span class="nt">-mcmodel</span><span class="o">=</span>medany  <span class="nt">-msmall-data-limit</span><span class="o">=</span>8 <span class="nt">-E</span> <span class="nt">-dM</span> - &lt; /dev/null | egrep <span class="nt">-i</span> <span class="s1">'risc|abi|atomic|float|fp|gcc|gnu|end|diff|lp|size|stdc|version'</span> | <span class="nb">sort</span>
 <span class="gp">#</span>define __ATOMIC_ACQUIRE 2
 <span class="gp">#</span>define __ATOMIC_ACQ_REL 4
 <span class="gp">#</span>define __ATOMIC_CONSUME 1
@@ -1014,16 +830,11 @@
 <span class="gp">#</span>define __riscv_muldiv 1
 <span class="gp">#</span>define __riscv_xlen 32
 <span class="gp">#</span>define __riscv_zicsr 2000000
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h3 id="risc-v-rv64-fp">RISC-V rv64 FP</h3>
 
-<div class="language-console highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="gp">$</span><span class="w"> </span>./riscv-none-elf-gcc <span class="nt">-march</span><span class="o">=</span>rv64imafdc_zicsr <span class="nt">-mabi</span><span class="o">=</span>lp64d <span class="nt">-mcmodel</span><span class="o">=</span>medany  <span class="nt">-msmall-data-limit</span><span class="o">=</span>8 <span class="nt">-E</span> <span class="nt">-dM</span> - &lt; /dev/null | egrep <span class="nt">-i</span> <span class="s1">'risc|abi|atomic|float|fp|gcc|gnu|end|diff|lp|size|stdc|version'</span> | <span class="nb">sort</span>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>./riscv-none-elf-gcc <span class="nt">-march</span><span class="o">=</span>rv64imafdc_zicsr <span class="nt">-mabi</span><span class="o">=</span>lp64d <span class="nt">-mcmodel</span><span class="o">=</span>medany  <span class="nt">-msmall-data-limit</span><span class="o">=</span>8 <span class="nt">-E</span> <span class="nt">-dM</span> - &lt; /dev/null | egrep <span class="nt">-i</span> <span class="s1">'risc|abi|atomic|float|fp|gcc|gnu|end|diff|lp|size|stdc|version'</span> | <span class="nb">sort</span>
 <span class="gp">#</span>define _LP64 1
 <span class="gp">#</span>define __ATOMIC_ACQUIRE 2
 <span class="gp">#</span>define __ATOMIC_ACQ_REL 4
@@ -1114,52 +925,29 @@
 <span class="gp">#</span>define __riscv_xlen 64
 <span class="gp">#</span>define __riscv_zicsr 2000000
 <span class="go">
-</span></code></pre>
-</div>
-</div>
+</span></code></pre></div></div>
 
 <h2 id="floating-point">Floating point</h2>
 
 <p>To check if hardware floating point is enabled (<code class="language-plaintext highlighter-rouge">-mfloat-abi=softfp</code> or <code class="language-plaintext highlighter-rouge">-mfloat-abi=hard</code>):</p>
 
-<div class="language-c highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>
-<span class="cp">#define __ARM_FP 4
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define __ARM_FP 4
 #define __ARM_FP 14
-</span>
-</code></pre>
-</div>
-</div>
+</span></code></pre></div></div>
 
 <p>(4 for Cortex-M4, 14 for Cortex-M7)</p>
 
 <p>For <code class="language-plaintext highlighter-rouge">-mfloat-abi=hard</code>:</p>
 
-<div class="language-c highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>
-<span class="cp">#define __ARM_PCS_VFP 1
-</span>
-</code></pre>
-</div>
-</div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define __ARM_PCS_VFP 1
+</span></code></pre></div></div>
 
 <h2 id="freestanding">Freestanding</h2>
 
 <p>To check if <code class="language-plaintext highlighter-rouge">-ffreestanding</code> was defined, you can use the following:</p>
 
-<div class="language-c highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>
-<span class="cp">#define __STDC_HOSTED__ 0
-</span>
-</code></pre>
-</div>
-</div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define __STDC_HOSTED__ 0
+</span></code></pre></div></div>
 
 <p>By default, i.e. with <code class="language-plaintext highlighter-rouge">-fhosted</code> defined, the value is 1.</p>
 
@@ -1167,70 +955,43 @@
 
 <p>To check if a C++ program is compiled with <code class="language-plaintext highlighter-rouge">-fexceptions</code>, use:</p>
 
-<div class="language-c highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>
-<span class="cp">#define __EXCEPTIONS 1
-</span>
-</code></pre>
-</div>
-</div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define __EXCEPTIONS 1
+</span></code></pre></div></div>
 
 <h2 id="pic">PIC</h2>
 
 <p>To detect when position independent code is generated, check for:</p>
 
-<div class="language-c highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="c1">// -fpic</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// -fpic</span>
 <span class="cp">#define __pic__ 1
 #define __PIC__ 1
 </span>
 <span class="c1">// -fPIC</span>
 <span class="cp">#define __pic__ 2
 #define __PIC__ 2
-</span></code></pre>
-</div>
-</div>
+</span></code></pre></div></div>
 
 <h2 id="other-macros">Other macros</h2>
 
-<div class="language-c highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>
-<span class="cp">#define __CHAR_UNSIGNED__ 1
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define __CHAR_UNSIGNED__ 1
 #define __LP64__ 1
-</span>
-</code></pre>
-</div>
-</div>
+</span></code></pre></div></div>
 
 <h2 id="warnings">Warnings</h2>
 
 <p>When compiling third party sources, it might be necessary to temporarily disable some warnings:</p>
 
-<div class="language-c highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="cp">#pragma GCC diagnostic push
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wpadded"
 </span>
 <span class="c1">// ...</span>
 
 <span class="cp">#pragma GCC diagnostic pop
-</span></code></pre>
-</div>
-</div>
+</span></code></pre></div></div>
 
 <p>clang specific warnings must be issued only for clang:</p>
 
-<div class="language-c highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="cp">#pragma GCC diagnostic push
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wsign-conversion"
 #if defined(__clang__)
 #pragma clang diagnostic ignored "-Wgnu-include-next"
@@ -1243,30 +1004,20 @@
 <span class="c1">// ...</span>
 
 <span class="cp">#pragma GCC diagnostic pop
-</span></code></pre>
-</div>
-</div>
+</span></code></pre></div></div>
 
 <p>To check if POSIX:</p>
 
-<div class="language-c highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="cp">#include &lt;unistd.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;unistd.h&gt;
 </span>
 <span class="cp">#if defined(_POSIX_VERSION)
 </span><span class="c1">// ...</span>
 <span class="cp">#endif
-</span></code></pre>
-</div>
-</div>
+</span></code></pre></div></div>
 
 <p>To include next version:</p>
 
-<div class="language-c highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="cp">#include &lt;unistd.h&gt;
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;unistd.h&gt;
 </span>
 <span class="cp">#if defined(_POSIX_VERSION)
 </span>
@@ -1296,16 +1047,11 @@
 <span class="cp">#endif
 </span>
 <span class="cp">#endif </span><span class="cm">/* defined(_POSIX_VERSION) */</span><span class="cp">
-</span></code></pre>
-</div>
-</div>
+</span></code></pre></div></div>
 
 <h2 id="ubuntu-gcc-macros">Ubuntu GCC macros</h2>
 
-<div class="language-console highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="gp">ilg@ubu20:~$</span><span class="w"> </span>gcc <span class="nt">--version</span>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">ilg@ubu20:~$</span><span class="w"> </span>gcc <span class="nt">--version</span>
 <span class="go">gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0
 Copyright (C) 2019 Free Software Foundation, Inc.
 </span><span class="gp">This is free software;</span><span class="w"> </span>see the <span class="nb">source </span><span class="k">for </span>copying conditions.  There is NO
@@ -1661,16 +1407,11 @@ Copyright (C) 2019 Free Software Foundation, Inc.
 <span class="gp">#</span>define __x86_64 1
 <span class="gp">#</span>define __x86_64__ 1
 <span class="gp">ilg@ubu20:~$</span><span class="w">
-</span></code></pre>
-</div>
-</div>
+</span></code></pre></div></div>
 
 <h2 id="apple-clang-macros">Apple clang macros</h2>
 
-<div class="language-console highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="go">ilg@wks ~ % gcc --version
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">ilg@wks ~ % gcc --version
 Configured with: --prefix=/Library/Developer/CommandLineTools/usr --with-gxx-include-dir=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/4.2.1
 Apple clang version 12.0.0 (clang-1200.0.32.28)
 Target: x86_64-apple-darwin20.2.0
@@ -2044,9 +1785,7 @@ ilg@wks ~ % gcc -E -dM - &lt; /dev/null
 <span class="gp">#</span>define __x86_64 1
 <span class="gp">#</span>define __x86_64__ 1
 <span class="go">ilg@wks ~ %
-</span></code></pre>
-</div>
-</div>
+</span></code></pre></div></div>
 
 
 
@@ -2074,7 +1813,7 @@ ilg@wks ~ % gcc -E -dM - &lt; /dev/null
   <div class="site-footer">
   <div class="site-footer-links left">
     <ul>
-  <li>© 2022 Liviu Ionescu</li>
+  <li>© 2023 Liviu Ionescu</li>
   <li>Hosted on GitHub</li>
   <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
   <li>

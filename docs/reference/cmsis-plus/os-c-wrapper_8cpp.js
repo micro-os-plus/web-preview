@@ -166,6 +166,7 @@ var os_c_wrapper_8cpp =
     [ "os_thread_get_state", "group__cmsis-plus-rtos-c-thread.html#ga768fa88412be4dd5e562263fb81b42c8", null ],
     [ "os_thread_get_user_storage", "group__cmsis-plus-rtos-c-thread.html#ga46271b9f7ea7a533959d4d8f51b9864e", null ],
     [ "os_thread_join", "group__cmsis-plus-rtos-c-thread.html#ga68883733e1c7637df06fdb4e1d9a6ce5", null ],
+    [ "os_thread_kill", "group__cmsis-plus-rtos-c-thread.html#ga9fbd4dea852aa6aaac7478ead3691660", null ],
     [ "os_thread_new", "group__cmsis-plus-rtos-c-thread.html#ga273e410a27950160250302267d41793a", null ],
     [ "os_thread_resume", "group__cmsis-plus-rtos-c-thread.html#ga51ca25f0f1104fcc4f7da7feda61fbab", null ],
     [ "os_thread_set_priority", "group__cmsis-plus-rtos-c-thread.html#gae1c3615e8cb7da607485107ea1cbf1f2", null ],

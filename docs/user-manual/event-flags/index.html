@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <meta charset="utf-8">
+  <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>Event flags</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="Event flags">
-  <meta property="og:site_name" content="µOS++ IIIe">
+  <meta property="og:title" content="Event flags" />
+  <meta property="og:site_name" content="µOS++ IIIe" />
 
-  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml" />
 
 
   <meta property="article:published_time" content="2016-07-15">
@@ -24,9 +24,9 @@
 
 
 
-  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c" />
 
-  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?202211100849" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?202211100849" media="screen">
@@ -217,13 +217,13 @@
   <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
 </ul>
 
-<h4 id="license">License</h4>
+<h4 id="project">Project</h4>
 
 <ul>
-  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+  <li><a href="/web-preview/project/about/">About</a></li>
+  <li><a href="/web-preview/project/history/">History</a></li>
+  <li><a href="https://opensource.org/licenses/MIT">License</a></li>
 </ul>
-
-<h4 id="about"><a href="/web-preview/about/">About</a></h4>
 
     </div>
   </div>
@@ -241,63 +241,11 @@
 <h1 class="page-title">Event flags</h1>
 <table id="last-modified">
   <tr>
-    <td id="last-modified">Last modified on Mon Nov 14 08:50:12 2022 UTC.</td>
+    <td id="last-modified">Last modified on Sat May 20 21:14:21 2023 UTC.</td>
     <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/web-jekyll/edit/master/pages/user-manual/event-flags.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
 
-<div id="toc-container">
-<table class="toc" id="toc">
-<tbody>
-<tr>
-<td>
-<div id="toctitle">
-<h2>Contents</h2>
-</div>
-<ul>
-<li class="toc_level-1 toc_section-1">
-<a href="#overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a>
-</li>
-<li class="toc_level-1 toc_section-2">
-<a href="#creating-event-flags"><span class="tocnumber">2</span> <span class="toctext">Creating event flags</span></a>
-</li>
-<li class="toc_level-1 toc_section-3">
-<a href="#raising-event-flags"><span class="tocnumber">3</span> <span class="toctext">Raising event flags</span></a>
-<ul>
-<li class="toc_level-2 toc_section-4">
-<a href="#raising-event-flags-from-isrs"><span class="tocnumber">3.1</span> <span class="toctext">Raising event flags from ISRs</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-5">
-<a href="#waiting-for-event-flags"><span class="tocnumber">4</span> <span class="toctext">Waiting for event flags</span></a>
-</li>
-<li class="toc_level-1 toc_section-6">
-<a href="#multiple-threads-waiting-on-event-flags"><span class="tocnumber">5</span> <span class="toctext">Multiple threads waiting on event flags</span></a>
-</li>
-<li class="toc_level-1 toc_section-7">
-<a href="#other-event-flags-functions"><span class="tocnumber">6</span> <span class="toctext">Other event flags functions</span></a>
-<ul>
-<li class="toc_level-2 toc_section-8">
-<a href="#getting-the-event-flags-name"><span class="tocnumber">6.1</span> <span class="toctext">Getting the event flags name</span></a>
-</li>
-<li class="toc_level-2 toc_section-9">
-<a href="#getting-individual-flags"><span class="tocnumber">6.2</span> <span class="toctext">Getting individual flags</span></a>
-</li>
-<li class="toc_level-2 toc_section-10">
-<a href="#clearing-individual-flags"><span class="tocnumber">6.3</span> <span class="toctext">Clearing individual flags</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-11">
-<a href="#destroying-event-flags"><span class="tocnumber">7</span> <span class="toctext">Destroying event flags</span></a>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <h2 id="overview">Overview</h2>
 
 <p>Together with semaphores, event flags are the basic µOS++ synchronisation mechanisms.</p>
@@ -319,10 +267,7 @@
 
 <p>In C++, the global event flags are created and initialised by the global static constructors mechanism.</p>
 
-<div class="language-cpp highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="c1">/// @file app-main.cpp</span>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">/// @file app-main.cpp</span>
 <span class="cp">#include &lt;cmsis-plus/rtos/os.h&gt;
 </span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">os</span><span class="p">;</span>
@@ -346,16 +291,11 @@
 
 <span class="c1">// All event flags are automatically destroyed if os_main() returns.</span>
 
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>A similar example, but written in C:</p>
 
-<div class="language-c highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="c1">/// @file app-main.c</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">/// @file app-main.c</span>
 <span class="cp">#include &lt;cmsis-plus/rtos/os-c-api.h&gt;
 </span>
 <span class="c1">// Global static storage for the event flags object instance.</span>
@@ -376,16 +316,11 @@
 
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>In C++, if it is necessary to control the moment when global objects instances are created, it is possible to separately allocate the storage as global variables, then use the placement <code class="language-plaintext highlighter-rouge">new</code> operator to initialise them.</p>
 
-<div class="language-c++ highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="c1">/// @file app-main.cpp</span>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">/// @file app-main.cpp</span>
 <span class="cp">#include &lt;cmsis-plus/rtos/os.h&gt;
 </span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">os</span><span class="p">;</span>
@@ -422,16 +357,11 @@
 
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>Event flags objects instances can also be created on the local stack, for example on the main thread stack. Just be sure the stack is large enough to store all defined local objects.</p>
 
-<div class="language-cpp highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="c1">/// @file app-main.cpp</span>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">/// @file app-main.cpp</span>
 <span class="cp">#include &lt;cmsis-plus/rtos/os.h&gt;
 </span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">os</span><span class="p">;</span>
@@ -454,16 +384,11 @@
   <span class="c1">// The local event flags are destroyed automatically before exiting this block.</span>
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>A similar example, but written in C:</p>
 
-<div class="language-c highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="c1">/// @file app-main.c</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">/// @file app-main.c</span>
 <span class="cp">#include &lt;cmsis-plus/rtos/os-c-api.h&gt;
 </span>
 <span class="kt">int</span>
@@ -484,16 +409,11 @@
 
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>For a total control over the event flags creation (for example to set a custom clock), the event flags attribute mechanism can be used.</p>
 
-<div class="language-cpp highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="c1">/// @file app-main.cpp</span>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">/// @file app-main.cpp</span>
 <span class="cp">#include &lt;cmsis-plus/rtos/os.h&gt;
 </span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">os</span><span class="p">;</span>
@@ -515,16 +435,11 @@
   <span class="c1">// The local event flags are destroyed automatically before exiting this block.</span>
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>A similar example, but written in C:</p>
 
-<div class="language-c highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="c1">/// @file app-main.c</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">/// @file app-main.c</span>
 <span class="cp">#include &lt;cmsis-plus/rtos/os-c-api.h&gt;
 </span>
 <span class="kt">int</span>
@@ -550,9 +465,7 @@
 
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>The application programmer can create an unlimited number of event flag groups (limited only by the available RAM).</p>
 
@@ -572,10 +485,7 @@
 
 <p>It’s up to the application to determine what each bit in the event flags mask  means and it is possible to use as many event flags as needed.</p>
 
-<div class="language-c++ highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="c1">/// @file app-main.cpp</span>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">/// @file app-main.cpp</span>
 <span class="cp">#include &lt;cmsis-plus/rtos/os.h&gt;
 </span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">os</span><span class="p">;</span>
@@ -625,16 +535,11 @@
   <span class="c1">// ...</span>
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>A similar example, but written in C:</p>
 
-<div class="language-c highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="c1">/// @file app-main.c</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">/// @file app-main.c</span>
 <span class="cp">#include &lt;cmsis-plus/rtos/os-c-api.h&gt;
 </span>
 <span class="c1">// Global static storage for the event flags object instance.</span>
@@ -696,9 +601,7 @@
 
   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>To check if any flag in the set is raised, use <code class="language-plaintext highlighter-rouge">flags::mode::any</code> (in C use <code class="language-plaintext highlighter-rouge">os_flags_mode_any</code>).</p>
 
@@ -718,28 +621,18 @@
 
 <p>The C++ API is:</p>
 
-<div class="language-c++ highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="n">event_flags</span> <span class="n">ev</span> <span class="p">{</span> <span class="s">"ev"</span> <span class="p">};</span>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">event_flags</span> <span class="n">ev</span> <span class="p">{</span> <span class="s">"ev"</span> <span class="p">};</span>
 
 <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span> <span class="o">=</span> <span class="n">ev</span><span class="p">.</span><span class="n">name</span><span class="p">();</span>
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>The C API is:</p>
 
-<div class="language-c highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="n">os_evflags_t</span> <span class="n">ev</span><span class="p">;</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">os_evflags_t</span> <span class="n">ev</span><span class="p">;</span>
 <span class="n">os_evflags_construct</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ev</span><span class="p">,</span> <span class="s">"ev"</span> <span class="err">}</span><span class="p">;</span>
 
 <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span> <span class="o">=</span> <span class="n">os_evflags_get_name</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ev</span><span class="p">);</span>
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h3 id="getting-individual-flags">Getting individual flags</h3>
 
@@ -747,23 +640,13 @@
 
 <p>Only the flags present in the mask are affected.</p>
 
-<div class="language-c++ highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="n">flags</span><span class="o">::</span><span class="n">mask_t</span> <span class="n">mask</span> <span class="o">=</span> <span class="n">ev</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="mh">0x2</span><span class="p">,</span> <span class="n">flags</span><span class="o">::</span><span class="n">mode</span><span class="o">::</span><span class="n">clear</span><span class="p">);</span>
-</code></pre>
-</div>
-</div>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">flags</span><span class="o">::</span><span class="n">mask_t</span> <span class="n">mask</span> <span class="o">=</span> <span class="n">ev</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="mh">0x2</span><span class="p">,</span> <span class="n">flags</span><span class="o">::</span><span class="n">mode</span><span class="o">::</span><span class="n">clear</span><span class="p">);</span>
+</code></pre></div></div>
 
 <p>A similar example, but written in C:</p>
 
-<div class="language-c highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="n">os_flags_mask_t</span> <span class="n">mask</span> <span class="o">=</span> <span class="n">os_evflags_get</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ev</span><span class="p">,</span> <span class="mh">0x2</span><span class="p">,</span> <span class="n">os_flags_mode_clear</span><span class="p">);</span>
-</code></pre>
-</div>
-</div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">os_flags_mask_t</span> <span class="n">mask</span> <span class="o">=</span> <span class="n">os_evflags_get</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ev</span><span class="p">,</span> <span class="mh">0x2</span><span class="p">,</span> <span class="n">os_flags_mode_clear</span><span class="p">);</span>
+</code></pre></div></div>
 
 <h3 id="clearing-individual-flags">Clearing individual flags</h3>
 
@@ -771,25 +654,15 @@
 
 <p>Only the flags present in the mask are affected.</p>
 
-<div class="language-c++ highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="n">flags</span><span class="o">::</span><span class="n">mask_t</span> <span class="n">mask</span><span class="p">;</span>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">flags</span><span class="o">::</span><span class="n">mask_t</span> <span class="n">mask</span><span class="p">;</span>
 <span class="n">ev</span><span class="p">.</span><span class="n">clear</span><span class="p">(</span><span class="mh">0x2</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">mask</span><span class="p">);</span>
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>A similar example, but written in C:</p>
 
-<div class="language-c highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code><span class="n">os_flags_mask_t</span> <span class="n">mask</span><span class="p">;</span>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">os_flags_mask_t</span> <span class="n">mask</span><span class="p">;</span>
 <span class="n">os_evflags_clear</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ev</span><span class="p">,</span> <span class="mh">0x2</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">mask</span><span class="p">);</span>
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h2 id="destroying-event-flags">Destroying event flags</h2>
 
@@ -825,7 +698,7 @@
   <div class="site-footer">
   <div class="site-footer-links left">
     <ul>
-  <li>© 2022 Liviu Ionescu</li>
+  <li>© 2023 Liviu Ionescu</li>
   <li>Hosted on GitHub</li>
   <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
   <li>

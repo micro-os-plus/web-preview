@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <meta charset="utf-8">
+  <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>Eclipse (install and config)</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="Eclipse (install and config)">
-  <meta property="og:site_name" content="µOS++ IIIe">
+  <meta property="og:title" content="Eclipse (install and config)" />
+  <meta property="og:site_name" content="µOS++ IIIe" />
 
-  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml" />
 
 
   <meta property="article:published_time" content="2013-09-09">
@@ -24,9 +24,9 @@
 
 
 
-  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c" />
 
-  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?202211100849" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?202211100849" media="screen">
@@ -217,13 +217,13 @@
   <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
 </ul>
 
-<h4 id="license">License</h4>
+<h4 id="project">Project</h4>
 
 <ul>
-  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+  <li><a href="/web-preview/project/about/">About</a></li>
+  <li><a href="/web-preview/project/history/">History</a></li>
+  <li><a href="https://opensource.org/licenses/MIT">License</a></li>
 </ul>
-
-<h4 id="about"><a href="/web-preview/about/">About</a></h4>
 
     </div>
   </div>
@@ -246,96 +246,6 @@
   </tr>
 </table>
 
-<div id="toc-container">
-<table class="toc" id="toc">
-<tbody>
-<tr>
-<td>
-<div id="toctitle">
-<h2>Contents</h2>
-</div>
-<ul>
-<li class="toc_level-1 toc_section-1">
-<a href="#personal-preferences"><span class="tocnumber">1</span> <span class="toctext">Personal preferences</span></a>
-</li>
-<li class="toc_level-1 toc_section-2">
-<a href="#download"><span class="tocnumber">2</span> <span class="toctext">Download</span></a>
-</li>
-<li class="toc_level-1 toc_section-3">
-<a href="#create-workspace"><span class="tocnumber">3</span> <span class="toctext">Create workspace</span></a>
-</li>
-<li class="toc_level-1 toc_section-4">
-<a href="#install-plug-ins"><span class="tocnumber">4</span> <span class="toctext">Install plug-ins</span></a>
-<ul>
-<li class="toc_level-2 toc_section-5">
-<a href="#pydev"><span class="tocnumber">4.1</span> <span class="toctext">PyDev</span></a>
-</li>
-<li class="toc_level-2 toc_section-6">
-<a href="#gdb-hardware-debugging"><span class="tocnumber">4.2</span> <span class="toctext">GDB Hardware Debugging</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-7">
-<a href="#configure-workspace-preferences"><span class="tocnumber">5</span> <span class="toctext">Configure workspace preferences</span></a>
-</li>
-<li class="toc_level-1 toc_section-8">
-<a href="#configure-pydev-preferences"><span class="tocnumber">6</span> <span class="toctext">Configure PyDev preferences</span></a>
-</li>
-<li class="toc_level-1 toc_section-9">
-<a href="#clone-repositories"><span class="tocnumber">7</span> <span class="toctext">Clone repositories</span></a>
-<ul>
-<li class="toc_level-2 toc_section-10">
-<a href="#local-repositories"><span class="tocnumber">7.1</span> <span class="toctext">Local repositories</span></a>
-</li>
-<li class="toc_level-2 toc_section-11">
-<a href="#remote-repositories"><span class="tocnumber">7.2</span> <span class="toctext">Remote repositories</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-12">
-<a href="#configure-paths-and-locations"><span class="tocnumber">8</span> <span class="toctext">Configure paths and locations</span></a>
-</li>
-<li class="toc_level-1 toc_section-13">
-<a href="#create-a-new-%C2%B5os-project"><span class="tocnumber">9</span> <span class="toctext">Create a new µOS++ project</span></a>
-<ul>
-<li class="toc_level-2 toc_section-14">
-<a href="#configure-toolchain-path"><span class="tocnumber">9.1</span> <span class="toctext">Configure toolchain path</span></a>
-</li>
-<li class="toc_level-2 toc_section-15">
-<a href="#configure-preprocessor-discovery-command"><span class="tocnumber">9.2</span> <span class="toctext">Configure preprocessor discovery command</span></a>
-</li>
-<li class="toc_level-2 toc_section-16">
-<a href="#add-the-%C2%B5os-specific-include-folders"><span class="tocnumber">9.3</span> <span class="toctext">Add the µOS++ specific include folders</span></a>
-</li>
-<li class="toc_level-2 toc_section-17">
-<a href="#add-a-linked-folder-to-the-%C2%B5os-sources"><span class="tocnumber">9.4</span> <span class="toctext">Add a linked folder to the µOS++ sources</span></a>
-</li>
-<li class="toc_level-2 toc_section-18">
-<a href="#configure-the-custom-build-command"><span class="tocnumber">9.5</span> <span class="toctext">Configure the custom build command</span></a>
-</li>
-<li class="toc_level-2 toc_section-19">
-<a href="#create-actual-build-configurations"><span class="tocnumber">9.6</span> <span class="toctext">Create actual build configurations</span></a>
-</li>
-<li class="toc_level-2 toc_section-20">
-<a href="#build-the-new-configurations"><span class="tocnumber">9.7</span> <span class="toctext">Build the new configurations</span></a>
-</li>
-<li class="toc_level-2 toc_section-21">
-<a href="#check-indexer"><span class="tocnumber">9.8</span> <span class="toctext">Check indexer</span></a>
-</li>
-</ul>
-</li>
-<li class="toc_level-1 toc_section-22">
-<a href="#configure-the-run-console"><span class="tocnumber">10</span> <span class="toctext">Configure the run console</span></a>
-</li>
-<li class="toc_level-1 toc_section-23">
-<a href="#configure-the-project-clean-options"><span class="tocnumber">11</span> <span class="toctext">Configure the project Clean options</span></a>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <p>Although the minimum development environment for µOS++ SE requires only a shell terminal and a character based editor (like vi or emacs), the recommended development environment is based on <a href="http://www.eclipse.org">Eclipse IDE</a>, more specifically on <strong>Eclipse IDE for C/C++ Developers</strong>, available from <a href="http://www.eclipse.org/downloads/">Eclipse downloads</a>.</p>
 
 <p>Currently there are no specific plug-ins required, so any recent Eclipse version should work. The below steps are based on Eclipse 4.3 Kepler, running on OS X, but should not be much different when running on Ubuntu.</p>
@@ -360,13 +270,8 @@
 
 <!-- -->
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>mkdir -p "~/work/uOS/Eclipses"
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir -p "~/work/uOS/Eclipses"
+</code></pre></div></div>
 
 <ul>
   <li>download <strong>Eclipse IDE for C/C++ Developers</strong> for your platform, preferably the 64-bit version (for example eclipse-cpp-kepler-R-macosx-cocoa-x86_64.tar.gz) into this new folder</li>
@@ -385,13 +290,8 @@
 
 <!-- -->
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>mkdir -p "~/work/uOS/Eclipse Workspaces"
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir -p "~/work/uOS/Eclipse Workspaces"
+</code></pre></div></div>
 
 <ul>
   <li>start the new Eclipse and define a new workspace, for example: <code class="language-plaintext highlighter-rouge">~/work/uOS/Eclipse Workspaces/workspace-4.3-osx</code>
@@ -942,7 +842,7 @@
   <div class="site-footer">
   <div class="site-footer-links left">
     <ul>
-  <li>© 2022 Liviu Ionescu</li>
+  <li>© 2023 Liviu Ionescu</li>
   <li>Hosted on GitHub</li>
   <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
   <li>

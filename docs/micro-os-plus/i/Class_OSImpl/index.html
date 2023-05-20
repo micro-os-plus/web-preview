@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <meta charset="utf-8">
+  <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>Class OSImpl</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="Class OSImpl">
-  <meta property="og:site_name" content="µOS++ IIIe">
+  <meta property="og:title" content="Class OSImpl" />
+  <meta property="og:site_name" content="µOS++ IIIe" />
 
-  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml" />
 
 
   <meta property="article:published_time" content="2011-02-21">
@@ -24,9 +24,9 @@
 
 
 
-  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c" />
 
-  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?202211100849" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?202211100849" media="screen">
@@ -217,13 +217,13 @@
   <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
 </ul>
 
-<h4 id="license">License</h4>
+<h4 id="project">Project</h4>
 
 <ul>
-  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+  <li><a href="/web-preview/project/about/">About</a></li>
+  <li><a href="/web-preview/project/history/">History</a></li>
+  <li><a href="https://opensource.org/licenses/MIT">License</a></li>
 </ul>
-
-<h4 id="about"><a href="/web-preview/about/">About</a></h4>
 
     </div>
   </div>
@@ -246,60 +246,6 @@
   </tr>
 </table>
 
-<div id="toc-container">
-<table class="toc" id="toc">
-<tbody>
-<tr>
-<td>
-<div id="toctitle">
-<h2>Contents</h2>
-</div>
-<ul>
-<li class="toc_level-1 toc_section-1">
-<a href="#inline-static-void-cpustackinitvoid-attributealways_inline"><span class="tocnumber">1</span> <span class="toctext">inline static void CPUstackInit(void) attribute((always_inline))</span></a>
-</li>
-<li class="toc_level-1 toc_section-2">
-<a href="#inline-static-void-cpuinitvoid-attributealways_inline"><span class="tocnumber">2</span> <span class="toctext">inline static void CPUinit(void) attribute((always_inline))</span></a>
-</li>
-<li class="toc_level-1 toc_section-3">
-<a href="#inline-static-void-cpuidlevoid-attributealways_inline"><span class="tocnumber">3</span> <span class="toctext">inline static void CPUidle(void) attribute((always_inline))</span></a>
-</li>
-<li class="toc_level-1 toc_section-4">
-<a href="#inline-static-void-cpusleepvoid-attributealways_inline"><span class="tocnumber">4</span> <span class="toctext">inline static void CPUsleep(void) attribute((always_inline))</span></a>
-</li>
-<li class="toc_level-1 toc_section-5">
-<a href="#inline-static-void-cpudeepsleepvoid-attributealways_inline"><span class="tocnumber">5</span> <span class="toctext">inline static void CPUdeepSleep(void) attribute((always_inline))</span></a>
-</li>
-<li class="toc_level-1 toc_section-6">
-<a href="#inline-static-osresetbits_t-cpufetchresetbitsvoid-attributealways_inline"><span class="tocnumber">6</span> <span class="toctext">inline static OSResetBits_t CPUfetchResetBits(void) attribute((always_inline))</span></a>
-</li>
-<li class="toc_level-1 toc_section-7">
-<a href="#inline-static-void-wdtresetvoid-attributealways_inline"><span class="tocnumber">7</span> <span class="toctext">inline static void WDTreset(void) attribute((always_inline))</span></a>
-</li>
-<li class="toc_level-1 toc_section-8">
-<a href="#inline-static-void-nopvoid-attributealways_inline"><span class="tocnumber">8</span> <span class="toctext">inline static void NOP(void) attribute((always_inline))</span></a>
-</li>
-<li class="toc_level-1 toc_section-9">
-<a href="#inline-static-void-softresetvoid-attributealways_inline"><span class="tocnumber">9</span> <span class="toctext">inline static void SOFTreset(void) attribute((always_inline))</span></a>
-</li>
-<li class="toc_level-1 toc_section-10">
-<a href="#inline-static-void-returnfrominterruptvoid-attributealways_inlinenoreturn"><span class="tocnumber">10</span> <span class="toctext">inline static void returnFromInterrupt(void) attribute((always_inline,noreturn))</span></a>
-</li>
-<li class="toc_level-1 toc_section-11">
-<a href="#inline-static-void-returnfromsubroutinevoid-attributealways_inlinenoreturn"><span class="tocnumber">11</span> <span class="toctext">inline static void returnFromSubroutine(void) attribute((always_inline,noreturn))</span></a>
-</li>
-<li class="toc_level-1 toc_section-12">
-<a href="#inline-static-void-interruptsenablevoid-attributealways_inline"><span class="tocnumber">12</span> <span class="toctext">inline static void interruptsEnable(void) attribute((always_inline))</span></a>
-</li>
-<li class="toc_level-1 toc_section-13">
-<a href="#inline-static-void-interruptsdisablevoid-attributealways_inline"><span class="tocnumber">13</span> <span class="toctext">inline static void interruptsDisable(void) attribute((always_inline))</span></a>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <p>OSImpl</p>
 
 <h1 id="constructors">Constructors</h1>
@@ -308,261 +254,183 @@
 
 <h2 id="inline-static-void-cpustackinitvoid-attributealways_inline">inline static void CPUstackInit(void) <strong>attribute</strong>((always_inline))</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Initialize the SP register in order to point to the stack section.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
 <h2 id="inline-static-void-cpuinitvoid-attributealways_inline">inline static void CPUinit(void) <strong>attribute</strong>((always_inline))</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Perform some CPU initializations.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
 <h2 id="inline-static-void-cpuidlevoid-attributealways_inline">inline static void CPUidle(void) <strong>attribute</strong>((always_inline))</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Put MCU to the idle sleep mode.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
 <h2 id="inline-static-void-cpusleepvoid-attributealways_inline">inline static void CPUsleep(void) <strong>attribute</strong>((always_inline))</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Put MCU to sleep.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
 <h2 id="inline-static-void-cpudeepsleepvoid-attributealways_inline">inline static void CPUdeepSleep(void) <strong>attribute</strong>((always_inline))</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Put MCU to deep sleep.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
 <h2 id="inline-static-osresetbits_t-cpufetchresetbitsvoid-attributealways_inline">inline static OSResetBits_t CPUfetchResetBits(void) <strong>attribute</strong>((always_inline))</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Return the reset bits used to know the reset reason.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* The reset bits used to know the reset reason.</p>
 
 <h2 id="inline-static-void-wdtresetvoid-attributealways_inline">inline static void WDTreset(void) <strong>attribute</strong>((always_inline))</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Reset the WDT.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
 <h2 id="inline-static-void-nopvoid-attributealways_inline">inline static void NOP(void) <strong>attribute</strong>((always_inline))</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>No operation performed. It embeds the asm “nop” assembly command.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
 <h2 id="inline-static-void-softresetvoid-attributealways_inline">inline static void SOFTreset(void) <strong>attribute</strong>((always_inline))</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Generate a soft reset.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
 <h2 id="inline-static-void-returnfrominterruptvoid-attributealways_inlinenoreturn">inline static void returnFromInterrupt(void) <strong>attribute</strong>((always_inline,noreturn))</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Wrapper for the asm “rete” instruction.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
 <h2 id="inline-static-void-returnfromsubroutinevoid-attributealways_inlinenoreturn">inline static void returnFromSubroutine(void) <strong>attribute</strong>((always_inline,noreturn))</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Copy link register’s (LR) value into the PC. This will continue execution of the previously executed routine.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
 <h2 id="inline-static-void-interruptsenablevoid-attributealways_inline">inline static void interruptsEnable(void) <strong>attribute</strong>((always_inline))</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Enable interrupts (global interrupt mask bit - GM from SR). If function must be always inline, it is required the definition of OS_INLINE_INTERRUPTS_ENABLE_DISABLE.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
 <h2 id="inline-static-void-interruptsdisablevoid-attributealways_inline">inline static void interruptsDisable(void) <strong>attribute</strong>((always_inline))</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Disable all interrupts (global interrupt mask bit - GM from SR). If function must be always inline, it is required the definition of OS_INLINE_INTERRUPTS_ENABLE_DISABLE.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
@@ -592,7 +460,7 @@
   <div class="site-footer">
   <div class="site-footer-links left">
     <ul>
-  <li>© 2022 Liviu Ionescu</li>
+  <li>© 2023 Liviu Ionescu</li>
   <li>Hosted on GitHub</li>
   <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
   <li>

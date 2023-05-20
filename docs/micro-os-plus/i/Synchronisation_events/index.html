@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <meta charset="utf-8">
+  <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>Synchronisation events</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="Synchronisation events">
-  <meta property="og:site_name" content="µOS++ IIIe">
+  <meta property="og:title" content="Synchronisation events" />
+  <meta property="og:site_name" content="µOS++ IIIe" />
 
-  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml" />
 
 
   <meta property="article:published_time" content="2011-03-08">
@@ -24,9 +24,9 @@
 
 
 
-  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c" />
 
-  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?202211100849" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?202211100849" media="screen">
@@ -217,13 +217,13 @@
   <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
 </ul>
 
-<h4 id="license">License</h4>
+<h4 id="project">Project</h4>
 
 <ul>
-  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+  <li><a href="/web-preview/project/about/">About</a></li>
+  <li><a href="/web-preview/project/history/">History</a></li>
+  <li><a href="https://opensource.org/licenses/MIT">License</a></li>
 </ul>
-
-<h4 id="about"><a href="/web-preview/about/">About</a></h4>
 
     </div>
   </div>
@@ -323,18 +323,13 @@
 
 <p>The first and simplest solution for the race condition is to include both the test of the condition and the eventWait() in a critical section</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>os.sched.criticalEnter();
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>os.sched.criticalEnter();
 {
   if (!isAvailable())
     eventWait(event);
 }
 os.sched.criticalExit();
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>For applications that decide to squeeze every cycle from the CPU by minimising the critical sections, µOS++ also provides a finer grain access to the eventWait() internals: the eventWaitPrepare() and eventWaitPerform() methods.</p>
 
@@ -342,10 +337,7 @@ os.sched.criticalExit();
 
 <p>So, a more elaborate solution for the race condition would look like</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>bool doWait;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bool doWait;
 doWait = false;
 
 setEventWaitReturn(OSEventWaitReturn::OS_IMMEDIATELY);
@@ -367,9 +359,7 @@ if (doWait)
 
 OSEventWaitReturn_t ret;
 ret = getEventWaitReturn();
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h1 id="scheduler-vs-task-notifications">Scheduler vs. task notifications</h1>
 
@@ -389,25 +379,15 @@ ret = getEventWaitReturn();
 
 <p>When using this feature, it is recommended to explicitly set the return value to OSEventReturn::OS_ALL.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>os.sched.eventNotify(OSEvent::OS_ALL, OSEventReturn::OS_ALL);
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>os.sched.eventNotify(OSEvent::OS_ALL, OSEventReturn::OS_ALL);
+</code></pre></div></div>
 
 <h1 id="waiting-for-any-event">Waiting for any event</h1>
 
 <p>Similarly, a task can arrange to be waken by all incoming events. For this, the same OSEvent::OS_ALL can be used.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>os.sched.eventWait(OSEvent::OS_ALL);
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>os.sched.eventWait(OSEvent::OS_ALL);
+</code></pre></div></div>
 
 <p>Obviously, after waking up, the task should check for the condition it is expecting, and if not fulfilled, to loop to eventWait().</p>
 
@@ -419,13 +399,8 @@ ret = getEventWaitReturn();
 
 <p>In order to differentiate between all these possible cases, µOS++ provides an additional argument to eventNotify(event, ret). When the eventNotify() is processed, this value is simply passed as a return value for eventWait(). The default for this value is defined as OSEventReturn::OS_VOID, but it is recommended to duplicate the event as the event return value.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>os.sched.eventNotify(event, (OSEventReturn_t)event);
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>os.sched.eventNotify(event, (OSEventReturn_t)event);
+</code></pre></div></div>
 
 <p>Other special values for OSEventReturn are defined for timeouts (OSEventReturn::OS_TIMEOUT), cancelled tasks (OSEventReturn::OS_CANCELLED and other cases. It is recommended to use these values for similar functionality.</p>
 
@@ -437,13 +412,8 @@ ret = getEventWaitReturn();
 
 <h2 id="wait-for-event">Wait for event</h2>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>OSEventWaitReturn_t eventWait(OSEvent_t event);
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OSEventWaitReturn_t eventWait(OSEvent_t event);
+</code></pre></div></div>
 
 <p>Block the current task and wait for the event to occur (task is <em>put to sleep</em>). The task is removed from the running list and will no longer be scheduled to run until the event occurs. The first notification addressed to the given event will unblock the task and the specified value will be returned (<em>wake up</em> the task).</p>
 
@@ -460,13 +430,8 @@ ret = getEventWaitReturn();
 
 <h2 id="notify-event">Notify event</h2>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>int eventNotify(OSEvent_t event, OSEventWaitReturn_t ret=OSEventWaitReturn::OS_VOID);
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int eventNotify(OSEvent_t event, OSEventWaitReturn_t ret=OSEventWaitReturn::OS_VOID);
+</code></pre></div></div>
 
 <p>Notifies all tasks waiting on the given event. Notified tasks are inserted into the running list (in the order they were registered to the schedulers) and will wait their turn for the CPU. Only the first notification addresed to a blocked task is significative, i.e. only the ‘ret’ value of the first notification will be returned by corresponding <strong>evenWait()</strong> functions; all further notifications addressed to a task waiting to run or running will be silently discarded.</p>
 
@@ -500,7 +465,7 @@ ret = getEventWaitReturn();
   <div class="site-footer">
   <div class="site-footer-links left">
     <ul>
-  <li>© 2022 Liviu Ionescu</li>
+  <li>© 2023 Liviu Ionescu</li>
   <li>Hosted on GitHub</li>
   <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
   <li>

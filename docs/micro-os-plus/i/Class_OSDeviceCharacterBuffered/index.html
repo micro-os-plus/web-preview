@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <meta charset="utf-8">
+  <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>Class OSDeviceCharacterBuffered</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="Class OSDeviceCharacterBuffered">
-  <meta property="og:site_name" content="µOS++ IIIe">
+  <meta property="og:title" content="Class OSDeviceCharacterBuffered" />
+  <meta property="og:site_name" content="µOS++ IIIe" />
 
-  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml" />
 
 
   <meta property="article:published_time" content="2011-03-05">
@@ -24,9 +24,9 @@
 
 
 
-  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c" />
 
-  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?202211100849" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?202211100849" media="screen">
@@ -217,13 +217,13 @@
   <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
 </ul>
 
-<h4 id="license">License</h4>
+<h4 id="project">Project</h4>
 
 <ul>
-  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+  <li><a href="/web-preview/project/about/">About</a></li>
+  <li><a href="/web-preview/project/history/">History</a></li>
+  <li><a href="https://opensource.org/licenses/MIT">License</a></li>
 </ul>
-
-<h4 id="about"><a href="/web-preview/about/">About</a></h4>
 
     </div>
   </div>
@@ -246,63 +246,6 @@
   </tr>
 </table>
 
-<div id="toc-container">
-<table class="toc" id="toc">
-<tbody>
-<tr>
-<td>
-<div id="toctitle">
-<h2>Contents</h2>
-</div>
-<ul>
-<li class="toc_level-1 toc_section-1">
-<a href="#osdevicecharacterbufferedunsigned-char-prxbuf-unsigned-short-rxbufsize-unsigned-short-rxhwm-unsigned-short-rxlwm-unsigned-char-ptxbuf-unsigned-short-txbufsize-unsigned-short-txhwm-unsigned-short-txlwm"><span class="tocnumber">1</span> <span class="toctext">OSDeviceCharacterBuffered(unsigned char *pRxBuf, unsigned short rxBufSize, unsigned short rxHWM, unsigned short rxLWM, unsigned char *pTxBuf, unsigned short txBufSize, unsigned short txHWM, unsigned short txLWM)</span></a>
-</li>
-<li class="toc_level-1 toc_section-2">
-<a href="#osdevicecharacterbufferedunsigned-char-prxbuf-unsigned-short-rxbufsize-unsigned-char-ptxbuf-unsigned-short-txbufsize"><span class="tocnumber">2</span> <span class="toctext">OSDeviceCharacterBuffered(unsigned char *pRxBuf, unsigned short rxBufSize, unsigned char *pTxBuf, unsigned short txBufSize)</span></a>
-</li>
-<li class="toc_level-1 toc_section-3">
-<a href="#virtual-osreturn_t-implopenvoid"><span class="tocnumber">3</span> <span class="toctext">virtual OSReturn_t implOpen(void)</span></a>
-</li>
-<li class="toc_level-1 toc_section-4">
-<a href="#virtual-osreturn_t-implclosevoid"><span class="tocnumber">4</span> <span class="toctext">virtual OSReturn_t implClose(void)</span></a>
-</li>
-<li class="toc_level-1 toc_section-5">
-<a href="#virtual-bool-implisconnectedvoid-const"><span class="tocnumber">5</span> <span class="toctext">virtual bool implIsConnected(void) const</span></a>
-</li>
-<li class="toc_level-1 toc_section-6">
-<a href="#virtual-bool-implcanreadvoid"><span class="tocnumber">6</span> <span class="toctext">virtual bool implCanRead(void)</span></a>
-</li>
-<li class="toc_level-1 toc_section-7">
-<a href="#virtual-int-implavailablereadvoid"><span class="tocnumber">7</span> <span class="toctext">virtual int implAvailableRead(void)</span></a>
-</li>
-<li class="toc_level-1 toc_section-8">
-<a href="#virtual-int-implreadbytevoid"><span class="tocnumber">8</span> <span class="toctext">virtual int implReadByte(void)</span></a>
-</li>
-<li class="toc_level-1 toc_section-9">
-<a href="#virtual-bool-implcanwritevoid"><span class="tocnumber">9</span> <span class="toctext">virtual bool implCanWrite(void)</span></a>
-</li>
-<li class="toc_level-1 toc_section-10">
-<a href="#virtual-int-implwritebyteunsigned-char-b"><span class="tocnumber">10</span> <span class="toctext">virtual int implWriteByte(unsigned char b)</span></a>
-</li>
-<li class="toc_level-1 toc_section-11">
-<a href="#virtual-int-implflushvoid"><span class="tocnumber">11</span> <span class="toctext">virtual int implFlush(void)</span></a>
-</li>
-<li class="toc_level-1 toc_section-12">
-<a href="#void-interruptrxserviceroutinevoid"><span class="tocnumber">12</span> <span class="toctext">void interruptRxServiceRoutine(void)</span></a>
-</li>
-<li class="toc_level-1 toc_section-13">
-<a href="#void-interrupttxserviceroutinevoid"><span class="tocnumber">13</span> <span class="toctext">void interruptTxServiceRoutine(void)</span></a>
-</li>
-<li class="toc_level-1 toc_section-14">
-<a href="#virtual-int-implportdisablevoid"><span class="tocnumber">14</span> <span class="toctext">virtual int implPortDisable(void)</span></a>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <h1 id="classes-hierarchy">Classes hierarchy</h1>
 
 <ul>
@@ -336,15 +279,11 @@
 
 <h2 id="osdevicecharacterbufferedunsigned-char-prxbuf-unsigned-short-rxbufsize-unsigned-short-rxhwm-unsigned-short-rxlwm-unsigned-char-ptxbuf-unsigned-short-txbufsize-unsigned-short-txhwm-unsigned-short-txlwm">OSDeviceCharacterBuffered(unsigned char *pRxBuf, unsigned short rxBufSize, unsigned short rxHWM, unsigned short rxLWM, unsigned char *pTxBuf, unsigned short txBufSize, unsigned short txHWM, unsigned short txLWM)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Initialize the buffered character device with the given circular buffers and with custom water mark values.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* pRxBuf - pointer to receive buffer</p>
 
@@ -362,23 +301,17 @@
 
 <p>:* txLWM - transmit low water mark</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
 <h2 id="osdevicecharacterbufferedunsigned-char-prxbuf-unsigned-short-rxbufsize-unsigned-char-ptxbuf-unsigned-short-txbufsize">OSDeviceCharacterBuffered(unsigned char *pRxBuf, unsigned short rxBufSize, unsigned char *pTxBuf, unsigned short txBufSize)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Initialize the buffered character device with the given circular buffers and default 1/4 low and 3/4 high water mark values.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* pRxBuf - pointer to receive buffer</p>
 
@@ -388,9 +321,7 @@
 
 <p>:* txBufSize - size of transmit buffer</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
@@ -398,181 +329,127 @@
 
 <h2 id="virtual-osreturn_t-implopenvoid">virtual OSReturn_t implOpen(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Call implPortInit() to open the device.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* status</p>
 
 <h2 id="virtual-osreturn_t-implclosevoid">virtual OSReturn_t implClose(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Call implPortDisable() to close the device.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* status</p>
 
 <h2 id="virtual-bool-implisconnectedvoid-const">virtual bool implIsConnected(void) const</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Check if the device is connected. Not yet fully implemented, currently just returns returns true.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* true if the device is connected</p>
 
 <h2 id="virtual-bool-implcanreadvoid">virtual bool implCanRead(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Check if the receive buffer is not empty.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* true if characters are available for read</p>
 
 <h2 id="virtual-int-implavailablereadvoid">virtual int implAvailableRead(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Return the number of available characters in the receive buffer.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* number of available characters</p>
 
 <h2 id="virtual-int-implreadbytevoid">virtual int implReadByte(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Return the next byte available in the receive buffer.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* return byte or negative if an error occur</p>
 
 <h2 id="virtual-bool-implcanwritevoid">virtual bool implCanWrite(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Check if the transmit buffer is not full.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* true if transmit queue not full</p>
 
 <h2 id="virtual-int-implwritebyteunsigned-char-b">virtual int implWriteByte(unsigned char b)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Add one byte to the transmit buffer. If above high water mark, start transmission by enabling transmit interrupts.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* status</p>
 
 <h2 id="virtual-int-implflushvoid">virtual int implFlush(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>If the transmit buffer is above high water mark, start transmission by enabling transmit interrupts.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* status of the operation</p>
 
@@ -580,41 +457,29 @@
 
 <h2 id="void-interruptrxserviceroutinevoid">void interruptRxServiceRoutine(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Implement the receive interrupt service routine. Read from the device and if the receive buffer is not full, insert in it.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
 <h2 id="void-interrupttxserviceroutinevoid">void interruptTxServiceRoutine(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Implement the transmit interrupt service routine. If the transmit buffer is empty, disable transmit interrupts. Get one byte from the transmit buffer and write it to the device. If the buffer is below the low water mark, notify writer to send more bytes.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
@@ -658,7 +523,7 @@
   <div class="site-footer">
   <div class="site-footer-links left">
     <ul>
-  <li>© 2022 Liviu Ionescu</li>
+  <li>© 2023 Liviu Ionescu</li>
   <li>Hosted on GitHub</li>
   <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
   <li>

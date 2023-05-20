@@ -5,8 +5,8 @@ var group__cmsis_plus_rtos_condvar =
       [ "attributes", "classos_1_1rtos_1_1condition__variable_1_1attributes.html#a2149a0ca428b7545cc653405a5261626", null ],
       [ "attributes", "classos_1_1rtos_1_1condition__variable_1_1attributes.html#a5750927bac75bb87f8df78d5937bead0", null ],
       [ "~attributes", "classos_1_1rtos_1_1condition__variable_1_1attributes.html#a1e5bd8cfa73c9c4c363748ef6ffe2411", null ],
-      [ "operator=", "classos_1_1rtos_1_1condition__variable_1_1attributes.html#a562c39c0dd9589ca08015aaa2d0baf0f", null ],
       [ "operator=", "classos_1_1rtos_1_1condition__variable_1_1attributes.html#a2f938ea549d22f435515ae57ac733c25", null ],
+      [ "operator=", "classos_1_1rtos_1_1condition__variable_1_1attributes.html#a562c39c0dd9589ca08015aaa2d0baf0f", null ],
       [ "clock", "classos_1_1rtos_1_1condition__variable_1_1attributes.html#a5d7e0d82010925866a1780e04a8134c4", null ]
     ] ],
     [ "condition_variable", "classos_1_1rtos_1_1condition__variable.html", [

@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <meta charset="utf-8">
+  <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>Doxygen style guide</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="Doxygen style guide">
-  <meta property="og:site_name" content="µOS++ IIIe">
+  <meta property="og:title" content="Doxygen style guide" />
+  <meta property="og:site_name" content="µOS++ IIIe" />
 
-  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml" />
 
 
   <meta property="article:published_time" content="2013-08-10">
@@ -24,9 +24,9 @@
 
 
 
-  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c" />
 
-  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?202211100849" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?202211100849" media="screen">
@@ -217,13 +217,13 @@
   <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
 </ul>
 
-<h4 id="license">License</h4>
+<h4 id="project">Project</h4>
 
 <ul>
-  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+  <li><a href="/web-preview/project/about/">About</a></li>
+  <li><a href="/web-preview/project/history/">History</a></li>
+  <li><a href="https://opensource.org/licenses/MIT">License</a></li>
 </ul>
-
-<h4 id="about"><a href="/web-preview/about/">About</a></h4>
 
     </div>
   </div>
@@ -246,89 +246,6 @@
   </tr>
 </table>
 
-<div id="toc-container">
-<table class="toc" id="toc">
-<tbody>
-<tr>
-<td>
-<div id="toctitle">
-<h2>Contents</h2>
-</div>
-<ul>
-<li class="toc_level-1 toc_section-1">
-<a href="#-comments"><span class="tocnumber">1</span> <span class="toctext">/// Comments</span></a>
-</li>
-<li class="toc_level-1 toc_section-2">
-<a href="#-commands"><span class="tocnumber">2</span> <span class="toctext">\ Commands</span></a>
-</li>
-<li class="toc_level-1 toc_section-3">
-<a href="#explicit-brief"><span class="tocnumber">3</span> <span class="toctext">Explicit \brief</span></a>
-</li>
-<li class="toc_level-1 toc_section-4">
-<a href="#explicit-details"><span class="tocnumber">4</span> <span class="toctext">Explicit \details</span></a>
-</li>
-<li class="toc_level-1 toc_section-5">
-<a href="#use-brief-with-declarations-and-details-with-definitions"><span class="tocnumber">5</span> <span class="toctext">Use \brief with declarations and \details with definitions</span></a>
-</li>
-<li class="toc_level-1 toc_section-6">
-<a href="#back-apostrophes-for-references-to-code"><span class="tocnumber">6</span> <span class="toctext">Back apostrophes for references to code</span></a>
-</li>
-<li class="toc_level-1 toc_section-7">
-<a href="#asterisks-for-italics"><span class="tocnumber">7</span> <span class="toctext">Asterisks for italics</span></a>
-</li>
-<li class="toc_level-1 toc_section-8">
-<a href="#html-b-for-bold"><span class="tocnumber">8</span> <span class="toctext">HTML &lt;b&gt; for bold</span></a>
-</li>
-<li class="toc_level-1 toc_section-9">
-<a href="#use-code-for-sequences-of-source-lines"><span class="tocnumber">9</span> <span class="toctext">Use \code for sequences of source lines</span></a>
-</li>
-<li class="toc_level-1 toc_section-10">
-<a href="#use-verbatim-for-other-pre-formatted-lines"><span class="tocnumber">10</span> <span class="toctext">Use \verbatim for other pre-formatted lines</span></a>
-</li>
-<li class="toc_level-1 toc_section-11">
-<a href="#lists"><span class="tocnumber">11</span> <span class="toctext">Lists</span></a>
-</li>
-<li class="toc_level-1 toc_section-12">
-<a href="#tables"><span class="tocnumber">12</span> <span class="toctext">Tables</span></a>
-</li>
-<li class="toc_level-1 toc_section-13">
-<a href="#external-links"><span class="tocnumber">13</span> <span class="toctext">External links</span></a>
-</li>
-<li class="toc_level-1 toc_section-14">
-<a href="#use-tparam-for-template-parameters"><span class="tocnumber">14</span> <span class="toctext">Use \tparam for template parameters</span></a>
-</li>
-<li class="toc_level-1 toc_section-15">
-<a href="#use-param-for-function-parameters"><span class="tocnumber">15</span> <span class="toctext">Use \param for function parameters</span></a>
-</li>
-<li class="toc_level-1 toc_section-16">
-<a href="#use-return-or-retval-for-the-returned-result"><span class="tocnumber">16</span> <span class="toctext">Use \return or \retval for the returned result</span></a>
-</li>
-<li class="toc_level-1 toc_section-17">
-<a href="#use-headerfile-to-define-the-header-full-path"><span class="tocnumber">17</span> <span class="toctext">Use \headerfile to define the header full path</span></a>
-</li>
-<li class="toc_level-1 toc_section-18">
-<a href="#use-nosubgrouping-and-name-to-define-custom-member-grouping"><span class="tocnumber">18</span> <span class="toctext">Use \nosubgrouping and \name to define custom member grouping</span></a>
-</li>
-<li class="toc_level-1 toc_section-19">
-<a href="#template-sample"><span class="tocnumber">19</span> <span class="toctext">Template sample</span></a>
-</li>
-<li class="toc_level-1 toc_section-20">
-<a href="#grouping"><span class="tocnumber">20</span> <span class="toctext">Grouping</span></a>
-<ul>
-<li class="toc_level-2 toc_section-21">
-<a href="#ingroup"><span class="tocnumber">20.1</span> <span class="toctext">\ingroup</span></a>
-</li>
-<li class="toc_level-2 toc_section-22">
-<a href="#name"><span class="tocnumber">20.2</span> <span class="toctext">\name</span></a>
-</li>
-</ul>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <p>Doxygen has many, many features, and accepts various syntaxes for its commands.</p>
 
 <p>The recommended syntax is the one specific to to C++, with // for comments, and \ for escape characters and commands.</p>
@@ -347,14 +264,9 @@
 
 <p>Explicitly use the \brief command before the brief description. End the text with a dot. For visibility reasons, add an empty line inside the same comment block.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>/// \brief Base for all architecture implementation classes.
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/// \brief Base for all architecture implementation classes.
 ///
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h2 id="explicit-details">Explicit \details</h2>
 
@@ -362,16 +274,11 @@
 
 <p>For class member functions, the details should be placed before the implementation; although allowed by Doxygen, avoid placing details both at the declaration and definitions, since it is difficult to keep them consistent (see below).</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>///
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>///
 /// \details
 /// The TraceOstreamBase class implements an ostream class
 /// to be used by the Trace class.
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h2 id="use-brief-with-declarations-and-details-with-definitions">Use \brief with declarations and \details with definitions</h2>
 
@@ -395,33 +302,23 @@
 
 <p>When including lines of code, surround them by \code, \endcode and add the language. For visibility reasons, add empty lines inside the comment block.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>///
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>///
 /// \code{.cpp}
 /// setClassName("os::infra::TestSuite");
 /// \endcode
 ///
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h2 id="use-verbatim-for-other-pre-formatted-lines">Use \verbatim for other pre-formatted lines</h2>
 
 <p>When including other lines, like shell commands, surround them by \verbatim, \endverbatim:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>///
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>///
 /// \verbatim
 /// /bin/bash micro-os-plus-se.git/scripts/runTests.sh
 /// \endverbatim
 ///
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h2 id="lists">Lists</h2>
 
@@ -429,55 +326,35 @@
 
 <p>For multiple levels use additional indentations.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>- first level 1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- first level 1
   - first level 2
   - second level 2
 - second level 1
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h2 id="tables">Tables</h2>
 
 <p>Use the below syntax to enter tables. Columns can be left/right aligned.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>| Right | Center | Left  |
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| Right | Center | Left  |
 | ----: | :----: | :---- |
 | 10    | 10     | 10    |
 | 1000  | 1000   | 1000  |
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h2 id="external-links">External links</h2>
 
 <p>Links to other pages can be expressed with the following markup:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>[The link text](http://example.net/)
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[The link text](http://example.net/)
+</code></pre></div></div>
 
 <h2 id="use-tparam-for-template-parameters">Use \tparam for template parameters</h2>
 
 <p>Use \tparam for template parameters. Start the explanation with upper case and end it with dot.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>/// \tparam Implementation_T  Type of the implementation class.
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/// \tparam Implementation_T  Type of the implementation class.
+</code></pre></div></div>
 
 <h2 id="use-param-for-function-parameters">Use \param for function parameters</h2>
 
@@ -485,77 +362,47 @@
 
 <p>To make the explanation more readable, use tabs to right align the content.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>/// \param [in]  c  An additional character to consume.
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/// \param [in]  c  An additional character to consume.
+</code></pre></div></div>
 
 <p>If the function has no parameters, use a custom paragraph containing <strong>None</strong>, indented with a tab and terminated with a dot.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>/// \par Parameters
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/// \par Parameters
 ///    None.
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h2 id="use-return-or-retval-for-the-returned-result">Use \return or \retval for the returned result</h2>
 
 <p>If the function returns discrete values, enumerate them with <strong>\retval</strong> and terminate the list with an empty line.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>/// \retval -1 Error
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/// \retval -1 Error
 /// \retval 0 OK
 ///
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>If the function returns a scalar value, use a <strong>\return</strong> and explain what the value represents.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>/// \return The number of bytes actually written.
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/// \return The number of bytes actually written.
+</code></pre></div></div>
 
 <p>If the function has no return value, use a custom paragraph containing <strong>Nothing</strong>, indented with a tab and terminated with a dot.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>/// \par Returns
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/// \par Returns
 ///    Nothing.
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h2 id="use-headerfile-to-define-the-header-full-path">Use \headerfile to define the header full path</h2>
 
 <p>For each class, structure, enum or other object definition, use \headerfile to specify the full header path.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>/// \headerfile CoreInterruptNumbers.h "hal/architecture/arm/cortexm/include/CoreInterruptNumbers.h"
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/// \headerfile CoreInterruptNumbers.h "hal/architecture/arm/cortexm/include/CoreInterruptNumbers.h"
 /// \nosubgrouping
 ///
 /// \brief ARM Cortex-M architecture interrupt numbers base
 /// \details
 /// Interrupt numbers defined by the Cortex-M0 light architecture.
 class CortexM0InterruptNumber ...
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>The first name should be present in the filesystem, so it might need some prefixing. The second name is passed to the output.</p>
 
@@ -573,10 +420,7 @@ class CortexM0InterruptNumber ...
 
 <p>Note: Groups do not nest.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>/// \name Standard template types
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/// \name Standard template types
 ///
 /// These types permit a standardised way of
 /// referring to names of (or names dependent on) the template
@@ -603,16 +447,11 @@ virtual
 ~TTraceStreambufBase();
 
 /// @} end of name Constructors/destructor
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h2 id="template-sample">Template sample</h2>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>/// \headerfile Trace.h "portable/diagnostics/include/Trace.h"
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/// \headerfile Trace.h "portable/diagnostics/include/Trace.h"
 /// \ingroup diag
 /// \nosubgrouping
 ///
@@ -628,9 +467,7 @@ template&lt;class Implementation_T&gt;
   {
     ...
   };
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <h2 id="grouping">Grouping</h2>
 
@@ -638,22 +475,14 @@ template&lt;class Implementation_T&gt;
 
 <p>To include a definition in one or more modules, use \ingroup.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>/// \brief Stack size type.
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/// \brief Stack size type.
 /// \ingroup core_thread
 ///
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>If multiple definition are from the same group, they can be grouped with <strong>@{</strong> … <strong>@}</strong>:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>/// \ingroup core_thread
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/// \ingroup core_thread
 /// @{
         &lt;- mandatory empty line
 /// \brief Stack element type.
@@ -663,9 +492,7 @@ typedef hal::arch::stackElement_t element_t;
 typedef hal::arch::stackSize_t size_t;
         &lt;- mandatory empty line
 /// @} end of ingroup core_thread
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>Please note the mandatory empty lines after <strong>@{</strong> and before <strong>@}</strong>.</p>
 
@@ -675,10 +502,7 @@ typedef hal::arch::stackSize_t size_t;
 
 <p>This command allows to define the name of the section within a page. Usually it is used with <strong>@{</strong> … <strong>@}</strong>:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>/// \name Constructors/destructor
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/// \name Constructors/destructor
 /// @{
         &lt;- mandatory empty line
 /// \brief Constructor.
@@ -688,16 +512,11 @@ MainThread(void);
 ~MainThread();
         &lt;- mandatory empty line
 /// @} end of name Constructors/destructor
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>Recommended sections name are:</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>/// \name Types and constants
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/// \name Types and constants
 
 /// \name Constructors/destructor
 
@@ -708,9 +527,7 @@ MainThread(void);
 /// \name Private friends
 
 /// \name Private member variables
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 
 
@@ -738,7 +555,7 @@ MainThread(void);
   <div class="site-footer">
   <div class="site-footer-links left">
     <ul>
-  <li>© 2022 Liviu Ionescu</li>
+  <li>© 2023 Liviu Ionescu</li>
   <li>Hosted on GitHub</li>
   <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
   <li>

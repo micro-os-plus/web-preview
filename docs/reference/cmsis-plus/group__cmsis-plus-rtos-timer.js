@@ -5,8 +5,8 @@ var group__cmsis_plus_rtos_timer =
       [ "attributes", "classos_1_1rtos_1_1timer_1_1attributes.html#aeb87290bdecc14905b4c0b78f14554cc", null ],
       [ "attributes", "classos_1_1rtos_1_1timer_1_1attributes.html#aa2b680b7ed6a57d4478a2fb6f57d747c", null ],
       [ "~attributes", "classos_1_1rtos_1_1timer_1_1attributes.html#aaae5ba28a47cbe2dd4dc92c1ec19d11c", null ],
-      [ "operator=", "classos_1_1rtos_1_1timer_1_1attributes.html#acadcfe5200ab56e24d0cee738ab23641", null ],
       [ "operator=", "classos_1_1rtos_1_1timer_1_1attributes.html#ad8b6b73ab2c78805e91049b14d2a2002", null ],
+      [ "operator=", "classos_1_1rtos_1_1timer_1_1attributes.html#acadcfe5200ab56e24d0cee738ab23641", null ],
       [ "clock", "classos_1_1rtos_1_1timer_1_1attributes.html#a5d7e0d82010925866a1780e04a8134c4", null ],
       [ "tm_type", "classos_1_1rtos_1_1timer_1_1attributes.html#a1678ce0a3d98c4c540292c70dd0c90f3", null ]
     ] ],
@@ -15,8 +15,8 @@ var group__cmsis_plus_rtos_timer =
       [ "attributes_periodic", "classos_1_1rtos_1_1timer_1_1attributes__periodic.html#a40597d650c10750877d414539f50b64a", null ],
       [ "attributes_periodic", "classos_1_1rtos_1_1timer_1_1attributes__periodic.html#ac310972fbcdbb6c441c7b4701d8ac120", null ],
       [ "~attributes_periodic", "classos_1_1rtos_1_1timer_1_1attributes__periodic.html#a50f35bfb52583fb29fca42c125d10c88", null ],
-      [ "operator=", "classos_1_1rtos_1_1timer_1_1attributes__periodic.html#aa6f04f7668f0a8a6663addf74befd55f", null ],
       [ "operator=", "classos_1_1rtos_1_1timer_1_1attributes__periodic.html#ac79af3c8a0ffe0073ba674609ad20745", null ],
+      [ "operator=", "classos_1_1rtos_1_1timer_1_1attributes__periodic.html#aa6f04f7668f0a8a6663addf74befd55f", null ],
       [ "clock", "classos_1_1rtos_1_1timer_1_1attributes__periodic.html#a5d7e0d82010925866a1780e04a8134c4", null ],
       [ "tm_type", "classos_1_1rtos_1_1timer_1_1attributes__periodic.html#a1678ce0a3d98c4c540292c70dd0c90f3", null ]
     ] ],

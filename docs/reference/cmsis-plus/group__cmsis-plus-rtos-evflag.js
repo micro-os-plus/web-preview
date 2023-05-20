@@ -5,8 +5,8 @@ var group__cmsis_plus_rtos_evflag =
       [ "attributes", "classos_1_1rtos_1_1event__flags_1_1attributes.html#a864264b9d25bc57502405f1a8f4aad2c", null ],
       [ "attributes", "classos_1_1rtos_1_1event__flags_1_1attributes.html#a587692388257cf571bd1bc7c21233001", null ],
       [ "~attributes", "classos_1_1rtos_1_1event__flags_1_1attributes.html#a57afcf807889cfc927f7bbcdeeafd0c2", null ],
-      [ "operator=", "classos_1_1rtos_1_1event__flags_1_1attributes.html#a93f0b825249d787646c28f43c8c2e68a", null ],
       [ "operator=", "classos_1_1rtos_1_1event__flags_1_1attributes.html#a66964fd9d4f3a41c9dc6a4d2abd083d3", null ],
+      [ "operator=", "classos_1_1rtos_1_1event__flags_1_1attributes.html#a93f0b825249d787646c28f43c8c2e68a", null ],
       [ "clock", "classos_1_1rtos_1_1event__flags_1_1attributes.html#a5d7e0d82010925866a1780e04a8134c4", null ]
     ] ],
     [ "event_flags", "classos_1_1rtos_1_1event__flags.html", [

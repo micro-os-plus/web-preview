@@ -45,6 +45,10 @@ var classos_1_1driver_1_1usbd__wrapper =
     [ "c_cb_device_func_", "classos_1_1driver_1_1usbd__wrapper.html#a02b6562e48cda28e7b966e9cccf5b409", null ],
     [ "c_cb_endpoint_func_", "classos_1_1driver_1_1usbd__wrapper.html#aa207f7cfff7e516bded2a66487891f0e", null ],
     [ "capa_", "classos_1_1driver_1_1usbd__wrapper.html#a0e233d8b68496b20556c0ed2e758b51a", null ],
+    [ "cb_device_func_", "classos_1_1driver_1_1usbd__wrapper.html#a6268a093ada872cafe8a0fd1c2b8f5ac", null ],
+    [ "cb_device_object_", "classos_1_1driver_1_1usbd__wrapper.html#adb3791de59c0cc27bf62751694369c12", null ],
+    [ "cb_endpoint_func_", "classos_1_1driver_1_1usbd__wrapper.html#ab0d0aa18489db4d89db6478673ce3d74", null ],
+    [ "cb_endpoint_object_", "classos_1_1driver_1_1usbd__wrapper.html#ab2bb9559a8f39589cb49076653e7061b", null ],
     [ "driver_", "classos_1_1driver_1_1usbd__wrapper.html#a6019e698a865d640c0ddcc2ccebed60c", null ],
     [ "status_", "classos_1_1driver_1_1usbd__wrapper.html#a3308c6890f7b4ac65c47d02dae2eaf69", null ],
     [ "version_", "classos_1_1driver_1_1usbd__wrapper.html#a0cfe1b012457428787374892bc3cb380", null ]

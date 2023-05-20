@@ -1,6 +1,7 @@
 var classos_1_1estd_1_1timed__mutex =
 [
     [ "native_handle_type", "classos_1_1estd_1_1timed__mutex.html#a695e43bee3a458cd9cb09f6e0d546fff", null ],
+    [ "native_type", "classos_1_1estd_1_1timed__mutex.html#a757500cb13a958ccda650261cdbb735b", null ],
     [ "timed_mutex", "classos_1_1estd_1_1timed__mutex.html#a93a2fcf69122b1de2c1431ff2f02b726", null ],
     [ "~timed_mutex", "classos_1_1estd_1_1timed__mutex.html#ad520b40b1a470f71f4f11646f4e2e13d", null ],
     [ "timed_mutex", "classos_1_1estd_1_1timed__mutex.html#aaf3fb452353f3284267f7232e1420cfb", null ],

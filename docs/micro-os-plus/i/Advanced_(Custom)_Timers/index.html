@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <meta charset="utf-8">
+  <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>Advanced (Custom) Timers</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="Advanced (Custom) Timers">
-  <meta property="og:site_name" content="µOS++ IIIe">
+  <meta property="og:title" content="Advanced (Custom) Timers" />
+  <meta property="og:site_name" content="µOS++ IIIe" />
 
-  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml" />
 
 
   <meta property="article:published_time" content="2011-02-13">
@@ -24,9 +24,9 @@
 
 
 
-  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c" />
 
-  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?202211100849" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?202211100849" media="screen">
@@ -217,13 +217,13 @@
   <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
 </ul>
 
-<h4 id="license">License</h4>
+<h4 id="project">Project</h4>
 
 <ul>
-  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+  <li><a href="/web-preview/project/about/">About</a></li>
+  <li><a href="/web-preview/project/history/">History</a></li>
+  <li><a href="https://opensource.org/licenses/MIT">License</a></li>
 </ul>
-
-<h4 id="about"><a href="/web-preview/about/">About</a></h4>
 
     </div>
   </div>
@@ -246,38 +246,6 @@
   </tr>
 </table>
 
-<div id="toc-container">
-<table class="toc" id="toc">
-<tbody>
-<tr>
-<td>
-<div id="toctitle">
-<h2>Contents</h2>
-</div>
-<ul>
-<li class="toc_level-1 toc_section-1">
-<a href="#constructor"><span class="tocnumber">1</span> <span class="toctext">Constructor</span></a>
-</li>
-<li class="toc_level-1 toc_section-2">
-<a href="#methods"><span class="tocnumber">2</span> <span class="toctext">Methods</span></a>
-</li>
-<li class="toc_level-1 toc_section-3">
-<a href="#examples"><span class="tocnumber">3</span> <span class="toctext">Examples</span></a>
-<ul>
-<li class="toc_level-2 toc_section-4">
-<a href="#periodic-timer"><span class="tocnumber">3.1</span> <span class="toctext">Periodic Timer</span></a>
-</li>
-<li class="toc_level-2 toc_section-5">
-<a href="#custom-action-timer"><span class="tocnumber">3.2</span> <span class="toctext">Custom Action Timer</span></a>
-</li>
-</ul>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <p>In addition to system timers functionality, µOS++ custom timers can provide:</p>
 
 <ul>
@@ -293,106 +261,56 @@
 
 <h2 id="constructor">Constructor</h2>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>Timer(OSTimer *pTimer);
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Timer(OSTimer *pTimer);
+</code></pre></div></div>
 
 <p>Construct the timer based on a pointer to a system timer.</p>
 
 <h2 id="methods">Methods</h2>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>void start(OSTimerTicks_t ticks, bool periodic=false);
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void start(OSTimerTicks_t ticks, bool periodic=false);
+</code></pre></div></div>
 
 <p>Start the timer to trigger an event after the given number of ticks. If periodic is true, the event will periodically be triggered.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>void stop();
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void stop();
+</code></pre></div></div>
 
 <p>Stop a periodic timer after the pending event is completed, i.e. do not reschedule another event. The number of ticks will be set to zero and periodic to false.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>void cancel(OSEventWaitReturn_t ret=OSEventWaitReturn::OS_CANCELED);
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void cancel(OSEventWaitReturn_t ret=OSEventWaitReturn::OS_CANCELED);
+</code></pre></div></div>
 
 <p>Cancel the pending event, by notifying it with the given return value.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>void eventSet(OSEvent_t event, OSEventWaitReturn_t ret=OSEventWaitReturn::OS_VOID);
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void eventSet(OSEvent_t event, OSEventWaitReturn_t ret=OSEventWaitReturn::OS_VOID);
+</code></pre></div></div>
 
 <p>Set the event to be triggered by the timer and the return value.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>OSEventWaitReturn_t eventWait(void);
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OSEventWaitReturn_t eventWait(void);
+</code></pre></div></div>
 
 <p>Wait for the trigger event to occur.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>bool isPeriodic();
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bool isPeriodic();
+</code></pre></div></div>
 
 <p>Return true if the timer is set to periodic mode.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>OSTimerTicks_t getTicksStart();
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OSTimerTicks_t getTicksStart();
+</code></pre></div></div>
 
 <p>Return the number of ticks set by start(). If the timer is stopped, the returned value is zero.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>OSTimerTicks_t getTicks();
-</code></pre>
-</div>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OSTimerTicks_t getTicks();
+</code></pre></div></div>
 
 <p>Return the current ticks counter of the associated timer.</p>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>// callback
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// callback
 virtual void timerEvent(void);
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>This is the callback invoked by the timer interrupt. The default action is notify the event programmed by eventSet().</p>
 
@@ -402,10 +320,7 @@ virtual void timerEvent(void);
 
 <h3 id="periodic-timer">Periodic Timer</h3>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>//...
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//...
 Timer myTimerSeconds(&amp;os.sched.timerSeconds);
 //...
 
@@ -425,18 +340,13 @@ void TaskBlink::taskMain(void)
           }
       }
   }
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>The advanced timer is created with a reference to the system timer counting seconds. The event associated with this timer is the current task pointer. Later the timer is started with a given number of seconds as rate and the periodic flag set to true. The efect is that the timer will continuously trigger an event every ‘rate’ seconds.</p>
 
 <h3 id="custom-action-timer">Custom Action Timer</h3>
 
-<div class="language-plaintext highlighter-rouge">
-<div class="highlight">
-<pre class="highlight">
-<code>class myTimer : public Timer
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class myTimer : public Timer
   {
 public:
     myTimer();
@@ -462,9 +372,7 @@ void myTimer::timerEvent(void)
         debug.putChar('.');
       }
   }
-</code></pre>
-</div>
-</div>
+</code></pre></div></div>
 
 <p>A custom timer is defined based on the advanced timer that references the system timer counting seconds. The <strong>timerEvent()</strong> method is overriden with a custom version that displays a dot on the debug device.</p>
 
@@ -494,7 +402,7 @@ void myTimer::timerEvent(void)
   <div class="site-footer">
   <div class="site-footer-links left">
     <ul>
-  <li>© 2022 Liviu Ionescu</li>
+  <li>© 2023 Liviu Ionescu</li>
   <li>Hosted on GitHub</li>
   <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
   <li>

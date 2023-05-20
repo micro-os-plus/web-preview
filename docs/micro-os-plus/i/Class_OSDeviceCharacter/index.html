@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
 
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <meta charset="utf-8">
+  <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>Class OSDeviceCharacter</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="Class OSDeviceCharacter">
-  <meta property="og:site_name" content="µOS++ IIIe">
+  <meta property="og:title" content="Class OSDeviceCharacter" />
+  <meta property="og:site_name" content="µOS++ IIIe" />
 
-  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml" />
 
 
   <meta property="article:published_time" content="2011-03-28">
@@ -24,9 +24,9 @@
 
 
 
-  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c">
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c" />
 
-  <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?202211100849" media="screen">
   <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?202211100849" media="screen">
@@ -217,13 +217,13 @@
   <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
 </ul>
 
-<h4 id="license">License</h4>
+<h4 id="project">Project</h4>
 
 <ul>
-  <li><a href="https://opensource.org/licenses/MIT">MIT</a></li>
+  <li><a href="/web-preview/project/about/">About</a></li>
+  <li><a href="/web-preview/project/history/">History</a></li>
+  <li><a href="https://opensource.org/licenses/MIT">License</a></li>
 </ul>
-
-<h4 id="about"><a href="/web-preview/about/">About</a></h4>
 
     </div>
   </div>
@@ -246,132 +246,6 @@
   </tr>
 </table>
 
-<div id="toc-container">
-<table class="toc" id="toc">
-<tbody>
-<tr>
-<td>
-<div id="toctitle">
-<h2>Contents</h2>
-</div>
-<ul>
-<li class="toc_level-1 toc_section-1">
-<a href="#osdevicecharactervoid"><span class="tocnumber">1</span> <span class="toctext">OSDeviceCharacter(void)</span></a>
-</li>
-<li class="toc_level-1 toc_section-2">
-<a href="#osreturn_t-openvoid"><span class="tocnumber">2</span> <span class="toctext">OSReturn_t open(void)</span></a>
-</li>
-<li class="toc_level-1 toc_section-3">
-<a href="#osreturn_t-closevoid"><span class="tocnumber">3</span> <span class="toctext">OSReturn_t close(void)</span></a>
-</li>
-<li class="toc_level-1 toc_section-4">
-<a href="#bool-isopenedvoid-const"><span class="tocnumber">4</span> <span class="toctext">bool isOpened(void) const</span></a>
-</li>
-<li class="toc_level-1 toc_section-5">
-<a href="#bool-isconnectedvoid-const"><span class="tocnumber">5</span> <span class="toctext">bool isConnected(void) const</span></a>
-</li>
-<li class="toc_level-1 toc_section-6">
-<a href="#void-setbaudrateunsigned-long-baud"><span class="tocnumber">6</span> <span class="toctext">void setBaudRate(unsigned long baud)</span></a>
-</li>
-<li class="toc_level-1 toc_section-7">
-<a href="#unsigned-long-getbaudratevoid"><span class="tocnumber">7</span> <span class="toctext">unsigned long getBaudRate(void)</span></a>
-</li>
-<li class="toc_level-1 toc_section-8">
-<a href="#osreturn_t-readbytevoid"><span class="tocnumber">8</span> <span class="toctext">OSReturn_t readByte(void)</span></a>
-</li>
-<li class="toc_level-1 toc_section-9">
-<a href="#osreturn_t-readbytesunsigned-char-pbuf-int-bufsize"><span class="tocnumber">9</span> <span class="toctext">OSReturn_t readBytes(unsigned char* pBuf, int bufSize)</span></a>
-</li>
-<li class="toc_level-1 toc_section-10">
-<a href="#osreturn_t-availablereadvoid"><span class="tocnumber">10</span> <span class="toctext">OSReturn_t availableRead(void)</span></a>
-</li>
-<li class="toc_level-1 toc_section-11">
-<a href="#int-writebyteunsigned-char-b"><span class="tocnumber">11</span> <span class="toctext">int writeByte(unsigned char b)</span></a>
-</li>
-<li class="toc_level-1 toc_section-12">
-<a href="#int-writebytesunsigned-char-pbuf-int-len"><span class="tocnumber">12</span> <span class="toctext">int writeBytes(unsigned char* pBuf, int len)</span></a>
-</li>
-<li class="toc_level-1 toc_section-13">
-<a href="#osreturn_t-flushvoid"><span class="tocnumber">13</span> <span class="toctext">OSReturn_t flush(void)</span></a>
-</li>
-<li class="toc_level-1 toc_section-14">
-<a href="#void-setreadmatcharraychar-pmatch"><span class="tocnumber">14</span> <span class="toctext">void setReadMatchArray(char* pMatch)</span></a>
-</li>
-<li class="toc_level-1 toc_section-15">
-<a href="#devicecharactertype_t-getdevicetypevoid"><span class="tocnumber">15</span> <span class="toctext">deviceCharacterType_t getDeviceType(void)</span></a>
-</li>
-<li class="toc_level-1 toc_section-16">
-<a href="#void-setreadeventosevent_t-event"><span class="tocnumber">16</span> <span class="toctext">void setReadEvent(OSEvent_t event)</span></a>
-</li>
-<li class="toc_level-1 toc_section-17">
-<a href="#osevent_t-getreadeventvoid"><span class="tocnumber">17</span> <span class="toctext">OSEvent_t getReadEvent(void)</span></a>
-</li>
-<li class="toc_level-1 toc_section-18">
-<a href="#void-setwriteeventosevent_t-event"><span class="tocnumber">18</span> <span class="toctext">void setWriteEvent(OSEvent_t event)</span></a>
-</li>
-<li class="toc_level-1 toc_section-19">
-<a href="#osevent_t-getwriteeventvoid"><span class="tocnumber">19</span> <span class="toctext">OSEvent_t getWriteEvent(void)</span></a>
-</li>
-<li class="toc_level-1 toc_section-20">
-<a href="#void-setopeneventosevent_t-event"><span class="tocnumber">20</span> <span class="toctext">void setOpenEvent(OSEvent_t event)</span></a>
-</li>
-<li class="toc_level-1 toc_section-21">
-<a href="#osevent_t-getopeneventvoid"><span class="tocnumber">21</span> <span class="toctext">OSEvent_t getOpenEvent(void)</span></a>
-</li>
-<li class="toc_level-1 toc_section-22">
-<a href="#void-setopentimeoutostimerticks_t-t"><span class="tocnumber">22</span> <span class="toctext">void setOpenTimeout(OSTimerTicks_t t)</span></a>
-</li>
-<li class="toc_level-1 toc_section-23">
-<a href="#ostimerticks_t-getopentimeoutvoid"><span class="tocnumber">23</span> <span class="toctext">OSTimerTicks_t getOpenTimeout(void)</span></a>
-</li>
-<li class="toc_level-1 toc_section-24">
-<a href="#void-setreadtimeoutostimerticks_t-t"><span class="tocnumber">24</span> <span class="toctext">void setReadTimeout(OSTimerTicks_t t)</span></a>
-</li>
-<li class="toc_level-1 toc_section-25">
-<a href="#ostimerticks_t-getreadtimeoutvoid"><span class="tocnumber">25</span> <span class="toctext">OSTimerTicks_t getReadTimeout(void)</span></a>
-</li>
-<li class="toc_level-1 toc_section-26">
-<a href="#void-setwritetimeoutostimerticks_t-t"><span class="tocnumber">26</span> <span class="toctext">void setWriteTimeout(OSTimerTicks_t t)</span></a>
-</li>
-<li class="toc_level-1 toc_section-27">
-<a href="#ostimerticks_t-getwritetimeoutvoid"><span class="tocnumber">27</span> <span class="toctext">OSTimerTicks_t getWriteTimeout(void)</span></a>
-</li>
-<li class="toc_level-1 toc_section-28">
-<a href="#void-setopentimerostimer-ptimer"><span class="tocnumber">28</span> <span class="toctext">void setOpenTimer(OSTimer *pTimer)</span></a>
-</li>
-<li class="toc_level-1 toc_section-29">
-<a href="#ostimer-getopentimervoid"><span class="tocnumber">29</span> <span class="toctext">OSTimer *getOpenTimer(void)</span></a>
-</li>
-<li class="toc_level-1 toc_section-30">
-<a href="#void-setreadtimerostimer-ptimer"><span class="tocnumber">30</span> <span class="toctext">void setReadTimer(OSTimer *pTimer)</span></a>
-</li>
-<li class="toc_level-1 toc_section-31">
-<a href="#ostimer-getreadtimervoid"><span class="tocnumber">31</span> <span class="toctext">OSTimer *getReadTimer(void)</span></a>
-</li>
-<li class="toc_level-1 toc_section-32">
-<a href="#void-setwritetimerostimer-ptimer"><span class="tocnumber">32</span> <span class="toctext">void setWriteTimer(OSTimer *pTimer)</span></a>
-</li>
-<li class="toc_level-1 toc_section-33">
-<a href="#ostimer-getwritetimervoid"><span class="tocnumber">33</span> <span class="toctext">OSTimer *getWriteTimer(void)</span></a>
-</li>
-<li class="toc_level-1 toc_section-34">
-<a href="#virtual-bool-implisconnectedvoid-const"><span class="tocnumber">34</span> <span class="toctext">virtual bool implIsConnected(void) const</span></a>
-</li>
-<li class="toc_level-1 toc_section-35">
-<a href="#virtual-osevent_t-implgetopeneventvoid"><span class="tocnumber">35</span> <span class="toctext">virtual OSEvent_t implGetOpenEvent(void)</span></a>
-</li>
-<li class="toc_level-1 toc_section-36">
-<a href="#virtual-osevent_t-implgetreadeventvoid"><span class="tocnumber">36</span> <span class="toctext">virtual OSEvent_t implGetReadEvent(void)</span></a>
-</li>
-<li class="toc_level-1 toc_section-37">
-<a href="#virtual-osevent_t-implgetwriteeventvoid"><span class="tocnumber">37</span> <span class="toctext">virtual OSEvent_t implGetWriteEvent(void)</span></a>
-</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <h1 id="classes-hierarchy">Classes hierarchy</h1>
 
 <ul>
@@ -403,21 +277,15 @@
 
 <h2 id="osdevicecharactervoid">OSDeviceCharacter(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Initialize the character device with the default values.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
@@ -425,163 +293,115 @@
 
 <h2 id="osreturn_t-openvoid">OSReturn_t open(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Open the device. Block the calling task until the communication channel is established. For RS-232 devices, this usually means that the DTE activated the <a href="http://en.wikipedia.org/wiki/Data_Terminal_Ready">DTR</a> signal to the DCE. If the device does not support ready signals, the open() will return immediately.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* status for this operation</p>
 
 <h2 id="osreturn_t-closevoid">OSReturn_t close(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Close the device.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* status for this operation</p>
 
 <h2 id="bool-isopenedvoid-const">bool isOpened(void) const</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Test if the device is opened.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* true if the device is opened</p>
 
 <h2 id="bool-isconnectedvoid-const">bool isConnected(void) const</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Test if the device is connected. On RS-232 devices, the connected status reflects the <a href="http://en.wikipedia.org/wiki/Data_Terminal_Ready">DTR</a> control signal.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* true if the device is connected</p>
 
 <h2 id="void-setbaudrateunsigned-long-baud">void setBaudRate(unsigned long baud)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Set the communication baud rate. Must be called before <strong>open()</strong>, and the value remains efective for the entire communication session.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* baud - baud rate in bits per second</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
 <h2 id="unsigned-long-getbaudratevoid">unsigned long getBaudRate(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Get the communication baud rate. May be different from the value set by <strong>setBaudRate()</strong>, some communication devices (like USB) get this baud rate during connection, reflecting the baud rate set by the peer.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* baud - baud rate in bits per second</p>
 
 <h2 id="osreturn_t-readbytevoid">OSReturn_t readByte(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Single byte read. Return the byte or negative (OSReturn::OS_DISCONNECTED, OSReturn::OS_TIMEOUT). Normally the call will block until the next character is received, in other words the application will wakeup after each received byte. If the application expects a packet terminated by certain bytes, it is possible to buffer the packet and wakeup the application only once. To specify the bytes to match for packet termination, use <strong>setReadMatchArray()</strong>.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* return read byte or negative if an error occur</p>
 
 <h2 id="osreturn_t-readbytesunsigned-char-pbuf-int-bufsize">OSReturn_t readBytes(unsigned char* pBuf, int bufSize)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Multi-byte read. Fill in the buffer with bufSize bytes. Normally the call will block until all bytes are received, in other words the application will wakeup only once, after all requested bytes are available. If the application expects a packet terminated by a certain byte, it is possible to return earlier, when the terminating byte is encountered. To specify the bytes to match for packet termination, use <strong>setReadMatchArray()</strong>.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* pBuf - pointer to the array where to store the byte</p>
 
 <p>:* bufSize - size of buffer, number of expected bytes</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* status</p>
 
@@ -593,63 +413,45 @@
 
 <h2 id="osreturn_t-availablereadvoid">OSReturn_t availableRead(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Check if there is available data for read and if it is return the number of available bytes. It is guaranteed that reading no more than this number of bytes will not block.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* the number of available bytes for read if the operation succeeded or error status otherwise</p>
 
 <h2 id="int-writebyteunsigned-char-b">int writeByte(unsigned char b)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Single byte write. Does not flush, unless the implementation decides to do so (for example when the transmit buffer high water mark is reached). Return the same byte or negative (OSReturn::OS_DISCONNECTED, OSReturn::OS_TIMEOUT).</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* byte to be written</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* status of the operation</p>
 
 <h2 id="int-writebytesunsigned-char-pbuf-int-len">int writeBytes(unsigned char* pBuf, int len)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Multi-byte write. Does not flush, unless the implementation decides to do so (for example when the transmit buffer high water mark is reached).</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* pBuf - pointer to the array of bytes to write</p>
 
 <p>:* len - the number of bytes to write</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* status of the operation</p>
 
@@ -661,61 +463,43 @@
 
 <h2 id="osreturn_t-flushvoid">OSReturn_t flush(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Flush the transmit buffer. Normally all bytes written are buffered and only when the high watermark is reached, the transmission begins. At the end of the line, or at other special moments, it might be needed to call flush() to force the transmission.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* status of the operation</p>
 
 <h2 id="void-setreadmatcharraychar-pmatch">void setReadMatchArray(char* pMatch)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Set the read matching array. The read functions will block until one received character will match any of the bytes in this array, or the receive buffer will reach the high watermark. The pointer is automatically cleared before returning from read. Setting an empty array will match no character, and will block the read until the high watermark is reached.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* pMatch - pointer to array of characters to match (‘\0’ terminated)</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
 <h2 id="devicecharactertype_t-getdevicetypevoid">deviceCharacterType_t getDeviceType(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Get the device type. Currently only OS_DEVICECHARACTER_USART or OS_DEVICECHARACTER_USB_CDC.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* type of the device</p>
 
@@ -725,121 +509,85 @@
 
 <h2 id="void-setreadeventosevent_t-event">void setReadEvent(OSEvent_t event)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Set the task event to be used by read.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* event - event to be used by read</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
 <h2 id="osevent_t-getreadeventvoid">OSEvent_t getReadEvent(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Get the task event for read operation.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* task event</p>
 
 <h2 id="void-setwriteeventosevent_t-event">void setWriteEvent(OSEvent_t event)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Set the task event to be used by write.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* event - event to be used by write</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
 <h2 id="osevent_t-getwriteeventvoid">OSEvent_t getWriteEvent(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Get the task event for write operation.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* task event</p>
 
 <h2 id="void-setopeneventosevent_t-event">void setOpenEvent(OSEvent_t event)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Set the task event to be used by open.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* event - event to be used by open</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
 <h2 id="osevent_t-getopeneventvoid">OSEvent_t getOpenEvent(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Get the task event for open operation.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* task event</p>
 
@@ -847,241 +595,169 @@
 
 <h2 id="void-setopentimeoutostimerticks_t-t">void setOpenTimeout(OSTimerTicks_t t)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Set the open timeout.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* t - ticks for this timeout</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
 <h2 id="ostimerticks_t-getopentimeoutvoid">OSTimerTicks_t getOpenTimeout(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Get the open timeout.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* the open timeout</p>
 
 <h2 id="void-setreadtimeoutostimerticks_t-t">void setReadTimeout(OSTimerTicks_t t)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Set the read timeout.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* t - ticks for this timeout</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
 <h2 id="ostimerticks_t-getreadtimeoutvoid">OSTimerTicks_t getReadTimeout(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Get the read timeout.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* the read timeout</p>
 
 <h2 id="void-setwritetimeoutostimerticks_t-t">void setWriteTimeout(OSTimerTicks_t t)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Set the write timeout.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* t - ticks for this timeout</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
 <h2 id="ostimerticks_t-getwritetimeoutvoid">OSTimerTicks_t getWriteTimeout(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Get the write timeout.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* the write timeout</p>
 
 <h2 id="void-setopentimerostimer-ptimer">void setOpenTimer(OSTimer *pTimer)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Set timer to be used by the open operation. If the operation doesn’t succeed after the open-timeout (set with setOpenTimeout), this timer is used to wake-up the task and return with an error code.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* pTimer - timer to be used by the open operation</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
 <h2 id="ostimer-getopentimervoid">OSTimer *getOpenTimer(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Get the timer used by the open operation.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* timer used by the open operation</p>
 
 <h2 id="void-setreadtimerostimer-ptimer">void setReadTimer(OSTimer *pTimer)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Set timer to be used by the read operation. If the operation doesn’t succeed after the read-timeout (set with setReadTimeout), this timer is used to wake-up the task and return with an error code.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* pTimer - timer to be used by the read operation</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
 <h2 id="ostimer-getreadtimervoid">OSTimer *getReadTimer(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Get the timer used by the read operation.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* timer used by the read operation</p>
 
 <h2 id="void-setwritetimerostimer-ptimer">void setWriteTimer(OSTimer *pTimer)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Set timer to be used by the write operation. If the operation doesn’t succeed after the write-timeout (set with setWriteTimeout), this timer is used to wake-up the task and return with an error code.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* pTimer - timer to be used by the write operation</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
 <h2 id="ostimer-getwritetimervoid">OSTimer *getWriteTimer(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Get the timer used by the write operation.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* timer used by the write operation</p>
 
@@ -1093,15 +769,11 @@
 
 <p>Children classes must implement this to open the device.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* status</p>
 
@@ -1109,35 +781,25 @@
 
 <p>Children classes must implement this to close the device.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* status</p>
 
 <h2 id="virtual-bool-implisconnectedvoid-const">virtual bool implIsConnected(void) const</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Children classes may implement this to test if the device is connected.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* true if the device is connected</p>
 
@@ -1145,15 +807,11 @@
 
 <p>Children classes must implement this to check if characters are available.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* true if characters are available for read</p>
 
@@ -1161,15 +819,11 @@
 
 <p>Children classes must implement this to return the number of available characters.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* number of available characters</p>
 
@@ -1177,15 +831,11 @@
 
 <p>Children classes must implement this to read one byte.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* return byte or negative if an error occur</p>
 
@@ -1193,15 +843,11 @@
 
 <p>Children classes must implement this to check if characters are available.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* none</p>
 
@@ -1209,15 +855,11 @@
 
 <p>Children classes must implement this to write one byte.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* status</p>
 
@@ -1225,75 +867,53 @@
 
 <p>Children classes must implement this to start transmission.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* status of the operation</p>
 
 <h2 id="virtual-osevent_t-implgetopeneventvoid">virtual OSEvent_t implGetOpenEvent(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Children classes may implement this if they need to use a custom open event.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* event</p>
 
 <h2 id="virtual-osevent_t-implgetreadeventvoid">virtual OSEvent_t implGetReadEvent(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Children classes may implement this if they need to use a custom read event.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* event</p>
 
 <h2 id="virtual-osevent_t-implgetwriteeventvoid">virtual OSEvent_t implGetWriteEvent(void)</h2>
 
-<p>
-<strong>Description</strong>
-</p>
+<p><strong>Description</strong></p>
 
 <p>Children classes may implement this if they need to use a custom write event.</p>
 
-<p>
-<strong>Parameters</strong>
-</p>
+<p><strong>Parameters</strong></p>
 
 <p>:* none</p>
 
-<p>
-<strong>Return value</strong>
-</p>
+<p><strong>Return value</strong></p>
 
 <p>:* event</p>
 
@@ -1323,7 +943,7 @@
   <div class="site-footer">
   <div class="site-footer-links left">
     <ul>
-  <li>© 2022 Liviu Ionescu</li>
+  <li>© 2023 Liviu Ionescu</li>
   <li>Hosted on GitHub</li>
   <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
   <li>

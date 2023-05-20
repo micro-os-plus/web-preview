@@ -9,6 +9,6 @@ var classos_1_1rtos_1_1memory_1_1allocator__stateless__default__resource =
     [ "allocate", "classos_1_1rtos_1_1memory_1_1allocator__stateless__default__resource.html#a4dc637e5907bfede60e811fbc71a94be", null ],
     [ "deallocate", "classos_1_1rtos_1_1memory_1_1allocator__stateless__default__resource.html#a070977f77b4fef4e886f045c940a3dd2", null ],
     [ "max_size", "classos_1_1rtos_1_1memory_1_1allocator__stateless__default__resource.html#a2be513e467355a587f117e38e3fbc432", null ],
-    [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__stateless__default__resource.html#a6994e769f1a7d1fd1ce6c505cd8c9d91", null ],
-    [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__stateless__default__resource.html#a8f07e5d8a3cbe35378ded2305da19cac", null ]
+    [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__stateless__default__resource.html#a8f07e5d8a3cbe35378ded2305da19cac", null ],
+    [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__stateless__default__resource.html#a6994e769f1a7d1fd1ce6c505cd8c9d91", null ]
 ];

@@ -21,8 +21,8 @@ var group__cmsis_plus_posix_io_utils =
       [ "operator[]", "classos_1_1posix_1_1circular__buffer.html#adfb4c24d426ff918c747b35b1813aae4", null ],
       [ "pop_front", "classos_1_1posix_1_1circular__buffer.html#a01238a84facc4bf23cdc0d8f6fdde64c", null ],
       [ "pop_front", "classos_1_1posix_1_1circular__buffer.html#a9dd545ab36825867f205bc5bb60cca40", null ],
-      [ "push_back", "classos_1_1posix_1_1circular__buffer.html#adee9f8bca41607a1d00c47e5ee15d893", null ],
       [ "push_back", "classos_1_1posix_1_1circular__buffer.html#ac9344518f17288d2b444bfe26bff9435", null ],
+      [ "push_back", "classos_1_1posix_1_1circular__buffer.html#adee9f8bca41607a1d00c47e5ee15d893", null ],
       [ "retreat_back", "classos_1_1posix_1_1circular__buffer.html#a70cd8ec6cc6b2f2812ec9846200ee785", null ],
       [ "size", "classos_1_1posix_1_1circular__buffer.html#a46e54b10a064c6e8327712e603b8a45a", null ]
     ] ],
