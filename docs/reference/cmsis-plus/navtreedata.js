@@ -24,31 +24,35 @@ var NAVTREE =
 [
   [ "µOS++ IIIe Reference", "index.html", [
     [ "Overview", "index.html", [
-      [ "Scope", "index.html#autotoc_md22", null ],
-      [ "Sections", "index.html#autotoc_md23", null ]
+      [ "Scope", "index.html#autotoc_md26", null ],
+      [ "Sections", "index.html#autotoc_md27", null ]
     ] ],
     [ "Change log", "md_doxygen_pages_change-log.html", [
       [ "RTOS", "md_doxygen_pages_change-log.html#autotoc_md1", [
-        [ "v6.3.16 2021-05-03", "md_doxygen_pages_change-log.html#autotoc_md2", null ],
-        [ "v6.3.15 2018-11-19", "md_doxygen_pages_change-log.html#autotoc_md3", null ],
-        [ "v6.3.14 2018-07-04", "md_doxygen_pages_change-log.html#autotoc_md4", null ],
-        [ "v6.3.13 2017-08-26", "md_doxygen_pages_change-log.html#autotoc_md5", null ],
-        [ "v6.3.12 2017-08-24", "md_doxygen_pages_change-log.html#autotoc_md6", null ],
-        [ "v6.3.11 2017-01-02", "md_doxygen_pages_change-log.html#autotoc_md7", null ],
-        [ "v6.3.10 2016-11-27", "md_doxygen_pages_change-log.html#autotoc_md8", null ],
-        [ "v6.3.9 2016-10-13", "md_doxygen_pages_change-log.html#autotoc_md9", null ],
-        [ "v6.3.8 2016-10-05", "md_doxygen_pages_change-log.html#autotoc_md10", null ],
-        [ "v6.3.7 2016-09-14", "md_doxygen_pages_change-log.html#autotoc_md11", [
-          [ "Problematic incompatible changes", "md_doxygen_pages_change-log.html#autotoc_md12", null ]
+        [ "v6.3.17 2023-05-21", "md_doxygen_pages_change-log.html#autotoc_md2", null ],
+        [ "2023-05-08", "md_doxygen_pages_change-log.html#autotoc_md3", null ],
+        [ "2023-05-04", "md_doxygen_pages_change-log.html#autotoc_md4", null ],
+        [ "2023-05-03", "md_doxygen_pages_change-log.html#autotoc_md5", null ],
+        [ "v6.3.16 2023-05-03", "md_doxygen_pages_change-log.html#autotoc_md6", null ],
+        [ "v6.3.15 2018-11-19", "md_doxygen_pages_change-log.html#autotoc_md7", null ],
+        [ "v6.3.14 2018-07-04", "md_doxygen_pages_change-log.html#autotoc_md8", null ],
+        [ "v6.3.13 2017-08-26", "md_doxygen_pages_change-log.html#autotoc_md9", null ],
+        [ "v6.3.12 2017-08-24", "md_doxygen_pages_change-log.html#autotoc_md10", null ],
+        [ "v6.3.11 2017-01-02", "md_doxygen_pages_change-log.html#autotoc_md11", null ],
+        [ "v6.3.10 2016-11-27", "md_doxygen_pages_change-log.html#autotoc_md12", null ],
+        [ "v6.3.9 2016-10-13", "md_doxygen_pages_change-log.html#autotoc_md13", null ],
+        [ "v6.3.8 2016-10-05", "md_doxygen_pages_change-log.html#autotoc_md14", null ],
+        [ "v6.3.7 2016-09-14", "md_doxygen_pages_change-log.html#autotoc_md15", [
+          [ "Problematic incompatible changes", "md_doxygen_pages_change-log.html#autotoc_md16", null ]
         ] ],
-        [ "v6.3.6 2016-08-07", "md_doxygen_pages_change-log.html#autotoc_md13", null ],
-        [ "v6.3.5 2016-07-31", "md_doxygen_pages_change-log.html#autotoc_md14", null ],
-        [ "v6.3.4 2016-07-21", "md_doxygen_pages_change-log.html#autotoc_md15", null ],
-        [ "v6.3.3 2016-07-11", "md_doxygen_pages_change-log.html#autotoc_md16", null ],
-        [ "v6.3.2 2016-07-11", "md_doxygen_pages_change-log.html#autotoc_md17", null ],
-        [ "v6.3.1 2016-07-10", "md_doxygen_pages_change-log.html#autotoc_md18", null ],
-        [ "v6.2.1 2016-06-21", "md_doxygen_pages_change-log.html#autotoc_md19", null ],
-        [ "v0.1.1 2016-03-11", "md_doxygen_pages_change-log.html#autotoc_md20", null ]
+        [ "v6.3.6 2016-08-07", "md_doxygen_pages_change-log.html#autotoc_md17", null ],
+        [ "v6.3.5 2016-07-31", "md_doxygen_pages_change-log.html#autotoc_md18", null ],
+        [ "v6.3.4 2016-07-21", "md_doxygen_pages_change-log.html#autotoc_md19", null ],
+        [ "v6.3.3 2016-07-11", "md_doxygen_pages_change-log.html#autotoc_md20", null ],
+        [ "v6.3.2 2016-07-11", "md_doxygen_pages_change-log.html#autotoc_md21", null ],
+        [ "v6.3.1 2016-07-10", "md_doxygen_pages_change-log.html#autotoc_md22", null ],
+        [ "v6.2.1 2016-06-21", "md_doxygen_pages_change-log.html#autotoc_md23", null ],
+        [ "v0.1.1 2016-03-11", "md_doxygen_pages_change-log.html#autotoc_md24", null ]
       ] ]
     ] ],
     [ "Todo List", "todo.html", null ],
@@ -117,11 +121,11 @@ var NAVTREEINDEX =
 "group__cmsis-plus-rtos-c-semaphore.html#ga8e4d8a1042f11366c450e6579ef4e460",
 "group__cmsis-plus-rtos-c-thread.html#gga61dadd085c1777f559549e05962b2c9ea4f544e7053ed58852c73a844a3ac96f5",
 "index.html",
-"os-c-wrapper_8cpp.html#a38860acda96df47da6923348d96fc4c9",
-"redefinitions_8h.html#a8786e4769eadc9434045ebca3414d014",
-"structos_1_1rtos_1_1thread_1_1state.html",
-"termios_8h.html#ac9d3e47a1913b6665ee950e89ccb916b",
-"usb_8h.html#ace9b3966f59cf1ba965cc5bcad04efd2afc5364bf9dbfa34954526becad136d4b"
+"os-c-wrapper_8cpp.html#a02e19d5e723bfb06ba9324d625162255",
+"redefinitions_8h.html#a7768f1286a0b9af467eb4b0eeb3a5314",
+"structos_1_1rtos_1_1mutex_1_1type.html#a236f83dd04e1c18f388949b26fe5f4b9a77c021f70c077e034edf3044329c2d26",
+"termios_8h.html#abb207d1ce361e562262fd82e605e9cbc",
+"usb_8h.html#ace9b3966f59cf1ba965cc5bcad04efd2"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
