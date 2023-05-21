@@ -9,13 +9,13 @@
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>µOS++ IIIe features</title>
+  <title>µOS++ features</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="µOS++ IIIe features" />
-  <meta property="og:site_name" content="µOS++ IIIe" />
+  <meta property="og:title" content="µOS++ features" />
+  <meta property="og:site_name" content="µOS++" />
 
-  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml" />
+  <link rel="alternate" type="application/rss+xml" title="µOS++" href="/web-preview/feed.xml" />
 
 
   <meta property="article:published_time" content="2016-07-03">
@@ -98,7 +98,7 @@
         <table class="site-title" style="width:100%">
           <tr>
             <td class="site-title">
-              <a href="/web-preview/">µOS++ IIIe</a>
+              <a href="/web-preview/">µOS++</a>
             </td>
             <td class="site-motto" align="right">
               “Perfekt ist nicht gut genug”
@@ -132,9 +132,9 @@
 
 <ul>
   <li><a href="/web-preview/blog/2021/01/22/micro-os-plus-first-scriptable-build/">First µOS++ scriptable build</a></li>
-  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></li>
-  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ IIIe v6.3.14 released</a></li>
-  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ IIIe v6.3.13 released</a></li>
+  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ v6.3.15 released</a></li>
+  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ v6.3.14 released</a></li>
+  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ v6.3.13 released</a></li>
 </ul>
 
 
@@ -147,7 +147,7 @@
       
       <h4 id="home"><a href="/web-preview/">Home</a></h4>
 
-<h4 id="µos-iiie">µOS++ IIIe</h4>
+<h4 id="µos">µOS++</h4>
 
 <ul>
   <li><a href="/web-preview/micro-os-plus/">Overview</a></li>
@@ -207,7 +207,7 @@
   <li><a href="/web-preview/support/known-issues/">Known issues</a></li>
   <li><a href="/web-preview/support/faq/">FAQ</a></li>
   <li><a href="/web-preview/support/forum/">Forum</a></li>
-  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ IIIe issues</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ issues</a></li>
 </ul>
 
 <h4 id="latest-articles">Latest Articles</h4>
@@ -238,25 +238,25 @@
       <div class="site-content">
 
         
-<h1 class="page-title">µOS++ IIIe features</h1>
+<h1 class="page-title">µOS++ features</h1>
 <table id="last-modified">
   <tr>
-    <td id="last-modified">Last modified on Sun May 21 05:48:35 2023 UTC.</td>
+    <td id="last-modified">Last modified on Sun May 21 06:51:00 2023 UTC.</td>
     <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/web-jekyll/edit/master/pages/user-manual/features.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
 
 <h2 id="overview">Overview</h2>
 
-<p>µOS++ IIIe is a POSIX-like, portable, open source, royalty-free, multi-tasking real-time operating system intended for 32/64-bits embedded applications.</p>
+<p>µOS++ is a POSIX-like, portable, open source, royalty-free, multi-tasking real-time operating system intended for 32/64-bits embedded applications.</p>
 
-<p>µOS++ IIIe is written in <strong>modern C++ 11</strong>, with C++ applications in mind, but also provides equally functional C APIs.</p>
+<p>µOS++ is written in <strong>modern C++ 11</strong>, with C++ applications in mind, but also provides equally functional C APIs.</p>
 
-<p>µOS++ IIIe is the third edition of µOS++, offering all of the services expected from a modern real-time system including resource management, synchronization, inter-thread communication, and more. µOS++ IIIe also offers many features not found in many other real-time systems, such as both C++ and C APIs, POSIX-like threads, POSIX synchronisation objects, use of standard C++ memory allocators, and more.</p>
+<p>µOS++ is the third edition of µOS++, offering all of the services expected from a modern real-time system including resource management, synchronization, inter-thread communication, and more. µOS++ also offers many features not found in many other real-time systems, such as both C++ and C APIs, POSIX-like threads, POSIX synchronisation objects, use of standard C++ memory allocators, and more.</p>
 
 <h2 id="features">Features</h2>
 
-<p>Here is a list of features provided by µOS++ IIIe.</p>
+<p>Here is a list of features provided by µOS++.</p>
 
 <h3 id="source-code">Source code</h3>
 
@@ -271,7 +271,7 @@
 <p>The supported APIs are:</p>
 
 <ul>
-  <li>µOS++ RTOS C++ API - the native µOS++ IIIe C++ API, giving direct access to the system services;</li>
+  <li>µOS++ RTOS C++ API - the native µOS++ C++ API, giving direct access to the system services;</li>
   <li>µOS++ RTOS C API - a 1:1 C wrapper on top of the C++ API;</li>
   <li>ISO C++ Threads API - an implementation of the standard ISO threads on top of the C++ API;</li>
   <li>ARM CMSIS RTOS v1 API - a compatibility layer with ARM CMSIS RTOS</li>

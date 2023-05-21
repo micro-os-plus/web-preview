@@ -13,9 +13,9 @@
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
   <meta property="og:title" content="Modular projects" />
-  <meta property="og:site_name" content="µOS++ IIIe" />
+  <meta property="og:site_name" content="µOS++" />
 
-  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml" />
+  <link rel="alternate" type="application/rss+xml" title="µOS++" href="/web-preview/feed.xml" />
 
 
   <meta property="article:published_time" content="2017-09-26">
@@ -98,7 +98,7 @@
         <table class="site-title" style="width:100%">
           <tr>
             <td class="site-title">
-              <a href="/web-preview/">µOS++ IIIe</a>
+              <a href="/web-preview/">µOS++</a>
             </td>
             <td class="site-motto" align="right">
               “Perfekt ist nicht gut genug”
@@ -132,9 +132,9 @@
 
 <ul>
   <li><a href="/web-preview/blog/2021/01/22/micro-os-plus-first-scriptable-build/">First µOS++ scriptable build</a></li>
-  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></li>
-  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ IIIe v6.3.14 released</a></li>
-  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ IIIe v6.3.13 released</a></li>
+  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ v6.3.15 released</a></li>
+  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ v6.3.14 released</a></li>
+  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ v6.3.13 released</a></li>
 </ul>
 
 
@@ -147,7 +147,7 @@
       
       <h4 id="home"><a href="/web-preview/">Home</a></h4>
 
-<h4 id="µos-iiie">µOS++ IIIe</h4>
+<h4 id="µos">µOS++</h4>
 
 <ul>
   <li><a href="/web-preview/micro-os-plus/">Overview</a></li>
@@ -207,7 +207,7 @@
   <li><a href="/web-preview/support/known-issues/">Known issues</a></li>
   <li><a href="/web-preview/support/faq/">FAQ</a></li>
   <li><a href="/web-preview/support/forum/">Forum</a></li>
-  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ IIIe issues</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ issues</a></li>
 </ul>
 
 <h4 id="latest-articles">Latest Articles</h4>
@@ -241,7 +241,7 @@
 <h1 class="page-title">Modular projects</h1>
 <table id="last-modified">
   <tr>
-    <td id="last-modified">Last modified on Sun May 21 05:48:35 2023 UTC.</td>
+    <td id="last-modified">Last modified on Sun May 21 06:51:00 2023 UTC.</td>
     <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/web-jekyll/edit/master/pages/develop/modular-projects.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
@@ -266,7 +266,7 @@
 
 <h3 id="benefits">Benefits</h3>
 
-<p>This modular approach with structured metadata greatly increase the code <strong>reusability</strong> and <strong>upgradability</strong>, by allowing automated tools to bring into the project the required components, and to automatically manage the dependencies, accepting only combinations of compatible packages.</p>
+<p>This modular approach with structured metadata greatly increase the code <strong>reusability</strong> and <strong>upgradeability</strong>, by allowing automated tools to bring into the project the required components, and to automatically manage the dependencies, accepting only combinations of compatible packages.</p>
 
 <p>Such solutions are already available for other languages, the most successful one being <a href="https://www.npmjs.com">npm</a> (The Node Package Manager), for Node.js/JavaScript modules.</p>
 
@@ -291,16 +291,16 @@ $ cd /tmp/hifive1-blinky-cpp
 $ xpm init --template @sifive/coreplex-templates
 Generate a SiFive Coreplex C/C++ project
 
-Programming language? (c, cpp, ?) [cpp]: 
-Board? (hifive1, e31arty, e51arty, ?) [hifive1]: 
-Content? (empty, blinky, ?) [blinky]: 
-Use system calls? (none, retarget, ?) [retarget]: 
-Trace output? (none, uart0ftdi, ?) [uart0ftdi]: 
-Check some warnings? (true, false, ?) [true]: 
-Check most warnings? (true, false, ?) [false]: 
-Enable -Werror? (true, false, ?) [false]: 
-Use -Og on debug? (true, false, ?) [false]: 
-Use newlib nano? (true, false, ?) [true]: 
+Programming language? (c, cpp, ?) [cpp]:
+Board? (hifive1, e31arty, e51arty, ?) [hifive1]:
+Content? (empty, blinky, ?) [blinky]:
+Use system calls? (none, retarget, ?) [retarget]:
+Trace output? (none, uart0ftdi, ?) [uart0ftdi]:
+Check some warnings? (true, false, ?) [true]:
+Check most warnings? (true, false, ?) [false]:
+Enable -Werror? (true, false, ?) [false]:
+Use -Og on debug? (true, false, ?) [false]:
+Use newlib nano? (true, false, ?) [true]:
 
 Creating the C++ project 'hifive1-blinky-cpp'...
 File 'LICENSE' generated.
@@ -339,43 +339,43 @@ Programming language? (c, cpp, ?) [cpp]: ?
 Select the preferred programming language
 - C for the application files, C and C++ for the system
 - C++ for the application files, C++ and C for the system
-Programming language? (c, cpp, ?) [cpp]: 
+Programming language? (c, cpp, ?) [cpp]:
 Board? (hifive1, e31arty, e51arty, ?) [hifive1]: ?
 Select the SiFive board name
 - Freedom E310 HiFive1
 - Coreplex E31 Arty
 - Coreplex E51 Arty
-Board? (hifive1, e31arty, e51arty, ?) [hifive1]: 
+Board? (hifive1, e31arty, e51arty, ?) [hifive1]:
 Content? (empty, blinky, ?) [blinky]: ?
 Choose the project content
 - Empty (add your own content)
 - Blinky (blink one or more LEDs)
-Content? (empty, blinky, ?) [blinky]: 
+Content? (empty, blinky, ?) [blinky]:
 Use system calls? (none, retarget, ?) [retarget]: ?
 Control how system calls are implemented
 - Freestanding (no POSIX system calls)
 - POSIX (system calls implemented by application code)
-Use system calls? (none, retarget, ?) [retarget]: 
+Use system calls? (none, retarget, ?) [retarget]:
 Trace output? (none, uart0ftdi, ?) [uart0ftdi]: ?
 Control where the trace output messages are forwarded
 - None (no trace output)
 - UART0 (via FTDI)
-Trace output? (none, uart0ftdi, ?) [uart0ftdi]: 
+Trace output? (none, uart0ftdi, ?) [uart0ftdi]:
 Check some warnings? (true, false, ?) [true]: ?
 Enable -Wall and -Wextra to catch most common warnings
-Check some warnings? (true, false, ?) [true]: 
+Check some warnings? (true, false, ?) [true]:
 Check most warnings? (true, false, ?) [false]: ?
 Enable as many warnings as possible
-Check most warnings? (true, false, ?) [false]: 
+Check most warnings? (true, false, ?) [false]:
 Enable -Werror? (true, false, ?) [false]: ?
 Instruct the compiler to stop on warnings
-Enable -Werror? (true, false, ?) [false]:  
+Enable -Werror? (true, false, ?) [false]:
 Use -Og on debug? (true, false, ?) [false]: ?
 Use the new optimization flag for the debug configurations
-Use -Og on debug? (true, false, ?) [false]:  
+Use -Og on debug? (true, false, ?) [false]:
 Use newlib nano? (true, false, ?) [true]: ?
 Use the size optimised version of newlib
-Use newlib nano? (true, false, ?) [true]: 
+Use newlib nano? (true, false, ?) [true]:
 
 Creating the C++ project 'hifive1-blinky-cpp'...
 ...
@@ -438,8 +438,8 @@ Folder 'xpacks/sifive-coreplex-devices' copied.
   <li>finally invoke <code class="language-plaintext highlighter-rouge">make</code> to run the actual build.</li>
 </ul>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ xpm build
-Build the package
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>xpm build
+<span class="go">Build the package
 
 Changing current folder to '/tmp/hifive1-blinky-cpp'...
 Invoking 'xmake build -- all'...
@@ -519,12 +519,12 @@ Invoking builder: 'make all'...
 'xmake build' completed in 11.157 sec.
 
 'xpm build' completed in 11.346 sec.
-</code></pre></div></div>
+</span></code></pre></div></div>
 
 <p>As for any modern builder, subsequent invocations process only the changed files, if any:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ xpm build
-Build the package
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>xpm build
+<span class="go">Build the package
 
 Changing current folder to '/tmp/hifive1-blinky-cpp'...
 Invoking 'xmake build -- all'...
@@ -554,12 +554,12 @@ make: Nothing to be done for `all'.
 'xmake build' completed in 350 ms.
 
 'xpm build' completed in 538 ms.
-</code></pre></div></div>
+</span></code></pre></div></div>
 
 <p>To clean all builds, the project includes a <code class="language-plaintext highlighter-rouge">clean</code> script, which invokes <code class="language-plaintext highlighter-rouge">xmake</code>, which finally invokes <code class="language-plaintext highlighter-rouge">make</code> with the <code class="language-plaintext highlighter-rouge">clean</code> target:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ xpm run clean
-Run package specific script
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>xpm run clean
+<span class="go">Run package specific script
 
 Changing current folder to '/tmp/hifive1-blinky-cpp'...
 Invoking 'xmake build -- clean'...
@@ -589,20 +589,20 @@ Build completed in 48 ms.
 'xmake build' completed in 350 ms.
 
 'xpm run clean' completed in 530 ms.
-</code></pre></div></div>
+</span></code></pre></div></div>
 
 <p>An even more verbose output can be obtained by invoking <code class="language-plaintext highlighter-rouge">xmake</code> with the <code class="language-plaintext highlighter-rouge">-v</code> option:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ xmake build -v
-Build one or all project configurations
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>xmake build <span class="nt">-v</span>
+<span class="go">Build one or all project configurations
 
 Generating the build files for 'hifive1-blinky-cpp', target 'hifive1', toolchain 'riscv64-elf-gcc', profile 'debug'...
 
 Source folders: 'src', 'xpacks/micro-os-plus-c-libs/src', 'xpacks/micro-os-plus-c-libs/src/stdlib', 'xpacks/micro-os-plus-cpp-libs/src', 'xpacks/micro-os-plus-diag-trace/src', 'xpacks/micro-os-plus-riscv-arch/src', 'xpacks/micro-os-plus-startup/src', 'xpacks/sifive-coreplex-devices/src', 'xpacks/sifive-coreplex-devices/src/sifive', 'xpacks/sifive-hifive1-board/src'
 Include folders: 'include', 'xpacks/micro-os-plus-c-libs/include', 'xpacks/micro-os-plus-cpp-libs/include', 'xpacks/micro-os-plus-diag-trace/include', 'xpacks/micro-os-plus-riscv-arch/include', 'xpacks/micro-os-plus-startup/include', 'xpacks/sifive-coreplex-devices/include', 'xpacks/sifive-hifive1-board/include'
-Tool C: -march=rv32imac -mabi=ilp32 -mcmodel=medany -msmall-data-limit=8  -g3   -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -std=gnu11 -Wall -Wextra    -DSIFIVE_FREEDOM_E310 -DSIFIVE_HIFIVE1_BOARD -DDEBUG -DOS_USE_TRACE_UART0 -DTRACE 
-Tool C++: -march=rv32imac -mabi=ilp32 -mcmodel=medany -msmall-data-limit=8  -g3   -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -std=gnu++14 -fabi-version=0 -fno-exceptions -fno-rtti -fno-use-cxa-atexit -fno-threadsafe-statics -Wall -Wextra    -DSIFIVE_FREEDOM_E310 -DSIFIVE_HIFIVE1_BOARD -DDEBUG -DOS_USE_TRACE_UART0 -DTRACE 
-Tool AS: -march=rv32imac -mabi=ilp32 -mcmodel=medany -msmall-data-limit=8  -g3   -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections   -Wall -Wextra    -x assembler-with-cpp -DSIFIVE_FREEDOM_E310 -DSIFIVE_HIFIVE1_BOARD -DDEBUG -DOS_USE_TRACE_UART0 -DTRACE 
+Tool C: -march=rv32imac -mabi=ilp32 -mcmodel=medany -msmall-data-limit=8  -g3   -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -std=gnu11 -Wall -Wextra    -DSIFIVE_FREEDOM_E310 -DSIFIVE_HIFIVE1_BOARD -DDEBUG -DOS_USE_TRACE_UART0 -DTRACE
+Tool C++: -march=rv32imac -mabi=ilp32 -mcmodel=medany -msmall-data-limit=8  -g3   -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -std=gnu++14 -fabi-version=0 -fno-exceptions -fno-rtti -fno-use-cxa-atexit -fno-threadsafe-statics -Wall -Wextra    -DSIFIVE_FREEDOM_E310 -DSIFIVE_HIFIVE1_BOARD -DDEBUG -DOS_USE_TRACE_UART0 -DTRACE
+Tool AS: -march=rv32imac -mabi=ilp32 -mcmodel=medany -msmall-data-limit=8  -g3   -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections   -Wall -Wextra    -x assembler-with-cpp -DSIFIVE_FREEDOM_E310 -DSIFIVE_HIFIVE1_BOARD -DDEBUG -DOS_USE_TRACE_UART0 -DTRACE
 Tool Linker: -march=rv32imac -mabi=ilp32 -mcmodel=medany -msmall-data-limit=8  -g3   -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections   -Wall -Wextra    -nostartfiles -Xlinker --gc-sections --specs=nano.specs -L"../../ldscripts" -T mem.ld -T libs.ld -T sections.ld
 
 Creating folder 'src'...
@@ -645,20 +645,20 @@ Generating file 'build/hifive1-blinky-cpp-hifive1-riscv64-elf-gcc-debug/xpacks/s
 Changing current folder to 'build/hifive1-blinky-cpp-hifive1-riscv64-elf-gcc-debug'...
 
 Invoking builder: 'make'...
- 
+
 Building file: src/newlib-syscalls.c
 Invoking: GCC C Compiler
 riscv64-unknown-elf-gcc -c -march=rv32imac -mabi=ilp32 -mcmodel=medany -msmall-data-limit=8  -g3   -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -std=gnu11 -Wall -Wextra    -DSIFIVE_FREEDOM_E310 -DSIFIVE_HIFIVE1_BOARD -DDEBUG -DOS_USE_TRACE_UART0 -DTRACE  -I"../../include" -I"../../xpacks/micro-os-plus-c-libs/include" -I"../../xpacks/micro-os-plus-cpp-libs/include" -I"../../xpacks/micro-os-plus-diag-trace/include" -I"../../xpacks/micro-os-plus-riscv-arch/include" -I"../../xpacks/micro-os-plus-startup/include" -I"../../xpacks/sifive-coreplex-devices/include" -I"../../xpacks/sifive-hifive1-board/include" -MMD -MP -MF"src/newlib-syscalls.d" -MT"src/newlib-syscalls.o" -o "src/newlib-syscalls.o" "../../src/newlib-syscalls.c"
 Finished building: src/newlib-syscalls.c
-...
-Building target: hifive1-blinky-cpp.elf
+</span><span class="c">...
+</span><span class="go">Building target: hifive1-blinky-cpp.elf
 Invoking: GCC Linker
 riscv64-unknown-elf-g++ -march=rv32imac -mabi=ilp32 -mcmodel=medany -msmall-data-limit=8  -g3   -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections   -Wall -Wextra    -nostartfiles -Xlinker --gc-sections --specs=nano.specs -L"../../ldscripts" -T mem.ld -T libs.ld -T sections.ld src/newlib-syscalls.o src/initialize-hardware.o src/interrupts-handlers.o src/led.o src/main.o src/sysclock.o xpacks/micro-os-plus-c-libs/src/_sbrk.o xpacks/micro-os-plus-c-libs/src/c-syscalls-empty.o xpacks/micro-os-plus-c-libs/src/stdlib/assert.o xpacks/micro-os-plus-c-libs/src/stdlib/exit.o xpacks/micro-os-plus-c-libs/src/stdlib/init-fini.o xpacks/micro-os-plus-c-libs/src/stdlib/atexit.o xpacks/micro-os-plus-cpp-libs/src/cxx.o xpacks/micro-os-plus-diag-trace/src/trace.o xpacks/micro-os-plus-riscv-arch/src/arch-functions.o xpacks/micro-os-plus-riscv-arch/src/traps.o xpacks/micro-os-plus-riscv-arch/src/reset-entry.o xpacks/micro-os-plus-riscv-arch/src/trap-entry.o xpacks/micro-os-plus-startup/src/startup.o xpacks/sifive-coreplex-devices/src/device-functions.o xpacks/sifive-coreplex-devices/src/device-interrupts.o xpacks/sifive-coreplex-devices/src/plic-functions.o xpacks/sifive-coreplex-devices/src/sifive/fe300prci_driver.o xpacks/sifive-hifive1-board/src/board-functions.o xpacks/sifive-hifive1-board/src/trace-uart.o   -o "hifive1-blinky-cpp.elf"
 Finished building target: hifive1-blinky-cpp.elf
 Build completed in 5.580 sec.
-... 
-'xmake build' completed in 10.799 sec.
-</code></pre></div></div>
+</span><span class="c">...
+</span><span class="go">'xmake build' completed in 10.799 sec.
+</span></code></pre></div></div>
 
 <p>Note: at the time of preparing this page, the <code class="language-plaintext highlighter-rouge">xpm</code> tool is under development and the generic <code class="language-plaintext highlighter-rouge">xpm init</code> mechanism is not yet functional. As a temporary workaround, use the <code class="language-plaintext highlighter-rouge">xpm-init-sifive-coreplex-project</code> tool, available in the <code class="language-plaintext highlighter-rouge">@sifive/templates</code> <a href="https://www.npmjs.com/package/@sifive/templates">xPack</a>.</p>
 
@@ -690,8 +690,8 @@ Build completed in 5.580 sec.
 
 <p>The <strong>SiFive project templates</strong> created in the previous sections use this structure; most of the files are part of the application; the packages are grouped under the <code class="language-plaintext highlighter-rouge">xpacks</code> folder, and the package metadata is located in <code class="language-plaintext highlighter-rouge">package.json</code> and <code class="language-plaintext highlighter-rouge">xmake.json</code>:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ tree -L 2 hifive1-blinky-cpp
-hifive1-blinky-cpp
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>tree <span class="nt">-L</span> 2 hifive1-blinky-cpp
+<span class="go">hifive1-blinky-cpp
 ├── LICENSE
 ├── README.md
 ├── include
@@ -721,7 +721,7 @@ hifive1-blinky-cpp
     └── sifive-hifive1-board
 
 11 directories, 16 files
-</code></pre></div></div>
+</span></code></pre></div></div>
 
 <h3 id="dependencies">Dependencies</h3>
 
@@ -1328,7 +1328,7 @@ ldscripts
 
 <p>These two xPacks complement the system libraries and provide missing functions or have lighter implementations, more suitable for embedded applications.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ tree c-libs.git 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ tree c-libs.git
 c-libs.git
 ├── LICENSE
 ├── README.md

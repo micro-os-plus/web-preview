@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>µOS++ IIIe</title>
+    <title>µOS++</title>
     <description>The third edition of µOS++, a POSIX inspired open source framework, written in C++.</description>
     <link>http://micro-os-plus.github.io/web-preview/</link>
     <atom:link href="http://micro-os-plus.github.io/web-preview/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 21 May 2023 05:49:31 +0000</pubDate>
-    <lastBuildDate>Sun, 21 May 2023 05:49:31 +0000</lastBuildDate>
+    <pubDate>Sun, 21 May 2023 06:52:04 +0000</pubDate>
+    <lastBuildDate>Sun, 21 May 2023 06:52:04 +0000</lastBuildDate>
     <generator>Jekyll v3.9.3</generator>
     
       <item>
@@ -30,8 +30,8 @@ in a terminal&lt;/strong&gt;, without Eclipse.&lt;/p&gt;
       </item>
     
       <item>
-        <title>µOS++ IIIe v6.3.15 released</title>
-        <description>&lt;p&gt;Version v6.3.15 is a &lt;strong&gt;µOS++ IIIe&lt;/strong&gt; maintenance release. The main changes 
+        <title>µOS++ v6.3.15 released</title>
+        <description>&lt;p&gt;Version v6.3.15 is a &lt;strong&gt;µOS++&lt;/strong&gt; maintenance release. The main changes
 are several bug fixes.&lt;/p&gt;
 
 </description>
@@ -49,9 +49,9 @@ are several bug fixes.&lt;/p&gt;
       </item>
     
       <item>
-        <title>µOS++ IIIe v6.3.14 released</title>
-        <description>&lt;p&gt;Version v6.3.14 is a &lt;strong&gt;µOS++ IIIe&lt;/strong&gt; maintenance release. The main addition
-is the functional POSIX I/O subsystem, which supports character devices, 
+        <title>µOS++ v6.3.14 released</title>
+        <description>&lt;p&gt;Version v6.3.14 is a &lt;strong&gt;µOS++&lt;/strong&gt; maintenance release. The main addition
+is the functional POSIX I/O subsystem, which supports character devices,
 block devices and file systems.&lt;/p&gt;
 
 </description>
@@ -69,8 +69,8 @@ block devices and file systems.&lt;/p&gt;
       </item>
     
       <item>
-        <title>µOS++ IIIe v6.3.13 released</title>
-        <description>&lt;p&gt;Version v6.3.13 is a &lt;strong&gt;µOS++ IIIe&lt;/strong&gt; maintenance release.&lt;/p&gt;
+        <title>µOS++ v6.3.13 released</title>
+        <description>&lt;p&gt;Version v6.3.13 is a &lt;strong&gt;µOS++&lt;/strong&gt; maintenance release.&lt;/p&gt;
 
 </description>
         <pubDate>Sat, 26 Aug 2017 20:29:00 +0000</pubDate>
@@ -87,8 +87,8 @@ block devices and file systems.&lt;/p&gt;
       </item>
     
       <item>
-        <title>µOS++ IIIe v6.3.11 released</title>
-        <description>&lt;p&gt;Version v6.3.11 is a new &lt;strong&gt;µOS++ IIIe/CMSIS++&lt;/strong&gt; public release that addresses several bugs.&lt;/p&gt;
+        <title>µOS++ v6.3.11 released</title>
+        <description>&lt;p&gt;Version v6.3.11 is a new &lt;strong&gt;µOS++/CMSIS++&lt;/strong&gt; public release that addresses several bugs.&lt;/p&gt;
 
 </description>
         <pubDate>Mon, 02 Jan 2017 19:29:00 +0000</pubDate>
@@ -107,8 +107,8 @@ block devices and file systems.&lt;/p&gt;
       </item>
     
       <item>
-        <title>µOS++ IIIe v6.3.10 released</title>
-        <description>&lt;p&gt;Version v6.3.10 is a new &lt;strong&gt;µOS++ IIIe/CMSIS++&lt;/strong&gt; public release that addresses several bugs.&lt;/p&gt;
+        <title>µOS++ v6.3.10 released</title>
+        <description>&lt;p&gt;Version v6.3.10 is a new &lt;strong&gt;µOS++/CMSIS++&lt;/strong&gt; public release that addresses several bugs.&lt;/p&gt;
 
 </description>
         <pubDate>Sun, 27 Nov 2016 08:53:00 +0000</pubDate>
@@ -127,8 +127,8 @@ block devices and file systems.&lt;/p&gt;
       </item>
     
       <item>
-        <title>µOS++ IIIe v6.3.9 released</title>
-        <description>&lt;p&gt;Version v6.3.9 is a new &lt;strong&gt;µOS++ IIIe/CMSIS++&lt;/strong&gt; public release (v6.3.8 was an internal release). The major additions are: the first integration of the POSIX I/O subsystem and an experimental set of scripts to generate µOS++ projects.&lt;/p&gt;
+        <title>µOS++ v6.3.9 released</title>
+        <description>&lt;p&gt;Version v6.3.9 is a new &lt;strong&gt;µOS++/CMSIS++&lt;/strong&gt; public release (v6.3.8 was an internal release). The major additions are: the first integration of the POSIX I/O subsystem and an experimental set of scripts to generate µOS++ projects.&lt;/p&gt;
 
 </description>
         <pubDate>Thu, 13 Oct 2016 19:46:00 +0000</pubDate>
@@ -147,8 +147,8 @@ block devices and file systems.&lt;/p&gt;
       </item>
     
       <item>
-        <title>First µOS++ IIIe public version v6.3.7 released</title>
-        <description>&lt;p&gt;Version v6.3.7 is the first &lt;strong&gt;µOS++ IIIe/CMSIS++&lt;/strong&gt; public release. The major additions are the advanced memory management features, which allow deterministic and non-fragmenting allocations in controlled environments.&lt;/p&gt;
+        <title>First µOS++ public version v6.3.7 released</title>
+        <description>&lt;p&gt;Version v6.3.7 is the first &lt;strong&gt;µOS++/CMSIS++&lt;/strong&gt; public release. The major additions are the advanced memory management features, which allow deterministic and non-fragmenting allocations in controlled environments.&lt;/p&gt;
 
 </description>
         <pubDate>Thu, 15 Sep 2016 12:28:00 +0000</pubDate>

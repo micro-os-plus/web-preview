@@ -13,9 +13,9 @@
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
   <meta property="og:title" content="Semaphores" />
-  <meta property="og:site_name" content="µOS++ IIIe" />
+  <meta property="og:site_name" content="µOS++" />
 
-  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml" />
+  <link rel="alternate" type="application/rss+xml" title="µOS++" href="/web-preview/feed.xml" />
 
 
   <meta property="article:published_time" content="2016-07-12">
@@ -98,7 +98,7 @@
         <table class="site-title" style="width:100%">
           <tr>
             <td class="site-title">
-              <a href="/web-preview/">µOS++ IIIe</a>
+              <a href="/web-preview/">µOS++</a>
             </td>
             <td class="site-motto" align="right">
               “Perfekt ist nicht gut genug”
@@ -132,9 +132,9 @@
 
 <ul>
   <li><a href="/web-preview/blog/2021/01/22/micro-os-plus-first-scriptable-build/">First µOS++ scriptable build</a></li>
-  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></li>
-  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ IIIe v6.3.14 released</a></li>
-  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ IIIe v6.3.13 released</a></li>
+  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ v6.3.15 released</a></li>
+  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ v6.3.14 released</a></li>
+  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ v6.3.13 released</a></li>
 </ul>
 
 
@@ -147,7 +147,7 @@
       
       <h4 id="home"><a href="/web-preview/">Home</a></h4>
 
-<h4 id="µos-iiie">µOS++ IIIe</h4>
+<h4 id="µos">µOS++</h4>
 
 <ul>
   <li><a href="/web-preview/micro-os-plus/">Overview</a></li>
@@ -207,7 +207,7 @@
   <li><a href="/web-preview/support/known-issues/">Known issues</a></li>
   <li><a href="/web-preview/support/faq/">FAQ</a></li>
   <li><a href="/web-preview/support/forum/">Forum</a></li>
-  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ IIIe issues</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ issues</a></li>
 </ul>
 
 <h4 id="latest-articles">Latest Articles</h4>
@@ -241,7 +241,7 @@
 <h1 class="page-title">Semaphores</h1>
 <table id="last-modified">
   <tr>
-    <td id="last-modified">Last modified on Sun May 21 05:48:35 2023 UTC.</td>
+    <td id="last-modified">Last modified on Sun May 21 06:51:00 2023 UTC.</td>
     <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/web-jekyll/edit/master/pages/user-manual/semaphores.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
@@ -282,7 +282,7 @@
 
 <p>Depending on the semaphore usage, it can start either with 0 (when used for synchronisation) or 1 (when used to protect a single shared resource).</p>
 
-<p>What a binary semaphore has in addition to a railway semaphore, is a signaling method (think of this mechanism as a loud horn used to wakeup the sleeping train driver, waiting for the semaphore).</p>
+<p>What a binary semaphore has in addition to a railway semaphore, is a signalling method (think of this mechanism as a loud horn used to wakeup the sleeping train driver, waiting for the semaphore).</p>
 
 <h3 id="counting-semaphores">Counting semaphores</h3>
 
@@ -800,7 +800,7 @@
 <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">size_t</span> <span class="n">value</span> <span class="o">=</span> <span class="n">os_semaphore_get_initial_value</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">);</span>
 </code></pre></div></div>
 
-<h3 id="reseting-the-semaphore">Reseting the semaphore</h3>
+<h3 id="resetting-the-semaphore">Resetting the semaphore</h3>
 
 <p>Real-world applications may include monitoring mechanisms to detect erroneous conditions. Recovering from such conditions may require to return the semaphore to stable state; µOS++ provides a function to return the semaphore to the initial state after construction.</p>
 

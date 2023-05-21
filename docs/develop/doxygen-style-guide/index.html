@@ -13,9 +13,9 @@
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
   <meta property="og:title" content="Doxygen style guide" />
-  <meta property="og:site_name" content="µOS++ IIIe" />
+  <meta property="og:site_name" content="µOS++" />
 
-  <link rel="alternate" type="application/rss+xml" title="µOS++ IIIe" href="/web-preview/feed.xml" />
+  <link rel="alternate" type="application/rss+xml" title="µOS++" href="/web-preview/feed.xml" />
 
 
   <meta property="article:published_time" content="2014-02-22">
@@ -98,7 +98,7 @@
         <table class="site-title" style="width:100%">
           <tr>
             <td class="site-title">
-              <a href="/web-preview/">µOS++ IIIe</a>
+              <a href="/web-preview/">µOS++</a>
             </td>
             <td class="site-motto" align="right">
               “Perfekt ist nicht gut genug”
@@ -132,9 +132,9 @@
 
 <ul>
   <li><a href="/web-preview/blog/2021/01/22/micro-os-plus-first-scriptable-build/">First µOS++ scriptable build</a></li>
-  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ IIIe v6.3.15 released</a></li>
-  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ IIIe v6.3.14 released</a></li>
-  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ IIIe v6.3.13 released</a></li>
+  <li><a href="/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/">µOS++ v6.3.15 released</a></li>
+  <li><a href="/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/">µOS++ v6.3.14 released</a></li>
+  <li><a href="/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/">µOS++ v6.3.13 released</a></li>
 </ul>
 
 
@@ -147,7 +147,7 @@
       
       <h4 id="home"><a href="/web-preview/">Home</a></h4>
 
-<h4 id="µos-iiie">µOS++ IIIe</h4>
+<h4 id="µos">µOS++</h4>
 
 <ul>
   <li><a href="/web-preview/micro-os-plus/">Overview</a></li>
@@ -207,7 +207,7 @@
   <li><a href="/web-preview/support/known-issues/">Known issues</a></li>
   <li><a href="/web-preview/support/faq/">FAQ</a></li>
   <li><a href="/web-preview/support/forum/">Forum</a></li>
-  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ IIIe issues</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ issues</a></li>
 </ul>
 
 <h4 id="latest-articles">Latest Articles</h4>
@@ -241,7 +241,7 @@
 <h1 class="page-title">Doxygen style guide</h1>
 <table id="last-modified">
   <tr>
-    <td id="last-modified">Last modified on Sun May 21 05:48:35 2023 UTC.</td>
+    <td id="last-modified">Last modified on Sun May 21 06:51:00 2023 UTC.</td>
     <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/web-jekyll/edit/master/pages/develop/doxygen-style-guide.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
@@ -258,9 +258,9 @@
 
 <p>Use C style blocks of <code class="language-plaintext highlighter-rouge">/** */</code> instead of C++ <code class="language-plaintext highlighter-rouge">///</code> lines.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/**
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
  * ...
- */
+ */</span>
 </code></pre></div></div>
 
 <p>Note: Uninterrupted sequences of lines refer to the same object. To be sure the commands are not grouped together when this is not required, use separate comment blocks.</p>
@@ -276,9 +276,9 @@
 
 <p>Explicitly use the <code class="language-plaintext highlighter-rouge">@brief</code> command before the brief description. End the text with a dot. For visibility reasons, add an empty line inside the same comment block.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/**
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
  * @brief Base for all architecture implementation classes.
- */
+ */</span>
 </code></pre></div></div>
 
 <h2 id="explicit-details">Explicit <code class="language-plaintext highlighter-rouge">@details</code>
@@ -288,11 +288,11 @@
 
 <p>For class member functions, the details should be placed before the implementation; although allowed by Doxygen, avoid placing details both at the declaration and definitions, since it is difficult to keep them consistent (see below).</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/**
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
  * @details
  * The @ref trace_streambuf_base class implements an @ref ostream class
  * to be used by the @ref trace class.
- */
+ */</span>
 </code></pre></div></div>
 
 <h2 id="use-brief-with-declarations-and-details-with-definitions">Use <code class="language-plaintext highlighter-rouge">@brief</code> with declarations and <code class="language-plaintext highlighter-rouge">@details</code> with definitions</h2>
@@ -317,22 +317,22 @@
 
 <p>When including lines of code, surround them by <code class="language-plaintext highlighter-rouge">@code</code>, <code class="language-plaintext highlighter-rouge">@endcode</code> and add the language. For visibility reasons, add empty lines inside the comment block.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/**
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
  * @code{.cpp}
  * set_class_name("os::infra::test_suite");
  * @endcode
- */
+ */</span>
 </code></pre></div></div>
 
 <h2 id="use-verbatim-for-other-pre-formatted-lines">Use <code class="language-plaintext highlighter-rouge">@verbatim</code> for other pre-formatted lines</h2>
 
 <p>When including other lines, like shell commands, surround them by <code class="language-plaintext highlighter-rouge">@verbatim</code>, <code class="language-plaintext highlighter-rouge">@endverbatim</code>:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/**
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
  * @verbatim
  * /bin/bash micro-os-plus-se.git/scripts/runTests.sh
  * @endverbatim
- */
+ */</span>
 </code></pre></div></div>
 
 <h2 id="lists">Lists</h2>
@@ -341,17 +341,17 @@
 
 <p>For multiple levels use additional indentations.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* first level 1
-  * first level 2
-  * second level 2
-* second level 1
+<div class="language-md highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">*</span> first level 1
+<span class="p">  *</span> first level 2
+<span class="p">  *</span> second level 2
+<span class="p">*</span> second level 1
 </code></pre></div></div>
 
 <h2 id="tables">Tables</h2>
 
 <p>Use the below syntax to enter tables. Columns can be left/right aligned.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| Right | Center | Left  |
+<div class="language-md highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| Right | Center | Left  |
 | ----: | :----: | :---- |
 | 10    | 10 | 10    |
 | 1000  | 1000   | 1000  |
@@ -361,16 +361,16 @@
 
 <p>Links to other pages can be expressed with the following markup:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[The link text](http://example.net/)
+<div class="language-md highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="nv">The link text</span><span class="p">](</span><span class="sx">http://example.net/</span><span class="p">)</span>
 </code></pre></div></div>
 
 <h2 id="use-tparam-for-template-parameters">Use <code class="language-plaintext highlighter-rouge">@tparam</code> for template parameters</h2>
 
 <p>Use <code class="language-plaintext highlighter-rouge">@tparam</code> for template parameters. Start the explanation with upper case and end it with dot.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/**
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
  * @tparam T  Type of the implementation class.
- */
+ */</span>
 </code></pre></div></div>
 
 <h2 id="use-param-for-function-parameters">Use <code class="language-plaintext highlighter-rouge">@param</code> for function parameters</h2>
@@ -379,56 +379,56 @@
 
 <p>To make the explanation more readable, use tabs to right align the content.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/**
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
  * @param [in]  c  An additional character to consume.
- */
+ */</span>
 </code></pre></div></div>
 
 <p>If the function has no parameters, use a custom paragraph containing <strong>None.</strong>, indented with a tab and terminated with a dot.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/**
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
  * @par Parameters
  *    None.
- */
+ */</span>
 </code></pre></div></div>
 
 <h2 id="use-return-or-retval-for-the-returned-result">Use <code class="language-plaintext highlighter-rouge">@return</code> or <code class="language-plaintext highlighter-rouge">@retval</code> for the returned result</h2>
 
 <p>If the function returns discrete values, enumerate them with <code class="language-plaintext highlighter-rouge">@retval</code> and terminate the list with an empty line.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/**
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
  * @retval -1 Error
  * @retval 0 OK
- */
+ */</span>
 </code></pre></div></div>
 
 <p>If the function returns a scalar value, use a <code class="language-plaintext highlighter-rouge">@return</code> and explain what the value represents.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/**
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
  * @return The number of bytes actually written.
- */
+ */</span>
 </code></pre></div></div>
 
 <p>If the function has no return value, use a custom paragraph containing <strong>Nothing.</strong>, indented with a tab and terminated with a dot.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/**
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
  * @par Returns
  *    Nothing.
- */
+ */</span>
 </code></pre></div></div>
 
 <h2 id="use-headerfile-to-define-the-header-full-path">Use <code class="language-plaintext highlighter-rouge">@headerfile</code> to define the header full path</h2>
 
 <p>For each class, structure, enum or other object definition, use <code class="language-plaintext highlighter-rouge">@headerfile</code> to specify the full header path.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/**
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
  * @headerfile CoreInterruptNumbers.h "hal/architecture/arm/cortexm/include/CoreInterruptNumbers.h"
  * @brief ARM Cortex-M architecture interrupt numbers base
  *
  * @details
  * Interrupt numbers defined by the Cortex-M0 light architecture.
- */
-class cortex_m0_interrupt_number ...
+ */</span>
+<span class="n">class</span> <span class="n">cortex_m0_interrupt_number</span> <span class="p">...</span>
 </code></pre></div></div>
 
 <p>The first name should be present in the filesystem, so it might need some prefixing. The second name is passed to the output.</p>
@@ -449,7 +449,7 @@ class cortex_m0_interrupt_number ...
 
 <p>Note: Groups do not nest.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/**
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
  * @name Standard template types
  *
  * These types permit a standardised way of
@@ -459,39 +459,39 @@ class cortex_m0_interrupt_number ...
  * parameters are required), use these types everywhere
  * else instead of usual types.
  * @{
- */
+ */</span>
 
-typedef T implementation_t;
+<span class="k">typedef</span> <span class="n">T</span> <span class="n">implementation_t</span><span class="p">;</span>
 
-/**
- * @}  
- */
+<span class="cm">/**
+ * @}
+ */</span>
 
-/**
+<span class="cm">/**
  * @name Constructors/destructor
  * @{
- */
+ */</span>
 
-/**
+<span class="cm">/**
  * @brief  Base constructor.
  * @param [in] implementation Reference to the implementation class.
- */
-trace_streambuf_base(implementation_t&amp; implementation);
+ */</span>
+<span class="n">trace_streambuf_base</span><span class="p">(</span><span class="n">implementation_t</span><span class="o">&amp;</span> <span class="n">implementation</span><span class="p">);</span>
 
-/**
+<span class="cm">/**
  * @brief  Base destructor.
- */
-virtual
-~trace_streambuf_base();
+ */</span>
+<span class="k">virtual</span>
+<span class="o">~</span><span class="n">trace_streambuf_base</span><span class="p">();</span>
 
-/**
+<span class="cm">/**
  * @}
- */
+ */</span>
 </code></pre></div></div>
 
 <h2 id="template-sample">Template sample</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/**
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
  * @headerfile trace.h "portable/diagnostics/include/trace.h"
  * @ingroup diag
  *
@@ -501,12 +501,12 @@ virtual
  * @details
  * This class provides no functionality, it is used only as a
  * light alternative to trace_ostream_base.
- */
-template&lt;class T&gt;
-  class trace_light_base
-  {
-    ...
-  };
+ */</span>
+<span class="n">template</span><span class="o">&lt;</span><span class="n">class</span> <span class="n">T</span><span class="o">&gt;</span>
+  <span class="n">class</span> <span class="n">trace_light_base</span>
+  <span class="p">{</span>
+    <span class="p">...</span>
+  <span class="p">};</span>
 </code></pre></div></div>
 
 <h2 id="grouping">Grouping</h2>
@@ -515,32 +515,32 @@ template&lt;class T&gt;
 
 <p>To include a definition in one or more modules, use <code class="language-plaintext highlighter-rouge">@ingroup</code>.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/**
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
  * @brief Stack size type.
  * @ingroup core_thread
- */
+ */</span>
 </code></pre></div></div>
 
 <p>If multiple definition are from the same group, they can be grouped with <code class="language-plaintext highlighter-rouge">@{</code> … <code class="language-plaintext highlighter-rouge">@}</code>:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/**
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
  * @ingroup core_thread
  * @{
- */
-    &lt;- mandatory different blocks
-/**
+ */</span>
+    <span class="o">&lt;-</span> <span class="n">mandatory</span> <span class="n">different</span> <span class="n">blocks</span>
+<span class="cm">/**
  * @brief Stack element type.
- */
-typedef hal::arch::stack_element_t element_t;
+ */</span>
+<span class="k">typedef</span> <span class="n">hal</span><span class="o">::</span><span class="n">arch</span><span class="o">::</span><span class="n">stack_element_t</span> <span class="n">element_t</span><span class="p">;</span>
 
-/**
+<span class="cm">/**
  * @brief Stack size type.
- */
-typedef hal::arch::stack_size_t size_t;
+ */</span>
+<span class="k">typedef</span> <span class="n">hal</span><span class="o">::</span><span class="n">arch</span><span class="o">::</span><span class="n">stack_size_t</span> <span class="kt">size_t</span><span class="p">;</span>
 
-/**
+<span class="cm">/**
  * @}
- */
+ */</span>
 </code></pre></div></div>
 
 <p>Please note the mandatory empty lines after <code class="language-plaintext highlighter-rouge">@{</code> and before <code class="language-plaintext highlighter-rouge">@}</code>.</p>
@@ -551,39 +551,39 @@ typedef hal::arch::stack_size_t size_t;
 
 <p>This command allows to define the name of the section within a page. Usually it is used with <code class="language-plaintext highlighter-rouge">@{</code> … <code class="language-plaintext highlighter-rouge">@}</code>:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/**
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
  * @name Constructors &amp; Destructor
  * @{
- */
-    &lt;- mandatory different blocks
-/**
+ */</span>
+    <span class="o">&lt;-</span> <span class="n">mandatory</span> <span class="n">different</span> <span class="n">blocks</span>
+<span class="cm">/**
  * @brief Constructor.
- */
-main_thread(void);
+ */</span>
+<span class="n">main_thread</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
 
-/**
+<span class="cm">/**
  * @brief Destructor.
- */
-~main_thread();
+ */</span>
+<span class="o">~</span><span class="n">main_thread</span><span class="p">();</span>
 
-/**
+<span class="cm">/**
  * @}
- */
+ */</span>
 </code></pre></div></div>
 
 <p>Recommended sections name are:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@name Types &amp; Constants
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">@</span><span class="n">name</span> <span class="n">Types</span> <span class="o">&amp;</span> <span class="n">Constants</span>
 
-@name Constructors &amp; Destructor
+<span class="err">@</span><span class="n">name</span> <span class="n">Constructors</span> <span class="o">&amp;</span> <span class="n">Destructor</span>
 
-@name Operators
+<span class="err">@</span><span class="n">name</span> <span class="n">Operators</span>
 
-@name Public Member Functions
+<span class="err">@</span><span class="n">name</span> <span class="n">Public</span> <span class="n">Member</span> <span class="n">Functions</span>
 
-@name Public Static Member Functions
+<span class="err">@</span><span class="n">name</span> <span class="n">Public</span> <span class="n">Static</span> <span class="n">Member</span> <span class="n">Functions</span>
 
-@name Private Member variables
+<span class="err">@</span><span class="n">name</span> <span class="n">Private</span> <span class="n">Member</span> <span class="n">variables</span>
 </code></pre></div></div>
 
 <h2 id="samples">Samples</h2>
@@ -592,7 +592,7 @@ main_thread(void);
 
 <p>Use plural.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@brief Type of variables holding mutex recursion counters.
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">@</span><span class="n">brief</span> <span class="n">Type</span> <span class="n">of</span> <span class="n">variables</span> <span class="n">holding</span> <span class="n">mutex</span> <span class="n">recursion</span> <span class="n">counters</span><span class="p">.</span>
 </code></pre></div></div>
 
 <h3 id="extra-line-between-brief-and-details">Extra line between <code class="language-plaintext highlighter-rouge">@brief</code> and <code class="language-plaintext highlighter-rouge">@details</code>
@@ -600,10 +600,10 @@ main_thread(void);
 
 <p>For headers which define <code class="language-plaintext highlighter-rouge">@details</code> too, add an extra line.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@brief Type of variables holding scheduler state codes.
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">@</span><span class="n">brief</span> <span class="n">Type</span> <span class="n">of</span> <span class="n">variables</span> <span class="n">holding</span> <span class="n">scheduler</span> <span class="n">state</span> <span class="n">codes</span><span class="p">.</span>
 
-@details
-Usually a boolean telling if the scheduler is ...
+<span class="err">@</span><span class="n">details</span>
+<span class="n">Usually</span> <span class="n">a</span> <span class="n">boolean</span> <span class="n">telling</span> <span class="k">if</span> <span class="n">the</span> <span class="n">scheduler</span> <span class="n">is</span> <span class="p">...</span>
 </code></pre></div></div>
 
 
