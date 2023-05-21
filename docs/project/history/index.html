@@ -241,7 +241,7 @@
 <h1 class="page-title">Project history</h1>
 <table id="last-modified">
   <tr>
-    <td id="last-modified">Last modified on Sun May 21 17:09:15 2023 UTC.</td>
+    <td id="last-modified">Last modified on Sun May 21 20:30:59 2023 UTC.</td>
     <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/web-jekyll/edit/master/pages/project/history.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
@@ -336,6 +336,15 @@ identified, but none was able to address all the requirements; so,
 based on my previous experience with multitasking systems, the
 decision to develop an in-house solution came naturally.</p>
 
+<p>However, this decision was clouded from the very beginning by a doubt:
+“How do I know that my system really works as expected?” And
+“How do I know that, if I change something, I do not break anything?”.</p>
+
+<div class="alert alert-info" role="alert">
+<i class="fa fa-info-circle"></i> <b>Note:</b> This is where the need for thorough
+testing comes into play. This permanent quest will eventually lead
+to the kindred <strong>xPack project</strong>, as a tool to automate testing.</div>
+
 <h2 id="why-c">Why C++?</h2>
 
 <p>The decision for C++ was a tough one, and I’m convinced it raises
@@ -405,18 +414,6 @@ as a solution that greatly simplified
 the build process for µOS++, given the CDT managed build system,
 which automatically generated the make files.</div>
 
-<h3 id="the-testing-dead-end">The testing dead-end</h3>
-
-<p>The initial enthusiasm of using Eclipse for building µOS++ applications
-was soon
-shaded by <strong>the difficulties of building and running tests in a scriptable
-environment</strong>.</p>
-
-<p>It must be mentioned that Eclipse CDT advertises a way of
-running headless builds, but it proved unreliable, so the only
-way of running test was manually, as regular Eclipse projects, which
-was very inconvenient.</p>
-
 <h3 id="the-arm-cortex-m3-preliminary-port">The ARM Cortex M3 preliminary port</h3>
 
 <p>In 2009 the µOS++ was easily ported to
@@ -441,6 +438,24 @@ is able to properly handle nested interrupts.</p>
 
 <p>Another significant addition to µOS++ was a mechanism to handle
 very fast interrupts, required for some Hard Real Time applications.</p>
+
+<h3 id="the-testing-dead-end">The testing dead-end</h3>
+
+<p>The initial enthusiasm of using Eclipse for building µOS++ applications
+was soon
+shaded by <strong>the difficulties of building and running tests in a scriptable
+environment</strong>.</p>
+
+<p>It must be mentioned that Eclipse CDT advertises a way of
+running headless builds, but it proved unreliable, so the only
+way of running test was manually, as regular Eclipse projects, which
+was very inconvenient.</p>
+
+<div class="alert alert-info" role="alert">
+<i class="fa fa-info-circle"></i> <b>Note:</b> With µOS++ already used in some
+projects, I was afraid that the lack of proper testing will eventually
+bite; it did not, but each release still came with a good load of
+stress.</div>
 
 <h2 id="the-µos-second-edition">The µOS++ second edition</h2>
 
@@ -501,6 +516,10 @@ more than 700 files, with more than 150K lines.</p>
 the development was temporarily interrupted, with focus changed to
 GNU ARM Eclipse plug-ins, later rebranded as the
 <a href="https://eclipse-embed-cdt.github.io">Eclipse Embedded CDT</a>.</p>
+
+<div class="alert alert-info" role="alert">
+<i class="fa fa-info-circle"></i> <b>Note:</b> The quest for a solution to
+automate testing continued, with no answer in the short term.</div>
 
 <h2 id="the-µos-third-edition">The µOS++ third edition</h2>
 
@@ -654,9 +673,10 @@ small embedded projects, but for complex tools, like compilers.</li>
 </ul>
 
 <div class="alert alert-info" role="alert">
-<i class="fa fa-info-circle"></i> <b>Note:</b> With this, the problem of
+<i class="fa fa-info-circle"></i> <b>Note:</b> With this milestone reached, the problem of
 binary dependencies required for
-µOS++ was considered solved.</div>
+µOS++ was considered solved. The light at the end of the tunnel was real,
+xPacks will eventually automate testing for the µOS++ projects.</div>
 
 <h3 id="µtest---a-lightweight-testing-framework-for-embedded-platforms">µTest++ - a lightweight testing framework for embedded platforms</h3>
 
@@ -683,7 +703,7 @@ which was initially inspired by <a href="https://node-tap.org">node tap</a>.</p>
 April 2022), it provides most of the <strong>Boost UT</strong> primitives,
 but with a lighter footprint.</p>
 
-<h3 id="the-utils-list-source-code-xpack">The <strong>utils-list</strong> source code xPack</h3>
+<h3 id="the-utils-list-source-code-xpack">The utils-list source code xPack</h3>
 
 <p>With most of the tools in place, the
 <a href="https://github.com/micro-os-plus/utils-lists-xpack/">@micro-os-plus/utils-lists</a>
@@ -700,7 +720,9 @@ nice <a href="https://micro-os-plus.github.io/utils-lists-xpack/">web site</a>.<
 
 <div class="alert alert-info" role="alert">
 <i class="fa fa-info-circle"></i> <b>Note:</b> This was finally in line with the
-expectations, and validated again the concept.</div>
+expectations. There are good chances
+that the automation provided by xPacks will allow me to sleep well
+after each µOS++ release.</div>
 
 <h3 id="to-be-continued">To be continued</h3>
 
