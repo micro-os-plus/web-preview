@@ -28,9 +28,9 @@
 
   <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?202211100849" media="screen">
-  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?202211100849" media="screen">
-  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?202211100849" media="print">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?202305210532" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?202305210532" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?202305210532" media="print">
 
   <link rel="canonical" href="/web-preview/project/history/">
 
@@ -241,7 +241,7 @@
 <h1 class="page-title">Project history</h1>
 <table id="last-modified">
   <tr>
-    <td id="last-modified">Last modified on Sat May 20 21:35:23 2023 UTC.</td>
+    <td id="last-modified">Last modified on Sun May 21 05:48:35 2023 UTC.</td>
     <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/web-jekyll/edit/master/pages/project/history.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
@@ -253,8 +253,9 @@ I started to play with computers. After learning FORTRAN in my first
 high school year, I wondered how does the big computer understand my
 programs and how is it able to run multiple jobs at the same time.</p>
 
-<p>From this child curiosity
-to µOS++ was a long and fascinating journey.</p>
+<div class="alert alert-info" role="alert">
+<i class="fa fa-info-circle"></i> <b>Note:</b> From this child curiosity
+to µOS++ was a long and fascinating journey.</div>
 
 <h3 id="the-unix-era-and-the-first-scheduler">The Unix era and the first scheduler</h3>
 
@@ -263,16 +264,18 @@ mini-computer and, remarkable for those years, also accompanied by a
 tape with the
 <a href="http://en.wikipedia.org/wiki/Version_7_Unix">Version 7 Unix</a> source code.</p>
 
-<p>Not only that I studied it thoroughly, but by 1989 I already had a functional
-C compiler ported on <a href="http://en.wikipedia.org/wiki/68000">Motorola MC68000</a>
-microprocessor, and a good knowledge of the Unix kernel.</p>
+<p>Not only that I studied it thoroughly, but by 1989 I already had <strong>a functional
+C compiler</strong> ported on <a href="http://en.wikipedia.org/wiki/68000">Motorola MC68000</a>
+microprocessor, and a <strong>good knowledge of the Unix kernel</strong>.</p>
 
-<p>This knowledge of the context switching mechanism was put to test when
+<p>This knowledge of the <strong>context switching mechanism</strong> was put to test when
 I needed a multi-threaded scheduler running on
 <a href="http://en.wikipedia.org/wiki/Z80">Zilog Z80</a>; later it was successfully
 used in a commercial product (a telex machine).</p>
 
-<p>This scheduler can be considered the precursor of µOS++.</p>
+<div class="alert alert-info" role="alert">
+<i class="fa fa-info-circle"></i> <b>Note:</b> This scheduler can be considered
+the precursor of µOS++.</div>
 
 <h3 id="the-ecos-experience-cdl--c">The eCos experience (CDL &amp; C++)</h3>
 
@@ -283,19 +286,21 @@ which also required a multi-threaded system.</p>
 <p>To implement it, I chose <a href="http://ecos.sourceware.org">eCos</a>, which was the
 major RTOS available as open source and with a permissive license.</p>
 
-<p>There were many remarkable things to be noted about eCos, but
-relevant for this story are two: first, at its core, it was written in C++,
+<p>There were many remarkable things to be noted about <strong>eCos</strong>, but
+relevant for this story are two: first, at its core, it was <strong>written in C++</strong>,
 (a language that I met in 1990 when I ported the <strong>AT&amp;T C++ translator</strong> on
 lots of Unix machines)
-and, second, that it came with an elaborate mechanism for managing
-project configurations, the
+and, second, that it came with an elaborate <strong>mechanism for managing
+project configurations</strong>, the
 <a href="http://ecos.sourceware.org/docs-1.3.1/cdl/language.html">eCos CDL</a>,
 which used <a href="https://en.wikipedia.org/wiki/Tcl">TCL</a> scripts to
 define the configuration metadata.</p>
 
-<p>C++ is the reason behind µOS++, and eCos CDL is the reason behind
+<div class="alert alert-info" role="alert">
+<i class="fa fa-info-circle"></i> <b>Note:</b> C++ is the reason behind µOS++,
+and eCos CDL is the reason behind
 the use of a component based design for the future
-xPack Project Builder (xpmake).</p>
+xPack Project Builder (xpmake).</div>
 
 <p>By that time, <code class="language-plaintext highlighter-rouge">vim</code> and <code class="language-plaintext highlighter-rouge">make</code> appeared to be my friends, but the
 experience of manually maintaining the make files turned into a
@@ -314,13 +319,13 @@ that for the design of an aviation instrument, a framework is acceptable
 if it allows to complete the design within one day. Although this
 seems rather extreme, the idea is quite valid, and has important consequences.</p>
 
-<p>The first consequence is that it promotes modular design, i.e.
+<p>The first consequence is that <strong>it promotes modular design</strong>, i.e.
 instead of do-it-all box (a kind of a <em>Swiss army knife</em> like design),
 it is better to split the design into multiple independent modules,
 each performing a specific job.</p>
 
-<p>The second consequence is that the framework should be very well
-structured, easily configurable and as light as possible, in order
+<p>The second consequence is that <strong>the framework should be very well
+structured</strong>, easily configurable and as light as possible, in order
 to run with limited resources on simple processors. By well structured
 I mean modular, object oriented design, favouring a high degree of
 code reuse, both between related projects, and between different
@@ -365,9 +370,10 @@ devices, I decided to reimplement the Z80 scheduler on the
 I had the first functional version of
 <a href="https://github.com/micro-os-plus/micro-os-plus-i">µOS++</a>.</p>
 
-<p>Although the initial version ran
+<div class="alert alert-info" role="alert">
+<i class="fa fa-info-circle"></i> <b>Note:</b> Although the initial version ran
 only on AVR8, the design was modular
-and portable from the very beginning.</p>
+and portable from the very beginning.</div>
 
 <p>Central to the µOS++ design was the scheduler and the low-level
 synchronisation primitives. Based on my previous Unix experience,
@@ -393,24 +399,25 @@ embedded toolchains was not available.</p>
 which looked very promising, given how ease it is to implement the
 context switching code and the scheduler timer.</p>
 
-<p>The GNU ARM Eclipse was born,
+<div class="alert alert-info" role="alert">
+<i class="fa fa-info-circle"></i> <b>Note:</b> The GNU ARM Eclipse was born,
 as a solution that greatly simplified
 the build process for µOS++, given the CDT managed build system,
-which automatically generated the <strong>make</strong> files.</p>
+which automatically generated the make files.</div>
 
 <h3 id="the-testing-dead-end">The testing dead-end</h3>
 
 <p>The initial enthusiasm of using Eclipse for building µOS++ applications
 was soon
-shaded by the difficulties of building and running tests in a scriptable
-environment.</p>
+shaded by <strong>the difficulties of building and running tests in a scriptable
+environment</strong>.</p>
 
 <p>It must be mentioned that Eclipse CDT advertises a way of
 running headless builds, but it proved unreliable, so the only
 way of running test was manually, as regular Eclipse projects, which
 was very inconvenient.</p>
 
-<h3 id="the-arm-cortex-m3-port">The ARM Cortex M3 port</h3>
+<h3 id="the-arm-cortex-m3-preliminary-port">The ARM Cortex M3 preliminary port</h3>
 
 <p>In 2009 the µOS++ was easily ported to
 <a href="https://en.wikipedia.org/wiki/ARM_Cortex-M">ARM Cortex M3</a>,
@@ -461,9 +468,10 @@ was implemented on the macOS synthetic platform.</p>
 hosted in the SourceForge project web space, then moved to a private
 domain due to major SourceForge shortcomings.</p>
 
-<p>The experience with the XCDL component
+<div class="alert alert-info" role="alert">
+<i class="fa fa-info-circle"></i> <b>Note:</b> The experience with the XCDL component
 based configuration and build
-system was considered a success, and it validated the concept.</p>
+system was considered a success, and it validated the concept.</div>
 
 <p>The major weakness was the limitation introduced by
 having the build configuration metadata as a Python code:
@@ -479,7 +487,7 @@ development boards.</p>
 
 <h3 id="functional-full-version">Functional full version</h3>
 
-<p>The project grew steadily, with the scheduler running on STM32Fx
+<p>The project grew steadily, with the scheduler running on most STM32Fx
 cores (in pre-emptive mode), and on synthetic POSIX platforms
 (OS X and GNU/Linux, in cooperative mode). The sources compiled
 without warnings on GCC 4.7, GCC 4.8 and LLVM clang 3.2/3.3,
@@ -489,7 +497,7 @@ on OS X and Ubuntu.</p>
 <p>The repository increased steadily, and in October 2013 it numbered
 more than 700 files, with more than 150K lines.</p>
 
-<p>Acknowledging the need for a better Eclipse integration, in Oct. 2013
+<p>Acknowledging the need for a better Eclipse integration, in October 2013
 the development was temporarily interrupted, with focus changed to
 GNU ARM Eclipse plug-ins, later rebranded as the
 <a href="https://eclipse-embed-cdt.github.io">Eclipse Embedded CDT</a>.</p>
@@ -530,10 +538,11 @@ on physical hardware.</p>
 <p>But, as the number of tests and their complexity grew,
 the problem of automating these test became worse and worse.</p>
 
-<p>I ended with the tests split
+<div class="alert alert-info" role="alert">
+<i class="fa fa-info-circle"></i> <b>Note:</b> I ended with the tests split
 across multiple projects, each with multiple
 Eclipse projects, each with different prerequisites and workflows to build
-and invoke the tests, up to the point when everything became un-manageable.</p>
+and invoke the tests, up to the point when everything became un-manageable.</div>
 
 <h3 id="the-xcdl-packages-and-the-migration-to-github">The XCDL packages and the migration to GitHub</h3>
 
@@ -575,8 +584,10 @@ use the repository for non-JavaScript packages; he replied that unless
 I do something really stupid like storing my photo library there,
 nobody will chase down my packages.</p>
 
-<p>This was a very kind answer, and it was the turning point
-in the xPack project, which became part of the node/npm ecosystem.</p>
+<div class="alert alert-info" role="alert">
+<i class="fa fa-info-circle"></i> <b>Note:</b> This was a very kind answer,
+and it was the turning point
+in the xPack project, which became part of the node/npm ecosystem.</div>
 
 <p>On April 2017 the first release of <strong>xpm</strong> was ready, and packages
 managed by it were named <strong>xPacks</strong>.</p>
@@ -592,9 +603,10 @@ versions of the same
 toolchain, and these tools can also be defined as <code class="language-plaintext highlighter-rouge">devDependencies</code>
 (development dependencies).</p>
 
-<p><strong>xpm</strong> was extended to install
+<div class="alert alert-info" role="alert">
+<i class="fa fa-info-circle"></i> <b>Note:</b> <strong>xpm</strong> was extended to install
 binary packages, and a new class of tools was created as
-<a href="https://github.com/xpack-dev-tools/">xPack 3rd Party Development Tools</a>.</p>
+<a href="https://github.com/xpack-dev-tools/">xPack 3rd Party Development Tools</a>.</div>
 
 <h3 id="the-xpack-build-box-xbb-nightmare">The xPack Build Box (XBB) nightmare</h3>
 
@@ -635,15 +647,16 @@ tools were installed with <strong>xpm</strong> as existing binary xPacks.</p>
 proved two things:</p>
 
 <ul>
-  <li>that the technology is standalone with the newer versions of the tools
+  <li>that <strong>the technology is standalone</strong> with the newer versions of the tools
 being built with existing xPacks</li>
-  <li>that the <strong>xpm</strong> workflow is generic enough to be usable not only for
+  <li>that the <strong>xpm</strong> workflow is <strong>generic enough</strong> to be usable not only for
 small embedded projects, but for complex tools, like compilers.</li>
 </ul>
 
-<p>With this, the problem of
+<div class="alert alert-info" role="alert">
+<i class="fa fa-info-circle"></i> <b>Note:</b> With this, the problem of
 binary dependencies required for
-µOS++ was considered solved.</p>
+µOS++ was considered solved.</div>
 
 <h3 id="µtest---a-lightweight-testing-framework-for-embedded-platforms">µTest++ - a lightweight testing framework for embedded platforms</h3>
 
@@ -685,8 +698,9 @@ QEMU.</p>
 a site generated by Doxygen and a custom CSS theme, resulting in a
 nice <a href="https://micro-os-plus.github.io/utils-lists-xpack/">web site</a>.</p>
 
-<p>This was finally in line with the
-expectations, and validated again the concept.</p>
+<div class="alert alert-info" role="alert">
+<i class="fa fa-info-circle"></i> <b>Note:</b> This was finally in line with the
+expectations, and validated again the concept.</div>
 
 <h3 id="to-be-continued">To be continued</h3>
 
