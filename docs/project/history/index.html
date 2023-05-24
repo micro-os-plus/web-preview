@@ -241,7 +241,7 @@
 <h1 class="page-title">Project history</h1>
 <table id="last-modified">
   <tr>
-    <td id="last-modified">Last modified on Wed May 24 11:13:22 2023 UTC.</td>
+    <td id="last-modified">Last modified on Wed May 24 11:34:48 2023 UTC.</td>
     <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/web-jekyll/edit/master/pages/project/history.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
@@ -565,13 +565,14 @@ on the emulated STM32F4DISCOVERY, and only a very small were performed
 on physical hardware.</p>
 
 <p>But, as the number of tests and their complexity grew,
-the problem of automating these test became more and more critical.</p>
+the problem of automating these tests became more and more critical.</p>
 
 <div class="alert alert-info" role="alert">
 <i class="fa fa-info-circle"></i> <b>Note:</b> I ended with the tests split
 across multiple projects, each with multiple
 Eclipse projects, each with different prerequisites and workflows to build
-and invoke the tests, up to the point when everything became un-manageable.</div>
+and invoke the tests, up to the point when everything became
+un-manageable.</div>
 
 <h3 id="the-xcdl-packages-and-the-migration-to-github">The XCDL packages and the migration to GitHub</h3>
 
@@ -583,8 +584,8 @@ and in late 2015 the first XCDL packs format based on yotta were tested.</p>
 <p>In December 2015 the project was migrated to GitHub and restructured as
 XCDL packs, stored as separate sub-projects.</p>
 
-<p>Unfortunately yotta was later abandoned by Arm, and another solution was
-needed.</p>
+<p>Later Arm decided to discontinue development for yotta,
+and another solution was needed.</p>
 
 <h3 id="cmsis">CMSIS++</h3>
 
@@ -644,23 +645,27 @@ installing binary packages, and a new class of tools was created as
 
 <p>Building the multi-platform binary packages proved a very difficult
 task. The challenge was how to address the contradiction between having to
-build the very latest projects that run on very old
-versions of the corresponding operating systems (Windows, GNU/Linux
+build the <strong>very latest tools</strong> that run on <strong>very old
+versions</strong> of the corresponding operating systems (Windows, GNU/Linux
 and macOS).</p>
 
-<p>The initial solution was to start with a Docker image of an old release
+<p>The initial <a href="https://github.com/xpack/xpack-build-box">XBB</a>
+solution was to start with a Docker image of an old release
 (Ubuntu 12, to also provide support for RedHat 7), and compile from
 sources the required new versions of the compilers and other
 development tools.
-Unfortunately this was not possible directly, and an extra step was needed,
-to compile a bootstrap with some slightly older versions, and with them
+Unfortunately this was not always possible directly,
+and an extra step was needed,
+to compile a bootstrap set of tools with some slightly older versions,
+and with them
 to compile the most recent versions.</p>
 
 <p>This got more and more complicated, and the Docker image grew to
 4-5 GB; the builds took many hours to complete,
 especially for the Raspberry Pi OS images.</p>
 
-<p>The solution was functional, it allowed to build all GCC toolchains,
+<p>The solution was functional, it eventually allowed to build all GCC
+toolchains,
 native and cross for Arm &amp; RISC-V, but maintenance for the Docker
 images was close to <em>mission impossible</em>; after the second
 release it was evident that this is a dead end and a
