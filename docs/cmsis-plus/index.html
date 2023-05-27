@@ -9,10 +9,10 @@
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>CMSIS++</title>
+  <title>APIs</title>
   <meta name="description" content="The third edition of µOS++, a POSIX inspired open source framework, written in C++.">
 
-  <meta property="og:title" content="CMSIS++" />
+  <meta property="og:title" content="APIs" />
   <meta property="og:site_name" content="µOS++" />
 
   <link rel="alternate" type="application/rss+xml" title="µOS++" href="/web-preview/feed.xml" />
@@ -238,54 +238,72 @@
       <div class="site-content">
 
         
-<h1 class="page-title">CMSIS++</h1>
+<h1 class="page-title">APIs</h1>
 <table id="last-modified">
   <tr>
-    <td id="last-modified">Last modified on Fri May 26 19:45:49 2023 UTC.</td>
+    <td id="last-modified">Last modified on Sat May 27 17:14:37 2023 UTC.</td>
     <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/web-jekyll/edit/master/pages/cmsis-plus/overview.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
 
 <h2 id="overview">Overview</h2>
 
-<p><strong>CMSIS++</strong> is a portable, vendor-independent hardware abstraction layer intended for embedded applications, but designed with special consideration for the industry standard ARM Cortex-M processor series.</p>
-
-<p>The original ARM Keil name stands for <strong>Cortex Microcontroller Software Interface Standard</strong>, and the CMSIS++ design inherits the good things from ARM CMSIS but goes one step further into the world of C++; it is not a C++ wrapper on top of ARM CMSIS, but <strong>a completely new design in C++</strong>, with several C APIs as wrappers on top of the native C++ APIs.</p>
+<p>The µOS++ APIs implement a portable, vendor-independent hardware abstraction
+layer intended for embedded applications, but designed with special
+consideration for the industry standard ARM Cortex-M processor series.</p>
 
 <h2 id="components">Components</h2>
 
-<p>The CMSIS++ components are:</p>
+<p>The µOS++ components are:</p>
 
 <ul>
   <li>
-<strong>CMSIS++ Core</strong> - C++ API and implementation for the Cortex-M processors core and peripherals;</li>
+<strong>µOS++ Core</strong> - C++ API and implementation for the Cortex-M processors core and peripherals;</li>
   <li>
-<strong>CMSIS++ Startup</strong> - portable C/C++ API and implementation for the processor startup code, replacing non-portable vendor assembly code;</li>
+<strong>µOS++ Startup</strong> - portable C/C++ API and implementation for the processor startup code, replacing non-portable vendor assembly code;</li>
   <li>
-<a href="/web-preview/cmsis-plus/rtos/"><strong>CMSIS++ RTOS APIs</strong></a> - a collection of C++ and C APIs for Real-Time operating systems, based on a POSIX inspired C++ layer;</li>
+<a href="/web-preview/cmsis-plus/rtos/"><strong>µOS++ RTOS APIs</strong></a> - a collection of C++ and C APIs for Real-Time operating systems, based on a POSIX inspired C++ layer;</li>
   <li>
-<strong>CMSIS++ ISO Standard Threads</strong> - an implementation of the <strong>C++ Standard ISO/IEC 14882:2011(E)</strong> Thread library, on top of the CMSIS++ RTOS threads;</li>
+<strong>µOS++ ISO Standard Threads</strong> - an implementation of the <strong>C++ Standard ISO/IEC 14882:2011(E)</strong> Thread library, on top of the µOS++ RTOS threads;</li>
   <li>
-<strong>CMSIS++ Drivers</strong> - defines generic peripheral driver interfaces for middleware making it reusable across supported devices</li>
+<strong>µOS++ Drivers</strong> - defines generic peripheral driver interfaces for middleware making it reusable across supported devices</li>
   <li>
-<strong>CMSIS++ POSIX I/O</strong> - a compatibility layer bringing together access to terminal devices, files and sockets, via a unified and standard API;</li>
+<strong>µOS++ POSIX I/O</strong> - a compatibility layer bringing together access to terminal devices, files and sockets, via a unified and standard API;</li>
   <li>
-<strong>CMSIS++ Diagnostics</strong> - a C++/C API providing support for diagnostics and instrumentation.</li>
+<strong>µOS++ Diagnostics</strong> - a C++/C API providing support for diagnostics and instrumentation.</li>
 </ul>
 
 <h2 id="portability">Portability</h2>
 
-<p>Although designed with both the 32-bits Cortex-M architectures and the <code class="language-plaintext highlighter-rouge">arm-none-eabi-gcc</code> compiler in mind, most CMSIS++ components are highly portable and can be compiled with any ISO C++ 11 compiler for other platforms too, for example the CMSIS++ RTOS can run on 64-bits Intel based POSIX desktops, greatly improving components testability.</p>
+<p>Although designed with both the 32-bits Cortex-M architectures and the
+<code class="language-plaintext highlighter-rouge">arm-none-eabi-gcc</code> compiler in mind, most µOS++ components are highly
+portable and can be compiled with any ISO C++ 11 compiler for other
+platforms too, for example the µOS++ RTOS can run on 64-bits Intel
+based POSIX desktops, greatly improving components testability.</p>
 
 <h2 id="motivation">Motivation</h2>
 
-<p>CMSIS++ was created both as a proposal for a future CMSIS, and to overcome the limitations/problems of the current CMSIS design, among them the lack of proper C++ support.</p>
+<p>In µOS++ IIIe, the APIs were called CMSIS++, which were created
+both as a proposal for a future CMSIS, and to overcome the
+limitations/problems of the current CMSIS design, among them
+the lack of proper C++ support.</p>
+
+<p>The original ARM Keil name stands for <strong>Cortex Microcontroller Software
+Interface Standard</strong>, and the CMSIS++ design inherits the good things
+from ARM CMSIS but goes one step further into the world of C++;
+it is not a C++ wrapper on top of ARM CMSIS, but <strong>a completely
+new design in C++</strong>, with several C APIs as wrappers on top of
+the native C++ APIs.</p>
+
+<p>In µOS++ IVe, the name CMSIS was dropped.</p>
 
 <h2 id="license">License</h2>
 
-<p><strong>CMSIS++</strong> is provided <strong>free of charge</strong> under the terms of the <a href="https://opensource.org/licenses/MIT">MIT License</a>.</p>
+<p>The <strong>µOS++ APIs</strong> are provided <strong>free of charge</strong> under the terms
+of the <a href="https://opensource.org/licenses/MIT">MIT License</a>.</p>
 
-<p>This means you can use CMSIS++ in any commercial or open source projects without any limitations except preserving the included copyright notice.</p>
+<p>This means you can use µOS++ in any commercial or open source projects
+without any limitations except preserving the included copyright notice.</p>
 
 
 
