@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>µOS++ IIIe Reference: Cmsis-plus-rtos-c-mqueue</title>
+<title>µOS++ IIIe Reference: Message queues</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -120,9 +120,12 @@ $(document).ready(function(){initNavTree('group__cmsis-plus-rtos-c-mqueue.html',
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#typedef-members">Typedefs</a>  </div>
-  <div class="headertitle"><div class="title">Cmsis-plus-rtos-c-mqueue</div></div>
+  <div class="headertitle"><div class="title">Message queues<div class="ingroups"><a class="el" href="group__cmsis-plus-rtos-c.html">µOS++ RTOS C API</a></div></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>C API message queue definitions.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -212,7 +215,118 @@ Typedefs</h2></td></tr>
 <tr class="separator:ga48ed9e8034722d9653c044902146314d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<h2 class="groupheader">Macro Definition Documentation</h2>
+<p>C API message queue definitions. </p>
+<dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="group__cmsis-plus-rtos-mqueue.html">RTOS C++ API</a></dd></dl>
+<dl class="section user"><dt>Examples</dt><dd></dd></dl>
+<div class="fragment"><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct </span>my_msg_s</div>
+<div class="line">{</div>
+<div class="line">  <span class="keywordtype">int</span> i;</div>
+<div class="line">  <span class="keyword">const</span> <span class="keywordtype">char</span>* s;</div>
+<div class="line">} my_msg_t;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span></div>
+<div class="line"><a class="code hl_function" href="group__cmsis-plus-rtos-c.html#gadc9fe392fc6245784eb029f4eecfb8dd">os_main</a> (<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[])</div>
+<div class="line">{</div>
+<div class="line">  <span class="comment">// Define two messages.</span></div>
+<div class="line"> </div>
+<div class="line">  my_msg_t msg_out =</div>
+<div class="line">    { 1, <span class="stringliteral">&quot;msg&quot;</span> };</div>
+<div class="line"> </div>
+<div class="line">  my_msg_t msg_in =</div>
+<div class="line">    { 0, NULL };</div>
+<div class="line"> </div>
+<div class="line">    {</div>
+<div class="line">      <span class="comment">// Simple queues, dynamically allocated.</span></div>
+<div class="line">      <a class="code hl_struct" href="structos__mqueue__s.html">os_mqueue_t</a> q1;</div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-mqueue.html#gadaf0ae083a0f5e576151f59e565e649b">os_mqueue_construct</a> (&amp;q1, <span class="stringliteral">&quot;q1&quot;</span>, 3, <span class="keyword">sizeof</span>(my_msg_t), NULL);</div>
+<div class="line"> </div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-mqueue.html#ga8d691ce11056e2f4b8eab17e453c6514">os_mqueue_send</a> (&amp;q1, &amp;msg_out, <span class="keyword">sizeof</span>(msg_out), 0);</div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-mqueue.html#gadbec2a2601a5e12b388779ca2e299180">os_mqueue_try_send</a> (&amp;q1, &amp;msg_out, <span class="keyword">sizeof</span>(msg_out), 0);</div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-mqueue.html#ga4278e6183698acb405af8942ac616c26">os_mqueue_timed_send</a> (&amp;q1, &amp;msg_out, 1, <span class="keyword">sizeof</span>(msg_out), 0);</div>
+<div class="line"> </div>
+<div class="line">      msg_in.i = 0;</div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-mqueue.html#ga4f91ec0e916252c864d04424fcdf2135">os_mqueue_receive</a> (&amp;q1, &amp;msg_in, <span class="keyword">sizeof</span>(msg_in), NULL);</div>
+<div class="line">      assert(msg_in.i = 1);</div>
+<div class="line"> </div>
+<div class="line">      msg_in.i = 0;</div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-mqueue.html#ga5f2526c8f6cc1f674a57f4beaa0746a3">os_mqueue_try_receive</a> (&amp;q1, &amp;msg_in, <span class="keyword">sizeof</span>(msg_in), NULL);</div>
+<div class="line">      assert(msg_in.i = 1);</div>
+<div class="line"> </div>
+<div class="line">      msg_in.i = 0;</div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-mqueue.html#gae361b4367687eb36f89fbc18bf2b140a">os_mqueue_timed_receive</a> (&amp;q1, &amp;msg_in, <span class="keyword">sizeof</span>(msg_in), 1, NULL);</div>
+<div class="line">      assert(msg_in.i = 1);</div>
+<div class="line"> </div>
+<div class="line">      <span class="keyword">const</span> <span class="keywordtype">char</span>* str;</div>
+<div class="line">      <span class="keywordtype">size_t</span> n;</div>
+<div class="line"> </div>
+<div class="line">      str = <a class="code hl_function" href="group__cmsis-plus-rtos-c-mqueue.html#ga73ec6a178e5e98b3578896b3d24968d1">os_mqueue_get_name</a> (&amp;q1);</div>
+<div class="line">      assert(strcmp (str, <span class="stringliteral">&quot;q1&quot;</span>) == 0);</div>
+<div class="line"> </div>
+<div class="line">      n = <a class="code hl_function" href="group__cmsis-plus-rtos-c-mqueue.html#gac360b4f6af0b1e13e34dd88eefc946d5">os_mqueue_get_capacity</a> (&amp;q1);</div>
+<div class="line">      assert(n == 3);</div>
+<div class="line"> </div>
+<div class="line">      n = <a class="code hl_function" href="group__cmsis-plus-rtos-c-mqueue.html#gacb4df8da201aa2eb3314579a364ecffe">os_mqueue_get_length</a> (&amp;q1);</div>
+<div class="line">      assert(n == 0);</div>
+<div class="line"> </div>
+<div class="line">      n = <a class="code hl_function" href="group__cmsis-plus-rtos-c-mqueue.html#ga6500e80629a3f314ab2ddecae91c9a74">os_mqueue_get_msg_size</a> (&amp;q1);</div>
+<div class="line">      assert(n == <span class="keyword">sizeof</span>(my_msg_t));</div>
+<div class="line"> </div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-mqueue.html#ga6cab462108e26fa0667760039da04984">os_mqueue_is_empty</a> (&amp;q1);</div>
+<div class="line"> </div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-mqueue.html#ga36a1e27b730f1de7bde769d11c6cdfee">os_mqueue_is_full</a> (&amp;q1);</div>
+<div class="line"> </div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-mqueue.html#ga38dc0ae6f453003aaa116711d67e5d2a">os_mqueue_reset</a> (&amp;q1);</div>
+<div class="line"> </div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-mqueue.html#ga9d9f49aed2600113d28efff356384a53">os_mqueue_destruct</a> (&amp;q1);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    {</div>
+<div class="line">      <span class="comment">// Static queue.</span></div>
+<div class="line">      <span class="comment">// TODO: add macro to compute size.</span></div>
+<div class="line">      <span class="keyword">static</span> <span class="keywordtype">char</span> queue[1000];</div>
+<div class="line"> </div>
+<div class="line">      <a class="code hl_struct" href="structos__mqueue__attr__s.html">os_mqueue_attr_t</a> aq2;</div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-mqueue.html#gacf186011670e62d81b5ef52054fd0a65">os_mqueue_attr_init</a> (&amp;aq2);</div>
+<div class="line">      aq2.<a class="code hl_variable" href="structos__mqueue__attr__s.html#a8c47ee942c59a4fa0c95134c13490e43">mq_queue_addr</a> = queue;</div>
+<div class="line">      aq2.<a class="code hl_variable" href="structos__mqueue__attr__s.html#af00dbae4fcf07a05b5b7bf4ab45e349f">mq_queue_size_bytes</a> = <span class="keyword">sizeof</span>(queue);</div>
+<div class="line">      aq2.<a class="code hl_variable" href="structos__mqueue__attr__s.html#acc5e683ac2e94c6b1a1715cff110838c">clock</a> = <a class="code hl_function" href="group__cmsis-plus-rtos-c-clock.html#gabf8b0ef6a0a90eeaca0c5a9cfb3734fd">os_clock_get_rtclock</a> ();</div>
+<div class="line"> </div>
+<div class="line">      <a class="code hl_struct" href="structos__mqueue__s.html">os_mqueue_t</a> q2;</div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-mqueue.html#gadaf0ae083a0f5e576151f59e565e649b">os_mqueue_construct</a> (&amp;q2, <span class="stringliteral">&quot;q2&quot;</span>, 3, <span class="keyword">sizeof</span>(my_msg_t), &amp;aq2);</div>
+<div class="line"> </div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-mqueue.html#ga8d691ce11056e2f4b8eab17e453c6514">os_mqueue_send</a> (&amp;q2, &amp;msg_out, <span class="keyword">sizeof</span>(msg_out), 0);</div>
+<div class="line"> </div>
+<div class="line">      msg_in.i = 0;</div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-mqueue.html#ga4f91ec0e916252c864d04424fcdf2135">os_mqueue_receive</a> (&amp;q2, &amp;msg_in, <span class="keyword">sizeof</span>(msg_in), NULL);</div>
+<div class="line">      assert(msg_in.i = 1);</div>
+<div class="line"> </div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-mqueue.html#ga9d9f49aed2600113d28efff356384a53">os_mqueue_destruct</a> (&amp;q2);</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-clock_html_gabf8b0ef6a0a90eeaca0c5a9cfb3734fd"><div class="ttname"><a href="group__cmsis-plus-rtos-c-clock.html#gabf8b0ef6a0a90eeaca0c5a9cfb3734fd">os_clock_get_rtclock</a></div><div class="ttdeci">os_clock_t * os_clock_get_rtclock(void)</div><div class="ttdoc">Get rtclock (the real-time clock).</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l01296">os-c-wrapper.cpp:1296</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-mqueue_html_ga36a1e27b730f1de7bde769d11c6cdfee"><div class="ttname"><a href="group__cmsis-plus-rtos-c-mqueue.html#ga36a1e27b730f1de7bde769d11c6cdfee">os_mqueue_is_full</a></div><div class="ttdeci">bool os_mqueue_is_full(os_mqueue_t *mqueue)</div><div class="ttdoc">Check if the queue is full.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l03062">os-c-wrapper.cpp:3062</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-mqueue_html_ga38dc0ae6f453003aaa116711d67e5d2a"><div class="ttname"><a href="group__cmsis-plus-rtos-c-mqueue.html#ga38dc0ae6f453003aaa116711d67e5d2a">os_mqueue_reset</a></div><div class="ttdeci">os_result_t os_mqueue_reset(os_mqueue_t *mqueue)</div><div class="ttdoc">Reset the message queue.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l03077">os-c-wrapper.cpp:3077</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-mqueue_html_ga4278e6183698acb405af8942ac616c26"><div class="ttname"><a href="group__cmsis-plus-rtos-c-mqueue.html#ga4278e6183698acb405af8942ac616c26">os_mqueue_timed_send</a></div><div class="ttdeci">os_result_t os_mqueue_timed_send(os_mqueue_t *mqueue, const void *msg, size_t nbytes, os_clock_duration_t timeout, os_mqueue_prio_t mprio)</div><div class="ttdoc">Send a message to the queue with timeout.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l02934">os-c-wrapper.cpp:2934</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-mqueue_html_ga4f91ec0e916252c864d04424fcdf2135"><div class="ttname"><a href="group__cmsis-plus-rtos-c-mqueue.html#ga4f91ec0e916252c864d04424fcdf2135">os_mqueue_receive</a></div><div class="ttdeci">os_result_t os_mqueue_receive(os_mqueue_t *mqueue, void *msg, size_t nbytes, os_mqueue_prio_t *mprio)</div><div class="ttdoc">Receive a message from the queue.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l02951">os-c-wrapper.cpp:2951</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-mqueue_html_ga5f2526c8f6cc1f674a57f4beaa0746a3"><div class="ttname"><a href="group__cmsis-plus-rtos-c-mqueue.html#ga5f2526c8f6cc1f674a57f4beaa0746a3">os_mqueue_try_receive</a></div><div class="ttdeci">os_result_t os_mqueue_try_receive(os_mqueue_t *mqueue, void *msg, size_t nbytes, os_mqueue_prio_t *mprio)</div><div class="ttdoc">Try to receive a message from the queue.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l02968">os-c-wrapper.cpp:2968</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-mqueue_html_ga6500e80629a3f314ab2ddecae91c9a74"><div class="ttname"><a href="group__cmsis-plus-rtos-c-mqueue.html#ga6500e80629a3f314ab2ddecae91c9a74">os_mqueue_get_msg_size</a></div><div class="ttdeci">size_t os_mqueue_get_msg_size(os_mqueue_t *mqueue)</div><div class="ttdoc">Get message size.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l03032">os-c-wrapper.cpp:3032</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-mqueue_html_ga6cab462108e26fa0667760039da04984"><div class="ttname"><a href="group__cmsis-plus-rtos-c-mqueue.html#ga6cab462108e26fa0667760039da04984">os_mqueue_is_empty</a></div><div class="ttdeci">bool os_mqueue_is_empty(os_mqueue_t *mqueue)</div><div class="ttdoc">Check if the queue is empty.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l03047">os-c-wrapper.cpp:3047</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-mqueue_html_ga73ec6a178e5e98b3578896b3d24968d1"><div class="ttname"><a href="group__cmsis-plus-rtos-c-mqueue.html#ga73ec6a178e5e98b3578896b3d24968d1">os_mqueue_get_name</a></div><div class="ttdeci">const char * os_mqueue_get_name(os_mqueue_t *mqueue)</div><div class="ttdoc">Get the message queue name.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l02885">os-c-wrapper.cpp:2885</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-mqueue_html_ga8d691ce11056e2f4b8eab17e453c6514"><div class="ttname"><a href="group__cmsis-plus-rtos-c-mqueue.html#ga8d691ce11056e2f4b8eab17e453c6514">os_mqueue_send</a></div><div class="ttdeci">os_result_t os_mqueue_send(os_mqueue_t *mqueue, const void *msg, size_t nbytes, os_mqueue_prio_t mprio)</div><div class="ttdoc">Send a message to the queue.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l02900">os-c-wrapper.cpp:2900</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-mqueue_html_ga9d9f49aed2600113d28efff356384a53"><div class="ttname"><a href="group__cmsis-plus-rtos-c-mqueue.html#ga9d9f49aed2600113d28efff356384a53">os_mqueue_destruct</a></div><div class="ttdeci">void os_mqueue_destruct(os_mqueue_t *mqueue)</div><div class="ttdoc">Destruct the statically allocated message queue object instance.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l02823">os-c-wrapper.cpp:2823</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-mqueue_html_gac360b4f6af0b1e13e34dd88eefc946d5"><div class="ttname"><a href="group__cmsis-plus-rtos-c-mqueue.html#gac360b4f6af0b1e13e34dd88eefc946d5">os_mqueue_get_capacity</a></div><div class="ttdeci">size_t os_mqueue_get_capacity(os_mqueue_t *mqueue)</div><div class="ttdoc">Get queue capacity.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l03017">os-c-wrapper.cpp:3017</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-mqueue_html_gacb4df8da201aa2eb3314579a364ecffe"><div class="ttname"><a href="group__cmsis-plus-rtos-c-mqueue.html#gacb4df8da201aa2eb3314579a364ecffe">os_mqueue_get_length</a></div><div class="ttdeci">size_t os_mqueue_get_length(os_mqueue_t *mqueue)</div><div class="ttdoc">Get queue length.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l03002">os-c-wrapper.cpp:3002</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-mqueue_html_gacf186011670e62d81b5ef52054fd0a65"><div class="ttname"><a href="group__cmsis-plus-rtos-c-mqueue.html#gacf186011670e62d81b5ef52054fd0a65">os_mqueue_attr_init</a></div><div class="ttdeci">void os_mqueue_attr_init(os_mqueue_attr_t *attr)</div><div class="ttdoc">Initialise the message queue attributes.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l02783">os-c-wrapper.cpp:2783</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-mqueue_html_gadaf0ae083a0f5e576151f59e565e649b"><div class="ttname"><a href="group__cmsis-plus-rtos-c-mqueue.html#gadaf0ae083a0f5e576151f59e565e649b">os_mqueue_construct</a></div><div class="ttdeci">void os_mqueue_construct(os_mqueue_t *mqueue, const char *name, size_t msgs, size_t msg_size_bytes, const os_mqueue_attr_t *attr)</div><div class="ttdoc">Construct a statically allocated message queue object instance.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l02800">os-c-wrapper.cpp:2800</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-mqueue_html_gadbec2a2601a5e12b388779ca2e299180"><div class="ttname"><a href="group__cmsis-plus-rtos-c-mqueue.html#gadbec2a2601a5e12b388779ca2e299180">os_mqueue_try_send</a></div><div class="ttdeci">os_result_t os_mqueue_try_send(os_mqueue_t *mqueue, const void *msg, size_t nbytes, os_mqueue_prio_t mprio)</div><div class="ttdoc">Try to send a message to the queue.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l02917">os-c-wrapper.cpp:2917</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-mqueue_html_gae361b4367687eb36f89fbc18bf2b140a"><div class="ttname"><a href="group__cmsis-plus-rtos-c-mqueue.html#gae361b4367687eb36f89fbc18bf2b140a">os_mqueue_timed_receive</a></div><div class="ttdeci">os_result_t os_mqueue_timed_receive(os_mqueue_t *mqueue, void *msg, size_t nbytes, os_clock_duration_t timeout, os_mqueue_prio_t *mprio)</div><div class="ttdoc">Receive a message from the queue with timeout.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l02985">os-c-wrapper.cpp:2985</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c_html_gadc9fe392fc6245784eb029f4eecfb8dd"><div class="ttname"><a href="group__cmsis-plus-rtos-c.html#gadc9fe392fc6245784eb029f4eecfb8dd">os_main</a></div><div class="ttdeci">int os_main(int argc, char *argv[])</div><div class="ttdoc">Application entry point, running on the main thread context.</div></div>
+<div class="ttc" id="astructos__mqueue__attr__s_html"><div class="ttname"><a href="structos__mqueue__attr__s.html">os_mqueue_attr_s</a></div><div class="ttdoc">Message queue attributes.</div><div class="ttdef"><b>Definition</b> <a href="os-c-decls_8h_source.html#l01272">os-c-decls.h:1273</a></div></div>
+<div class="ttc" id="astructos__mqueue__attr__s_html_a8c47ee942c59a4fa0c95134c13490e43"><div class="ttname"><a href="structos__mqueue__attr__s.html#a8c47ee942c59a4fa0c95134c13490e43">os_mqueue_attr_s::mq_queue_addr</a></div><div class="ttdeci">void * mq_queue_addr</div><div class="ttdoc">Pointer to user provided message queue area.</div><div class="ttdef"><b>Definition</b> <a href="os-c-decls_8h_source.html#l01282">os-c-decls.h:1282</a></div></div>
+<div class="ttc" id="astructos__mqueue__attr__s_html_acc5e683ac2e94c6b1a1715cff110838c"><div class="ttname"><a href="structos__mqueue__attr__s.html#acc5e683ac2e94c6b1a1715cff110838c">os_mqueue_attr_s::clock</a></div><div class="ttdeci">void * clock</div><div class="ttdoc">Pointer to clock object instance.</div><div class="ttdef"><b>Definition</b> <a href="os-c-decls_8h_source.html#l01277">os-c-decls.h:1277</a></div></div>
+<div class="ttc" id="astructos__mqueue__attr__s_html_af00dbae4fcf07a05b5b7bf4ab45e349f"><div class="ttname"><a href="structos__mqueue__attr__s.html#af00dbae4fcf07a05b5b7bf4ab45e349f">os_mqueue_attr_s::mq_queue_size_bytes</a></div><div class="ttdeci">size_t mq_queue_size_bytes</div><div class="ttdoc">Size of user provided message queue area, in bytes.</div><div class="ttdef"><b>Definition</b> <a href="os-c-decls_8h_source.html#l01287">os-c-decls.h:1287</a></div></div>
+<div class="ttc" id="astructos__mqueue__s_html"><div class="ttname"><a href="structos__mqueue__s.html">os_mqueue_s</a></div><div class="ttdoc">Message queue object storage.</div><div class="ttdef"><b>Definition</b> <a href="os-c-decls_8h_source.html#l01307">os-c-decls.h:1308</a></div></div>
+</div><!-- fragment --> <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="gadabaa5e947dd10ea719a1197dbab6e30" name="gadabaa5e947dd10ea719a1197dbab6e30"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gadabaa5e947dd10ea719a1197dbab6e30">&#9670;&#160;</a></span>os_mqueue_create</h2>
 
@@ -277,7 +391,7 @@ Typedefs</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Type of variables holding message queue priorities. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classos_1_1rtos_1_1message__queue.html#a26895a3c081fd319cb199d21c4028963" title="Type of message priority storage.">os::rtos::message_queue::priority_t</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__cmsis-plus-rtos-mqueue.html#ga26895a3c081fd319cb199d21c4028963" title="Type of message priority storage.">os::rtos::message_queue::priority_t</a> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="os-c-decls_8h_source.html#l01257">1257</a> of file <a class="el" href="os-c-decls_8h_source.html">os-c-decls.h</a>.</p>
 
@@ -331,7 +445,7 @@ Typedefs</h2></td></tr>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1message__queue_1_1attributes.html">os::rtos::message_queue::attributes</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02778">2778</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02783">2783</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -395,7 +509,7 @@ Typedefs</h2></td></tr>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1message__queue.html">os::rtos::message_queue</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02795">2795</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02800">2800</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -430,7 +544,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-mqueue.ht
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1message__queue.html">os::rtos::message_queue</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02865">2865</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02870">2870</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -462,7 +576,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-mqueue.ht
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1message__queue.html">os::rtos::message_queue</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02818">2818</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02823">2823</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -493,7 +607,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-mqueue.ht
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1message__queue.html#a85da06274f41b80a70e1b5f6b66b500d">os::rtos::message_queue::capacity()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03012">3012</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03017">3017</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -524,7 +638,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-mqueue.ht
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1message__queue.html#ab60e307a8edaea0a64c5c3c802b357fa">os::rtos::message_queue::length()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02997">2997</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03002">3002</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -555,7 +669,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-mqueue.ht
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1message__queue.html#a86a8dba78a5ba02a6db92c2cc9fc7522">os::rtos::message_queue::msg_size()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03027">3027</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03032">3032</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -586,7 +700,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-mqueue.ht
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1internal_1_1object__named.html#a3103a84c5e0521c3639306f5879526ba">os::rtos::message_queue::name()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02880">2880</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02885">2885</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -623,7 +737,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-mqueue.ht
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1message__queue.html#a0145aac56af62f96ab7a3468ea403398">os::rtos::message_queue::empty()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03042">3042</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03047">3047</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -660,7 +774,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-mqueue.ht
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1message__queue.html#aa611395d28f653ba8862834b1f077658">os::rtos::message_queue::full()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03057">3057</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03062">3062</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -720,7 +834,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-mqueue.ht
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1message__queue.html">os::rtos::message_queue</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02839">2839</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02844">2844</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -787,7 +901,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-mqueue.ht
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1message__queue.html#a0a1a56c91c116aeedcc0a6da9f09ee7d">os::rtos::message_queue::receive()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02946">2946</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02951">2951</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -824,7 +938,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-mqueue.ht
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1message__queue.html#a0e1d0aff24922dc2dccc4f150f65e78c">os::rtos::message_queue::reset()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03072">3072</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03077">3077</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -890,7 +1004,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-mqueue.ht
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1message__queue.html#a3e6feb26468955f0eef1251a94f04091">os::rtos::message_queue::send()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02895">2895</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02900">2900</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -965,7 +1079,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-mqueue.ht
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1message__queue.html#a6a86c028b46b689fbc50a035639200ba">os::rtos::message_queue::timed_receive()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02980">2980</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02985">2985</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -1039,7 +1153,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-mqueue.ht
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1message__queue.html#a8bea78cd3cc3a5b6111f841bb049e668">os::rtos::message_queue::timed_send()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02929">2929</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02934">2934</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -1105,7 +1219,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-mqueue.ht
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1message__queue.html#a22bd67fcd9fce69ba35179d0c9be10fe">os::rtos::message_queue::try_receive()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02963">2963</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02968">2968</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -1170,7 +1284,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-mqueue.ht
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1message__queue.html#a19cb3d7014f09cc497a953e9052b7b57">os::rtos::message_queue::try_send()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02912">2912</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02917">2917</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>

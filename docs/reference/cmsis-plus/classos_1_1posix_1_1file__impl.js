@@ -1,7 +1,7 @@
 var classos_1_1posix_1_1file__impl =
 [
     [ "file_impl", "classos_1_1posix_1_1file__impl.html#acb20320f1e7e6c49e56829a5110b0e40", null ],
-    [ "~file_impl", "classos_1_1posix_1_1file__impl.html#a0f8e0abf00cb2db19e2f4cceb883767d", null ],
+    [ "~file_impl", "classos_1_1posix_1_1file__impl.html#a0a2564cab068f5ba633960361a3e935b", null ],
     [ "do_close", "classos_1_1posix_1_1file__impl.html#a7f39b18c6364a0bf495c9a774017ae8e", null ],
     [ "do_deallocate", "classos_1_1posix_1_1file__impl.html#ade2f4b94ac22a4897daab3617a588383", null ],
     [ "do_fstat", "classos_1_1posix_1_1file__impl.html#afcd653fb293a373fc0a1dc47dbc2a47d", null ],

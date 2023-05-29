@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>µOS++ IIIe Reference: Cmsis-plus-rtos-c-evflag</title>
+<title>µOS++ IIIe Reference: Event flags</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -120,9 +120,12 @@ $(document).ready(function(){initNavTree('group__cmsis-plus-rtos-c-evflag.html',
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#typedef-members">Typedefs</a>  </div>
-  <div class="headertitle"><div class="title">Cmsis-plus-rtos-c-evflag</div></div>
+  <div class="headertitle"><div class="title">Event flags<div class="ingroups"><a class="el" href="group__cmsis-plus-rtos-c.html">µOS++ RTOS C API</a></div></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>C API event flags definitions.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -194,7 +197,69 @@ Typedefs</h2></td></tr>
 <tr class="separator:ga8edeaa6dfaa34b7deb0fd3e7d0a42ad7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<h2 class="groupheader">Macro Definition Documentation</h2>
+<p>C API event flags definitions. </p>
+<dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="group__cmsis-plus-rtos-evflag.html">RTOS C++ API</a></dd></dl>
+<dl class="section user"><dt>Examples</dt><dd></dd></dl>
+<div class="fragment"><div class="line"><span class="keywordtype">int</span></div>
+<div class="line"><a class="code hl_function" href="group__cmsis-plus-rtos-c.html#gadc9fe392fc6245784eb029f4eecfb8dd">os_main</a> (<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[])</div>
+<div class="line">{</div>
+<div class="line">    {</div>
+<div class="line">      <a class="code hl_struct" href="structos__evflags__s.html">os_evflags_t</a> ev1;</div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-evflag.html#gafca47ca194f528f6f79bd03d0a5a1f37">os_evflags_construct</a> (&amp;ev1, <span class="stringliteral">&quot;ev1&quot;</span>, NULL);</div>
+<div class="line"> </div>
+<div class="line">      <span class="comment">// Clear all flags.</span></div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-evflag.html#ga137aa53f9bbafc4ebad98aba9dd60773">os_evflags_clear</a> (&amp;ev1, 0x0, NULL);</div>
+<div class="line"> </div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-evflag.html#ga97066c5899b89835018a531ebb3c9384">os_evflags_raise</a> (&amp;ev1, 0x1, NULL);</div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-evflag.html#ga3f136b430309c3ad86ab88b193e02c28">os_evflags_wait</a> (&amp;ev1, 0x1, NULL,</div>
+<div class="line">                       <a class="code hl_enumvalue" href="group__cmsis-plus-rtos-c-core.html#ggabc6126af1d45847bc59afa0aa3216b04ae750ae8ecd6f4d8a260e8260717edb13">os_flags_mode_all</a> | <a class="code hl_enumvalue" href="group__cmsis-plus-rtos-c-core.html#ggabc6126af1d45847bc59afa0aa3216b04a4cc5c722c75c3f296025f7b542282d48">os_flags_mode_clear</a>);</div>
+<div class="line"> </div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-evflag.html#ga97066c5899b89835018a531ebb3c9384">os_evflags_raise</a> (&amp;ev1, 0x1, NULL);</div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-evflag.html#ga123ac596c6544709c48f93866afd52d3">os_evflags_try_wait</a> (&amp;ev1, 0x1, NULL,</div>
+<div class="line">                           <a class="code hl_enumvalue" href="group__cmsis-plus-rtos-c-core.html#ggabc6126af1d45847bc59afa0aa3216b04ae750ae8ecd6f4d8a260e8260717edb13">os_flags_mode_all</a> | <a class="code hl_enumvalue" href="group__cmsis-plus-rtos-c-core.html#ggabc6126af1d45847bc59afa0aa3216b04a4cc5c722c75c3f296025f7b542282d48">os_flags_mode_clear</a>);</div>
+<div class="line"> </div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-evflag.html#ga97066c5899b89835018a531ebb3c9384">os_evflags_raise</a> (&amp;ev1, 0x1, NULL);</div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-evflag.html#gaeb6fb8cb1525aa4aa3a796f1718c83f7">os_evflags_timed_wait</a> (&amp;ev1, 0x1, 1, NULL,</div>
+<div class="line">                             <a class="code hl_enumvalue" href="group__cmsis-plus-rtos-c-core.html#ggabc6126af1d45847bc59afa0aa3216b04ae750ae8ecd6f4d8a260e8260717edb13">os_flags_mode_all</a> | <a class="code hl_enumvalue" href="group__cmsis-plus-rtos-c-core.html#ggabc6126af1d45847bc59afa0aa3216b04a4cc5c722c75c3f296025f7b542282d48">os_flags_mode_clear</a>);</div>
+<div class="line"> </div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-evflag.html#gab457bfda81e3a739d4cd1ffcc6d7c5a9">os_evflags_get</a> (&amp;ev1, 0x1, <a class="code hl_enumvalue" href="group__cmsis-plus-rtos-c-core.html#ggabc6126af1d45847bc59afa0aa3216b04a4cc5c722c75c3f296025f7b542282d48">os_flags_mode_clear</a>);</div>
+<div class="line"> </div>
+<div class="line">      name = <a class="code hl_function" href="group__cmsis-plus-rtos-c-evflag.html#ga74ee8da050ceec569b4ba32af4259d7c">os_evflags_get_name</a> (&amp;ev1);</div>
+<div class="line"> </div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-evflag.html#gaedae088bed07eb61e5c74a29abae9006">os_evflags_destruct</a> (&amp;ev1);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    {</div>
+<div class="line">      <span class="comment">// Initialise custom event flags with a specific clock.</span></div>
+<div class="line">      <a class="code hl_struct" href="structos__evflags__attr__s.html">os_evflags_attr_t</a> aev2;</div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-evflag.html#gaac23ad61104626d693fe23b7bf14a036">os_evflags_attr_init</a> (&amp;aev2);</div>
+<div class="line"> </div>
+<div class="line">      aev2.<a class="code hl_variable" href="structos__evflags__attr__s.html#af7e97e7b629e4db1ca41fbf3878a52e0">clock</a> = <a class="code hl_function" href="group__cmsis-plus-rtos-c-clock.html#gabf8b0ef6a0a90eeaca0c5a9cfb3734fd">os_clock_get_rtclock</a> ();</div>
+<div class="line"> </div>
+<div class="line">      <a class="code hl_struct" href="structos__evflags__s.html">os_evflags_t</a> ev2;</div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-evflag.html#gafca47ca194f528f6f79bd03d0a5a1f37">os_evflags_construct</a> (&amp;ev2, <span class="stringliteral">&quot;ev2&quot;</span>, &amp;aev2);</div>
+<div class="line"> </div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-evflag.html#gaedae088bed07eb61e5c74a29abae9006">os_evflags_destruct</a> (&amp;ev2);</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-clock_html_gabf8b0ef6a0a90eeaca0c5a9cfb3734fd"><div class="ttname"><a href="group__cmsis-plus-rtos-c-clock.html#gabf8b0ef6a0a90eeaca0c5a9cfb3734fd">os_clock_get_rtclock</a></div><div class="ttdeci">os_clock_t * os_clock_get_rtclock(void)</div><div class="ttdoc">Get rtclock (the real-time clock).</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l01296">os-c-wrapper.cpp:1296</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-core_html_ggabc6126af1d45847bc59afa0aa3216b04a4cc5c722c75c3f296025f7b542282d48"><div class="ttname"><a href="group__cmsis-plus-rtos-c-core.html#ggabc6126af1d45847bc59afa0aa3216b04a4cc5c722c75c3f296025f7b542282d48">os_flags_mode_clear</a></div><div class="ttdeci">@ os_flags_mode_clear</div><div class="ttdef"><b>Definition</b> <a href="os-c-decls_8h_source.html#l00137">os-c-decls.h:137</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-core_html_ggabc6126af1d45847bc59afa0aa3216b04ae750ae8ecd6f4d8a260e8260717edb13"><div class="ttname"><a href="group__cmsis-plus-rtos-c-core.html#ggabc6126af1d45847bc59afa0aa3216b04ae750ae8ecd6f4d8a260e8260717edb13">os_flags_mode_all</a></div><div class="ttdeci">@ os_flags_mode_all</div><div class="ttdef"><b>Definition</b> <a href="os-c-decls_8h_source.html#l00135">os-c-decls.h:135</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-evflag_html_ga123ac596c6544709c48f93866afd52d3"><div class="ttname"><a href="group__cmsis-plus-rtos-c-evflag.html#ga123ac596c6544709c48f93866afd52d3">os_evflags_try_wait</a></div><div class="ttdeci">os_result_t os_evflags_try_wait(os_evflags_t *evflags, os_flags_mask_t mask, os_flags_mask_t *oflags, os_flags_mode_t mode)</div><div class="ttdoc">Try to wait for event flags.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l03227">os-c-wrapper.cpp:3227</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-evflag_html_ga137aa53f9bbafc4ebad98aba9dd60773"><div class="ttname"><a href="group__cmsis-plus-rtos-c-evflag.html#ga137aa53f9bbafc4ebad98aba9dd60773">os_evflags_clear</a></div><div class="ttdeci">os_result_t os_evflags_clear(os_evflags_t *evflags, os_flags_mask_t mask, os_flags_mask_t *oflags)</div><div class="ttdoc">Clear event flags.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l03279">os-c-wrapper.cpp:3279</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-evflag_html_ga3f136b430309c3ad86ab88b193e02c28"><div class="ttname"><a href="group__cmsis-plus-rtos-c-evflag.html#ga3f136b430309c3ad86ab88b193e02c28">os_evflags_wait</a></div><div class="ttdeci">os_result_t os_evflags_wait(os_evflags_t *evflags, os_flags_mask_t mask, os_flags_mask_t *oflags, os_flags_mode_t mode)</div><div class="ttdoc">Wait for event flags.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l03209">os-c-wrapper.cpp:3209</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-evflag_html_ga74ee8da050ceec569b4ba32af4259d7c"><div class="ttname"><a href="group__cmsis-plus-rtos-c-evflag.html#ga74ee8da050ceec569b4ba32af4259d7c">os_evflags_get_name</a></div><div class="ttdeci">const char * os_evflags_get_name(os_evflags_t *evflags)</div><div class="ttdoc">Get the event flags name.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l03194">os-c-wrapper.cpp:3194</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-evflag_html_ga97066c5899b89835018a531ebb3c9384"><div class="ttname"><a href="group__cmsis-plus-rtos-c-evflag.html#ga97066c5899b89835018a531ebb3c9384">os_evflags_raise</a></div><div class="ttdeci">os_result_t os_evflags_raise(os_evflags_t *evflags, os_flags_mask_t mask, os_flags_mask_t *oflags)</div><div class="ttdoc">Raise event flags.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l03262">os-c-wrapper.cpp:3262</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-evflag_html_gaac23ad61104626d693fe23b7bf14a036"><div class="ttname"><a href="group__cmsis-plus-rtos-c-evflag.html#gaac23ad61104626d693fe23b7bf14a036">os_evflags_attr_init</a></div><div class="ttdeci">void os_evflags_attr_init(os_evflags_attr_t *attr)</div><div class="ttdoc">Initialise the event flags attributes.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l03094">os-c-wrapper.cpp:3094</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-evflag_html_gab457bfda81e3a739d4cd1ffcc6d7c5a9"><div class="ttname"><a href="group__cmsis-plus-rtos-c-evflag.html#gab457bfda81e3a739d4cd1ffcc6d7c5a9">os_evflags_get</a></div><div class="ttdeci">os_flags_mask_t os_evflags_get(os_evflags_t *evflags, os_flags_mask_t mask, os_flags_mode_t mode)</div><div class="ttdoc">Get (and possibly clear) event flags.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l03296">os-c-wrapper.cpp:3296</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-evflag_html_gaeb6fb8cb1525aa4aa3a796f1718c83f7"><div class="ttname"><a href="group__cmsis-plus-rtos-c-evflag.html#gaeb6fb8cb1525aa4aa3a796f1718c83f7">os_evflags_timed_wait</a></div><div class="ttdeci">os_result_t os_evflags_timed_wait(os_evflags_t *evflags, os_flags_mask_t mask, os_clock_duration_t timeout, os_flags_mask_t *oflags, os_flags_mode_t mode)</div><div class="ttdoc">Timed wait for event flags.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l03244">os-c-wrapper.cpp:3244</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-evflag_html_gaedae088bed07eb61e5c74a29abae9006"><div class="ttname"><a href="group__cmsis-plus-rtos-c-evflag.html#gaedae088bed07eb61e5c74a29abae9006">os_evflags_destruct</a></div><div class="ttdeci">void os_evflags_destruct(os_evflags_t *evflags)</div><div class="ttdoc">Destruct the statically allocated event flags object instance.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l03133">os-c-wrapper.cpp:3133</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-evflag_html_gafca47ca194f528f6f79bd03d0a5a1f37"><div class="ttname"><a href="group__cmsis-plus-rtos-c-evflag.html#gafca47ca194f528f6f79bd03d0a5a1f37">os_evflags_construct</a></div><div class="ttdeci">void os_evflags_construct(os_evflags_t *evflags, const char *name, const os_evflags_attr_t *attr)</div><div class="ttdoc">Construct a statically allocated event flags object instance.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l03111">os-c-wrapper.cpp:3111</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c_html_gadc9fe392fc6245784eb029f4eecfb8dd"><div class="ttname"><a href="group__cmsis-plus-rtos-c.html#gadc9fe392fc6245784eb029f4eecfb8dd">os_main</a></div><div class="ttdeci">int os_main(int argc, char *argv[])</div><div class="ttdoc">Application entry point, running on the main thread context.</div></div>
+<div class="ttc" id="astructos__evflags__attr__s_html"><div class="ttname"><a href="structos__evflags__attr__s.html">os_evflags_attr_s</a></div><div class="ttdoc">Event flags attributes.</div><div class="ttdef"><b>Definition</b> <a href="os-c-decls_8h_source.html#l01375">os-c-decls.h:1376</a></div></div>
+<div class="ttc" id="astructos__evflags__attr__s_html_af7e97e7b629e4db1ca41fbf3878a52e0"><div class="ttname"><a href="structos__evflags__attr__s.html#af7e97e7b629e4db1ca41fbf3878a52e0">os_evflags_attr_s::clock</a></div><div class="ttdeci">void * clock</div><div class="ttdoc">Pointer to clock object instance.</div><div class="ttdef"><b>Definition</b> <a href="os-c-decls_8h_source.html#l01380">os-c-decls.h:1380</a></div></div>
+<div class="ttc" id="astructos__evflags__s_html"><div class="ttname"><a href="structos__evflags__s.html">os_evflags_s</a></div><div class="ttdoc">Event flags object storage.</div><div class="ttdef"><b>Definition</b> <a href="os-c-decls_8h_source.html#l01400">os-c-decls.h:1401</a></div></div>
+</div><!-- fragment --> <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="gabbedad9b5b2c98a24c4c4a9865bc6703" name="gabbedad9b5b2c98a24c4c4a9865bc6703"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gabbedad9b5b2c98a24c4c4a9865bc6703">&#9670;&#160;</a></span>os_evflags_create</h2>
 
@@ -300,7 +365,7 @@ Typedefs</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1event__flags.html#af63fd5c6a4c59327f76ea2ac16becf3d">os::rtos::event_flags::raise()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03308">3308</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03313">3313</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -331,7 +396,7 @@ Typedefs</h2></td></tr>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1event__flags_1_1attributes.html">os::rtos::event_flags::attributes</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03089">3089</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03094">3094</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -386,7 +451,7 @@ Typedefs</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1event__flags.html#afda9fb2eb3ff4c7a6bb6e296302b5374">os::rtos::event_flags::clear()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03274">3274</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03279">3279</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -436,7 +501,7 @@ Typedefs</h2></td></tr>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1event__flags.html">os::rtos::event_flags</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03106">3106</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03111">3111</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -471,7 +536,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-evflag.ht
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1event__flags.html">os::rtos::event_flags</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03174">3174</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03179">3179</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -503,7 +568,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-evflag.ht
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1event__flags.html">os::rtos::event_flags</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03128">3128</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03133">3133</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -552,7 +617,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-evflag.ht
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1event__flags.html#abb673856df1e5291bd7b3e4bcd49a734">os::rtos::event_flags::get()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03291">3291</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03296">3296</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -583,7 +648,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-evflag.ht
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1internal_1_1object__named.html#a3103a84c5e0521c3639306f5879526ba">os::rtos::event_flags::name()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03189">3189</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03194">3194</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -629,7 +694,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-evflag.ht
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1event__flags.html">os::rtos::event_flags</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03149">3149</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03154">3154</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -685,7 +750,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-evflag.ht
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1event__flags.html#af63fd5c6a4c59327f76ea2ac16becf3d">os::rtos::event_flags::raise()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03257">3257</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03262">3262</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -758,7 +823,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-evflag.ht
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1event__flags.html#a2a776fd6c252decb43e8fda705605f8e">os::rtos::event_flags::timed_wait()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03239">3239</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03244">3244</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -822,7 +887,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-evflag.ht
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1event__flags.html#ace52da7c8b224a1f93e246dfc973c76c">os::rtos::event_flags::try_wait()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03222">3222</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03227">3227</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -887,7 +952,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-evflag.ht
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1event__flags.html#a10719b53b5de1992b71d83c5dd4b891e">os::rtos::event_flags::wait()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03204">3204</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03209">3209</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>

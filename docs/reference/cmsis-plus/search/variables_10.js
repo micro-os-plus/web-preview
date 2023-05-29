@@ -26,5 +26,5 @@ var searchData=
   ['stop_5fbits_5fpos_23',['STOP_BITS_Pos',['../namespaceos_1_1driver_1_1serial.html#ac58a4eb5d0425a2904be8312a708f3d7',1,'os::driver::serial']]],
   ['synchronous_5fmaster_24',['synchronous_master',['../classos_1_1driver_1_1serial_1_1Capabilities.html#a8d33b4503a5041c6fa0bf89342f1bcb7',1,'os::driver::serial::Capabilities']]],
   ['synchronous_5fslave_25',['synchronous_slave',['../classos_1_1driver_1_1serial_1_1Capabilities.html#a02c1431179aaa1497b71dfdcbf609b11',1,'os::driver::serial::Capabilities']]],
-  ['sysclock_26',['sysclock',['../namespaceos_1_1rtos.html#ab46d0af461e8a8434153e068bc32dc5a',1,'os::rtos']]]
+  ['sysclock_26',['sysclock',['../group__cmsis-plus-rtos-clock.html#gab46d0af461e8a8434153e068bc32dc5a',1,'os::rtos']]]
 ];

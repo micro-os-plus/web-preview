@@ -1,10 +1,10 @@
 var classos_1_1rtos_1_1memory__pool__allocated =
 [
     [ "allocator_type", "classos_1_1rtos_1_1memory__pool__allocated.html#ac67cc7ecd82470f321e069387b5e68fc", null ],
-    [ "size_t", "classos_1_1rtos_1_1memory__pool__allocated.html#a2906df850164ea47bd55d45a254f6699", null ],
+    [ "size_t", "classos_1_1rtos_1_1memory__pool__allocated.html#ga2906df850164ea47bd55d45a254f6699", null ],
     [ "memory_pool_allocated", "classos_1_1rtos_1_1memory__pool__allocated.html#ad59f9c8e02a675cdbc4f075957d0fb39", null ],
     [ "memory_pool_allocated", "classos_1_1rtos_1_1memory__pool__allocated.html#a2281625e1066db928816a5900d4b2ec5", null ],
-    [ "~memory_pool_allocated", "classos_1_1rtos_1_1memory__pool__allocated.html#a349b64e2e1a8784b1f60301f13a35e5e", null ],
+    [ "~memory_pool_allocated", "classos_1_1rtos_1_1memory__pool__allocated.html#a0ea23864247f414994e3e92564eb865b", null ],
     [ "alloc", "classos_1_1rtos_1_1memory__pool__allocated.html#a398b56100a97f150fb31bcc781ced974", null ],
     [ "block_size", "classos_1_1rtos_1_1memory__pool__allocated.html#a387abd2e85b6365e4f2606333502d605", null ],
     [ "capacity", "classos_1_1rtos_1_1memory__pool__allocated.html#a6611d00923116927509330745999c02e", null ],
@@ -25,6 +25,6 @@ var classos_1_1rtos_1_1memory__pool__allocated =
     [ "reset", "classos_1_1rtos_1_1memory__pool__allocated.html#ac764ac06d8a23bc517ea0785caccf350", null ],
     [ "timed_alloc", "classos_1_1rtos_1_1memory__pool__allocated.html#a368b3eeaa2c28df26b6f3970fd209f3b", null ],
     [ "try_alloc", "classos_1_1rtos_1_1memory__pool__allocated.html#a3755c8ce8f934469047b735209ab58b3", null ],
-    [ "initializer", "classos_1_1rtos_1_1memory__pool__allocated.html#a7fd442f85898940215d53d32e7a4eee7", null ],
-    [ "max_size", "classos_1_1rtos_1_1memory__pool__allocated.html#a25abdce615f4418c120dfdaa66db582e", null ]
+    [ "initializer", "classos_1_1rtos_1_1memory__pool__allocated.html#ga7fd442f85898940215d53d32e7a4eee7", null ],
+    [ "max_size", "classos_1_1rtos_1_1memory__pool__allocated.html#ga25abdce615f4418c120dfdaa66db582e", null ]
 ];

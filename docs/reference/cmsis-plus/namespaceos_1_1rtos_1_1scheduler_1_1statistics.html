@@ -166,7 +166,7 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Integer with the total number of context switches since scheduler start.</dd></dl>
 <p>Each time the scheduler performs a context switch, it increments the thread counter and the scheduler total counter.</p>
 <p>This value can be used together with the corresponding thread function, to compute percentages.</p>
-<dl class="section note"><dt>Note</dt><dd>This function is available only when <a class="el" href="os-app-config_8h.html#a2b3f040276e2b24324bec4cf8bea21b3">OS_INCLUDE_RTOS_STATISTICS_THREAD_CONTEXT_SWITCHES</a> is defined.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This function is available only when <a class="el" href="group__cmsis-plus-app-config-rtos.html#ga2b3f040276e2b24324bec4cf8bea21b3">OS_INCLUDE_RTOS_STATISTICS_THREAD_CONTEXT_SWITCHES</a> is defined.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="os-sched_8h_source.html#l01044">1044</a> of file <a class="el" href="os-sched_8h_source.html">os-sched.h</a>.</p>
@@ -201,7 +201,7 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Integer with the number of CPU cycles, possibly divided by some prescaller.</dd></dl>
 <p>For Cortex-M ports, this value is usually derived from the clock that drives the SysTick, which most of the times is the system clock.</p>
 <p>This value can be used together with the corresponding thread function, to compute percentages.</p>
-<dl class="section note"><dt>Note</dt><dd>This function is available only when <a class="el" href="os-app-config_8h.html#a98b9ee74f2cc3a619c4f7ec7529692d4">OS_INCLUDE_RTOS_STATISTICS_THREAD_CPU_CYCLES</a> is defined.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This function is available only when <a class="el" href="group__cmsis-plus-app-config-rtos.html#ga98b9ee74f2cc3a619c4f7ec7529692d4">OS_INCLUDE_RTOS_STATISTICS_THREAD_CPU_CYCLES</a> is defined.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="os-sched_8h_source.html#l01069">1069</a> of file <a class="el" href="os-sched_8h_source.html">os-sched.h</a>.</p>

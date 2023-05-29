@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>µOS++ IIIe Reference: Cmsis-plus-rtos-c-mempool</title>
+<title>µOS++ IIIe Reference: Memory pools</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -120,9 +120,12 @@ $(document).ready(function(){initNavTree('group__cmsis-plus-rtos-c-mempool.html'
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#typedef-members">Typedefs</a>  </div>
-  <div class="headertitle"><div class="title">Cmsis-plus-rtos-c-mempool</div></div>
+  <div class="headertitle"><div class="title">Memory pools<div class="ingroups"><a class="el" href="group__cmsis-plus-rtos-c.html">µOS++ RTOS C API</a></div></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>C API memory pool definitions.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -206,7 +209,75 @@ Typedefs</h2></td></tr>
 <tr class="separator:gaddfe8bd7c7e91b8cf920a0a04ed52be4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<h2 class="groupheader">Macro Definition Documentation</h2>
+<p>C API memory pool definitions. </p>
+<dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="group__cmsis-plus-rtos-mempool.html">RTOS C++ API</a></dd></dl>
+<dl class="section user"><dt>Examples</dt><dd></dd></dl>
+<div class="fragment"><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct </span>my_blk_s</div>
+<div class="line">{</div>
+<div class="line">  <span class="keywordtype">int</span> i;</div>
+<div class="line">  <span class="keyword">const</span> <span class="keywordtype">char</span>* s;</div>
+<div class="line">} my_blk_t;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span></div>
+<div class="line"><a class="code hl_function" href="group__cmsis-plus-rtos-c.html#gadc9fe392fc6245784eb029f4eecfb8dd">os_main</a> (<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[])</div>
+<div class="line">{</div>
+<div class="line">  my_blk_t* blk;</div>
+<div class="line"> </div>
+<div class="line">    {</div>
+<div class="line">      <span class="comment">// Simple pool, dynamically allocated.</span></div>
+<div class="line">      <a class="code hl_struct" href="structos__mempool__s.html">os_mempool_t</a> p1;</div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-mempool.html#ga163db69b3ef913f303b1093847781b68">os_mempool_construct</a> (&amp;p1, <span class="stringliteral">&quot;p1&quot;</span>, 3, <span class="keyword">sizeof</span>(my_blk_t), NULL);</div>
+<div class="line"> </div>
+<div class="line">      blk = <a class="code hl_function" href="group__cmsis-plus-rtos-c-mempool.html#ga329a1d145a07814c6b8aeb71c7620ae4">os_mempool_alloc</a> (&amp;p1);</div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-mempool.html#ga0a229f29ab38012726ee5e74e7690d0a">os_mempool_free</a> (&amp;p1, blk);</div>
+<div class="line"> </div>
+<div class="line">      blk = <a class="code hl_function" href="group__cmsis-plus-rtos-c-mempool.html#ga5c92a709d61090e3c869fe3a4916281d">os_mempool_try_alloc</a> (&amp;p1);</div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-mempool.html#ga0a229f29ab38012726ee5e74e7690d0a">os_mempool_free</a> (&amp;p1, blk);</div>
+<div class="line"> </div>
+<div class="line">      blk = <a class="code hl_function" href="group__cmsis-plus-rtos-c-mempool.html#ga509cba9c48b035034dcdc04970b41799">os_mempool_timed_alloc</a> (&amp;p1, 1);</div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-mempool.html#ga0a229f29ab38012726ee5e74e7690d0a">os_mempool_free</a> (&amp;p1, blk);</div>
+<div class="line"> </div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-mempool.html#ga9ff0c92812616ec83785120d440c17bc">os_mempool_destruct</a> (&amp;p1);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    {</div>
+<div class="line">      <span class="comment">// Static pool.</span></div>
+<div class="line">      <span class="keyword">static</span> <span class="keywordtype">char</span> pool[1000];</div>
+<div class="line"> </div>
+<div class="line">      <a class="code hl_struct" href="structos__mempool__attr__s.html">os_mempool_attr_t</a> ap2;</div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-mempool.html#ga58367ff663297b07479c629ba985d049">os_mempool_attr_init</a> (&amp;ap2);</div>
+<div class="line">      ap2.<a class="code hl_variable" href="structos__mempool__attr__s.html#aa2d6137032ffa5347e17e857430cc67f">mp_pool_address</a> = pool;</div>
+<div class="line">      ap2.<a class="code hl_variable" href="structos__mempool__attr__s.html#a421b74f14305099c30a56ae08e6bd3e1">mp_pool_size_bytes</a> = <span class="keyword">sizeof</span>(pool);</div>
+<div class="line">      ap2.<a class="code hl_variable" href="structos__mempool__attr__s.html#ae0b4ff7b96d7fa181c845b79f1058ad5">clock</a> = <a class="code hl_function" href="group__cmsis-plus-rtos-c-clock.html#gabf8b0ef6a0a90eeaca0c5a9cfb3734fd">os_clock_get_rtclock</a> ();</div>
+<div class="line"> </div>
+<div class="line">      <a class="code hl_struct" href="structos__mempool__s.html">os_mempool_t</a> p2;</div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-mempool.html#ga163db69b3ef913f303b1093847781b68">os_mempool_construct</a> (&amp;p2, <span class="stringliteral">&quot;p2&quot;</span>, 3, <span class="keyword">sizeof</span>(my_blk_t), &amp;ap2);</div>
+<div class="line"> </div>
+<div class="line">      blk = <a class="code hl_function" href="group__cmsis-plus-rtos-c-mempool.html#ga329a1d145a07814c6b8aeb71c7620ae4">os_mempool_alloc</a> (&amp;p2);</div>
+<div class="line"> </div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-mempool.html#ga0a229f29ab38012726ee5e74e7690d0a">os_mempool_free</a> (&amp;p2, blk);</div>
+<div class="line"> </div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-mempool.html#ga859916141ebcf0d427f6a61bf8c76b31">os_mempool_reset</a> (&amp;p2);</div>
+<div class="line"> </div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-mempool.html#ga9ff0c92812616ec83785120d440c17bc">os_mempool_destruct</a> (&amp;p2);</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-clock_html_gabf8b0ef6a0a90eeaca0c5a9cfb3734fd"><div class="ttname"><a href="group__cmsis-plus-rtos-c-clock.html#gabf8b0ef6a0a90eeaca0c5a9cfb3734fd">os_clock_get_rtclock</a></div><div class="ttdeci">os_clock_t * os_clock_get_rtclock(void)</div><div class="ttdoc">Get rtclock (the real-time clock).</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l01296">os-c-wrapper.cpp:1296</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-mempool_html_ga0a229f29ab38012726ee5e74e7690d0a"><div class="ttname"><a href="group__cmsis-plus-rtos-c-mempool.html#ga0a229f29ab38012726ee5e74e7690d0a">os_mempool_free</a></div><div class="ttdeci">os_result_t os_mempool_free(os_mempool_t *mempool, void *block)</div><div class="ttdoc">Free the memory block.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l02661">os-c-wrapper.cpp:2661</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-mempool_html_ga163db69b3ef913f303b1093847781b68"><div class="ttname"><a href="group__cmsis-plus-rtos-c-mempool.html#ga163db69b3ef913f303b1093847781b68">os_mempool_construct</a></div><div class="ttdeci">void os_mempool_construct(os_mempool_t *mempool, const char *name, size_t blocks, size_t block_size_bytes, const os_mempool_attr_t *attr)</div><div class="ttdoc">Construct a statically allocated memory pool object instance.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l02516">os-c-wrapper.cpp:2516</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-mempool_html_ga329a1d145a07814c6b8aeb71c7620ae4"><div class="ttname"><a href="group__cmsis-plus-rtos-c-mempool.html#ga329a1d145a07814c6b8aeb71c7620ae4">os_mempool_alloc</a></div><div class="ttdeci">void * os_mempool_alloc(os_mempool_t *mempool)</div><div class="ttdoc">Allocate a memory block.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l02616">os-c-wrapper.cpp:2616</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-mempool_html_ga509cba9c48b035034dcdc04970b41799"><div class="ttname"><a href="group__cmsis-plus-rtos-c-mempool.html#ga509cba9c48b035034dcdc04970b41799">os_mempool_timed_alloc</a></div><div class="ttdeci">void * os_mempool_timed_alloc(os_mempool_t *mempool, os_clock_duration_t timeout)</div><div class="ttdoc">Allocate a memory block with timeout.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l02646">os-c-wrapper.cpp:2646</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-mempool_html_ga58367ff663297b07479c629ba985d049"><div class="ttname"><a href="group__cmsis-plus-rtos-c-mempool.html#ga58367ff663297b07479c629ba985d049">os_mempool_attr_init</a></div><div class="ttdeci">void os_mempool_attr_init(os_mempool_attr_t *attr)</div><div class="ttdoc">Initialise the memory pool attributes.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l02499">os-c-wrapper.cpp:2499</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-mempool_html_ga5c92a709d61090e3c869fe3a4916281d"><div class="ttname"><a href="group__cmsis-plus-rtos-c-mempool.html#ga5c92a709d61090e3c869fe3a4916281d">os_mempool_try_alloc</a></div><div class="ttdeci">void * os_mempool_try_alloc(os_mempool_t *mempool)</div><div class="ttdoc">Try to allocate a memory block.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l02631">os-c-wrapper.cpp:2631</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-mempool_html_ga859916141ebcf0d427f6a61bf8c76b31"><div class="ttname"><a href="group__cmsis-plus-rtos-c-mempool.html#ga859916141ebcf0d427f6a61bf8c76b31">os_mempool_reset</a></div><div class="ttdeci">os_result_t os_mempool_reset(os_mempool_t *mempool)</div><div class="ttdoc">Reset the memory pool.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l02751">os-c-wrapper.cpp:2751</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-mempool_html_ga9ff0c92812616ec83785120d440c17bc"><div class="ttname"><a href="group__cmsis-plus-rtos-c-mempool.html#ga9ff0c92812616ec83785120d440c17bc">os_mempool_destruct</a></div><div class="ttdeci">void os_mempool_destruct(os_mempool_t *mempool)</div><div class="ttdoc">Destruct the statically allocated memory pool object instance.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l02539">os-c-wrapper.cpp:2539</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c_html_gadc9fe392fc6245784eb029f4eecfb8dd"><div class="ttname"><a href="group__cmsis-plus-rtos-c.html#gadc9fe392fc6245784eb029f4eecfb8dd">os_main</a></div><div class="ttdeci">int os_main(int argc, char *argv[])</div><div class="ttdoc">Application entry point, running on the main thread context.</div></div>
+<div class="ttc" id="astructos__mempool__attr__s_html"><div class="ttname"><a href="structos__mempool__attr__s.html">os_mempool_attr_s</a></div><div class="ttdoc">Memory pool attributes.</div><div class="ttdef"><b>Definition</b> <a href="os-c-decls_8h_source.html#l01165">os-c-decls.h:1166</a></div></div>
+<div class="ttc" id="astructos__mempool__attr__s_html_a421b74f14305099c30a56ae08e6bd3e1"><div class="ttname"><a href="structos__mempool__attr__s.html#a421b74f14305099c30a56ae08e6bd3e1">os_mempool_attr_s::mp_pool_size_bytes</a></div><div class="ttdeci">size_t mp_pool_size_bytes</div><div class="ttdoc">Size of user provided memory pool area, in bytes.</div><div class="ttdef"><b>Definition</b> <a href="os-c-decls_8h_source.html#l01180">os-c-decls.h:1180</a></div></div>
+<div class="ttc" id="astructos__mempool__attr__s_html_aa2d6137032ffa5347e17e857430cc67f"><div class="ttname"><a href="structos__mempool__attr__s.html#aa2d6137032ffa5347e17e857430cc67f">os_mempool_attr_s::mp_pool_address</a></div><div class="ttdeci">void * mp_pool_address</div><div class="ttdoc">Pointer to user provided memory pool area.</div><div class="ttdef"><b>Definition</b> <a href="os-c-decls_8h_source.html#l01175">os-c-decls.h:1175</a></div></div>
+<div class="ttc" id="astructos__mempool__attr__s_html_ae0b4ff7b96d7fa181c845b79f1058ad5"><div class="ttname"><a href="structos__mempool__attr__s.html#ae0b4ff7b96d7fa181c845b79f1058ad5">os_mempool_attr_s::clock</a></div><div class="ttdeci">void * clock</div><div class="ttdoc">Pointer to clock object instance.</div><div class="ttdef"><b>Definition</b> <a href="os-c-decls_8h_source.html#l01170">os-c-decls.h:1170</a></div></div>
+<div class="ttc" id="astructos__mempool__s_html"><div class="ttname"><a href="structos__mempool__s.html">os_mempool_s</a></div><div class="ttdoc">Memory pool object storage.</div><div class="ttdef"><b>Definition</b> <a href="os-c-decls_8h_source.html#l01200">os-c-decls.h:1201</a></div></div>
+</div><!-- fragment --> <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="ga9d4b5d911e3b1d07c1c4679b8261d961" name="ga9d4b5d911e3b1d07c1c4679b8261d961"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga9d4b5d911e3b1d07c1c4679b8261d961">&#9670;&#160;</a></span>os_mempool_create</h2>
 
@@ -306,7 +377,7 @@ Typedefs</h2></td></tr>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1memory__pool.html#a398b56100a97f150fb31bcc781ced974">os::rtos::memory_pool::alloc()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02611">2611</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02616">2616</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -337,7 +408,7 @@ Typedefs</h2></td></tr>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1memory__pool_1_1attributes.html">os::rtos::memory_pool::attributes</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02494">2494</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02499">2499</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -401,7 +472,7 @@ Typedefs</h2></td></tr>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1memory__pool.html">os::rtos::memory_pool</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02511">2511</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02516">2516</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -436,7 +507,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-mempool.h
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1memory__pool.html">os::rtos::memory_pool</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02581">2581</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02586">2586</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -468,7 +539,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-mempool.h
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1memory__pool.html">os::rtos::memory_pool</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02534">2534</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02539">2539</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -516,7 +587,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-mempool.h
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1memory__pool.html#a95efd50d23b62a19590750f1ff07c063">os::rtos::memory_pool::free()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02656">2656</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02661">2661</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -547,7 +618,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-mempool.h
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1memory__pool.html#a387abd2e85b6365e4f2606333502d605">os::rtos::memory_pool::block_size()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02701">2701</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02706">2706</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -578,7 +649,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-mempool.h
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1memory__pool.html#a6611d00923116927509330745999c02e">os::rtos::memory_pool::capacity()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02671">2671</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02676">2676</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -609,7 +680,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-mempool.h
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1memory__pool.html#a8c3f1aa4c42b7b2a94b536b8e07bb381">os::rtos::memory_pool::count()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02686">2686</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02691">2691</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -640,7 +711,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-mempool.h
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1internal_1_1object__named.html#a3103a84c5e0521c3639306f5879526ba">os::rtos::memory_pool::name()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02596">2596</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02601">2601</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -671,7 +742,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-mempool.h
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1memory__pool.html#aa1fde03a7e551f6d28f12a1e21d10e87">os::rtos::memory_pool::pool()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02761">2761</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02766">2766</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -708,7 +779,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-mempool.h
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1memory__pool.html#a3f1a85ba53c3d3c39ed992a1f4c7c285">os::rtos::memory_pool::empty()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02716">2716</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02721">2721</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -745,7 +816,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-mempool.h
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1memory__pool.html#af76b6ad1dc90e2869a8c35949b551576">os::rtos::memory_pool::full()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02731">2731</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02736">2736</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -805,7 +876,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-mempool.h
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1memory__pool.html">os::rtos::memory_pool</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02555">2555</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02560">2560</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -842,7 +913,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-mempool.h
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1memory__pool.html#ac764ac06d8a23bc517ea0785caccf350">os::rtos::memory_pool::reset()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02746">2746</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02751">2751</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -884,7 +955,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-mempool.h
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1memory__pool.html#a368b3eeaa2c28df26b6f3970fd209f3b">os::rtos::memory_pool::timed_alloc()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02641">2641</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02646">2646</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -915,7 +986,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-mempool.h
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1memory__pool.html#a3755c8ce8f934469047b735209ab58b3">os::rtos::memory_pool::try_alloc()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02626">2626</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l02631">2631</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>

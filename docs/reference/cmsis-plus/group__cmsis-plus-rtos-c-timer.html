@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>µOS++ IIIe Reference: Cmsis-plus-rtos-c-timer</title>
+<title>µOS++ IIIe Reference: Timers</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -121,9 +121,12 @@ $(document).ready(function(){initNavTree('group__cmsis-plus-rtos-c-timer.html','
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a>  </div>
-  <div class="headertitle"><div class="title">Cmsis-plus-rtos-c-timer</div></div>
+  <div class="headertitle"><div class="title">Timers<div class="ingroups"><a class="el" href="group__cmsis-plus-rtos-c.html">µOS++ RTOS C API</a></div></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>C API timer definitions.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -209,7 +212,64 @@ Enumerations</h2></td></tr>
 <tr class="separator:ga1bde5304bd9dac47b3d9722accfedac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<h2 class="groupheader">Macro Definition Documentation</h2>
+<p>C API timer definitions. </p>
+<dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="group__cmsis-plus-rtos-timer.html">RTOS C++ API</a></dd></dl>
+<dl class="section user"><dt>Examples</dt><dd></dd></dl>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span></div>
+<div class="line">tmfunc (<span class="keywordtype">void</span>* args </div>
+<div class="line">{</div>
+<div class="line">  printf (<span class="stringliteral">&quot;%s\n&quot;</span>, __func__);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span></div>
+<div class="line"><a class="code hl_function" href="group__cmsis-plus-rtos-c.html#gadc9fe392fc6245784eb029f4eecfb8dd">os_main</a> (<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[])</div>
+<div class="line">{</div>
+<div class="line">   {</div>
+<div class="line">      <a class="code hl_struct" href="structos__timer__s.html">os_timer_t</a> tm1;</div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-timer.html#gae2ba0da6b17e47668733754c28a7ab6e">os_timer_construct</a> (&amp;tm1, <span class="stringliteral">&quot;tm1&quot;</span>, tmfunc, NULL, NULL);</div>
+<div class="line"> </div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-clock.html#gac1e37749fba5a844008114ad9a4b1b3e">os_sysclock_sleep_for</a> (1); <span class="comment">// Sync</span></div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-timer.html#gaae66070e9e8065f6911799a8c214e9c6">os_timer_start</a> (&amp;tm1, 1);</div>
+<div class="line"> </div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-clock.html#gac1e37749fba5a844008114ad9a4b1b3e">os_sysclock_sleep_for</a> (2);</div>
+<div class="line"> </div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-timer.html#ga28bc21c132e92af443aa730580482add">os_timer_stop</a> (&amp;tm1);</div>
+<div class="line"> </div>
+<div class="line">      name = <a class="code hl_function" href="group__cmsis-plus-rtos-c-timer.html#ga16ed0c114abaea292c759e51a195a869">os_timer_get_name</a> (&amp;tm1);</div>
+<div class="line">      assert(strcmp (name, <span class="stringliteral">&quot;tm1&quot;</span>) == 0);</div>
+<div class="line"> </div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-timer.html#ga502af5a83c4f4d2224144f57b5dcf766">os_timer_destruct</a> (&amp;tm1);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    {</div>
+<div class="line">      <span class="comment">// Periodic timer</span></div>
+<div class="line">      <a class="code hl_struct" href="structos__timer__s.html">os_timer_t</a> tm2;</div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-timer.html#gae2ba0da6b17e47668733754c28a7ab6e">os_timer_construct</a> (&amp;tm2, <span class="stringliteral">&quot;tm2&quot;</span>, tmfunc, NULL,</div>
+<div class="line">                       <a class="code hl_function" href="group__cmsis-plus-rtos-c-timer.html#gaf318bb9eaab05e6725976c9cb8762642">os_timer_attr_get_periodic</a> ());</div>
+<div class="line"> </div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-clock.html#gac1e37749fba5a844008114ad9a4b1b3e">os_sysclock_sleep_for</a> (1); <span class="comment">// Sync</span></div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-timer.html#gaae66070e9e8065f6911799a8c214e9c6">os_timer_start</a> (&amp;tm2, 1);</div>
+<div class="line"> </div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-clock.html#gac1e37749fba5a844008114ad9a4b1b3e">os_sysclock_sleep_for</a> (2);</div>
+<div class="line"> </div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-timer.html#ga28bc21c132e92af443aa730580482add">os_timer_stop</a> (&amp;tm2);</div>
+<div class="line"> </div>
+<div class="line">      name = <a class="code hl_function" href="group__cmsis-plus-rtos-c-timer.html#ga16ed0c114abaea292c759e51a195a869">os_timer_get_name</a> (&amp;tm2);</div>
+<div class="line">      assert(strcmp (name, <span class="stringliteral">&quot;tm2&quot;</span>) == 0);</div>
+<div class="line"> </div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-timer.html#ga502af5a83c4f4d2224144f57b5dcf766">os_timer_destruct</a> (&amp;tm2);</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-clock_html_gac1e37749fba5a844008114ad9a4b1b3e"><div class="ttname"><a href="group__cmsis-plus-rtos-c-clock.html#gac1e37749fba5a844008114ad9a4b1b3e">os_sysclock_sleep_for</a></div><div class="ttdeci">os_result_t os_sysclock_sleep_for(os_clock_duration_t duration)</div><div class="ttdoc">Sleep for a relative duration.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l01340">os-c-wrapper.cpp:1340</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-timer_html_ga16ed0c114abaea292c759e51a195a869"><div class="ttname"><a href="group__cmsis-plus-rtos-c-timer.html#ga16ed0c114abaea292c759e51a195a869">os_timer_get_name</a></div><div class="ttdeci">const char * os_timer_get_name(os_timer_t *timer)</div><div class="ttdoc">Get the timer name.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l01518">os-c-wrapper.cpp:1518</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-timer_html_ga28bc21c132e92af443aa730580482add"><div class="ttname"><a href="group__cmsis-plus-rtos-c-timer.html#ga28bc21c132e92af443aa730580482add">os_timer_stop</a></div><div class="ttdeci">os_result_t os_timer_stop(os_timer_t *timer)</div><div class="ttdoc">Stop the timer.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l01548">os-c-wrapper.cpp:1548</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-timer_html_ga502af5a83c4f4d2224144f57b5dcf766"><div class="ttname"><a href="group__cmsis-plus-rtos-c-timer.html#ga502af5a83c4f4d2224144f57b5dcf766">os_timer_destruct</a></div><div class="ttdeci">void os_timer_destruct(os_timer_t *timer)</div><div class="ttdoc">Destruct the statically allocated timer object instance.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l01455">os-c-wrapper.cpp:1455</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-timer_html_gaae66070e9e8065f6911799a8c214e9c6"><div class="ttname"><a href="group__cmsis-plus-rtos-c-timer.html#gaae66070e9e8065f6911799a8c214e9c6">os_timer_start</a></div><div class="ttdeci">os_result_t os_timer_start(os_timer_t *timer, os_clock_duration_t period)</div><div class="ttdoc">Start or restart the timer.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l01533">os-c-wrapper.cpp:1533</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-timer_html_gae2ba0da6b17e47668733754c28a7ab6e"><div class="ttname"><a href="group__cmsis-plus-rtos-c-timer.html#gae2ba0da6b17e47668733754c28a7ab6e">os_timer_construct</a></div><div class="ttdeci">void os_timer_construct(os_timer_t *timer, const char *name, os_timer_func_t function, os_timer_func_args_t args, const os_timer_attr_t *attr)</div><div class="ttdoc">Construct a statically allocated timer object instance.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l01430">os-c-wrapper.cpp:1430</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-timer_html_gaf318bb9eaab05e6725976c9cb8762642"><div class="ttname"><a href="group__cmsis-plus-rtos-c-timer.html#gaf318bb9eaab05e6725976c9cb8762642">os_timer_attr_get_periodic</a></div><div class="ttdeci">const os_timer_attr_t * os_timer_attr_get_periodic(void)</div><div class="ttdoc">Get a periodic timer attributes object instance.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l01414">os-c-wrapper.cpp:1414</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c_html_gadc9fe392fc6245784eb029f4eecfb8dd"><div class="ttname"><a href="group__cmsis-plus-rtos-c.html#gadc9fe392fc6245784eb029f4eecfb8dd">os_main</a></div><div class="ttdeci">int os_main(int argc, char *argv[])</div><div class="ttdoc">Application entry point, running on the main thread context.</div></div>
+<div class="ttc" id="astructos__timer__s_html"><div class="ttname"><a href="structos__timer__s.html">os_timer_s</a></div><div class="ttdoc">Timer object storage.</div><div class="ttdef"><b>Definition</b> <a href="os-c-decls_8h_source.html#l00764">os-c-decls.h:765</a></div></div>
+</div><!-- fragment --> <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="ga40dd367b92a31c36f74d6f19b7bf3c7d" name="ga40dd367b92a31c36f74d6f19b7bf3c7d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga40dd367b92a31c36f74d6f19b7bf3c7d">&#9670;&#160;</a></span>os_timer_create</h2>
 
@@ -275,7 +335,7 @@ Enumerations</h2></td></tr>
 
 <p>Type of timer function arguments. </p>
 <p>Useful to cast other similar types to silence possible compiler warnings.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classos_1_1rtos_1_1timer.html#a08e6dea4337c8592a54e4b14b7825263" title="Timer call back function arguments.">os::rtos::timer::func_args_t</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__cmsis-plus-rtos-timer.html#ga08e6dea4337c8592a54e4b14b7825263" title="Timer call back function arguments.">os::rtos::timer::func_args_t</a> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="os-c-decls_8h_source.html#l00693">693</a> of file <a class="el" href="os-c-decls_8h_source.html">os-c-decls.h</a>.</p>
 
@@ -295,7 +355,7 @@ Enumerations</h2></td></tr>
 
 <p>Type of timer function. </p>
 <p>Useful to cast other similar types to silence possible compiler warnings.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classos_1_1rtos_1_1timer.html#a1e9a6b8d96858701da3240203d991fa1" title="Entry point of a timer call back function.">os::rtos::timer::func_t</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__cmsis-plus-rtos-timer.html#ga1e9a6b8d96858701da3240203d991fa1" title="Entry point of a timer call back function.">os::rtos::timer::func_t</a> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="os-c-decls_8h_source.html#l00704">704</a> of file <a class="el" href="os-c-decls_8h_source.html">os-c-decls.h</a>.</p>
 
@@ -314,7 +374,7 @@ Enumerations</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Type of variables holding timer states. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classos_1_1rtos_1_1timer.html#a46e48d616daaa96d91fb6b9aa7a46d88" title="Type of of variables holding timer states.">os::rtos::timer::state_t</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__cmsis-plus-rtos-timer.html#ga46e48d616daaa96d91fb6b9aa7a46d88" title="Type of of variables holding timer states.">os::rtos::timer::state_t</a> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="os-c-decls_8h_source.html#l00719">719</a> of file <a class="el" href="os-c-decls_8h_source.html">os-c-decls.h</a>.</p>
 
@@ -353,7 +413,7 @@ Enumerations</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Type of variables holding timer types. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classos_1_1rtos_1_1timer.html#a3b1c96f00f980128bc0fd677e6993ee0" title="Type of of variables holding timer run types.">os::rtos::timer::type_t</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__cmsis-plus-rtos-timer.html#ga3b1c96f00f980128bc0fd677e6993ee0" title="Type of of variables holding timer run types.">os::rtos::timer::type_t</a> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="os-c-decls_8h_source.html#l00712">712</a> of file <a class="el" href="os-c-decls_8h_source.html">os-c-decls.h</a>.</p>
 
@@ -402,9 +462,9 @@ Enumerations</h2></td></tr>
 <p>Get a periodic timer attributes object instance. </p>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to timer attributes object instance.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
-<dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1timer.html#a4b2c2f1ee0a2bb67e4780143cdf6005d">os::rtos::timer::periodic_initializer</a> </dd></dl>
+<dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="group__cmsis-plus-rtos-timer.html#ga4b2c2f1ee0a2bb67e4780143cdf6005d">os::rtos::timer::periodic_initializer</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01409">1409</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01414">1414</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -435,7 +495,7 @@ Enumerations</h2></td></tr>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1timer_1_1attributes.html">os::rtos::timer::attributes</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01379">1379</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01384">1384</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -466,7 +526,7 @@ Enumerations</h2></td></tr>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1timer_1_1attributes__periodic.html">os::rtos::timer::attributes_periodic</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01394">1394</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01399">1399</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -530,7 +590,7 @@ Enumerations</h2></td></tr>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1timer.html">os::rtos::timer</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01425">1425</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01430">1430</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -565,7 +625,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-timer.htm
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1timer.html">os::rtos::timer</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01498">1498</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01503">1503</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -597,7 +657,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-timer.htm
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1timer.html">os::rtos::timer</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01450">1450</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01455">1455</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -628,7 +688,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-timer.htm
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1internal_1_1object__named.html#a3103a84c5e0521c3639306f5879526ba">os::rtos::timer::name()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01513">1513</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01518">1518</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -688,7 +748,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-timer.htm
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1timer.html">os::rtos::timer</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01471">1471</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01476">1476</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -737,7 +797,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-timer.htm
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1timer.html#af9ca17c173830dd8601f83d2a43a8730">os::rtos::timer::start()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01528">1528</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01533">1533</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -776,7 +836,7 @@ Must be paired with <code><a class="el" href="group__cmsis-plus-rtos-c-timer.htm
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1timer.html#adc15ae1bbd9d1b8851a690019d8603a6">os::rtos::timer::stop()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01543">1543</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01548">1548</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>

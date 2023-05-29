@@ -119,7 +119,7 @@ $(document).ready(function(){initNavTree('classos_1_1rtos_1_1thread_1_1statistic
 <div class="header">
   <div class="summary">
 <a href="classos_1_1rtos_1_1thread_1_1statistics-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">os::rtos::thread::statistics Class Reference</div></div>
+  <div class="headertitle"><div class="title">os::rtos::thread::statistics Class Reference<div class="ingroups"><a class="el" href="group__cmsis-plus-rtos.html">µOS++ RTOS C++ API</a> &raquo; <a class="el" href="group__cmsis-plus-rtos-thread.html">Threads</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -235,7 +235,7 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>A long integer with the number of times the thread was scheduled for execution.</dd></dl>
 <p>Each time the scheduler performs a context switch, it increments the thread counter and the scheduler total counter.</p>
 <p>This value can be used together with the corresponding scheduler function, to compute percentages.</p>
-<dl class="section note"><dt>Note</dt><dd>This function is available only when <a class="el" href="os-app-config_8h.html#a2b3f040276e2b24324bec4cf8bea21b3">OS_INCLUDE_RTOS_STATISTICS_THREAD_CONTEXT_SWITCHES</a> is defined.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This function is available only when <a class="el" href="group__cmsis-plus-app-config-rtos.html#ga2b3f040276e2b24324bec4cf8bea21b3">OS_INCLUDE_RTOS_STATISTICS_THREAD_CONTEXT_SWITCHES</a> is defined.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02254">2254</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
@@ -270,7 +270,7 @@ Public Member Functions</h2></td></tr>
 <dl class="section user"><dt>Parameters</dt><dd>None. </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>A long integer with accumulated number of CPU cycles.</dd></dl>
 <p>This value can be used together with the corresponding scheduler function, to compute percentages.</p>
-<dl class="section note"><dt>Note</dt><dd>This function is available only when <a class="el" href="os-app-config_8h.html#a98b9ee74f2cc3a619c4f7ec7529692d4">OS_INCLUDE_RTOS_STATISTICS_THREAD_CPU_CYCLES</a> is defined.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This function is available only when <a class="el" href="group__cmsis-plus-app-config-rtos.html#ga98b9ee74f2cc3a619c4f7ec7529692d4">OS_INCLUDE_RTOS_STATISTICS_THREAD_CPU_CYCLES</a> is defined.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02276">2276</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>

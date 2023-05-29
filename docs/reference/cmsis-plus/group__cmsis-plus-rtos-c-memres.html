@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>µOS++ IIIe Reference: Cmsis-plus-rtos-c-memres</title>
+<title>µOS++ IIIe Reference: Memory management</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -120,9 +120,12 @@ $(document).ready(function(){initNavTree('group__cmsis-plus-rtos-c-memres.html',
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#typedef-members">Typedefs</a>  </div>
-  <div class="headertitle"><div class="title">Cmsis-plus-rtos-c-memres</div></div>
+  <div class="headertitle"><div class="title">Memory management<div class="ingroups"><a class="el" href="group__cmsis-plus-rtos-c.html">µOS++ RTOS C API</a></div></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>C API memory management definitions.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -183,7 +186,34 @@ Typedefs</h2></td></tr>
 <tr class="separator:gafbedc913aa4651b3c3b4b3aecd9b4711"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<h2 class="groupheader">Typedef Documentation</h2>
+<p>C API memory management definitions. </p>
+<p>The µOS++ RTOS includes several advanced and flexible memory management features.</p>
+<p>Access to these classes from C can be done using the <code>os_memory_*()</code> functions.</p>
+<dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="group__cmsis-plus-rtos-memres.html">RTOS C++ API</a></dd></dl>
+<dl class="section user"><dt>Examples</dt><dd></dd></dl>
+<div class="fragment"><div class="line"><span class="keywordtype">int</span></div>
+<div class="line"><a class="code hl_function" href="group__cmsis-plus-rtos-c.html#gadc9fe392fc6245784eb029f4eecfb8dd">os_main</a> (<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[])</div>
+<div class="line">{</div>
+<div class="line">  <a class="code hl_struct" href="structos__memory__s.html">os_memory_t</a>* mem;</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Get the memory resource used to manage the application free store.</span></div>
+<div class="line">  mem = <a class="code hl_function" href="group__cmsis-plus-rtos-c-memres.html#ga04e68db9cab58466d3cdb51490105abd">os_memory_get_default</a>();</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordtype">void</span>* p;</div>
+<div class="line">  p = <a class="code hl_function" href="group__cmsis-plus-rtos-c-memres.html#ga629583b081dda68d88d0f409c24c27fa">os_memory_allocate</a>(mem, 123, 8);</div>
+<div class="line">  <a class="code hl_function" href="group__cmsis-plus-rtos-c-memres.html#gafe38cb8ebc65ce6f2ddc5635904489d9">os_memory_deallocate</a>(mem, p, 123, 8);</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Print some memory resource statistics.</span></div>
+<div class="line">  <a class="code hl_function" href="trace_8h.html#a6a6492d4a967fc866e4825f6146cec37">trace_printf</a>(<span class="stringliteral">&quot;%u\n&quot;</span>, <a class="code hl_function" href="group__cmsis-plus-rtos-c-memres.html#ga08fc263eb04faea684134f98337f510a">os_memory_get_free_bytes</a>(mem));</div>
+<div class="line">}</div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-memres_html_ga04e68db9cab58466d3cdb51490105abd"><div class="ttname"><a href="group__cmsis-plus-rtos-c-memres.html#ga04e68db9cab58466d3cdb51490105abd">os_memory_get_default</a></div><div class="ttdeci">os_memory_t * os_memory_get_default(void)</div><div class="ttdoc">Get the application default memory resource (free store).</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l03330">os-c-wrapper.cpp:3330</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-memres_html_ga08fc263eb04faea684134f98337f510a"><div class="ttname"><a href="group__cmsis-plus-rtos-c-memres.html#ga08fc263eb04faea684134f98337f510a">os_memory_get_free_bytes</a></div><div class="ttdeci">size_t os_memory_get_free_bytes(os_memory_t *memory)</div><div class="ttdoc">Get the total size of free chunks.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l03444">os-c-wrapper.cpp:3444</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-memres_html_ga629583b081dda68d88d0f409c24c27fa"><div class="ttname"><a href="group__cmsis-plus-rtos-c-memres.html#ga629583b081dda68d88d0f409c24c27fa">os_memory_allocate</a></div><div class="ttdeci">void * os_memory_allocate(os_memory_t *memory, size_t bytes, size_t alignment)</div><div class="ttdoc">Allocate a block of memory.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l03345">os-c-wrapper.cpp:3345</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-memres_html_gafe38cb8ebc65ce6f2ddc5635904489d9"><div class="ttname"><a href="group__cmsis-plus-rtos-c-memres.html#gafe38cb8ebc65ce6f2ddc5635904489d9">os_memory_deallocate</a></div><div class="ttdeci">void os_memory_deallocate(os_memory_t *memory, void *addr, size_t bytes, size_t alignment)</div><div class="ttdoc">Deallocate the previously allocated block of memory.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l03362">os-c-wrapper.cpp:3362</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c_html_gadc9fe392fc6245784eb029f4eecfb8dd"><div class="ttname"><a href="group__cmsis-plus-rtos-c.html#gadc9fe392fc6245784eb029f4eecfb8dd">os_main</a></div><div class="ttdeci">int os_main(int argc, char *argv[])</div><div class="ttdoc">Application entry point, running on the main thread context.</div></div>
+<div class="ttc" id="astructos__memory__s_html"><div class="ttname"><a href="structos__memory__s.html">os_memory_s</a></div><div class="ttdoc">Memory resource object storage.</div><div class="ttdef"><b>Definition</b> <a href="os-c-decls_8h_source.html#l01481">os-c-decls.h:1482</a></div></div>
+<div class="ttc" id="atrace_8h_html_a6a6492d4a967fc866e4825f6146cec37"><div class="ttname"><a href="trace_8h.html#a6a6492d4a967fc866e4825f6146cec37">trace_printf</a></div><div class="ttdeci">int trace_printf(const char *format,...)</div></div>
+</div><!-- fragment --> <h2 class="groupheader">Typedef Documentation</h2>
 <a id="ga97fc30d85338c68e624e27aa599211a3" name="ga97fc30d85338c68e624e27aa599211a3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga97fc30d85338c68e624e27aa599211a3">&#9670;&#160;</a></span>os_memory_t</h2>
 
@@ -366,7 +396,7 @@ Typedefs</h2></td></tr>
 Not thread safe, use a scheduler critical section to protect it.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1memory_1_1memory__resource.html#a5284ae746c3d0f71a02acdb9ed69f815">os::rtos::memory::memory_resource::allocate()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03340">3340</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03345">3345</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -406,7 +436,7 @@ Not thread safe, use a scheduler critical section to protect it.</dd></dl>
 Not thread safe, use a scheduler critical section to protect it.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1memory_1_1memory__resource.html#a1ad8d18056f87e387cd86d2632566a53">os::rtos::memory::memory_resource::coalesce()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03391">3391</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03396">3396</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -463,7 +493,7 @@ Not thread safe, use a scheduler critical section to protect it.</dd></dl>
 Not thread safe, use a scheduler critical section to protect it.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1memory_1_1memory__resource.html#a43986889676bf5f4274e60538ccd76ee">os::rtos::memory::memory_resource::deallocate()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03357">3357</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03362">3362</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -496,7 +526,7 @@ Not thread safe, use a scheduler critical section to protect it.</dd></dl>
 Not thread safe, use a scheduler critical section to protect it.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1memory_1_1memory__resource.html#a4461f324ac21f845527f391ce47c2dd0">os::rtos::memory::memory_resource::allocated_bytes()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03423">3423</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03428">3428</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -529,7 +559,7 @@ Not thread safe, use a scheduler critical section to protect it.</dd></dl>
 Not thread safe, use a scheduler critical section to protect it.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1memory_1_1memory__resource.html#a2f4e57e4e77ead637b0720a9c6fee762">os::rtos::memory::memory_resource::allocated_chunks()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03455">3455</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03460">3460</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -554,7 +584,7 @@ Not thread safe, use a scheduler critical section to protect it.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="group__cmsis-plus-rtos-memres.html#ga61c4946b90c917a9fc2a0b0f1c43ad89">os::rtos::memory::get_default_resource()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03325">3325</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03330">3330</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -587,7 +617,7 @@ Not thread safe, use a scheduler critical section to protect it.</dd></dl>
 Not thread safe, use a scheduler critical section to protect it.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1memory_1_1memory__resource.html#af317cfeb595643a0e27901bc9a983f14">os::rtos::memory::memory_resource::free_bytes()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03439">3439</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03444">3444</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -620,7 +650,7 @@ Not thread safe, use a scheduler critical section to protect it.</dd></dl>
 Not thread safe, use a scheduler critical section to protect it.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1memory_1_1memory__resource.html#ae6c44b3b065fd27a202d1a3dfa2f285f">os::rtos::memory::memory_resource::free_chunks()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03471">3471</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03476">3476</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -653,7 +683,7 @@ Not thread safe, use a scheduler critical section to protect it.</dd></dl>
 Not thread safe, use a scheduler critical section to protect it.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1memory_1_1memory__resource.html#aa4149d7ffaa8e6d5cabc26ef8c439fa8">os::rtos::memory::memory_resource::total_bytes()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03407">3407</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03412">3412</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -687,7 +717,7 @@ Not thread safe, use a scheduler critical section to protect it.</dd></dl>
 Not thread safe, use a scheduler critical section to protect it.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1memory_1_1memory__resource.html#a7cf334270b97273de3ad4d8e32c31af3">os::rtos::memory::memory_resource::reset()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03375">3375</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l03380">3380</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>

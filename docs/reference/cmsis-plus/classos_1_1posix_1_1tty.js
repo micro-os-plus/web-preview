@@ -11,7 +11,7 @@ var classos_1_1posix_1_1tty =
       [ "socket", "classos_1_1posix_1_1tty.html#af15a8dae890b73597de4807f15e38edea168c4c2a5646d357c32f97f6c0eea61a", null ]
     ] ],
     [ "tty", "classos_1_1posix_1_1tty.html#aa7680a2403e8e1ad4a1e20dc139c876c", null ],
-    [ "~tty", "classos_1_1posix_1_1tty.html#a018a6abc4010999525e09206b7c7d606", null ],
+    [ "~tty", "classos_1_1posix_1_1tty.html#ae50cb07c78aa8ed158bfbb4c30b998b5", null ],
     [ "alloc_file_descriptor", "classos_1_1posix_1_1tty.html#a92490027421a039ea56d1ad2f5cff989", null ],
     [ "clear_file_descriptor", "classos_1_1posix_1_1tty.html#aac56327ce05ea29b9d423edc45a7cece", null ],
     [ "close", "classos_1_1posix_1_1tty.html#a2e975f9cc8cafa28acc13ac046d2e58b", null ],

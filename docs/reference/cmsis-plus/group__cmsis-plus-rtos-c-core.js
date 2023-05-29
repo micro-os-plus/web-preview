@@ -24,7 +24,6 @@ var group__cmsis_plus_rtos_c_core =
     [ "os_irq_in_handler_mode", "group__cmsis-plus-rtos-c-core.html#ga041a8d9081878f3d6dd286274030d6ea", null ],
     [ "os_irq_uncritical_enter", "group__cmsis-plus-rtos-c-core.html#ga1c4289550e6bfe01e548162f55a39c8b", null ],
     [ "os_irq_uncritical_exit", "group__cmsis-plus-rtos-c-core.html#ga15b0b36e48740c233fb5bb7d848913f2", null ],
-    [ "os_main", "group__cmsis-plus-rtos-c-core.html#gadc9fe392fc6245784eb029f4eecfb8dd", null ],
     [ "os_sched_initialize", "group__cmsis-plus-rtos-c-core.html#ga65aa6c13055201304bde199d11868589", null ],
     [ "os_sched_is_locked", "group__cmsis-plus-rtos-c-core.html#ga1a26c9b72ae4246b086a516244e480c8", null ],
     [ "os_sched_is_preemptive", "group__cmsis-plus-rtos-c-core.html#gab0c6a2436fce9a30d872ca6ba1fdf096", null ],

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['offset_5ft_0',['offset_t',['../classos_1_1rtos_1_1clock.html#abb59996de739574c5f5255e7b3d29c1c',1,'os::rtos::clock::offset_t'],['../namespaceos_1_1rtos_1_1port_1_1clock.html#aa15053ef80a72407d5aa9f1970d812e9',1,'os::rtos::port::clock::offset_t']]],
+  ['offset_5ft_0',['offset_t',['../group__cmsis-plus-rtos-clock.html#gabb59996de739574c5f5255e7b3d29c1c',1,'os::rtos::clock::offset_t'],['../namespaceos_1_1rtos_1_1port_1_1clock.html#aa15053ef80a72407d5aa9f1970d812e9',1,'os::rtos::port::clock::offset_t']]],
   ['os_5fclock_5fduration_5ft_1',['os_clock_duration_t',['../group__cmsis-plus-rtos-c-core.html#gaeb56a88a7ee3a52c479d68da8d042feb',1,'os-c-decls.h']]],
   ['os_5fclock_5foffset_5ft_2',['os_clock_offset_t',['../group__cmsis-plus-rtos-c-core.html#gacabb40f479e1bed29ec21e8151e09ed1',1,'os-c-decls.h']]],
   ['os_5fclock_5ft_3',['os_clock_t',['../group__cmsis-plus-rtos-c-clock.html#ga44ba577219411050f947e194d1b404db',1,'os-c-decls.h']]],

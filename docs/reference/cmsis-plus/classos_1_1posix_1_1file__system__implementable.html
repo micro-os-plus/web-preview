@@ -148,8 +148,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aef2f80c761a4264ec7704905482b2a1a"><td class="memTemplParams" colspan="2">template&lt;typename ... Args&gt; </td></tr>
 <tr class="memitem:aef2f80c761a4264ec7704905482b2a1a"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classos_1_1posix_1_1file__system__implementable.html#aef2f80c761a4264ec7704905482b2a1a">file_system_implementable</a> (const char *<a class="el" href="classos_1_1posix_1_1file__system.html#abdc27199348b1b647148dbcfe45dc55d">name</a>, <a class="el" href="classos_1_1posix_1_1block__device.html">block_device</a> &amp;<a class="el" href="classos_1_1posix_1_1device.html">device</a>, Args &amp;&amp;... args)</td></tr>
 <tr class="separator:aef2f80c761a4264ec7704905482b2a1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3229dbeccca23c26dc7a53c08a3dcd18"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classos_1_1posix_1_1file__system__implementable.html#a3229dbeccca23c26dc7a53c08a3dcd18">~file_system_implementable</a> ()</td></tr>
-<tr class="separator:a3229dbeccca23c26dc7a53c08a3dcd18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aead32adf575f063919687679dbf0adc0"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classos_1_1posix_1_1file__system__implementable.html#aead32adf575f063919687679dbf0adc0">~file_system_implementable</a> () override</td></tr>
+<tr class="separator:aead32adf575f063919687679dbf0adc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Public Member Functions</div></td></tr>
 <tr class="memitem:ab1ca1cde271a228f3ab4c2ad5aef7ef9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classos_1_1posix_1_1file__system__implementable.html#aa371e833d06c96dac4686152b0b46b32">value_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classos_1_1posix_1_1file__system__implementable.html#ab1ca1cde271a228f3ab4c2ad5aef7ef9">impl</a> (void) const</td></tr>
 <tr class="separator:ab1ca1cde271a228f3ab4c2ad5aef7ef9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -193,7 +193,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a136cac6eb1ca5a032a3e5a4039bf32c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30f8945d15ae172f6394922542329d74"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classos_1_1posix_1_1file__system.html#a30f8945d15ae172f6394922542329d74">unlink</a> (const char *path)</td></tr>
 <tr class="separator:a30f8945d15ae172f6394922542329d74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a263697125e18d526fbd895a17bc7383a"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classos_1_1posix_1_1file__system.html#a263697125e18d526fbd895a17bc7383a">utime</a> (const char *path, const struct utimbuf *<a class="el" href="c-syscalls-aliases-standard_8h.html#a73fc89d71a97e11d44bdd0bbb851a9cb">times</a>)</td></tr>
+<tr class="memitem:a263697125e18d526fbd895a17bc7383a"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classos_1_1posix_1_1file__system.html#a263697125e18d526fbd895a17bc7383a">utime</a> (const char *path, const struct utimbuf *<a class="el" href="group__cmsis-plus-posix-io-c.html#ga73fc89d71a97e11d44bdd0bbb851a9cb">times</a>)</td></tr>
 <tr class="separator:a263697125e18d526fbd895a17bc7383a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4aca344c624fef832acc2f15e7d88be0"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classos_1_1posix_1_1file__system.html#a4aca344c624fef832acc2f15e7d88be0">statvfs</a> (struct <a class="el" href="structstatvfs.html">statvfs</a> *buf)</td></tr>
 <tr class="separator:a4aca344c624fef832acc2f15e7d88be0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -344,8 +344,8 @@ template&lt;typename ... Args&gt; </div>
 
 </div>
 </div>
-<a id="a3229dbeccca23c26dc7a53c08a3dcd18" name="a3229dbeccca23c26dc7a53c08a3dcd18"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3229dbeccca23c26dc7a53c08a3dcd18">&#9670;&#160;</a></span>~file_system_implementable()</h2>
+<a id="aead32adf575f063919687679dbf0adc0" name="aead32adf575f063919687679dbf0adc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aead32adf575f063919687679dbf0adc0">&#9670;&#160;</a></span>~file_system_implementable()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -361,7 +361,7 @@ template&lt;typename T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

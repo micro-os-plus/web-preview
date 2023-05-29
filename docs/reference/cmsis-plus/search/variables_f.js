@@ -9,7 +9,7 @@ var searchData=
   ['res_5f_6',['res_',['../classos_1_1estd_1_1pmr_1_1polymorphic__allocator.html#a38e068caa86a8551c467bf1a8f54fad0',1,'os::estd::pmr::polymorphic_allocator']]],
   ['return_5fok_7',['RETURN_OK',['../namespaceos_1_1driver.html#a98267e1a7761553e8a6671de68455497',1,'os::driver']]],
   ['ri_8',['ri',['../classos_1_1driver_1_1serial_1_1Capabilities.html#aabdcd81f18c0daeff729367e22a87306',1,'os::driver::serial::Capabilities::ri'],['../classos_1_1driver_1_1serial_1_1Modem__status.html#a4c4ba237354ac84df6fdc12515fdc35b',1,'os::driver::serial::Modem_status::ri']]],
-  ['rtclock_9',['rtclock',['../namespaceos_1_1rtos.html#a316a778e38336232ebf8bcff50d11f3a',1,'os::rtos']]],
+  ['rtclock_9',['rtclock',['../group__cmsis-plus-rtos-clock.html#ga316a778e38336232ebf8bcff50d11f3a',1,'os::rtos']]],
   ['rts_10',['rts',['../classos_1_1driver_1_1serial_1_1Capabilities.html#a6421e78157d0f6daa7af4a1761c96a4f',1,'os::driver::serial::Capabilities']]],
   ['rx_5fbreak_11',['rx_break',['../classos_1_1driver_1_1serial_1_1Status.html#af9a39a9f0afa08587df69fa2f0d6ecc2',1,'os::driver::serial::Status']]],
   ['rx_5fbusy_12',['rx_busy',['../classos_1_1driver_1_1serial_1_1Status.html#a62248d07854afc94575f6aa577724174',1,'os::driver::serial::Status']]],

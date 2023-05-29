@@ -171,10 +171,10 @@ $(document).ready(function(){initNavTree('system-error_8cpp_source.html',''); in
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keyword">struct </span>system_error_category : <span class="keyword">public</span> std::error_category</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>      {</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>*</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        name () const noexcept;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        name () const noexcept override;</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        virtual <a class="code hl_namespace" href="namespacestd.html">std</a>::<span class="keywordtype">string</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        message (<span class="keywordtype">int</span> i) const;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        message (<span class="keywordtype">int</span> i) const override;</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>      };</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
@@ -200,10 +200,10 @@ $(document).ready(function(){initNavTree('system-error_8cpp_source.html',''); in
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keyword">struct </span>cmsis_error_category : <span class="keyword">public</span> std::error_category</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>      {</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>*</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        name () const noexcept;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        name () const noexcept override;</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        virtual <a class="code hl_namespace" href="namespacestd.html">std</a>::<span class="keywordtype">string</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        message (<span class="keywordtype">int</span> i) const;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        message (<span class="keywordtype">int</span> i) const override;</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>      };</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    const <span class="keywordtype">char</span>*</div>
@@ -261,8 +261,8 @@ $(document).ready(function(){initNavTree('system-error_8cpp_source.html',''); in
 <div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="comment">// ----------------------------------------------------------------------------</span></div>
 <div class="ttc" id="anamespaceos_1_1estd_html_a951c9b2c6401f3a3bb40d4b2c3213f46"><div class="ttname"><a href="namespaceos_1_1estd.html#a951c9b2c6401f3a3bb40d4b2c3213f46">os::estd::__throw_system_error</a></div><div class="ttdeci">void __throw_system_error(int ev, const char *what_arg)</div><div class="ttdef"><b>Definition</b> <a href="system-error_8cpp_source.html#l00111">system-error.cpp:111</a></div></div>
 <div class="ttc" id="anamespaceos_1_1estd_html_ac596ba385da43ceb3605f700ea538ce5"><div class="ttname"><a href="namespaceos_1_1estd.html#ac596ba385da43ceb3605f700ea538ce5">os::estd::__throw_cmsis_error</a></div><div class="ttdeci">void __throw_cmsis_error(int ev, const char *what_arg)</div><div class="ttdef"><b>Definition</b> <a href="system-error_8cpp_source.html#l00123">system-error.cpp:123</a></div></div>
-<div class="ttc" id="anamespaceos_html"><div class="ttname"><a href="namespaceos.html">os</a></div><div class="ttdoc">System namespace.</div><div class="ttdef"><b>Definition</b> <a href="trace_8h_source.html#l00078">trace.h:79</a></div></div>
-<div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdef"><b>Definition</b> <a href="new_8cpp_source.html#l00067">new.cpp:68</a></div></div>
+<div class="ttc" id="anamespaceos_html"><div class="ttname"><a href="namespaceos.html">os</a></div><div class="ttdoc">System namespace.</div></div>
+<div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdoc">Standard std namespace.</div></div>
 <div class="ttc" id="aos_8h_html"><div class="ttname"><a href="os_8h.html">os.h</a></div><div class="ttdoc">Single file µOS++ RTOS definitions.</div></div>
 <div class="ttc" id="asystem__error_html"><div class="ttname"><a href="system__error.html">system_error</a></div></div>
 <div class="ttc" id="atrace_8h_html_a6a6492d4a967fc866e4825f6146cec37"><div class="ttname"><a href="trace_8h.html#a6a6492d4a967fc866e4825f6146cec37">trace_printf</a></div><div class="ttdeci">int trace_printf(const char *format,...)</div></div>

@@ -13,7 +13,7 @@ var searchData=
   ['days_5fin_5fmonth_10',['DAYS_IN_MONTH',['../timegm_8c.html#a25e4429e6b798affddd5f8170cedaa96',1,'timegm.c']]],
   ['dcd_11',['dcd',['../classos_1_1driver_1_1serial_1_1Capabilities.html#af688bc917b275cab9775760af342a404',1,'os::driver::serial::Capabilities::dcd'],['../classos_1_1driver_1_1serial_1_1Modem__status.html#a799df20fc67c14ae9356734008c8c74f',1,'os::driver::serial::Modem_status::dcd']]],
   ['def_12',['def',['../structosEvent.html#a1e815de1015bac118ccb3e6724401d00',1,'osEvent']]],
-  ['default_5fpriority_13',['default_priority',['../classos_1_1rtos_1_1message__queue.html#a40cf8256124467cd9c58410969808979',1,'os::rtos::message_queue']]],
+  ['default_5fpriority_13',['default_priority',['../group__cmsis-plus-rtos-mqueue.html#ga40cf8256124467cd9c58410969808979',1,'os::rtos::message_queue']]],
   ['default_5fresource_14',['default_resource',['../namespaceos_1_1estd_1_1pmr.html#a367830a029fdc04046d060dd0b53efdc',1,'os::estd::pmr']]],
   ['default_5ftx_5fvalue_15',['DEFAULT_TX_VALUE',['../namespaceos_1_1driver_1_1serial.html#a27f30f5c598402a4b03848ae4be7a649',1,'os::driver::serial']]],
   ['driver_5f_16',['driver_',['../classos_1_1driver_1_1usbh__wrapper.html#aad7aebf62530d580820556f9e4992de7',1,'os::driver::usbh_wrapper::driver_'],['../classos_1_1driver_1_1usbd__wrapper.html#a6019e698a865d640c0ddcc2ccebed60c',1,'os::driver::usbd_wrapper::driver_'],['../classos_1_1driver_1_1usart__wrapper.html#a624cb7be6a66216cdb722d76891c5bfa',1,'os::driver::usart_wrapper::driver_']]],

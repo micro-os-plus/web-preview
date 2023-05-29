@@ -1,7 +1,7 @@
 var classos_1_1posix_1_1char__device__impl =
 [
     [ "char_device_impl", "classos_1_1posix_1_1char__device__impl.html#ab0972a4ac1fac144f62e794d4f4e9eeb", null ],
-    [ "~char_device_impl", "classos_1_1posix_1_1char__device__impl.html#a33dcee98ffc62f06ac8a702b6b71b680", null ],
+    [ "~char_device_impl", "classos_1_1posix_1_1char__device__impl.html#a5c17652c49175201f00b1da54382e358", null ],
     [ "do_close", "classos_1_1posix_1_1char__device__impl.html#a7f39b18c6364a0bf495c9a774017ae8e", null ],
     [ "do_deallocate", "classos_1_1posix_1_1char__device__impl.html#ade2f4b94ac22a4897daab3617a588383", null ],
     [ "do_fstat", "classos_1_1posix_1_1char__device__impl.html#afcd653fb293a373fc0a1dc47dbc2a47d", null ],

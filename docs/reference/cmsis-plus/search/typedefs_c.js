@@ -7,6 +7,6 @@ var searchData=
   ['polling_5finterval_5ft_4',['polling_interval_t',['../namespaceos_1_1driver_1_1usb.html#a98d8456ba44a32e9f1d5a2f91d6035eb',1,'os::driver::usb']]],
   ['port_5ft_5',['port_t',['../namespaceos_1_1driver_1_1usb.html#a8db18341bf9e1b4f4df499a6444af336',1,'os::driver::usb']]],
   ['power_5ft_6',['power_t',['../namespaceos_1_1driver.html#a4c1665b807c596e0c2d23d429e230202',1,'os::driver']]],
-  ['priority_5ft_7',['priority_t',['../classos_1_1rtos_1_1message__queue.html#a26895a3c081fd319cb199d21c4028963',1,'os::rtos::message_queue::priority_t'],['../classos_1_1rtos_1_1thread.html#aa5d09b05379b4799f126477d0ac29c36',1,'os::rtos::thread::priority_t']]],
-  ['protocol_5ft_8',['protocol_t',['../classos_1_1rtos_1_1mutex.html#a65bfef6cd463aac910d5c93d5828fe7f',1,'os::rtos::mutex']]]
+  ['priority_5ft_7',['priority_t',['../group__cmsis-plus-rtos-mqueue.html#ga26895a3c081fd319cb199d21c4028963',1,'os::rtos::message_queue::priority_t'],['../group__cmsis-plus-rtos-thread.html#gaa5d09b05379b4799f126477d0ac29c36',1,'os::rtos::thread::priority_t']]],
+  ['protocol_5ft_8',['protocol_t',['../group__cmsis-plus-rtos-mutex.html#ga65bfef6cd463aac910d5c93d5828fe7f',1,'os::rtos::mutex']]]
 ];

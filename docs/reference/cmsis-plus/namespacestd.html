@@ -121,9 +121,12 @@ $(document).ready(function(){initNavTree('namespacestd.html',''); initResizable(
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">std Namespace Reference<div class="ingroups"><a class="el" href="group__cmsis-plus-rtos-memres.html">Cmsis-plus-rtos-memres</a></div></div></div>
+  <div class="headertitle"><div class="title">std Namespace Reference<div class="ingroups"><a class="el" href="group__cmsis-plus-iso.html">µOS++ ISO Standard C++ Threads</a> &#124; <a class="el" href="group__cmsis-plus-rtos.html">µOS++ RTOS C++ API</a> &raquo; <a class="el" href="group__cmsis-plus-rtos-memres.html">Memory management</a></div></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Standard <b>std</b> namespace.  
+<a href="namespacestd.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -144,7 +147,11 @@ Variables</h2></td></tr>
 <tr class="memitem:gae4b7b14b5246bacb54f2a4ae366ccd44"><td class="memItemLeft" align="right" valign="top">const nothrow_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cmsis-plus-rtos-memres.html#gae4b7b14b5246bacb54f2a4ae366ccd44">nothrow</a></td></tr>
 <tr class="separator:gae4b7b14b5246bacb54f2a4ae366ccd44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Standard <b>std</b> namespace. </p>
+<p>When building µOS++ applications for embedded targets, in addition to the <code><a class="el" href="namespaceos_1_1estd.html" title="Embedded std namespace.">os::estd</a></code> namespace, the standard thread classes are also defined in the <code>std</code> namespace, so that applications explicitly using the <code>std::</code> prefix need minimal changes to build.</p>
+<p>The only non-standard feature is the need to prefix the included headers with <code>cmsis-plus/std/</code>, for example <code>&lt;cmsis-plus/std/thread&gt;</code>. </p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

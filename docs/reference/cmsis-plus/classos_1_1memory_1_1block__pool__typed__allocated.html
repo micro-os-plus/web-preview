@@ -121,7 +121,7 @@ $(document).ready(function(){initNavTree('classos_1_1memory_1_1block__pool__type
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="classos_1_1memory_1_1block__pool__typed__allocated-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">os::memory::block_pool_typed_allocated&lt; T, A &gt; Class Template Reference<div class="ingroups"><a class="el" href="group__cmsis-plus-rtos-memres.html">Cmsis-plus-rtos-memres</a></div></div></div>
+  <div class="headertitle"><div class="title">os::memory::block_pool_typed_allocated&lt; T, A &gt; Class Template Reference<div class="ingroups"><a class="el" href="group__cmsis-plus-rtos.html">µOS++ RTOS C++ API</a> &raquo; <a class="el" href="group__cmsis-plus-rtos-memres.html">Memory management</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -164,9 +164,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a11d6620e6b25fbdb2f8cd266d9162108"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classos_1_1memory_1_1block__pool__typed__allocated.html#a11d6620e6b25fbdb2f8cd266d9162108">block_pool_typed_allocated</a> (const char *<a class="el" href="classos_1_1rtos_1_1internal_1_1object__named.html#a3103a84c5e0521c3639306f5879526ba">name</a>, std::size_t blocks, const <a class="el" href="classos_1_1memory_1_1block__pool__typed__allocated.html#a0eae04191bccda0e68fdb8f3070bfb5f">allocator_type</a> &amp;allocator=<a class="el" href="classos_1_1memory_1_1block__pool__typed__allocated.html#a0eae04191bccda0e68fdb8f3070bfb5f">allocator_type</a>())</td></tr>
 <tr class="memdesc:a11d6620e6b25fbdb2f8cd266d9162108"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a named memory resource object instance.  <br /></td></tr>
 <tr class="separator:a11d6620e6b25fbdb2f8cd266d9162108"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0bb5c4fd0cb4488eec8b84766da47c8"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classos_1_1memory_1_1block__pool__typed__allocated.html#ab0bb5c4fd0cb4488eec8b84766da47c8">~block_pool_typed_allocated</a> ()</td></tr>
-<tr class="memdesc:ab0bb5c4fd0cb4488eec8b84766da47c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destruct the memory resource object instance.  <br /></td></tr>
-<tr class="separator:ab0bb5c4fd0cb4488eec8b84766da47c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5c4df8db3dd1e88e6c3c822475fb9a2"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classos_1_1memory_1_1block__pool__typed__allocated.html#aa5c4df8db3dd1e88e6c3c822475fb9a2">~block_pool_typed_allocated</a> () override</td></tr>
+<tr class="memdesc:aa5c4df8db3dd1e88e6c3c822475fb9a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destruct the memory resource object instance.  <br /></td></tr>
+<tr class="separator:aa5c4df8db3dd1e88e6c3c822475fb9a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Public Member Functions</div></td></tr>
 <tr class="memitem:a5284ae746c3d0f71a02acdb9ed69f815"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classos_1_1rtos_1_1memory_1_1memory__resource.html#a5284ae746c3d0f71a02acdb9ed69f815">allocate</a> (std::size_t bytes, std::size_t alignment=<a class="el" href="classos_1_1rtos_1_1memory_1_1memory__resource.html#af8258a63966f621605804691ae4d2179">max_align</a>)</td></tr>
 <tr class="memdesc:a5284ae746c3d0f71a02acdb9ed69f815"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate a memory block.  <br /></td></tr>
@@ -432,8 +432,8 @@ template&lt;typename T , typename A &gt; </div>
 
 </div>
 </div>
-<a id="ab0bb5c4fd0cb4488eec8b84766da47c8" name="ab0bb5c4fd0cb4488eec8b84766da47c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0bb5c4fd0cb4488eec8b84766da47c8">&#9670;&#160;</a></span>~block_pool_typed_allocated()</h2>
+<a id="aa5c4df8db3dd1e88e6c3c822475fb9a2" name="aa5c4df8db3dd1e88e6c3c822475fb9a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5c4df8db3dd1e88e6c3c822475fb9a2">&#9670;&#160;</a></span>~block_pool_typed_allocated()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -449,7 +449,7 @@ template&lt;typename T , typename A &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

@@ -11,7 +11,7 @@ var classos_1_1posix_1_1char__device =
       [ "socket", "classos_1_1posix_1_1char__device.html#af15a8dae890b73597de4807f15e38edea168c4c2a5646d357c32f97f6c0eea61a", null ]
     ] ],
     [ "char_device", "classos_1_1posix_1_1char__device.html#abd18c519069c5a632f8048bd0fec613b", null ],
-    [ "~char_device", "classos_1_1posix_1_1char__device.html#acf09c351a78d335537dd0faa8758d7fd", null ],
+    [ "~char_device", "classos_1_1posix_1_1char__device.html#a4332ed92283ca24055c4081cfb9a204f", null ],
     [ "alloc_file_descriptor", "classos_1_1posix_1_1char__device.html#a92490027421a039ea56d1ad2f5cff989", null ],
     [ "clear_file_descriptor", "classos_1_1posix_1_1char__device.html#aac56327ce05ea29b9d423edc45a7cece", null ],
     [ "close", "classos_1_1posix_1_1char__device.html#a2e975f9cc8cafa28acc13ac046d2e58b", null ],

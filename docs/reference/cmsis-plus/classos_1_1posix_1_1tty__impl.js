@@ -1,7 +1,7 @@
 var classos_1_1posix_1_1tty__impl =
 [
     [ "tty_impl", "classos_1_1posix_1_1tty__impl.html#a5cd2f756a986cebaf3944f48ce21f29f", null ],
-    [ "~tty_impl", "classos_1_1posix_1_1tty__impl.html#a05780e2cbd0b8bf88f458c3968291e54", null ],
+    [ "~tty_impl", "classos_1_1posix_1_1tty__impl.html#a069185abed14a78da53dc51d7f450939", null ],
     [ "do_close", "classos_1_1posix_1_1tty__impl.html#a7f39b18c6364a0bf495c9a774017ae8e", null ],
     [ "do_deallocate", "classos_1_1posix_1_1tty__impl.html#ade2f4b94ac22a4897daab3617a588383", null ],
     [ "do_fstat", "classos_1_1posix_1_1tty__impl.html#afcd653fb293a373fc0a1dc47dbc2a47d", null ],

@@ -7,7 +7,7 @@ var searchData=
   ['_5f_5fcall_5fexitprocs_4',['__call_exitprocs',['../atexit_8h.html#a12b1de11d1825f43a84c42975648d485',1,'atexit.h']]],
   ['_5f_5fcxa_5fpure_5fvirtual_5',['__cxa_pure_virtual',['../cxx_8cpp.html#a6be7d9ce80c86f5178635fa86c2dd5e7',1,'cxx.cpp']]],
   ['_5f_5fdso_5fhandle_6',['__dso_handle',['../cxx_8cpp.html#a19df960d2907e9c08a720ae7683e632c',1,'cxx.cpp']]],
-  ['_5f_5ferrno_7',['__errno',['../namespaceos_1_1rtos_1_1this__thread.html#afb95537285d0aa314fc611ec05897cbf',1,'os::rtos::this_thread::__errno()'],['../os-core_8cpp.html#a39b9754c96beda392bdb080bc5653e9e',1,'__errno(void):&#160;os-core.cpp']]],
+  ['_5f_5ferrno_7',['__errno',['../namespaceos_1_1rtos_1_1this__thread.html#afb95537285d0aa314fc611ec05897cbf',1,'os::rtos::this_thread::__errno()'],['../group__cmsis-plus-rtos-c.html#ga39b9754c96beda392bdb080bc5653e9e',1,'__errno(void):&#160;os-core.cpp']]],
   ['_5f_5fet_5fatexit_8',['__et_atexit',['../atexit_8h.html#a74ade975dfecc91ff661cd85bd538ec8ae61f35f4d6da8a0b6b4fe229ddc9cae9',1,'atexit.h']]],
   ['_5f_5fet_5fcxa_9',['__et_cxa',['../atexit_8h.html#a74ade975dfecc91ff661cd85bd538ec8aef1a86adee1640a09b0ad4b07ab6edad',1,'atexit.h']]],
   ['_5f_5fet_5fonexit_10',['__et_onexit',['../atexit_8h.html#a74ade975dfecc91ff661cd85bd538ec8a41239a04145107d1baaf18b936f0e2e6',1,'atexit.h']]],

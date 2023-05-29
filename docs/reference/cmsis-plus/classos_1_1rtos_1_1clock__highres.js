@@ -1,8 +1,8 @@
 var classos_1_1rtos_1_1clock__highres =
 [
-    [ "duration_t", "classos_1_1rtos_1_1clock__highres.html#a149d8b5cea55224ef5cfede8a81df04c", null ],
-    [ "offset_t", "classos_1_1rtos_1_1clock__highres.html#abb59996de739574c5f5255e7b3d29c1c", null ],
-    [ "timestamp_t", "classos_1_1rtos_1_1clock__highres.html#a4f6ee5cdd07c87db11f64d02e1c354d1", null ],
+    [ "duration_t", "classos_1_1rtos_1_1clock__highres.html#ga149d8b5cea55224ef5cfede8a81df04c", null ],
+    [ "offset_t", "classos_1_1rtos_1_1clock__highres.html#gabb59996de739574c5f5255e7b3d29c1c", null ],
+    [ "timestamp_t", "classos_1_1rtos_1_1clock__highres.html#ga4f6ee5cdd07c87db11f64d02e1c354d1", null ],
     [ "clock_highres", "classos_1_1rtos_1_1clock__highres.html#a8c544b770b2967e97e4b30b23de131c0", null ],
     [ "~clock_highres", "classos_1_1rtos_1_1clock__highres.html#a0998d77f4041a92d382c980440bf84f7", null ],
     [ "input_clock_frequency_hz", "classos_1_1rtos_1_1clock__highres.html#a57d441bdd4086cf1b87c50131ecfcb9b", null ],

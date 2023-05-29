@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>µOS++ IIIe Reference: Cmsis-plus-rtos-c-clock</title>
+<title>µOS++ IIIe Reference: Clocks</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -120,9 +120,12 @@ $(document).ready(function(){initNavTree('group__cmsis-plus-rtos-c-clock.html','
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#typedef-members">Typedefs</a>  </div>
-  <div class="headertitle"><div class="title">Cmsis-plus-rtos-c-clock</div></div>
+  <div class="headertitle"><div class="title">Clocks<div class="ingroups"><a class="el" href="group__cmsis-plus-rtos-c.html">µOS++ RTOS C API</a></div></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>C API clocks definitions.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -198,7 +201,35 @@ Typedefs</h2></td></tr>
 <tr class="separator:gaa943fd3a7e6071e9dc7f9fd3e055d01a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<h2 class="groupheader">Typedef Documentation</h2>
+<p>C API clocks definitions. </p>
+<dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1clock.html">RTOS C++ API</a></dd></dl>
+<dl class="section user"><dt>Examples</dt><dd></dd></dl>
+<div class="fragment"><div class="line"><span class="keywordtype">int</span></div>
+<div class="line"><a class="code hl_function" href="group__cmsis-plus-rtos-c.html#gadc9fe392fc6245784eb029f4eecfb8dd">os_main</a> (<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[])</div>
+<div class="line">{</div>
+<div class="line">    {</div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-clock.html#gac1e37749fba5a844008114ad9a4b1b3e">os_sysclock_sleep_for</a> (2);</div>
+<div class="line"> </div>
+<div class="line">      <a class="code hl_typedef" href="group__cmsis-plus-rtos-c-core.html#gaef683ba40ccd6fbd8a5c8c3e86459d65">os_clock_timestamp_t</a> ts;</div>
+<div class="line">      <span class="comment">// Return number of ticks since epoch, or, if epoch not set, from startup.</span></div>
+<div class="line">      ts = <a class="code hl_function" href="group__cmsis-plus-rtos-c-clock.html#ga467f1606b44bb8cfbc1db82bf8eeaf1a">os_sysclock_now</a> ();</div>
+<div class="line"> </div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-clock.html#ga87247431f85e060f6fd9214f6d57941d">os_sysclock_sleep_until</a> (ts + 2);</div>
+<div class="line"> </div>
+<div class="line">      <span class="comment">// Return the number of ticks since startup.</span></div>
+<div class="line">      ts = os_sysclock_steady_now ();</div>
+<div class="line"> </div>
+<div class="line">      <span class="comment">// An event may resume the thread before the timeout expire.</span></div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-clock.html#ga1858b30c0a9beeed4a71eb89abd697d5">os_sysclock_wait_for</a> (2);</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-clock_html_ga1858b30c0a9beeed4a71eb89abd697d5"><div class="ttname"><a href="group__cmsis-plus-rtos-c-clock.html#ga1858b30c0a9beeed4a71eb89abd697d5">os_sysclock_wait_for</a></div><div class="ttdeci">os_result_t os_sysclock_wait_for(os_clock_duration_t timeout)</div><div class="ttdoc">Timed wait for an event.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l01368">os-c-wrapper.cpp:1368</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-clock_html_ga467f1606b44bb8cfbc1db82bf8eeaf1a"><div class="ttname"><a href="group__cmsis-plus-rtos-c-clock.html#ga467f1606b44bb8cfbc1db82bf8eeaf1a">os_sysclock_now</a></div><div class="ttdeci">os_clock_timestamp_t os_sysclock_now(void)</div><div class="ttdoc">Tell the current time since startup.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l01326">os-c-wrapper.cpp:1326</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-clock_html_ga87247431f85e060f6fd9214f6d57941d"><div class="ttname"><a href="group__cmsis-plus-rtos-c-clock.html#ga87247431f85e060f6fd9214f6d57941d">os_sysclock_sleep_until</a></div><div class="ttdeci">os_result_t os_sysclock_sleep_until(os_clock_timestamp_t timestamp)</div><div class="ttdoc">Sleep until an absolute timestamp.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l01354">os-c-wrapper.cpp:1354</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-clock_html_gac1e37749fba5a844008114ad9a4b1b3e"><div class="ttname"><a href="group__cmsis-plus-rtos-c-clock.html#gac1e37749fba5a844008114ad9a4b1b3e">os_sysclock_sleep_for</a></div><div class="ttdeci">os_result_t os_sysclock_sleep_for(os_clock_duration_t duration)</div><div class="ttdoc">Sleep for a relative duration.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l01340">os-c-wrapper.cpp:1340</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-core_html_gaef683ba40ccd6fbd8a5c8c3e86459d65"><div class="ttname"><a href="group__cmsis-plus-rtos-c-core.html#gaef683ba40ccd6fbd8a5c8c3e86459d65">os_clock_timestamp_t</a></div><div class="ttdeci">os_port_clock_timestamp_t os_clock_timestamp_t</div><div class="ttdoc">Type of variables holding clock time stamps.</div><div class="ttdef"><b>Definition</b> <a href="os-c-decls_8h_source.html#l00191">os-c-decls.h:191</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c_html_gadc9fe392fc6245784eb029f4eecfb8dd"><div class="ttname"><a href="group__cmsis-plus-rtos-c.html#gadc9fe392fc6245784eb029f4eecfb8dd">os_main</a></div><div class="ttdeci">int os_main(int argc, char *argv[])</div><div class="ttdoc">Application entry point, running on the main thread context.</div></div>
+</div><!-- fragment --> <h2 class="groupheader">Typedef Documentation</h2>
 <a id="ga44ba577219411050f947e194d1b404db" name="ga44ba577219411050f947e194d1b404db"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga44ba577219411050f947e194d1b404db">&#9670;&#160;</a></span>os_clock_t</h2>
 
@@ -238,9 +269,9 @@ Typedefs</h2></td></tr>
 <p>Get <code>hrclock</code> (the high resolution clock). </p>
 <dl class="section return"><dt>Returns</dt><dd>The address of the clock_highres instance.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
-<dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="namespaceos_1_1rtos.html#a18ff478876ee99a5b7ce1b3f5b57d710">os::rtos::hrclock</a> </dd></dl>
+<dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="group__cmsis-plus-rtos-clock.html#ga18ff478876ee99a5b7ce1b3f5b57d710">os::rtos::hrclock</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01305">1305</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01310">1310</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -271,7 +302,7 @@ Typedefs</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1internal_1_1object__named.html#a3103a84c5e0521c3639306f5879526ba">os::rtos::clock::name()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01150">1150</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01155">1155</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -302,7 +333,7 @@ Typedefs</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1adjustable__clock.html#a8a24755cbeb7768dbebe42f8b7ee8cae">os::rtos::adjustable_clock::offset()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01243">1243</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01248">1248</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -325,9 +356,9 @@ Typedefs</h2></td></tr>
 <p>Get <code>rtclock</code> (the real-time clock). </p>
 <dl class="section return"><dt>Returns</dt><dd>The address of the clock_rtc instance.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
-<dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="namespaceos_1_1rtos.html#a316a778e38336232ebf8bcff50d11f3a">os::rtos::rtclock</a> </dd></dl>
+<dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="group__cmsis-plus-rtos-clock.html#ga316a778e38336232ebf8bcff50d11f3a">os::rtos::rtclock</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01291">1291</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01296">1296</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -350,9 +381,9 @@ Typedefs</h2></td></tr>
 <p>Get <code>sysclock</code> (the system clock). </p>
 <dl class="section return"><dt>Returns</dt><dd>The address of the clock_systick instance.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
-<dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="namespaceos_1_1rtos.html#ab46d0af461e8a8434153e068bc32dc5a">os::rtos::sysclock</a> </dd></dl>
+<dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="group__cmsis-plus-rtos-clock.html#gab46d0af461e8a8434153e068bc32dc5a">os::rtos::sysclock</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01277">1277</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01282">1282</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -383,7 +414,7 @@ Typedefs</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1clock.html#a965f1afa68128bdfaeac93e216e2196f">os::rtos::clock::now()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01165">1165</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01170">1170</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -425,7 +456,7 @@ Typedefs</h2></td></tr>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd>os::rtos::adjustable_clock::offset(offset_t) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01259">1259</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01264">1264</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -474,7 +505,7 @@ Typedefs</h2></td></tr>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1clock.html#af97cadfe288c3a56749ac70ae85c93bb">os::rtos::clock::sleep_for()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01195">1195</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01200">1200</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -523,7 +554,7 @@ Typedefs</h2></td></tr>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1clock.html#a7720aceded20f868c541755b26027901">os::rtos::clock::sleep_until()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01211">1211</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01216">1216</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -554,7 +585,7 @@ Typedefs</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1clock.html#a8b593aa571fee824ba84d66761db80c7">os::rtos::clock::steady_now()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01180">1180</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01185">1185</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -604,7 +635,7 @@ Typedefs</h2></td></tr>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1clock.html#a5a99215d8e93906802385eb70e921a05">os::rtos::clock::wait_for()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01227">1227</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01232">1232</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -653,7 +684,7 @@ Typedefs</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1clock.html#a965f1afa68128bdfaeac93e216e2196f">os::rtos::clock::now()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01321">1321</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01326">1326</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -691,7 +722,7 @@ Typedefs</h2></td></tr>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1clock.html#af97cadfe288c3a56749ac70ae85c93bb">os::rtos::clock::sleep_for()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01335">1335</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01340">1340</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -729,7 +760,7 @@ Typedefs</h2></td></tr>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1clock.html#a7720aceded20f868c541755b26027901">os::rtos::clock::sleep_until()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01349">1349</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01354">1354</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -842,7 +873,7 @@ Typedefs</h2></td></tr>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1clock.html#a5a99215d8e93906802385eb70e921a05">os::rtos::clock::wait_for()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01363">1363</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l01368">1368</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>

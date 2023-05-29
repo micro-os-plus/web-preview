@@ -209,7 +209,7 @@ $(document).ready(function(){initNavTree('trace-itm_8cpp_source.html',''); initR
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>          {</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            <span class="comment">// Check if ITM or the stimulus port are not enabled.</span></div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            <span class="keywordflow">if</span> (((ITM-&gt;TCR &amp; ITM_TCR_ITMENA_Msk) == 0)</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>                || ((ITM-&gt;TER &amp; (1UL &lt;&lt; <a class="code hl_define" href="os-app-config_8h.html#ada6c107c82cb8cb1452b2c12317fbe6f">OS_INTEGER_TRACE_ITM_STIMULUS_PORT</a>))</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>                || ((ITM-&gt;TER &amp; (1UL &lt;&lt; <a class="code hl_define" href="group__cmsis-plus-app-config-trace.html#gada6c107c82cb8cb1452b2c12317fbe6f">OS_INTEGER_TRACE_ITM_STIMULUS_PORT</a>))</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>                    == 0))</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>              {</div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>                <span class="comment">// Return the number of sent characters (may be 0).</span></div>
@@ -217,10 +217,10 @@ $(document).ready(function(){initNavTree('trace-itm_8cpp_source.html',''); initR
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>              }</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            <span class="comment">// Wait until STIMx is ready...</span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            <span class="keywordflow">while</span> (ITM-&gt;PORT[<a class="code hl_define" href="os-app-config_8h.html#ada6c107c82cb8cb1452b2c12317fbe6f">OS_INTEGER_TRACE_ITM_STIMULUS_PORT</a>].u32 == 0)</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            <span class="keywordflow">while</span> (ITM-&gt;PORT[<a class="code hl_define" href="group__cmsis-plus-app-config-trace.html#gada6c107c82cb8cb1452b2c12317fbe6f">OS_INTEGER_TRACE_ITM_STIMULUS_PORT</a>].u32 == 0)</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>              ;</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            <span class="comment">// then send data, one byte at a time</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            ITM-&gt;PORT[<a class="code hl_define" href="os-app-config_8h.html#ada6c107c82cb8cb1452b2c12317fbe6f">OS_INTEGER_TRACE_ITM_STIMULUS_PORT</a>].u8 =</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            ITM-&gt;PORT[<a class="code hl_define" href="group__cmsis-plus-app-config-trace.html#gada6c107c82cb8cb1452b2c12317fbe6f">OS_INTEGER_TRACE_ITM_STIMULUS_PORT</a>].u8 =</div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>                (uint8_t) (*cbuf++);</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>          }</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
@@ -245,10 +245,10 @@ $(document).ready(function(){initNavTree('trace-itm_8cpp_source.html',''); initR
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="preprocessor">#endif </span><span class="comment">/* defined(__ARM_EABI__) */</span><span class="preprocessor"></span></div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="ttc" id="agroup__cmsis-plus-app-config-trace_html_gada6c107c82cb8cb1452b2c12317fbe6f"><div class="ttname"><a href="group__cmsis-plus-app-config-trace.html#gada6c107c82cb8cb1452b2c12317fbe6f">OS_INTEGER_TRACE_ITM_STIMULUS_PORT</a></div><div class="ttdeci">#define OS_INTEGER_TRACE_ITM_STIMULUS_PORT</div><div class="ttdoc">Define the ITM stimulus port used for the trace messages.</div><div class="ttdef"><b>Definition</b> <a href="os-app-config_8h_source.html#l00929">os-app-config.h:929</a></div></div>
 <div class="ttc" id="anamespaceos_1_1trace_html_a412dbb6aeb8348a73eedd73a6494c35d"><div class="ttname"><a href="namespaceos_1_1trace.html#a412dbb6aeb8348a73eedd73a6494c35d">os::trace::initialize</a></div><div class="ttdeci">void initialize(void)</div><div class="ttdef"><b>Definition</b> <a href="trace_8cpp_source.html#l00050">trace.cpp:50</a></div></div>
 <div class="ttc" id="anamespaceos_1_1trace_html_a5e626eea11f3605e19b207a68b13b822"><div class="ttname"><a href="namespaceos_1_1trace.html#a5e626eea11f3605e19b207a68b13b822">os::trace::write</a></div><div class="ttdeci">ssize_t write(const void *buf, std::size_t nbyte)</div><div class="ttdoc">Write the given number of bytes to the trace output channel.</div><div class="ttdef"><b>Definition</b> <a href="trace_8cpp_source.html#l00060">trace.cpp:60</a></div></div>
-<div class="ttc" id="anamespaceos_html"><div class="ttname"><a href="namespaceos.html">os</a></div><div class="ttdoc">System namespace.</div><div class="ttdef"><b>Definition</b> <a href="trace_8h_source.html#l00078">trace.h:79</a></div></div>
-<div class="ttc" id="aos-app-config_8h_html_ada6c107c82cb8cb1452b2c12317fbe6f"><div class="ttname"><a href="os-app-config_8h.html#ada6c107c82cb8cb1452b2c12317fbe6f">OS_INTEGER_TRACE_ITM_STIMULUS_PORT</a></div><div class="ttdeci">#define OS_INTEGER_TRACE_ITM_STIMULUS_PORT</div><div class="ttdoc">Define the ITM stimulus port used for the trace messages.</div><div class="ttdef"><b>Definition</b> <a href="os-app-config_8h_source.html#l00929">os-app-config.h:929</a></div></div>
+<div class="ttc" id="anamespaceos_html"><div class="ttname"><a href="namespaceos.html">os</a></div><div class="ttdoc">System namespace.</div></div>
 <div class="ttc" id="atrace_8h_html"><div class="ttname"><a href="trace_8h.html">trace.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

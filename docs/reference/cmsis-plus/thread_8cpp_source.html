@@ -161,7 +161,7 @@ $(document).ready(function(){initNavTree('thread_8cpp_source.html',''); initResi
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  } <span class="comment">/* namespace estd */</span></div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>} <span class="comment">/* namespace os */</span></div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#if defined(OS_HAS_STD_THREADS)</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#if defined(OS_HAS_STD_THREADS) &amp;&amp; defined(OS_INCLUDE_STD_THREADS)</span></div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacestd.html">std</a></div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>{</div>
@@ -175,8 +175,8 @@ $(document).ready(function(){initNavTree('thread_8cpp_source.html',''); initResi
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">// ----------------------------------------------------------------------------</span></div>
-<div class="ttc" id="anamespaceos_html"><div class="ttname"><a href="namespaceos.html">os</a></div><div class="ttdoc">System namespace.</div><div class="ttdef"><b>Definition</b> <a href="trace_8h_source.html#l00078">trace.h:79</a></div></div>
-<div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdef"><b>Definition</b> <a href="new_8cpp_source.html#l00067">new.cpp:68</a></div></div>
+<div class="ttc" id="anamespaceos_html"><div class="ttname"><a href="namespaceos.html">os</a></div><div class="ttdoc">System namespace.</div></div>
+<div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdoc">Standard std namespace.</div></div>
 <div class="ttc" id="athread-cpp_8h_html"><div class="ttname"><a href="thread-cpp_8h.html">thread-cpp.h</a></div></div>
 <div class="ttc" id="athread_html"><div class="ttname"><a href="thread.html">thread</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

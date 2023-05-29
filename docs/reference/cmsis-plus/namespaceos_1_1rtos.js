@@ -51,7 +51,7 @@ var namespaceos_1_1rtos =
     [ "mutexes_list", "namespaceos_1_1rtos.html#a036797308a5a86b1f269eb9bb28be8e3", null ],
     [ "result_t", "namespaceos_1_1rtos.html#a54633089ccffe9e56ce1137ebe57776d", null ],
     [ "make_shared", "group__cmsis-plus-rtos-memres.html#ga82b16d9669ee0bc96e631b50517cb32f", null ],
-    [ "hrclock", "namespaceos_1_1rtos.html#a18ff478876ee99a5b7ce1b3f5b57d710", null ],
-    [ "rtclock", "namespaceos_1_1rtos.html#a316a778e38336232ebf8bcff50d11f3a", null ],
-    [ "sysclock", "namespaceos_1_1rtos.html#ab46d0af461e8a8434153e068bc32dc5a", null ]
+    [ "hrclock", "group__cmsis-plus-rtos-clock.html#ga18ff478876ee99a5b7ce1b3f5b57d710", null ],
+    [ "rtclock", "group__cmsis-plus-rtos-clock.html#ga316a778e38336232ebf8bcff50d11f3a", null ],
+    [ "sysclock", "group__cmsis-plus-rtos-clock.html#gab46d0af461e8a8434153e068bc32dc5a", null ]
 ];

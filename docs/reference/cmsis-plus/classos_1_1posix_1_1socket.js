@@ -11,7 +11,7 @@ var classos_1_1posix_1_1socket =
       [ "socket", "classos_1_1posix_1_1socket.html#af15a8dae890b73597de4807f15e38edea168c4c2a5646d357c32f97f6c0eea61a", null ]
     ] ],
     [ "socket", "classos_1_1posix_1_1socket.html#a03e091bd396dc6dce2b0c09f33c1834f", null ],
-    [ "~socket", "classos_1_1posix_1_1socket.html#a448cc18f67e229bc9091deda5878925a", null ],
+    [ "~socket", "classos_1_1posix_1_1socket.html#ac0a44edcf479325ff0af648f848dbb6a", null ],
     [ "accept", "classos_1_1posix_1_1socket.html#ad988e6784b93935c8e4f64cf95bdb1bb", null ],
     [ "alloc_file_descriptor", "classos_1_1posix_1_1socket.html#a92490027421a039ea56d1ad2f5cff989", null ],
     [ "bind", "classos_1_1posix_1_1socket.html#ad2d7eeaf074361f151ac5b39635158af", null ],

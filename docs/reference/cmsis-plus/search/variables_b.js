@@ -8,7 +8,7 @@ var searchData=
   ['next_5f_5',['next_',['../classos_1_1utils_1_1static__double__list__links.html#a5ec8dc9337ccc4095c6130e3ccb955e6',1,'os::utils::static_double_list_links']]],
   ['nm_5f_6',['nm_',['../classos_1_1estd_1_1mutex.html#a0dacaad816b4e8b500430f8189387ac4',1,'os::estd::mutex::nm_'],['../classos_1_1estd_1_1recursive__mutex.html#a4cab2578e632960757b334730331f905',1,'os::estd::recursive_mutex::nm_']]],
   ['no_5ffile_5fdescriptor_7',['no_file_descriptor',['../namespaceos_1_1posix.html#aca961996bf22f0750729bf0a6c17a616',1,'os::posix']]],
-  ['no_5findex_8',['no_index',['../classos_1_1rtos_1_1message__queue.html#afb32c8676f31ac44c5fd8d2782b41e3f',1,'os::rtos::message_queue']]],
+  ['no_5findex_8',['no_index',['../group__cmsis-plus-rtos-mqueue.html#gafb32c8676f31ac44c5fd8d2782b41e3f',1,'os::rtos::message_queue']]],
   ['node_5f_9',['node_',['../classos_1_1utils_1_1double__list__iterator.html#adfb040fdf39630a4f07d83af711e6595',1,'os::utils::double_list_iterator::node_'],['../classos_1_1utils_1_1intrusive__list__iterator.html#a6f19bd9c7d798ac3d15ffbd0bb8d840f',1,'os::utils::intrusive_list_iterator::node_']]],
   ['nothrow_10',['nothrow',['../group__cmsis-plus-rtos-memres.html#gae4b7b14b5246bacb54f2a4ae366ccd44',1,'std']]]
 ];

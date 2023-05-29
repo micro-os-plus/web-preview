@@ -1,11 +1,11 @@
 var classos_1_1rtos_1_1memory__pool__inclusive =
 [
     [ "allocator_type", "classos_1_1rtos_1_1memory__pool__inclusive.html#a5ef5fc603da1b3dfd918ca4d03f8ff97", null ],
-    [ "size_t", "classos_1_1rtos_1_1memory__pool__inclusive.html#a2906df850164ea47bd55d45a254f6699", null ],
+    [ "size_t", "classos_1_1rtos_1_1memory__pool__inclusive.html#ga2906df850164ea47bd55d45a254f6699", null ],
     [ "value_type", "classos_1_1rtos_1_1memory__pool__inclusive.html#a58c609f468d4fa5430d9c04ca11ceb9d", null ],
     [ "memory_pool_inclusive", "classos_1_1rtos_1_1memory__pool__inclusive.html#a26690848e5068fffeaa2fca4ff402592", null ],
     [ "memory_pool_inclusive", "classos_1_1rtos_1_1memory__pool__inclusive.html#a3181b8d9e6ff8adc40c938e3136558c0", null ],
-    [ "~memory_pool_inclusive", "classos_1_1rtos_1_1memory__pool__inclusive.html#abc1cccd5453b2963b30525b7794c8ba4", null ],
+    [ "~memory_pool_inclusive", "classos_1_1rtos_1_1memory__pool__inclusive.html#a86154b05cddab8875b3a7a536407ab53", null ],
     [ "alloc", "classos_1_1rtos_1_1memory__pool__inclusive.html#aeddefce76846cc9f7c508feea52cb757", null ],
     [ "block_size", "classos_1_1rtos_1_1memory__pool__inclusive.html#a387abd2e85b6365e4f2606333502d605", null ],
     [ "capacity", "classos_1_1rtos_1_1memory__pool__inclusive.html#a6611d00923116927509330745999c02e", null ],
@@ -29,6 +29,6 @@ var classos_1_1rtos_1_1memory__pool__inclusive =
     [ "try_alloc", "classos_1_1rtos_1_1memory__pool__inclusive.html#aaf2fa870e2f933383239cbbf2ec87e13", null ],
     [ "arena_", "classos_1_1rtos_1_1memory__pool__inclusive.html#a0b3d51171623ce3cc363e22f7bf3ede4", null ],
     [ "blocks", "classos_1_1rtos_1_1memory__pool__inclusive.html#a8689eb9bde72838004c335a80d80a3f8", null ],
-    [ "initializer", "classos_1_1rtos_1_1memory__pool__inclusive.html#a7fd442f85898940215d53d32e7a4eee7", null ],
-    [ "max_size", "classos_1_1rtos_1_1memory__pool__inclusive.html#a25abdce615f4418c120dfdaa66db582e", null ]
+    [ "initializer", "classos_1_1rtos_1_1memory__pool__inclusive.html#ga7fd442f85898940215d53d32e7a4eee7", null ],
+    [ "max_size", "classos_1_1rtos_1_1memory__pool__inclusive.html#ga25abdce615f4418c120dfdaa66db582e", null ]
 ];

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>µOS++ IIIe Reference: Cmsis-plus-rtos-c-core</title>
+<title>µOS++ IIIe Reference: Core &amp; scheduler</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -121,9 +121,12 @@ $(document).ready(function(){initNavTree('group__cmsis-plus-rtos-c-core.html',''
 <a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a>  </div>
-  <div class="headertitle"><div class="title">Cmsis-plus-rtos-c-core</div></div>
+  <div class="headertitle"><div class="title">Core &amp; scheduler<div class="ingroups"><a class="el" href="group__cmsis-plus-rtos-c.html">µOS++ RTOS C API</a></div></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>C API core &amp; scheduler definitions.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
@@ -188,11 +191,6 @@ Enumerations</h2></td></tr>
 <tr class="memdesc:ga99fb83031ce9923c84392b4e92f956b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return codes, in addition to POSIX codes.  <a href="group__cmsis-plus-rtos-c-core.html#ga99fb83031ce9923c84392b4e92f956b5">More...</a><br /></td></tr>
 <tr class="separator:ga99fb83031ce9923c84392b4e92f956b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader">Main Thread Function</h2></td></tr>
-<tr class="memitem:gadc9fe392fc6245784eb029f4eecfb8dd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cmsis-plus-rtos-c-core.html#gadc9fe392fc6245784eb029f4eecfb8dd">os_main</a> (int argc, char *argv[])</td></tr>
-<tr class="memdesc:gadc9fe392fc6245784eb029f4eecfb8dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Application entry point, running on the main thread context.  <br /></td></tr>
-<tr class="separator:gadc9fe392fc6245784eb029f4eecfb8dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader">Scheduler Functions</h2></td></tr>
 <tr class="memitem:ga65aa6c13055201304bde199d11868589"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__cmsis-plus-rtos-c-core.html#gaf11f1f616da57a9df49781a87356b875">os_result_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cmsis-plus-rtos-c-core.html#ga65aa6c13055201304bde199d11868589">os_sched_initialize</a> (void)</td></tr>
 <tr class="memdesc:ga65aa6c13055201304bde199d11868589"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise the RTOS scheduler.  <br /></td></tr>
@@ -251,7 +249,63 @@ Enumerations</h2></td></tr>
 <tr class="separator:ga85eb51a7565c1bc022d222fc04e97059"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<h2 class="groupheader">Macro Definition Documentation</h2>
+<p>C API core &amp; scheduler definitions. </p>
+<dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="group__cmsis-plus-rtos-core.html">RTOS C++ API</a></dd></dl>
+<dl class="section user"><dt>Examples</dt><dd></dd></dl>
+<div class="fragment"><div class="line"><span class="keywordtype">int</span></div>
+<div class="line"><a class="code hl_function" href="group__cmsis-plus-rtos-c.html#gadc9fe392fc6245784eb029f4eecfb8dd">os_main</a> (<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[])</div>
+<div class="line">{</div>
+<div class="line">    {</div>
+<div class="line">      flag = <a class="code hl_function" href="group__cmsis-plus-rtos-c-core.html#ga56c6a381c9ced86c2819df7ac4cb778f">os_sched_is_started</a> ();</div>
+<div class="line">      assert(flag);</div>
+<div class="line"> </div>
+<div class="line">      <span class="comment">// ...</span></div>
+<div class="line">        {</div>
+<div class="line">          <span class="comment">// Scheduler critical section</span></div>
+<div class="line">          <a class="code hl_typedef" href="group__cmsis-plus-rtos-c-core.html#gab17dcb56e1f928303fd2250321df95a1">os_sched_state_t</a> st;</div>
+<div class="line">          st = <a class="code hl_function" href="group__cmsis-plus-rtos-c-core.html#ga93bb365f39cd448dba6a58d2074dda24">os_sched_lock</a> (<span class="keyword">true</span>);</div>
+<div class="line"> </div>
+<div class="line">          <span class="comment">// ...</span></div>
+<div class="line">          flag = <a class="code hl_function" href="group__cmsis-plus-rtos-c-core.html#ga1a26c9b72ae4246b086a516244e480c8">os_sched_is_locked</a> ();</div>
+<div class="line">          assert(flag);</div>
+<div class="line"> </div>
+<div class="line">          <span class="comment">// ...</span></div>
+<div class="line">          <a class="code hl_function" href="group__cmsis-plus-rtos-c-core.html#ga917b07526a3647f575df505eebeceded">os_sched_unlock</a> (st);</div>
+<div class="line">        }</div>
+<div class="line"> </div>
+<div class="line">      <span class="comment">// ...</span></div>
+<div class="line">      flag = <a class="code hl_function" href="group__cmsis-plus-rtos-c-core.html#ga1a26c9b72ae4246b086a516244e480c8">os_sched_is_locked</a> ();</div>
+<div class="line">      assert(!flag);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    {</div>
+<div class="line">      <span class="comment">// Interrupts critical section</span></div>
+<div class="line">      <a class="code hl_typedef" href="group__cmsis-plus-rtos-c-core.html#ga9d7369bbc37e4ba09aa9dec8b58b0610">os_irq_state_t</a> st;</div>
+<div class="line">      st = <a class="code hl_function" href="group__cmsis-plus-rtos-c-core.html#gaeb1888b2cebfa7d7beb7b1590633033a">os_irq_critical_enter</a> ();</div>
+<div class="line">      <span class="comment">// ...</span></div>
+<div class="line">        {</div>
+<div class="line">          <span class="comment">// Interrupts uncritical section</span></div>
+<div class="line">          <a class="code hl_typedef" href="group__cmsis-plus-rtos-c-core.html#ga9d7369bbc37e4ba09aa9dec8b58b0610">os_irq_state_t</a> st2;</div>
+<div class="line">          st2 = <a class="code hl_function" href="group__cmsis-plus-rtos-c-core.html#ga1c4289550e6bfe01e548162f55a39c8b">os_irq_uncritical_enter</a> ();</div>
+<div class="line">          <span class="comment">// ...</span></div>
+<div class="line">          <a class="code hl_function" href="group__cmsis-plus-rtos-c-core.html#ga15b0b36e48740c233fb5bb7d848913f2">os_irq_uncritical_exit</a> (st2);</div>
+<div class="line">        }</div>
+<div class="line">      <span class="comment">// ...</span></div>
+<div class="line">      <a class="code hl_function" href="group__cmsis-plus-rtos-c-core.html#ga9e7b7dc0444f3f967d4ae3ab8cd7f2bb">os_irq_critical_exit</a> (st);</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-core_html_ga15b0b36e48740c233fb5bb7d848913f2"><div class="ttname"><a href="group__cmsis-plus-rtos-c-core.html#ga15b0b36e48740c233fb5bb7d848913f2">os_irq_uncritical_exit</a></div><div class="ttdeci">void os_irq_uncritical_exit(os_irq_state_t state)</div><div class="ttdoc">Exit the interrupts uncritical section.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l00477">os-c-wrapper.cpp:477</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-core_html_ga1a26c9b72ae4246b086a516244e480c8"><div class="ttname"><a href="group__cmsis-plus-rtos-c-core.html#ga1a26c9b72ae4246b086a516244e480c8">os_sched_is_locked</a></div><div class="ttdeci">bool os_sched_is_locked(void)</div><div class="ttdoc">Check if the scheduler is locked.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l00337">os-c-wrapper.cpp:337</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-core_html_ga1c4289550e6bfe01e548162f55a39c8b"><div class="ttname"><a href="group__cmsis-plus-rtos-c-core.html#ga1c4289550e6bfe01e548162f55a39c8b">os_irq_uncritical_enter</a></div><div class="ttdeci">os_irq_state_t os_irq_uncritical_enter(void)</div><div class="ttdoc">Enter an interrupts uncritical section.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l00463">os-c-wrapper.cpp:463</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-core_html_ga56c6a381c9ced86c2819df7ac4cb778f"><div class="ttname"><a href="group__cmsis-plus-rtos-c-core.html#ga56c6a381c9ced86c2819df7ac4cb778f">os_sched_is_started</a></div><div class="ttdeci">bool os_sched_is_started(void)</div><div class="ttdoc">Check if the scheduler was started.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l00281">os-c-wrapper.cpp:281</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-core_html_ga917b07526a3647f575df505eebeceded"><div class="ttname"><a href="group__cmsis-plus-rtos-c-core.html#ga917b07526a3647f575df505eebeceded">os_sched_unlock</a></div><div class="ttdeci">os_sched_state_t os_sched_unlock(void)</div><div class="ttdoc">Unlock the scheduler.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l00309">os-c-wrapper.cpp:309</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-core_html_ga93bb365f39cd448dba6a58d2074dda24"><div class="ttname"><a href="group__cmsis-plus-rtos-c-core.html#ga93bb365f39cd448dba6a58d2074dda24">os_sched_lock</a></div><div class="ttdeci">os_sched_state_t os_sched_lock(void)</div><div class="ttdoc">Lock the scheduler.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l00295">os-c-wrapper.cpp:295</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-core_html_ga9d7369bbc37e4ba09aa9dec8b58b0610"><div class="ttname"><a href="group__cmsis-plus-rtos-c-core.html#ga9d7369bbc37e4ba09aa9dec8b58b0610">os_irq_state_t</a></div><div class="ttdeci">os_port_irq_state_t os_irq_state_t</div><div class="ttdoc">Type of variables holding interrupts priority values.</div><div class="ttdef"><b>Definition</b> <a href="os-c-decls_8h_source.html#l00176">os-c-decls.h:176</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-core_html_ga9e7b7dc0444f3f967d4ae3ab8cd7f2bb"><div class="ttname"><a href="group__cmsis-plus-rtos-c-core.html#ga9e7b7dc0444f3f967d4ae3ab8cd7f2bb">os_irq_critical_exit</a></div><div class="ttdeci">void os_irq_critical_exit(os_irq_state_t state)</div><div class="ttdoc">Exit the interrupts critical section.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l00447">os-c-wrapper.cpp:447</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-core_html_gab17dcb56e1f928303fd2250321df95a1"><div class="ttname"><a href="group__cmsis-plus-rtos-c-core.html#gab17dcb56e1f928303fd2250321df95a1">os_sched_state_t</a></div><div class="ttdeci">os_port_scheduler_state_t os_sched_state_t</div><div class="ttdoc">Type of variables holding scheduler state codes.</div><div class="ttdef"><b>Definition</b> <a href="os-c-decls_8h_source.html#l00162">os-c-decls.h:162</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c-core_html_gaeb1888b2cebfa7d7beb7b1590633033a"><div class="ttname"><a href="group__cmsis-plus-rtos-c-core.html#gaeb1888b2cebfa7d7beb7b1590633033a">os_irq_critical_enter</a></div><div class="ttdeci">os_irq_state_t os_irq_critical_enter(void)</div><div class="ttdoc">Enter an interrupts critical section.</div><div class="ttdef"><b>Definition</b> <a href="os-c-wrapper_8cpp_source.html#l00433">os-c-wrapper.cpp:433</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-c_html_gadc9fe392fc6245784eb029f4eecfb8dd"><div class="ttname"><a href="group__cmsis-plus-rtos-c.html#gadc9fe392fc6245784eb029f4eecfb8dd">os_main</a></div><div class="ttdeci">int os_main(int argc, char *argv[])</div><div class="ttdoc">Application entry point, running on the main thread context.</div></div>
+</div><!-- fragment --> <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="ga05b4355d261cd176a03edcc83dc56fb4" name="ga05b4355d261cd176a03edcc83dc56fb4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga05b4355d261cd176a03edcc83dc56fb4">&#9670;&#160;</a></span>os_flags_all</h2>
 
@@ -302,7 +356,7 @@ Enumerations</h2></td></tr>
 
 <p>Type of variables holding clock durations. </p>
 <p>A numeric type intended to store a clock duration, either in ticks cycles, or seconds.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classos_1_1rtos_1_1clock.html#a149d8b5cea55224ef5cfede8a81df04c" title="Type of variables holding clock durations.">os::rtos::clock::duration_t</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__cmsis-plus-rtos-clock.html#ga149d8b5cea55224ef5cfede8a81df04c" title="Type of variables holding clock durations.">os::rtos::clock::duration_t</a> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="os-c-decls_8h_source.html#l00202">202</a> of file <a class="el" href="os-c-decls_8h_source.html">os-c-decls.h</a>.</p>
 
@@ -322,7 +376,7 @@ Enumerations</h2></td></tr>
 
 <p>Type of variables holding clock offsets. </p>
 <p>A numeric type intended to store a clock offset (difference to epoch), either in ticks or in seconds.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classos_1_1rtos_1_1clock.html#a149d8b5cea55224ef5cfede8a81df04c" title="Type of variables holding clock durations.">os::rtos::clock::duration_t</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__cmsis-plus-rtos-clock.html#ga149d8b5cea55224ef5cfede8a81df04c" title="Type of variables holding clock durations.">os::rtos::clock::duration_t</a> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="os-c-decls_8h_source.html#l00214">214</a> of file <a class="el" href="os-c-decls_8h_source.html">os-c-decls.h</a>.</p>
 
@@ -342,7 +396,7 @@ Enumerations</h2></td></tr>
 
 <p>Type of variables holding clock time stamps. </p>
 <p>A numeric type intended to store a clock timestamp, either in ticks cycles or seconds.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classos_1_1rtos_1_1clock.html#a4f6ee5cdd07c87db11f64d02e1c354d1" title="Type of variables holding clock time stamps.">os::rtos::clock::timestamp_t</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__cmsis-plus-rtos-clock.html#ga4f6ee5cdd07c87db11f64d02e1c354d1" title="Type of variables holding clock time stamps.">os::rtos::clock::timestamp_t</a> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="os-c-decls_8h_source.html#l00191">191</a> of file <a class="el" href="os-c-decls_8h_source.html">os-c-decls.h</a>.</p>
 
@@ -578,7 +632,7 @@ Enumerations</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1interrupts_1_1critical__section.html#adbacb147546e7166311b22c960f41e6a">os::rtos::interrupts::critical_section::enter()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00428">428</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00433">433</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -609,7 +663,7 @@ Enumerations</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1interrupts_1_1critical__section.html#a6541da78ed161f672026eea3a295bef5">os::rtos::interrupts::critical_section::exit()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00442">442</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00447">447</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -633,9 +687,9 @@ Enumerations</h2></td></tr>
 <dl class="section user"><dt>Parameters</dt><dd>None. </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>A pointer to the interrupts stack object instance.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
-<dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="namespaceos_1_1rtos_1_1interrupts.html#a2060bb385320119880c8956fc8fb1c5b">os::rtos::interrupts::stack()</a> </dd></dl>
+<dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="group__cmsis-plus-rtos-core.html#ga2060bb385320119880c8956fc8fb1c5b">os::rtos::interrupts::stack()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00489">489</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00494">494</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -667,7 +721,7 @@ Enumerations</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="namespaceos_1_1rtos_1_1interrupts.html#acb9f50dd130d6226b861ffaee191ee5a">os::rtos::interrupts::in_handler_mode()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00412">412</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00417">417</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -693,7 +747,7 @@ Enumerations</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1interrupts_1_1uncritical__section.html#a80d772d2ab134bfc4fa35e1f85dff7fd">os::rtos::interrupts::uncritical_section::enter()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00458">458</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00463">463</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -724,53 +778,7 @@ Enumerations</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="classos_1_1rtos_1_1interrupts_1_1uncritical__section.html#aaa1e80e66be19cd8921b2c6a7b615b2f">os::rtos::interrupts::uncritical_section::exit()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00472">472</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
-
-</div>
-</div>
-<a id="gadc9fe392fc6245784eb029f4eecfb8dd" name="gadc9fe392fc6245784eb029f4eecfb8dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gadc9fe392fc6245784eb029f4eecfb8dd">&#9670;&#160;</a></span>os_main()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int os_main </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>argc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>argv</em>[]&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Application entry point, running on the main thread context. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">argc</td><td>Count of arguments. </td></tr>
-    <tr><td class="paramname">argv</td><td>Array of string arguments. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">0</td><td>The program terminated normally. </td></tr>
-    <tr><td class="paramname">1</td><td>The program terminated with an error.</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>If the application does not define a <a class="el" href="os-main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Default implementation of main().">main()</a> function but defines <a class="el" href="group__cmsis-plus-rtos-c-core.html#gadc9fe392fc6245784eb029f4eecfb8dd" title="Application entry point, running on the main thread context.">os_main()</a>, the µOS++ RTOS will automatically provide a <a class="el" href="os-main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Default implementation of main().">main()</a> function that starts the main thread and calls <a class="el" href="group__cmsis-plus-rtos-c-core.html#gadc9fe392fc6245784eb029f4eecfb8dd" title="Application entry point, running on the main thread context.">os_main()</a> within this context.</p>
-<p>The returned value is used in semihosted tests, to inform the host on the result of the test. </p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00477">477</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -802,7 +810,7 @@ Enumerations</h2></td></tr>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="namespaceos_1_1rtos_1_1scheduler.html#ab6cf4a77bd9f182fb9ee339e08b2289d">os::rtos::scheduler::initialize()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00248">248</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00253">253</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -834,7 +842,7 @@ Enumerations</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="namespaceos_1_1rtos_1_1scheduler.html#adc237cecdf686cfb10780a29931166a4">os::rtos::scheduler::locked()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00332">332</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00337">337</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -866,7 +874,7 @@ Enumerations</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="namespaceos_1_1rtos_1_1scheduler.html#adb57f891c4f1a22d19748fb4082c6e39">os::rtos::scheduler::preemptive()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00346">346</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00351">351</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -898,7 +906,7 @@ Enumerations</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="namespaceos_1_1rtos_1_1scheduler.html#a6b69515f09f9b87c1488f1684aec5afa">os::rtos::scheduler::started()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00276">276</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00281">281</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -924,7 +932,7 @@ Enumerations</h2></td></tr>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="namespaceos_1_1rtos_1_1scheduler.html#a871b3eae039da2fd49e1cec17779fe00">os::rtos::scheduler::lock()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00290">290</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00295">295</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -955,7 +963,7 @@ Enumerations</h2></td></tr>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="namespaceos_1_1rtos_1_1scheduler.html#a871b3eae039da2fd49e1cec17779fe00">os::rtos::scheduler::lock()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00318">318</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00323">323</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -986,7 +994,7 @@ Enumerations</h2></td></tr>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="namespaceos_1_1rtos_1_1scheduler.html#a40e975815f74355b33b74e078b3a36a0">os::rtos::scheduler::preemptive(bool)</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00360">360</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00365">365</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -1012,7 +1020,7 @@ Enumerations</h2></td></tr>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="namespaceos_1_1rtos_1_1scheduler.html#a447a6a5aa512129d0ab5a28b0fce6890">os::rtos::scheduler::start()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00262">262</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00267">267</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -1037,7 +1045,7 @@ Enumerations</h2></td></tr>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="namespaceos_1_1rtos_1_1scheduler_1_1statistics.html#abc542863616e2eaefe98c96e2645f928">os::rtos::scheduler::statistics::context_switches()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00376">376</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00381">381</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -1062,7 +1070,7 @@ Enumerations</h2></td></tr>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="namespaceos_1_1rtos_1_1scheduler_1_1statistics.html#a52e675e601f071a951a43146744ad1a9">os::rtos::scheduler::statistics::cpu_cycles()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00394">394</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00399">399</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>
@@ -1088,7 +1096,7 @@ Enumerations</h2></td></tr>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>For the complete definition, see</dt><dd><a class="el" href="namespaceos_1_1rtos_1_1scheduler.html#a329b18ede652413b54dcd0f7b17f6d12">os::rtos::scheduler::unlock()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00304">304</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-wrapper_8cpp_source.html#l00309">309</a> of file <a class="el" href="os-c-wrapper_8cpp_source.html">os-c-wrapper.cpp</a>.</p>
 
 </div>
 </div>

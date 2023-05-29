@@ -121,9 +121,12 @@ $(document).ready(function(){initNavTree('namespaceos_1_1estd.html',''); initRes
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">os::estd Namespace Reference</div></div>
+  <div class="headertitle"><div class="title">os::estd Namespace Reference<div class="ingroups"><a class="el" href="group__cmsis-plus-iso.html">µOS++ ISO Standard C++ Threads</a></div></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Embedded <b>std</b> namespace.  
+<a href="namespaceos_1_1estd.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -159,48 +162,19 @@ Functions</h2></td></tr>
 <tr class="separator:ac596ba385da43ceb3605f700ea538ce5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a951c9b2c6401f3a3bb40d4b2c3213f46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1estd.html#a951c9b2c6401f3a3bb40d4b2c3213f46">__throw_system_error</a> (int ev, const char *what_arg)</td></tr>
 <tr class="separator:a951c9b2c6401f3a3bb40d4b2c3213f46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0910ad1ca1123a4da2cc323f70882196"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1estd.html#a0910ad1ca1123a4da2cc323f70882196">cv_status</a> { <br />
-&#160;&#160;<a class="el" href="namespaceos_1_1estd.html#a0910ad1ca1123a4da2cc323f70882196a70d61392e69e95a8c7f9603306634cbd">no_timeout</a>
+<tr class="memitem:ga0910ad1ca1123a4da2cc323f70882196"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cmsis-plus-iso.html#ga0910ad1ca1123a4da2cc323f70882196">cv_status</a> { <br />
+&#160;&#160;<a class="el" href="group__cmsis-plus-iso.html#gga0910ad1ca1123a4da2cc323f70882196a70d61392e69e95a8c7f9603306634cbd">cv_status::no_timeout</a>
 , <br />
-&#160;&#160;<a class="el" href="namespaceos_1_1estd.html#a0910ad1ca1123a4da2cc323f70882196a90272dda245ae1fb3cf197e91a8689dc">timeout</a>
+&#160;&#160;<a class="el" href="group__cmsis-plus-iso.html#gga0910ad1ca1123a4da2cc323f70882196a90272dda245ae1fb3cf197e91a8689dc">cv_status::timeout</a>
 <br />
  }</td></tr>
-<tr class="separator:a0910ad1ca1123a4da2cc323f70882196"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a363a215f669d5e9b210bd61701f24241"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1estd.html#a363a215f669d5e9b210bd61701f24241">notify_all_at_thread_exit</a> (<a class="el" href="classos_1_1estd_1_1condition__variable.html">condition_variable</a> &amp;cond, std::unique_lock&lt; <a class="el" href="classos_1_1estd_1_1mutex.html">mutex</a> &gt; lk)</td></tr>
-<tr class="separator:a363a215f669d5e9b210bd61701f24241"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ga0910ad1ca1123a4da2cc323f70882196"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga363a215f669d5e9b210bd61701f24241"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cmsis-plus-iso.html#ga363a215f669d5e9b210bd61701f24241">notify_all_at_thread_exit</a> (<a class="el" href="classos_1_1estd_1_1condition__variable.html">condition_variable</a> &amp;cond, std::unique_lock&lt; <a class="el" href="classos_1_1estd_1_1mutex.html">mutex</a> &gt; lk)</td></tr>
+<tr class="separator:ga363a215f669d5e9b210bd61701f24241"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="a0910ad1ca1123a4da2cc323f70882196" name="a0910ad1ca1123a4da2cc323f70882196"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0910ad1ca1123a4da2cc323f70882196">&#9670;&#160;</a></span>cv_status</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum class <a class="el" href="namespaceos_1_1estd.html#a0910ad1ca1123a4da2cc323f70882196">os::estd::cv_status</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Condition variables provide synchronization primitives used to block a thread until notified by some other thread that some condition is met or until a system time is reached. Class <code><a class="el" href="classos_1_1estd_1_1condition__variable.html">condition_variable</a></code> provides a condition variable that can only wait on an object of type <code>unique_lock&lt;mutex&gt;</code>, allowing maximum efficiency on some platforms. Class <code><a class="el" href="classos_1_1estd_1_1condition__variable__any.html">condition_variable_any</a></code> provides a general condition variable that can wait on objects of user-supplied lock types.</p>
-<p>Condition variables permit concurrent invocation of the <code>wait</code>, <code>wait_for</code>, <code>wait_until</code>, <code>notify_one</code> and <code>notify_all</code> member functions. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a0910ad1ca1123a4da2cc323f70882196a70d61392e69e95a8c7f9603306634cbd" name="a0910ad1ca1123a4da2cc323f70882196a70d61392e69e95a8c7f9603306634cbd"></a>no_timeout&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a0910ad1ca1123a4da2cc323f70882196a90272dda245ae1fb3cf197e91a8689dc" name="a0910ad1ca1123a4da2cc323f70882196a90272dda245ae1fb3cf197e91a8689dc"></a>timeout&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-<p class="definition">Definition at line <a class="el" href="condition__variable_source.html#l00079">79</a> of file <a class="el" href="condition__variable_source.html">condition_variable</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Embedded <b>std</b> namespace. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="afdfb11bebd11da95682c3379cd1b48a9" name="afdfb11bebd11da95682c3379cd1b48a9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afdfb11bebd11da95682c3379cd1b48a9">&#9670;&#160;</a></span>__throw_bad_alloc()</h2>
 
@@ -278,36 +252,6 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="system-error_8cpp_source.html#l00111">111</a> of file <a class="el" href="system-error_8cpp_source.html">system-error.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a363a215f669d5e9b210bd61701f24241" name="a363a215f669d5e9b210bd61701f24241"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a363a215f669d5e9b210bd61701f24241">&#9670;&#160;</a></span>notify_all_at_thread_exit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void os::estd::notify_all_at_thread_exit </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classos_1_1estd_1_1condition__variable.html">condition_variable</a> &amp;&#160;</td>
-          <td class="paramname"><em>cond</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::unique_lock&lt; <a class="el" href="classos_1_1estd_1_1mutex.html">mutex</a> &gt;&#160;</td>
-          <td class="paramname"><em>lk</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="condition-variable_8cpp_source.html#l00085">85</a> of file <a class="el" href="condition-variable_8cpp_source.html">condition-variable.cpp</a>.</p>
 
 </div>
 </div>

@@ -1,16 +1,15 @@
 var modules =
 [
-    [ "Cmsis-plus-rtos-c-core", "group__cmsis-plus-rtos-c-core.html", "group__cmsis-plus-rtos-c-core" ],
-    [ "Cmsis-plus-rtos-c-thread", "group__cmsis-plus-rtos-c-thread.html", "group__cmsis-plus-rtos-c-thread" ],
-    [ "Cmsis-plus-rtos-c-clock", "group__cmsis-plus-rtos-c-clock.html", "group__cmsis-plus-rtos-c-clock" ],
-    [ "Cmsis-plus-rtos-c-timer", "group__cmsis-plus-rtos-c-timer.html", "group__cmsis-plus-rtos-c-timer" ],
-    [ "Cmsis-plus-rtos-c-mutex", "group__cmsis-plus-rtos-c-mutex.html", "group__cmsis-plus-rtos-c-mutex" ],
-    [ "Cmsis-plus-rtos-c-condvar", "group__cmsis-plus-rtos-c-condvar.html", "group__cmsis-plus-rtos-c-condvar" ],
-    [ "Cmsis-plus-rtos-c-semaphore", "group__cmsis-plus-rtos-c-semaphore.html", "group__cmsis-plus-rtos-c-semaphore" ],
-    [ "Cmsis-plus-rtos-c-mempool", "group__cmsis-plus-rtos-c-mempool.html", "group__cmsis-plus-rtos-c-mempool" ],
-    [ "Cmsis-plus-rtos-c-mqueue", "group__cmsis-plus-rtos-c-mqueue.html", "group__cmsis-plus-rtos-c-mqueue" ],
-    [ "Cmsis-plus-rtos-c-evflag", "group__cmsis-plus-rtos-c-evflag.html", "group__cmsis-plus-rtos-c-evflag" ],
-    [ "Cmsis-plus-rtos-c-memres", "group__cmsis-plus-rtos-c-memres.html", "group__cmsis-plus-rtos-c-memres" ],
-    [ "Cmsis-plus-app-hooks", "group__cmsis-plus-app-hooks.html", "group__cmsis-plus-app-hooks" ],
-    [ "Cmsis-plus-rtos-memres", "group__cmsis-plus-rtos-memres.html", "group__cmsis-plus-rtos-memres" ]
+    [ "µOS++ Core", "group__cmsis-plus-core.html", null ],
+    [ "µOS++ Startup", "group__cmsis-plus-startup.html", null ],
+    [ "µOS++ RTOS C++ API", "group__cmsis-plus-rtos.html", "group__cmsis-plus-rtos" ],
+    [ "µOS++ RTOS C API", "group__cmsis-plus-rtos-c.html", "group__cmsis-plus-rtos-c" ],
+    [ "µOS++ ISO Standard C++ Threads", "group__cmsis-plus-iso.html", "group__cmsis-plus-iso" ],
+    [ "µOS++ Drivers", "group__cmsis-plus-drivers.html", null ],
+    [ "µOS++ Diagnostics & Trace", "group__cmsis-plus-diag.html", "group__cmsis-plus-diag" ],
+    [ "µOS++ POSIX I/O C++ API", "group__cmsis-plus-posix-io.html", "group__cmsis-plus-posix-io" ],
+    [ "µOS++ POSIX I/O C API", "group__cmsis-plus-posix-io-c.html", "group__cmsis-plus-posix-io-c" ],
+    [ "µOS++ Application Config", "group__cmsis-plus-app-config.html", "group__cmsis-plus-app-config" ],
+    [ "µOS++ Application Overrides & Hooks", "group__cmsis-plus-app-hooks.html", "group__cmsis-plus-app-hooks" ],
+    [ "Utilities", "group__cmsis-plus-utils.html", "group__cmsis-plus-utils" ]
 ];

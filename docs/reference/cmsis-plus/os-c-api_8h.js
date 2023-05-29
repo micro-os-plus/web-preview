@@ -63,7 +63,7 @@ var os_c_api_8h =
     [ "os_irq_in_handler_mode", "group__cmsis-plus-rtos-c-core.html#ga041a8d9081878f3d6dd286274030d6ea", null ],
     [ "os_irq_uncritical_enter", "group__cmsis-plus-rtos-c-core.html#ga1c4289550e6bfe01e548162f55a39c8b", null ],
     [ "os_irq_uncritical_exit", "group__cmsis-plus-rtos-c-core.html#ga15b0b36e48740c233fb5bb7d848913f2", null ],
-    [ "os_main", "group__cmsis-plus-rtos-c-core.html#gadc9fe392fc6245784eb029f4eecfb8dd", null ],
+    [ "os_main", "group__cmsis-plus-rtos-c.html#gadc9fe392fc6245784eb029f4eecfb8dd", null ],
     [ "os_memory_allocate", "group__cmsis-plus-rtos-c-memres.html#ga629583b081dda68d88d0f409c24c27fa", null ],
     [ "os_memory_coalesce", "group__cmsis-plus-rtos-c-memres.html#ga5be3bfc140b6860482f36a94606a4749", null ],
     [ "os_memory_deallocate", "group__cmsis-plus-rtos-c-memres.html#gafe38cb8ebc65ce6f2ddc5635904489d9", null ],

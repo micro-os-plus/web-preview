@@ -1,14 +1,5 @@
 var os_thread_8h =
 [
-    [ "os::rtos::thread::attributes", "classos_1_1rtos_1_1thread_1_1attributes.html", "classos_1_1rtos_1_1thread_1_1attributes" ],
-    [ "os::rtos::thread::context", "classos_1_1rtos_1_1thread_1_1context.html", "classos_1_1rtos_1_1thread_1_1context" ],
-    [ "os::rtos::thread::priority", "structos_1_1rtos_1_1thread_1_1priority.html", "structos_1_1rtos_1_1thread_1_1priority" ],
-    [ "os::rtos::thread::stack", "classos_1_1rtos_1_1thread_1_1stack.html", "classos_1_1rtos_1_1thread_1_1stack" ],
-    [ "os::rtos::thread::state", "structos_1_1rtos_1_1thread_1_1state.html", null ],
-    [ "os::rtos::thread::statistics", "classos_1_1rtos_1_1thread_1_1statistics.html", "classos_1_1rtos_1_1thread_1_1statistics" ],
-    [ "os::rtos::thread", "classos_1_1rtos_1_1thread.html", "classos_1_1rtos_1_1thread" ],
-    [ "os::rtos::thread_allocated< Allocator >", "classos_1_1rtos_1_1thread__allocated.html", "classos_1_1rtos_1_1thread__allocated" ],
-    [ "os::rtos::thread_inclusive< N >", "classos_1_1rtos_1_1thread__inclusive.html", "classos_1_1rtos_1_1thread__inclusive" ],
     [ "__errno", "os-thread_8h.html#afb95537285d0aa314fc611ec05897cbf", null ],
     [ "exit", "os-thread_8h.html#a9c68164be854d7fb8a2693726c6207ff", null ],
     [ "flags_clear", "os-thread_8h.html#aa1700e9473b69e5acbad3d87a279712d", null ],

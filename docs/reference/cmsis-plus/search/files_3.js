@@ -5,7 +5,7 @@ var searchData=
   ['c_2dsyscalls_2daliases_2dstandard_2eh_2',['c-syscalls-aliases-standard.h',['../c-syscalls-aliases-standard_8h.html',1,'']]],
   ['c_2dsyscalls_2dposix_2ecpp_3',['c-syscalls-posix.cpp',['../c-syscalls-posix_8cpp.html',1,'']]],
   ['c_2dsyscalls_2dsemihosting_2ecpp_4',['c-syscalls-semihosting.cpp',['../c-syscalls-semihosting_8cpp.html',1,'']]],
-  ['change_2dlog_2emarkdown_5',['change-log.markdown',['../change-log_8markdown.html',1,'']]],
+  ['change_2dlog_2emd_5',['change-log.md',['../change-log_8md.html',1,'']]],
   ['char_2ddevice_2ecpp_6',['char-device.cpp',['../char-device_8cpp.html',1,'']]],
   ['char_2ddevice_2eh_7',['char-device.h',['../char-device_8h.html',1,'']]],
   ['chrono_8',['chrono',['../chrono.html',1,'']]],

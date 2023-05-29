@@ -10,12 +10,12 @@ var searchData=
   ['preemptive_7',['preemptive',['../namespaceos_1_1rtos_1_1scheduler.html#a40e975815f74355b33b74e078b3a36a0',1,'os::rtos::scheduler::preemptive(bool state)'],['../namespaceos_1_1rtos_1_1scheduler.html#adb57f891c4f1a22d19748fb4082c6e39',1,'os::rtos::scheduler::preemptive(void)'],['../namespaceos_1_1rtos_1_1port_1_1scheduler.html#a639a296809cf35cfa1e4ae8aaa80d0e8',1,'os::rtos::port::scheduler::preemptive(bool)'],['../namespaceos_1_1rtos_1_1port_1_1scheduler.html#a77599af3555dc227e504469900fe6fc3',1,'os::rtos::port::scheduler::preemptive(void)']]],
   ['prepare_5fsuspend_8',['prepare_suspend',['../namespaceos_1_1rtos_1_1port_1_1this__thread.html#a8a36e3c17ff4e406aaa6cec58775a1a1',1,'os::rtos::port::this_thread']]],
   ['prev_9',['prev',['../classos_1_1utils_1_1static__double__list__links.html#a8495800ed1dd533b412381f15c7eec12',1,'os::utils::static_double_list_links::prev(void) const'],['../classos_1_1utils_1_1static__double__list__links.html#a97d78e4f66fe3f39c30afeaab56b922d',1,'os::utils::static_double_list_links::prev(static_double_list_links *n)']]],
-  ['printf_10',['printf',['../namespaceos_1_1trace.html#ab99139b69af4fe6f063b4a236133b2ee',1,'os::trace']]],
+  ['printf_10',['printf',['../group__cmsis-plus-diag.html#gab99139b69af4fe6f063b4a236133b2ee',1,'os::trace']]],
   ['prio_5fceiling_11',['prio_ceiling',['../classos_1_1rtos_1_1mutex.html#af0a2c6bbb2d30714f8eee0070e5d0ac0',1,'os::rtos::mutex::prio_ceiling(thread::priority_t prio_ceiling, thread::priority_t *old_prio_ceiling=nullptr)'],['../classos_1_1rtos_1_1mutex.html#a4934bcd463c94f3e13c6d629bc01debd',1,'os::rtos::mutex::prio_ceiling(void) const']]],
   ['priority_12',['priority',['../classos_1_1rtos_1_1thread.html#aa18df423d072eae8184f0fc6395c7262',1,'os::rtos::thread::priority(void)'],['../classos_1_1rtos_1_1thread.html#a2d49a9e876e1977a6e46ad43856c36c5',1,'os::rtos::thread::priority(priority_t prio)']]],
   ['priority_5finherited_13',['priority_inherited',['../classos_1_1rtos_1_1thread.html#a8e2c8272ff9aca36227e77f0f11df318',1,'os::rtos::thread::priority_inherited(void)'],['../classos_1_1rtos_1_1thread.html#ac58bbc0dfd3d9a7a38ba17a3039c527d',1,'os::rtos::thread::priority_inherited(priority_t prio)']]],
   ['protocol_14',['protocol',['../classos_1_1rtos_1_1mutex.html#abcb96b1b7ea3c9834abcd6f0ccdc65f2',1,'os::rtos::mutex']]],
   ['push_5fback_15',['push_back',['../classos_1_1posix_1_1circular__buffer.html#ac9344518f17288d2b444bfe26bff9435',1,'os::posix::circular_buffer::push_back(const value_type *buf, std::size_t count)'],['../classos_1_1posix_1_1circular__buffer.html#adee9f8bca41607a1d00c47e5ee15d893',1,'os::posix::circular_buffer::push_back(value_type v)']]],
-  ['putchar_16',['putchar',['../namespaceos_1_1trace.html#ad3e35a5ce4981b2c40ed6fb69814477e',1,'os::trace']]],
-  ['puts_17',['puts',['../namespaceos_1_1trace.html#a7a7b4734b5d3db0422fffe79a44ca7dc',1,'os::trace']]]
+  ['putchar_16',['putchar',['../group__cmsis-plus-diag.html#gad3e35a5ce4981b2c40ed6fb69814477e',1,'os::trace']]],
+  ['puts_17',['puts',['../group__cmsis-plus-diag.html#ga7a7b4734b5d3db0422fffe79a44ca7dc',1,'os::trace']]]
 ];

@@ -121,7 +121,7 @@ $(document).ready(function(){initNavTree('namespaceos_1_1rtos_1_1interrupts.html
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">os::rtos::interrupts Namespace Reference</div></div>
+  <div class="headertitle"><div class="title">os::rtos::interrupts Namespace Reference<div class="ingroups"><a class="el" href="group__cmsis-plus-rtos.html">µOS++ RTOS C++ API</a> &raquo; <a class="el" href="group__cmsis-plus-rtos-core.html">Core &amp; scheduler</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -151,9 +151,9 @@ Functions</h2></td></tr>
 <tr class="memitem:acb9f50dd130d6226b861ffaee191ee5a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1rtos_1_1interrupts.html#acb9f50dd130d6226b861ffaee191ee5a">in_handler_mode</a> (void)</td></tr>
 <tr class="memdesc:acb9f50dd130d6226b861ffaee191ee5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the CPU is in handler mode.  <br /></td></tr>
 <tr class="separator:acb9f50dd130d6226b861ffaee191ee5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2060bb385320119880c8956fc8fb1c5b"><td class="memItemLeft" align="right" valign="top">class <a class="el" href="classos_1_1rtos_1_1thread_1_1stack.html">thread::stack</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1rtos_1_1interrupts.html#a2060bb385320119880c8956fc8fb1c5b">stack</a> (void)</td></tr>
-<tr class="memdesc:a2060bb385320119880c8956fc8fb1c5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the interrupts stack.  <br /></td></tr>
-<tr class="separator:a2060bb385320119880c8956fc8fb1c5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2060bb385320119880c8956fc8fb1c5b"><td class="memItemLeft" align="right" valign="top">class <a class="el" href="classos_1_1rtos_1_1thread_1_1stack.html">thread::stack</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__cmsis-plus-rtos-core.html#ga2060bb385320119880c8956fc8fb1c5b">stack</a> (void)</td></tr>
+<tr class="memdesc:ga2060bb385320119880c8956fc8fb1c5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the interrupts stack.  <br /></td></tr>
+<tr class="separator:ga2060bb385320119880c8956fc8fb1c5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interrupts namespace. </p>
@@ -216,33 +216,6 @@ Functions</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines (obviously). </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="os-sched_8h_source.html#l01091">1091</a> of file <a class="el" href="os-sched_8h_source.html">os-sched.h</a>.</p>
-
-</div>
-</div>
-<a id="a2060bb385320119880c8956fc8fb1c5b" name="a2060bb385320119880c8956fc8fb1c5b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2060bb385320119880c8956fc8fb1c5b">&#9670;&#160;</a></span>stack()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">class <a class="el" href="classos_1_1rtos_1_1thread_1_1stack.html">thread::stack</a> * os::rtos::interrupts::stack </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the interrupts stack. </p>
-<dl class="section user"><dt>Parameters</dt><dd>None. </dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to stack object instance.</dd></dl>
-<p>The interrupts stack can be manipulated in a way similar to the thread stack.</p>
-<dl class="section note"><dt>Note</dt><dd>This function is available only on platforms that support a separate interrupt stack (like Cortex-M).</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="os-core_8cpp_source.html#l00562">562</a> of file <a class="el" href="os-core_8cpp_source.html">os-core.cpp</a>.</p>
 
 </div>
 </div>

@@ -1,7 +1,7 @@
 var searchData=
 [
   ['ready_0',['ready',['../structos_1_1rtos_1_1thread_1_1state.html#a0aeb2faf49c001494f12a5d893ffb5cfae1f7262514170b9e93e077a0e8e73033',1,'os::rtos::thread::state']]],
-  ['realtime_1',['realtime',['../structos_1_1rtos_1_1thread_1_1priority.html#a7812945316a2540d68c3933e0f497b66a047fd6a18c2fbfe5c9ec9187da97a5c9',1,'os::rtos::thread::priority']]],
+  ['realtime_1',['realtime',['../group__cmsis-plus-rtos-thread.html#gga7812945316a2540d68c3933e0f497b66a047fd6a18c2fbfe5c9ec9187da97a5c9',1,'os::rtos::thread::priority']]],
   ['receive_5fcomplete_2',['receive_complete',['../namespaceos_1_1driver_1_1serial.html#ac67705f57aef90334268affc4ff9a590aca1b793b0f88d578263a00078c12c152',1,'os::driver::serial']]],
   ['recursive_3',['recursive',['../structos_1_1rtos_1_1mutex_1_1type.html#a236f83dd04e1c18f388949b26fe5f4b9af017289ec993ae32eaf61107612b857f',1,'os::rtos::mutex::type']]],
   ['remote_5fhangup_4',['remote_hangup',['../namespaceos_1_1driver_1_1usb_1_1host.html#a29f43829f9945aefa55c484f4e3021a0abfe24418c904d5eb95b3e5858c49a980',1,'os::driver::usb::host']]],

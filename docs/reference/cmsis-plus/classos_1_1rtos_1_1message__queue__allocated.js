@@ -1,13 +1,13 @@
 var classos_1_1rtos_1_1message__queue__allocated =
 [
     [ "allocator_type", "classos_1_1rtos_1_1message__queue__allocated.html#abcbf2594a36674e81a895713de83091b", null ],
-    [ "index_t", "classos_1_1rtos_1_1message__queue__allocated.html#a2983d5ecc043f3be220ae96619bfa148", null ],
-    [ "msg_size_t", "classos_1_1rtos_1_1message__queue__allocated.html#aee507fd1f777940280b9246bff1018d3", null ],
-    [ "priority_t", "classos_1_1rtos_1_1message__queue__allocated.html#a26895a3c081fd319cb199d21c4028963", null ],
-    [ "size_t", "classos_1_1rtos_1_1message__queue__allocated.html#a733ed9282c7d8df162a7863851426789", null ],
+    [ "index_t", "classos_1_1rtos_1_1message__queue__allocated.html#ga2983d5ecc043f3be220ae96619bfa148", null ],
+    [ "msg_size_t", "classos_1_1rtos_1_1message__queue__allocated.html#gaee507fd1f777940280b9246bff1018d3", null ],
+    [ "priority_t", "classos_1_1rtos_1_1message__queue__allocated.html#ga26895a3c081fd319cb199d21c4028963", null ],
+    [ "size_t", "classos_1_1rtos_1_1message__queue__allocated.html#ga733ed9282c7d8df162a7863851426789", null ],
     [ "message_queue_allocated", "classos_1_1rtos_1_1message__queue__allocated.html#a0422cfcf7589d71acbab79b149460551", null ],
     [ "message_queue_allocated", "classos_1_1rtos_1_1message__queue__allocated.html#a519364b6c442701a6e0a20c1a78abf2b", null ],
-    [ "~message_queue_allocated", "classos_1_1rtos_1_1message__queue__allocated.html#aee5f64b743277ef75f5328e7130ee865", null ],
+    [ "~message_queue_allocated", "classos_1_1rtos_1_1message__queue__allocated.html#aba3ff0e913e88f5f4950e07cf7a00250", null ],
     [ "capacity", "classos_1_1rtos_1_1message__queue__allocated.html#a85da06274f41b80a70e1b5f6b66b500d", null ],
     [ "compute_allocated_size_bytes", "classos_1_1rtos_1_1message__queue__allocated.html#a927870645dd32ddabdf2a701bfa4cdaa", null ],
     [ "empty", "classos_1_1rtos_1_1message__queue__allocated.html#a0145aac56af62f96ab7a3468ea403398", null ],
@@ -29,10 +29,10 @@ var classos_1_1rtos_1_1message__queue__allocated =
     [ "timed_send", "classos_1_1rtos_1_1message__queue__allocated.html#a8bea78cd3cc3a5b6111f841bb049e668", null ],
     [ "try_receive", "classos_1_1rtos_1_1message__queue__allocated.html#a22bd67fcd9fce69ba35179d0c9be10fe", null ],
     [ "try_send", "classos_1_1rtos_1_1message__queue__allocated.html#a19cb3d7014f09cc497a953e9052b7b57", null ],
-    [ "default_priority", "classos_1_1rtos_1_1message__queue__allocated.html#a40cf8256124467cd9c58410969808979", null ],
-    [ "initializer", "classos_1_1rtos_1_1message__queue__allocated.html#a56b50be700d2a0af4b41457bc44be8ee", null ],
-    [ "max_msg_size", "classos_1_1rtos_1_1message__queue__allocated.html#a041d0cf777c082b3a64dd16052e9bf90", null ],
-    [ "max_priority", "classos_1_1rtos_1_1message__queue__allocated.html#a242b5035f07fb9deedd6739e26edef3f", null ],
-    [ "max_size", "classos_1_1rtos_1_1message__queue__allocated.html#afba3f2650328e5ea1bbcfe06541936d8", null ],
-    [ "no_index", "classos_1_1rtos_1_1message__queue__allocated.html#afb32c8676f31ac44c5fd8d2782b41e3f", null ]
+    [ "default_priority", "classos_1_1rtos_1_1message__queue__allocated.html#ga40cf8256124467cd9c58410969808979", null ],
+    [ "initializer", "classos_1_1rtos_1_1message__queue__allocated.html#ga56b50be700d2a0af4b41457bc44be8ee", null ],
+    [ "max_msg_size", "classos_1_1rtos_1_1message__queue__allocated.html#ga041d0cf777c082b3a64dd16052e9bf90", null ],
+    [ "max_priority", "classos_1_1rtos_1_1message__queue__allocated.html#ga242b5035f07fb9deedd6739e26edef3f", null ],
+    [ "max_size", "classos_1_1rtos_1_1message__queue__allocated.html#gafba3f2650328e5ea1bbcfe06541936d8", null ],
+    [ "no_index", "classos_1_1rtos_1_1message__queue__allocated.html#gafb32c8676f31ac44c5fd8d2782b41e3f", null ]
 ];
