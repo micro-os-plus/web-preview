@@ -1,11 +1,28 @@
 var namespaceos_1_1rtos =
 [
-    [ "flags", "namespaceos_1_1rtos_1_1flags.html", null ],
+    [ "flags", "namespaceos_1_1rtos_1_1flags.html", "namespaceos_1_1rtos_1_1flags" ],
     [ "internal", "namespaceos_1_1rtos_1_1internal.html", "namespaceos_1_1rtos_1_1internal" ],
     [ "interrupts", "namespaceos_1_1rtos_1_1interrupts.html", "namespaceos_1_1rtos_1_1interrupts" ],
     [ "memory", "namespaceos_1_1rtos_1_1memory.html", "namespaceos_1_1rtos_1_1memory" ],
     [ "port", "namespaceos_1_1rtos_1_1port.html", "namespaceos_1_1rtos_1_1port" ],
+    [ "result", "namespaceos_1_1rtos_1_1result.html", null ],
     [ "scheduler", "namespaceos_1_1rtos_1_1scheduler.html", "namespaceos_1_1rtos_1_1scheduler" ],
+    [ "statistics", "namespaceos_1_1rtos_1_1statistics.html", [
+      [ "counter_t", "namespaceos_1_1rtos_1_1statistics.html#a1d1572b5e0742d0e4942819c3d3b232a", null ],
+      [ "duration_t", "namespaceos_1_1rtos_1_1statistics.html#a0b143d63968082a8b6e73ecba956ac07", null ]
+    ] ],
+    [ "this_thread", "namespaceos_1_1rtos_1_1this__thread.html", [
+      [ "__errno", "namespaceos_1_1rtos_1_1this__thread.html#afb95537285d0aa314fc611ec05897cbf", null ],
+      [ "exit", "namespaceos_1_1rtos_1_1this__thread.html#a9c68164be854d7fb8a2693726c6207ff", null ],
+      [ "flags_clear", "namespaceos_1_1rtos_1_1this__thread.html#aa1700e9473b69e5acbad3d87a279712d", null ],
+      [ "flags_get", "namespaceos_1_1rtos_1_1this__thread.html#ae6267f94a724efd5ec8d3025a1165dc3", null ],
+      [ "flags_timed_wait", "namespaceos_1_1rtos_1_1this__thread.html#a0e133fc509d3e8909e3f5f4f22a22558", null ],
+      [ "flags_try_wait", "namespaceos_1_1rtos_1_1this__thread.html#a9373c2b9e8f007ac31440ea1192fd361", null ],
+      [ "flags_wait", "namespaceos_1_1rtos_1_1this__thread.html#af0f2307e56de88739dd287739a08e530", null ],
+      [ "suspend", "namespaceos_1_1rtos_1_1this__thread.html#a1c97602fb159c5e99461d6d5ea3972d8", null ],
+      [ "thread", "namespaceos_1_1rtos_1_1this__thread.html#a60661f0e3a2380c9afbec42c3b505bc4", null ],
+      [ "yield", "namespaceos_1_1rtos_1_1this__thread.html#a6d6b2df07994ab81b2435596a93bbdb6", null ]
+    ] ],
     [ "adjustable_clock", "classos_1_1rtos_1_1adjustable__clock.html", "classos_1_1rtos_1_1adjustable__clock" ],
     [ "clock", "classos_1_1rtos_1_1clock.html", "classos_1_1rtos_1_1clock" ],
     [ "clock_highres", "classos_1_1rtos_1_1clock__highres.html", "classos_1_1rtos_1_1clock__highres" ],
@@ -30,5 +47,11 @@ var namespaceos_1_1rtos =
     [ "thread", "classos_1_1rtos_1_1thread.html", "classos_1_1rtos_1_1thread" ],
     [ "thread_allocated", "classos_1_1rtos_1_1thread__allocated.html", "classos_1_1rtos_1_1thread__allocated" ],
     [ "thread_inclusive", "classos_1_1rtos_1_1thread__inclusive.html", "classos_1_1rtos_1_1thread__inclusive" ],
-    [ "timer", "classos_1_1rtos_1_1timer.html", "classos_1_1rtos_1_1timer" ]
+    [ "timer", "classos_1_1rtos_1_1timer.html", "classos_1_1rtos_1_1timer" ],
+    [ "mutexes_list", "namespaceos_1_1rtos.html#a036797308a5a86b1f269eb9bb28be8e3", null ],
+    [ "result_t", "namespaceos_1_1rtos.html#a54633089ccffe9e56ce1137ebe57776d", null ],
+    [ "make_shared", "group__cmsis-plus-rtos-memres.html#ga82b16d9669ee0bc96e631b50517cb32f", null ],
+    [ "hrclock", "namespaceos_1_1rtos.html#a18ff478876ee99a5b7ce1b3f5b57d710", null ],
+    [ "rtclock", "namespaceos_1_1rtos.html#a316a778e38336232ebf8bcff50d11f3a", null ],
+    [ "sysclock", "namespaceos_1_1rtos.html#ab46d0af461e8a8434153e068bc32dc5a", null ]
 ];

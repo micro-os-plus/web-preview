@@ -1,8 +1,8 @@
 var usb_device_8h =
 [
-    [ "Capabilities", "classos_1_1driver_1_1usb_1_1device_1_1Capabilities.html", "classos_1_1driver_1_1usb_1_1device_1_1Capabilities" ],
-    [ "Device", "classos_1_1driver_1_1usb_1_1Device.html", "classos_1_1driver_1_1usb_1_1Device" ],
-    [ "Status", "classos_1_1driver_1_1usb_1_1device_1_1Status.html", "classos_1_1driver_1_1usb_1_1device_1_1Status" ],
+    [ "os::driver::usb::device::Capabilities", "classos_1_1driver_1_1usb_1_1device_1_1Capabilities.html", "classos_1_1driver_1_1usb_1_1device_1_1Capabilities" ],
+    [ "os::driver::usb::Device", "classos_1_1driver_1_1usb_1_1Device.html", "classos_1_1driver_1_1usb_1_1Device" ],
+    [ "os::driver::usb::device::Status", "classos_1_1driver_1_1usb_1_1device_1_1Status.html", "classos_1_1driver_1_1usb_1_1device_1_1Status" ],
     [ "signal_device_event_t", "usb-device_8h.html#afea7b4a1404980eadb299e3313435f3e", null ],
     [ "signal_endpoint_event_t", "usb-device_8h.html#a2edc8ee613ff21c481fb0b130261e578", null ],
     [ "Device_event", "usb-device_8h.html#ac271252f96010635939d3fcb301ba435", [

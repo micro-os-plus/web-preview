@@ -1,7 +1,7 @@
 var group__cmsis_plus_rtos_memres =
 [
     [ "std", "namespacestd.html", null ],
-    [ "allocator_deleter", "classos_1_1rtos_1_1memory_1_1allocator__deleter.html", [
+    [ "os::rtos::memory::allocator_deleter< A >", "classos_1_1rtos_1_1memory_1_1allocator__deleter.html", [
       [ "allocator_traits", "classos_1_1rtos_1_1memory_1_1allocator__deleter.html#abc672faf7d90e95af5398501f927cceb", null ],
       [ "allocator_type", "classos_1_1rtos_1_1memory_1_1allocator__deleter.html#a4d1f4859491f3752751fd5675e2a256a", null ],
       [ "pointer", "classos_1_1rtos_1_1memory_1_1allocator__deleter.html#ae8ebd623e15661ab4f5ea11e896bec6b", null ],
@@ -10,23 +10,23 @@ var group__cmsis_plus_rtos_memres =
       [ "allocator_deleter", "classos_1_1rtos_1_1memory_1_1allocator__deleter.html#a59be59065e37e7e7d80b8a33e9adb1b2", null ],
       [ "~allocator_deleter", "classos_1_1rtos_1_1memory_1_1allocator__deleter.html#ae63698c4f4c8b3f40b7e6d727521edda", null ],
       [ "operator()", "classos_1_1rtos_1_1memory_1_1allocator__deleter.html#ab50a510e24c4945e992d0472e6be4cf8", null ],
-      [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__deleter.html#aa070186f485374bb65ba50794902d37e", null ],
-      [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__deleter.html#a5cbffd2d61b3d464e6940b0daecb793c", null ]
+      [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__deleter.html#ace2f2fb52a616245644079f17b9a5adf", null ],
+      [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__deleter.html#aa43ef12abf684a2b8ad00fd29f253116", null ]
     ] ],
-    [ "allocator_stateless_default_resource", "classos_1_1rtos_1_1memory_1_1allocator__stateless__default__resource.html", [
+    [ "os::rtos::memory::allocator_stateless_default_resource< T >", "classos_1_1rtos_1_1memory_1_1allocator__stateless__default__resource.html", [
       [ "value_type", "classos_1_1rtos_1_1memory_1_1allocator__stateless__default__resource.html#aeb7246fa47822a38531255853313e044", null ],
       [ "allocator_stateless_default_resource", "classos_1_1rtos_1_1memory_1_1allocator__stateless__default__resource.html#a35a75593e68760b10c50ba750bf514e5", null ],
       [ "allocator_stateless_default_resource", "classos_1_1rtos_1_1memory_1_1allocator__stateless__default__resource.html#a4e002155e6c919d78d6aee60d0be77f1", null ],
       [ "allocator_stateless_default_resource", "classos_1_1rtos_1_1memory_1_1allocator__stateless__default__resource.html#ab81cd127b6809c7bcfaca9804af8a438", null ],
       [ "allocator_stateless_default_resource", "classos_1_1rtos_1_1memory_1_1allocator__stateless__default__resource.html#acfdb79deb20e48bf9553da5cf9b7073b", null ],
       [ "~allocator_stateless_default_resource", "classos_1_1rtos_1_1memory_1_1allocator__stateless__default__resource.html#adebf59c21167a997ed5c51332f4691d3", null ],
-      [ "allocate", "classos_1_1rtos_1_1memory_1_1allocator__stateless__default__resource.html#a4dc637e5907bfede60e811fbc71a94be", null ],
+      [ "allocate", "classos_1_1rtos_1_1memory_1_1allocator__stateless__default__resource.html#ae960d872a45386c6d51ebb721ffadafd", null ],
       [ "deallocate", "classos_1_1rtos_1_1memory_1_1allocator__stateless__default__resource.html#a070977f77b4fef4e886f045c940a3dd2", null ],
       [ "max_size", "classos_1_1rtos_1_1memory_1_1allocator__stateless__default__resource.html#a2be513e467355a587f117e38e3fbc432", null ],
-      [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__stateless__default__resource.html#a8f07e5d8a3cbe35378ded2305da19cac", null ],
-      [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__stateless__default__resource.html#a6994e769f1a7d1fd1ce6c505cd8c9d91", null ]
+      [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__stateless__default__resource.html#afd423d3a6d68997f09cda70cab18d8ec", null ],
+      [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__stateless__default__resource.html#a1173c264e8cdd185a510c55f340c7f6d", null ]
     ] ],
-    [ "allocator_stateless_polymorphic_synchronized", "classos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized.html", [
+    [ "os::rtos::memory::allocator_stateless_polymorphic_synchronized< T, L, get_resource >", "classos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized.html", [
       [ "rebind", "structos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized_1_1rebind.html", [
         [ "other", "structos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized_1_1rebind.html#ae530b0bbf5b8b1a41d4959caaa97fe22", null ]
       ] ],
@@ -37,13 +37,13 @@ var group__cmsis_plus_rtos_memres =
       [ "allocator_stateless_polymorphic_synchronized", "classos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized.html#a5153ddba095e8687797f9eb28a5ba0f5", null ],
       [ "allocator_stateless_polymorphic_synchronized", "classos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized.html#a7a385b6e4058aff9699b797a8b077733", null ],
       [ "~allocator_stateless_polymorphic_synchronized", "classos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized.html#af97deb36a0ba3398ea9522f9f2401a83", null ],
-      [ "allocate", "classos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized.html#ae64f670fadc2e2eb19d7425273bdb4fd", null ],
+      [ "allocate", "classos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized.html#a9e3fb7e7f1ee82825c54f4bc831cc3e8", null ],
       [ "deallocate", "classos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized.html#a0fe5b1668b2a24865f1c21a0912067f7", null ],
       [ "max_size", "classos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized.html#a37f182f75eff0bf7e460f4f376d643a4", null ],
-      [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized.html#ae54805b4187877d09d5f8db699911a9e", null ],
-      [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized.html#ade2e4dd568847914396266e8da6c3381", null ]
+      [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized.html#a2627eda9fb704e09c479a1cb31a6480f", null ],
+      [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized.html#a405894f861c493222d4884766e83fbdd", null ]
     ] ],
-    [ "block_pool", "classos_1_1memory_1_1block__pool.html", [
+    [ "os::memory::block_pool", "classos_1_1memory_1_1block__pool.html", [
       [ "block_pool", "classos_1_1memory_1_1block__pool.html#a0b3c224b4f4424a665c716303d68e2c1", null ],
       [ "block_pool", "classos_1_1memory_1_1block__pool.html#aa324289a8c8147eb8fb2270b72470418", null ],
       [ "block_pool", "classos_1_1memory_1_1block__pool.html#aef80470ea332e6f902a11682c9b20b91", null ],
@@ -78,7 +78,7 @@ var group__cmsis_plus_rtos_memres =
       [ "trace_print_statistics", "classos_1_1memory_1_1block__pool.html#acb7ce5c8033fedc1c2b441cd6d3fe220", null ],
       [ "max_align", "classos_1_1memory_1_1block__pool.html#af8258a63966f621605804691ae4d2179", null ]
     ] ],
-    [ "block_pool_typed_allocated", "classos_1_1memory_1_1block__pool__typed__allocated.html", [
+    [ "os::memory::block_pool_typed_allocated< T, A >", "classos_1_1memory_1_1block__pool__typed__allocated.html", [
       [ "allocator_traits", "classos_1_1memory_1_1block__pool__typed__allocated.html#ae9bfb21d2fcb7f0e3d9fe38225642b29", null ],
       [ "allocator_type", "classos_1_1memory_1_1block__pool__typed__allocated.html#a0eae04191bccda0e68fdb8f3070bfb5f", null ],
       [ "value_type", "classos_1_1memory_1_1block__pool__typed__allocated.html#a23501f05f23316bb8544c1aba87cb850", null ],
@@ -115,7 +115,7 @@ var group__cmsis_plus_rtos_memres =
       [ "trace_print_statistics", "classos_1_1memory_1_1block__pool__typed__allocated.html#acb7ce5c8033fedc1c2b441cd6d3fe220", null ],
       [ "max_align", "classos_1_1memory_1_1block__pool__typed__allocated.html#af8258a63966f621605804691ae4d2179", null ]
     ] ],
-    [ "block_pool_typed_inclusive", "classos_1_1memory_1_1block__pool__typed__inclusive.html", [
+    [ "os::memory::block_pool_typed_inclusive< T, N >", "classos_1_1memory_1_1block__pool__typed__inclusive.html", [
       [ "value_type", "classos_1_1memory_1_1block__pool__typed__inclusive.html#a39db5a3cc5e3c2a82523eba6e9f1b00d", null ],
       [ "block_pool_typed_inclusive", "classos_1_1memory_1_1block__pool__typed__inclusive.html#a3469ebf979aa79a66703d661573a1719", null ],
       [ "block_pool_typed_inclusive", "classos_1_1memory_1_1block__pool__typed__inclusive.html#ac78799bf495cead1d047e7743dcbfa2e", null ],
@@ -151,7 +151,7 @@ var group__cmsis_plus_rtos_memres =
       [ "blocks", "classos_1_1memory_1_1block__pool__typed__inclusive.html#a75fb854b6a08f9686fb9bcb36fea698f", null ],
       [ "max_align", "classos_1_1memory_1_1block__pool__typed__inclusive.html#af8258a63966f621605804691ae4d2179", null ]
     ] ],
-    [ "first_fit_top", "classos_1_1memory_1_1first__fit__top.html", [
+    [ "os::memory::first_fit_top", "classos_1_1memory_1_1first__fit__top.html", [
       [ "first_fit_top", "classos_1_1memory_1_1first__fit__top.html#a5008e181bc1de0737fbdf3bd64cdd7ec", null ],
       [ "first_fit_top", "classos_1_1memory_1_1first__fit__top.html#a98e77ca5b590a28110268ffe2f7b1094", null ],
       [ "first_fit_top", "classos_1_1memory_1_1first__fit__top.html#a0ee82143701f06ea4fe11fdbd414b680", null ],
@@ -188,7 +188,7 @@ var group__cmsis_plus_rtos_memres =
       [ "trace_print_statistics", "classos_1_1memory_1_1first__fit__top.html#acb7ce5c8033fedc1c2b441cd6d3fe220", null ],
       [ "max_align", "classos_1_1memory_1_1first__fit__top.html#af8258a63966f621605804691ae4d2179", null ]
     ] ],
-    [ "first_fit_top_allocated", "classos_1_1memory_1_1first__fit__top__allocated.html", [
+    [ "os::memory::first_fit_top_allocated< A >", "classos_1_1memory_1_1first__fit__top__allocated.html", [
       [ "allocator_traits", "classos_1_1memory_1_1first__fit__top__allocated.html#a6b5c0db37444f26eaf00f81a916bbd5a", null ],
       [ "allocator_type", "classos_1_1memory_1_1first__fit__top__allocated.html#a5fd47cd43bb702f79c45df5acdb18a12", null ],
       [ "value_type", "classos_1_1memory_1_1first__fit__top__allocated.html#ae4b1ec84d7ed3919bfc8f17ae22e88e7", null ],
@@ -226,7 +226,7 @@ var group__cmsis_plus_rtos_memres =
       [ "trace_print_statistics", "classos_1_1memory_1_1first__fit__top__allocated.html#acb7ce5c8033fedc1c2b441cd6d3fe220", null ],
       [ "max_align", "classos_1_1memory_1_1first__fit__top__allocated.html#af8258a63966f621605804691ae4d2179", null ]
     ] ],
-    [ "first_fit_top_inclusive", "classos_1_1memory_1_1first__fit__top__inclusive.html", [
+    [ "os::memory::first_fit_top_inclusive< N >", "classos_1_1memory_1_1first__fit__top__inclusive.html", [
       [ "first_fit_top_inclusive", "classos_1_1memory_1_1first__fit__top__inclusive.html#aa57828bcb4535a0e5923b018dfe4e5b1", null ],
       [ "first_fit_top_inclusive", "classos_1_1memory_1_1first__fit__top__inclusive.html#a9782cb06d2b41000bc58e6813ffa21cc", null ],
       [ "~first_fit_top_inclusive", "classos_1_1memory_1_1first__fit__top__inclusive.html#a923b51b2997860b9f86b8252e1eaa65f", null ],
@@ -262,7 +262,7 @@ var group__cmsis_plus_rtos_memres =
       [ "bytes", "classos_1_1memory_1_1first__fit__top__inclusive.html#acd4798ca8fb36ab84019094daadb886a", null ],
       [ "max_align", "classos_1_1memory_1_1first__fit__top__inclusive.html#af8258a63966f621605804691ae4d2179", null ]
     ] ],
-    [ "lifo", "classos_1_1memory_1_1lifo.html", [
+    [ "os::memory::lifo", "classos_1_1memory_1_1lifo.html", [
       [ "lifo", "classos_1_1memory_1_1lifo.html#a963f39a040f17be2d9dbbbc660d404fd", null ],
       [ "lifo", "classos_1_1memory_1_1lifo.html#a56e218b3d0b21b9be33630b953f80e46", null ],
       [ "lifo", "classos_1_1memory_1_1lifo.html#a3a1968914abd9a8116f5f855fe131ec2", null ],
@@ -299,7 +299,7 @@ var group__cmsis_plus_rtos_memres =
       [ "trace_print_statistics", "classos_1_1memory_1_1lifo.html#acb7ce5c8033fedc1c2b441cd6d3fe220", null ],
       [ "max_align", "classos_1_1memory_1_1lifo.html#af8258a63966f621605804691ae4d2179", null ]
     ] ],
-    [ "lifo_allocated", "classos_1_1memory_1_1lifo__allocated.html", [
+    [ "os::memory::lifo_allocated< A >", "classos_1_1memory_1_1lifo__allocated.html", [
       [ "allocator_traits", "classos_1_1memory_1_1lifo__allocated.html#a318fdf12c2f91af8cf186e7a47093d29", null ],
       [ "allocator_type", "classos_1_1memory_1_1lifo__allocated.html#af3e373e4126b2ff99e7501362a9f452b", null ],
       [ "value_type", "classos_1_1memory_1_1lifo__allocated.html#a00eb506dfb276281084379bbc3822849", null ],
@@ -337,7 +337,7 @@ var group__cmsis_plus_rtos_memres =
       [ "trace_print_statistics", "classos_1_1memory_1_1lifo__allocated.html#acb7ce5c8033fedc1c2b441cd6d3fe220", null ],
       [ "max_align", "classos_1_1memory_1_1lifo__allocated.html#af8258a63966f621605804691ae4d2179", null ]
     ] ],
-    [ "lifo_inclusive", "classos_1_1memory_1_1lifo__inclusive.html", [
+    [ "os::memory::lifo_inclusive< N >", "classos_1_1memory_1_1lifo__inclusive.html", [
       [ "lifo_inclusive", "classos_1_1memory_1_1lifo__inclusive.html#a0de94c104f8b921e97f5b435e367c095", null ],
       [ "lifo_inclusive", "classos_1_1memory_1_1lifo__inclusive.html#a0be0edfe7219a85a0ee051863b532b1a", null ],
       [ "~lifo_inclusive", "classos_1_1memory_1_1lifo__inclusive.html#aaf6ba3ff0d2c6a2cd239f446002ecbf6", null ],
@@ -373,7 +373,7 @@ var group__cmsis_plus_rtos_memres =
       [ "bytes", "classos_1_1memory_1_1lifo__inclusive.html#a074dfbbe3f1b3f33302bab41342a55ee", null ],
       [ "max_align", "classos_1_1memory_1_1lifo__inclusive.html#af8258a63966f621605804691ae4d2179", null ]
     ] ],
-    [ "malloc_memory_resource", "classos_1_1memory_1_1malloc__memory__resource.html", [
+    [ "os::memory::malloc_memory_resource", "classos_1_1memory_1_1malloc__memory__resource.html", [
       [ "malloc_memory_resource", "classos_1_1memory_1_1malloc__memory__resource.html#a0157388861d8b62f2ea7c8d7e600006b", null ],
       [ "malloc_memory_resource", "classos_1_1memory_1_1malloc__memory__resource.html#adc6355ad4ab33455ad63598b7ddae8b1", null ],
       [ "~malloc_memory_resource", "classos_1_1memory_1_1malloc__memory__resource.html#adb39a31a29906bdad4b6e2d078895ebc", null ],
@@ -405,7 +405,7 @@ var group__cmsis_plus_rtos_memres =
       [ "trace_print_statistics", "classos_1_1memory_1_1malloc__memory__resource.html#acb7ce5c8033fedc1c2b441cd6d3fe220", null ],
       [ "max_align", "classos_1_1memory_1_1malloc__memory__resource.html#af8258a63966f621605804691ae4d2179", null ]
     ] ],
-    [ "memory_resource", "classos_1_1rtos_1_1memory_1_1memory__resource.html", [
+    [ "os::rtos::memory::memory_resource", "classos_1_1rtos_1_1memory_1_1memory__resource.html", [
       [ "memory_resource", "classos_1_1rtos_1_1memory_1_1memory__resource.html#a3be76038e28cd874354bdefdcd0ef551", null ],
       [ "memory_resource", "classos_1_1rtos_1_1memory_1_1memory__resource.html#a808af4bd4edf3548ce724592708e34c1", null ],
       [ "~memory_resource", "classos_1_1rtos_1_1memory_1_1memory__resource.html#aefe1fa39b12fc16874a5539f4b4679d6", null ],
@@ -437,7 +437,7 @@ var group__cmsis_plus_rtos_memres =
       [ "trace_print_statistics", "classos_1_1rtos_1_1memory_1_1memory__resource.html#acb7ce5c8033fedc1c2b441cd6d3fe220", null ],
       [ "max_align", "classos_1_1rtos_1_1memory_1_1memory__resource.html#af8258a63966f621605804691ae4d2179", null ]
     ] ],
-    [ "new_delete_memory_resource", "classos_1_1memory_1_1new__delete__memory__resource.html", [
+    [ "os::memory::new_delete_memory_resource", "classos_1_1memory_1_1new__delete__memory__resource.html", [
       [ "~new_delete_memory_resource", "classos_1_1memory_1_1new__delete__memory__resource.html#a035e2f25ea9c48c51520ca8f07ac2e16", null ],
       [ "allocate", "classos_1_1memory_1_1new__delete__memory__resource.html#a5284ae746c3d0f71a02acdb9ed69f815", null ],
       [ "allocated_bytes", "classos_1_1memory_1_1new__delete__memory__resource.html#a4461f324ac21f845527f391ce47c2dd0", null ],
@@ -469,7 +469,7 @@ var group__cmsis_plus_rtos_memres =
       [ "trace_print_statistics", "classos_1_1memory_1_1new__delete__memory__resource.html#acb7ce5c8033fedc1c2b441cd6d3fe220", null ],
       [ "max_align", "classos_1_1memory_1_1new__delete__memory__resource.html#af8258a63966f621605804691ae4d2179", null ]
     ] ],
-    [ "null_memory_resource", "classos_1_1memory_1_1null__memory__resource.html", [
+    [ "os::memory::null_memory_resource", "classos_1_1memory_1_1null__memory__resource.html", [
       [ "null_memory_resource", "classos_1_1memory_1_1null__memory__resource.html#a0f11dc99e3dc5c7b3e596a7d5e42ca2b", null ],
       [ "~null_memory_resource", "classos_1_1memory_1_1null__memory__resource.html#a52b318ec509ad856dab72905197641bc", null ],
       [ "allocate", "classos_1_1memory_1_1null__memory__resource.html#a5284ae746c3d0f71a02acdb9ed69f815", null ],
@@ -500,50 +500,45 @@ var group__cmsis_plus_rtos_memres =
       [ "trace_print_statistics", "classos_1_1memory_1_1null__memory__resource.html#acb7ce5c8033fedc1c2b441cd6d3fe220", null ],
       [ "max_align", "classos_1_1memory_1_1null__memory__resource.html#af8258a63966f621605804691ae4d2179", null ]
     ] ],
-    [ "allocator", "group__cmsis-plus-rtos-memres.html#gac00e47b1a65850b96de7c9fe0e938da1", null ],
-    [ "allocator_typed", "group__cmsis-plus-rtos-memres.html#ga82d08410dc0d1e8cfb011ad843f871ec", null ],
-    [ "out_of_memory_handler_t", "group__cmsis-plus-rtos-memres.html#ga165e1d42e364dcabcbf01e5322b9f554", null ],
-    [ "unique_ptr", "group__cmsis-plus-rtos-memres.html#ga4a11d49fdbc2f58aa1c0c5fa56f13ebb", null ],
-    [ "allocate_unique", "group__cmsis-plus-rtos-memres.html#gabf21181167520330c0aba45ad045bce3", null ],
-    [ "get_default_resource", "group__cmsis-plus-rtos-memres.html#ga984b9c524b3d5f8eaa560e4f98c55928", null ],
-    [ "get_default_resource", "group__cmsis-plus-rtos-memres.html#ga61c4946b90c917a9fc2a0b0f1c43ad89", null ],
-    [ "get_resource_typed", "group__cmsis-plus-rtos-memres.html#ga8085c0b4c4642fa5e235bc50b84177ef", null ],
-    [ "get_resource_typed< condition_variable >", "group__cmsis-plus-rtos-memres.html#ga064d84e6ecdbcd39ba2a2b5a8a0cc2b4", null ],
-    [ "get_resource_typed< event_flags >", "group__cmsis-plus-rtos-memres.html#gaee22560cdfcdab32a538fa367fafba20", null ],
-    [ "get_resource_typed< memory_pool >", "group__cmsis-plus-rtos-memres.html#gade7f8d53d9ac477a901e73cae7363c5e", null ],
-    [ "get_resource_typed< message_queue >", "group__cmsis-plus-rtos-memres.html#gad021a015f30ecf9ba69fb6e2b0378ea3", null ],
-    [ "get_resource_typed< mutex >", "group__cmsis-plus-rtos-memres.html#gae6819aeb79a19168bd69597d8b43dfcc", null ],
-    [ "get_resource_typed< semaphore >", "group__cmsis-plus-rtos-memres.html#ga850aa625ca611835d54ca82ce21c9477", null ],
-    [ "get_resource_typed< thread >", "group__cmsis-plus-rtos-memres.html#ga419dca3be320742d9191da26aac47e65", null ],
-    [ "get_resource_typed< timer >", "group__cmsis-plus-rtos-memres.html#ga9f80eed0cd0121e9d5c6f501e440fe69", null ],
-    [ "init_once_default_resource", "group__cmsis-plus-rtos-memres.html#ga206b185012c2bd24b7b4f29b4db5aed6", null ],
-    [ "make_shared", "group__cmsis-plus-rtos-memres.html#ga0449994d14fbd65e9db916aaf88da446", null ],
-    [ "malloc_resource", "group__cmsis-plus-rtos-memres.html#ga3c3109d3de2ac643502566774021d5dd", null ],
-    [ "new_delete_resource", "group__cmsis-plus-rtos-memres.html#gaa0efdbc11c98e94893825fc05c6a7615", null ],
-    [ "null_memory_resource", "group__cmsis-plus-rtos-memres.html#ga1a429398eefddb1ca8a103006ace1387", null ],
-    [ "operator delete", "group__cmsis-plus-rtos-memres.html#gafa145befcf5e7b83424408ca503c8637", null ],
-    [ "operator delete", "group__cmsis-plus-rtos-memres.html#ga82af5bcb97f91e73d40aa6390554920a", null ],
-    [ "operator delete", "group__cmsis-plus-rtos-memres.html#gaeca15c4f631258b9c4987f804f6796c3", null ],
-    [ "operator delete[]", "group__cmsis-plus-rtos-memres.html#ga22aea74a1155aa798d6032da46da2391", null ],
-    [ "operator delete[]", "group__cmsis-plus-rtos-memres.html#ga2f192d7375b5f82e6bec075a834762ca", null ],
-    [ "operator delete[]", "group__cmsis-plus-rtos-memres.html#ga813195142d16c1a016cc2ba960d69087", null ],
-    [ "operator new", "group__cmsis-plus-rtos-memres.html#ga98d1fa89f048e8bde29089fccc11a3fc", null ],
-    [ "operator new", "group__cmsis-plus-rtos-memres.html#gaa47e694d5a1ed7a76f371e75d20ad584", null ],
-    [ "operator new[]", "group__cmsis-plus-rtos-memres.html#ga0b71e89e72e6b0db306d6897d9e2533e", null ],
-    [ "operator new[]", "group__cmsis-plus-rtos-memres.html#ga9a58a6def1abeffe81a6f146f8736025", null ],
-    [ "operator!=", "group__cmsis-plus-rtos-memres.html#ga1362aa6b80e1d9a0bf85db6ab6953e46", null ],
-    [ "operator!=", "group__cmsis-plus-rtos-memres.html#ga9042825a60e194355f0424b3a36e442e", null ],
-    [ "operator==", "group__cmsis-plus-rtos-memres.html#gaa114b293300994ebcc1ec965b78de8f4", null ],
-    [ "operator==", "group__cmsis-plus-rtos-memres.html#ga4769d08c721d5e897a8792837d5eccf7", null ],
-    [ "set_default_resource", "group__cmsis-plus-rtos-memres.html#gacbb72d3cad1991160e1c3c5c8538f6c4", null ],
-    [ "set_default_resource", "group__cmsis-plus-rtos-memres.html#ga34cf8ec3444242cb4c9bd0849c7ce439", null ],
-    [ "set_resource_typed", "group__cmsis-plus-rtos-memres.html#ga48ba4db7f3bd283b637c3f47dc0fdc7b", null ],
-    [ "set_resource_typed< condition_variable >", "group__cmsis-plus-rtos-memres.html#ga4af1d058b3b53828b3d6c7f1bc71cda4", null ],
-    [ "set_resource_typed< event_flags >", "group__cmsis-plus-rtos-memres.html#ga8feae91943adab3bd057ce09c2b27f4f", null ],
-    [ "set_resource_typed< memory_pool >", "group__cmsis-plus-rtos-memres.html#ga666b9fe23b9c8b824e1ce74b9826ba6d", null ],
-    [ "set_resource_typed< message_queue >", "group__cmsis-plus-rtos-memres.html#ga57cf8f5462e5fbaf1cf80b7cedcc4339", null ],
-    [ "set_resource_typed< mutex >", "group__cmsis-plus-rtos-memres.html#gab6cb16d9873d8a50e8995a531daf0e49", null ],
-    [ "set_resource_typed< semaphore >", "group__cmsis-plus-rtos-memres.html#gabf7151b6c67a779c0f061d5f97d041c4", null ],
-    [ "set_resource_typed< thread >", "group__cmsis-plus-rtos-memres.html#gac4df8b5306c8cb1a3bb584d324a36def", null ],
-    [ "set_resource_typed< timer >", "group__cmsis-plus-rtos-memres.html#gafb9431faf4191c85a8570dd511d87e2e", null ]
+    [ "os::rtos::memory::allocator", "group__cmsis-plus-rtos-memres.html#gac00e47b1a65850b96de7c9fe0e938da1", null ],
+    [ "os::rtos::memory::allocator_typed", "group__cmsis-plus-rtos-memres.html#ga82d08410dc0d1e8cfb011ad843f871ec", null ],
+    [ "os::rtos::memory::out_of_memory_handler_t", "group__cmsis-plus-rtos-memres.html#ga165e1d42e364dcabcbf01e5322b9f554", null ],
+    [ "os::rtos::memory::unique_ptr", "group__cmsis-plus-rtos-memres.html#ga4a11d49fdbc2f58aa1c0c5fa56f13ebb", null ],
+    [ "os::rtos::memory::allocate_unique", "group__cmsis-plus-rtos-memres.html#gabf21181167520330c0aba45ad045bce3", null ],
+    [ "os::estd::pmr::get_default_resource", "group__cmsis-plus-rtos-memres.html#ga984b9c524b3d5f8eaa560e4f98c55928", null ],
+    [ "os::rtos::memory::get_default_resource", "group__cmsis-plus-rtos-memres.html#ga61c4946b90c917a9fc2a0b0f1c43ad89", null ],
+    [ "std::get_new_handler", "group__cmsis-plus-rtos-memres.html#ga2aab280c9a87214e453f8f598827d13b", null ],
+    [ "os::rtos::memory::get_resource_typed", "group__cmsis-plus-rtos-memres.html#ga1a04af7fafdc21f54317211e60a8e948", null ],
+    [ "os::rtos::memory::get_resource_typed< condition_variable >", "group__cmsis-plus-rtos-memres.html#ga064d84e6ecdbcd39ba2a2b5a8a0cc2b4", null ],
+    [ "os::rtos::memory::get_resource_typed< event_flags >", "group__cmsis-plus-rtos-memres.html#gaee22560cdfcdab32a538fa367fafba20", null ],
+    [ "os::rtos::memory::get_resource_typed< memory_pool >", "group__cmsis-plus-rtos-memres.html#gade7f8d53d9ac477a901e73cae7363c5e", null ],
+    [ "os::rtos::memory::get_resource_typed< message_queue >", "group__cmsis-plus-rtos-memres.html#gad021a015f30ecf9ba69fb6e2b0378ea3", null ],
+    [ "os::rtos::memory::get_resource_typed< mutex >", "group__cmsis-plus-rtos-memres.html#gae6819aeb79a19168bd69597d8b43dfcc", null ],
+    [ "os::rtos::memory::get_resource_typed< semaphore >", "group__cmsis-plus-rtos-memres.html#ga850aa625ca611835d54ca82ce21c9477", null ],
+    [ "os::rtos::memory::get_resource_typed< thread >", "group__cmsis-plus-rtos-memres.html#ga419dca3be320742d9191da26aac47e65", null ],
+    [ "os::rtos::memory::get_resource_typed< timer >", "group__cmsis-plus-rtos-memres.html#ga9f80eed0cd0121e9d5c6f501e440fe69", null ],
+    [ "os::rtos::memory::init_once_default_resource", "group__cmsis-plus-rtos-memres.html#ga206b185012c2bd24b7b4f29b4db5aed6", null ],
+    [ "os::rtos::make_shared", "group__cmsis-plus-rtos-memres.html#ga82b16d9669ee0bc96e631b50517cb32f", null ],
+    [ "os::rtos::memory::malloc_resource", "group__cmsis-plus-rtos-memres.html#ga3c3109d3de2ac643502566774021d5dd", null ],
+    [ "os::estd::pmr::new_delete_resource", "group__cmsis-plus-rtos-memres.html#ga8f397e557371996c5f32b40532e8ca9b", null ],
+    [ "os::estd::pmr::null_memory_resource", "group__cmsis-plus-rtos-memres.html#gacfbbe9d8cb4c6a8358adff7d21dd590f", null ],
+    [ "operator new", "group__cmsis-plus-rtos-memres.html#gaf49323f24a089fbe455e5a7b4678bfa3", null ],
+    [ "os::rtos::memory::operator!=", "group__cmsis-plus-rtos-memres.html#ga1362aa6b80e1d9a0bf85db6ab6953e46", null ],
+    [ "os::rtos::memory::operator!=", "group__cmsis-plus-rtos-memres.html#ga9042825a60e194355f0424b3a36e442e", null ],
+    [ "os::rtos::memory::operator==", "group__cmsis-plus-rtos-memres.html#gaa114b293300994ebcc1ec965b78de8f4", null ],
+    [ "os::rtos::memory::operator==", "group__cmsis-plus-rtos-memres.html#ga4769d08c721d5e897a8792837d5eccf7", null ],
+    [ "os::estd::pmr::set_default_resource", "group__cmsis-plus-rtos-memres.html#gacbb72d3cad1991160e1c3c5c8538f6c4", null ],
+    [ "os::rtos::memory::set_default_resource", "group__cmsis-plus-rtos-memres.html#ga34cf8ec3444242cb4c9bd0849c7ce439", null ],
+    [ "std::set_new_handler", "group__cmsis-plus-rtos-memres.html#ga6519f396a0019421c491bcdccab811b3", null ],
+    [ "os::rtos::memory::set_resource_typed", "group__cmsis-plus-rtos-memres.html#ga55d739ea53bab615eacae4ada35546af", null ],
+    [ "os::rtos::memory::set_resource_typed< condition_variable >", "group__cmsis-plus-rtos-memres.html#ga4af1d058b3b53828b3d6c7f1bc71cda4", null ],
+    [ "os::rtos::memory::set_resource_typed< event_flags >", "group__cmsis-plus-rtos-memres.html#ga8feae91943adab3bd057ce09c2b27f4f", null ],
+    [ "os::rtos::memory::set_resource_typed< memory_pool >", "group__cmsis-plus-rtos-memres.html#ga666b9fe23b9c8b824e1ce74b9826ba6d", null ],
+    [ "os::rtos::memory::set_resource_typed< message_queue >", "group__cmsis-plus-rtos-memres.html#ga57cf8f5462e5fbaf1cf80b7cedcc4339", null ],
+    [ "os::rtos::memory::set_resource_typed< mutex >", "group__cmsis-plus-rtos-memres.html#gab6cb16d9873d8a50e8995a531daf0e49", null ],
+    [ "os::rtos::memory::set_resource_typed< semaphore >", "group__cmsis-plus-rtos-memres.html#gabf7151b6c67a779c0f061d5f97d041c4", null ],
+    [ "os::rtos::memory::set_resource_typed< thread >", "group__cmsis-plus-rtos-memres.html#gac4df8b5306c8cb1a3bb584d324a36def", null ],
+    [ "os::rtos::memory::set_resource_typed< timer >", "group__cmsis-plus-rtos-memres.html#gafb9431faf4191c85a8570dd511d87e2e", null ],
+    [ "anonymous_namespace{new.cpp}::new_handler_", "group__cmsis-plus-rtos-memres.html#ga099e4657626730e767ff1b87868e1379", null ],
+    [ "std::nothrow", "group__cmsis-plus-rtos-memres.html#gae4b7b14b5246bacb54f2a4ae366ccd44", null ]
 ];

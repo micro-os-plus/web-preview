@@ -1,8 +1,8 @@
 var usb_host_8h =
 [
-    [ "Capabilities", "classos_1_1driver_1_1usb_1_1host_1_1Capabilities.html", "classos_1_1driver_1_1usb_1_1host_1_1Capabilities" ],
-    [ "Host", "classos_1_1driver_1_1usb_1_1Host.html", "classos_1_1driver_1_1usb_1_1Host" ],
-    [ "Status", "classos_1_1driver_1_1usb_1_1host_1_1Status.html", "classos_1_1driver_1_1usb_1_1host_1_1Status" ],
+    [ "os::driver::usb::host::Capabilities", "classos_1_1driver_1_1usb_1_1host_1_1Capabilities.html", "classos_1_1driver_1_1usb_1_1host_1_1Capabilities" ],
+    [ "os::driver::usb::Host", "classos_1_1driver_1_1usb_1_1Host.html", "classos_1_1driver_1_1usb_1_1Host" ],
+    [ "os::driver::usb::host::Status", "classos_1_1driver_1_1usb_1_1host_1_1Status.html", "classos_1_1driver_1_1usb_1_1host_1_1Status" ],
     [ "signal_pipe_event_t", "usb-host_8h.html#a44ea8024d85782aeb9a3111a03c169db", null ],
     [ "signal_port_event_t", "usb-host_8h.html#aef4c71c2ba9fadbaa69046801b02165d", null ],
     [ "Pipe_event", "usb-host_8h.html#a8cf450dc5595614f8414e5e6f9970205", [

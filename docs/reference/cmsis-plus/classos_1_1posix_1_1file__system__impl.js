@@ -5,7 +5,7 @@ var classos_1_1posix_1_1file__system__impl =
     [ "device", "classos_1_1posix_1_1file__system__impl.html#a6e0540af695f2dfd7f5c41492496f30b", null ],
     [ "do_chmod", "classos_1_1posix_1_1file__system__impl.html#a6c3d2a9590f494f9624819fa2a219979", null ],
     [ "do_mkdir", "classos_1_1posix_1_1file__system__impl.html#a1bb5b0612a8f5cbc6d9a83e4474d67b6", null ],
-    [ "do_opendir", "classos_1_1posix_1_1file__system__impl.html#ab31b4c1b07a8a9c3c203ca7019533b9f", null ],
+    [ "do_opendir", "classos_1_1posix_1_1file__system__impl.html#abf88d37ac8de1f12ccf29f1e01f8bb40", null ],
     [ "do_rename", "classos_1_1posix_1_1file__system__impl.html#a1b02a0293ad7ef0204372f025d576806", null ],
     [ "do_rmdir", "classos_1_1posix_1_1file__system__impl.html#adf9fff6c36af7e96985821b47952fe36", null ],
     [ "do_stat", "classos_1_1posix_1_1file__system__impl.html#a95f67ac08c46f47b112a2c88a7ebecf9", null ],
@@ -17,6 +17,6 @@ var classos_1_1posix_1_1file__system__impl =
     [ "do_utime", "classos_1_1posix_1_1file__system__impl.html#ad46d9b7b9bf58729dddaaae79b6e43c3", null ],
     [ "do_vmkfs", "classos_1_1posix_1_1file__system__impl.html#a6aa9db6c7a33b5d2904a057c0cc54e53", null ],
     [ "do_vmount", "classos_1_1posix_1_1file__system__impl.html#a74e1c01cc5b2b18d1092a981ceab0bf9", null ],
-    [ "do_vopen", "classos_1_1posix_1_1file__system__impl.html#a89d62f6fd1e0d6c74b94f9c92a1bc4d9", null ],
+    [ "do_vopen", "classos_1_1posix_1_1file__system__impl.html#ab291a97c3a276ad8223802b5d0f5eab6", null ],
     [ "file_system", "classos_1_1posix_1_1file__system__impl.html#a7d0eab39868b7089ad53ec210aab074d", null ]
 ];

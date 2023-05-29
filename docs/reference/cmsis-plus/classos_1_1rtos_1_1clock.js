@@ -1,8 +1,8 @@
 var classos_1_1rtos_1_1clock =
 [
-    [ "duration_t", "group__cmsis-plus-rtos-clock.html#ga149d8b5cea55224ef5cfede8a81df04c", null ],
-    [ "offset_t", "group__cmsis-plus-rtos-clock.html#gabb59996de739574c5f5255e7b3d29c1c", null ],
-    [ "timestamp_t", "group__cmsis-plus-rtos-clock.html#ga4f6ee5cdd07c87db11f64d02e1c354d1", null ],
+    [ "duration_t", "classos_1_1rtos_1_1clock.html#a149d8b5cea55224ef5cfede8a81df04c", null ],
+    [ "offset_t", "classos_1_1rtos_1_1clock.html#abb59996de739574c5f5255e7b3d29c1c", null ],
+    [ "timestamp_t", "classos_1_1rtos_1_1clock.html#a4f6ee5cdd07c87db11f64d02e1c354d1", null ],
     [ "~clock", "classos_1_1rtos_1_1clock.html#ae823d4ebdf4c3453e24eb3e4929e7b0e", null ],
     [ "name", "classos_1_1rtos_1_1clock.html#a3103a84c5e0521c3639306f5879526ba", null ],
     [ "now", "classos_1_1rtos_1_1clock.html#a965f1afa68128bdfaeac93e216e2196f", null ],

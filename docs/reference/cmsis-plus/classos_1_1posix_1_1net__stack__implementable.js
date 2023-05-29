@@ -9,7 +9,7 @@ var classos_1_1posix_1_1net__stack__implementable =
     [ "allocate_socket", "classos_1_1posix_1_1net__stack__implementable.html#a710f6bde7eae126346acd4b9f4546a8a", null ],
     [ "deferred_sockets_list", "classos_1_1posix_1_1net__stack__implementable.html#ae507f8986068f83bcc2f6899b72506a7", null ],
     [ "impl", "classos_1_1posix_1_1net__stack__implementable.html#ad1893464657a3f3454f8fb8baa34b4cb", null ],
-    [ "interface", "classos_1_1posix_1_1net__stack__implementable.html#aa578ea76a990084531ef1cf6fc62ce79", null ],
+    [ "interface", "classos_1_1posix_1_1net__stack__implementable.html#a88cfceee12ee3503aac8ec20d2cda709", null ],
     [ "name", "classos_1_1posix_1_1net__stack__implementable.html#ac7267982468c0c7a8ae60841ce54db3a", null ],
     [ "socket", "classos_1_1posix_1_1net__stack__implementable.html#ad3c0c5d80d0bb1cd44ef98e7eaddabae", null ]
 ];

@@ -7,7 +7,7 @@ var classos_1_1estd_1_1mutex =
     [ "mutex", "classos_1_1estd_1_1mutex.html#ad3fbd0971e672dafd88fdd516a9ae029", null ],
     [ "lock", "classos_1_1estd_1_1mutex.html#a5d6274be38694e3239532efcd994084a", null ],
     [ "native_handle", "classos_1_1estd_1_1mutex.html#a75fc9bca976e0a6e13f0475c7705dc61", null ],
-    [ "operator=", "classos_1_1estd_1_1mutex.html#a9be25bcc6cc53c0e0b34ee90efce31c4", null ],
+    [ "operator=", "classos_1_1estd_1_1mutex.html#a4c27b47d1bcd3b5535a7bd14efa48936", null ],
     [ "try_lock", "classos_1_1estd_1_1mutex.html#a7d8c47c4e36b55aaf393e0493d453c52", null ],
     [ "unlock", "classos_1_1estd_1_1mutex.html#a892686d8c44f7c9757e77776ec912be5", null ],
     [ "nm_", "classos_1_1estd_1_1mutex.html#a0dacaad816b4e8b500430f8189387ac4", null ]

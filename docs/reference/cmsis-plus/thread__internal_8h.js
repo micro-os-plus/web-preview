@@ -1,7 +1,6 @@
 var thread__internal_8h =
 [
-    [ "hash", "structhash.html", null ],
-    [ "id", "classthread_1_1id.html", "classthread_1_1id" ],
+    [ "thread::id", "classthread_1_1id.html", "classthread_1_1id" ],
     [ "thread", "classthread.html", "classthread" ],
     [ "get_id", "thread__internal_8h.html#a0853c122bfad98e6641b630b9ac54736", null ],
     [ "operator!=", "thread__internal_8h.html#af231144bd6570dfa59b876942995b1eb", null ],

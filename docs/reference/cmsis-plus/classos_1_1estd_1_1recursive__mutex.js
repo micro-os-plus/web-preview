@@ -7,7 +7,7 @@ var classos_1_1estd_1_1recursive__mutex =
     [ "recursive_mutex", "classos_1_1estd_1_1recursive__mutex.html#a072bc04751ceeb6cdf8e899773a483ed", null ],
     [ "lock", "classos_1_1estd_1_1recursive__mutex.html#a9d041e25cfb22d9f47451dcb107b641e", null ],
     [ "native_handle", "classos_1_1estd_1_1recursive__mutex.html#abe7de5fe39622aa3941d99da710db9f8", null ],
-    [ "operator=", "classos_1_1estd_1_1recursive__mutex.html#aac68da740b85bb98a96fc0d6eb47386f", null ],
+    [ "operator=", "classos_1_1estd_1_1recursive__mutex.html#a66318408365658a9c12c0ba2db1baa19", null ],
     [ "try_lock", "classos_1_1estd_1_1recursive__mutex.html#a94f0b3a4f439c2ca6d14e39dce11ec96", null ],
     [ "unlock", "classos_1_1estd_1_1recursive__mutex.html#aea97948b15b23687905b3ff88f7e8cf5", null ],
     [ "nm_", "classos_1_1estd_1_1recursive__mutex.html#a4cab2578e632960757b334730331f905", null ]

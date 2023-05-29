@@ -1,8 +1,4 @@
 var searchData=
 [
-  ['echo_4591',['ECHO',['../termios_8h.html#aad1dc60a04a1d8cfc8b3ded13601e361',1,'termios.h']]],
-  ['echoe_4592',['ECHOE',['../termios_8h.html#aac931d3ce0dfc4578f76879ed095ecd7',1,'termios.h']]],
-  ['echok_4593',['ECHOK',['../termios_8h.html#a6695c16777cf8a5211cfba9a23d45985',1,'termios.h']]],
-  ['echonl_4594',['ECHONL',['../termios_8h.html#ad99516e614e3aa680dfc0052085de40a',1,'termios.h']]],
-  ['extproc_4595',['EXTPROC',['../termios_8h.html#ad32b185e005788ed238e3eff7626f9a2',1,'termios.h']]]
+  ['debug_0',['DEBUG',['../os-app-config_8h.html#ad72dbcf6d0153db1b8d8a58001feed83',1,'os-app-config.h']]]
 ];

@@ -1,9 +1,9 @@
 var serial_8h =
 [
-    [ "Capabilities", "classos_1_1driver_1_1serial_1_1Capabilities.html", "classos_1_1driver_1_1serial_1_1Capabilities" ],
-    [ "Modem_status", "classos_1_1driver_1_1serial_1_1Modem__status.html", "classos_1_1driver_1_1serial_1_1Modem__status" ],
-    [ "Serial", "classos_1_1driver_1_1Serial.html", "classos_1_1driver_1_1Serial" ],
-    [ "Status", "classos_1_1driver_1_1serial_1_1Status.html", "classos_1_1driver_1_1serial_1_1Status" ],
+    [ "os::driver::serial::Capabilities", "classos_1_1driver_1_1serial_1_1Capabilities.html", "classos_1_1driver_1_1serial_1_1Capabilities" ],
+    [ "os::driver::serial::Modem_status", "classos_1_1driver_1_1serial_1_1Modem__status.html", "classos_1_1driver_1_1serial_1_1Modem__status" ],
+    [ "os::driver::Serial", "classos_1_1driver_1_1Serial.html", "classos_1_1driver_1_1Serial" ],
+    [ "os::driver::serial::Status", "classos_1_1driver_1_1serial_1_1Status.html", "classos_1_1driver_1_1serial_1_1Status" ],
     [ "bit_number_t", "serial_8h.html#aee085b90d521dfded35f948dd5698f25", null ],
     [ "config_arg_t", "serial_8h.html#a01a49c46795f92b60931c856f06109d9", null ],
     [ "config_t", "serial_8h.html#a16d38c70ff077aeba035b60246f76ac1", null ],

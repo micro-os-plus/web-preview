@@ -9,5 +9,13 @@ var namespaceos_1_1estd =
     [ "mutex", "classos_1_1estd_1_1mutex.html", "classos_1_1estd_1_1mutex" ],
     [ "recursive_mutex", "classos_1_1estd_1_1recursive__mutex.html", "classos_1_1estd_1_1recursive__mutex" ],
     [ "recursive_timed_mutex", "classos_1_1estd_1_1recursive__timed__mutex.html", "classos_1_1estd_1_1recursive__timed__mutex" ],
-    [ "timed_mutex", "classos_1_1estd_1_1timed__mutex.html", "classos_1_1estd_1_1timed__mutex" ]
+    [ "timed_mutex", "classos_1_1estd_1_1timed__mutex.html", "classos_1_1estd_1_1timed__mutex" ],
+    [ "cv_status", "namespaceos_1_1estd.html#a0910ad1ca1123a4da2cc323f70882196", [
+      [ "no_timeout", "namespaceos_1_1estd.html#a0910ad1ca1123a4da2cc323f70882196a70d61392e69e95a8c7f9603306634cbd", null ],
+      [ "timeout", "namespaceos_1_1estd.html#a0910ad1ca1123a4da2cc323f70882196a90272dda245ae1fb3cf197e91a8689dc", null ]
+    ] ],
+    [ "__throw_bad_alloc", "namespaceos_1_1estd.html#afdfb11bebd11da95682c3379cd1b48a9", null ],
+    [ "__throw_cmsis_error", "namespaceos_1_1estd.html#ac596ba385da43ceb3605f700ea538ce5", null ],
+    [ "__throw_system_error", "namespaceos_1_1estd.html#a951c9b2c6401f3a3bb40d4b2c3213f46", null ],
+    [ "notify_all_at_thread_exit", "namespaceos_1_1estd.html#a363a215f669d5e9b210bd61701f24241", null ]
 ];

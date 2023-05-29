@@ -8,6 +8,6 @@ var classos_1_1rtos_1_1memory_1_1allocator__deleter =
     [ "allocator_deleter", "classos_1_1rtos_1_1memory_1_1allocator__deleter.html#a59be59065e37e7e7d80b8a33e9adb1b2", null ],
     [ "~allocator_deleter", "classos_1_1rtos_1_1memory_1_1allocator__deleter.html#ae63698c4f4c8b3f40b7e6d727521edda", null ],
     [ "operator()", "classos_1_1rtos_1_1memory_1_1allocator__deleter.html#ab50a510e24c4945e992d0472e6be4cf8", null ],
-    [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__deleter.html#aa070186f485374bb65ba50794902d37e", null ],
-    [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__deleter.html#a5cbffd2d61b3d464e6940b0daecb793c", null ]
+    [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__deleter.html#ace2f2fb52a616245644079f17b9a5adf", null ],
+    [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__deleter.html#aa43ef12abf684a2b8ad00fd29f253116", null ]
 ];

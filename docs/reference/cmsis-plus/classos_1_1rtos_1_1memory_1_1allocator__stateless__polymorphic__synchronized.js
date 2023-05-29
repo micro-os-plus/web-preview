@@ -8,9 +8,9 @@ var classos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized
     [ "allocator_stateless_polymorphic_synchronized", "classos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized.html#a5153ddba095e8687797f9eb28a5ba0f5", null ],
     [ "allocator_stateless_polymorphic_synchronized", "classos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized.html#a7a385b6e4058aff9699b797a8b077733", null ],
     [ "~allocator_stateless_polymorphic_synchronized", "classos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized.html#af97deb36a0ba3398ea9522f9f2401a83", null ],
-    [ "allocate", "classos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized.html#ae64f670fadc2e2eb19d7425273bdb4fd", null ],
+    [ "allocate", "classos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized.html#a9e3fb7e7f1ee82825c54f4bc831cc3e8", null ],
     [ "deallocate", "classos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized.html#a0fe5b1668b2a24865f1c21a0912067f7", null ],
     [ "max_size", "classos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized.html#a37f182f75eff0bf7e460f4f376d643a4", null ],
-    [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized.html#ae54805b4187877d09d5f8db699911a9e", null ],
-    [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized.html#ade2e4dd568847914396266e8da6c3381", null ]
+    [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized.html#a2627eda9fb704e09c479a1cb31a6480f", null ],
+    [ "operator=", "classos_1_1rtos_1_1memory_1_1allocator__stateless__polymorphic__synchronized.html#a405894f861c493222d4884766e83fbdd", null ]
 ];

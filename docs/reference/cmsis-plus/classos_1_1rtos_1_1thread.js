@@ -1,9 +1,15 @@
 var classos_1_1rtos_1_1thread =
 [
+    [ "attributes", "classos_1_1rtos_1_1thread_1_1attributes.html", "classos_1_1rtos_1_1thread_1_1attributes" ],
+    [ "context", "classos_1_1rtos_1_1thread_1_1context.html", "classos_1_1rtos_1_1thread_1_1context" ],
+    [ "priority", "structos_1_1rtos_1_1thread_1_1priority.html", "structos_1_1rtos_1_1thread_1_1priority" ],
+    [ "stack", "classos_1_1rtos_1_1thread_1_1stack.html", "classos_1_1rtos_1_1thread_1_1stack" ],
+    [ "state", "structos_1_1rtos_1_1thread_1_1state.html", null ],
+    [ "statistics", "classos_1_1rtos_1_1thread_1_1statistics.html", "classos_1_1rtos_1_1thread_1_1statistics" ],
     [ "allocator_type", "classos_1_1rtos_1_1thread.html#aad1b11b58a161d9ee54c9ca297a28cd6", null ],
     [ "func_args_t", "classos_1_1rtos_1_1thread.html#af172404a80d16e472f9425ca59c30808", null ],
     [ "func_t", "classos_1_1rtos_1_1thread.html#a562163ef5c0911be98a342a6a2ee07bc", null ],
-    [ "priority_t", "group__cmsis-plus-rtos-thread.html#gaa5d09b05379b4799f126477d0ac29c36", null ],
+    [ "priority_t", "classos_1_1rtos_1_1thread.html#aa5d09b05379b4799f126477d0ac29c36", null ],
     [ "state_t", "classos_1_1rtos_1_1thread.html#a2ad4ea288b751984ac2af3c762da7b61", null ],
     [ "thread", "classos_1_1rtos_1_1thread.html#a2fbb4d093486561fe72243e46badb6ef", null ],
     [ "thread", "classos_1_1rtos_1_1thread.html#a8ad9a96279ce1cd0238e31f47013e5cb", null ],

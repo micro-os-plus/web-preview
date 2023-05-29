@@ -10,7 +10,7 @@ var classos_1_1posix_1_1net__stack__lockable =
     [ "allocate_socket", "classos_1_1posix_1_1net__stack__lockable.html#a710f6bde7eae126346acd4b9f4546a8a", null ],
     [ "deferred_sockets_list", "classos_1_1posix_1_1net__stack__lockable.html#ae507f8986068f83bcc2f6899b72506a7", null ],
     [ "impl", "classos_1_1posix_1_1net__stack__lockable.html#a5f2ab7e077ce6a6285cef3759d0dcf47", null ],
-    [ "interface", "classos_1_1posix_1_1net__stack__lockable.html#aa578ea76a990084531ef1cf6fc62ce79", null ],
+    [ "interface", "classos_1_1posix_1_1net__stack__lockable.html#a88cfceee12ee3503aac8ec20d2cda709", null ],
     [ "name", "classos_1_1posix_1_1net__stack__lockable.html#ac7267982468c0c7a8ae60841ce54db3a", null ],
     [ "socket", "classos_1_1posix_1_1net__stack__lockable.html#ad3c0c5d80d0bb1cd44ef98e7eaddabae", null ]
 ];

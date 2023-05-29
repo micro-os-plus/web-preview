@@ -16,14 +16,14 @@ var group__cmsis_plus_rtos_c_timer =
       [ "os_timer_once", "group__cmsis-plus-rtos-c-timer.html#gga726ca809ffd3d67ab4b8476646f26635ad398637227195168fce4373ac5f060d6", null ],
       [ "os_timer_periodic", "group__cmsis-plus-rtos-c-timer.html#gga726ca809ffd3d67ab4b8476646f26635ad7ced35a84d9449c3df8f399a0a2b115", null ]
     ] ],
-    [ "os_timer_attr_get_periodic", "group__cmsis-plus-rtos-c-timer.html#ga47f3f81a5405ecff302ec4ff8b9e5eaf", null ],
+    [ "os_timer_attr_get_periodic", "group__cmsis-plus-rtos-c-timer.html#gaf318bb9eaab05e6725976c9cb8762642", null ],
     [ "os_timer_attr_init", "group__cmsis-plus-rtos-c-timer.html#ga92d94502723018f68d38af2230f65e87", null ],
     [ "os_timer_attr_periodic_init", "group__cmsis-plus-rtos-c-timer.html#gadf31ea9a8492b03aee0a7728a1078f4a", null ],
     [ "os_timer_construct", "group__cmsis-plus-rtos-c-timer.html#gae2ba0da6b17e47668733754c28a7ab6e", null ],
     [ "os_timer_delete", "group__cmsis-plus-rtos-c-timer.html#gae8d9105c37a807a3860b8e0ceae71bef", null ],
     [ "os_timer_destruct", "group__cmsis-plus-rtos-c-timer.html#ga502af5a83c4f4d2224144f57b5dcf766", null ],
-    [ "os_timer_get_name", "group__cmsis-plus-rtos-c-timer.html#gaaec940a207d36d55a38e0b4a09d27606", null ],
-    [ "os_timer_new", "group__cmsis-plus-rtos-c-timer.html#ga788835fefd6c8b7a38f2b6ad28d074fc", null ],
+    [ "os_timer_get_name", "group__cmsis-plus-rtos-c-timer.html#ga16ed0c114abaea292c759e51a195a869", null ],
+    [ "os_timer_new", "group__cmsis-plus-rtos-c-timer.html#gaa964b5e3b5b54f20439f1e1ad87cf250", null ],
     [ "os_timer_start", "group__cmsis-plus-rtos-c-timer.html#gaae66070e9e8065f6911799a8c214e9c6", null ],
     [ "os_timer_stop", "group__cmsis-plus-rtos-c-timer.html#ga28bc21c132e92af443aa730580482add", null ]
 ];

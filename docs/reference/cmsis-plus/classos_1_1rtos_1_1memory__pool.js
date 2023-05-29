@@ -1,8 +1,9 @@
 var classos_1_1rtos_1_1memory__pool =
 [
     [ "arena", "classos_1_1rtos_1_1memory__pool_1_1arena.html", "classos_1_1rtos_1_1memory__pool_1_1arena" ],
+    [ "attributes", "classos_1_1rtos_1_1memory__pool_1_1attributes.html", "classos_1_1rtos_1_1memory__pool_1_1attributes" ],
     [ "allocator_type", "classos_1_1rtos_1_1memory__pool.html#a5ef5fc603da1b3dfd918ca4d03f8ff97", null ],
-    [ "size_t", "group__cmsis-plus-rtos-mempool.html#ga2906df850164ea47bd55d45a254f6699", null ],
+    [ "size_t", "classos_1_1rtos_1_1memory__pool.html#a2906df850164ea47bd55d45a254f6699", null ],
     [ "memory_pool", "classos_1_1rtos_1_1memory__pool.html#a2170a2c21e7c9c5234a111ffedecd9ce", null ],
     [ "memory_pool", "classos_1_1rtos_1_1memory__pool.html#a60784bab43302b4e7bfc6b2964598d3e", null ],
     [ "~memory_pool", "classos_1_1rtos_1_1memory__pool.html#ae9744239d3f89c9a63a4156e43175884", null ],
@@ -26,6 +27,6 @@ var classos_1_1rtos_1_1memory__pool =
     [ "reset", "classos_1_1rtos_1_1memory__pool.html#ac764ac06d8a23bc517ea0785caccf350", null ],
     [ "timed_alloc", "classos_1_1rtos_1_1memory__pool.html#a368b3eeaa2c28df26b6f3970fd209f3b", null ],
     [ "try_alloc", "classos_1_1rtos_1_1memory__pool.html#a3755c8ce8f934469047b735209ab58b3", null ],
-    [ "initializer", "group__cmsis-plus-rtos-mempool.html#ga7fd442f85898940215d53d32e7a4eee7", null ],
-    [ "max_size", "group__cmsis-plus-rtos-mempool.html#ga25abdce615f4418c120dfdaa66db582e", null ]
+    [ "initializer", "classos_1_1rtos_1_1memory__pool.html#a7fd442f85898940215d53d32e7a4eee7", null ],
+    [ "max_size", "classos_1_1rtos_1_1memory__pool.html#a25abdce615f4418c120dfdaa66db582e", null ]
 ];

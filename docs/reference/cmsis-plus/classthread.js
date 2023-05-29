@@ -17,7 +17,7 @@ var classthread =
     [ "join", "classthread.html#aab29b0064bf571afd6aa2d44241d992b", null ],
     [ "joinable", "classthread.html#a0b446371c8a3affbbe656087e407a815", null ],
     [ "native_handle", "classthread.html#aca1d30c3f4964a917779075ade0d6c46", null ],
-    [ "operator=", "classthread.html#a89cd2a694a0b6bf102c21f8db28c087b", null ],
+    [ "operator=", "classthread.html#a658eff736eeab19561bbf83ff71371f2", null ],
     [ "operator=", "classthread.html#a8fdefcec7b1269377d39744c2faaa600", null ],
     [ "run_function_object", "classthread.html#a36b9d002c1cf9ef86bdb42e0ca1d5be4", null ],
     [ "swap", "classthread.html#a9ec7d1e9bbd15cdc0cd284d63e05893c", null ],

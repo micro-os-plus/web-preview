@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['redefinitions_2eh_2632',['redefinitions.h',['../redefinitions_8h.html',1,'']]],
-  ['reset_2dhardware_2ec_2633',['reset-hardware.c',['../reset-hardware_8c.html',1,'']]]
+  ['socket_2eh_0',['socket.h',['../posix-io_2socket_8h.html',1,'(Global Namespace)'],['../posix_2sys_2socket_8h.html',1,'(Global Namespace)']]]
 ];

@@ -1,11 +1,11 @@
 var os_sched_8h =
 [
-    [ "critical_section", "classos_1_1rtos_1_1interrupts_1_1critical__section.html", "classos_1_1rtos_1_1interrupts_1_1critical__section" ],
-    [ "critical_section", "classos_1_1rtos_1_1scheduler_1_1critical__section.html", "classos_1_1rtos_1_1scheduler_1_1critical__section" ],
-    [ "lockable", "classos_1_1rtos_1_1interrupts_1_1lockable.html", "classos_1_1rtos_1_1interrupts_1_1lockable" ],
-    [ "lockable", "classos_1_1rtos_1_1scheduler_1_1lockable.html", "classos_1_1rtos_1_1scheduler_1_1lockable" ],
-    [ "uncritical_section", "classos_1_1rtos_1_1interrupts_1_1uncritical__section.html", "classos_1_1rtos_1_1interrupts_1_1uncritical__section" ],
-    [ "uncritical_section", "classos_1_1rtos_1_1scheduler_1_1uncritical__section.html", "classos_1_1rtos_1_1scheduler_1_1uncritical__section" ],
+    [ "os::rtos::scheduler::critical_section", "classos_1_1rtos_1_1scheduler_1_1critical__section.html", "classos_1_1rtos_1_1scheduler_1_1critical__section" ],
+    [ "os::rtos::interrupts::critical_section", "classos_1_1rtos_1_1interrupts_1_1critical__section.html", "classos_1_1rtos_1_1interrupts_1_1critical__section" ],
+    [ "os::rtos::scheduler::lockable", "classos_1_1rtos_1_1scheduler_1_1lockable.html", "classos_1_1rtos_1_1scheduler_1_1lockable" ],
+    [ "os::rtos::interrupts::lockable", "classos_1_1rtos_1_1interrupts_1_1lockable.html", "classos_1_1rtos_1_1interrupts_1_1lockable" ],
+    [ "os::rtos::scheduler::uncritical_section", "classos_1_1rtos_1_1scheduler_1_1uncritical__section.html", "classos_1_1rtos_1_1scheduler_1_1uncritical__section" ],
+    [ "os::rtos::interrupts::uncritical_section", "classos_1_1rtos_1_1interrupts_1_1uncritical__section.html", "classos_1_1rtos_1_1interrupts_1_1uncritical__section" ],
     [ "context_switches", "os-sched_8h.html#abc542863616e2eaefe98c96e2645f928", null ],
     [ "cpu_cycles", "os-sched_8h.html#a52e675e601f071a951a43146744ad1a9", null ],
     [ "in_handler_mode", "os-sched_8h.html#acb9f50dd130d6226b861ffaee191ee5a", null ],
