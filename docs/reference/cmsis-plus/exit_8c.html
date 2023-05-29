@@ -163,7 +163,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="exit_8c_source.html#l00117">117</a> of file <a class="el" href="exit_8c_source.html">exit.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="exit_8c_source.html#l00119">119</a> of file <a class="el" href="exit_8c_source.html">exit.c</a>.</p>
 
 </div>
 </div>
@@ -220,6 +220,12 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">code</td><td>Exit code.</td></tr>
+  </table>
+  </dd>
+</dl>
 <p><code><a class="el" href="exit_8c.html#a7b17e5913b7dff48eec9ba3976ccfd3c">exit()</a></code> does several cleanups before ending the application:</p>
 <ul>
 <li>calls all application-defined cleanup functions enrolled with <code>atexit()</code>;</li>
@@ -228,7 +234,7 @@ Functions</h2></td></tr>
 </ul>
 <p>When all cleanups are done, <code><a class="el" href="exit_8c.html#ad459e22e06681daa1f6b98956b00cf54">_Exit()</a></code> is called to perform the actual termination. </p>
 
-<p class="definition">Definition at line <a class="el" href="exit_8c_source.html#l00078">78</a> of file <a class="el" href="exit_8c_source.html">exit.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="exit_8c_source.html#l00080">80</a> of file <a class="el" href="exit_8c_source.html">exit.c</a>.</p>
 
 </div>
 </div>
