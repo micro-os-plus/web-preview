@@ -1,6 +1,7 @@
 var namespaceos_1_1rtos_1_1scheduler =
 [
     [ "statistics", "namespaceos_1_1rtos_1_1scheduler_1_1statistics.html", [
+      [ "clear", "namespaceos_1_1rtos_1_1scheduler_1_1statistics.html#ae44f40aa8fa983d31ece88234b0d944c", null ],
       [ "context_switches", "namespaceos_1_1rtos_1_1scheduler_1_1statistics.html#abc542863616e2eaefe98c96e2645f928", null ],
       [ "cpu_cycles", "namespaceos_1_1rtos_1_1scheduler_1_1statistics.html#a52e675e601f071a951a43146744ad1a9", null ]
     ] ],

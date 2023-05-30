@@ -1,5 +1,8 @@
 var NAVTREEINDEX26 =
 {
+"os-timer_8h_source.html":[6,0,1,0,10,16],
+"os-types_8h.html":[6,0,1,0,10,17],
+"os-types_8h_source.html":[6,0,1,0,10,17],
 "os-versions_8h.html":[6,0,1,0,12],
 "os-versions_8h.html#a08fca5bd87c536cad12ccaf03f436bc2":[6,0,1,0,12,7],
 "os-versions_8h.html#a162ae848d47ce4417a45303dd38e2d85":[6,0,1,0,12,1],
@@ -246,8 +249,5 @@ var NAVTREEINDEX26 =
 "startup_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97":[6,0,2,8,4,2],
 "startup_8cpp.html#a1814473106d54cf28b3a7ec44a80de46":[6,0,2,8,4,6],
 "startup_8cpp.html#a2431ecc498e90c57e8281de8972c5af8":[6,0,2,8,4,9],
-"startup_8cpp.html#a2871bd852700dcb1d792787281af771f":[6,0,2,8,4,11],
-"startup_8cpp.html#a3c8886a9b622a24d13774d0b6acb624e":[6,0,2,8,4,18],
-"startup_8cpp.html#a425f65080a3b89e3c42e571a5cd0215a":[6,0,2,8,4,0],
-"startup_8cpp.html#a4be4e32ccbd908caca10f9f9badc2494":[6,0,2,8,4,4]
+"startup_8cpp.html#a2871bd852700dcb1d792787281af771f":[6,0,2,8,4,11]
 };

@@ -144,6 +144,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a789a41ac20fff4b8a37eeba367070d84"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceos_1_1rtos_1_1statistics.html#a0b143d63968082a8b6e73ecba956ac07">rtos::statistics::duration_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classos_1_1rtos_1_1thread_1_1statistics.html#a789a41ac20fff4b8a37eeba367070d84">cpu_cycles</a> (void)</td></tr>
 <tr class="memdesc:a789a41ac20fff4b8a37eeba367070d84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the thread execution time.  <br /></td></tr>
 <tr class="separator:a789a41ac20fff4b8a37eeba367070d84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5688be9bca5e0ba9b5e5366d0d2cf0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classos_1_1rtos_1_1thread_1_1statistics.html#ac5688be9bca5e0ba9b5e5366d0d2cf0d">clear</a> (void)</td></tr>
+<tr class="memdesc:ac5688be9bca5e0ba9b5e5366d0d2cf0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the thread statistic counters.  <br /></td></tr>
+<tr class="separator:ac5688be9bca5e0ba9b5e5366d0d2cf0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Thread statistics. </p>
@@ -206,6 +209,42 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ac5688be9bca5e0ba9b5e5366d0d2cf0d" name="ac5688be9bca5e0ba9b5e5366d0d2cf0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5688be9bca5e0ba9b5e5366d0d2cf0d">&#9670;&#160;</a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void os::rtos::thread::statistics::clear </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Clear the thread statistic counters. </p>
+<dl class="section user"><dt>Parameters</dt><dd>None. </dd></dl>
+<dl class="section user"><dt>Returns</dt><dd>Nothing.</dd></dl>
+<p>This function sets all statistic counters to zero.</p>
+<dl class="section note"><dt>Note</dt><dd>This function is available only when <a class="el" href="group__cmsis-plus-app-config-rtos.html#ga98b9ee74f2cc3a619c4f7ec7529692d4">OS_INCLUDE_RTOS_STATISTICS_THREAD_CPU_CYCLES</a> or <a class="el" href="group__cmsis-plus-app-config-rtos.html#ga2b3f040276e2b24324bec4cf8bea21b3">OS_INCLUDE_RTOS_STATISTICS_THREAD_CONTEXT_SWITCHES</a> is/are defined.</dd>
+<dd>
+Can be invoked from Interrupt Service Routines. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02312">2312</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+
+</div>
+</div>
 <a id="a3b883578ce8fcbb5226515b5799e2bdc" name="a3b883578ce8fcbb5226515b5799e2bdc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3b883578ce8fcbb5226515b5799e2bdc">&#9670;&#160;</a></span>context_switches()</h2>
 
@@ -235,10 +274,11 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>A long integer with the number of times the thread was scheduled for execution.</dd></dl>
 <p>Each time the scheduler performs a context switch, it increments the thread counter and the scheduler total counter.</p>
 <p>This value can be used together with the corresponding scheduler function, to compute percentages.</p>
-<dl class="section note"><dt>Note</dt><dd>This function is available only when <a class="el" href="group__cmsis-plus-app-config-rtos.html#ga2b3f040276e2b24324bec4cf8bea21b3">OS_INCLUDE_RTOS_STATISTICS_THREAD_CONTEXT_SWITCHES</a> is defined.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This function is available only when <a class="el" href="group__cmsis-plus-app-config-rtos.html#ga2b3f040276e2b24324bec4cf8bea21b3">OS_INCLUDE_RTOS_STATISTICS_THREAD_CONTEXT_SWITCHES</a> is defined.</dd>
+<dd>
+Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02256">2256</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02266">2266</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
 
 </div>
 </div>
@@ -270,10 +310,11 @@ Public Member Functions</h2></td></tr>
 <dl class="section user"><dt>Parameters</dt><dd>None. </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>A long integer with accumulated number of CPU cycles.</dd></dl>
 <p>This value can be used together with the corresponding scheduler function, to compute percentages.</p>
-<dl class="section note"><dt>Note</dt><dd>This function is available only when <a class="el" href="group__cmsis-plus-app-config-rtos.html#ga98b9ee74f2cc3a619c4f7ec7529692d4">OS_INCLUDE_RTOS_STATISTICS_THREAD_CPU_CYCLES</a> is defined.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This function is available only when <a class="el" href="group__cmsis-plus-app-config-rtos.html#ga98b9ee74f2cc3a619c4f7ec7529692d4">OS_INCLUDE_RTOS_STATISTICS_THREAD_CPU_CYCLES</a> is defined.</dd>
+<dd>
+Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02278">2278</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02288">2288</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
 
 </div>
 </div>

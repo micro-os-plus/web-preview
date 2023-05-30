@@ -1,5 +1,6 @@
 var NAVTREEINDEX24 =
 {
+"md_doxygen_2pages_2change-log.html#autotoc_md24":[1,0,21],
 "md_doxygen_2pages_2change-log.html#autotoc_md3":[1,0,1],
 "md_doxygen_2pages_2change-log.html#autotoc_md4":[1,0,2],
 "md_doxygen_2pages_2change-log.html#autotoc_md5":[1,0,3],
@@ -28,8 +29,8 @@ var NAVTREEINDEX24 =
 "namespace____gnu__cxx.html#af51888cedbc669a114cd79e39e0cd9be":[4,0,0,0],
 "namespaceanonymous__namespace_02new_8cpp_03.html":[4,0,1],
 "namespaceanonymous__namespace_02os-core_8cpp_03.html":[4,0,2],
-"namespacemembers.html":[4,1,0],
 "namespacemembers.html":[4,1,0,0],
+"namespacemembers.html":[4,1,0],
 "namespacemembers_a.html":[4,1,0,1],
 "namespacemembers_b.html":[4,1,0,2],
 "namespacemembers_c.html":[4,1,0,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX24 =
 "namespaceos_1_1rtos_1_1flags_1_1mode.html":[4,0,3,4,0,0],
 "namespaceos_1_1rtos_1_1internal.html":[4,0,3,4,1],
 "namespaceos_1_1rtos_1_1interrupts.html#acb55b8cf253de220218c56f8e35f1da0":[4,0,3,4,2,3],
-"namespaceos_1_1rtos_1_1interrupts.html#acb9f50dd130d6226b861ffaee191ee5a":[4,0,3,4,2,4],
-"namespaceos_1_1rtos_1_1memory.html":[4,0,3,4,3]
+"namespaceos_1_1rtos_1_1interrupts.html#acb9f50dd130d6226b861ffaee191ee5a":[4,0,3,4,2,4]
 };

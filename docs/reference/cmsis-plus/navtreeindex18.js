@@ -129,9 +129,10 @@ var NAVTREEINDEX18 =
 "classos_1_1rtos_1_1thread_1_1stack.html#aef3f2aecef35feecf01b9c4b53e92b4b":[3,2,1,4,16],
 "classos_1_1rtos_1_1thread_1_1stack.html#afd904365ef37ccaf74f6cd84e9cfd951":[3,2,1,4,14],
 "classos_1_1rtos_1_1thread_1_1statistics.html":[3,2,1,6],
-"classos_1_1rtos_1_1thread_1_1statistics.html#a3b883578ce8fcbb5226515b5799e2bdc":[3,2,1,6,2],
-"classos_1_1rtos_1_1thread_1_1statistics.html#a789a41ac20fff4b8a37eeba367070d84":[3,2,1,6,3],
+"classos_1_1rtos_1_1thread_1_1statistics.html#a3b883578ce8fcbb5226515b5799e2bdc":[3,2,1,6,3],
+"classos_1_1rtos_1_1thread_1_1statistics.html#a789a41ac20fff4b8a37eeba367070d84":[3,2,1,6,4],
 "classos_1_1rtos_1_1thread_1_1statistics.html#a951e6d94c45466d64f8c0243b6c5bfa6":[3,2,1,6,0],
+"classos_1_1rtos_1_1thread_1_1statistics.html#ac5688be9bca5e0ba9b5e5366d0d2cf0d":[3,2,1,6,2],
 "classos_1_1rtos_1_1thread_1_1statistics.html#ae9c43c075e006c7d54bf8955507d485f":[3,2,1,6,1],
 "classos_1_1rtos_1_1thread__allocated.html":[3,2,1,8],
 "classos_1_1rtos_1_1thread__allocated.html#a0d9403145c7f69493bb268a4a47ffbf7":[3,2,1,8,10],
@@ -248,6 +249,5 @@ var NAVTREEINDEX18 =
 "classos_1_1utils_1_1double__list.html#aedc6bcae6ba6ff5211da113fe97aeb7e":[3,11,0,7],
 "classos_1_1utils_1_1double__list.html#af0e24f0d65c6d0bbeee1ec5193ac0cd9":[3,11,0,1],
 "classos_1_1utils_1_1double__list__iterator.html":[3,11,1],
-"classos_1_1utils_1_1double__list__iterator.html#a0e8ba728f906c2c2f9a9f495ebad0220":[3,11,1,12],
-"classos_1_1utils_1_1double__list__iterator.html#a0f5deafb65d29f06efb2a35a9ed325b0":[3,11,1,15]
+"classos_1_1utils_1_1double__list__iterator.html#a0e8ba728f906c2c2f9a9f495ebad0220":[3,11,1,12]
 };

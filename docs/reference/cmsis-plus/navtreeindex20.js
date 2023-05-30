@@ -1,5 +1,6 @@
 var NAVTREEINDEX20 =
 {
+"cmsis__os_8h.html#ae2e091fefc4c767117727bd5aba4d99eac7a77f5fe18a15a357790c36a4aca1b1":[6,0,1,0,5,0,77,14],
 "cmsis__os_8h.html#ae2e091fefc4c767117727bd5aba4d99ead604f3673359dd4ac643b16dc5a2c342":[6,0,1,0,5,0,77,2],
 "cmsis__os_8h.html#ae2e091fefc4c767117727bd5aba4d99eaf1fac0240218e51eb30a13da2f8aae81":[6,0,1,0,5,0,77,11],
 "cmsis__os_8h.html#ae2e091fefc4c767117727bd5aba4d99eaf6552310a817452aedfcd453f2805d65":[6,0,1,0,5,0,77,9],
@@ -144,8 +145,8 @@ var NAVTREEINDEX20 =
 "first-fit-top_8cpp_source.html":[6,0,2,4,1],
 "first-fit-top_8h.html":[6,0,1,0,6,1],
 "first-fit-top_8h_source.html":[6,0,1,0,6,1],
-"functions.html":[5,3,0],
 "functions.html":[5,3,0,0],
+"functions.html":[5,3,0],
 "functions_b.html":[5,3,0,1],
 "functions_c.html":[5,3,0,2],
 "functions_d.html":[5,3,0,3],
@@ -216,8 +217,8 @@ var NAVTREEINDEX20 =
 "functions_vars_v.html":[5,3,2,17],
 "functions_w.html":[5,3,0,22],
 "functions_~.html":[5,3,0,23],
-"globals.html":[6,1,0],
 "globals.html":[6,1,0,0],
+"globals.html":[6,1,0],
 "globals_a.html":[6,1,0,1],
 "globals_b.html":[6,1,0,2],
 "globals_c.html":[6,1,0,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX20 =
 "globals_func_b.html":[6,1,1,2],
 "globals_func_c.html":[6,1,1,3],
 "globals_func_e.html":[6,1,1,4],
-"globals_func_f.html":[6,1,1,5],
-"globals_func_g.html":[6,1,1,6]
+"globals_func_f.html":[6,1,1,5]
 };

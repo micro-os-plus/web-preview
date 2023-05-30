@@ -1,5 +1,6 @@
 var NAVTREEINDEX21 =
 {
+"globals_func_g.html":[6,1,1,6],
 "globals_func_h.html":[6,1,1,7],
 "globals_func_i.html":[6,1,1,8],
 "globals_func_k.html":[6,1,1,9],
@@ -248,6 +249,5 @@ var NAVTREEINDEX21 =
 "group__cmsis-plus-rtos-c-clock.html#ga5bf21e10e72c6abc8c23d76cb1385938":[3,3,2,4],
 "group__cmsis-plus-rtos-c-clock.html#ga5ecb6a91c5a5a5e7bc405ca3df217fc3":[3,3,2,11],
 "group__cmsis-plus-rtos-c-clock.html#ga6d30b43ae4c7f98b2b51e420b5a04849":[3,3,2,20],
-"group__cmsis-plus-rtos-c-clock.html#ga790772dc72e4f14f01f7aa477b42a314":[3,3,2,6],
-"group__cmsis-plus-rtos-c-clock.html#ga87247431f85e060f6fd9214f6d57941d":[3,3,2,16]
+"group__cmsis-plus-rtos-c-clock.html#ga790772dc72e4f14f01f7aa477b42a314":[3,3,2,6]
 };

@@ -45,6 +45,7 @@ var group__cmsis_plus_rtos_thread =
     [ "os::rtos::thread::statistics", "classos_1_1rtos_1_1thread_1_1statistics.html", [
       [ "statistics", "classos_1_1rtos_1_1thread_1_1statistics.html#a951e6d94c45466d64f8c0243b6c5bfa6", null ],
       [ "~statistics", "classos_1_1rtos_1_1thread_1_1statistics.html#ae9c43c075e006c7d54bf8955507d485f", null ],
+      [ "clear", "classos_1_1rtos_1_1thread_1_1statistics.html#ac5688be9bca5e0ba9b5e5366d0d2cf0d", null ],
       [ "context_switches", "classos_1_1rtos_1_1thread_1_1statistics.html#a3b883578ce8fcbb5226515b5799e2bdc", null ],
       [ "cpu_cycles", "classos_1_1rtos_1_1thread_1_1statistics.html#a789a41ac20fff4b8a37eeba367070d84", null ]
     ] ],
