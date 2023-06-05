@@ -594,7 +594,7 @@ template&lt;typename Allocator &gt; </div>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Inspired by <a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/pthread_cancel.html"><code>pthread_cancel()</code></a> from <a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/pthread.h.html"><code>&lt;pthread.h&gt;</code></a> (<a href="http://pubs.opengroup.org/onlinepubs/9699919799/nframe.html">IEEE Std 1003.1, 2013 Edition</a>).</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00963">963</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00968">968</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
 
 </div>
 </div>
@@ -636,7 +636,7 @@ template&lt;typename Allocator &gt; </div>
 <p>The <code><a class="el" href="classos_1_1rtos_1_1thread.html#aafcfb047c0a8409b9df5f7aa94729700" title="Detach a thread.">detach()</a></code> function shall not return an error code of <code>EINTR</code>.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00856">856</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00861">861</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
 
 </div>
 </div>
@@ -693,7 +693,7 @@ template&lt;typename Allocator &gt; </div>
 <p>Set more bits in the thread current event flags mask. Use OR at bit-mask level. Wake-up the thread to evaluate the event flags.</p>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l01268">1268</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l01273">1273</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
 
 </div>
 </div>
@@ -766,7 +766,7 @@ template&lt;typename Allocator &gt; </div>
 <p>After the thread detects the interrupted condition, it must clear the interrupted flag.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00988">988</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00993">993</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
 
 </div>
 </div>
@@ -840,12 +840,13 @@ template&lt;typename Allocator &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true if the thread is in the constructed state.</dd></dl>
-<p>Check the thread status to determine if the thread is already in a constructed state. This is useful for threads constructed via the C API or in C++ via placement new, to avoid constructing them when already constructed.</p>
-<dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>: Consider adding a separate member with the magic, for improved reliability. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the thread was constructed and not yet destructed.</dd></dl>
+<p>Check the thread status to determine if the thread is already in a constructed state, which means it was constructed and not yet destructed. This is useful for threads constructed via the C API or in C++ via placement new, to avoid constructing them when already constructed.</p>
+<dl class="section note"><dt>Note</dt><dd>For this function to be accurate before the first invocation, it is necessary for the thread to start with the memory cleared, for example via a <code>memset()</code>.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>: Consider adding a separate member with the magic, for improved reliability.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00294">294</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00299">299</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
 
 </div>
 </div>
@@ -893,7 +894,7 @@ template&lt;typename Allocator &gt; </div>
 <p>The <code><a class="el" href="classos_1_1rtos_1_1thread.html#a87d3bab3f4bfc33474e7fdb9dfda172e" title="Wait for thread termination.">join()</a></code> function shall not return an error code of [EINTR].</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00911">911</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00916">916</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
 
 </div>
 </div>
@@ -932,7 +933,7 @@ template&lt;typename Allocator &gt; </div>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Inspired by <a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/pthread_kill.html"><code>pthread_kill()</code></a> from <a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/pthread.h.html"><code>&lt;pthread.h&gt;</code></a> (<a href="http://pubs.opengroup.org/onlinepubs/9699919799/nframe.html">IEEE Std 1003.1, 2013 Edition</a>).</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l01186">1186</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l01191">1191</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
 
 </div>
 </div>
@@ -1341,7 +1342,7 @@ template&lt;typename Allocator &gt; </div>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Inspired by <a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/pthread_setschedprio.html"><code>pthread_setschedprio()</code></a> from <a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/pthread.h.html"><code>&lt;pthread.h&gt;</code></a> (<a href="http://pubs.opengroup.org/onlinepubs/9699919799/nframe.html">IEEE Std 1003.1, 2013 Edition</a>).</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00710">710</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00715">715</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
 
 </div>
 </div>
@@ -1375,7 +1376,7 @@ template&lt;typename Allocator &gt; </div>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Extension to standard, no POSIX similar functionality identified.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00654">654</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00659">659</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
 
 </div>
 </div>
@@ -1424,7 +1425,7 @@ template&lt;typename Allocator &gt; </div>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Extension to standard, no POSIX similar functionality identified.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00778">778</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00783">783</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
 
 </div>
 </div>
@@ -1458,7 +1459,7 @@ template&lt;typename Allocator &gt; </div>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Extension to standard, no POSIX similar functionality identified.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00682">682</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00687">687</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
 
 </div>
 </div>
@@ -1493,7 +1494,7 @@ template&lt;typename Allocator &gt; </div>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Extension to standard, no POSIX similar functionality identified.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00603">603</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00608">608</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
 
 </div>
 </div>
