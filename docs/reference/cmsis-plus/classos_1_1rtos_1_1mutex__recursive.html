@@ -293,6 +293,7 @@ Static Public Attributes</h2></td></tr>
 <p>This constructor shall initialise a mutex object with attributes referenced by <em>attr</em>. If the attributes specified by <em>attr</em> are modified later, the mutex attributes shall not be affected. Upon successful initialisation, the state of the mutex object shall become initialised.</p>
 <p>Only the mutex object itself may be used for performing synchronisation. It is not allowed to make copies of condition variable objects.</p>
 <p>In cases where default mutex attributes are appropriate, the variables <code><a class="el" href="group__cmsis-plus-rtos-mutex.html#gab7a76d2ba638380ae88167da73fbd4cf" title="Default normal mutex initialiser.">mutex::initializer_normal</a></code> or <code><a class="el" href="group__cmsis-plus-rtos-mutex.html#ga63d0eaa13d7ae8e574a110a9c033b414" title="Default recursive mutex initialiser.">mutex::initializer_recursive</a></code> can be used to initialise mutex objects. The effect shall be equivalent to creating a mutex object with the default constructor.</p>
+<p>If the <em>attr</em> attributes are modified <b>after</b> the mutex creation, the mutex attributes shall not be affected.</p>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Inspired by <a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/pthread_mutex_init.html"><code>pthread_mutex_init()</code></a> from <a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/pthread.h.html"><code>&lt;pthread.h&gt;</code></a> (<a href="http://pubs.opengroup.org/onlinepubs/9699919799/nframe.html">IEEE Std 1003.1, 2013 Edition</a>).</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.   </dd></dl>
 
@@ -345,6 +346,7 @@ Static Public Attributes</h2></td></tr>
 <p>This constructor shall initialise a mutex object with attributes referenced by <em>attr</em>. If the attributes specified by <em>attr</em> are modified later, the mutex attributes shall not be affected. Upon successful initialisation, the state of the mutex object shall become initialised.</p>
 <p>Only the mutex object itself may be used for performing synchronisation. It is not allowed to make copies of condition variable objects.</p>
 <p>In cases where default mutex attributes are appropriate, the variables <code><a class="el" href="group__cmsis-plus-rtos-mutex.html#gab7a76d2ba638380ae88167da73fbd4cf" title="Default normal mutex initialiser.">mutex::initializer_normal</a></code> or <code><a class="el" href="group__cmsis-plus-rtos-mutex.html#ga63d0eaa13d7ae8e574a110a9c033b414" title="Default recursive mutex initialiser.">mutex::initializer_recursive</a></code> can be used to initialise mutex objects. The effect shall be equivalent to creating a mutex object with the default constructor.</p>
+<p>If the <em>attr</em> attributes are modified <b>after</b> the mutex creation, the mutex attributes shall not be affected.</p>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Inspired by <a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/pthread_mutex_init.html"><code>pthread_mutex_init()</code></a> from <a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/pthread.h.html"><code>&lt;pthread.h&gt;</code></a> (<a href="http://pubs.opengroup.org/onlinepubs/9699919799/nframe.html">IEEE Std 1003.1, 2013 Edition</a>).</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.   </dd></dl>
 
@@ -426,7 +428,7 @@ Static Public Attributes</h2></td></tr>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Inspired by <a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/pthread_mutex_consistent.html"><code>pthread_mutex_consistent()</code></a> from <a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/pthread.h.html"><code>&lt;pthread.h&gt;</code></a> (<a href="http://pubs.opengroup.org/onlinepubs/9699919799/nframe.html">IEEE Std 1003.1, 2013 Edition</a>).</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mutex_8cpp_source.html#l01417">1417</a> of file <a class="el" href="os-mutex_8cpp_source.html">os-mutex.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mutex_8cpp_source.html#l01426">1426</a> of file <a class="el" href="os-mutex_8cpp_source.html">os-mutex.cpp</a>.</p>
 
 </div>
 </div>
@@ -489,7 +491,7 @@ Static Public Attributes</h2></td></tr>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Inspired by <a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/pthread_mutex_lock.html"><code>pthread_mutex_lock()</code></a> from <a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/pthread.h.html"><code>&lt;pthread.h&gt;</code></a> (<a href="http://pubs.opengroup.org/onlinepubs/9699919799/nframe.html">IEEE Std 1003.1, 2013 Edition</a>).</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mutex_8cpp_source.html#l00918">918</a> of file <a class="el" href="os-mutex_8cpp_source.html">os-mutex.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mutex_8cpp_source.html#l00927">927</a> of file <a class="el" href="os-mutex_8cpp_source.html">os-mutex.cpp</a>.</p>
 
 </div>
 </div>
@@ -982,7 +984,7 @@ Static Public Attributes</h2></td></tr>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Inspired by <a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/pthread_mutex_setprioceiling.html"><code>pthread_mutex_setprioceiling()</code></a> from <a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/pthread.h.html"><code>&lt;pthread.h&gt;</code></a> (<a href="http://pubs.opengroup.org/onlinepubs/9699919799/nframe.html">IEEE Std 1003.1, 2013 Edition</a>).</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mutex_8cpp_source.html#l01351">1351</a> of file <a class="el" href="os-mutex_8cpp_source.html">os-mutex.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mutex_8cpp_source.html#l01360">1360</a> of file <a class="el" href="os-mutex_8cpp_source.html">os-mutex.cpp</a>.</p>
 
 </div>
 </div>
@@ -1017,7 +1019,7 @@ Static Public Attributes</h2></td></tr>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Inspired by <a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/pthread_mutex_getprioceiling.html"><code>pthread_mutex_getprioceiling()</code></a> from <a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/pthread.h.html"><code>&lt;pthread.h&gt;</code></a> (<a href="http://pubs.opengroup.org/onlinepubs/9699919799/nframe.html">IEEE Std 1003.1, 2013 Edition</a>).</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mutex_8cpp_source.html#l01310">1310</a> of file <a class="el" href="os-mutex_8cpp_source.html">os-mutex.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mutex_8cpp_source.html#l01319">1319</a> of file <a class="el" href="os-mutex_8cpp_source.html">os-mutex.cpp</a>.</p>
 
 </div>
 </div>
@@ -1089,7 +1091,7 @@ Static Public Attributes</h2></td></tr>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Extension to standard, no POSIX similar functionality identified.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mutex_8cpp_source.html#l01454">1454</a> of file <a class="el" href="os-mutex_8cpp_source.html">os-mutex.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mutex_8cpp_source.html#l01463">1463</a> of file <a class="el" href="os-mutex_8cpp_source.html">os-mutex.cpp</a>.</p>
 
 </div>
 </div>
@@ -1181,7 +1183,7 @@ Differences from the standard:<ul>
 </dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mutex_8cpp_source.html#l01115">1115</a> of file <a class="el" href="os-mutex_8cpp_source.html">os-mutex.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mutex_8cpp_source.html#l01124">1124</a> of file <a class="el" href="os-mutex_8cpp_source.html">os-mutex.cpp</a>.</p>
 
 </div>
 </div>
@@ -1233,7 +1235,7 @@ Differences from the standard:<ul>
 </dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mutex_8cpp_source.html#l01039">1039</a> of file <a class="el" href="os-mutex_8cpp_source.html">os-mutex.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mutex_8cpp_source.html#l01048">1048</a> of file <a class="el" href="os-mutex_8cpp_source.html">os-mutex.cpp</a>.</p>
 
 </div>
 </div>
@@ -1308,7 +1310,7 @@ Differences from the standard:<ul>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Inspired by <a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/pthread_mutex_unlock.html"><code>pthread_mutex_unlock()</code></a> from <a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/pthread.h.html"><code>&lt;pthread.h&gt;</code></a> (<a href="http://pubs.opengroup.org/onlinepubs/9699919799/nframe.html">IEEE Std 1003.1, 2013 Edition</a>).</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mutex_8cpp_source.html#l01275">1275</a> of file <a class="el" href="os-mutex_8cpp_source.html">os-mutex.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mutex_8cpp_source.html#l01284">1284</a> of file <a class="el" href="os-mutex_8cpp_source.html">os-mutex.cpp</a>.</p>
 
 </div>
 </div>

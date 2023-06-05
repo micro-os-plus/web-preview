@@ -169,6 +169,8 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a34cbdf3c66fcb0f2fede61cf8ed0aabf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__cmsis-plus-rtos-thread.html#gaa5d09b05379b4799f126477d0ac29c36">priority_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classos_1_1rtos_1_1thread_1_1attributes.html#a34cbdf3c66fcb0f2fede61cf8ed0aabf">th_priority</a> = <a class="el" href="group__cmsis-plus-rtos-thread.html#gga7812945316a2540d68c3933e0f497b66ad92eafd06437bfec575bb7c47244e93c">priority::normal</a></td></tr>
 <tr class="memdesc:a34cbdf3c66fcb0f2fede61cf8ed0aabf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thread initial priority.  <br /></td></tr>
 <tr class="separator:a34cbdf3c66fcb0f2fede61cf8ed0aabf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c40091580d47feb123cd873ba6e058c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classos_1_1rtos_1_1thread_1_1attributes.html#a3c40091580d47feb123cd873ba6e058c">th_enable_assert_reuse</a> = false</td></tr>
+<tr class="separator:a3c40091580d47feb123cd873ba6e058c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Public Member Variables</div></td></tr>
 <tr class="memitem:a5d7e0d82010925866a1780e04a8134c4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classos_1_1rtos_1_1clock.html">rtos::clock</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classos_1_1rtos_1_1internal_1_1attributes__clocked.html#a5d7e0d82010925866a1780e04a8134c4">clock</a> = nullptr</td></tr>
 <tr class="memdesc:a5d7e0d82010925866a1780e04a8134c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attribute with the address of the clock to be used for timeouts.  <br /></td></tr>
@@ -178,9 +180,10 @@ Public Attributes</h2></td></tr>
 <div class="textblock"><p>Thread attributes. </p>
 <p>Allow to assign custom attributes (like stack address, stack size, priority) to the thread.</p>
 <p>To simplify access, the member variables are public and do not require accessors or mutators.</p>
+<p>If the attributes are modified <b>after</b> the thread creation, the thread attributes shall not be affected.</p>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Inspired by <code>pthread_attr_t</code> from <a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/pthread.h.html">&lt;pthread.h&gt;</a> (IEEE Std 1003.1, 2013 Edition). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l00770">770</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l00774">774</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="abee316a47ca62e78bdac80ecea6a7b38" name="abee316a47ca62e78bdac80ecea6a7b38"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abee316a47ca62e78bdac80ecea6a7b38">&#9670;&#160;</a></span>attributes() <span class="overload">[1/3]</span></h2>
@@ -208,7 +211,7 @@ Public Attributes</h2></td></tr>
 <p>Construct a thread attributes object instance. </p>
 <dl class="section user"><dt>Parameters</dt><dd>None. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02074">2074</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02089">2089</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
 
 </div>
 </div>
@@ -373,6 +376,22 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a3c40091580d47feb123cd873ba6e058c" name="a3c40091580d47feb123cd873ba6e058c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c40091580d47feb123cd873ba6e058c">&#9670;&#160;</a></span>th_enable_assert_reuse</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool os::rtos::thread::attributes::th_enable_assert_reuse = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l00848">848</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+
+</div>
+</div>
 <a id="a34cbdf3c66fcb0f2fede61cf8ed0aabf" name="a34cbdf3c66fcb0f2fede61cf8ed0aabf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a34cbdf3c66fcb0f2fede61cf8ed0aabf">&#9670;&#160;</a></span>th_priority</h2>
 
@@ -389,7 +408,7 @@ Public Attributes</h2></td></tr>
 <p>If 0, the default is <code><a class="el" href="group__cmsis-plus-rtos-thread.html#gga7812945316a2540d68c3933e0f497b66ad92eafd06437bfec575bb7c47244e93c">thread::priority::normal</a></code>.</p>
 <p>A convenient and explicit variant to this attribute is to call <code><a class="el" href="structos_1_1rtos_1_1thread_1_1priority.html" title="Thread priorities.">thread::priority</a> (priority_t)</code> at the beginning of the thread function. </p>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l00842">842</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l00846">846</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
 
 </div>
 </div>
@@ -408,7 +427,7 @@ Public Attributes</h2></td></tr>
 <p>Address of the user defined storage for the thread stack. </p>
 <p>If <code>nullptr</code>, the default is to dynamically allocate the stack. </p>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l00818">818</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l00822">822</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
 
 </div>
 </div>
@@ -428,7 +447,7 @@ Public Attributes</h2></td></tr>
 <p>If 0, the default is <code><a class="el" href="classos_1_1rtos_1_1thread_1_1stack.html#a99a6469f91a2fbf8db518d6052b48dd1" title="Get the default stack size.">thread::stack::default_size()</a></code>.</p>
 <p>A convenient and explicit variant to this attribute is to call <code><a class="el" href="classos_1_1rtos_1_1thread_1_1stack.html#a99a6469f91a2fbf8db518d6052b48dd1" title="Get the default stack size.">thread::stack::default_size</a> (std::size_t)</code> just before creating the thread. However mind setting this from different threads at the same time. </p>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l00831">831</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l00835">835</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
 
 </div>
 </div>

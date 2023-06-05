@@ -175,6 +175,7 @@ Public Attributes</h2></td></tr>
 <div class="textblock"><p>Message queue attributes. </p>
 <p>Allow to assign a name and custom attributes (like a static address) to the message queue.</p>
 <p>To simplify access, the member variables are public and do not require accessors or mutators.</p>
+<p>If the attributes are modified <b>after</b> the <a class="el" href="classos_1_1rtos_1_1message__queue.html" title="POSIX compliant message queue, using the default RTOS allocator.">message_queue</a> creation, the <a class="el" href="classos_1_1rtos_1_1message__queue.html" title="POSIX compliant message queue, using the default RTOS allocator.">message_queue</a> attributes shall not be affected.</p>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Inspired by <code>mq_attr</code> from <a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/mqueue.h.html">&lt;mqueue.h&gt;</a> (<a href="http://pubs.opengroup.org/onlinepubs/9699919799/nframe.html">IEEE Std 1003.1, 2013 Edition</a>). </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="os-mqueue_8h_source.html#l00142">142</a> of file <a class="el" href="os-mqueue_8h_source.html">os-mqueue.h</a>.</p>

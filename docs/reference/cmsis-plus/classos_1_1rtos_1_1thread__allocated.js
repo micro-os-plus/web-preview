@@ -14,6 +14,7 @@ var classos_1_1rtos_1_1thread__allocated =
     [ "function_args", "classos_1_1rtos_1_1thread__allocated.html#a2a3df5f832debb70d2dd4d667eea5627", null ],
     [ "interrupt", "classos_1_1rtos_1_1thread__allocated.html#aec99e3a711e80b3cbaa18b1c520f966f", null ],
     [ "interrupted", "classos_1_1rtos_1_1thread__allocated.html#aab95e23a51dac01b8a8aae6bb3bfd4f6", null ],
+    [ "is_constructed", "classos_1_1rtos_1_1thread__allocated.html#afcc5ecfaa18d714c26074c6bdc198124", null ],
     [ "join", "classos_1_1rtos_1_1thread__allocated.html#a87d3bab3f4bfc33474e7fdb9dfda172e", null ],
     [ "kill", "classos_1_1rtos_1_1thread__allocated.html#a104646528da7762508267f8a8151fc51", null ],
     [ "name", "classos_1_1rtos_1_1thread__allocated.html#a3103a84c5e0521c3639306f5879526ba", null ],

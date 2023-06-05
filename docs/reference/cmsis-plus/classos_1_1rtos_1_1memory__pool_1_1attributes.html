@@ -175,6 +175,7 @@ Public Attributes</h2></td></tr>
 <div class="textblock"><p>Memory pool attributes. </p>
 <p>Allow to assign a name and custom attributes (like a static address) to the memory pool.</p>
 <p>To simplify access, the member variables are public and do not require accessors or mutators.</p>
+<p>If the attributes are modified <b>after</b> the <a class="el" href="classos_1_1rtos_1_1memory__pool.html" title="Synchronised memory pool, using the default RTOS allocator.">memory_pool</a> creation, the <a class="el" href="classos_1_1rtos_1_1memory__pool.html" title="Synchronised memory pool, using the default RTOS allocator.">memory_pool</a> attributes shall not be affected.</p>
 <dl class="section user"><dt>Example</dt><dd></dd></dl>
 <p>Define an array of structures and pass its address and size via the attributes.</p>
 <div class="fragment"><div class="line"><span class="comment">// Define the type of one pool block.</span></div>

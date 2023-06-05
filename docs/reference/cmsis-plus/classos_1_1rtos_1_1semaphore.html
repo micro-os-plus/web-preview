@@ -328,10 +328,11 @@ Static Public Attributes</h2></td></tr>
 <p>This constructor shall initialise a named generic semaphore object with attributes referenced by <em>attr</em>. If the attributes specified by <em>attr</em> are modified later, the semaphore attributes shall not be affected. Upon successful initialisation, the state of the semaphore object shall become initialised.</p>
 <p>Only the semaphore object itself may be used for performing synchronisation. It is not allowed to make copies of semaphore objects.</p>
 <p>In cases where default semaphore attributes are appropriate, the variable <code><a class="el" href="group__cmsis-plus-rtos-semaphore.html#ga6a97b5ca045e295b4928b4741f0d949e" title="Default binary semaphore initialiser.">semaphore::initializer_binary</a></code> can be used to initialise semaphores. The effect shall be equivalent to creating a semaphore object with the default constructor.</p>
+<p>If the <em>attr</em> attributes are modified <b>after</b> the semaphore creation, the semaphore attributes shall not be affected.</p>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Inspired by <a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/sem_init.html"><code>sem_init()</code></a> from <a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/semaphore.h.html"><code>&lt;semaphore.h&gt;</code></a> (<a href="http://pubs.opengroup.org/onlinepubs/9699919799/nframe.html">IEEE Std 1003.1, 2013 Edition</a>).</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-semaphore_8cpp_source.html#l00149">149</a> of file <a class="el" href="os-semaphore_8cpp_source.html">os-semaphore.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-semaphore_8cpp_source.html#l00155">155</a> of file <a class="el" href="os-semaphore_8cpp_source.html">os-semaphore.cpp</a>.</p>
 
 </div>
 </div>
@@ -356,7 +357,7 @@ Static Public Attributes</h2></td></tr>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Inspired by <a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/sem_destroy.html"><code>sem_destroy()</code></a> from <a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/semaphore.h.html"><code>&lt;semaphore.h&gt;</code></a> (<a href="http://pubs.opengroup.org/onlinepubs/9699919799/nframe.html">IEEE Std 1003.1, 2013 Edition</a>).</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-semaphore_8cpp_source.html#l00224">224</a> of file <a class="el" href="os-semaphore_8cpp_source.html">os-semaphore.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-semaphore_8cpp_source.html#l00230">230</a> of file <a class="el" href="os-semaphore_8cpp_source.html">os-semaphore.cpp</a>.</p>
 
 </div>
 </div>
@@ -822,7 +823,7 @@ Static Public Attributes</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Applications using these functions may be subject to priority inversion. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-semaphore_8cpp_source.html#l00327">327</a> of file <a class="el" href="os-semaphore_8cpp_source.html">os-semaphore.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-semaphore_8cpp_source.html#l00333">333</a> of file <a class="el" href="os-semaphore_8cpp_source.html">os-semaphore.cpp</a>.</p>
 
 </div>
 </div>
@@ -855,7 +856,7 @@ Static Public Attributes</h2></td></tr>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Extension to standard, no POSIX similar functionality identified.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-semaphore_8cpp_source.html#l00708">708</a> of file <a class="el" href="os-semaphore_8cpp_source.html">os-semaphore.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-semaphore_8cpp_source.html#l00714">714</a> of file <a class="el" href="os-semaphore_8cpp_source.html">os-semaphore.cpp</a>.</p>
 
 </div>
 </div>
@@ -908,7 +909,7 @@ Differences from the standard:<ul>
 <dd>
 Applications using these functions may be subject to priority inversion. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-semaphore_8cpp_source.html#l00567">567</a> of file <a class="el" href="os-semaphore_8cpp_source.html">os-semaphore.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-semaphore_8cpp_source.html#l00573">573</a> of file <a class="el" href="os-semaphore_8cpp_source.html">os-semaphore.cpp</a>.</p>
 
 </div>
 </div>
@@ -947,7 +948,7 @@ Applications using these functions may be subject to priority inversion. </dd></
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Applications using these functions may be subject to priority inversion. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-semaphore_8cpp_source.html#l00497">497</a> of file <a class="el" href="os-semaphore_8cpp_source.html">os-semaphore.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-semaphore_8cpp_source.html#l00503">503</a> of file <a class="el" href="os-semaphore_8cpp_source.html">os-semaphore.cpp</a>.</p>
 
 </div>
 </div>
@@ -975,7 +976,7 @@ Applications using these functions may be subject to priority inversion. </dd></
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Inspired by <a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/sem_getvalue.html"><code>sem_getvalue()</code></a> from <a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/semaphore.h.html"><code>&lt;semaphore.h&gt;</code></a> (<a href="http://pubs.opengroup.org/onlinepubs/9699919799/nframe.html">IEEE Std 1003.1, 2013 Edition</a>).</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-semaphore_8cpp_source.html#l00689">689</a> of file <a class="el" href="os-semaphore_8cpp_source.html">os-semaphore.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-semaphore_8cpp_source.html#l00695">695</a> of file <a class="el" href="os-semaphore_8cpp_source.html">os-semaphore.cpp</a>.</p>
 
 </div>
 </div>
@@ -1017,7 +1018,7 @@ Applications using these functions may be subject to priority inversion. </dd></
 <dd>
 Applications using these functions may be subject to priority inversion. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-semaphore_8cpp_source.html#l00400">400</a> of file <a class="el" href="os-semaphore_8cpp_source.html">os-semaphore.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-semaphore_8cpp_source.html#l00406">406</a> of file <a class="el" href="os-semaphore_8cpp_source.html">os-semaphore.cpp</a>.</p>
 
 </div>
 </div>

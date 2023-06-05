@@ -119,6 +119,7 @@ $(document).ready(function(){initNavTree('classos_1_1rtos_1_1thread__inclusive.h
 <div class="header">
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="classos_1_1rtos_1_1thread__inclusive-members.html">List of all members</a>  </div>
@@ -236,6 +237,9 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
+<tr class="memitem:afcc5ecfaa18d714c26074c6bdc198124"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classos_1_1rtos_1_1thread.html#afcc5ecfaa18d714c26074c6bdc198124">is_constructed</a> (const <a class="el" href="classos_1_1rtos_1_1thread.html">thread</a> &amp;<a class="el" href="classos_1_1rtos_1_1thread.html">thread</a>)</td></tr>
+<tr class="memdesc:afcc5ecfaa18d714c26074c6bdc198124"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the thread is constructed.  <br /></td></tr>
+<tr class="separator:afcc5ecfaa18d714c26074c6bdc198124"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Operators</div></td></tr>
 <tr class="memitem:a1456983acc3a56e02cd4a48a220f222c"><td class="memItemLeft" align="right" valign="top">static void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classos_1_1rtos_1_1internal_1_1object__named__system.html#a1456983acc3a56e02cd4a48a220f222c">operator new</a> (std::size_t bytes)</td></tr>
 <tr class="memdesc:a1456983acc3a56e02cd4a48a220f222c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate space for a new object instance using the RTOS system allocator.  <br /></td></tr>
@@ -280,7 +284,7 @@ class os::rtos::thread_inclusive&lt; N &gt;</div><p>Template of a POSIX complian
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l01784">1784</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l01799">1799</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="aad1b11b58a161d9ee54c9ca297a28cd6" name="aad1b11b58a161d9ee54c9ca297a28cd6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aad1b11b58a161d9ee54c9ca297a28cd6">&#9670;&#160;</a></span>allocator_type</h2>
@@ -304,7 +308,7 @@ class os::rtos::thread_inclusive&lt; N &gt;</div><p>Template of a POSIX complian
 
 <p>Default RTOS allocator. </p>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l00985">985</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l00991">991</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
 
 </div>
 </div>
@@ -331,7 +335,7 @@ class os::rtos::thread_inclusive&lt; N &gt;</div><p>Template of a POSIX complian
 <p>Type of thread function arguments. </p>
 <p>Useful to cast other similar types to silence possible compiler warnings. </p>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l00389">389</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l00393">393</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
 
 </div>
 </div>
@@ -358,7 +362,7 @@ class os::rtos::thread_inclusive&lt; N &gt;</div><p>Template of a POSIX complian
 <p>Type of thread function. </p>
 <p>Useful to cast other similar types to silence possible compiler warnings. </p>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l00397">397</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l00401">401</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
 
 </div>
 </div>
@@ -450,7 +454,7 @@ template&lt;std::size_t N&gt; </div>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Inspired by <a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/pthread_create.html"><code>pthread_create()</code></a> from <a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/pthread.h.html"><code>&lt;pthread.h&gt;</code></a> (<a href="http://pubs.opengroup.org/onlinepubs/9699919799/nframe.html">IEEE Std 1003.1, 2013 Edition</a>).</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02717">2717</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02741">2741</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
 
 </div>
 </div>
@@ -514,7 +518,7 @@ template&lt;std::size_t N&gt; </div>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Inspired by <a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/pthread_create.html"><code>pthread_create()</code></a> from <a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/pthread.h.html"><code>&lt;pthread.h&gt;</code></a> (<a href="http://pubs.opengroup.org/onlinepubs/9699919799/nframe.html">IEEE Std 1003.1, 2013 Edition</a>).</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02772">2772</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02796">2796</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
 
 </div>
 </div>
@@ -545,7 +549,7 @@ template&lt;std::size_t N&gt; </div>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>No POSIX similar functionality identified.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02796">2796</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02820">2820</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
 
 </div>
 </div>
@@ -584,11 +588,11 @@ template&lt;std::size_t N&gt; </div>
   </dd>
 </dl>
 <p>The <code><a class="el" href="classos_1_1rtos_1_1thread.html#ace3f252d8ac48e11c6fc829903e34294" title="Cancel thread execution.">cancel()</a></code> function shall not return an error code of <code>EINTR</code>. If an implementation detects use of a thread ID after the end of its lifetime, it is recommended that the function should fail and report an <code>ESRCH</code> error. error number is returned.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Implement it properly (thread interruption is not yet fully implemented).</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Implement it properly (thread interruption is not yet fully implemented).</dd></dl>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Inspired by <a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/pthread_cancel.html"><code>pthread_cancel()</code></a> from <a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/pthread.h.html"><code>&lt;pthread.h&gt;</code></a> (<a href="http://pubs.opengroup.org/onlinepubs/9699919799/nframe.html">IEEE Std 1003.1, 2013 Edition</a>).</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00911">911</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00963">963</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
 
 </div>
 </div>
@@ -630,7 +634,7 @@ template&lt;std::size_t N&gt; </div>
 <p>The <code><a class="el" href="classos_1_1rtos_1_1thread.html#aafcfb047c0a8409b9df5f7aa94729700" title="Detach a thread.">detach()</a></code> function shall not return an error code of <code>EINTR</code>.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00804">804</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00856">856</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
 
 </div>
 </div>
@@ -687,7 +691,7 @@ template&lt;std::size_t N&gt; </div>
 <p>Set more bits in the thread current event flags mask. Use OR at bit-mask level. Wake-up the thread to evaluate the event flags.</p>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l01206">1206</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l01268">1268</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
 
 </div>
 </div>
@@ -720,7 +724,7 @@ template&lt;std::size_t N&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to arguments.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02357">2357</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02372">2372</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
 
 </div>
 </div>
@@ -760,7 +764,7 @@ template&lt;std::size_t N&gt; </div>
 <p>After the thread detects the interrupted condition, it must clear the interrupted flag.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00936">936</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00988">988</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
 
 </div>
 </div>
@@ -799,7 +803,47 @@ template&lt;std::size_t N&gt; </div>
 </dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02368">2368</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02383">2383</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+
+</div>
+</div>
+<a id="afcc5ecfaa18d714c26074c6bdc198124" name="afcc5ecfaa18d714c26074c6bdc198124"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcc5ecfaa18d714c26074c6bdc198124">&#9670;&#160;</a></span>is_constructed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool thread::is_constructed </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classos_1_1rtos_1_1thread.html">thread</a> &amp;&#160;</td>
+          <td class="paramname"><em>thread</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if the thread is constructed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">thread</td><td>Reference to thread object instance. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the thread is in the constructed state.</dd></dl>
+<p>Check the thread status to determine if the thread is already in a constructed state. This is useful for threads constructed via the C API or in C++ via placement new, to avoid constructing them when already constructed.</p>
+<dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>: Consider adding a separate member with the magic, for improved reliability. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00294">294</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
 
 </div>
 </div>
@@ -847,7 +891,7 @@ template&lt;std::size_t N&gt; </div>
 <p>The <code><a class="el" href="classos_1_1rtos_1_1thread.html#a87d3bab3f4bfc33474e7fdb9dfda172e" title="Wait for thread termination.">join()</a></code> function shall not return an error code of [EINTR].</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00859">859</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00911">911</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
 
 </div>
 </div>
@@ -886,7 +930,7 @@ template&lt;std::size_t N&gt; </div>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Inspired by <a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/pthread_kill.html"><code>pthread_kill()</code></a> from <a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/pthread.h.html"><code>&lt;pthread.h&gt;</code></a> (<a href="http://pubs.opengroup.org/onlinepubs/9699919799/nframe.html">IEEE Std 1003.1, 2013 Edition</a>).</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l01127">1127</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l01186">1186</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
 
 </div>
 </div>
@@ -1246,7 +1290,7 @@ template&lt;std::size_t N&gt; </div>
 <p>Identical threads should have the same memory address.</p>
 <p>Compatible with POSIX pthread_equal(). <a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/pthread_equal.html">http://pubs.opengroup.org/onlinepubs/9699919799/functions/pthread_equal.html</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02335">2335</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02350">2350</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
 
 </div>
 </div>
@@ -1295,7 +1339,7 @@ template&lt;std::size_t N&gt; </div>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Inspired by <a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/pthread_setschedprio.html"><code>pthread_setschedprio()</code></a> from <a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/pthread.h.html"><code>&lt;pthread.h&gt;</code></a> (<a href="http://pubs.opengroup.org/onlinepubs/9699919799/nframe.html">IEEE Std 1003.1, 2013 Edition</a>).</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00658">658</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00710">710</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
 
 </div>
 </div>
@@ -1329,7 +1373,7 @@ template&lt;std::size_t N&gt; </div>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Extension to standard, no POSIX similar functionality identified.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00602">602</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00654">654</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
 
 </div>
 </div>
@@ -1378,7 +1422,7 @@ template&lt;std::size_t N&gt; </div>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Extension to standard, no POSIX similar functionality identified.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00726">726</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00778">778</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
 
 </div>
 </div>
@@ -1412,7 +1456,7 @@ template&lt;std::size_t N&gt; </div>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Extension to standard, no POSIX similar functionality identified.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00630">630</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00682">682</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
 
 </div>
 </div>
@@ -1447,7 +1491,7 @@ template&lt;std::size_t N&gt; </div>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Extension to standard, no POSIX similar functionality identified.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00551">551</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l00603">603</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
 
 </div>
 </div>
@@ -1480,7 +1524,7 @@ template&lt;std::size_t N&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>A reference to the context stack object instance.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02438">2438</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02462">2462</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
 
 </div>
 </div>
@@ -1513,7 +1557,7 @@ template&lt;std::size_t N&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>Thread scheduler state.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02346">2346</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02361">2361</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
 
 </div>
 </div>
@@ -1542,7 +1586,7 @@ template&lt;std::size_t N&gt; </div>
 </div><div class="memdoc">
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02451">2451</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02475">2475</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
 
 </div>
 </div>
@@ -1579,7 +1623,7 @@ template&lt;std::size_t N&gt; </div>
 <dd>
 Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02393">2393</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02408">2408</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
 
 </div>
 </div>
@@ -1631,7 +1675,7 @@ Can be invoked from Interrupt Service Routines. </dd></dl>
 <p>Default thread initialiser. </p>
 <p>This variable is used by the default constructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l00978">978</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l00984">984</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
 
 </div>
 </div>
@@ -1659,7 +1703,7 @@ template&lt;std::size_t N = port::stack::default_size_bytes&gt; </div>
 
 <p>Local constant based on template definition. </p>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l01791">1791</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l01806">1806</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
 
 </div>
 </div>

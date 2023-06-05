@@ -16,6 +16,7 @@ var os_decls_8h =
     [ "OS_BOOL_RTOS_SCHEDULER_PREEMPTIVE", "os-decls_8h.html#a06cdcf78fd8d8a0e8dd564e597108e4f", null ],
     [ "OS_INTEGER_RTOS_IDLE_STACK_SIZE_BYTES", "os-decls_8h.html#aa8fdfffcd4b6d58c260d5dd4730b44d0", null ],
     [ "OS_INTEGER_RTOS_MAIN_STACK_SIZE_BYTES", "os-decls_8h.html#a1e2bd07321ee51c8de75ada8d6726cca", null ],
+    [ "OS_INTEGER_RTOS_REUSE_MAGIC", "os-decls_8h.html#a2f13d11e881b035a439cde924e5a19e9", null ],
     [ "OS_INTEGER_SYSTICK_FREQUENCY_HZ", "os-decls_8h.html#ab657098ae141f5b84a1319f48c181052", null ],
     [ "counter_t", "os-decls_8h.html#a1d1572b5e0742d0e4942819c3d3b232a", null ],
     [ "duration_t", "os-decls_8h.html#a0b143d63968082a8b6e73ecba956ac07", null ],

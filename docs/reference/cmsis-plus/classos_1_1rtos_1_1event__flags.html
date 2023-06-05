@@ -256,8 +256,8 @@ Static Public Attributes</h2></td></tr>
 <div class="line">  <span class="comment">// Do something else.</span></div>
 <div class="line">}</div>
 <div class="ttc" id="aclassos_1_1rtos_1_1event__flags_html"><div class="ttname"><a href="classos_1_1rtos_1_1event__flags.html">os::rtos::event_flags</a></div><div class="ttdoc">Synchronised event flags.</div><div class="ttdef"><b>Definition</b> <a href="os-evflags_8h_source.html#l00055">os-evflags.h:56</a></div></div>
-<div class="ttc" id="aclassos_1_1rtos_1_1event__flags_html_a10719b53b5de1992b71d83c5dd4b891e"><div class="ttname"><a href="classos_1_1rtos_1_1event__flags.html#a10719b53b5de1992b71d83c5dd4b891e">os::rtos::event_flags::wait</a></div><div class="ttdeci">result_t wait(flags::mask_t mask, flags::mask_t *oflags, flags::mode_t mode=flags::mode::all|flags::mode::clear)</div><div class="ttdoc">Wait for event flags.</div><div class="ttdef"><b>Definition</b> <a href="os-evflags_8cpp_source.html#l00236">os-evflags.cpp:236</a></div></div>
-<div class="ttc" id="aclassos_1_1rtos_1_1event__flags_html_af63fd5c6a4c59327f76ea2ac16becf3d"><div class="ttname"><a href="classos_1_1rtos_1_1event__flags.html#af63fd5c6a4c59327f76ea2ac16becf3d">os::rtos::event_flags::raise</a></div><div class="ttdeci">result_t raise(flags::mask_t mask, flags::mask_t *oflags=nullptr)</div><div class="ttdoc">Raise event flags.</div><div class="ttdef"><b>Definition</b> <a href="os-evflags_8cpp_source.html#l00538">os-evflags.cpp:538</a></div></div>
+<div class="ttc" id="aclassos_1_1rtos_1_1event__flags_html_a10719b53b5de1992b71d83c5dd4b891e"><div class="ttname"><a href="classos_1_1rtos_1_1event__flags.html#a10719b53b5de1992b71d83c5dd4b891e">os::rtos::event_flags::wait</a></div><div class="ttdeci">result_t wait(flags::mask_t mask, flags::mask_t *oflags, flags::mode_t mode=flags::mode::all|flags::mode::clear)</div><div class="ttdoc">Wait for event flags.</div><div class="ttdef"><b>Definition</b> <a href="os-evflags_8cpp_source.html#l00245">os-evflags.cpp:245</a></div></div>
+<div class="ttc" id="aclassos_1_1rtos_1_1event__flags_html_af63fd5c6a4c59327f76ea2ac16becf3d"><div class="ttname"><a href="classos_1_1rtos_1_1event__flags.html#af63fd5c6a4c59327f76ea2ac16becf3d">os::rtos::event_flags::raise</a></div><div class="ttdeci">result_t raise(flags::mask_t mask, flags::mask_t *oflags=nullptr)</div><div class="ttdoc">Raise event flags.</div><div class="ttdef"><b>Definition</b> <a href="os-evflags_8cpp_source.html#l00547">os-evflags.cpp:547</a></div></div>
 </div><!-- fragment --><dl class="section user"><dt>POSIX compatibility</dt><dd>No POSIX similar functionality identified. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="os-evflags_8h_source.html#l00055">55</a> of file <a class="el" href="os-evflags_8h_source.html">os-evflags.h</a>.</p>
@@ -288,9 +288,10 @@ Static Public Attributes</h2></td></tr>
 <p>This constructor shall initialise an event flags object with attributes referenced by <em>attr</em>. If the attributes specified by <em>attr</em> are modified later, the event flags attributes shall not be affected. Upon successful initialisation, the state of the event flags object shall become initialised, with all flags cleared.</p>
 <p>Only the event flags object itself may be used for performing synchronisation. It is not allowed to make copies of event flags objects.</p>
 <p>In cases where default event flags attributes are appropriate, the variable <code><a class="el" href="group__cmsis-plus-rtos-evflag.html#gafc2027838d333aa0cdb4e2488b4cf741" title="Default event flags initialiser.">event_flags::initializer</a></code> can be used to initialise event flags. The effect shall be equivalent to creating an event flags object with the default constructor.</p>
+<p>If the <em>attr</em> attributes are modified <b>after</b> the <a class="el" href="classos_1_1rtos_1_1event__flags.html" title="Synchronised event flags.">event_flags</a> creation, the <a class="el" href="classos_1_1rtos_1_1event__flags.html" title="Synchronised event flags.">event_flags</a> attributes shall not be affected.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00125">125</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00131">131</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
 
 </div>
 </div>
@@ -331,9 +332,10 @@ Static Public Attributes</h2></td></tr>
 <p>This constructor shall initialise a named event flags object with attributes referenced by <em>attr</em>. If the attributes specified by <em>attr</em> are modified later, the event flags attributes shall not be affected. Upon successful initialisation, the state of the event flags object shall become initialised, with all flags cleared.</p>
 <p>Only the event flags object itself may be used for performing synchronisation. It is not allowed to make copies of event flags objects.</p>
 <p>In cases where default event flags attributes are appropriate, the variable <code><a class="el" href="group__cmsis-plus-rtos-evflag.html#gafc2027838d333aa0cdb4e2488b4cf741" title="Default event flags initialiser.">event_flags::initializer</a></code> can be used to initialise event flags. The effect shall be equivalent to creating an event flags object with the default constructor.</p>
+<p>If the <em>attr</em> attributes are modified <b>after</b> the <a class="el" href="classos_1_1rtos_1_1event__flags.html" title="Synchronised event flags.">event_flags</a> creation, the <a class="el" href="classos_1_1rtos_1_1event__flags.html" title="Synchronised event flags.">event_flags</a> attributes shall not be affected.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00156">156</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00165">165</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
 
 </div>
 </div>
@@ -357,7 +359,7 @@ Static Public Attributes</h2></td></tr>
 <p>It shall be safe to destroy an initialised event flags object upon which no threads are currently blocked. Attempting to destroy an event flags object upon which other threads are currently blocked results in undefined behaviour.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00196">196</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00205">205</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
 
 </div>
 </div>
@@ -405,7 +407,7 @@ Static Public Attributes</h2></td></tr>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00575">575</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00584">584</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
 
 </div>
 </div>
@@ -448,7 +450,7 @@ Static Public Attributes</h2></td></tr>
 <p>If the mask is <code><a class="el" href="namespaceos_1_1rtos_1_1flags.html#a096d5e2918efd09347ff64e76d4b9125ae00cc70aef8c5b5bbd8998096f1317e8" title="Special mask to represent any flag.">flags::any</a></code>, return the status of all event flags, without any masking or subsequent clearing.</p>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00614">614</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00623">623</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
 
 </div>
 </div>
@@ -845,7 +847,7 @@ Static Public Attributes</h2></td></tr>
 <p>Set more bits in the thread current signal mask. Use OR at bit-mask level. Wake-up all waiting threads, if any.</p>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00538">538</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00547">547</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
 
 </div>
 </div>
@@ -919,7 +921,7 @@ Static Public Attributes</h2></td></tr>
 <p>If the <a class="el" href="namespaceos_1_1rtos_1_1flags_1_1mode.html#a1472154078ef02cfa5f62ae1ca50758aa71559e3634890b5547e62ff93160ac3a" title="Ask for flags to be cleared after read.">flags::mode::clear</a> bit is set, the event flags that are returned are automatically cleared.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00421">421</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00430">430</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
 
 </div>
 </div>
@@ -977,7 +979,7 @@ Static Public Attributes</h2></td></tr>
 <p>The function does not blocks, if the expected event flags are not raised, but returns EGAIN.</p>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00339">339</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00348">348</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
 
 </div>
 </div>
@@ -1039,7 +1041,7 @@ Static Public Attributes</h2></td></tr>
 <p>If the <a class="el" href="namespaceos_1_1rtos_1_1flags_1_1mode.html#a1472154078ef02cfa5f62ae1ca50758aa71559e3634890b5547e62ff93160ac3a" title="Ask for flags to be cleared after read.">flags::mode::clear</a> bit is set, the event flags that are returned are automatically cleared.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00236">236</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00245">245</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
 
 </div>
 </div>
@@ -1070,7 +1072,7 @@ Static Public Attributes</h2></td></tr>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00644">644</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00653">653</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
 
 </div>
 </div>

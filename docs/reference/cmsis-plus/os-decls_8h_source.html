@@ -777,9 +777,13 @@ $(document).ready(function(){initNavTree('os-decls_8h_source.html',''); initResi
 <div class="line"><a id="l01152" name="l01152"></a><span class="lineno"><a class="line" href="os-decls_8h.html#a06cdcf78fd8d8a0e8dd564e597108e4f"> 1152</a></span><span class="preprocessor">#define OS_BOOL_RTOS_SCHEDULER_PREEMPTIVE                   (true)</span></div>
 <div class="line"><a id="l01153" name="l01153"></a><span class="lineno"> 1153</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l01154" name="l01154"></a><span class="lineno"> 1154</span> </div>
-<div class="line"><a id="l01155" name="l01155"></a><span class="lineno"> 1155</span><span class="comment">// ----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l01156" name="l01156"></a><span class="lineno"> 1156</span> </div>
-<div class="line"><a id="l01157" name="l01157"></a><span class="lineno"> 1157</span><span class="preprocessor">#endif </span><span class="comment">/* CMSIS_PLUS_RTOS_OS_DECLS_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l01155" name="l01155"></a><span class="lineno"> 1155</span><span class="preprocessor">#if !defined(OS_INTEGER_RTOS_REUSE_MAGIC)</span></div>
+<div class="line"><a id="l01156" name="l01156"></a><span class="lineno"><a class="line" href="os-decls_8h.html#a2f13d11e881b035a439cde924e5a19e9"> 1156</a></span><span class="preprocessor">#define OS_INTEGER_RTOS_REUSE_MAGIC                         (0xA55AAA55)</span></div>
+<div class="line"><a id="l01157" name="l01157"></a><span class="lineno"> 1157</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l01158" name="l01158"></a><span class="lineno"> 1158</span> </div>
+<div class="line"><a id="l01159" name="l01159"></a><span class="lineno"> 1159</span><span class="comment">// ----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l01160" name="l01160"></a><span class="lineno"> 1160</span> </div>
+<div class="line"><a id="l01161" name="l01161"></a><span class="lineno"> 1161</span><span class="preprocessor">#endif </span><span class="comment">/* CMSIS_PLUS_RTOS_OS_DECLS_H_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="aclassos_1_1rtos_1_1clock_html"><div class="ttname"><a href="classos_1_1rtos_1_1clock.html">os::rtos::clock</a></div><div class="ttdoc">Generic clock.</div><div class="ttdef"><b>Definition</b> <a href="os-clocks_8h_source.html#l00054">os-clocks.h:55</a></div></div>
 <div class="ttc" id="aclassos_1_1rtos_1_1condition__variable_html"><div class="ttname"><a href="classos_1_1rtos_1_1condition__variable.html">os::rtos::condition_variable</a></div><div class="ttdoc">POSIX compliant condition variable.</div><div class="ttdef"><b>Definition</b> <a href="os-condvar_8h_source.html#l00051">os-condvar.h:52</a></div></div>
 <div class="ttc" id="aclassos_1_1rtos_1_1event__flags_html"><div class="ttname"><a href="classos_1_1rtos_1_1event__flags.html">os::rtos::event_flags</a></div><div class="ttdoc">Synchronised event flags.</div><div class="ttdef"><b>Definition</b> <a href="os-evflags_8h_source.html#l00055">os-evflags.h:56</a></div></div>

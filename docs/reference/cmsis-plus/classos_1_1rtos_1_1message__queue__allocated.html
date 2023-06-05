@@ -318,7 +318,7 @@ class os::rtos::message_queue_allocated&lt; Allocator &gt;</div><p>Template of a
 <div class="line">  <span class="comment">// Do something else.</span></div>
 <div class="line">}</div>
 <div class="ttc" id="aclassos_1_1rtos_1_1message__queue__allocated_html"><div class="ttname"><a href="classos_1_1rtos_1_1message__queue__allocated.html">os::rtos::message_queue_allocated</a></div><div class="ttdoc">Template of a POSIX compliant message queue with allocator.</div><div class="ttdef"><b>Definition</b> <a href="os-mqueue_8h_source.html#l00737">os-mqueue.h:738</a></div></div>
-<div class="ttc" id="aclassos_1_1rtos_1_1message__queue_html_a0a1a56c91c116aeedcc0a6da9f09ee7d"><div class="ttname"><a href="classos_1_1rtos_1_1message__queue.html#a0a1a56c91c116aeedcc0a6da9f09ee7d">os::rtos::message_queue::receive</a></div><div class="ttdeci">result_t receive(void *msg, std::size_t nbytes, priority_t *mprio=nullptr)</div><div class="ttdoc">Receive a message from the queue.</div><div class="ttdef"><b>Definition</b> <a href="os-mqueue_8cpp_source.html#l01202">os-mqueue.cpp:1202</a></div></div>
+<div class="ttc" id="aclassos_1_1rtos_1_1message__queue_html_a0a1a56c91c116aeedcc0a6da9f09ee7d"><div class="ttname"><a href="classos_1_1rtos_1_1message__queue.html#a0a1a56c91c116aeedcc0a6da9f09ee7d">os::rtos::message_queue::receive</a></div><div class="ttdeci">result_t receive(void *msg, std::size_t nbytes, priority_t *mprio=nullptr)</div><div class="ttdoc">Receive a message from the queue.</div><div class="ttdef"><b>Definition</b> <a href="os-mqueue_8cpp_source.html#l01211">os-mqueue.cpp:1211</a></div></div>
 </div><!-- fragment --><dl class="section user"><dt>POSIX compatibility</dt><dd>Inspired by <code>mqd_t</code> from <a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/mqueue.h.html">&lt;mqueue.h&gt;</a> (<a href="http://pubs.opengroup.org/onlinepubs/9699919799/nframe.html">IEEE Std 1003.1, 2013 Edition</a>). </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="os-mqueue_8h_source.html#l00737">737</a> of file <a class="el" href="os-mqueue_8h_source.html">os-mqueue.h</a>.</p>
@@ -1171,7 +1171,7 @@ template&lt;typename T &gt; </div>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Inspired by <a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/mq_receive.html"><code>mq_receive()</code></a> with <code>O_NONBLOCK</code> not set, from <a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/mqueue.h.html">&lt;mqueue.h&gt;</a> (<a href="http://pubs.opengroup.org/onlinepubs/9699919799/nframe.html">IEEE Std 1003.1, 2013 Edition</a>).</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mqueue_8cpp_source.html#l01202">1202</a> of file <a class="el" href="os-mqueue_8cpp_source.html">os-mqueue.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mqueue_8cpp_source.html#l01211">1211</a> of file <a class="el" href="os-mqueue_8cpp_source.html">os-mqueue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1212,7 +1212,7 @@ template&lt;typename T &gt; </div>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Extension to standard, no POSIX similar functionality identified.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mqueue_8cpp_source.html#l01525">1525</a> of file <a class="el" href="os-mqueue_8cpp_source.html">os-mqueue.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mqueue_8cpp_source.html#l01534">1534</a> of file <a class="el" href="os-mqueue_8cpp_source.html">os-mqueue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1282,7 +1282,7 @@ template&lt;typename T &gt; </div>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Inspired by <a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/mq_send.html"><code>mq_send()</code></a> with <code>O_NONBLOCK</code> not set, from <a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/mqueue.h.html">&lt;mqueue.h&gt;</a> (<a href="http://pubs.opengroup.org/onlinepubs/9699919799/nframe.html">IEEE Std 1003.1, 2013 Edition</a>).</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mqueue_8cpp_source.html#l00870">870</a> of file <a class="el" href="os-mqueue_8cpp_source.html">os-mqueue.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mqueue_8cpp_source.html#l00879">879</a> of file <a class="el" href="os-mqueue_8cpp_source.html">os-mqueue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1371,7 +1371,7 @@ Differences from the standard:<ul>
 </dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mqueue_8cpp_source.html#l01412">1412</a> of file <a class="el" href="os-mqueue_8cpp_source.html">os-mqueue.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mqueue_8cpp_source.html#l01421">1421</a> of file <a class="el" href="os-mqueue_8cpp_source.html">os-mqueue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1456,7 +1456,7 @@ Differences from the standard:<ul>
 </dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mqueue_8cpp_source.html#l01065">1065</a> of file <a class="el" href="os-mqueue_8cpp_source.html">os-mqueue.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mqueue_8cpp_source.html#l01074">1074</a> of file <a class="el" href="os-mqueue_8cpp_source.html">os-mqueue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1531,7 +1531,7 @@ Differences from the standard:<ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mqueue_8cpp_source.html#l01314">1314</a> of file <a class="el" href="os-mqueue_8cpp_source.html">os-mqueue.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mqueue_8cpp_source.html#l01323">1323</a> of file <a class="el" href="os-mqueue_8cpp_source.html">os-mqueue.cpp</a>.</p>
 
 </div>
 </div>
@@ -1604,7 +1604,7 @@ Differences from the standard:<ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mqueue_8cpp_source.html#l00981">981</a> of file <a class="el" href="os-mqueue_8cpp_source.html">os-mqueue.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mqueue_8cpp_source.html#l00990">990</a> of file <a class="el" href="os-mqueue_8cpp_source.html">os-mqueue.cpp</a>.</p>
 
 </div>
 </div>

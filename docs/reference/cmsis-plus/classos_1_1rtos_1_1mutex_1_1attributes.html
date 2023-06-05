@@ -185,6 +185,7 @@ Public Attributes</h2></td></tr>
 <div class="textblock"><p>Mutex attributes. </p>
 <p>Allow to assign a name and custom attributes (like priority ceiling, robustness, etc) to the mutex.</p>
 <p>To simplify access, the member variables are public and do not require accessors or mutators.</p>
+<p>If the attributes are modified <b>after</b> the mutex creation, the mutex attributes shall not be affected.</p>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Inspired by <code>pthread_mutexattr_t</code> from <a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/pthread.h.html"><code>&lt;pthread.h&gt;</code></a> (<a href="http://pubs.opengroup.org/onlinepubs/9699919799/nframe.html">IEEE Std 1003.1, 2013 Edition</a>). </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="os-mutex_8h_source.html#l00207">207</a> of file <a class="el" href="os-mutex_8h_source.html">os-mutex.h</a>.</p>

@@ -292,7 +292,7 @@ Static Public Attributes</h2></td></tr>
 <div class="line">  <span class="comment">// Do something else.</span></div>
 <div class="line">}</div>
 <div class="ttc" id="aclassos_1_1rtos_1_1memory__pool_html"><div class="ttname"><a href="classos_1_1rtos_1_1memory__pool.html">os::rtos::memory_pool</a></div><div class="ttdoc">Synchronised memory pool, using the default RTOS allocator.</div><div class="ttdef"><b>Definition</b> <a href="os-mempool_8h_source.html#l00058">os-mempool.h:59</a></div></div>
-<div class="ttc" id="aclassos_1_1rtos_1_1memory__pool_html_a398b56100a97f150fb31bcc781ced974"><div class="ttname"><a href="classos_1_1rtos_1_1memory__pool.html#a398b56100a97f150fb31bcc781ced974">os::rtos::memory_pool::alloc</a></div><div class="ttdeci">void * alloc(void)</div><div class="ttdoc">Allocate a memory block.</div><div class="ttdef"><b>Definition</b> <a href="os-mempool_8cpp_source.html#l00494">os-mempool.cpp:494</a></div></div>
+<div class="ttc" id="aclassos_1_1rtos_1_1memory__pool_html_a398b56100a97f150fb31bcc781ced974"><div class="ttname"><a href="classos_1_1rtos_1_1memory__pool.html#a398b56100a97f150fb31bcc781ced974">os::rtos::memory_pool::alloc</a></div><div class="ttdeci">void * alloc(void)</div><div class="ttdoc">Allocate a memory block.</div><div class="ttdef"><b>Definition</b> <a href="os-mempool_8cpp_source.html#l00503">os-mempool.cpp:503</a></div></div>
 </div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>There is no equivalent of <a class="el" href="group__cmsis-plus-rtos-c-memres.html#ga5fcbe760926906d1843d4db852d9c5b8" title="Allocate an array of memory blocks (initialised to zero).">calloc()</a>; to initialise to zero a memory block, use: <div class="fragment"><div class="line">block = mp.alloc();</div>
 <div class="line">memset (block, 0, mp.block_size ());</div>
 </div><!-- fragment --></dd></dl>
@@ -371,9 +371,10 @@ Static Public Attributes</h2></td></tr>
 <p>Only the memory pool itself may be used for allocations. It is not allowed to make copies of condition variable objects.</p>
 <p>In cases where default memory pool attributes are appropriate, the variable <code><a class="el" href="group__cmsis-plus-rtos-mempool.html#ga7fd442f85898940215d53d32e7a4eee7" title="Default memory pool initialiser.">memory_pool::initializer</a></code> can be used to initialise condition variables. The effect shall be equivalent to creating a memory pool object with the simple constructor.</p>
 <p>If the attributes define a storage area (via <code>mp_pool_address</code> and <code>mp_pool_size_bytes</code>), that storage is used, otherwise the storage is dynamically allocated using the RTOS specific allocator (<code><a class="el" href="group__cmsis-plus-rtos-memres.html#gac00e47b1a65850b96de7c9fe0e938da1" title="Type of allocator used by the system objects. Must be stateless.">rtos::memory::allocator</a></code>).</p>
+<p>If the <em>attr</em> attributes are modified <b>after</b> the <a class="el" href="classos_1_1rtos_1_1memory__pool.html" title="Synchronised memory pool, using the default RTOS allocator.">memory_pool</a> creation, the <a class="el" href="classos_1_1rtos_1_1memory__pool.html" title="Synchronised memory pool, using the default RTOS allocator.">memory_pool</a> attributes shall not be affected.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mempool_8cpp_source.html#l00228">228</a> of file <a class="el" href="os-mempool_8cpp_source.html">os-mempool.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mempool_8cpp_source.html#l00234">234</a> of file <a class="el" href="os-mempool_8cpp_source.html">os-mempool.cpp</a>.</p>
 
 </div>
 </div>
@@ -436,9 +437,10 @@ Static Public Attributes</h2></td></tr>
 <p>Only the memory pool itself may be used for allocations. It is not allowed to make copies of condition variable objects.</p>
 <p>In cases where default memory pool attributes are appropriate, the variable <code><a class="el" href="group__cmsis-plus-rtos-mempool.html#ga7fd442f85898940215d53d32e7a4eee7" title="Default memory pool initialiser.">memory_pool::initializer</a></code> can be used to initialise condition variables. The effect shall be equivalent to creating a memory pool object with the simple constructor.</p>
 <p>If the attributes define a storage area (via <code>mp_pool_address</code> and <code>mp_pool_size_bytes</code>), that storage is used, otherwise the storage is dynamically allocated using the RTOS specific allocator (<code><a class="el" href="group__cmsis-plus-rtos-memres.html#gac00e47b1a65850b96de7c9fe0e938da1" title="Type of allocator used by the system objects. Must be stateless.">rtos::memory::allocator</a></code>).</p>
+<p>If the <em>attr</em> attributes are modified <b>after</b> the <a class="el" href="classos_1_1rtos_1_1memory__pool.html" title="Synchronised memory pool, using the default RTOS allocator.">memory_pool</a> creation, the <a class="el" href="classos_1_1rtos_1_1memory__pool.html" title="Synchronised memory pool, using the default RTOS allocator.">memory_pool</a> attributes shall not be affected.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mempool_8cpp_source.html#l00262">262</a> of file <a class="el" href="os-mempool_8cpp_source.html">os-mempool.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mempool_8cpp_source.html#l00271">271</a> of file <a class="el" href="os-mempool_8cpp_source.html">os-mempool.cpp</a>.</p>
 
 </div>
 </div>
@@ -471,7 +473,7 @@ Static Public Attributes</h2></td></tr>
 <p>If the storage for the memory pool was dynamically allocated, it is deallocated using the same allocator.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mempool_8cpp_source.html#l00398">398</a> of file <a class="el" href="os-mempool_8cpp_source.html">os-mempool.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mempool_8cpp_source.html#l00407">407</a> of file <a class="el" href="os-mempool_8cpp_source.html">os-mempool.cpp</a>.</p>
 
 </div>
 </div>
@@ -500,7 +502,7 @@ Static Public Attributes</h2></td></tr>
 <p>This function uses a critical section to protect against simultaneous access from other threads or interrupts.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mempool_8cpp_source.html#l00494">494</a> of file <a class="el" href="os-mempool_8cpp_source.html">os-mempool.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mempool_8cpp_source.html#l00503">503</a> of file <a class="el" href="os-mempool_8cpp_source.html">os-mempool.cpp</a>.</p>
 
 </div>
 </div>
@@ -726,7 +728,7 @@ template&lt;typename T &gt; </div>
 <p>It uses a critical section to protect simultaneous access from other threads or interrupts.</p>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mempool_8cpp_source.html#l00764">764</a> of file <a class="el" href="os-mempool_8cpp_source.html">os-mempool.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mempool_8cpp_source.html#l00773">773</a> of file <a class="el" href="os-mempool_8cpp_source.html">os-mempool.cpp</a>.</p>
 
 </div>
 </div>
@@ -1189,7 +1191,7 @@ template&lt;typename T &gt; </div>
 <p>Reset the memory pool to the initial state, with all blocks free.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mempool_8cpp_source.html#l00816">816</a> of file <a class="el" href="os-mempool_8cpp_source.html">os-mempool.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mempool_8cpp_source.html#l00825">825</a> of file <a class="el" href="os-mempool_8cpp_source.html">os-mempool.cpp</a>.</p>
 
 </div>
 </div>
@@ -1226,7 +1228,7 @@ template&lt;typename T &gt; </div>
 <p>This function uses a critical section to protect against simultaneous access from other threads or interrupts.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mempool_8cpp_source.html#l00656">656</a> of file <a class="el" href="os-mempool_8cpp_source.html">os-mempool.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mempool_8cpp_source.html#l00665">665</a> of file <a class="el" href="os-mempool_8cpp_source.html">os-mempool.cpp</a>.</p>
 
 </div>
 </div>
@@ -1255,7 +1257,7 @@ template&lt;typename T &gt; </div>
 <p>This function uses a critical section to protect against simultaneous access from other threads or interrupts.</p>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mempool_8cpp_source.html#l00590">590</a> of file <a class="el" href="os-mempool_8cpp_source.html">os-mempool.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mempool_8cpp_source.html#l00599">599</a> of file <a class="el" href="os-mempool_8cpp_source.html">os-mempool.cpp</a>.</p>
 
 </div>
 </div>

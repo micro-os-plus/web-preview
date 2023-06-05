@@ -2,6 +2,7 @@ var group__cmsis_plus_rtos_c_thread =
 [
     [ "os_thread_attr_s", "structos__thread__attr__s.html", [
       [ "clock", "structos__thread__attr__s.html#a8e316a66358b1978b9064ee3bf0af739", null ],
+      [ "th_enable_assert_reuse", "structos__thread__attr__s.html#a6af636cb1801a86e35fc75c3e6109c27", null ],
       [ "th_priority", "structos__thread__attr__s.html#a16679040f25d405fe1fab78b6a0b6c8b", null ],
       [ "th_stack_address", "structos__thread__attr__s.html#a691fccf786502a84d1fcb0d45f563a89", null ],
       [ "th_stack_size_bytes", "structos__thread__attr__s.html#ae36b916952381ab914b4c0e8cbe54e0c", null ]
@@ -57,7 +58,8 @@ var group__cmsis_plus_rtos_c_thread =
       [ "os_thread_state_running", "group__cmsis-plus-rtos-c-thread.html#gga61dadd085c1777f559549e05962b2c9eacec117cb3d2b0202237758218626b710", null ],
       [ "os_thread_state_suspended", "group__cmsis-plus-rtos-c-thread.html#gga61dadd085c1777f559549e05962b2c9ea201933dc6dbb707984de3152769e6860", null ],
       [ "os_thread_state_terminated", "group__cmsis-plus-rtos-c-thread.html#gga61dadd085c1777f559549e05962b2c9ea1a7f66671b3b41e9de7184bfac09f2ad", null ],
-      [ "os_thread_state_destroyed", "group__cmsis-plus-rtos-c-thread.html#gga61dadd085c1777f559549e05962b2c9ea63a68552068a61ec666e8dc5d1f8a7e7", null ]
+      [ "os_thread_state_destroyed", "group__cmsis-plus-rtos-c-thread.html#gga61dadd085c1777f559549e05962b2c9ea63a68552068a61ec666e8dc5d1f8a7e7", null ],
+      [ "os_thread_state_initialising", "group__cmsis-plus-rtos-c-thread.html#gga61dadd085c1777f559549e05962b2c9ea5f462320fbda936a025b80433b339e18", null ]
     ] ],
     [ "os_children_threads_iter_begin", "group__cmsis-plus-rtos-c-thread.html#ga7966ec5788777de9ec8a73438db3b39d", null ],
     [ "os_children_threads_iter_end", "group__cmsis-plus-rtos-c-thread.html#gaf886f3c9e579055df6b4c28eab86147b", null ],
@@ -81,6 +83,7 @@ var group__cmsis_plus_rtos_c_thread =
     [ "os_thread_get_stack", "group__cmsis-plus-rtos-c-thread.html#ga987df37582022161c20f474866cbcf71", null ],
     [ "os_thread_get_state", "group__cmsis-plus-rtos-c-thread.html#ga768fa88412be4dd5e562263fb81b42c8", null ],
     [ "os_thread_get_user_storage", "group__cmsis-plus-rtos-c-thread.html#ga1b9a6538607edaef4bfab19e534f77fa", null ],
+    [ "os_thread_is_constructed", "group__cmsis-plus-rtos-c-thread.html#ga20f81eec26f68f29f4acda9cfa18fd6d", null ],
     [ "os_thread_join", "group__cmsis-plus-rtos-c-thread.html#ga68883733e1c7637df06fdb4e1d9a6ce5", null ],
     [ "os_thread_kill", "group__cmsis-plus-rtos-c-thread.html#ga9fbd4dea852aa6aaac7478ead3691660", null ],
     [ "os_thread_new", "group__cmsis-plus-rtos-c-thread.html#gaa8e49c680a19fe07044e8cbc998f5b57", null ],

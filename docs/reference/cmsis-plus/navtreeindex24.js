@@ -1,5 +1,11 @@
 var NAVTREEINDEX24 =
 {
+"md_doxygen_2pages_2change-log.html#autotoc_md19":[1,0,16],
+"md_doxygen_2pages_2change-log.html#autotoc_md2":[1,0,0],
+"md_doxygen_2pages_2change-log.html#autotoc_md20":[1,0,17],
+"md_doxygen_2pages_2change-log.html#autotoc_md21":[1,0,18],
+"md_doxygen_2pages_2change-log.html#autotoc_md22":[1,0,19],
+"md_doxygen_2pages_2change-log.html#autotoc_md23":[1,0,20],
 "md_doxygen_2pages_2change-log.html#autotoc_md24":[1,0,21],
 "md_doxygen_2pages_2change-log.html#autotoc_md3":[1,0,1],
 "md_doxygen_2pages_2change-log.html#autotoc_md4":[1,0,2],
@@ -29,8 +35,8 @@ var NAVTREEINDEX24 =
 "namespace____gnu__cxx.html#af51888cedbc669a114cd79e39e0cd9be":[4,0,0,0],
 "namespaceanonymous__namespace_02new_8cpp_03.html":[4,0,1],
 "namespaceanonymous__namespace_02os-core_8cpp_03.html":[4,0,2],
-"namespacemembers.html":[4,1,0,0],
 "namespacemembers.html":[4,1,0],
+"namespacemembers.html":[4,1,0,0],
 "namespacemembers_a.html":[4,1,0,1],
 "namespacemembers_b.html":[4,1,0,2],
 "namespacemembers_c.html":[4,1,0,3],
@@ -243,11 +249,5 @@ var NAVTREEINDEX24 =
 "namespaceos_1_1posix.html#aca961996bf22f0750729bf0a6c17a616":[4,0,3,3,59],
 "namespaceos_1_1rtos.html":[4,0,3,4],
 "namespaceos_1_1rtos.html#a036797308a5a86b1f269eb9bb28be8e3":[4,0,3,4,34],
-"namespaceos_1_1rtos.html#a54633089ccffe9e56ce1137ebe57776d":[4,0,3,4,35],
-"namespaceos_1_1rtos_1_1flags.html#a49c1da8337c9d32697fefbdf0412cdac":[4,0,3,4,0,2],
-"namespaceos_1_1rtos_1_1flags.html#a87571a2d62e491d2af4e4390eb1aca06":[4,0,3,4,0,1],
-"namespaceos_1_1rtos_1_1flags_1_1mode.html":[4,0,3,4,0,0],
-"namespaceos_1_1rtos_1_1internal.html":[4,0,3,4,1],
-"namespaceos_1_1rtos_1_1interrupts.html#acb55b8cf253de220218c56f8e35f1da0":[4,0,3,4,2,3],
-"namespaceos_1_1rtos_1_1interrupts.html#acb9f50dd130d6226b861ffaee191ee5a":[4,0,3,4,2,4]
+"namespaceos_1_1rtos.html#a54633089ccffe9e56ce1137ebe57776d":[4,0,3,4,35]
 };
