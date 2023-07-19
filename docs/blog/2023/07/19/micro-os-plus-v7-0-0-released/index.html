@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <title>µOS++ v7.0.0 released</title>
-  <meta name="description" content="Version v7.0.0 is a new µOS++ major release. It representsa major milestone, being the first release that includes extensivetests running in scriptable CI en...">
+  <meta name="description" content="Version v7.0.0 is a new µOS++ major release. It representsan important milestone, being the first release that includes extensivetests running in scriptable ...">
 
   <meta property="og:title" content="µOS++ v7.0.0 released" />
   <meta property="og:site_name" content="µOS++" />
@@ -259,7 +259,7 @@ Posted on July 19, 2023 by Liviu Ionescu.
 </p>
 
 <p>Version v7.0.0 is a new <strong>µOS++</strong> major release. It represents
-a major milestone, being the first release that includes extensive
+an important milestone, being the first release that includes extensive
 tests running in scriptable CI environments.</p>
 
 <p>The main functional changes
@@ -286,14 +286,17 @@ to <strong>add it as a dependency</strong> to the project via <strong>xpm</stron
 <ul>
   <li>
     <p>[<a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/78">#78</a>]:
-add a <code class="language-plaintext highlighter-rouge">clear()</code> method to thread statistics and to the scheduler.</p>
+there was no support to clear the statistics;
+add a <code class="language-plaintext highlighter-rouge">clear()</code> method to thread statistics and to the scheduler</p>
   </li>
   <li>
     <p>[<a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/79">#79</a>]:
+identifying the thread which issued an assert was difficult;
 add the <code class="language-plaintext highlighter-rouge">this_thread</code> address and name when displaying the assert error</p>
   </li>
   <li>
     <p>[<a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/81">#81</a>]:
+thread reuse via placement new was error prone;
 add a thread attribute to check if the thread constructor is called
 only after destroy</p>
   </li>
@@ -310,12 +313,13 @@ the class; the method was renamed to <code class="language-plaintext highlighter
   <li>
     <p>[<a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/83">#83</a>]:
 GCC 12 spotted a name clash between the unscoped enum <code class="language-plaintext highlighter-rouge">socket</code> definition
-and the top definition; the definition was changed to a scoped <code class="language-plaintext highlighter-rouge">enum class</code>.</p>
+and the top definition; the definition was changed to a scoped <code class="language-plaintext highlighter-rouge">enum class</code></p>
   </li>
 </ul>
 
-<p>Note: those were both breaking changes, which required to increase
-the version major number.</p>
+<p>Note: although minor, those were both <strong>breaking changes</strong>, which
+according to semver rules, required
+to increase the version major number.</p>
 
 <h2 id="other-changes">Other changes</h2>
 
@@ -327,14 +331,14 @@ silenced</p>
   </li>
   <li>
     <p>[<a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/80">#80</a>]:
-in a normal use case, during thread destruction, a debug message
-says <em>already gone</em>; fixed, do not call <code class="language-plaintext highlighter-rouge">kill()</code> in the destructor if
-it was already called explicitly.</p>
+in a normal use case, during thread destruction, there was an <em>already gone</em>
+debug message; fixed, do not call <code class="language-plaintext highlighter-rouge">kill()</code> in the destructor if
+it was already called explicitly</p>
   </li>
   <li>
     <p>[<a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/84">#84</a>]:
 the stack underflow condition was tested only when asserts were enabled;
-fixed, the condition is always tested and <code class="language-plaintext highlighter-rouge">abort()</code> is invoked</p>
+fixed, the condition is always tested and <code class="language-plaintext highlighter-rouge">abort()</code> is invoked if necessary</p>
   </li>
 </ul>
 
@@ -342,7 +346,7 @@ fixed, the condition is always tested and <code class="language-plaintext highli
 
 <ul>
   <li>the header files are still located below a <code class="language-plaintext highlighter-rouge">cmsis-plus</code> folder; to be
-replaced by <code class="language-plaintext highlighter-rouge">micro-os-plus</code> in a future major release.</li>
+replaced by <code class="language-plaintext highlighter-rouge">micro-os-plus</code> in a future major release</li>
   <li>the <code class="language-plaintext highlighter-rouge">file_descriptors_manager</code> class is not yet synchronised</li>
 </ul>
 
@@ -357,7 +361,7 @@ the main change is that it’ll use a modular structure, based on xPacks.</p>
 <p>Posted in
 
 <strong>releases</strong>, <strong>rtos</strong>, <strong>micro-os-plus</strong>.</p>
-<p>Last modified on Wed Jul 19 11:09:23 2023 UTC.</p>
+<p>Last modified on Wed Jul 19 11:20:50 2023 UTC.</p>
 <ul class="share-buttons">
   <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
   <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/blog/2023/07/19/micro-os-plus-v7-0-0-released/" data-layout="button"></div></li>
