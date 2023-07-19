@@ -5,9 +5,67 @@
     <description>A POSIX inspired open source framework, written in C++.</description>
     <link>http://micro-os-plus.github.io/web-preview/</link>
     <atom:link href="http://micro-os-plus.github.io/web-preview/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 19 Jul 2023 09:32:09 +0000</pubDate>
-    <lastBuildDate>Wed, 19 Jul 2023 09:32:09 +0000</lastBuildDate>
+    <pubDate>Wed, 19 Jul 2023 11:11:13 +0000</pubDate>
+    <lastBuildDate>Wed, 19 Jul 2023 11:11:13 +0000</lastBuildDate>
     <generator>Jekyll v3.9.3</generator>
+    
+      <item>
+        <title>µOS++ v7.0.0 released</title>
+        <description>&lt;p&gt;Version v7.0.0 is a new &lt;strong&gt;µOS++&lt;/strong&gt; major release. It represents
+a major milestone, being the first release that includes extensive
+tests running in scriptable CI environments.&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 19 Jul 2023 11:09:00 +0000</pubDate>
+        <link>http://micro-os-plus.github.io/web-preview/blog/2023/07/19/micro-os-plus-v7-0-0-released/</link>
+        <guid isPermaLink="true">http://micro-os-plus.github.io/web-preview/blog/2023/07/19/micro-os-plus-v7-0-0-released/</guid>
+        
+        
+        <category>releases</category>
+        
+        <category>rtos</category>
+        
+        <category>micro-os-plus</category>
+        
+      </item>
+    
+      <item>
+        <title>µOS++ v6.3.17 released</title>
+        <description>&lt;p&gt;Version v6.3.17 is a &lt;strong&gt;µOS++&lt;/strong&gt; maintenance release. The changes
+are a bug fix and an enhancements.&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 21 May 2021 11:09:00 +0000</pubDate>
+        <link>http://micro-os-plus.github.io/web-preview/blog/2021/05/21/micro-os-plus-v6-3-17-released/</link>
+        <guid isPermaLink="true">http://micro-os-plus.github.io/web-preview/blog/2021/05/21/micro-os-plus-v6-3-17-released/</guid>
+        
+        
+        <category>releases</category>
+        
+        <category>rtos</category>
+        
+        <category>micro-os-plus</category>
+        
+      </item>
+    
+      <item>
+        <title>µOS++ v6.3.16 released</title>
+        <description>&lt;p&gt;Version v6.3.16 is a &lt;strong&gt;µOS++&lt;/strong&gt; maintenance release. The changes
+are a bug fix and an enhancements.&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 03 May 2021 11:09:00 +0000</pubDate>
+        <link>http://micro-os-plus.github.io/web-preview/blog/2021/05/03/micro-os-plus-v6-3-16-released/</link>
+        <guid isPermaLink="true">http://micro-os-plus.github.io/web-preview/blog/2021/05/03/micro-os-plus-v6-3-16-released/</guid>
+        
+        
+        <category>releases</category>
+        
+        <category>rtos</category>
+        
+        <category>micro-os-plus</category>
+        
+      </item>
     
       <item>
         <title>First µOS++ scriptable build</title>
@@ -143,61 +201,6 @@ block devices and file systems.&lt;/p&gt;
         <category>cmsis-plus</category>
         
         <category>micro-os-plus</category>
-        
-      </item>
-    
-      <item>
-        <title>First µOS++ public version v6.3.7 released</title>
-        <description>&lt;p&gt;Version v6.3.7 is the first &lt;strong&gt;µOS++/CMSIS++&lt;/strong&gt; public release. The major additions are the advanced memory management features, which allow deterministic and non-fragmenting allocations in controlled environments.&lt;/p&gt;
-
-</description>
-        <pubDate>Thu, 15 Sep 2016 12:28:00 +0000</pubDate>
-        <link>http://micro-os-plus.github.io/web-preview/blog/2016/09/15/micro-os-plus-v6-3-7-released/</link>
-        <guid isPermaLink="true">http://micro-os-plus.github.io/web-preview/blog/2016/09/15/micro-os-plus-v6-3-7-released/</guid>
-        
-        
-        <category>releases</category>
-        
-        <category>rtos</category>
-        
-        <category>cmsis-plus</category>
-        
-        <category>micro-os-plus</category>
-        
-      </item>
-    
-      <item>
-        <title>License changed from LGPL to MIT License</title>
-        <description>&lt;p&gt;To further facilitate the integration of CMSIS++ files into other commercial or open source projects, the project license was changed from the copyleft LGPL to the  permissive &lt;a href=&quot;https://opensource.org/licenses/MIT&quot;&gt;MIT License&lt;/a&gt;.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 29 Mar 2016 09:00:00 +0000</pubDate>
-        <link>http://micro-os-plus.github.io/web-preview/blog/2016/03/29/license-update/</link>
-        <guid isPermaLink="true">http://micro-os-plus.github.io/web-preview/blog/2016/03/29/license-update/</guid>
-        
-        
-        <category>news</category>
-        
-        <category>article</category>
-        
-        <category>license</category>
-        
-        <category>MIT</category>
-        
-      </item>
-    
-      <item>
-        <title>ARM Connected Community article, March 11, 2016</title>
-        <description>&lt;p&gt;A presentation article was published on the &lt;a href=&quot;http://community.arm.com&quot;&gt;ARM Connected Community&lt;/a&gt; site, under the name &lt;strong&gt;&lt;a href=&quot;https://community.arm.com/groups/tools/blog/2016/03/11/cmsis-a-proposal-for-a-future-cmsis-written-in-c&quot;&gt;CMSIS++: a proposal for a future CMSIS, written in C++&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
-
-</description>
-        <pubDate>Thu, 10 Mar 2016 09:00:00 +0000</pubDate>
-        <link>http://micro-os-plus.github.io/web-preview/blog/2016/03/10/arm-connected-community-article/</link>
-        <guid isPermaLink="true">http://micro-os-plus.github.io/web-preview/blog/2016/03/10/arm-connected-community-article/</guid>
-        
-        
-        <category>news</category>
-        
-        <category>article</category>
         
       </item>
     

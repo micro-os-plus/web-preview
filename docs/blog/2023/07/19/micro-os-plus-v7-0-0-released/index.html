@@ -1,0 +1,410 @@
+<!doctype html>
+
+<html lang="en">
+
+
+<head>
+
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>µOS++ v7.0.0 released</title>
+  <meta name="description" content="Version v7.0.0 is a new µOS++ major release. It representsa major milestone, being the first release that includes extensivetests running in scriptable CI en...">
+
+  <meta property="og:title" content="µOS++ v7.0.0 released" />
+  <meta property="og:site_name" content="µOS++" />
+
+  <link rel="alternate" type="application/rss+xml" title="µOS++" href="/web-preview/feed.xml" />
+
+
+  <meta property="article:published_time" content="2023-07-19">
+
+
+  <meta property="article:section" content="releases" />
+  <meta property="article:section" content="rtos" />
+  <meta property="article:section" content="micro-os-plus" />
+
+
+
+  <meta name="google-site-verification" content="NT_y3tqI_8mrd8gYA_FDWHT2-tkJExOC6KBkSnyZx6c" />
+
+  <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/screen.css?202305210532" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/font-awesome.css?202305210532" media="screen">
+  <link rel="stylesheet" type="text/css" href="/web-preview/stylesheets/print.css?202305210532" media="print">
+
+  <link rel="canonical" href="/web-preview/blog/2023/07/19/micro-os-plus-v7-0-0-released/">
+
+
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E9T84WD3CK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E9T84WD3CK');
+</script>
+
+
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+  <script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+  <div class="site-header">
+  <table style="width:100%">
+    <tr>
+      <td>
+        <a href="/web-preview/">
+          <img alt="Icon" class="site-icon" src="/web-preview/assets/icons/wall-e-icon.png" height="100" width="100">
+      </a>
+      </td>
+      <td>
+        <table class="site-title" style="width:100%">
+          <tr>
+            <td class="site-title">
+              <a href="/web-preview/">µOS++</a>
+            </td>
+            <td class="site-motto" align="right">
+              “Perfekt ist nicht gut genug”
+            </td>
+          </tr>
+          <tr>
+            <td class="site-description" colspan="2">
+              A POSIX inspired open source framework, written in C++.
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+</div>
+
+<div class="container">
+
+  <div class="wrapper">
+    <div class="site-body">
+
+      <div class="site-sidebar">
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      <h4 id="news"><a href="/web-preview/blog/">News</a></h4>
+
+<ul>
+  <li><a href="/web-preview/blog/2023/07/19/micro-os-plus-v7-0-0-released/">µOS++ v7.0.0 released</a></li>
+  <li><a href="/web-preview/blog/2021/05/21/micro-os-plus-v6-3-17-released/">µOS++ v6.3.17 released</a></li>
+  <li><a href="/web-preview/blog/2021/05/03/micro-os-plus-v6-3-16-released/">µOS++ v6.3.16 released</a></li>
+  <li><a href="/web-preview/blog/2021/01/22/micro-os-plus-first-scriptable-build/">First µOS++ scriptable build</a></li>
+</ul>
+
+
+    </div>
+  </div>
+
+
+  <div class="custom-sidebar">
+    <div class="boxed-group-inner">
+      
+      <h4 id="home"><a href="/web-preview/">Home</a></h4>
+
+<h4 id="µos">µOS++</h4>
+
+<ul>
+  <li><a href="/web-preview/micro-os-plus/">Overview</a></li>
+</ul>
+
+<h4 id="apis">APIs</h4>
+
+<ul>
+  <li><a href="/web-preview/cmsis-plus/">Overview</a></li>
+  <li><a href="/web-preview/cmsis-plus/rtos/">RTOS API</a></li>
+</ul>
+
+<h4 id="xpacks">xPacks</h4>
+
+<ul>
+  <li><a href="/web-preview/xpacks/">Overview</a></li>
+</ul>
+
+<h4 id="documentation">Documentation</h4>
+
+<ul>
+  <li>
+<a href="/web-preview/user-manual/">User’s <strong>manual</strong></a>
+    <ul>
+      <li><a href="/web-preview/user-manual/getting-started/">Getting started</a></li>
+      <li><a href="/web-preview/user-manual/basic-concepts/">Basic concepts</a></li>
+      <li><a href="/web-preview/user-manual/features/">Features</a></li>
+      <li><a href="/web-preview/user-manual/threads/">Threads</a></li>
+      <li><a href="/web-preview/user-manual/thread-event-flags/">Thread event flags</a></li>
+      <li><a href="/web-preview/user-manual/semaphores/">Semaphores</a></li>
+      <li><a href="/web-preview/user-manual/event-flags/">Event flags</a></li>
+      <li>Mutexes</li>
+      <li>Condition variables</li>
+      <li>Message queues</li>
+      <li>Memory pools</li>
+      <li>Software timers</li>
+      <li>Clocks</li>
+    </ul>
+  </li>
+  <li><a href="/web-preview/reference/cmsis-plus/">µOS++ <strong>reference</strong></a></li>
+</ul>
+
+<h4 id="developer">Developer</h4>
+
+<ul>
+  <li><a href="/web-preview/develop/">Overview</a></li>
+  <li><a href="/web-preview/reference/cmsis-plus/md_doxygen_pages_change-log.html">Change log</a></li>
+  <li><a href="/web-preview/develop/coding-style/">C++ coding style</a></li>
+  <li><a href="/web-preview/develop/naming-conventions/">Naming conventions</a></li>
+  <li><a href="/web-preview/develop/references/">Links &amp; references</a></li>
+</ul>
+
+<h4 id="support">Support</h4>
+
+<ul>
+  <li><a href="/web-preview/support/">Overview</a></li>
+  <li><a href="/web-preview/support/known-issues/">Known issues</a></li>
+  <li><a href="/web-preview/support/faq/">FAQ</a></li>
+  <li><a href="/web-preview/support/forum/">Forum</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/">Report µOS++ issues</a></li>
+</ul>
+
+<h4 id="latest-articles">Latest Articles</h4>
+
+<ul>
+  <li><a href="/web-preview/articles/arm-com-2016-06-24/">CMSIS++ RTOS: fully functional reference implementation</a></li>
+  <li><a href="/web-preview/articles/arm-com-2016-03-11/">CMSIS++: a proposal for a future CMSIS, written in C++</a></li>
+</ul>
+
+<h4 id="project">Project</h4>
+
+<ul>
+  <li><a href="/web-preview/project/about/">About</a></li>
+  <li><a href="/web-preview/project/history/">History</a></li>
+  <li><a href="https://opensource.org/licenses/MIT">License (MIT)</a></li>
+</ul>
+
+    </div>
+  </div>
+
+  <div class="site-theme">
+    This site uses the <a href="https://github.com/ilg-ul/github-jekyll-theme">GitHub Wiki-like</a> theme by <a href="https://github.com/ilg-ul">Liviu Ionescu</a>.
+  </div>
+
+</div>
+
+
+      <div class="site-content">
+
+        <table id="post-navigation">
+  <tr>
+    <td><a href="/web-preview/blog/2021/05/21/micro-os-plus-v6-3-17-released/">←</a></td>
+    <td><a href="/web-preview/blog/2021/05/21/micro-os-plus-v6-3-17-released/">µOS++ v6.3.17 released</a></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+
+<h1 class="post-title">µOS++ v7.0.0 released</h1>
+
+
+<p class="post-meta">
+Posted on July 19, 2023 by Liviu Ionescu.
+</p>
+
+<p>Version v7.0.0 is a new <strong>µOS++</strong> major release. It represents
+a major milestone, being the first release that includes extensive
+tests running in scriptable CI environments.</p>
+
+<p>The main functional changes
+are several updates required to avoid warnings with the new toolchains.</p>
+
+<h2 id="affected-packages">Affected packages</h2>
+
+<ul>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii">micro-os-plus-iii</a></li>
+</ul>
+
+<h2 id="install">Install</h2>
+
+<p>As a source code library, µOS++ can be integrated into another project
+in the traditional way,
+by either copying the relevant files into the target project, or by linking
+the relevant project as Git submodules.</p>
+
+<p>However, the workflow can be further automated and the most convenient way is
+to <strong>add it as a dependency</strong> to the project via <strong>xpm</strong>.</p>
+
+<h2 id="new-features">New features</h2>
+
+<ul>
+  <li>
+    <p>[<a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/78">#78</a>]:
+add a <code class="language-plaintext highlighter-rouge">clear()</code> method to thread statistics and to the scheduler.</p>
+  </li>
+  <li>
+    <p>[<a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/79">#79</a>]:
+add the <code class="language-plaintext highlighter-rouge">this_thread</code> address and name when displaying the assert error</p>
+  </li>
+  <li>
+    <p>[<a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/81">#81</a>]:
+add a thread attribute to check if the thread constructor is called
+only after destroy</p>
+  </li>
+</ul>
+
+<h2 id="addressed-bugs">Addressed bugs</h2>
+
+<ul>
+  <li>
+    <p>[<a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/82">#82</a>]:
+GCC 12 spotted a name clash between the <code class="language-plaintext highlighter-rouge">file_system()</code> method and
+the class; the method was renamed to <code class="language-plaintext highlighter-rouge">get_file_system()</code></p>
+  </li>
+  <li>
+    <p>[<a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/83">#83</a>]:
+GCC 12 spotted a name clash between the unscoped enum <code class="language-plaintext highlighter-rouge">socket</code> definition
+and the top definition; the definition was changed to a scoped <code class="language-plaintext highlighter-rouge">enum class</code>.</p>
+  </li>
+</ul>
+
+<p>Note: those were both breaking changes, which required to increase
+the version major number.</p>
+
+<h2 id="other-changes">Other changes</h2>
+
+<ul>
+  <li>
+    <p>[<a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/77">#77</a>]:
+the arm-none-eabi-gcc 12 complains about some new warnings;
+silenced</p>
+  </li>
+  <li>
+    <p>[<a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/80">#80</a>]:
+in a normal use case, during thread destruction, a debug message
+says <em>already gone</em>; fixed, do not call <code class="language-plaintext highlighter-rouge">kill()</code> in the destructor if
+it was already called explicitly.</p>
+  </li>
+  <li>
+    <p>[<a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/84">#84</a>]:
+the stack underflow condition was tested only when asserts were enabled;
+fixed, the condition is always tested and <code class="language-plaintext highlighter-rouge">abort()</code> is invoked</p>
+  </li>
+</ul>
+
+<h2 id="known-problems">Known problems</h2>
+
+<ul>
+  <li>the header files are still located below a <code class="language-plaintext highlighter-rouge">cmsis-plus</code> folder; to be
+replaced by <code class="language-plaintext highlighter-rouge">micro-os-plus</code> in a future major release.</li>
+  <li>the <code class="language-plaintext highlighter-rouge">file_descriptors_manager</code> class is not yet synchronised</li>
+</ul>
+
+<h2 id="future-developments">Future developments</h2>
+
+<p>This will hopefully be the final release of µOS++ in the current monolithic
+structure (IIIe). Work on the next version (IVe) is already under way;
+the main change is that it’ll use a modular structure, based on xPacks.</p>
+
+
+<div class="post-footer">
+<p>Posted in
+
+<strong>releases</strong>, <strong>rtos</strong>, <strong>micro-os-plus</strong>.</p>
+<p>Last modified on Wed Jul 19 11:09:23 2023 UTC.</p>
+<ul class="share-buttons">
+  <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
+  <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/blog/2023/07/19/micro-os-plus-v7-0-0-released/" data-layout="button"></div></li>
+</ul>
+
+</div>
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="site-footer">
+  <div class="site-footer-links left">
+    <ul>
+  <li>© 2023 Liviu Ionescu</li>
+  <li>Hosted on GitHub</li>
+  <li><a href="/web-preview/feed.xml"><img src="/web-preview/assets/images/feed-20.png" alt="RSS"></a></li>
+  <li>
+<a href="http://twitter.com/micro_os_plus" class="twitter-follow-button" data-show-count="false">Follow @micro_os_plus</a><script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+</li>
+</ul>
+
+
+  </div>
+  <a href="https://github.com/micro-os-plus/micro-os-plus-iii" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+  </a>
+  <div class="site-footer-links right">
+    <ul>
+  <li><a href="/web-preview/">Home</a></li>
+  <li><a href="/web-preview/blog/">News</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/releases">Releases</a></li>
+  <li><a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues">Support</a></li>
+  <li><a href="/web-preview/about/">About</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</div>
+
+</body>
+</html>
