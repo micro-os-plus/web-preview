@@ -5,8 +5,8 @@
     <description>A POSIX inspired open source framework, written in C++.</description>
     <link>http://micro-os-plus.github.io/web-preview/</link>
     <atom:link href="http://micro-os-plus.github.io/web-preview/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 19 Jul 2023 11:22:10 +0000</pubDate>
-    <lastBuildDate>Wed, 19 Jul 2023 11:22:10 +0000</lastBuildDate>
+    <pubDate>Wed, 19 Jul 2023 11:47:32 +0000</pubDate>
+    <lastBuildDate>Wed, 19 Jul 2023 11:47:32 +0000</lastBuildDate>
     <generator>Jekyll v3.9.3</generator>
     
       <item>
@@ -20,10 +20,16 @@ tests running in scriptable CI environments.&lt;/p&gt;
         <link>http://micro-os-plus.github.io/web-preview/blog/2023/07/19/micro-os-plus-v7-0-0-released/</link>
         <guid isPermaLink="true">http://micro-os-plus.github.io/web-preview/blog/2023/07/19/micro-os-plus-v7-0-0-released/</guid>
         
-        
         <category>releases</category>
         
         <category>rtos</category>
+        
+        <category>cmsis-plus</category>
+        
+        <category>micro-os-plus-iii</category>
+        
+        
+        <category>releases</category>
         
         <category>micro-os-plus</category>
         
@@ -39,10 +45,16 @@ are a bug fix and an enhancements.&lt;/p&gt;
         <link>http://micro-os-plus.github.io/web-preview/blog/2021/05/21/micro-os-plus-v6-3-17-released/</link>
         <guid isPermaLink="true">http://micro-os-plus.github.io/web-preview/blog/2021/05/21/micro-os-plus-v6-3-17-released/</guid>
         
-        
         <category>releases</category>
         
         <category>rtos</category>
+        
+        <category>cmsis-plus</category>
+        
+        <category>micro-os-plus-iii</category>
+        
+        
+        <category>releases</category>
         
         <category>micro-os-plus</category>
         
@@ -58,10 +70,16 @@ are a bug fix and an enhancements.&lt;/p&gt;
         <link>http://micro-os-plus.github.io/web-preview/blog/2021/05/03/micro-os-plus-v6-3-16-released/</link>
         <guid isPermaLink="true">http://micro-os-plus.github.io/web-preview/blog/2021/05/03/micro-os-plus-v6-3-16-released/</guid>
         
-        
         <category>releases</category>
         
         <category>rtos</category>
+        
+        <category>cmsis-plus</category>
+        
+        <category>micro-os-plus-iii</category>
+        
+        
+        <category>releases</category>
         
         <category>micro-os-plus</category>
         
@@ -81,10 +99,6 @@ in a terminal&lt;/strong&gt;, without Eclipse.&lt;/p&gt;
         
         <category>releases</category>
         
-        <category>rtos</category>
-        
-        <category>micro-os-plus</category>
-        
       </item>
     
       <item>
@@ -97,10 +111,16 @@ are several bug fixes.&lt;/p&gt;
         <link>http://micro-os-plus.github.io/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/</link>
         <guid isPermaLink="true">http://micro-os-plus.github.io/web-preview/blog/2018/11/19/micro-os-plus-v6-3-15-released/</guid>
         
-        
         <category>releases</category>
         
         <category>rtos</category>
+        
+        <category>cmsis-plus</category>
+        
+        <category>micro-os-plus-iii</category>
+        
+        
+        <category>releases</category>
         
         <category>micro-os-plus</category>
         
@@ -117,10 +137,16 @@ block devices and file systems.&lt;/p&gt;
         <link>http://micro-os-plus.github.io/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/</link>
         <guid isPermaLink="true">http://micro-os-plus.github.io/web-preview/blog/2018/07/04/micro-os-plus-v6-3-14-released/</guid>
         
-        
         <category>releases</category>
         
         <category>rtos</category>
+        
+        <category>cmsis-plus</category>
+        
+        <category>micro-os-plus-iii</category>
+        
+        
+        <category>releases</category>
         
         <category>micro-os-plus</category>
         
@@ -135,10 +161,16 @@ block devices and file systems.&lt;/p&gt;
         <link>http://micro-os-plus.github.io/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/</link>
         <guid isPermaLink="true">http://micro-os-plus.github.io/web-preview/blog/2017/08/26/micro-os-plus-v6-3-13-released/</guid>
         
-        
         <category>releases</category>
         
         <category>rtos</category>
+        
+        <category>cmsis-plus</category>
+        
+        <category>micro-os-plus-iii</category>
+        
+        
+        <category>releases</category>
         
         <category>micro-os-plus</category>
         
@@ -153,12 +185,16 @@ block devices and file systems.&lt;/p&gt;
         <link>http://micro-os-plus.github.io/web-preview/blog/2017/01/02/micro-os-plus-v6-3-11-released/</link>
         <guid isPermaLink="true">http://micro-os-plus.github.io/web-preview/blog/2017/01/02/micro-os-plus-v6-3-11-released/</guid>
         
-        
         <category>releases</category>
         
         <category>rtos</category>
         
         <category>cmsis-plus</category>
+        
+        <category>micro-os-plus-iii</category>
+        
+        
+        <category>releases</category>
         
         <category>micro-os-plus</category>
         
@@ -173,12 +209,16 @@ block devices and file systems.&lt;/p&gt;
         <link>http://micro-os-plus.github.io/web-preview/blog/2016/11/27/micro-os-plus-v6-3-10-released/</link>
         <guid isPermaLink="true">http://micro-os-plus.github.io/web-preview/blog/2016/11/27/micro-os-plus-v6-3-10-released/</guid>
         
-        
         <category>releases</category>
         
         <category>rtos</category>
         
         <category>cmsis-plus</category>
+        
+        <category>micro-os-plus-iii</category>
+        
+        
+        <category>releases</category>
         
         <category>micro-os-plus</category>
         
@@ -193,12 +233,16 @@ block devices and file systems.&lt;/p&gt;
         <link>http://micro-os-plus.github.io/web-preview/blog/2016/10/13/micro-os-plus-v6-3-9-released/</link>
         <guid isPermaLink="true">http://micro-os-plus.github.io/web-preview/blog/2016/10/13/micro-os-plus-v6-3-9-released/</guid>
         
-        
         <category>releases</category>
         
         <category>rtos</category>
         
         <category>cmsis-plus</category>
+        
+        <category>micro-os-plus-iii</category>
+        
+        
+        <category>releases</category>
         
         <category>micro-os-plus</category>
         
