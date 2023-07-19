@@ -18,7 +18,6 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="common-custom.css" rel="stylesheet" type="text/css"/>
 <link href="cards.css" rel="stylesheet" type="text/css"/>
 <!-- Awesome Theme Begin -->
@@ -151,198 +150,206 @@ $(document).ready(function(){initNavTree('os-condvar_8cpp_source.html',''); init
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">// ----------------------------------------------------------------------------</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceos.html">os</a></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>{</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>  <span class="keyword">namespace </span>rtos</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  {</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="comment">// ------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#if defined(__clang__)</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#pragma clang diagnostic ignored &quot;-Wc++98-compat&quot;</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">// ----------------------------------------------------------------------------</span></div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keyword">const</span> condition_variable::attributes <a class="code hl_variable" href="group__cmsis-plus-rtos-condvar.html#ga33e431621c631497db5d26dc4736d51d">condition_variable::initializer</a>;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="comment">// ------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    <span class="comment">// ========================================================================</span></div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno"><a class="line" href="classos_1_1rtos_1_1condition__variable.html#ad61db5c36f5744c8d020dac53a55cd65">  232</a></span><span class="comment"></span>    <a class="code hl_function" href="classos_1_1rtos_1_1condition__variable.html#ad61db5c36f5744c8d020dac53a55cd65">condition_variable::condition_variable</a> (<span class="keyword">const</span> <a class="code hl_class" href="classos_1_1rtos_1_1condition__variable_1_1attributes.html">attributes</a>&amp; attr) :</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>        <a class="code hl_class" href="classos_1_1rtos_1_1condition__variable.html">condition_variable</a></div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>          { <span class="keyword">nullptr</span>, attr }</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    {</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>      ;</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    }</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>    <a class="code hl_function" href="classos_1_1rtos_1_1condition__variable.html#ad61db5c36f5744c8d020dac53a55cd65">condition_variable::condition_variable</a> (</div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>        <span class="keyword">const</span> <span class="keywordtype">char</span>* name, <span class="keyword">const</span> attributes&amp; attr __attribute__((unused))) :</div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>        object_named_system</div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>          { <a class="code hl_function" href="classos_1_1rtos_1_1internal_1_1object__named.html#a3103a84c5e0521c3639306f5879526ba">name</a> }</div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>    {</div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span><span class="preprocessor">#if defined(OS_TRACE_RTOS_CONDVAR)</span></div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>      <a class="code hl_function" href="group__cmsis-plus-diag.html#gab99139b69af4fe6f063b4a236133b2ee">trace::printf</a> (<span class="stringliteral">&quot;%s() @%p %s\n&quot;</span>, __func__, <span class="keyword">this</span>, this-&gt;name ());</div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span> </div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>      <span class="comment">// Don&#39;t call this from interrupt handlers.</span></div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>      <a class="code hl_define" href="os-decls_8h.html#a7ca7d74dfe5c184cdd627cc958564137">os_assert_throw</a>(!<a class="code hl_function" href="namespaceos_1_1rtos_1_1interrupts.html#acb9f50dd130d6226b861ffaee191ee5a">interrupts::in_handler_mode</a> (), EPERM);</div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>    }</div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span> </div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>    <a class="code hl_function" href="classos_1_1rtos_1_1condition__variable.html#adaa0dad7f07e3fbc6f2ff8bd865bd0df">condition_variable::~condition_variable</a> ()</div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>    {</div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span><span class="preprocessor">#if defined(OS_TRACE_RTOS_CONDVAR)</span></div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>      <a class="code hl_function" href="group__cmsis-plus-diag.html#gab99139b69af4fe6f063b4a236133b2ee">trace::printf</a> (<span class="stringliteral">&quot;%s() @%p %s\n&quot;</span>, __func__, <span class="keyword">this</span>, <a class="code hl_function" href="classos_1_1rtos_1_1internal_1_1object__named.html#a3103a84c5e0521c3639306f5879526ba">name</a> ());</div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span> </div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>      <span class="comment">// There must be no threads waiting for this condition.</span></div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>      assert(list_.empty ());</div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>    }</div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span> </div>
-<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>    <a class="code hl_typedef" href="namespaceos_1_1rtos.html#a54633089ccffe9e56ce1137ebe57776d">result_t</a></div>
-<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>    <a class="code hl_function" href="classos_1_1rtos_1_1condition__variable.html#a2cee82ef11f1690e478733a1d7abe766">condition_variable::signal</a> ()</div>
-<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>    {</div>
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span><span class="preprocessor">#if defined(OS_TRACE_RTOS_CONDVAR)</span></div>
-<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>      <a class="code hl_function" href="group__cmsis-plus-diag.html#gab99139b69af4fe6f063b4a236133b2ee">trace::printf</a> (<span class="stringliteral">&quot;%s() @%p %s\n&quot;</span>, __func__, <span class="keyword">this</span>, <a class="code hl_function" href="classos_1_1rtos_1_1internal_1_1object__named.html#a3103a84c5e0521c3639306f5879526ba">name</a> ());</div>
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span> </div>
-<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>      <span class="comment">// Don&#39;t call this from interrupt handlers.</span></div>
-<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>      <a class="code hl_define" href="os-decls_8h.html#ae9cede0de19446e3a5eb930b6b10dd39">os_assert_err</a>(!<a class="code hl_function" href="namespaceos_1_1rtos_1_1interrupts.html#acb9f50dd130d6226b861ffaee191ee5a">interrupts::in_handler_mode</a> (), EPERM);</div>
-<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span> </div>
-<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>      list_.resume_one ();</div>
-<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span> </div>
-<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>      <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="namespaceos_1_1rtos_1_1result.html#a1f5b41a48ca4ac9f7aeb3bd1c702b45aac3daa6d58a1202b112a91628d144685b">result::ok</a>;</div>
-<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>    }</div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span> </div>
-<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>    <a class="code hl_typedef" href="namespaceos_1_1rtos.html#a54633089ccffe9e56ce1137ebe57776d">result_t</a></div>
-<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>    <a class="code hl_function" href="classos_1_1rtos_1_1condition__variable.html#a70e53d0f2e67d00ffb809319fb84bc81">condition_variable::broadcast</a> ()</div>
-<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>    {</div>
-<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span><span class="preprocessor">#if defined(OS_TRACE_RTOS_CONDVAR)</span></div>
-<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>      <a class="code hl_function" href="group__cmsis-plus-diag.html#gab99139b69af4fe6f063b4a236133b2ee">trace::printf</a> (<span class="stringliteral">&quot;%s() @%p %s\n&quot;</span>, __func__, <span class="keyword">this</span>, <a class="code hl_function" href="classos_1_1rtos_1_1internal_1_1object__named.html#a3103a84c5e0521c3639306f5879526ba">name</a> ());</div>
-<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span> </div>
-<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>      <span class="comment">// Don&#39;t call this from interrupt handlers.</span></div>
-<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>      <a class="code hl_define" href="os-decls_8h.html#ae9cede0de19446e3a5eb930b6b10dd39">os_assert_err</a>(!<a class="code hl_function" href="namespaceos_1_1rtos_1_1interrupts.html#acb9f50dd130d6226b861ffaee191ee5a">interrupts::in_handler_mode</a> (), EPERM);</div>
-<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span> </div>
-<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span>      <span class="comment">// Wake-up all threads, if any.</span></div>
-<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>      <span class="comment">// Need not be inside the critical section,</span></div>
-<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>      <span class="comment">// the list is protected by inner `resume_one()`.</span></div>
-<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>      list_.resume_all ();</div>
-<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span> </div>
-<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span>      <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="namespaceos_1_1rtos_1_1result.html#a1f5b41a48ca4ac9f7aeb3bd1c702b45aac3daa6d58a1202b112a91628d144685b">result::ok</a>;</div>
-<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span>    }</div>
-<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span> </div>
-<div class="line"><a id="l00514" name="l00514"></a><span class="lineno">  514</span>    <a class="code hl_typedef" href="namespaceos_1_1rtos.html#a54633089ccffe9e56ce1137ebe57776d">result_t</a></div>
-<div class="line"><a id="l00515" name="l00515"></a><span class="lineno">  515</span>    <a class="code hl_function" href="classos_1_1rtos_1_1condition__variable.html#ac920555b675c7778d8db780307fdcd3d">condition_variable::wait</a> (mutex&amp; mutex)</div>
-<div class="line"><a id="l00516" name="l00516"></a><span class="lineno">  516</span>    {</div>
-<div class="line"><a id="l00517" name="l00517"></a><span class="lineno">  517</span><span class="preprocessor">#if defined(OS_TRACE_RTOS_CONDVAR)</span></div>
-<div class="line"><a id="l00518" name="l00518"></a><span class="lineno">  518</span>      <a class="code hl_function" href="group__cmsis-plus-diag.html#gab99139b69af4fe6f063b4a236133b2ee">trace::printf</a> (<span class="stringliteral">&quot;%s() @%p %s\n&quot;</span>, __func__, <span class="keyword">this</span>, <a class="code hl_function" href="classos_1_1rtos_1_1internal_1_1object__named.html#a3103a84c5e0521c3639306f5879526ba">name</a> ());</div>
-<div class="line"><a id="l00519" name="l00519"></a><span class="lineno">  519</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00520" name="l00520"></a><span class="lineno">  520</span> </div>
-<div class="line"><a id="l00521" name="l00521"></a><span class="lineno">  521</span>      <span class="comment">// Don&#39;t call this from interrupt handlers.</span></div>
-<div class="line"><a id="l00522" name="l00522"></a><span class="lineno">  522</span>      <a class="code hl_define" href="os-decls_8h.html#ae9cede0de19446e3a5eb930b6b10dd39">os_assert_err</a>(!<a class="code hl_function" href="namespaceos_1_1rtos_1_1interrupts.html#acb9f50dd130d6226b861ffaee191ee5a">interrupts::in_handler_mode</a> (), EPERM);</div>
-<div class="line"><a id="l00523" name="l00523"></a><span class="lineno">  523</span>      <span class="comment">// Don&#39;t call this from critical regions.</span></div>
-<div class="line"><a id="l00524" name="l00524"></a><span class="lineno">  524</span>      <a class="code hl_define" href="os-decls_8h.html#ae9cede0de19446e3a5eb930b6b10dd39">os_assert_err</a>(!<a class="code hl_function" href="namespaceos_1_1rtos_1_1scheduler.html#adc237cecdf686cfb10780a29931166a4">scheduler::locked</a> (), EPERM);</div>
-<div class="line"><a id="l00525" name="l00525"></a><span class="lineno">  525</span> </div>
-<div class="line"><a id="l00526" name="l00526"></a><span class="lineno">  526</span>      <a class="code hl_class" href="classthread.html">thread</a>&amp; crt_thread = <a class="code hl_function" href="namespaceos_1_1rtos_1_1this__thread.html#a60661f0e3a2380c9afbec42c3b505bc4">this_thread::thread</a> ();</div>
-<div class="line"><a id="l00527" name="l00527"></a><span class="lineno">  527</span> </div>
-<div class="line"><a id="l00528" name="l00528"></a><span class="lineno">  528</span>      <span class="comment">// Prepare a list node pointing to the current thread.</span></div>
-<div class="line"><a id="l00529" name="l00529"></a><span class="lineno">  529</span>      <span class="comment">// Do not worry for being on stack, it is temporarily linked to the</span></div>
-<div class="line"><a id="l00530" name="l00530"></a><span class="lineno">  530</span>      <span class="comment">// list and guaranteed to be removed before this function returns.</span></div>
-<div class="line"><a id="l00531" name="l00531"></a><span class="lineno">  531</span>      internal::waiting_thread_node node</div>
-<div class="line"><a id="l00532" name="l00532"></a><span class="lineno">  532</span>        { crt_thread };</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceos.html">os</a></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>{</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  <span class="keyword">namespace </span>rtos</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="comment">// ------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keyword">const</span> condition_variable::attributes <a class="code hl_variable" href="group__cmsis-plus-rtos-condvar.html#ga33e431621c631497db5d26dc4736d51d">condition_variable::initializer</a>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="comment">// ------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    <span class="comment">// ========================================================================</span></div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno"><a class="line" href="classos_1_1rtos_1_1condition__variable.html#ad61db5c36f5744c8d020dac53a55cd65">  238</a></span><span class="comment"></span>    <a class="code hl_function" href="classos_1_1rtos_1_1condition__variable.html#ad61db5c36f5744c8d020dac53a55cd65">condition_variable::condition_variable</a> (<span class="keyword">const</span> <a class="code hl_class" href="classos_1_1rtos_1_1condition__variable_1_1attributes.html">attributes</a>&amp; attr) :</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>        <a class="code hl_class" href="classos_1_1rtos_1_1condition__variable.html">condition_variable</a></div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>          { <span class="keyword">nullptr</span>, attr }</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    {</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>      ;</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    }</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>    <a class="code hl_function" href="classos_1_1rtos_1_1condition__variable.html#ad61db5c36f5744c8d020dac53a55cd65">condition_variable::condition_variable</a> (</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>        <span class="keyword">const</span> <span class="keywordtype">char</span>* name, <span class="keyword">const</span> attributes&amp; attr __attribute__((unused))) :</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>        object_named_system</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>          { <a class="code hl_function" href="classos_1_1rtos_1_1internal_1_1object__named.html#a3103a84c5e0521c3639306f5879526ba">name</a> }</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    {</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span><span class="preprocessor">#if defined(OS_TRACE_RTOS_CONDVAR)</span></div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>      <a class="code hl_function" href="group__cmsis-plus-diag.html#gab99139b69af4fe6f063b4a236133b2ee">trace::printf</a> (<span class="stringliteral">&quot;%s() @%p %s\n&quot;</span>, __func__, <span class="keyword">this</span>, this-&gt;name ());</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span> </div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>      <span class="comment">// Don&#39;t call this from interrupt handlers.</span></div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>      <a class="code hl_define" href="os-decls_8h.html#a7ca7d74dfe5c184cdd627cc958564137">os_assert_throw</a>(!<a class="code hl_function" href="namespaceos_1_1rtos_1_1interrupts.html#acb9f50dd130d6226b861ffaee191ee5a">interrupts::in_handler_mode</a> (), EPERM);</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>    }</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span> </div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>    <a class="code hl_function" href="classos_1_1rtos_1_1condition__variable.html#adaa0dad7f07e3fbc6f2ff8bd865bd0df">condition_variable::~condition_variable</a> ()</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    {</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span><span class="preprocessor">#if defined(OS_TRACE_RTOS_CONDVAR)</span></div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>      <a class="code hl_function" href="group__cmsis-plus-diag.html#gab99139b69af4fe6f063b4a236133b2ee">trace::printf</a> (<span class="stringliteral">&quot;%s() @%p %s\n&quot;</span>, __func__, <span class="keyword">this</span>, <a class="code hl_function" href="classos_1_1rtos_1_1internal_1_1object__named.html#a3103a84c5e0521c3639306f5879526ba">name</a> ());</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span> </div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>      <span class="comment">// There must be no threads waiting for this condition.</span></div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>      assert(list_.empty ());</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>    }</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span> </div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>    <a class="code hl_typedef" href="namespaceos_1_1rtos.html#a54633089ccffe9e56ce1137ebe57776d">result_t</a></div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>    <a class="code hl_function" href="classos_1_1rtos_1_1condition__variable.html#a2cee82ef11f1690e478733a1d7abe766">condition_variable::signal</a> ()</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>    {</div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span><span class="preprocessor">#if defined(OS_TRACE_RTOS_CONDVAR)</span></div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>      <a class="code hl_function" href="group__cmsis-plus-diag.html#gab99139b69af4fe6f063b4a236133b2ee">trace::printf</a> (<span class="stringliteral">&quot;%s() @%p %s\n&quot;</span>, __func__, <span class="keyword">this</span>, <a class="code hl_function" href="classos_1_1rtos_1_1internal_1_1object__named.html#a3103a84c5e0521c3639306f5879526ba">name</a> ());</div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span> </div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>      <span class="comment">// Don&#39;t call this from interrupt handlers.</span></div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>      <a class="code hl_define" href="os-decls_8h.html#ae9cede0de19446e3a5eb930b6b10dd39">os_assert_err</a>(!<a class="code hl_function" href="namespaceos_1_1rtos_1_1interrupts.html#acb9f50dd130d6226b861ffaee191ee5a">interrupts::in_handler_mode</a> (), EPERM);</div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span> </div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>      list_.resume_one ();</div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span> </div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>      <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="namespaceos_1_1rtos_1_1result.html#a1f5b41a48ca4ac9f7aeb3bd1c702b45aac3daa6d58a1202b112a91628d144685b">result::ok</a>;</div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>    }</div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span> </div>
+<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>    <a class="code hl_typedef" href="namespaceos_1_1rtos.html#a54633089ccffe9e56ce1137ebe57776d">result_t</a></div>
+<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>    <a class="code hl_function" href="classos_1_1rtos_1_1condition__variable.html#a70e53d0f2e67d00ffb809319fb84bc81">condition_variable::broadcast</a> ()</div>
+<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>    {</div>
+<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span><span class="preprocessor">#if defined(OS_TRACE_RTOS_CONDVAR)</span></div>
+<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span>      <a class="code hl_function" href="group__cmsis-plus-diag.html#gab99139b69af4fe6f063b4a236133b2ee">trace::printf</a> (<span class="stringliteral">&quot;%s() @%p %s\n&quot;</span>, __func__, <span class="keyword">this</span>, <a class="code hl_function" href="classos_1_1rtos_1_1internal_1_1object__named.html#a3103a84c5e0521c3639306f5879526ba">name</a> ());</div>
+<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span> </div>
+<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>      <span class="comment">// Don&#39;t call this from interrupt handlers.</span></div>
+<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>      <a class="code hl_define" href="os-decls_8h.html#ae9cede0de19446e3a5eb930b6b10dd39">os_assert_err</a>(!<a class="code hl_function" href="namespaceos_1_1rtos_1_1interrupts.html#acb9f50dd130d6226b861ffaee191ee5a">interrupts::in_handler_mode</a> (), EPERM);</div>
+<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span> </div>
+<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span>      <span class="comment">// Wake-up all threads, if any.</span></div>
+<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span>      <span class="comment">// Need not be inside the critical section,</span></div>
+<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span>      <span class="comment">// the list is protected by inner `resume_one()`.</span></div>
+<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span>      list_.resume_all ();</div>
+<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span> </div>
+<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span>      <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="namespaceos_1_1rtos_1_1result.html#a1f5b41a48ca4ac9f7aeb3bd1c702b45aac3daa6d58a1202b112a91628d144685b">result::ok</a>;</div>
+<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span>    }</div>
+<div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span> </div>
+<div class="line"><a id="l00520" name="l00520"></a><span class="lineno">  520</span>    <a class="code hl_typedef" href="namespaceos_1_1rtos.html#a54633089ccffe9e56ce1137ebe57776d">result_t</a></div>
+<div class="line"><a id="l00521" name="l00521"></a><span class="lineno">  521</span>    <a class="code hl_function" href="classos_1_1rtos_1_1condition__variable.html#ac920555b675c7778d8db780307fdcd3d">condition_variable::wait</a> (mutex&amp; mutex)</div>
+<div class="line"><a id="l00522" name="l00522"></a><span class="lineno">  522</span>    {</div>
+<div class="line"><a id="l00523" name="l00523"></a><span class="lineno">  523</span><span class="preprocessor">#if defined(OS_TRACE_RTOS_CONDVAR)</span></div>
+<div class="line"><a id="l00524" name="l00524"></a><span class="lineno">  524</span>      <a class="code hl_function" href="group__cmsis-plus-diag.html#gab99139b69af4fe6f063b4a236133b2ee">trace::printf</a> (<span class="stringliteral">&quot;%s() @%p %s\n&quot;</span>, __func__, <span class="keyword">this</span>, <a class="code hl_function" href="classos_1_1rtos_1_1internal_1_1object__named.html#a3103a84c5e0521c3639306f5879526ba">name</a> ());</div>
+<div class="line"><a id="l00525" name="l00525"></a><span class="lineno">  525</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00526" name="l00526"></a><span class="lineno">  526</span> </div>
+<div class="line"><a id="l00527" name="l00527"></a><span class="lineno">  527</span>      <span class="comment">// Don&#39;t call this from interrupt handlers.</span></div>
+<div class="line"><a id="l00528" name="l00528"></a><span class="lineno">  528</span>      <a class="code hl_define" href="os-decls_8h.html#ae9cede0de19446e3a5eb930b6b10dd39">os_assert_err</a>(!<a class="code hl_function" href="namespaceos_1_1rtos_1_1interrupts.html#acb9f50dd130d6226b861ffaee191ee5a">interrupts::in_handler_mode</a> (), EPERM);</div>
+<div class="line"><a id="l00529" name="l00529"></a><span class="lineno">  529</span>      <span class="comment">// Don&#39;t call this from critical regions.</span></div>
+<div class="line"><a id="l00530" name="l00530"></a><span class="lineno">  530</span>      <a class="code hl_define" href="os-decls_8h.html#ae9cede0de19446e3a5eb930b6b10dd39">os_assert_err</a>(!<a class="code hl_function" href="namespaceos_1_1rtos_1_1scheduler.html#adc237cecdf686cfb10780a29931166a4">scheduler::locked</a> (), EPERM);</div>
+<div class="line"><a id="l00531" name="l00531"></a><span class="lineno">  531</span> </div>
+<div class="line"><a id="l00532" name="l00532"></a><span class="lineno">  532</span>      <a class="code hl_class" href="classthread.html">thread</a>&amp; crt_thread = <a class="code hl_function" href="namespaceos_1_1rtos_1_1this__thread.html#a60661f0e3a2380c9afbec42c3b505bc4">this_thread::thread</a> ();</div>
 <div class="line"><a id="l00533" name="l00533"></a><span class="lineno">  533</span> </div>
-<div class="line"><a id="l00534" name="l00534"></a><span class="lineno">  534</span>      <span class="comment">// TODO: validate</span></div>
-<div class="line"><a id="l00535" name="l00535"></a><span class="lineno">  535</span> </div>
-<div class="line"><a id="l00536" name="l00536"></a><span class="lineno">  536</span>      <a class="code hl_typedef" href="namespaceos_1_1rtos.html#a54633089ccffe9e56ce1137ebe57776d">result_t</a> res;</div>
-<div class="line"><a id="l00537" name="l00537"></a><span class="lineno">  537</span>      res = mutex.unlock ();</div>
-<div class="line"><a id="l00538" name="l00538"></a><span class="lineno">  538</span> </div>
-<div class="line"><a id="l00539" name="l00539"></a><span class="lineno">  539</span>      <span class="keywordflow">if</span> (res != <a class="code hl_enumvalue" href="namespaceos_1_1rtos_1_1result.html#a1f5b41a48ca4ac9f7aeb3bd1c702b45aac3daa6d58a1202b112a91628d144685b">result::ok</a>)</div>
-<div class="line"><a id="l00540" name="l00540"></a><span class="lineno">  540</span>        {</div>
-<div class="line"><a id="l00541" name="l00541"></a><span class="lineno">  541</span>          <span class="keywordflow">return</span> res;</div>
-<div class="line"><a id="l00542" name="l00542"></a><span class="lineno">  542</span>        }</div>
-<div class="line"><a id="l00543" name="l00543"></a><span class="lineno">  543</span> </div>
-<div class="line"><a id="l00544" name="l00544"></a><span class="lineno">  544</span>        {</div>
-<div class="line"><a id="l00545" name="l00545"></a><span class="lineno">  545</span>          <span class="comment">// Add this thread to the condition variable waiting list.</span></div>
-<div class="line"><a id="l00546" name="l00546"></a><span class="lineno">  546</span>          list_.link (node);</div>
-<div class="line"><a id="l00547" name="l00547"></a><span class="lineno">  547</span>          node.thread_-&gt;waiting_node_ = &amp;node;</div>
-<div class="line"><a id="l00548" name="l00548"></a><span class="lineno">  548</span> </div>
-<div class="line"><a id="l00549" name="l00549"></a><span class="lineno">  549</span>          res = mutex.lock ();</div>
-<div class="line"><a id="l00550" name="l00550"></a><span class="lineno">  550</span> </div>
-<div class="line"><a id="l00551" name="l00551"></a><span class="lineno">  551</span>          <span class="comment">// Remove the thread from the node waiting list,</span></div>
-<div class="line"><a id="l00552" name="l00552"></a><span class="lineno">  552</span>          <span class="comment">// if not already removed.</span></div>
-<div class="line"><a id="l00553" name="l00553"></a><span class="lineno">  553</span>          node.thread_-&gt;waiting_node_ = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00554" name="l00554"></a><span class="lineno">  554</span>          node.unlink ();</div>
-<div class="line"><a id="l00555" name="l00555"></a><span class="lineno">  555</span>        }</div>
+<div class="line"><a id="l00534" name="l00534"></a><span class="lineno">  534</span>      <span class="comment">// Prepare a list node pointing to the current thread.</span></div>
+<div class="line"><a id="l00535" name="l00535"></a><span class="lineno">  535</span>      <span class="comment">// Do not worry for being on stack, it is temporarily linked to the</span></div>
+<div class="line"><a id="l00536" name="l00536"></a><span class="lineno">  536</span>      <span class="comment">// list and guaranteed to be removed before this function returns.</span></div>
+<div class="line"><a id="l00537" name="l00537"></a><span class="lineno">  537</span>      internal::waiting_thread_node node</div>
+<div class="line"><a id="l00538" name="l00538"></a><span class="lineno">  538</span>        { crt_thread };</div>
+<div class="line"><a id="l00539" name="l00539"></a><span class="lineno">  539</span> </div>
+<div class="line"><a id="l00540" name="l00540"></a><span class="lineno">  540</span>      <span class="comment">// TODO: validate</span></div>
+<div class="line"><a id="l00541" name="l00541"></a><span class="lineno">  541</span> </div>
+<div class="line"><a id="l00542" name="l00542"></a><span class="lineno">  542</span>      <a class="code hl_typedef" href="namespaceos_1_1rtos.html#a54633089ccffe9e56ce1137ebe57776d">result_t</a> res;</div>
+<div class="line"><a id="l00543" name="l00543"></a><span class="lineno">  543</span>      res = mutex.unlock ();</div>
+<div class="line"><a id="l00544" name="l00544"></a><span class="lineno">  544</span> </div>
+<div class="line"><a id="l00545" name="l00545"></a><span class="lineno">  545</span>      <span class="keywordflow">if</span> (res != <a class="code hl_enumvalue" href="namespaceos_1_1rtos_1_1result.html#a1f5b41a48ca4ac9f7aeb3bd1c702b45aac3daa6d58a1202b112a91628d144685b">result::ok</a>)</div>
+<div class="line"><a id="l00546" name="l00546"></a><span class="lineno">  546</span>        {</div>
+<div class="line"><a id="l00547" name="l00547"></a><span class="lineno">  547</span>          <span class="keywordflow">return</span> res;</div>
+<div class="line"><a id="l00548" name="l00548"></a><span class="lineno">  548</span>        }</div>
+<div class="line"><a id="l00549" name="l00549"></a><span class="lineno">  549</span> </div>
+<div class="line"><a id="l00550" name="l00550"></a><span class="lineno">  550</span>        {</div>
+<div class="line"><a id="l00551" name="l00551"></a><span class="lineno">  551</span>          <span class="comment">// Add this thread to the condition variable waiting list.</span></div>
+<div class="line"><a id="l00552" name="l00552"></a><span class="lineno">  552</span>          list_.link (node);</div>
+<div class="line"><a id="l00553" name="l00553"></a><span class="lineno">  553</span>          node.thread_-&gt;waiting_node_ = &amp;node;</div>
+<div class="line"><a id="l00554" name="l00554"></a><span class="lineno">  554</span> </div>
+<div class="line"><a id="l00555" name="l00555"></a><span class="lineno">  555</span>          res = mutex.lock ();</div>
 <div class="line"><a id="l00556" name="l00556"></a><span class="lineno">  556</span> </div>
-<div class="line"><a id="l00557" name="l00557"></a><span class="lineno">  557</span>      <span class="keywordflow">return</span> res;</div>
-<div class="line"><a id="l00558" name="l00558"></a><span class="lineno">  558</span>    }</div>
-<div class="line"><a id="l00559" name="l00559"></a><span class="lineno">  559</span> </div>
-<div class="line"><a id="l00659" name="l00659"></a><span class="lineno">  659</span>    <a class="code hl_typedef" href="namespaceos_1_1rtos.html#a54633089ccffe9e56ce1137ebe57776d">result_t</a></div>
-<div class="line"><a id="l00660" name="l00660"></a><span class="lineno">  660</span>    <a class="code hl_function" href="classos_1_1rtos_1_1condition__variable.html#aea63b3c19dd9e0fa2f17c781ec220198">condition_variable::timed_wait</a> (mutex&amp; mutex, <a class="code hl_typedef" href="group__cmsis-plus-rtos-clock.html#ga149d8b5cea55224ef5cfede8a81df04c">clock::duration_t</a> timeout)</div>
-<div class="line"><a id="l00661" name="l00661"></a><span class="lineno">  661</span>    {</div>
-<div class="line"><a id="l00662" name="l00662"></a><span class="lineno">  662</span><span class="preprocessor">#if defined(OS_TRACE_RTOS_CONDVAR)</span></div>
-<div class="line"><a id="l00663" name="l00663"></a><span class="lineno">  663</span>      <a class="code hl_function" href="group__cmsis-plus-diag.html#gab99139b69af4fe6f063b4a236133b2ee">trace::printf</a> (<span class="stringliteral">&quot;%s(%u) @%p %s\n&quot;</span>, __func__,</div>
-<div class="line"><a id="l00664" name="l00664"></a><span class="lineno">  664</span>                     <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span> (timeout), <span class="keyword">this</span>, <a class="code hl_function" href="classos_1_1rtos_1_1internal_1_1object__named.html#a3103a84c5e0521c3639306f5879526ba">name</a> ());</div>
-<div class="line"><a id="l00665" name="l00665"></a><span class="lineno">  665</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00666" name="l00666"></a><span class="lineno">  666</span> </div>
-<div class="line"><a id="l00667" name="l00667"></a><span class="lineno">  667</span>      <span class="comment">// Don&#39;t call this from interrupt handlers.</span></div>
-<div class="line"><a id="l00668" name="l00668"></a><span class="lineno">  668</span>      <a class="code hl_define" href="os-decls_8h.html#ae9cede0de19446e3a5eb930b6b10dd39">os_assert_err</a>(!<a class="code hl_function" href="namespaceos_1_1rtos_1_1interrupts.html#acb9f50dd130d6226b861ffaee191ee5a">interrupts::in_handler_mode</a> (), EPERM);</div>
-<div class="line"><a id="l00669" name="l00669"></a><span class="lineno">  669</span>      <span class="comment">// Don&#39;t call this from critical regions.</span></div>
-<div class="line"><a id="l00670" name="l00670"></a><span class="lineno">  670</span>      <a class="code hl_define" href="os-decls_8h.html#ae9cede0de19446e3a5eb930b6b10dd39">os_assert_err</a>(!<a class="code hl_function" href="namespaceos_1_1rtos_1_1scheduler.html#adc237cecdf686cfb10780a29931166a4">scheduler::locked</a> (), EPERM);</div>
-<div class="line"><a id="l00671" name="l00671"></a><span class="lineno">  671</span> </div>
-<div class="line"><a id="l00672" name="l00672"></a><span class="lineno">  672</span>      <a class="code hl_class" href="classthread.html">thread</a>&amp; crt_thread = <a class="code hl_function" href="namespaceos_1_1rtos_1_1this__thread.html#a60661f0e3a2380c9afbec42c3b505bc4">this_thread::thread</a> ();</div>
-<div class="line"><a id="l00673" name="l00673"></a><span class="lineno">  673</span> </div>
-<div class="line"><a id="l00674" name="l00674"></a><span class="lineno">  674</span>      <span class="comment">// Prepare a list node pointing to the current thread.</span></div>
-<div class="line"><a id="l00675" name="l00675"></a><span class="lineno">  675</span>      <span class="comment">// Do not worry for being on stack, it is temporarily linked to the</span></div>
-<div class="line"><a id="l00676" name="l00676"></a><span class="lineno">  676</span>      <span class="comment">// list and guaranteed to be removed before this function returns.</span></div>
-<div class="line"><a id="l00677" name="l00677"></a><span class="lineno">  677</span>      internal::waiting_thread_node node</div>
-<div class="line"><a id="l00678" name="l00678"></a><span class="lineno">  678</span>        { crt_thread };</div>
+<div class="line"><a id="l00557" name="l00557"></a><span class="lineno">  557</span>          <span class="comment">// Remove the thread from the node waiting list,</span></div>
+<div class="line"><a id="l00558" name="l00558"></a><span class="lineno">  558</span>          <span class="comment">// if not already removed.</span></div>
+<div class="line"><a id="l00559" name="l00559"></a><span class="lineno">  559</span>          node.thread_-&gt;waiting_node_ = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00560" name="l00560"></a><span class="lineno">  560</span>          node.unlink ();</div>
+<div class="line"><a id="l00561" name="l00561"></a><span class="lineno">  561</span>        }</div>
+<div class="line"><a id="l00562" name="l00562"></a><span class="lineno">  562</span> </div>
+<div class="line"><a id="l00563" name="l00563"></a><span class="lineno">  563</span>      <span class="keywordflow">return</span> res;</div>
+<div class="line"><a id="l00564" name="l00564"></a><span class="lineno">  564</span>    }</div>
+<div class="line"><a id="l00565" name="l00565"></a><span class="lineno">  565</span> </div>
+<div class="line"><a id="l00665" name="l00665"></a><span class="lineno">  665</span>    <a class="code hl_typedef" href="namespaceos_1_1rtos.html#a54633089ccffe9e56ce1137ebe57776d">result_t</a></div>
+<div class="line"><a id="l00666" name="l00666"></a><span class="lineno">  666</span>    <a class="code hl_function" href="classos_1_1rtos_1_1condition__variable.html#aea63b3c19dd9e0fa2f17c781ec220198">condition_variable::timed_wait</a> (mutex&amp; mutex, <a class="code hl_typedef" href="group__cmsis-plus-rtos-clock.html#ga149d8b5cea55224ef5cfede8a81df04c">clock::duration_t</a> timeout)</div>
+<div class="line"><a id="l00667" name="l00667"></a><span class="lineno">  667</span>    {</div>
+<div class="line"><a id="l00668" name="l00668"></a><span class="lineno">  668</span><span class="preprocessor">#if defined(OS_TRACE_RTOS_CONDVAR)</span></div>
+<div class="line"><a id="l00669" name="l00669"></a><span class="lineno">  669</span>      <a class="code hl_function" href="group__cmsis-plus-diag.html#gab99139b69af4fe6f063b4a236133b2ee">trace::printf</a> (<span class="stringliteral">&quot;%s(%u) @%p %s\n&quot;</span>, __func__,</div>
+<div class="line"><a id="l00670" name="l00670"></a><span class="lineno">  670</span>                     <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span> (timeout), <span class="keyword">this</span>, <a class="code hl_function" href="classos_1_1rtos_1_1internal_1_1object__named.html#a3103a84c5e0521c3639306f5879526ba">name</a> ());</div>
+<div class="line"><a id="l00671" name="l00671"></a><span class="lineno">  671</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00672" name="l00672"></a><span class="lineno">  672</span> </div>
+<div class="line"><a id="l00673" name="l00673"></a><span class="lineno">  673</span>      <span class="comment">// Don&#39;t call this from interrupt handlers.</span></div>
+<div class="line"><a id="l00674" name="l00674"></a><span class="lineno">  674</span>      <a class="code hl_define" href="os-decls_8h.html#ae9cede0de19446e3a5eb930b6b10dd39">os_assert_err</a>(!<a class="code hl_function" href="namespaceos_1_1rtos_1_1interrupts.html#acb9f50dd130d6226b861ffaee191ee5a">interrupts::in_handler_mode</a> (), EPERM);</div>
+<div class="line"><a id="l00675" name="l00675"></a><span class="lineno">  675</span>      <span class="comment">// Don&#39;t call this from critical regions.</span></div>
+<div class="line"><a id="l00676" name="l00676"></a><span class="lineno">  676</span>      <a class="code hl_define" href="os-decls_8h.html#ae9cede0de19446e3a5eb930b6b10dd39">os_assert_err</a>(!<a class="code hl_function" href="namespaceos_1_1rtos_1_1scheduler.html#adc237cecdf686cfb10780a29931166a4">scheduler::locked</a> (), EPERM);</div>
+<div class="line"><a id="l00677" name="l00677"></a><span class="lineno">  677</span> </div>
+<div class="line"><a id="l00678" name="l00678"></a><span class="lineno">  678</span>      <a class="code hl_class" href="classthread.html">thread</a>&amp; crt_thread = <a class="code hl_function" href="namespaceos_1_1rtos_1_1this__thread.html#a60661f0e3a2380c9afbec42c3b505bc4">this_thread::thread</a> ();</div>
 <div class="line"><a id="l00679" name="l00679"></a><span class="lineno">  679</span> </div>
-<div class="line"><a id="l00680" name="l00680"></a><span class="lineno">  680</span>      <span class="comment">// TODO: validate</span></div>
-<div class="line"><a id="l00681" name="l00681"></a><span class="lineno">  681</span> </div>
-<div class="line"><a id="l00682" name="l00682"></a><span class="lineno">  682</span>      <a class="code hl_typedef" href="namespaceos_1_1rtos.html#a54633089ccffe9e56ce1137ebe57776d">result_t</a> res;</div>
-<div class="line"><a id="l00683" name="l00683"></a><span class="lineno">  683</span>      res = mutex.unlock ();</div>
-<div class="line"><a id="l00684" name="l00684"></a><span class="lineno">  684</span> </div>
-<div class="line"><a id="l00685" name="l00685"></a><span class="lineno">  685</span>      <span class="keywordflow">if</span> (res != <a class="code hl_enumvalue" href="namespaceos_1_1rtos_1_1result.html#a1f5b41a48ca4ac9f7aeb3bd1c702b45aac3daa6d58a1202b112a91628d144685b">result::ok</a>)</div>
-<div class="line"><a id="l00686" name="l00686"></a><span class="lineno">  686</span>        {</div>
-<div class="line"><a id="l00687" name="l00687"></a><span class="lineno">  687</span>          <span class="keywordflow">return</span> res;</div>
-<div class="line"><a id="l00688" name="l00688"></a><span class="lineno">  688</span>        }</div>
-<div class="line"><a id="l00689" name="l00689"></a><span class="lineno">  689</span> </div>
-<div class="line"><a id="l00690" name="l00690"></a><span class="lineno">  690</span>        {</div>
-<div class="line"><a id="l00691" name="l00691"></a><span class="lineno">  691</span>          <span class="comment">// Add this thread to the condition variable waiting list.</span></div>
-<div class="line"><a id="l00692" name="l00692"></a><span class="lineno">  692</span>          list_.link (node);</div>
-<div class="line"><a id="l00693" name="l00693"></a><span class="lineno">  693</span>          node.thread_-&gt;waiting_node_ = &amp;node;</div>
-<div class="line"><a id="l00694" name="l00694"></a><span class="lineno">  694</span> </div>
-<div class="line"><a id="l00695" name="l00695"></a><span class="lineno">  695</span>          res = mutex.timed_lock (timeout);</div>
-<div class="line"><a id="l00696" name="l00696"></a><span class="lineno">  696</span> </div>
-<div class="line"><a id="l00697" name="l00697"></a><span class="lineno">  697</span>          <span class="comment">// Remove the thread from the node waiting list,</span></div>
-<div class="line"><a id="l00698" name="l00698"></a><span class="lineno">  698</span>          <span class="comment">// if not already removed.</span></div>
-<div class="line"><a id="l00699" name="l00699"></a><span class="lineno">  699</span>          node.thread_-&gt;waiting_node_ = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00700" name="l00700"></a><span class="lineno">  700</span>          node.unlink ();</div>
-<div class="line"><a id="l00701" name="l00701"></a><span class="lineno">  701</span>        }</div>
+<div class="line"><a id="l00680" name="l00680"></a><span class="lineno">  680</span>      <span class="comment">// Prepare a list node pointing to the current thread.</span></div>
+<div class="line"><a id="l00681" name="l00681"></a><span class="lineno">  681</span>      <span class="comment">// Do not worry for being on stack, it is temporarily linked to the</span></div>
+<div class="line"><a id="l00682" name="l00682"></a><span class="lineno">  682</span>      <span class="comment">// list and guaranteed to be removed before this function returns.</span></div>
+<div class="line"><a id="l00683" name="l00683"></a><span class="lineno">  683</span>      internal::waiting_thread_node node</div>
+<div class="line"><a id="l00684" name="l00684"></a><span class="lineno">  684</span>        { crt_thread };</div>
+<div class="line"><a id="l00685" name="l00685"></a><span class="lineno">  685</span> </div>
+<div class="line"><a id="l00686" name="l00686"></a><span class="lineno">  686</span>      <span class="comment">// TODO: validate</span></div>
+<div class="line"><a id="l00687" name="l00687"></a><span class="lineno">  687</span> </div>
+<div class="line"><a id="l00688" name="l00688"></a><span class="lineno">  688</span>      <a class="code hl_typedef" href="namespaceos_1_1rtos.html#a54633089ccffe9e56ce1137ebe57776d">result_t</a> res;</div>
+<div class="line"><a id="l00689" name="l00689"></a><span class="lineno">  689</span>      res = mutex.unlock ();</div>
+<div class="line"><a id="l00690" name="l00690"></a><span class="lineno">  690</span> </div>
+<div class="line"><a id="l00691" name="l00691"></a><span class="lineno">  691</span>      <span class="keywordflow">if</span> (res != <a class="code hl_enumvalue" href="namespaceos_1_1rtos_1_1result.html#a1f5b41a48ca4ac9f7aeb3bd1c702b45aac3daa6d58a1202b112a91628d144685b">result::ok</a>)</div>
+<div class="line"><a id="l00692" name="l00692"></a><span class="lineno">  692</span>        {</div>
+<div class="line"><a id="l00693" name="l00693"></a><span class="lineno">  693</span>          <span class="keywordflow">return</span> res;</div>
+<div class="line"><a id="l00694" name="l00694"></a><span class="lineno">  694</span>        }</div>
+<div class="line"><a id="l00695" name="l00695"></a><span class="lineno">  695</span> </div>
+<div class="line"><a id="l00696" name="l00696"></a><span class="lineno">  696</span>        {</div>
+<div class="line"><a id="l00697" name="l00697"></a><span class="lineno">  697</span>          <span class="comment">// Add this thread to the condition variable waiting list.</span></div>
+<div class="line"><a id="l00698" name="l00698"></a><span class="lineno">  698</span>          list_.link (node);</div>
+<div class="line"><a id="l00699" name="l00699"></a><span class="lineno">  699</span>          node.thread_-&gt;waiting_node_ = &amp;node;</div>
+<div class="line"><a id="l00700" name="l00700"></a><span class="lineno">  700</span> </div>
+<div class="line"><a id="l00701" name="l00701"></a><span class="lineno">  701</span>          res = mutex.timed_lock (timeout);</div>
 <div class="line"><a id="l00702" name="l00702"></a><span class="lineno">  702</span> </div>
-<div class="line"><a id="l00703" name="l00703"></a><span class="lineno">  703</span>      <span class="keywordflow">return</span> res;</div>
-<div class="line"><a id="l00704" name="l00704"></a><span class="lineno">  704</span>    }</div>
-<div class="line"><a id="l00705" name="l00705"></a><span class="lineno">  705</span> </div>
-<div class="line"><a id="l00706" name="l00706"></a><span class="lineno">  706</span>  <span class="comment">// --------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00707" name="l00707"></a><span class="lineno">  707</span> </div>
-<div class="line"><a id="l00708" name="l00708"></a><span class="lineno">  708</span>  } <span class="comment">/* namespace rtos */</span></div>
-<div class="line"><a id="l00709" name="l00709"></a><span class="lineno">  709</span>} <span class="comment">/* namespace os */</span></div>
-<div class="ttc" id="aclassos_1_1rtos_1_1condition__variable_1_1attributes_html"><div class="ttname"><a href="classos_1_1rtos_1_1condition__variable_1_1attributes.html">os::rtos::condition_variable::attributes</a></div><div class="ttdoc">Condition variable attributes.</div><div class="ttdef"><b>Definition</b> <a href="os-condvar_8h_source.html#l00062">os-condvar.h:63</a></div></div>
-<div class="ttc" id="aclassos_1_1rtos_1_1condition__variable_html"><div class="ttname"><a href="classos_1_1rtos_1_1condition__variable.html">os::rtos::condition_variable</a></div><div class="ttdoc">POSIX compliant condition variable.</div><div class="ttdef"><b>Definition</b> <a href="os-condvar_8h_source.html#l00051">os-condvar.h:52</a></div></div>
+<div class="line"><a id="l00703" name="l00703"></a><span class="lineno">  703</span>          <span class="comment">// Remove the thread from the node waiting list,</span></div>
+<div class="line"><a id="l00704" name="l00704"></a><span class="lineno">  704</span>          <span class="comment">// if not already removed.</span></div>
+<div class="line"><a id="l00705" name="l00705"></a><span class="lineno">  705</span>          node.thread_-&gt;waiting_node_ = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00706" name="l00706"></a><span class="lineno">  706</span>          node.unlink ();</div>
+<div class="line"><a id="l00707" name="l00707"></a><span class="lineno">  707</span>        }</div>
+<div class="line"><a id="l00708" name="l00708"></a><span class="lineno">  708</span> </div>
+<div class="line"><a id="l00709" name="l00709"></a><span class="lineno">  709</span>      <span class="keywordflow">return</span> res;</div>
+<div class="line"><a id="l00710" name="l00710"></a><span class="lineno">  710</span>    }</div>
+<div class="line"><a id="l00711" name="l00711"></a><span class="lineno">  711</span> </div>
+<div class="line"><a id="l00712" name="l00712"></a><span class="lineno">  712</span>  <span class="comment">// --------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00713" name="l00713"></a><span class="lineno">  713</span> </div>
+<div class="line"><a id="l00714" name="l00714"></a><span class="lineno">  714</span>  } <span class="comment">/* namespace rtos */</span></div>
+<div class="line"><a id="l00715" name="l00715"></a><span class="lineno">  715</span>} <span class="comment">/* namespace os */</span></div>
+<div class="line"><a id="l00716" name="l00716"></a><span class="lineno">  716</span> </div>
+<div class="line"><a id="l00717" name="l00717"></a><span class="lineno">  717</span><span class="comment">// ----------------------------------------------------------------------------</span></div>
+<div class="ttc" id="aclassos_1_1rtos_1_1condition__variable_1_1attributes_html"><div class="ttname"><a href="classos_1_1rtos_1_1condition__variable_1_1attributes.html">os::rtos::condition_variable::attributes</a></div><div class="ttdoc">Condition variable attributes.</div><div class="ttdef"><b>Definition</b> <a href="os-condvar_8h_source.html#l00072">os-condvar.h:73</a></div></div>
+<div class="ttc" id="aclassos_1_1rtos_1_1condition__variable_html"><div class="ttname"><a href="classos_1_1rtos_1_1condition__variable.html">os::rtos::condition_variable</a></div><div class="ttdoc">POSIX compliant condition variable.</div><div class="ttdef"><b>Definition</b> <a href="os-condvar_8h_source.html#l00061">os-condvar.h:62</a></div></div>
 <div class="ttc" id="aclassos_1_1rtos_1_1condition__variable_html_a2cee82ef11f1690e478733a1d7abe766"><div class="ttname"><a href="classos_1_1rtos_1_1condition__variable.html#a2cee82ef11f1690e478733a1d7abe766">os::rtos::condition_variable::signal</a></div><div class="ttdeci">result_t signal(void)</div><div class="ttdoc">Notify one thread waiting for a condition variable.</div></div>
 <div class="ttc" id="aclassos_1_1rtos_1_1condition__variable_html_a70e53d0f2e67d00ffb809319fb84bc81"><div class="ttname"><a href="classos_1_1rtos_1_1condition__variable.html#a70e53d0f2e67d00ffb809319fb84bc81">os::rtos::condition_variable::broadcast</a></div><div class="ttdeci">result_t broadcast(void)</div><div class="ttdoc">Notify all threads waiting for a condition variable.</div></div>
 <div class="ttc" id="aclassos_1_1rtos_1_1condition__variable_html_ac920555b675c7778d8db780307fdcd3d"><div class="ttname"><a href="classos_1_1rtos_1_1condition__variable.html#ac920555b675c7778d8db780307fdcd3d">os::rtos::condition_variable::wait</a></div><div class="ttdeci">result_t wait(mutex &amp;mutex)</div><div class="ttdoc">Wait for a condition variable to be notified.</div></div>
-<div class="ttc" id="aclassos_1_1rtos_1_1condition__variable_html_ad61db5c36f5744c8d020dac53a55cd65"><div class="ttname"><a href="classos_1_1rtos_1_1condition__variable.html#ad61db5c36f5744c8d020dac53a55cd65">os::rtos::condition_variable::condition_variable</a></div><div class="ttdeci">condition_variable(const attributes &amp;attr=initializer)</div><div class="ttdoc">Construct a condition variable object instance.</div><div class="ttdef"><b>Definition</b> <a href="os-condvar_8cpp_source.html#l00232">os-condvar.cpp:232</a></div></div>
+<div class="ttc" id="aclassos_1_1rtos_1_1condition__variable_html_ad61db5c36f5744c8d020dac53a55cd65"><div class="ttname"><a href="classos_1_1rtos_1_1condition__variable.html#ad61db5c36f5744c8d020dac53a55cd65">os::rtos::condition_variable::condition_variable</a></div><div class="ttdeci">condition_variable(const attributes &amp;attr=initializer)</div><div class="ttdoc">Construct a condition variable object instance.</div><div class="ttdef"><b>Definition</b> <a href="os-condvar_8cpp_source.html#l00238">os-condvar.cpp:238</a></div></div>
 <div class="ttc" id="aclassos_1_1rtos_1_1condition__variable_html_adaa0dad7f07e3fbc6f2ff8bd865bd0df"><div class="ttname"><a href="classos_1_1rtos_1_1condition__variable.html#adaa0dad7f07e3fbc6f2ff8bd865bd0df">os::rtos::condition_variable::~condition_variable</a></div><div class="ttdeci">~condition_variable()</div><div class="ttdoc">Destruct the condition variable object instance.</div></div>
 <div class="ttc" id="aclassos_1_1rtos_1_1condition__variable_html_aea63b3c19dd9e0fa2f17c781ec220198"><div class="ttname"><a href="classos_1_1rtos_1_1condition__variable.html#aea63b3c19dd9e0fa2f17c781ec220198">os::rtos::condition_variable::timed_wait</a></div><div class="ttdeci">result_t timed_wait(mutex &amp;mutex, clock::duration_t timeout)</div><div class="ttdoc">Timed wait for a condition variable to be notified.</div></div>
-<div class="ttc" id="aclassos_1_1rtos_1_1internal_1_1object__named_html_a3103a84c5e0521c3639306f5879526ba"><div class="ttname"><a href="classos_1_1rtos_1_1internal_1_1object__named.html#a3103a84c5e0521c3639306f5879526ba">os::rtos::internal::object_named::name</a></div><div class="ttdeci">const char * name(void) const</div><div class="ttdoc">Get object name.</div><div class="ttdef"><b>Definition</b> <a href="os-decls_8h_source.html#l00760">os-decls.h:760</a></div></div>
-<div class="ttc" id="aclassthread_html"><div class="ttname"><a href="classthread.html">thread</a></div><div class="ttdoc">Standard thread.</div><div class="ttdef"><b>Definition</b> <a href="thread__internal_8h_source.html#l00046">thread_internal.h:47</a></div></div>
+<div class="ttc" id="aclassos_1_1rtos_1_1internal_1_1object__named_html_a3103a84c5e0521c3639306f5879526ba"><div class="ttname"><a href="classos_1_1rtos_1_1internal_1_1object__named.html#a3103a84c5e0521c3639306f5879526ba">os::rtos::internal::object_named::name</a></div><div class="ttdeci">const char * name(void) const</div><div class="ttdoc">Get object name.</div><div class="ttdef"><b>Definition</b> <a href="os-decls_8h_source.html#l00774">os-decls.h:774</a></div></div>
+<div class="ttc" id="aclassthread_html"><div class="ttname"><a href="classthread.html">thread</a></div><div class="ttdoc">Standard thread.</div><div class="ttdef"><b>Definition</b> <a href="thread__internal_8h_source.html#l00056">thread_internal.h:57</a></div></div>
 <div class="ttc" id="agroup__cmsis-plus-diag_html_gab99139b69af4fe6f063b4a236133b2ee"><div class="ttname"><a href="group__cmsis-plus-diag.html#gab99139b69af4fe6f063b4a236133b2ee">os::trace::printf</a></div><div class="ttdeci">int printf(const char *format,...)</div><div class="ttdoc">Write a formatted string to the trace device.</div><div class="ttdef"><b>Definition</b> <a href="trace_8cpp_source.html#l00074">trace.cpp:74</a></div></div>
-<div class="ttc" id="agroup__cmsis-plus-rtos-clock_html_ga149d8b5cea55224ef5cfede8a81df04c"><div class="ttname"><a href="group__cmsis-plus-rtos-clock.html#ga149d8b5cea55224ef5cfede8a81df04c">os::rtos::clock::duration_t</a></div><div class="ttdeci">port::clock::duration_t duration_t</div><div class="ttdoc">Type of variables holding clock durations.</div><div class="ttdef"><b>Definition</b> <a href="os-clocks_8h_source.html#l00072">os-clocks.h:72</a></div></div>
-<div class="ttc" id="agroup__cmsis-plus-rtos-condvar_html_ga33e431621c631497db5d26dc4736d51d"><div class="ttname"><a href="group__cmsis-plus-rtos-condvar.html#ga33e431621c631497db5d26dc4736d51d">os::rtos::condition_variable::initializer</a></div><div class="ttdeci">static const attributes initializer</div><div class="ttdoc">Default condition variable initialiser.</div><div class="ttdef"><b>Definition</b> <a href="os-condvar_8h_source.html#l00116">os-condvar.h:116</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-clock_html_ga149d8b5cea55224ef5cfede8a81df04c"><div class="ttname"><a href="group__cmsis-plus-rtos-clock.html#ga149d8b5cea55224ef5cfede8a81df04c">os::rtos::clock::duration_t</a></div><div class="ttdeci">port::clock::duration_t duration_t</div><div class="ttdoc">Type of variables holding clock durations.</div><div class="ttdef"><b>Definition</b> <a href="os-clocks_8h_source.html#l00083">os-clocks.h:83</a></div></div>
+<div class="ttc" id="agroup__cmsis-plus-rtos-condvar_html_ga33e431621c631497db5d26dc4736d51d"><div class="ttname"><a href="group__cmsis-plus-rtos-condvar.html#ga33e431621c631497db5d26dc4736d51d">os::rtos::condition_variable::initializer</a></div><div class="ttdeci">static const attributes initializer</div><div class="ttdoc">Default condition variable initialiser.</div><div class="ttdef"><b>Definition</b> <a href="os-condvar_8h_source.html#l00126">os-condvar.h:126</a></div></div>
 <div class="ttc" id="anamespaceos_1_1rtos_1_1interrupts_html_acb9f50dd130d6226b861ffaee191ee5a"><div class="ttname"><a href="namespaceos_1_1rtos_1_1interrupts.html#acb9f50dd130d6226b861ffaee191ee5a">os::rtos::interrupts::in_handler_mode</a></div><div class="ttdeci">bool in_handler_mode(void)</div><div class="ttdoc">Check if the CPU is in handler mode.</div><div class="ttdef"><b>Definition</b> <a href="os-sched_8h_source.html#l01136">os-sched.h:1136</a></div></div>
-<div class="ttc" id="anamespaceos_1_1rtos_1_1result_html_a1f5b41a48ca4ac9f7aeb3bd1c702b45aac3daa6d58a1202b112a91628d144685b"><div class="ttname"><a href="namespaceos_1_1rtos_1_1result.html#a1f5b41a48ca4ac9f7aeb3bd1c702b45aac3daa6d58a1202b112a91628d144685b">os::rtos::result::ok</a></div><div class="ttdeci">@ ok</div><div class="ttdoc">Function completed; no errors or events occurred.</div><div class="ttdef"><b>Definition</b> <a href="os-decls_8h_source.html#l00181">os-decls.h:181</a></div></div>
-<div class="ttc" id="anamespaceos_1_1rtos_1_1scheduler_html_adc237cecdf686cfb10780a29931166a4"><div class="ttname"><a href="namespaceos_1_1rtos_1_1scheduler.html#adc237cecdf686cfb10780a29931166a4">os::rtos::scheduler::locked</a></div><div class="ttdeci">bool locked(void)</div><div class="ttdoc">Check if the scheduler is locked.</div><div class="ttdef"><b>Definition</b> <a href="os-sched_8h_source.html#l00871">os-sched.h:871</a></div></div>
-<div class="ttc" id="anamespaceos_1_1rtos_1_1this__thread_html_a60661f0e3a2380c9afbec42c3b505bc4"><div class="ttname"><a href="namespaceos_1_1rtos_1_1this__thread.html#a60661f0e3a2380c9afbec42c3b505bc4">os::rtos::this_thread::thread</a></div><div class="ttdeci">thread &amp; thread(void)</div><div class="ttdoc">Get the current running thread.</div><div class="ttdef"><b>Definition</b> <a href="os-thread_8cpp_source.html#l01610">os-thread.cpp:1610</a></div></div>
-<div class="ttc" id="anamespaceos_1_1rtos_html_a54633089ccffe9e56ce1137ebe57776d"><div class="ttname"><a href="namespaceos_1_1rtos.html#a54633089ccffe9e56ce1137ebe57776d">os::rtos::result_t</a></div><div class="ttdeci">uint32_t result_t</div><div class="ttdoc">Type of values returned by RTOS functions.</div><div class="ttdef"><b>Definition</b> <a href="os-decls_8h_source.html#l00096">os-decls.h:96</a></div></div>
+<div class="ttc" id="anamespaceos_1_1rtos_1_1result_html_a1f5b41a48ca4ac9f7aeb3bd1c702b45aac3daa6d58a1202b112a91628d144685b"><div class="ttname"><a href="namespaceos_1_1rtos_1_1result.html#a1f5b41a48ca4ac9f7aeb3bd1c702b45aac3daa6d58a1202b112a91628d144685b">os::rtos::result::ok</a></div><div class="ttdeci">@ ok</div><div class="ttdoc">Function completed; no errors or events occurred.</div><div class="ttdef"><b>Definition</b> <a href="os-decls_8h_source.html#l00197">os-decls.h:195</a></div></div>
+<div class="ttc" id="anamespaceos_1_1rtos_1_1scheduler_html_adc237cecdf686cfb10780a29931166a4"><div class="ttname"><a href="namespaceos_1_1rtos_1_1scheduler.html#adc237cecdf686cfb10780a29931166a4">os::rtos::scheduler::locked</a></div><div class="ttdeci">bool locked(void)</div><div class="ttdoc">Check if the scheduler is locked.</div><div class="ttdef"><b>Definition</b> <a href="os-sched_8h_source.html#l00882">os-sched.h:882</a></div></div>
+<div class="ttc" id="anamespaceos_1_1rtos_1_1this__thread_html_a60661f0e3a2380c9afbec42c3b505bc4"><div class="ttname"><a href="namespaceos_1_1rtos_1_1this__thread.html#a60661f0e3a2380c9afbec42c3b505bc4">os::rtos::this_thread::thread</a></div><div class="ttdeci">thread &amp; thread(void)</div><div class="ttdoc">Get the current running thread.</div><div class="ttdef"><b>Definition</b> <a href="os-thread_8cpp_source.html#l01607">os-thread.cpp:1607</a></div></div>
+<div class="ttc" id="anamespaceos_1_1rtos_html_a54633089ccffe9e56ce1137ebe57776d"><div class="ttname"><a href="namespaceos_1_1rtos.html#a54633089ccffe9e56ce1137ebe57776d">os::rtos::result_t</a></div><div class="ttdeci">uint32_t result_t</div><div class="ttdoc">Type of values returned by RTOS functions.</div><div class="ttdef"><b>Definition</b> <a href="os-decls_8h_source.html#l00110">os-decls.h:110</a></div></div>
 <div class="ttc" id="anamespaceos_html"><div class="ttname"><a href="namespaceos.html">os</a></div><div class="ttdoc">System namespace.</div></div>
-<div class="ttc" id="aos-decls_8h_html_a7ca7d74dfe5c184cdd627cc958564137"><div class="ttname"><a href="os-decls_8h.html#a7ca7d74dfe5c184cdd627cc958564137">os_assert_throw</a></div><div class="ttdeci">#define os_assert_throw(__e, __er)</div><div class="ttdoc">Assert or throw a system error exception.</div><div class="ttdef"><b>Definition</b> <a href="os-decls_8h_source.html#l01127">os-decls.h:1127</a></div></div>
-<div class="ttc" id="aos-decls_8h_html_ae9cede0de19446e3a5eb930b6b10dd39"><div class="ttname"><a href="os-decls_8h.html#ae9cede0de19446e3a5eb930b6b10dd39">os_assert_err</a></div><div class="ttdeci">#define os_assert_err(__e, __er)</div><div class="ttdoc">Assert or return an error.</div><div class="ttdef"><b>Definition</b> <a href="os-decls_8h_source.html#l01112">os-decls.h:1112</a></div></div>
+<div class="ttc" id="aos-decls_8h_html_a7ca7d74dfe5c184cdd627cc958564137"><div class="ttname"><a href="os-decls_8h.html#a7ca7d74dfe5c184cdd627cc958564137">os_assert_throw</a></div><div class="ttdeci">#define os_assert_throw(__e, __er)</div><div class="ttdoc">Assert or throw a system error exception.</div><div class="ttdef"><b>Definition</b> <a href="os-decls_8h_source.html#l01141">os-decls.h:1141</a></div></div>
+<div class="ttc" id="aos-decls_8h_html_ae9cede0de19446e3a5eb930b6b10dd39"><div class="ttname"><a href="os-decls_8h.html#ae9cede0de19446e3a5eb930b6b10dd39">os_assert_err</a></div><div class="ttdeci">#define os_assert_err(__e, __er)</div><div class="ttdoc">Assert or return an error.</div><div class="ttdef"><b>Definition</b> <a href="os-decls_8h_source.html#l01126">os-decls.h:1126</a></div></div>
 <div class="ttc" id="aos_8h_html"><div class="ttname"><a href="os_8h.html">os.h</a></div><div class="ttdoc">Single file µOS++ RTOS definitions.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

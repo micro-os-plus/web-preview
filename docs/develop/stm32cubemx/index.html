@@ -241,7 +241,7 @@
 <h1 class="page-title">STM32CubeMX</h1>
 <table id="last-modified">
   <tr>
-    <td id="last-modified">Last modified on Mon Jun  5 13:48:31 2023 UTC.</td>
+    <td id="last-modified">Last modified on Wed Jul 19 09:13:06 2023 UTC.</td>
     <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/web-jekyll/edit/master/pages/develop/stm32cubemx.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
@@ -255,7 +255,7 @@ of STM32 microcontrollers, as well as the generation
 of the corresponding initialization C code for the Arm® Cortex-M.</p>
 
 <p>This page documents the procedure to create the initialisation code
-for the <strong>STM32F4DISCOVERY</strong> blinky projects.</p>
+for the <strong>NUCLEO-F411RE</strong> blinky projects.</p>
 
 <p>For other boards/devices, adjust the steps accordingly.</p>
 
@@ -264,24 +264,27 @@ small issues with the interface;</p>
 
 <h2 id="prerequisites">Prerequisites</h2>
 
-<p>The application requires Java. Install OpenJava or any Java distribution.</p>
+<p>The application requires Java. The more recent CubeMX releases
+include a Java JRE; if this is not enough, install a recent
+Java distribution.</p>
 
 <h2 id="download--install">Download &amp; install</h2>
 
 <p>Register to the STM site and download the latest version.</p>
 
-<p>The result is a file like <code class="language-plaintext highlighter-rouge">en.stm32cubemx_v6-1-1.zip</code>. Unpack it and follow
+<p>The result is a file like <code class="language-plaintext highlighter-rouge">en.stm32cubemx-*-v6-8-1.zip</code>. Unpack it and follow
 the instructions.</p>
 
 <p>Note: for macOS, if the user account has no administrative rights
 (as it should not have!), run the install manually, with sudo:</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>java <span class="nt">-jar</span> SetupSTM32CubeMX-6.1.1.exe
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>xattr <span class="nt">-cr</span> ~/Downloads/en.stm32cubemx-mac-v6-8-1
+<span class="nb">sudo </span>open ~/Downloads/en.stm32cubemx-mac-v6-8-1/SetupSTM32CubeMX.app
 </code></pre></div></div>
 
-<p>On macOS, the application is installed as
-<code class="language-plaintext highlighter-rouge">/Applications/STMicroelectronics/STM32CubeMX</code>
-and the packages repository is stored at <code class="language-plaintext highlighter-rouge">${HOME}/tmp/STM32Cube</code></p>
+<p>Install in <code class="language-plaintext highlighter-rouge">~/Applications/STMicroelectronics/STM32CubeMX.app</code></p>
+
+<p>On macOS, the packages repository is stored at <code class="language-plaintext highlighter-rouge">${HOME}/STM32Cube/Repository</code></p>
 
 <h2 id="start">Start</h2>
 
@@ -291,7 +294,7 @@ and the packages repository is stored at <code class="language-plaintext highlig
 
 <h2 id="install-the-f4-package">Install the F4 package</h2>
 
-<p>STM provides separate packages for each family. Install the F4 package.</p>
+<p>STM provides separate packages for each family. Install the F7 package.</p>
 
 <ul>
   <li>in the top page, click the <strong>INSTALL/REMOVE</strong> button</li>
@@ -306,14 +309,14 @@ and the packages repository is stored at <code class="language-plaintext highlig
 <h2 id="create-a-new-project">Create a new project</h2>
 
 <p>Before creating a new project, create a new folder in the project,
-for example <code class="language-plaintext highlighter-rouge">stm32cubemx</code>.</p>
+for example <code class="language-plaintext highlighter-rouge">stm32f411cubemx</code>.</p>
 
 <p>To create a new project, start by selecting the board:</p>
 
 <ul>
   <li>click the <strong>ACCESS TO BOARD SELECTOR</strong>
 </li>
-  <li>in the Commercial Part Number, enter <strong>STM32F407G-DISC1</strong>
+  <li>in the Commercial Part Number, enter <strong>NUCLEO-F411RE</strong>
 </li>
   <li>in the list, select the board</li>
   <li>click the <strong>Start Project</strong> button</li>
@@ -325,9 +328,9 @@ for example <code class="language-plaintext highlighter-rouge">stm32cubemx</code
   <li>at the <strong>Initialize all peripherals with their default Mode</strong>
 click the <strong>No</strong> button for a minimal configuration</li>
   <li>in CubeMX, File -&gt; Save Project as -&gt; select the destination
-(like <code class="language-plaintext highlighter-rouge">&lt;project&gt;/stm32cubemx</code>), <strong>Save</strong>
+(like <code class="language-plaintext highlighter-rouge">&lt;project&gt;/platform-nucleo-f411re/stm32f411cubemx</code>), <strong>Save</strong>
 </li>
-  <li>check if a file called <code class="language-plaintext highlighter-rouge">stm32cubemx.ioc</code> was created in the
+  <li>check if a file called <code class="language-plaintext highlighter-rouge">stm32f411cubemx.ioc</code> was created in the
 destination folder</li>
 </ul>
 
@@ -337,21 +340,22 @@ destination folder</li>
   <li>in the top window, click the <strong>Project Manager</strong> tab</li>
   <li>select the <strong>Project</strong> category
     <ul>
-      <li>check the <strong>Project Name: stm32cubemx</strong>
+      <li>check the <strong>Project Name: stm32f411cubemx</strong>
 </li>
-      <li>check the <strong>Project Location: platform-stm32f407g-disc1</strong>
+      <li>check the <strong>Project Location: platform-nucleo-stm32f411re</strong>
 </li>
       <li>check the <strong>Application Structure: Advanced</strong>
 </li>
       <li>enable <strong>Do not generate the main()</strong>
 </li>
       <li>ignore the <strong>Toolchain Folder Location</strong> (no idea what it might be)</li>
-      <li>in the <strong>Toolchain/IDE</strong> combo, select <strong>Other Toolchains (GPDSC)</strong>
+      <li>in the <strong>Toolchain/IDE</strong> combo, select <strong>Makefile</strong>
 </li>
       <li>in the <strong>Mcu and Firmware Package</strong> area
         <ul>
-          <li>enable <strong>Use latest available version</strong>
-</li>
+          <li><strong>Mcu Reference: STM32F411xE</strong></li>
+          <li>
+<strong>Firmware Package Name and Versio: STM32Cube FW_F4 V1.27.1</strong> (use latest)</li>
           <li>enable <strong>Use Default Firmware Location</strong>
 </li>
         </ul>
@@ -420,6 +424,8 @@ destination folder</li>
 </li>
         </ul>
       </li>
+      <li>only for Systick: enable <strong>Call HAL handler</strong>
+</li>
     </ul>
   </li>
 </ul>
@@ -433,8 +439,8 @@ destination folder</li>
 
 <p>The result is a file system hierarchy like:</p>
 
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">ilg@wks % tree stm32cubemx
-stm32cubemx
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">ilg@wks % tree stm32f411cubemx
+stm32f411cubemx
 ├── Core
 │   ├── Inc
 │   │   ├── gpio.h
@@ -453,33 +459,35 @@ stm32cubemx
 │   │   │   └── ST
 │   │   │       └── STM32F4xx
 │   │   │           ├── Include
-│   │   │           │   ├── stm32f407xx.h
+│   │   │           │   ├── stm32f411xe.h
 │   │   │           │   ├── stm32f4xx.h
 │   │   │           │   └── system_stm32f4xx.h
+│   │   │           ├── LICENSE.txt
 │   │   │           └── Source
 │   │   │               └── Templates
-│   │   └── Include
-│   │       ├── cmsis_armcc.h
-│   │       ├── cmsis_armclang.h
-│   │       ├── cmsis_compiler.h
-│   │       ├── cmsis_gcc.h
-│   │       ├── cmsis_iccarm.h
-│   │       ├── cmsis_version.h
-│   │       ├── core_armv8mbl.h
-│   │       ├── core_armv8mml.h
-│   │       ├── core_cm0.h
-│   │       ├── core_cm0plus.h
-│   │       ├── core_cm1.h
-│   │       ├── core_cm23.h
-│   │       ├── core_cm3.h
-│   │       ├── core_cm33.h
-│   │       ├── core_cm4.h
-│   │       ├── core_cm7.h
-│   │       ├── core_sc000.h
-│   │       ├── core_sc300.h
-│   │       ├── mpu_armv7.h
-│   │       ├── mpu_armv8.h
-│   │       └── tz_context.h
+│   │   ├── Include
+│   │   │   ├── cmsis_armcc.h
+│   │   │   ├── cmsis_armclang.h
+│   │   │   ├── cmsis_compiler.h
+│   │   │   ├── cmsis_gcc.h
+│   │   │   ├── cmsis_iccarm.h
+│   │   │   ├── cmsis_version.h
+│   │   │   ├── core_armv8mbl.h
+│   │   │   ├── core_armv8mml.h
+│   │   │   ├── core_cm0.h
+│   │   │   ├── core_cm0plus.h
+│   │   │   ├── core_cm1.h
+│   │   │   ├── core_cm23.h
+│   │   │   ├── core_cm3.h
+│   │   │   ├── core_cm33.h
+│   │   │   ├── core_cm4.h
+│   │   │   ├── core_cm7.h
+│   │   │   ├── core_sc000.h
+│   │   │   ├── core_sc300.h
+│   │   │   ├── mpu_armv7.h
+│   │   │   ├── mpu_armv8.h
+│   │   │   └── tz_context.h
+│   │   └── LICENSE.txt
 │   └── STM32F4xx_HAL_Driver
 │       ├── Inc
 │       │   ├── Legacy
@@ -500,7 +508,17 @@ stm32cubemx
 │       │   ├── stm32f4xx_hal_rcc.h
 │       │   ├── stm32f4xx_hal_rcc_ex.h
 │       │   ├── stm32f4xx_hal_tim.h
-│       │   └── stm32f4xx_hal_tim_ex.h
+│       │   ├── stm32f4xx_hal_tim_ex.h
+│       │   ├── stm32f4xx_ll_bus.h
+│       │   ├── stm32f4xx_ll_cortex.h
+│       │   ├── stm32f4xx_ll_dma.h
+│       │   ├── stm32f4xx_ll_exti.h
+│       │   ├── stm32f4xx_ll_gpio.h
+│       │   ├── stm32f4xx_ll_pwr.h
+│       │   ├── stm32f4xx_ll_rcc.h
+│       │   ├── stm32f4xx_ll_system.h
+│       │   └── stm32f4xx_ll_utils.h
+│       ├── LICENSE.txt
 │       └── Src
 │           ├── stm32f4xx_hal.c
 │           ├── stm32f4xx_hal_cortex.c
@@ -517,10 +535,12 @@ stm32cubemx
 │           ├── stm32f4xx_hal_rcc_ex.c
 │           ├── stm32f4xx_hal_tim.c
 │           └── stm32f4xx_hal_tim_ex.c
-├── stm32cubemx.gpdsc
-└── stm32cubemx.ioc
+├── Makefile
+├── STM32F411RETx_FLASH.ld
+├── startup_stm32f411xe.s
+└── stm32f411cubemx.ioc
 
-16 directories, 68 files
+16 directories, 83 files
 </span></code></pre></div></div>
 
 <h3 id="source-folders">Source folders</h3>
@@ -528,8 +548,8 @@ stm32cubemx
 <p>Add the following source folders to the build:</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">stm32cubemx/Core/Src</code></li>
-  <li><code class="language-plaintext highlighter-rouge">stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Src</code></li>
+  <li><code class="language-plaintext highlighter-rouge">stm32f411cubemx/Core/Src</code></li>
+  <li><code class="language-plaintext highlighter-rouge">stm32f411cubemx/Drivers/STM32F7xx_HAL_Driver/Src</code></li>
 </ul>
 
 <h3 id="include-folders">Include folders</h3>
@@ -537,16 +557,16 @@ stm32cubemx
 <p>Add the following include folders to the build:</p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">stm32cubemx/Core/Inc</code></li>
-  <li><code class="language-plaintext highlighter-rouge">stm32cubemx/Drivers/CMSIS/Device/ST/STM32F4xx/Include</code></li>
-  <li><code class="language-plaintext highlighter-rouge">stm32cubemx/Drivers/CMSIS/Include</code></li>
-  <li><code class="language-plaintext highlighter-rouge">stm32cubemx/Drivers/STM32F4xx_HAL_Driver/Inc</code></li>
+  <li><code class="language-plaintext highlighter-rouge">stm32f411cubemx/Core/Inc</code></li>
+  <li><code class="language-plaintext highlighter-rouge">stm32f411cubemx/Drivers/CMSIS/Device/ST/STM32F4xx/Include</code></li>
+  <li><code class="language-plaintext highlighter-rouge">stm32f411cubemx/Drivers/CMSIS/Include</code></li>
+  <li><code class="language-plaintext highlighter-rouge">stm32f411cubemx/Drivers/STM32F4xx_HAL_Driver/Inc</code></li>
 </ul>
 
 <h2 id="customisations">Customisations</h2>
 
 <p>Although not critical, for a better error reporting, some small changes
-can be performed to the <code class="language-plaintext highlighter-rouge">stm32cubemx/Core/Src/main.c</code> file.</p>
+can be performed to the <code class="language-plaintext highlighter-rouge">stm32f411cubemx/Core/Src/main.c</code> file.</p>
 
 <p>Being braced by the special comments, these changes survive regenerations
 with CubeMX.</p>

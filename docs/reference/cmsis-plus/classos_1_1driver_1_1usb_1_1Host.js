@@ -3,7 +3,7 @@ var classos_1_1driver_1_1usb_1_1Host =
     [ "Host", "classos_1_1driver_1_1usb_1_1Host.html#a247401845dc8fd26967f01947bf49557", null ],
     [ "Host", "classos_1_1driver_1_1usb_1_1Host.html#a0673c1ec19ce71229ebd2993fa4d8141", null ],
     [ "Host", "classos_1_1driver_1_1usb_1_1Host.html#a595ecceabb0b1ce8a4465354579c63ff", null ],
-    [ "~Host", "classos_1_1driver_1_1usb_1_1Host.html#afee081834fe01457298ed7a91c43f2b9", null ],
+    [ "~Host", "classos_1_1driver_1_1usb_1_1Host.html#af1c8762fc193ef74bbcbb363bb867a23", null ],
     [ "abort_transfer", "classos_1_1driver_1_1usb_1_1Host.html#affd928c099c3f1c99389fd7388437ac4", null ],
     [ "create_pipe", "classos_1_1driver_1_1usb_1_1Host.html#a64b8400160c3a4badfe3e6f8baa97970", null ],
     [ "delete_pipe", "classos_1_1driver_1_1usb_1_1Host.html#a26abbad8080e41dd14099938ecb761b6", null ],

@@ -18,7 +18,6 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="common-custom.css" rel="stylesheet" type="text/css"/>
 <link href="cards.css" rel="stylesheet" type="text/css"/>
 <!-- Awesome Theme Begin -->
@@ -192,7 +191,7 @@ Functions</h2></td></tr>
 <p>The actual C library function, used by newlib, is in <code><a class="el" href="os-core_8cpp.html">os-core.cpp</a></code>.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="namespaceos_1_1rtos_1_1this__thread.html#afb95537285d0aa314fc611ec05897cbf" title="Implementation of the library __errno() function.">__errno()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02081">2081</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02095">2095</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
 
 </div>
 </div>
@@ -232,7 +231,7 @@ Functions</h2></td></tr>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Inspired by <a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/pthread_exit.html"><code>pthread_exit()</code></a> from <a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/pthread.h.html"><code>&lt;pthread.h&gt;</code></a> (<a href="http://pubs.opengroup.org/onlinepubs/9699919799/nframe.html">IEEE Std 1003.1, 2013 Edition</a>).</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02066">2066</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02080">2080</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
 
 </div>
 </div>
@@ -288,7 +287,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02023">2023</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02037">2037</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
 
 </div>
 </div>
@@ -345,7 +344,7 @@ Functions</h2></td></tr>
 <p>If the mask is zero, return the full thread flags mask, without any masking or subsequent clearing.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02012">2012</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02028">2028</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
 
 </div>
 </div>
@@ -427,7 +426,7 @@ Functions</h2></td></tr>
 <p>If the <a class="el" href="namespaceos_1_1rtos_1_1flags_1_1mode.html#a1472154078ef02cfa5f62ae1ca50758aa71559e3634890b5547e62ff93160ac3a" title="Ask for flags to be cleared after read.">flags::mode::clear</a> bit is set, the event flags that are returned are automatically cleared.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l01993">1993</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l02009">2009</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
 
 </div>
 </div>
@@ -493,7 +492,7 @@ Functions</h2></td></tr>
 <p>The function does not blocks, if the expected event flags are not raised, but returns <code>EGAIN</code>.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l01947">1947</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l01963">1963</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
 
 </div>
 </div>
@@ -563,7 +562,7 @@ Functions</h2></td></tr>
 <p>If the <a class="el" href="namespaceos_1_1rtos_1_1flags_1_1mode.html#a1472154078ef02cfa5f62ae1ca50758aa71559e3634890b5547e62ff93160ac3a" title="Ask for flags to be cleared after read.">flags::mode::clear</a> bit is set, the event flags that are returned are automatically cleared.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l01930">1930</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l01946">1946</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
 
 </div>
 </div>
@@ -598,7 +597,7 @@ Functions</h2></td></tr>
 <p>This is different from <code><a class="el" href="namespaceos_1_1rtos_1_1this__thread.html#a6d6b2df07994ab81b2435596a93bbdb6" title="Yield execution to the next ready thread.">yield()</a></code> which automatically reschedules the current thread before passing control to the next thread (which might be the same if no other threads with at least the same priority are ready).</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l01903">1903</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8h_source.html#l01919">1919</a> of file <a class="el" href="os-thread_8h_source.html">os-thread.h</a>.</p>
 
 </div>
 </div>
@@ -623,7 +622,7 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the current running thread.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l01610">1610</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l01607">1607</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
 
 </div>
 </div>
@@ -649,7 +648,7 @@ Functions</h2></td></tr>
 <p>Pass control to next thread that is in <b>READY</b> state.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l01631">1631</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-thread_8cpp_source.html#l01628">1628</a> of file <a class="el" href="os-thread_8cpp_source.html">os-thread.cpp</a>.</p>
 
 </div>
 </div>

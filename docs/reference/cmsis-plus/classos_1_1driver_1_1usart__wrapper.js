@@ -3,7 +3,7 @@ var classos_1_1driver_1_1usart__wrapper =
     [ "usart_wrapper", "classos_1_1driver_1_1usart__wrapper.html#ab27b3e6cdf5376e88fef31022b49a777", null ],
     [ "usart_wrapper", "classos_1_1driver_1_1usart__wrapper.html#afa2383cbc3f5b05734f8218238f376bd", null ],
     [ "usart_wrapper", "classos_1_1driver_1_1usart__wrapper.html#a036399e4035b9bf688e26c773b712342", null ],
-    [ "~usart_wrapper", "classos_1_1driver_1_1usart__wrapper.html#ac94881da1d2169b067144800a965cd72", null ],
+    [ "~usart_wrapper", "classos_1_1driver_1_1usart__wrapper.html#a2279156afdd8029c8b4611e5bb40335c", null ],
     [ "clean", "classos_1_1driver_1_1usart__wrapper.html#a50bb343b6ce54b6439475be0c95f7627", null ],
     [ "configure", "classos_1_1driver_1_1usart__wrapper.html#ac1f7212bc185ff959372623e78b594a0", null ],
     [ "control", "classos_1_1driver_1_1usart__wrapper.html#a1039278de866bcedb8d300bf150a578c", null ],
@@ -40,7 +40,7 @@ var classos_1_1driver_1_1usart__wrapper =
     [ "cb_func_", "classos_1_1driver_1_1usart__wrapper.html#ac883fd667f91e1043a02ec2d3c7233d9", null ],
     [ "cb_object_", "classos_1_1driver_1_1usart__wrapper.html#a6629f59b4e6c2c32e567df816e267fdb", null ],
     [ "driver_", "classos_1_1driver_1_1usart__wrapper.html#a624cb7be6a66216cdb722d76891c5bfa", null ],
-    [ "modem_status_", "classos_1_1driver_1_1usart__wrapper.html#ab1be4218901fa0f284b14621737f26c7", null ],
-    [ "status_", "classos_1_1driver_1_1usart__wrapper.html#a36403b30bdd4aae18c8e574e1400bc3a", null ],
+    [ "modem_status_", "classos_1_1driver_1_1usart__wrapper.html#a1216b22c2742b1761e05a9b2a469ae8d", null ],
+    [ "status_", "classos_1_1driver_1_1usart__wrapper.html#ae6b841da44279d0abd02be6b66a53e8b", null ],
     [ "version_", "classos_1_1driver_1_1usart__wrapper.html#a491b8237382dbe0038ab273518704401", null ]
 ];

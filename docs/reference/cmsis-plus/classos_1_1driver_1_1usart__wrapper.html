@@ -18,7 +18,6 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="common-custom.css" rel="stylesheet" type="text/css"/>
 <link href="cards.css" rel="stylesheet" type="text/css"/>
 <!-- Awesome Theme Begin -->
@@ -149,8 +148,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:afa2383cbc3f5b05734f8218238f376bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a036399e4035b9bf688e26c773b712342"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classos_1_1driver_1_1usart__wrapper.html#a036399e4035b9bf688e26c773b712342">usart_wrapper</a> (<a class="el" href="classos_1_1driver_1_1usart__wrapper.html">usart_wrapper</a> &amp;&amp;)=delete</td></tr>
 <tr class="separator:a036399e4035b9bf688e26c773b712342"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac94881da1d2169b067144800a965cd72"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classos_1_1driver_1_1usart__wrapper.html#ac94881da1d2169b067144800a965cd72">~usart_wrapper</a> () noexcept</td></tr>
-<tr class="separator:ac94881da1d2169b067144800a965cd72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2279156afdd8029c8b4611e5bb40335c"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classos_1_1driver_1_1usart__wrapper.html#a2279156afdd8029c8b4611e5bb40335c">~usart_wrapper</a> () noexcept override</td></tr>
+<tr class="separator:a2279156afdd8029c8b4611e5bb40335c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50bb343b6ce54b6439475be0c95f7627"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classos_1_1driver_1_1Serial.html#a50bb343b6ce54b6439475be0c95f7627">clean</a> (void) noexcept</td></tr>
 <tr class="separator:a50bb343b6ce54b6439475be0c95f7627"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1f7212bc185ff959372623e78b594a0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceos_1_1driver.html#ae505c9532fc7b402d8a54ec68c19f8ae">return_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classos_1_1driver_1_1Serial.html#ac1f7212bc185ff959372623e78b594a0">configure</a> (<a class="el" href="namespaceos_1_1driver_1_1serial.html#a16d38c70ff077aeba035b60246f76ac1">serial::config_t</a> cfg, <a class="el" href="namespaceos_1_1driver_1_1serial.html#a01a49c46795f92b60931c856f06109d9">serial::config_arg_t</a> arg) noexcept</td></tr>
@@ -240,6 +239,10 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a6629f59b4e6c2c32e567df816e267fdb"><td class="memItemLeft" align="right" valign="top">const void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classos_1_1driver_1_1Serial.html#a6629f59b4e6c2c32e567df816e267fdb">cb_object_</a></td></tr>
 <tr class="memdesc:a6629f59b4e6c2c32e567df816e267fdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to object instance associated with this driver.  <br /></td></tr>
 <tr class="separator:a6629f59b4e6c2c32e567df816e267fdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1216b22c2742b1761e05a9b2a469ae8d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classos_1_1driver_1_1serial_1_1Modem__status.html">serial::Modem_status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classos_1_1driver_1_1Serial.html#a1216b22c2742b1761e05a9b2a469ae8d">modem_status_</a></td></tr>
+<tr class="separator:a1216b22c2742b1761e05a9b2a469ae8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6b841da44279d0abd02be6b66a53e8b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classos_1_1driver_1_1serial_1_1Status.html">serial::Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classos_1_1driver_1_1Serial.html#ae6b841da44279d0abd02be6b66a53e8b">status_</a></td></tr>
+<tr class="separator:ae6b841da44279d0abd02be6b66a53e8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -250,16 +253,12 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a624cb7be6a66216cdb722d76891c5bfa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="usart-wrapper_8h.html#a71661a90b39aa927b405b4bd22311f92">ARM_DRIVER_USART</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classos_1_1driver_1_1usart__wrapper.html#a624cb7be6a66216cdb722d76891c5bfa">driver_</a></td></tr>
 <tr class="memdesc:a624cb7be6a66216cdb722d76891c5bfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to CMSIS USART Keil driver.  <br /></td></tr>
 <tr class="separator:a624cb7be6a66216cdb722d76891c5bfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1be4218901fa0f284b14621737f26c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classos_1_1driver_1_1serial_1_1Modem__status.html">serial::Modem_status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classos_1_1driver_1_1usart__wrapper.html#ab1be4218901fa0f284b14621737f26c7">modem_status_</a></td></tr>
-<tr class="separator:ab1be4218901fa0f284b14621737f26c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36403b30bdd4aae18c8e574e1400bc3a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classos_1_1driver_1_1serial_1_1Status.html">serial::Status</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classos_1_1driver_1_1usart__wrapper.html#a36403b30bdd4aae18c8e574e1400bc3a">status_</a></td></tr>
-<tr class="separator:a36403b30bdd4aae18c8e574e1400bc3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a491b8237382dbe0038ab273518704401"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classos_1_1driver_1_1Version.html">Version</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classos_1_1driver_1_1usart__wrapper.html#a491b8237382dbe0038ab273518704401">version_</a> { 0, 0 }</td></tr>
 <tr class="separator:a491b8237382dbe0038ab273518704401"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="usart-wrapper_8h_source.html#l00056">56</a> of file <a class="el" href="usart-wrapper_8h_source.html">usart-wrapper.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="usart-wrapper_8h_source.html#l00064">64</a> of file <a class="el" href="usart-wrapper_8h_source.html">usart-wrapper.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab27b3e6cdf5376e88fef31022b49a777" name="ab27b3e6cdf5376e88fef31022b49a777"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab27b3e6cdf5376e88fef31022b49a777">&#9670;&#160;</a></span>usart_wrapper() <span class="overload">[1/3]</span></h2>
@@ -351,8 +350,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ac94881da1d2169b067144800a965cd72" name="ac94881da1d2169b067144800a965cd72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac94881da1d2169b067144800a965cd72">&#9670;&#160;</a></span>~usart_wrapper()</h2>
+<a id="a2279156afdd8029c8b4611e5bb40335c" name="a2279156afdd8029c8b4611e5bb40335c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2279156afdd8029c8b4611e5bb40335c">&#9670;&#160;</a></span>~usart_wrapper()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -369,7 +368,7 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -403,7 +402,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="serial_8cpp_source.html#l00065">65</a> of file <a class="el" href="serial_8cpp_source.html">serial.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="serial_8cpp_source.html#l00071">71</a> of file <a class="el" href="serial_8cpp_source.html">serial.cpp</a>.</p>
 
 </div>
 </div>
@@ -451,7 +450,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Common execution status and driver specific usart_execution_status </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="serial_8h_source.html#l00813">813</a> of file <a class="el" href="serial_8h_source.html">serial.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="serial_8h_source.html#l00825">825</a> of file <a class="el" href="serial_8h_source.html">serial.h</a>.</p>
 
 </div>
 </div>
@@ -488,7 +487,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Common execution status and driver specific usart_execution_status </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="serial_8h_source.html#l00819">819</a> of file <a class="el" href="serial_8h_source.html">serial.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="serial_8h_source.html#l00831">831</a> of file <a class="el" href="serial_8h_source.html">serial.h</a>.</p>
 
 </div>
 </div>
@@ -525,7 +524,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Execution status. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="serial_8h_source.html#l00831">831</a> of file <a class="el" href="serial_8h_source.html">serial.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="serial_8h_source.html#l00843">843</a> of file <a class="el" href="serial_8h_source.html">serial.h</a>.</p>
 
 </div>
 </div>
@@ -992,7 +991,7 @@ Private Attributes</h2></td></tr>
 <p>Get driver capabilities. </p>
 <dl class="section return"><dt>Returns</dt><dd>Capabilities. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="serial_8h_source.html#l00795">795</a> of file <a class="el" href="serial_8h_source.html">serial.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="serial_8h_source.html#l00807">807</a> of file <a class="el" href="serial_8h_source.html">serial.h</a>.</p>
 
 </div>
 </div>
@@ -1023,7 +1022,7 @@ Private Attributes</h2></td></tr>
 <p>Get serial modem lines state. </p>
 <dl class="section return"><dt>Returns</dt><dd>Modem status. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="serial_8h_source.html#l00837">837</a> of file <a class="el" href="serial_8h_source.html">serial.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="serial_8h_source.html#l00849">849</a> of file <a class="el" href="serial_8h_source.html">serial.h</a>.</p>
 
 </div>
 </div>
@@ -1054,7 +1053,7 @@ Private Attributes</h2></td></tr>
 <p>Get received bytes count. </p>
 <dl class="section return"><dt>Returns</dt><dd>number of bytes received </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="serial_8h_source.html#l00807">807</a> of file <a class="el" href="serial_8h_source.html">serial.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="serial_8h_source.html#l00819">819</a> of file <a class="el" href="serial_8h_source.html">serial.h</a>.</p>
 
 </div>
 </div>
@@ -1085,7 +1084,7 @@ Private Attributes</h2></td></tr>
 <p>Get serial port status. </p>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classos_1_1driver_1_1Serial.html">Serial</a> status. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="serial_8h_source.html#l00825">825</a> of file <a class="el" href="serial_8h_source.html">serial.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="serial_8h_source.html#l00837">837</a> of file <a class="el" href="serial_8h_source.html">serial.h</a>.</p>
 
 </div>
 </div>
@@ -1116,7 +1115,7 @@ Private Attributes</h2></td></tr>
 <p>Get transmitted bytes count. </p>
 <dl class="section return"><dt>Returns</dt><dd>number of bytes transmitted </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="serial_8h_source.html#l00801">801</a> of file <a class="el" href="serial_8h_source.html">serial.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="serial_8h_source.html#l00813">813</a> of file <a class="el" href="serial_8h_source.html">serial.h</a>.</p>
 
 </div>
 </div>
@@ -1147,7 +1146,7 @@ Private Attributes</h2></td></tr>
 <p>Get driver version. </p>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classos_1_1driver_1_1Version.html">Version</a>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="common_8h_source.html#l00201">201</a> of file <a class="el" href="common_8h_source.html">common.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="common_8h_source.html#l00213">213</a> of file <a class="el" href="common_8h_source.html">common.h</a>.</p>
 
 </div>
 </div>
@@ -1236,7 +1235,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Execution status </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="common_8h_source.html#l00207">207</a> of file <a class="el" href="common_8h_source.html">common.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="common_8h_source.html#l00219">219</a> of file <a class="el" href="common_8h_source.html">common.h</a>.</p>
 
 </div>
 </div>
@@ -1284,7 +1283,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Execution status </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="serial_8cpp_source.html#l00102">102</a> of file <a class="el" href="serial_8cpp_source.html">serial.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="serial_8cpp_source.html#l00108">108</a> of file <a class="el" href="serial_8cpp_source.html">serial.cpp</a>.</p>
 
 </div>
 </div>
@@ -1332,7 +1331,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section user"><dt>Returns</dt><dd>Nothing. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="serial_8cpp_source.html#l00084">84</a> of file <a class="el" href="serial_8cpp_source.html">serial.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="serial_8cpp_source.html#l00090">90</a> of file <a class="el" href="serial_8cpp_source.html">serial.cpp</a>.</p>
 
 </div>
 </div>
@@ -1380,7 +1379,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Execution status </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="serial_8cpp_source.html#l00091">91</a> of file <a class="el" href="serial_8cpp_source.html">serial.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="serial_8cpp_source.html#l00097">97</a> of file <a class="el" href="serial_8cpp_source.html">serial.cpp</a>.</p>
 
 </div>
 </div>
@@ -1417,7 +1416,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section user"><dt>Returns</dt><dd>Nothing. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="serial_8h_source.html#l00843">843</a> of file <a class="el" href="serial_8h_source.html">serial.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="serial_8h_source.html#l00855">855</a> of file <a class="el" href="serial_8h_source.html">serial.h</a>.</p>
 
 </div>
 </div>
@@ -1472,7 +1471,7 @@ Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Execution status </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="serial_8cpp_source.html#l00113">113</a> of file <a class="el" href="serial_8cpp_source.html">serial.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="serial_8cpp_source.html#l00119">119</a> of file <a class="el" href="serial_8cpp_source.html">serial.cpp</a>.</p>
 
 </div>
 </div>
@@ -1498,7 +1497,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Pointer to non-reentrant callback. Must be stored because Initialize() is now delayed just before PowerControl(FULL). </p>
 
-<p class="definition">Definition at line <a class="el" href="usart-wrapper_8h_source.html#l00132">132</a> of file <a class="el" href="usart-wrapper_8h_source.html">usart-wrapper.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="usart-wrapper_8h_source.html#l00140">140</a> of file <a class="el" href="usart-wrapper_8h_source.html">usart-wrapper.h</a>.</p>
 
 </div>
 </div>
@@ -1522,7 +1521,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="usart-wrapper_8h_source.html#l00143">143</a> of file <a class="el" href="usart-wrapper_8h_source.html">usart-wrapper.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="usart-wrapper_8h_source.html#l00151">151</a> of file <a class="el" href="usart-wrapper_8h_source.html">usart-wrapper.h</a>.</p>
 
 </div>
 </div>
@@ -1548,7 +1547,7 @@ Private Attributes</h2></td></tr>
 
 <p>Pointer to static function that implements the callback. </p>
 
-<p class="definition">Definition at line <a class="el" href="serial_8h_source.html#l00704">704</a> of file <a class="el" href="serial_8h_source.html">serial.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="serial_8h_source.html#l00716">716</a> of file <a class="el" href="serial_8h_source.html">serial.h</a>.</p>
 
 </div>
 </div>
@@ -1574,7 +1573,7 @@ Private Attributes</h2></td></tr>
 
 <p>Pointer to object instance associated with this driver. </p>
 
-<p class="definition">Definition at line <a class="el" href="serial_8h_source.html#l00707">707</a> of file <a class="el" href="serial_8h_source.html">serial.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="serial_8h_source.html#l00719">719</a> of file <a class="el" href="serial_8h_source.html">serial.h</a>.</p>
 
 </div>
 </div>
@@ -1600,12 +1599,12 @@ Private Attributes</h2></td></tr>
 
 <p>Pointer to CMSIS USART Keil driver. </p>
 
-<p class="definition">Definition at line <a class="el" href="usart-wrapper_8h_source.html#l00128">128</a> of file <a class="el" href="usart-wrapper_8h_source.html">usart-wrapper.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="usart-wrapper_8h_source.html#l00136">136</a> of file <a class="el" href="usart-wrapper_8h_source.html">usart-wrapper.h</a>.</p>
 
 </div>
 </div>
-<a id="ab1be4218901fa0f284b14621737f26c7" name="ab1be4218901fa0f284b14621737f26c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1be4218901fa0f284b14621737f26c7">&#9670;&#160;</a></span>modem_status_</h2>
+<a id="a1216b22c2742b1761e05a9b2a469ae8d" name="a1216b22c2742b1761e05a9b2a469ae8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1216b22c2742b1761e05a9b2a469ae8d">&#9670;&#160;</a></span>modem_status_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1614,22 +1613,22 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classos_1_1driver_1_1serial_1_1Modem__status.html">serial::Modem_status</a> os::driver::usart_wrapper::modem_status_</td>
+          <td class="memname"><a class="el" href="classos_1_1driver_1_1serial_1_1Modem__status.html">serial::Modem_status</a> os::driver::Serial::modem_status_</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="usart-wrapper_8h_source.html#l00145">145</a> of file <a class="el" href="usart-wrapper_8h_source.html">usart-wrapper.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="serial_8h_source.html#l00722">722</a> of file <a class="el" href="serial_8h_source.html">serial.h</a>.</p>
 
 </div>
 </div>
-<a id="a36403b30bdd4aae18c8e574e1400bc3a" name="a36403b30bdd4aae18c8e574e1400bc3a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36403b30bdd4aae18c8e574e1400bc3a">&#9670;&#160;</a></span>status_</h2>
+<a id="ae6b841da44279d0abd02be6b66a53e8b" name="ae6b841da44279d0abd02be6b66a53e8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6b841da44279d0abd02be6b66a53e8b">&#9670;&#160;</a></span>status_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1638,17 +1637,17 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classos_1_1driver_1_1serial_1_1Status.html">serial::Status</a> os::driver::usart_wrapper::status_</td>
+          <td class="memname"><a class="el" href="classos_1_1driver_1_1serial_1_1Status.html">serial::Status</a> os::driver::Serial::status_</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="usart-wrapper_8h_source.html#l00144">144</a> of file <a class="el" href="usart-wrapper_8h_source.html">usart-wrapper.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="serial_8h_source.html#l00721">721</a> of file <a class="el" href="serial_8h_source.html">serial.h</a>.</p>
 
 </div>
 </div>
@@ -1672,7 +1671,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="usart-wrapper_8h_source.html#l00141">141</a> of file <a class="el" href="usart-wrapper_8h_source.html">usart-wrapper.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="usart-wrapper_8h_source.html#l00149">149</a> of file <a class="el" href="usart-wrapper_8h_source.html">usart-wrapper.h</a>.</p>
 
 </div>
 </div>

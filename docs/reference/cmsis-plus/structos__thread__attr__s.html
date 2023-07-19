@@ -18,7 +18,6 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="common-custom.css" rel="stylesheet" type="text/css"/>
 <link href="cards.css" rel="stylesheet" type="text/css"/>
 <!-- Awesome Theme Begin -->
@@ -151,7 +150,7 @@ Public Attributes</h2></td></tr>
 <p>Initialise this structure with <code><a class="el" href="group__cmsis-plus-rtos-c-thread.html#ga02835e5e5561d82c40b4c99db7270c4b" title="Initialise the thread attributes.">os_thread_attr_init()</a></code>, and then set any of the individual members directly.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classos_1_1rtos_1_1thread_1_1attributes.html" title="Thread attributes.">os::rtos::thread::attributes</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-c-decls_8h_source.html#l00493">493</a> of file <a class="el" href="os-c-decls_8h_source.html">os-c-decls.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-decls_8h_source.html#l00501">501</a> of file <a class="el" href="os-c-decls_8h_source.html">os-c-decls.h</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a8e316a66358b1978b9064ee3bf0af739" name="a8e316a66358b1978b9064ee3bf0af739"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8e316a66358b1978b9064ee3bf0af739">&#9670;&#160;</a></span>clock</h2>
@@ -169,7 +168,7 @@ Public Attributes</h2></td></tr>
 <p>It may be <code><a class="el" href="group__cmsis-plus-rtos-c-clock.html#ga790772dc72e4f14f01f7aa477b42a314" title="Get sysclock (the system clock).">os_clock_get_sysclock()</a></code>, <code><a class="el" href="group__cmsis-plus-rtos-c-clock.html#gabf8b0ef6a0a90eeaca0c5a9cfb3734fd" title="Get rtclock (the real-time clock).">os_clock_get_rtclock()</a></code>, or any other user object derived from class <code>clock</code>.</p>
 <p>If <code>NULL</code>, the default is <code>sysclock</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="os-c-decls_8h_source.html#l00504">504</a> of file <a class="el" href="os-c-decls_8h_source.html">os-c-decls.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-decls_8h_source.html#l00512">512</a> of file <a class="el" href="os-c-decls_8h_source.html">os-c-decls.h</a>.</p>
 
 </div>
 </div>
@@ -185,7 +184,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="os-c-decls_8h_source.html#l00543">543</a> of file <a class="el" href="os-c-decls_8h_source.html">os-c-decls.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-decls_8h_source.html#l00551">551</a> of file <a class="el" href="os-c-decls_8h_source.html">os-c-decls.h</a>.</p>
 
 </div>
 </div>
@@ -205,7 +204,7 @@ Public Attributes</h2></td></tr>
 <p>If 0, the default is <code>os_thread_priority_normal</code>.</p>
 <p>A convenient and explicit variant to this attribute is to call <code><a class="el" href="group__cmsis-plus-rtos-c-thread.html#gae1c3615e8cb7da607485107ea1cbf1f2" title="Set the thread dynamic scheduling priority.">os_thread_set_priority()</a></code> at the beginning of the thread function. </p>
 
-<p class="definition">Definition at line <a class="el" href="os-c-decls_8h_source.html#l00538">538</a> of file <a class="el" href="os-c-decls_8h_source.html">os-c-decls.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-decls_8h_source.html#l00546">546</a> of file <a class="el" href="os-c-decls_8h_source.html">os-c-decls.h</a>.</p>
 
 </div>
 </div>
@@ -224,7 +223,7 @@ Public Attributes</h2></td></tr>
 <p>Address of the user defined storage for the thread stack. </p>
 <p>If <code>NULL</code>, the default is to dynamically allocate the stack. </p>
 
-<p class="definition">Definition at line <a class="el" href="os-c-decls_8h_source.html#l00512">512</a> of file <a class="el" href="os-c-decls_8h_source.html">os-c-decls.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-decls_8h_source.html#l00520">520</a> of file <a class="el" href="os-c-decls_8h_source.html">os-c-decls.h</a>.</p>
 
 </div>
 </div>
@@ -244,7 +243,7 @@ Public Attributes</h2></td></tr>
 <p>If 0, the default is <code><a class="el" href="group__cmsis-plus-rtos-c-thread.html#gaeb909418faf136e8830ba94e8e52f353" title="Get the default stack size.">os_thread_stack_get_default_size()</a></code>.</p>
 <p>A convenient and explicit variant to this attribute is to call <code>os_thread_stack_set_default_size ()</code> just before creating the thread. However mind setting this from different threads at the same time. </p>
 
-<p class="definition">Definition at line <a class="el" href="os-c-decls_8h_source.html#l00526">526</a> of file <a class="el" href="os-c-decls_8h_source.html">os-c-decls.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-c-decls_8h_source.html#l00534">534</a> of file <a class="el" href="os-c-decls_8h_source.html">os-c-decls.h</a>.</p>
 
 </div>
 </div>

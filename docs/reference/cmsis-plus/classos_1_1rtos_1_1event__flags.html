@@ -18,7 +18,6 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="common-custom.css" rel="stylesheet" type="text/css"/>
 <link href="cards.css" rel="stylesheet" type="text/css"/>
 <!-- Awesome Theme Begin -->
@@ -255,12 +254,12 @@ Static Public Attributes</h2></td></tr>
 <div class="line">  <span class="comment">// ...</span></div>
 <div class="line">  <span class="comment">// Do something else.</span></div>
 <div class="line">}</div>
-<div class="ttc" id="aclassos_1_1rtos_1_1event__flags_html"><div class="ttname"><a href="classos_1_1rtos_1_1event__flags.html">os::rtos::event_flags</a></div><div class="ttdoc">Synchronised event flags.</div><div class="ttdef"><b>Definition</b> <a href="os-evflags_8h_source.html#l00055">os-evflags.h:56</a></div></div>
-<div class="ttc" id="aclassos_1_1rtos_1_1event__flags_html_a10719b53b5de1992b71d83c5dd4b891e"><div class="ttname"><a href="classos_1_1rtos_1_1event__flags.html#a10719b53b5de1992b71d83c5dd4b891e">os::rtos::event_flags::wait</a></div><div class="ttdeci">result_t wait(flags::mask_t mask, flags::mask_t *oflags, flags::mode_t mode=flags::mode::all|flags::mode::clear)</div><div class="ttdoc">Wait for event flags.</div><div class="ttdef"><b>Definition</b> <a href="os-evflags_8cpp_source.html#l00245">os-evflags.cpp:245</a></div></div>
-<div class="ttc" id="aclassos_1_1rtos_1_1event__flags_html_af63fd5c6a4c59327f76ea2ac16becf3d"><div class="ttname"><a href="classos_1_1rtos_1_1event__flags.html#af63fd5c6a4c59327f76ea2ac16becf3d">os::rtos::event_flags::raise</a></div><div class="ttdeci">result_t raise(flags::mask_t mask, flags::mask_t *oflags=nullptr)</div><div class="ttdoc">Raise event flags.</div><div class="ttdef"><b>Definition</b> <a href="os-evflags_8cpp_source.html#l00547">os-evflags.cpp:547</a></div></div>
+<div class="ttc" id="aclassos_1_1rtos_1_1event__flags_html"><div class="ttname"><a href="classos_1_1rtos_1_1event__flags.html">os::rtos::event_flags</a></div><div class="ttdoc">Synchronised event flags.</div><div class="ttdef"><b>Definition</b> <a href="os-evflags_8h_source.html#l00065">os-evflags.h:66</a></div></div>
+<div class="ttc" id="aclassos_1_1rtos_1_1event__flags_html_a10719b53b5de1992b71d83c5dd4b891e"><div class="ttname"><a href="classos_1_1rtos_1_1event__flags.html#a10719b53b5de1992b71d83c5dd4b891e">os::rtos::event_flags::wait</a></div><div class="ttdeci">result_t wait(flags::mask_t mask, flags::mask_t *oflags, flags::mode_t mode=flags::mode::all|flags::mode::clear)</div><div class="ttdoc">Wait for event flags.</div><div class="ttdef"><b>Definition</b> <a href="os-evflags_8cpp_source.html#l00251">os-evflags.cpp:251</a></div></div>
+<div class="ttc" id="aclassos_1_1rtos_1_1event__flags_html_af63fd5c6a4c59327f76ea2ac16becf3d"><div class="ttname"><a href="classos_1_1rtos_1_1event__flags.html#af63fd5c6a4c59327f76ea2ac16becf3d">os::rtos::event_flags::raise</a></div><div class="ttdeci">result_t raise(flags::mask_t mask, flags::mask_t *oflags=nullptr)</div><div class="ttdoc">Raise event flags.</div><div class="ttdef"><b>Definition</b> <a href="os-evflags_8cpp_source.html#l00553">os-evflags.cpp:553</a></div></div>
 </div><!-- fragment --><dl class="section user"><dt>POSIX compatibility</dt><dd>No POSIX similar functionality identified. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-evflags_8h_source.html#l00055">55</a> of file <a class="el" href="os-evflags_8h_source.html">os-evflags.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-evflags_8h_source.html#l00065">65</a> of file <a class="el" href="os-evflags_8h_source.html">os-evflags.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6916d0c8b77fc7c41d172c9d21158c04" name="a6916d0c8b77fc7c41d172c9d21158c04"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6916d0c8b77fc7c41d172c9d21158c04">&#9670;&#160;</a></span>event_flags() <span class="overload">[1/2]</span></h2>
@@ -291,7 +290,7 @@ Static Public Attributes</h2></td></tr>
 <p>If the <em>attr</em> attributes are modified <b>after</b> the <a class="el" href="classos_1_1rtos_1_1event__flags.html" title="Synchronised event flags.">event_flags</a> creation, the <a class="el" href="classos_1_1rtos_1_1event__flags.html" title="Synchronised event flags.">event_flags</a> attributes shall not be affected.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00131">131</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00137">137</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
 
 </div>
 </div>
@@ -335,7 +334,7 @@ Static Public Attributes</h2></td></tr>
 <p>If the <em>attr</em> attributes are modified <b>after</b> the <a class="el" href="classos_1_1rtos_1_1event__flags.html" title="Synchronised event flags.">event_flags</a> creation, the <a class="el" href="classos_1_1rtos_1_1event__flags.html" title="Synchronised event flags.">event_flags</a> attributes shall not be affected.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00165">165</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00171">171</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
 
 </div>
 </div>
@@ -359,7 +358,7 @@ Static Public Attributes</h2></td></tr>
 <p>It shall be safe to destroy an initialised event flags object upon which no threads are currently blocked. Attempting to destroy an event flags object upon which other threads are currently blocked results in undefined behaviour.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00205">205</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00211">211</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
 
 </div>
 </div>
@@ -407,7 +406,7 @@ Static Public Attributes</h2></td></tr>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00584">584</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00588">588</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
 
 </div>
 </div>
@@ -450,7 +449,7 @@ Static Public Attributes</h2></td></tr>
 <p>If the mask is <code><a class="el" href="namespaceos_1_1rtos_1_1flags.html#a096d5e2918efd09347ff64e76d4b9125ae00cc70aef8c5b5bbd8998096f1317e8" title="Special mask to represent any flag.">flags::any</a></code>, return the status of all event flags, without any masking or subsequent clearing.</p>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00623">623</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00627">627</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
 
 </div>
 </div>
@@ -484,7 +483,7 @@ Static Public Attributes</h2></td></tr>
 <p>All objects return a non-null string; anonymous objects return <code>"-"</code>.</p>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-decls_8h_source.html#l00760">760</a> of file <a class="el" href="os-decls_8h_source.html">os-decls.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-decls_8h_source.html#l00774">774</a> of file <a class="el" href="os-decls_8h_source.html">os-decls.h</a>.</p>
 
 </div>
 </div>
@@ -537,7 +536,7 @@ Static Public Attributes</h2></td></tr>
 <p>The storage is deallocated using the RTOS system allocator.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00134">134</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00137">137</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
 
 </div>
 </div>
@@ -589,7 +588,7 @@ Static Public Attributes</h2></td></tr>
 <p>The storage is deallocated using the RTOS system allocator.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00155">155</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00158">158</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
 
 </div>
 </div>
@@ -629,7 +628,7 @@ Static Public Attributes</h2></td></tr>
 <p>The storage is allocated using the RTOS system allocator.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00056">56</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00059">59</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
 
 </div>
 </div>
@@ -680,7 +679,7 @@ Static Public Attributes</h2></td></tr>
 <p>The storage is allocated using the RTOS system allocator.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00093">93</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00096">96</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
 
 </div>
 </div>
@@ -720,7 +719,7 @@ Static Public Attributes</h2></td></tr>
 <p>The storage is allocated using the RTOS system allocator.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00074">74</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00077">77</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
 
 </div>
 </div>
@@ -771,7 +770,7 @@ Static Public Attributes</h2></td></tr>
 <p>The storage is allocated using the RTOS system allocator.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00110">110</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00113">113</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
 
 </div>
 </div>
@@ -847,7 +846,7 @@ Static Public Attributes</h2></td></tr>
 <p>Set more bits in the thread current signal mask. Use OR at bit-mask level. Wake-up all waiting threads, if any.</p>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00547">547</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00553">553</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
 
 </div>
 </div>
@@ -921,7 +920,7 @@ Static Public Attributes</h2></td></tr>
 <p>If the <a class="el" href="namespaceos_1_1rtos_1_1flags_1_1mode.html#a1472154078ef02cfa5f62ae1ca50758aa71559e3634890b5547e62ff93160ac3a" title="Ask for flags to be cleared after read.">flags::mode::clear</a> bit is set, the event flags that are returned are automatically cleared.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00430">430</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00436">436</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
 
 </div>
 </div>
@@ -979,7 +978,7 @@ Static Public Attributes</h2></td></tr>
 <p>The function does not blocks, if the expected event flags are not raised, but returns EGAIN.</p>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00348">348</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00354">354</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
 
 </div>
 </div>
@@ -1041,7 +1040,7 @@ Static Public Attributes</h2></td></tr>
 <p>If the <a class="el" href="namespaceos_1_1rtos_1_1flags_1_1mode.html#a1472154078ef02cfa5f62ae1ca50758aa71559e3634890b5547e62ff93160ac3a" title="Ask for flags to be cleared after read.">flags::mode::clear</a> bit is set, the event flags that are returned are automatically cleared.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00245">245</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00251">251</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
 
 </div>
 </div>
@@ -1072,7 +1071,7 @@ Static Public Attributes</h2></td></tr>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00653">653</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-evflags_8cpp_source.html#l00655">655</a> of file <a class="el" href="os-evflags_8cpp_source.html">os-evflags.cpp</a>.</p>
 
 </div>
 </div>

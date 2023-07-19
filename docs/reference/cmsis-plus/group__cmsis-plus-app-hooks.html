@@ -18,7 +18,6 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="common-custom.css" rel="stylesheet" type="text/css"/>
 <link href="cards.css" rel="stylesheet" type="text/css"/>
 <!-- Awesome Theme Begin -->
@@ -248,7 +247,7 @@ $(document).ready(function(){initNavTree('group__cmsis-plus-app-hooks.html','');
 <p>To reach this location, the reset stack must point to a valid internal RAM area.</p>
 <p>Debugging new startup configurations usually begins with placing a breakpoint at <code><a class="el" href="group__cmsis-plus-app-hooks.html#ga8b67a6ff3f33fae9b3f1b142005c0bc2" title="The standard C application entry point.">_start()</a></code>, and stepping through the routine. </p>
 
-<p class="definition">Definition at line <a class="el" href="startup_8cpp_source.html#l00258">258</a> of file <a class="el" href="startup_8cpp_source.html">startup.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="startup_8cpp_source.html#l00264">264</a> of file <a class="el" href="startup_8cpp_source.html">startup.cpp</a>.</p>
 
 </div>
 </div>
@@ -276,7 +275,7 @@ $(document).ready(function(){initNavTree('group__cmsis-plus-app-hooks.html','');
 <p>However, for special memory managers, which do not coalesce automatically, it might be possible to first try to coalesce. If this succeeds, this call can return, and the allocation will be resumed.</p>
 <dl class="section note"><dt>Note</dt><dd>Since most allocations are done in critical sections, this function is very likely to be called with the scheduler locked. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="initialise-free-store_8cpp_source.html#l00293">293</a> of file <a class="el" href="initialise-free-store_8cpp_source.html">initialise-free-store.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="initialise-free-store_8cpp_source.html#l00299">299</a> of file <a class="el" href="initialise-free-store_8cpp_source.html">initialise-free-store.cpp</a>.</p>
 
 </div>
 </div>
@@ -310,7 +309,7 @@ $(document).ready(function(){initNavTree('group__cmsis-plus-app-hooks.html','');
 <p>This function is executed by the idle thread on each iteration, and must limit complexity to reasonably levels.</p>
 <p>If the user function decides not to enter a power saving mode, it must return <code>false</code>, which will make the idle thread proceed as usual, by entering a shallow sleep waiting for the next interrupt. </p>
 
-<p class="definition">Definition at line <a class="el" href="os-idle_8cpp_source.html#l00063">63</a> of file <a class="el" href="os-idle_8cpp_source.html">os-idle.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-idle_8cpp_source.html#l00069">69</a> of file <a class="el" href="os-idle_8cpp_source.html">os-idle.cpp</a>.</p>
 
 </div>
 </div>
@@ -338,7 +337,7 @@ $(document).ready(function(){initNavTree('group__cmsis-plus-app-hooks.html','');
 <p>However, for special memory managers, which do not coalesce automatically, it might be possible to first try to coalesce. If this succeeds, this call can return, and the allocation will be resumed.</p>
 <dl class="section note"><dt>Note</dt><dd>Since most allocations are done in critical sections, this function is very likely to be called with the scheduler locked. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="initialise-free-store_8cpp_source.html#l00316">316</a> of file <a class="el" href="initialise-free-store_8cpp_source.html">initialise-free-store.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="initialise-free-store_8cpp_source.html#l00322">322</a> of file <a class="el" href="initialise-free-store_8cpp_source.html">initialise-free-store.cpp</a>.</p>
 
 </div>
 </div>
@@ -399,7 +398,7 @@ $(document).ready(function(){initNavTree('group__cmsis-plus-app-hooks.html','');
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="startup_8cpp_source.html#l00413">413</a> of file <a class="el" href="startup_8cpp_source.html">startup.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="startup_8cpp_source.html#l00419">419</a> of file <a class="el" href="startup_8cpp_source.html">startup.cpp</a>.</p>
 
 </div>
 </div>
@@ -464,7 +463,7 @@ $(document).ready(function(){initNavTree('group__cmsis-plus-app-hooks.html','');
 <p>It is called from <code><a class="el" href="group__cmsis-plus-app-hooks.html#ga8b67a6ff3f33fae9b3f1b142005c0bc2" title="The standard C application entry point.">_start()</a></code>, right after DATA &amp; BSS init, before the static constructors.</p>
 <p>The application can redefine it for more complex cases that require custom inits (before constructors), otherwise these inits can be done in <a class="el" href="os-main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Default implementation of main().">main()</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="initialize-hardware_8c_source.html#l00120">120</a> of file <a class="el" href="initialize-hardware_8c_source.html">initialize-hardware.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="initialize-hardware_8c_source.html#l00126">126</a> of file <a class="el" href="initialize-hardware_8c_source.html">initialize-hardware.c</a>.</p>
 
 </div>
 </div>
@@ -493,7 +492,7 @@ $(document).ready(function(){initNavTree('group__cmsis-plus-app-hooks.html','');
 <p>It is mandatory on platforms like Kinetis, which start with the watch dog enabled and require an early sequence to disable it.</p>
 <p>Also useful on platform with external RAM, that need to be initialised before filling the BSS section. </p>
 
-<p class="definition">Definition at line <a class="el" href="initialize-hardware_8c_source.html#l00060">60</a> of file <a class="el" href="initialize-hardware_8c_source.html">initialize-hardware.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="initialize-hardware_8c_source.html#l00066">66</a> of file <a class="el" href="initialize-hardware_8c_source.html">initialize-hardware.c</a>.</p>
 
 </div>
 </div>
@@ -544,7 +543,7 @@ $(document).ready(function(){initNavTree('group__cmsis-plus-app-hooks.html','');
 <dl class="section user"><dt>Parameters</dt><dd>None. </dd></dl>
 <dl class="section user"><dt>Returns</dt><dd>Nothing. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-main_8cpp_source.html#l00187">187</a> of file <a class="el" href="os-main_8cpp_source.html">os-main.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-main_8cpp_source.html#l00193">193</a> of file <a class="el" href="os-main_8cpp_source.html">os-main.cpp</a>.</p>
 
 </div>
 </div>

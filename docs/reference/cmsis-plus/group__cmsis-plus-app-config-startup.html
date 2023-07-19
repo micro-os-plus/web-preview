@@ -18,7 +18,6 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="common-custom.css" rel="stylesheet" type="text/css"/>
 <link href="cards.css" rel="stylesheet" type="text/css"/>
 <!-- Awesome Theme Begin -->
@@ -169,7 +168,7 @@ $(document).ready(function(){initNavTree('group__cmsis-plus-app-config-startup.h
 <p>To validate that the start-up properly initialised these areas, some guard words are defined at the begin/end of the .bss and .data areas, and are explicitly checked.</p>
 <dl class="section note"><dt>Note</dt><dd>This option is available only if DEBUG is also defined. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-app-config_8h_source.html#l00516">516</a> of file <a class="el" href="os-app-config_8h_source.html">os-app-config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-app-config_8h_source.html#l00512">512</a> of file <a class="el" href="os-app-config_8h_source.html">os-app-config.h</a>.</p>
 
 </div>
 </div>
@@ -188,7 +187,7 @@ $(document).ready(function(){initNavTree('group__cmsis-plus-app-config-startup.h
 <p>Disable setting MSP during startup. </p>
 <p>On Cortex-M, during startup, the MSP register is set to the stack pointer available in the first word pointed by VTOR. Some platforms run custom firmware (like Nordic's soft radio) that take control of VTOR and set it to a location which does point to the valid interrupt stack. It is perfectly acceptable to not reset MSP, and leave it to the location where it reached before switching to PSP, just that some stack space is wasted. </p>
 
-<p class="definition">Definition at line <a class="el" href="os-app-config_8h_source.html#l00584">584</a> of file <a class="el" href="os-app-config_8h_source.html">os-app-config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-app-config_8h_source.html#l00580">580</a> of file <a class="el" href="os-app-config_8h_source.html">os-app-config.h</a>.</p>
 
 </div>
 </div>
@@ -207,7 +206,7 @@ $(document).ready(function(){initNavTree('group__cmsis-plus-app-config-startup.h
 <p>Include definitions for the newlib system calls. </p>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>update after POSIX I/O is updated. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-app-config_8h_source.html#l00570">570</a> of file <a class="el" href="os-app-config_8h_source.html">os-app-config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-app-config_8h_source.html#l00566">566</a> of file <a class="el" href="os-app-config_8h_source.html">os-app-config.h</a>.</p>
 
 </div>
 </div>
@@ -226,7 +225,7 @@ $(document).ready(function(){initNavTree('group__cmsis-plus-app-config-startup.h
 <p>Include definitions for the standard POSIX system calls. </p>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>update after POSIX I/O is updated. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-app-config_8h_source.html#l00563">563</a> of file <a class="el" href="os-app-config_8h_source.html">os-app-config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-app-config_8h_source.html#l00559">559</a> of file <a class="el" href="os-app-config_8h_source.html">os-app-config.h</a>.</p>
 
 </div>
 </div>
@@ -244,7 +243,7 @@ $(document).ready(function(){initNavTree('group__cmsis-plus-app-config-startup.h
 
 <p>Always initialise the hardware FPU. </p>
 
-<p class="definition">Definition at line <a class="el" href="os-app-config_8h_source.html#l00521">521</a> of file <a class="el" href="os-app-config_8h_source.html">os-app-config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-app-config_8h_source.html#l00517">517</a> of file <a class="el" href="os-app-config_8h_source.html">os-app-config.h</a>.</p>
 
 </div>
 </div>
@@ -262,7 +261,7 @@ $(document).ready(function(){initNavTree('group__cmsis-plus-app-config-startup.h
 
 <p>Initialise multiple RAM sections. </p>
 
-<p class="definition">Definition at line <a class="el" href="os-app-config_8h_source.html#l00500">500</a> of file <a class="el" href="os-app-config_8h_source.html">os-app-config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-app-config_8h_source.html#l00496">496</a> of file <a class="el" href="os-app-config_8h_source.html">os-app-config.h</a>.</p>
 
 </div>
 </div>
@@ -283,7 +282,7 @@ $(document).ready(function(){initNavTree('group__cmsis-plus-app-config-startup.h
 <p>To simplify the implementation and avoid dynamic allocations, a static array is used. This option defines the size of this array.</p>
 <dl class="section user"><dt>Default</dt><dd>20. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-app-config_8h_source.html#l00556">556</a> of file <a class="el" href="os-app-config_8h_source.html">os-app-config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-app-config_8h_source.html#l00552">552</a> of file <a class="el" href="os-app-config_8h_source.html">os-app-config.h</a>.</p>
 
 </div>
 </div>
@@ -304,7 +303,7 @@ $(document).ready(function(){initNavTree('group__cmsis-plus-app-config-startup.h
 <p>This requires the entire behaviour of the system calls to be changed and most calls to be forwarded to the host. The application is transformed into a 'fully semihosted' application.</p>
 <p>One major difference from a regular embedded application is that a fully semihosted test application does not run in an endless loop, but terminates, and the test result must be passed back to the host system, via the exit code and optionally via a detailed status file. </p>
 
-<p class="definition">Definition at line <a class="el" href="os-app-config_8h_source.html#l00541">541</a> of file <a class="el" href="os-app-config_8h_source.html">os-app-config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-app-config_8h_source.html#l00537">537</a> of file <a class="el" href="os-app-config_8h_source.html">os-app-config.h</a>.</p>
 
 </div>
 </div>

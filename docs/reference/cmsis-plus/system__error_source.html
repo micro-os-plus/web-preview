@@ -18,7 +18,6 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="common-custom.css" rel="stylesheet" type="text/css"/>
 <link href="cards.css" rel="stylesheet" type="text/css"/>
 <!-- Awesome Theme Begin -->
@@ -162,30 +161,40 @@ $(document).ready(function(){initNavTree('system__error_source.html',''); initRe
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">// ----------------------------------------------------------------------------</span></div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceos.html">os</a></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>{</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  <span class="keyword">namespace </span>estd</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  {</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="comment">// ------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    [[noreturn]] <span class="keywordtype">void</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_function" href="namespaceos_1_1estd.html#a951c9b2c6401f3a3bb40d4b2c3213f46">__throw_system_error</a> (<span class="keywordtype">int</span> ev, <span class="keyword">const</span> <span class="keywordtype">char</span>* what_arg);</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#if 1</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    [[noreturn]] <span class="keywordtype">void</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_function" href="namespaceos_1_1estd.html#ac596ba385da43ceb3605f700ea538ce5">__throw_cmsis_error</a> (<span class="keywordtype">int</span> ev, <span class="keyword">const</span> <span class="keywordtype">char</span>* what_arg);</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>  <span class="comment">// --------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  } <span class="comment">/* namespace estd */</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>} <span class="comment">/* namespace os */</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">// ----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#endif </span><span class="comment">/* CMSIS_PLUS_ESTD_SYSTEM_ERROR_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="anamespaceos_1_1estd_html_a951c9b2c6401f3a3bb40d4b2c3213f46"><div class="ttname"><a href="namespaceos_1_1estd.html#a951c9b2c6401f3a3bb40d4b2c3213f46">os::estd::__throw_system_error</a></div><div class="ttdeci">void __throw_system_error(int ev, const char *what_arg)</div><div class="ttdef"><b>Definition</b> <a href="system-error_8cpp_source.html#l00111">system-error.cpp:111</a></div></div>
-<div class="ttc" id="anamespaceos_1_1estd_html_ac596ba385da43ceb3605f700ea538ce5"><div class="ttname"><a href="namespaceos_1_1estd.html#ac596ba385da43ceb3605f700ea538ce5">os::estd::__throw_cmsis_error</a></div><div class="ttdeci">void __throw_cmsis_error(int ev, const char *what_arg)</div><div class="ttdef"><b>Definition</b> <a href="system-error_8cpp_source.html#l00123">system-error.cpp:123</a></div></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#pragma GCC diagnostic push</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#if defined(__clang__)</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#pragma clang diagnostic ignored &quot;-Wc++98-compat&quot;</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">// ----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceos.html">os</a></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>{</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  <span class="keyword">namespace </span>estd</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="comment">// ------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    [[noreturn]] <span class="keywordtype">void</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <a class="code hl_function" href="namespaceos_1_1estd.html#a951c9b2c6401f3a3bb40d4b2c3213f46">__throw_system_error</a> (<span class="keywordtype">int</span> ev, <span class="keyword">const</span> <span class="keywordtype">char</span>* what_arg);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">#if 1</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    [[noreturn]] <span class="keywordtype">void</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <a class="code hl_function" href="namespaceos_1_1estd.html#ac596ba385da43ceb3605f700ea538ce5">__throw_cmsis_error</a> (<span class="keywordtype">int</span> ev, <span class="keyword">const</span> <span class="keywordtype">char</span>* what_arg);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>  <span class="comment">// --------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>  } <span class="comment">/* namespace estd */</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>} <span class="comment">/* namespace os */</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">#pragma GCC diagnostic pop</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">// ----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor">#endif </span><span class="comment">/* CMSIS_PLUS_ESTD_SYSTEM_ERROR_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="anamespaceos_1_1estd_html_a951c9b2c6401f3a3bb40d4b2c3213f46"><div class="ttname"><a href="namespaceos_1_1estd.html#a951c9b2c6401f3a3bb40d4b2c3213f46">os::estd::__throw_system_error</a></div><div class="ttdeci">void __throw_system_error(int ev, const char *what_arg)</div><div class="ttdef"><b>Definition</b> <a href="system-error_8cpp_source.html#l00118">system-error.cpp:118</a></div></div>
+<div class="ttc" id="anamespaceos_1_1estd_html_ac596ba385da43ceb3605f700ea538ce5"><div class="ttname"><a href="namespaceos_1_1estd.html#ac596ba385da43ceb3605f700ea538ce5">os::estd::__throw_cmsis_error</a></div><div class="ttdeci">void __throw_cmsis_error(int ev, const char *what_arg)</div><div class="ttdef"><b>Definition</b> <a href="system-error_8cpp_source.html#l00131">system-error.cpp:131</a></div></div>
 <div class="ttc" id="anamespaceos_html"><div class="ttname"><a href="namespaceos.html">os</a></div><div class="ttdoc">System namespace.</div></div>
 <div class="ttc" id="asystem__error_html"><div class="ttname"><a href="system__error.html">system_error</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

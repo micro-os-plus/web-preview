@@ -18,7 +18,6 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="common-custom.css" rel="stylesheet" type="text/css"/>
 <link href="cards.css" rel="stylesheet" type="text/css"/>
 <!-- Awesome Theme Begin -->
@@ -165,7 +164,7 @@ Public Types</h2></td></tr>
 <p>When a thread makes a call to <code><a class="el" href="classos_1_1rtos_1_1mutex.html#a0fd459d4da59662256bbd807b73c263e" title="Lock/acquire the mutex.">mutex::lock()</a></code>, the mutex was initialised with the protocol attribute having the value <code><a class="el" href="structos_1_1rtos_1_1mutex_1_1protocol.html#a0a3a2506459afaf7cb613aaf1fd875a9ac288479da49bf12ecbb0e31cb4d5fde4" title="Inherit priority from highest priority thread.">mutex::protocol::inherit</a></code>, when the calling thread is blocked because the mutex is owned by another thread, that owner thread shall inherit the priority level of the calling thread as long as it continues to own the mutex. The implementation shall update its execution priority to the maximum of its assigned priority and all its inherited priorities. Furthermore, if this owner thread itself becomes blocked on another mutex with the protocol attribute having the value <code><a class="el" href="structos_1_1rtos_1_1mutex_1_1protocol.html#a0a3a2506459afaf7cb613aaf1fd875a9ac288479da49bf12ecbb0e31cb4d5fde4" title="Inherit priority from highest priority thread.">mutex::protocol::inherit</a></code>, the same priority inheritance effect shall be propagated to this other owner thread, in a recursive manner.</p>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Inspired by <a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/pthread_mutexattr_getprotocol.html"><code>pthread_mutexattr_setprotocol()</code></a> from <a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/pthread.h.html"><code>&lt;pthread.h&gt;</code></a> (<a href="http://pubs.opengroup.org/onlinepubs/9699919799/nframe.html">IEEE Std 1003.1, 2013 Edition</a>). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mutex_8h_source.html#l00068">68</a> of file <a class="el" href="os-mutex_8h_source.html">os-mutex.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mutex_8h_source.html#l00079">79</a> of file <a class="el" href="os-mutex_8h_source.html">os-mutex.h</a>.</p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a0a3a2506459afaf7cb613aaf1fd875a9" name="a0a3a2506459afaf7cb613aaf1fd875a9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0a3a2506459afaf7cb613aaf1fd875a9">&#9670;&#160;</a></span>anonymous enum</h2>
@@ -193,7 +192,7 @@ Public Types</h2></td></tr>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="os-mutex_8h_source.html#l00073">73</a> of file <a class="el" href="os-mutex_8h_source.html">os-mutex.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mutex_8h_source.html#l00084">84</a> of file <a class="el" href="os-mutex_8h_source.html">os-mutex.h</a>.</p>
 
 </div>
 </div>

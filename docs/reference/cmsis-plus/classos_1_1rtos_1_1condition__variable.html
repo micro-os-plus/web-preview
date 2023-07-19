@@ -18,7 +18,6 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="common-custom.css" rel="stylesheet" type="text/css"/>
 <link href="cards.css" rel="stylesheet" type="text/css"/>
 <!-- Awesome Theme Begin -->
@@ -261,15 +260,15 @@ Static Public Attributes</h2></td></tr>
 <div class="line">  mx.<a class="code hl_function" href="classos_1_1rtos_1_1mutex.html#afeb6e546c4dc95c96d8f81aba64638cb">unlock</a>(mx);</div>
 <div class="line">  <span class="comment">// Do something else.</span></div>
 <div class="line">}</div>
-<div class="ttc" id="aclassos_1_1rtos_1_1condition__variable_html"><div class="ttname"><a href="classos_1_1rtos_1_1condition__variable.html">os::rtos::condition_variable</a></div><div class="ttdoc">POSIX compliant condition variable.</div><div class="ttdef"><b>Definition</b> <a href="os-condvar_8h_source.html#l00051">os-condvar.h:52</a></div></div>
+<div class="ttc" id="aclassos_1_1rtos_1_1condition__variable_html"><div class="ttname"><a href="classos_1_1rtos_1_1condition__variable.html">os::rtos::condition_variable</a></div><div class="ttdoc">POSIX compliant condition variable.</div><div class="ttdef"><b>Definition</b> <a href="os-condvar_8h_source.html#l00061">os-condvar.h:62</a></div></div>
 <div class="ttc" id="aclassos_1_1rtos_1_1condition__variable_html_a2cee82ef11f1690e478733a1d7abe766"><div class="ttname"><a href="classos_1_1rtos_1_1condition__variable.html#a2cee82ef11f1690e478733a1d7abe766">os::rtos::condition_variable::signal</a></div><div class="ttdeci">result_t signal(void)</div><div class="ttdoc">Notify one thread waiting for a condition variable.</div></div>
 <div class="ttc" id="aclassos_1_1rtos_1_1condition__variable_html_ac920555b675c7778d8db780307fdcd3d"><div class="ttname"><a href="classos_1_1rtos_1_1condition__variable.html#ac920555b675c7778d8db780307fdcd3d">os::rtos::condition_variable::wait</a></div><div class="ttdeci">result_t wait(mutex &amp;mutex)</div><div class="ttdoc">Wait for a condition variable to be notified.</div></div>
-<div class="ttc" id="aclassos_1_1rtos_1_1mutex_html"><div class="ttname"><a href="classos_1_1rtos_1_1mutex.html">os::rtos::mutex</a></div><div class="ttdoc">POSIX compliant mutex.</div><div class="ttdef"><b>Definition</b> <a href="os-mutex_8h_source.html#l00053">os-mutex.h:54</a></div></div>
-<div class="ttc" id="aclassos_1_1rtos_1_1mutex_html_a0fd459d4da59662256bbd807b73c263e"><div class="ttname"><a href="classos_1_1rtos_1_1mutex.html#a0fd459d4da59662256bbd807b73c263e">os::rtos::mutex::lock</a></div><div class="ttdeci">result_t lock(void)</div><div class="ttdoc">Lock/acquire the mutex.</div><div class="ttdef"><b>Definition</b> <a href="os-mutex_8cpp_source.html#l00927">os-mutex.cpp:927</a></div></div>
-<div class="ttc" id="aclassos_1_1rtos_1_1mutex_html_afeb6e546c4dc95c96d8f81aba64638cb"><div class="ttname"><a href="classos_1_1rtos_1_1mutex.html#afeb6e546c4dc95c96d8f81aba64638cb">os::rtos::mutex::unlock</a></div><div class="ttdeci">result_t unlock(void)</div><div class="ttdoc">Unlock/release the mutex.</div><div class="ttdef"><b>Definition</b> <a href="os-mutex_8cpp_source.html#l01284">os-mutex.cpp:1284</a></div></div>
+<div class="ttc" id="aclassos_1_1rtos_1_1mutex_html"><div class="ttname"><a href="classos_1_1rtos_1_1mutex.html">os::rtos::mutex</a></div><div class="ttdoc">POSIX compliant mutex.</div><div class="ttdef"><b>Definition</b> <a href="os-mutex_8h_source.html#l00064">os-mutex.h:65</a></div></div>
+<div class="ttc" id="aclassos_1_1rtos_1_1mutex_html_a0fd459d4da59662256bbd807b73c263e"><div class="ttname"><a href="classos_1_1rtos_1_1mutex.html#a0fd459d4da59662256bbd807b73c263e">os::rtos::mutex::lock</a></div><div class="ttdeci">result_t lock(void)</div><div class="ttdoc">Lock/acquire the mutex.</div><div class="ttdef"><b>Definition</b> <a href="os-mutex_8cpp_source.html#l00953">os-mutex.cpp:953</a></div></div>
+<div class="ttc" id="aclassos_1_1rtos_1_1mutex_html_afeb6e546c4dc95c96d8f81aba64638cb"><div class="ttname"><a href="classos_1_1rtos_1_1mutex.html#afeb6e546c4dc95c96d8f81aba64638cb">os::rtos::mutex::unlock</a></div><div class="ttdeci">result_t unlock(void)</div><div class="ttdoc">Unlock/release the mutex.</div><div class="ttdef"><b>Definition</b> <a href="os-mutex_8cpp_source.html#l01310">os-mutex.cpp:1310</a></div></div>
 </div><!-- fragment --><dl class="section user"><dt>POSIX compatibility</dt><dd>Inspired by <code>pthread_cond_t</code> from <a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/pthread.h.html"><code>&lt;pthread.h&gt;</code></a> (<a href="http://pubs.opengroup.org/onlinepubs/9699919799/nframe.html">IEEE Std 1003.1, 2013 Edition</a>). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-condvar_8h_source.html#l00051">51</a> of file <a class="el" href="os-condvar_8h_source.html">os-condvar.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-condvar_8h_source.html#l00061">61</a> of file <a class="el" href="os-condvar_8h_source.html">os-condvar.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad61db5c36f5744c8d020dac53a55cd65" name="ad61db5c36f5744c8d020dac53a55cd65"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad61db5c36f5744c8d020dac53a55cd65">&#9670;&#160;</a></span>condition_variable() <span class="overload">[1/2]</span></h2>
@@ -308,7 +307,7 @@ Static Public Attributes</h2></td></tr>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines.</dd></dl>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Inspired by <a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/pthread_cond_destroy.html"><code>pthread_cond_init()</code></a> from <a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/pthread.h.html"><code>&lt;pthread.h&gt;</code></a> (<a href="http://pubs.opengroup.org/onlinepubs/9699919799/nframe.html">IEEE Std 1003.1, 2013 Edition</a>). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-condvar_8cpp_source.html#l00232">232</a> of file <a class="el" href="os-condvar_8cpp_source.html">os-condvar.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-condvar_8cpp_source.html#l00238">238</a> of file <a class="el" href="os-condvar_8cpp_source.html">os-condvar.cpp</a>.</p>
 
 </div>
 </div>
@@ -434,7 +433,7 @@ Static Public Attributes</h2></td></tr>
 <p>All objects return a non-null string; anonymous objects return <code>"-"</code>.</p>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-decls_8h_source.html#l00760">760</a> of file <a class="el" href="os-decls_8h_source.html">os-decls.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-decls_8h_source.html#l00774">774</a> of file <a class="el" href="os-decls_8h_source.html">os-decls.h</a>.</p>
 
 </div>
 </div>
@@ -487,7 +486,7 @@ Static Public Attributes</h2></td></tr>
 <p>The storage is deallocated using the RTOS system allocator.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00134">134</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00137">137</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
 
 </div>
 </div>
@@ -539,7 +538,7 @@ Static Public Attributes</h2></td></tr>
 <p>The storage is deallocated using the RTOS system allocator.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00155">155</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00158">158</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
 
 </div>
 </div>
@@ -579,7 +578,7 @@ Static Public Attributes</h2></td></tr>
 <p>The storage is allocated using the RTOS system allocator.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00056">56</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00059">59</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
 
 </div>
 </div>
@@ -630,7 +629,7 @@ Static Public Attributes</h2></td></tr>
 <p>The storage is allocated using the RTOS system allocator.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00093">93</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00096">96</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
 
 </div>
 </div>
@@ -670,7 +669,7 @@ Static Public Attributes</h2></td></tr>
 <p>The storage is allocated using the RTOS system allocator.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00074">74</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00077">77</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
 
 </div>
 </div>
@@ -721,7 +720,7 @@ Static Public Attributes</h2></td></tr>
 <p>The storage is allocated using the RTOS system allocator.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00110">110</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00113">113</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
 
 </div>
 </div>
@@ -759,7 +758,7 @@ Static Public Attributes</h2></td></tr>
 </dl>
 <p>Identical condition variables should have the same memory address. </p>
 
-<p class="definition">Definition at line <a class="el" href="os-condvar_8h_source.html#l00326">326</a> of file <a class="el" href="os-condvar_8h_source.html">os-condvar.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-condvar_8h_source.html#l00336">336</a> of file <a class="el" href="os-condvar_8h_source.html">os-condvar.h</a>.</p>
 
 </div>
 </div>

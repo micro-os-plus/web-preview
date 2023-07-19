@@ -18,7 +18,6 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="common-custom.css" rel="stylesheet" type="text/css"/>
 <link href="cards.css" rel="stylesheet" type="text/css"/>
 <!-- Awesome Theme Begin -->
@@ -178,7 +177,7 @@ Public Attributes</h2></td></tr>
 <p>If the attributes are modified <b>after</b> the <a class="el" href="classos_1_1rtos_1_1message__queue.html" title="POSIX compliant message queue, using the default RTOS allocator.">message_queue</a> creation, the <a class="el" href="classos_1_1rtos_1_1message__queue.html" title="POSIX compliant message queue, using the default RTOS allocator.">message_queue</a> attributes shall not be affected.</p>
 <dl class="section user"><dt>POSIX compatibility</dt><dd>Inspired by <code>mq_attr</code> from <a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/mqueue.h.html">&lt;mqueue.h&gt;</a> (<a href="http://pubs.opengroup.org/onlinepubs/9699919799/nframe.html">IEEE Std 1003.1, 2013 Edition</a>). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mqueue_8h_source.html#l00142">142</a> of file <a class="el" href="os-mqueue_8h_source.html">os-mqueue.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mqueue_8h_source.html#l00153">153</a> of file <a class="el" href="os-mqueue_8h_source.html">os-mqueue.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7bde696df24d7a139eccab60a03351ba" name="a7bde696df24d7a139eccab60a03351ba"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7bde696df24d7a139eccab60a03351ba">&#9670;&#160;</a></span>attributes() <span class="overload">[1/3]</span></h2>
@@ -206,7 +205,7 @@ Public Attributes</h2></td></tr>
 <p>Construct a message queue attributes object instance. </p>
 <dl class="section user"><dt>Parameters</dt><dd>None. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mqueue_8h_source.html#l01257">1257</a> of file <a class="el" href="os-mqueue_8h_source.html">os-mqueue.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mqueue_8h_source.html#l01268">1268</a> of file <a class="el" href="os-mqueue_8h_source.html">os-mqueue.h</a>.</p>
 
 </div>
 </div>
@@ -367,7 +366,7 @@ Public Attributes</h2></td></tr>
 <p>It may be one of <code><a class="el" href="group__cmsis-plus-rtos-clock.html#gab46d0af461e8a8434153e068bc32dc5a" title="The system clock object instance.">os::rtos::sysclock</a></code>, <code><a class="el" href="group__cmsis-plus-rtos-clock.html#ga316a778e38336232ebf8bcff50d11f3a" title="The real time clock object instance.">os::rtos::rtclock</a></code>, or any other user object derived from class <code><a class="el" href="classos_1_1rtos_1_1clock.html" title="Generic clock.">os::rtos::clock</a></code>.</p>
 <p>If <code>nullptr</code>, the default clock is <code><a class="el" href="group__cmsis-plus-rtos-clock.html#gab46d0af461e8a8434153e068bc32dc5a" title="The system clock object instance.">os::rtos::sysclock</a></code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="os-decls_8h_source.html#l00615">615</a> of file <a class="el" href="os-decls_8h_source.html">os-decls.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-decls_8h_source.html#l00629">629</a> of file <a class="el" href="os-decls_8h_source.html">os-decls.h</a>.</p>
 
 </div>
 </div>
@@ -387,7 +386,7 @@ Public Attributes</h2></td></tr>
 <p>Set this variable to a user defined memory area large enough to store the message queue. Usually this is a statically allocated array of structures.</p>
 <p>The default value is <code>nullptr</code>, which means there is no user defined message queue. </p>
 
-<p class="definition">Definition at line <a class="el" href="os-mqueue_8h_source.html#l00188">188</a> of file <a class="el" href="os-mqueue_8h_source.html">os-mqueue.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mqueue_8h_source.html#l00199">199</a> of file <a class="el" href="os-mqueue_8h_source.html">os-mqueue.h</a>.</p>
 
 </div>
 </div>
@@ -407,7 +406,7 @@ Public Attributes</h2></td></tr>
 <p>The message queue size must match exactly the allocated size. It is used for validation; when the message queue is initialised, this size must be large enough to accommodate the desired message queue.</p>
 <p>If the <a class="el" href="classos_1_1rtos_1_1message__queue_1_1attributes.html#a7c679f6f48c4899a02d684e50d87b7d5">mq_queue_address</a> is <code>nullptr</code>, this variable is not checked, but it is recommended to leave it zero. </p>
 
-<p class="definition">Definition at line <a class="el" href="os-mqueue_8h_source.html#l00193">193</a> of file <a class="el" href="os-mqueue_8h_source.html">os-mqueue.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mqueue_8h_source.html#l00204">204</a> of file <a class="el" href="os-mqueue_8h_source.html">os-mqueue.h</a>.</p>
 
 </div>
 </div>

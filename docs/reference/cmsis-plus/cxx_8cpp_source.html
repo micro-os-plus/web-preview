@@ -18,7 +18,6 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="common-custom.css" rel="stylesheet" type="text/css"/>
 <link href="cards.css" rel="stylesheet" type="text/css"/>
 <!-- Awesome Theme Begin -->
@@ -147,62 +146,68 @@ $(document).ready(function(){initNavTree('cxx_8cpp_source.html',''); initResizab
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> * OTHER DEALINGS IN THE SOFTWARE.</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> */</span></div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#if defined(__ARM_EABI__)</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">// ----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#if defined(__clang__)</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#pragma clang diagnostic ignored &quot;-Wempty-translation-unit&quot;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &lt;cstdlib&gt;</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#include &lt;sys/types.h&gt;</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#include &lt;<a class="code" href="trace_8h.html">cmsis-plus/diag/trace.h</a>&gt;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">// ----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#if defined(__ARM_EABI__)</span></div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">// ----------------------------------------------------------------------------</span></div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">// These functions are redefined locally, to avoid references to some</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">// heavy implementations in the standard C++ library.</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="namespace____gnu__cxx.html">   41</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace____gnu__cxx.html">__gnu_cxx</a></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>{</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  [[noreturn]] <span class="keywordtype">void</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  <a class="code hl_function" href="namespace____gnu__cxx.html#af51888cedbc669a114cd79e39e0cd9be">__verbose_terminate_handler</a> ();</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  <span class="keywordtype">void</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="namespace____gnu__cxx.html#af51888cedbc669a114cd79e39e0cd9be">   47</a></span>  <a class="code hl_function" href="namespace____gnu__cxx.html#af51888cedbc669a114cd79e39e0cd9be">__verbose_terminate_handler</a> ()</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  {</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_function" href="trace_8h.html#af690ad866f65f64c9ca11ba6722d7974">trace_puts</a> (__func__);</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_function" href="exit_8c.html#a8dec7c95227ff149687066cf04029191">abort</a> ();</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="comment">/* NOTREACHED */</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  }</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>}</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">// ----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>{</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  [[noreturn]] <span class="keywordtype">void</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  <a class="code hl_function" href="cxx_8cpp.html#a6be7d9ce80c86f5178635fa86c2dd5e7">__cxa_pure_virtual</a> ();</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  <span class="keywordtype">void</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="cxx_8cpp.html#a6be7d9ce80c86f5178635fa86c2dd5e7">   63</a></span>  <a class="code hl_function" href="cxx_8cpp.html#a6be7d9ce80c86f5178635fa86c2dd5e7">__cxa_pure_virtual</a> ()</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>  {</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="comment">// Attempt to use a virtual function before object has been constructed</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <a class="code hl_function" href="trace_8h.html#af690ad866f65f64c9ca11ba6722d7974">trace_puts</a> (__func__);</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <a class="code hl_function" href="exit_8c.html#a8dec7c95227ff149687066cf04029191">abort</a> ();</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="comment">/* NOTREACHED */</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  }</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>}</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">// ----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="cxx_8cpp.html#a19df960d2907e9c08a720ae7683e632c">   74</a></span><span class="keywordtype">void</span> *<a class="code hl_variable" href="cxx_8cpp.html#a19df960d2907e9c08a720ae7683e632c">__dso_handle</a> __attribute__ ((weak));</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">// ----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#include &lt;cstdlib&gt;</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#include &lt;sys/types.h&gt;</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#include &lt;<a class="code" href="trace_8h.html">cmsis-plus/diag/trace.h</a>&gt;</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">// ----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">// These functions are redefined locally, to avoid references to some</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">// heavy implementations in the standard C++ library.</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="namespace____gnu__cxx.html">   47</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace____gnu__cxx.html">__gnu_cxx</a></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>{</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  [[noreturn]] <span class="keywordtype">void</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  <a class="code hl_function" href="namespace____gnu__cxx.html#af51888cedbc669a114cd79e39e0cd9be">__verbose_terminate_handler</a> ();</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  <span class="keywordtype">void</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="namespace____gnu__cxx.html#af51888cedbc669a114cd79e39e0cd9be">   53</a></span>  <a class="code hl_function" href="namespace____gnu__cxx.html#af51888cedbc669a114cd79e39e0cd9be">__verbose_terminate_handler</a> ()</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_function" href="trace_8h.html#af690ad866f65f64c9ca11ba6722d7974">trace_puts</a> (__func__);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_function" href="exit_8c.html#a8dec7c95227ff149687066cf04029191">abort</a> ();</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="comment">/* NOTREACHED */</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  }</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>}</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">// ----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>{</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>  [[noreturn]] <span class="keywordtype">void</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>  <a class="code hl_function" href="cxx_8cpp.html#a6be7d9ce80c86f5178635fa86c2dd5e7">__cxa_pure_virtual</a> ();</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>  <span class="keywordtype">void</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="cxx_8cpp.html#a6be7d9ce80c86f5178635fa86c2dd5e7">   69</a></span>  <a class="code hl_function" href="cxx_8cpp.html#a6be7d9ce80c86f5178635fa86c2dd5e7">__cxa_pure_virtual</a> ()</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>  {</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="comment">// Attempt to use a virtual function before object has been constructed</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <a class="code hl_function" href="trace_8h.html#af690ad866f65f64c9ca11ba6722d7974">trace_puts</a> (__func__);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <a class="code hl_function" href="exit_8c.html#a8dec7c95227ff149687066cf04029191">abort</a> ();</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="comment">/* NOTREACHED */</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  }</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>}</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="preprocessor">#endif </span><span class="comment">/* defined(__ARM_EABI__) */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="acxx_8cpp_html_a19df960d2907e9c08a720ae7683e632c"><div class="ttname"><a href="cxx_8cpp.html#a19df960d2907e9c08a720ae7683e632c">__dso_handle</a></div><div class="ttdeci">void * __dso_handle</div><div class="ttdef"><b>Definition</b> <a href="cxx_8cpp_source.html#l00074">cxx.cpp:74</a></div></div>
-<div class="ttc" id="acxx_8cpp_html_a6be7d9ce80c86f5178635fa86c2dd5e7"><div class="ttname"><a href="cxx_8cpp.html#a6be7d9ce80c86f5178635fa86c2dd5e7">__cxa_pure_virtual</a></div><div class="ttdeci">void __cxa_pure_virtual()</div><div class="ttdef"><b>Definition</b> <a href="cxx_8cpp_source.html#l00063">cxx.cpp:63</a></div></div>
-<div class="ttc" id="aexit_8c_html_a8dec7c95227ff149687066cf04029191"><div class="ttname"><a href="exit_8c.html#a8dec7c95227ff149687066cf04029191">abort</a></div><div class="ttdeci">void abort(void)</div><div class="ttdef"><b>Definition</b> <a href="exit_8c_source.html#l00052">exit.c:52</a></div></div>
-<div class="ttc" id="anamespace____gnu__cxx_html"><div class="ttname"><a href="namespace____gnu__cxx.html">__gnu_cxx</a></div><div class="ttdef"><b>Definition</b> <a href="cxx_8cpp_source.html#l00041">cxx.cpp:42</a></div></div>
-<div class="ttc" id="anamespace____gnu__cxx_html_af51888cedbc669a114cd79e39e0cd9be"><div class="ttname"><a href="namespace____gnu__cxx.html#af51888cedbc669a114cd79e39e0cd9be">__gnu_cxx::__verbose_terminate_handler</a></div><div class="ttdeci">void __verbose_terminate_handler()</div><div class="ttdef"><b>Definition</b> <a href="cxx_8cpp_source.html#l00047">cxx.cpp:47</a></div></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">// ----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="cxx_8cpp.html#a19df960d2907e9c08a720ae7683e632c">   80</a></span><span class="keywordtype">void</span> *<a class="code hl_variable" href="cxx_8cpp.html#a19df960d2907e9c08a720ae7683e632c">__dso_handle</a> __attribute__ ((weak));</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">// ----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="preprocessor">#endif </span><span class="comment">/* defined(__ARM_EABI__) */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="acxx_8cpp_html_a19df960d2907e9c08a720ae7683e632c"><div class="ttname"><a href="cxx_8cpp.html#a19df960d2907e9c08a720ae7683e632c">__dso_handle</a></div><div class="ttdeci">void * __dso_handle</div><div class="ttdef"><b>Definition</b> <a href="cxx_8cpp_source.html#l00080">cxx.cpp:80</a></div></div>
+<div class="ttc" id="acxx_8cpp_html_a6be7d9ce80c86f5178635fa86c2dd5e7"><div class="ttname"><a href="cxx_8cpp.html#a6be7d9ce80c86f5178635fa86c2dd5e7">__cxa_pure_virtual</a></div><div class="ttdeci">void __cxa_pure_virtual()</div><div class="ttdef"><b>Definition</b> <a href="cxx_8cpp_source.html#l00069">cxx.cpp:69</a></div></div>
+<div class="ttc" id="aexit_8c_html_a8dec7c95227ff149687066cf04029191"><div class="ttname"><a href="exit_8c.html#a8dec7c95227ff149687066cf04029191">abort</a></div><div class="ttdeci">void abort(void)</div><div class="ttdef"><b>Definition</b> <a href="exit_8c_source.html#l00056">exit.c:56</a></div></div>
+<div class="ttc" id="anamespace____gnu__cxx_html"><div class="ttname"><a href="namespace____gnu__cxx.html">__gnu_cxx</a></div><div class="ttdef"><b>Definition</b> <a href="cxx_8cpp_source.html#l00047">cxx.cpp:48</a></div></div>
+<div class="ttc" id="anamespace____gnu__cxx_html_af51888cedbc669a114cd79e39e0cd9be"><div class="ttname"><a href="namespace____gnu__cxx.html#af51888cedbc669a114cd79e39e0cd9be">__gnu_cxx::__verbose_terminate_handler</a></div><div class="ttdeci">void __verbose_terminate_handler()</div><div class="ttdef"><b>Definition</b> <a href="cxx_8cpp_source.html#l00053">cxx.cpp:53</a></div></div>
 <div class="ttc" id="atrace_8h_html"><div class="ttname"><a href="trace_8h.html">trace.h</a></div></div>
 <div class="ttc" id="atrace_8h_html_af690ad866f65f64c9ca11ba6722d7974"><div class="ttname"><a href="trace_8h.html#af690ad866f65f64c9ca11ba6722d7974">trace_puts</a></div><div class="ttdeci">int trace_puts(const char *s)</div></div>
 </div><!-- fragment --></div><!-- contents -->

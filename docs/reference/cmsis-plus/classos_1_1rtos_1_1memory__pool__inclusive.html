@@ -18,7 +18,6 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="common-custom.css" rel="stylesheet" type="text/css"/>
 <link href="cards.css" rel="stylesheet" type="text/css"/>
 <!-- Awesome Theme Begin -->
@@ -264,7 +263,7 @@ Protected Attributes</h2></td></tr>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T, std::size_t N&gt;<br />
 class os::rtos::memory_pool_inclusive&lt; T, N &gt;</div><p>Template of a synchronised <b>memory pool</b> with block type and local storage. </p>
 
-<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l00744">744</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l00755">755</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a5ef5fc603da1b3dfd918ca4d03f8ff97" name="a5ef5fc603da1b3dfd918ca4d03f8ff97"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5ef5fc603da1b3dfd918ca4d03f8ff97">&#9670;&#160;</a></span>allocator_type</h2>
@@ -288,7 +287,7 @@ class os::rtos::memory_pool_inclusive&lt; T, N &gt;</div><p>Template of a synchr
 
 <p>Default RTOS allocator. </p>
 
-<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l00192">192</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l00203">203</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
 
 </div>
 </div>
@@ -308,7 +307,7 @@ template&lt;typename T , std::size_t N&gt; </div>
 
 <p>Local type of message. </p>
 
-<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l00751">751</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l00762">762</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
 
 </div>
 </div>
@@ -345,7 +344,7 @@ template&lt;typename T , std::size_t N&gt; </div>
 <p>Implemented as a wrapper over the parent constructor, automatically passing the message size and the storage details.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l01296">1296</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l01295">1295</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
 
 </div>
 </div>
@@ -392,7 +391,7 @@ template&lt;typename T , std::size_t N&gt; </div>
 <p>Implemented as a wrapper over the parent constructor, automatically passing the message size and the storage details.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l01329">1329</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l01328">1328</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
 
 </div>
 </div>
@@ -423,7 +422,7 @@ template&lt;typename T , std::size_t N&gt; </div>
 <p>It shall be safe to destroy an initialised memory pool object upon which no threads are currently blocked. Attempting to destroy a memory pool object upon which other threads are currently blocked results in undefined behaviour.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l01351">1351</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l01350">1350</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
 
 </div>
 </div>
@@ -460,7 +459,7 @@ template&lt;typename T , std::size_t N&gt; </div>
 <p>Wrapper over the parent method, automatically passing the cast.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classos_1_1rtos_1_1memory__pool.html#a398b56100a97f150fb31bcc781ced974" title="Allocate a memory block.">memory_pool::alloc()</a>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l01365">1365</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l01364">1364</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
 
 </div>
 </div>
@@ -493,7 +492,7 @@ template&lt;typename T , std::size_t N&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>The block size, in bytes.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l00919">919</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l00926">926</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
 
 </div>
 </div>
@@ -526,7 +525,7 @@ template&lt;typename T , std::size_t N&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>The max number of blocks in the pool.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l00908">908</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l00917">917</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
 
 </div>
 </div>
@@ -576,7 +575,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Total required storage in bytes, including internal alignment. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l00179">179</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l00190">190</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
 
 </div>
 </div>
@@ -609,7 +608,7 @@ template&lt;typename T &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>The number of blocks used from the queue.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l00930">930</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l00935">935</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
 
 </div>
 </div>
@@ -648,7 +647,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l00941">941</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l00944">944</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
 
 </div>
 </div>
@@ -690,7 +689,7 @@ template&lt;typename T , std::size_t N&gt; </div>
 <p>Wrapper over the parent method, automatically passing the cast.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classos_1_1rtos_1_1memory__pool.html#a95efd50d23b62a19590750f1ff07c063" title="Free the memory block.">memory_pool::free()</a>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l01407">1407</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l01406">1406</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
 
 </div>
 </div>
@@ -736,7 +735,7 @@ template&lt;typename T , std::size_t N&gt; </div>
 <p>It uses a critical section to protect simultaneous access from other threads or interrupts.</p>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mempool_8cpp_source.html#l00773">773</a> of file <a class="el" href="os-mempool_8cpp_source.html">os-mempool.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mempool_8cpp_source.html#l00785">785</a> of file <a class="el" href="os-mempool_8cpp_source.html">os-mempool.cpp</a>.</p>
 
 </div>
 </div>
@@ -775,7 +774,7 @@ template&lt;typename T , std::size_t N&gt; </div>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l00952">952</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l00953">953</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
 
 </div>
 </div>
@@ -809,7 +808,7 @@ template&lt;typename T , std::size_t N&gt; </div>
 <p>All objects return a non-null string; anonymous objects return <code>"-"</code>.</p>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-decls_8h_source.html#l00760">760</a> of file <a class="el" href="os-decls_8h_source.html">os-decls.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-decls_8h_source.html#l00774">774</a> of file <a class="el" href="os-decls_8h_source.html">os-decls.h</a>.</p>
 
 </div>
 </div>
@@ -862,7 +861,7 @@ template&lt;typename T , std::size_t N&gt; </div>
 <p>The storage is deallocated using the RTOS system allocator.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00134">134</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00137">137</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
 
 </div>
 </div>
@@ -914,7 +913,7 @@ template&lt;typename T , std::size_t N&gt; </div>
 <p>The storage is deallocated using the RTOS system allocator.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00155">155</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00158">158</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
 
 </div>
 </div>
@@ -954,7 +953,7 @@ template&lt;typename T , std::size_t N&gt; </div>
 <p>The storage is allocated using the RTOS system allocator.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00056">56</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00059">59</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
 
 </div>
 </div>
@@ -1005,7 +1004,7 @@ template&lt;typename T , std::size_t N&gt; </div>
 <p>The storage is allocated using the RTOS system allocator.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00093">93</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00096">96</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
 
 </div>
 </div>
@@ -1045,7 +1044,7 @@ template&lt;typename T , std::size_t N&gt; </div>
 <p>The storage is allocated using the RTOS system allocator.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00074">74</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00077">77</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
 
 </div>
 </div>
@@ -1096,7 +1095,7 @@ template&lt;typename T , std::size_t N&gt; </div>
 <p>The storage is allocated using the RTOS system allocator.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00110">110</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-inlines_8h_source.html#l00113">113</a> of file <a class="el" href="os-inlines_8h_source.html">os-inlines.h</a>.</p>
 
 </div>
 </div>
@@ -1134,7 +1133,7 @@ template&lt;typename T , std::size_t N&gt; </div>
 </dl>
 <p>Identical memory pools should have the same memory address. </p>
 
-<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l00897">897</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l00908">908</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
 
 </div>
 </div>
@@ -1167,7 +1166,7 @@ template&lt;typename T , std::size_t N&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to storage.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l00963">963</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l00962">962</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
 
 </div>
 </div>
@@ -1207,7 +1206,7 @@ template&lt;typename T , std::size_t N&gt; </div>
 <p>Reset the memory pool to the initial state, with all blocks free.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mempool_8cpp_source.html#l00825">825</a> of file <a class="el" href="os-mempool_8cpp_source.html">os-mempool.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mempool_8cpp_source.html#l00843">843</a> of file <a class="el" href="os-mempool_8cpp_source.html">os-mempool.cpp</a>.</p>
 
 </div>
 </div>
@@ -1248,7 +1247,7 @@ template&lt;typename T , std::size_t N&gt; </div>
 <p>Wrapper over the parent method, automatically passing the cast.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classos_1_1rtos_1_1memory__pool.html#a368b3eeaa2c28df26b6f3970fd209f3b" title="Allocate a memory block with timeout.">memory_pool::timed_alloc()</a>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l01393">1393</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l01392">1392</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
 
 </div>
 </div>
@@ -1284,7 +1283,7 @@ template&lt;typename T , std::size_t N&gt; </div>
 <p>Wrapper over the parent method, automatically passing the cast.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classos_1_1rtos_1_1memory__pool.html#a3755c8ce8f934469047b735209ab58b3" title="Try to allocate a memory block.">memory_pool::try_alloc()</a>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l01379">1379</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l01378">1378</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
 
 </div>
 </div>
@@ -1314,7 +1313,7 @@ template&lt;typename T , std::size_t N&gt; </div>
 <p>Local storage for the pool. </p>
 <p>The local storage is large enough to include <code>blocks</code> blocks of type <code>T</code>. For performance reasons, the individual components are aligned as pointers. </p>
 
-<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l00818">818</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l00829">829</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
 
 </div>
 </div>
@@ -1342,7 +1341,7 @@ template&lt;typename T , std::size_t N&gt; </div>
 
 <p>Local constant based on template definition. </p>
 
-<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l00756">756</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-mempool_8h_source.html#l00767">767</a> of file <a class="el" href="os-mempool_8h_source.html">os-mempool.h</a>.</p>
 
 </div>
 </div>

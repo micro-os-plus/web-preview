@@ -18,7 +18,6 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="common-custom.css" rel="stylesheet" type="text/css"/>
 <link href="cards.css" rel="stylesheet" type="text/css"/>
 <!-- Awesome Theme Begin -->
@@ -205,7 +204,7 @@ Functions</h2></td></tr>
 <p>Type of variables holding scheduler state codes. </p>
 <p>Usually a boolean telling if the scheduler is locked or not, but for recursive locks it might also be a numeric counter. </p>
 
-<p class="definition">Definition at line <a class="el" href="os-decls_8h_source.html#l00202">202</a> of file <a class="el" href="os-decls_8h_source.html">os-decls.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-decls_8h_source.html#l00216">216</a> of file <a class="el" href="os-decls_8h_source.html">os-decls.h</a>.</p>
 
 </div>
 </div>
@@ -236,7 +235,7 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Reference to children list.</dd></dl>
 <p>If the input pointer is nullptr, the function returns the list of top level threads. </p>
 
-<p class="definition">Definition at line <a class="el" href="os-core_8cpp_source.html#l00260">260</a> of file <a class="el" href="os-core_8cpp_source.html">os-core.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-core_8cpp_source.html#l00262">262</a> of file <a class="el" href="os-core_8cpp_source.html">os-core.cpp</a>.</p>
 
 </div>
 </div>
@@ -269,7 +268,7 @@ Functions</h2></td></tr>
 <p>Must be called only once, usually in <a class="el" href="os-main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Default implementation of main().">main()</a>.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-core_8cpp_source.html#l00157">157</a> of file <a class="el" href="os-core_8cpp_source.html">os-core.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-core_8cpp_source.html#l00161">161</a> of file <a class="el" href="os-core_8cpp_source.html">os-core.cpp</a>.</p>
 
 </div>
 </div>
@@ -303,7 +302,7 @@ Functions</h2></td></tr>
 <p>Set the scheduler lock state to locked and return the previous state.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-sched_8h_source.html#l00884">884</a> of file <a class="el" href="os-sched_8h_source.html">os-sched.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-sched_8h_source.html#l00895">895</a> of file <a class="el" href="os-sched_8h_source.html">os-sched.h</a>.</p>
 
 </div>
 </div>
@@ -343,7 +342,7 @@ Functions</h2></td></tr>
 <p>This allows to implement scheduler critical sections, where the scheduler is disabled and context switches are not performed.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-sched_8h_source.html#l00914">914</a> of file <a class="el" href="os-sched_8h_source.html">os-sched.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-sched_8h_source.html#l00925">925</a> of file <a class="el" href="os-sched_8h_source.html">os-sched.h</a>.</p>
 
 </div>
 </div>
@@ -383,7 +382,7 @@ Functions</h2></td></tr>
 <p>Check if the scheduler is locked on the current thread or is switching threads from the ready list.</p>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-sched_8h_source.html#l00871">871</a> of file <a class="el" href="os-sched_8h_source.html">os-sched.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-sched_8h_source.html#l00882">882</a> of file <a class="el" href="os-sched_8h_source.html">os-sched.h</a>.</p>
 
 </div>
 </div>
@@ -413,7 +412,7 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>The previous state of the preemptive mode.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-core_8cpp_source.html#l00226">226</a> of file <a class="el" href="os-core_8cpp_source.html">os-core.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-core_8cpp_source.html#l00228">228</a> of file <a class="el" href="os-core_8cpp_source.html">os-core.cpp</a>.</p>
 
 </div>
 </div>
@@ -453,7 +452,7 @@ Functions</h2></td></tr>
 <p>Check if the scheduler preemption is enabled.</p>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-sched_8h_source.html#l00854">854</a> of file <a class="el" href="os-sched_8h_source.html">os-sched.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-sched_8h_source.html#l00865">865</a> of file <a class="el" href="os-sched_8h_source.html">os-sched.h</a>.</p>
 
 </div>
 </div>
@@ -479,7 +478,7 @@ Functions</h2></td></tr>
 <p>The scheduler cannot be stopped, it will run forever, but thread switching can be locked/unlocked.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-core_8cpp_source.html#l00186">186</a> of file <a class="el" href="os-core_8cpp_source.html">os-core.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-core_8cpp_source.html#l00190">190</a> of file <a class="el" href="os-core_8cpp_source.html">os-core.cpp</a>.</p>
 
 </div>
 </div>
@@ -519,7 +518,7 @@ Functions</h2></td></tr>
 <p>Check if the scheduler was started, i.e. if <a class="el" href="namespaceos_1_1rtos_1_1scheduler.html#a447a6a5aa512129d0ab5a28b0fce6890" title="Start the RTOS scheduler.">scheduler::start()</a> was called.</p>
 <dl class="section note"><dt>Note</dt><dd>Can be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-sched_8h_source.html#l00842">842</a> of file <a class="el" href="os-sched_8h_source.html">os-sched.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-sched_8h_source.html#l00853">853</a> of file <a class="el" href="os-sched_8h_source.html">os-sched.h</a>.</p>
 
 </div>
 </div>
@@ -553,7 +552,7 @@ Functions</h2></td></tr>
 <p>Set the scheduler lock state to unlocked and return the previous state.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be invoked from Interrupt Service Routines. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="os-sched_8h_source.html#l00897">897</a> of file <a class="el" href="os-sched_8h_source.html">os-sched.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="os-sched_8h_source.html#l00908">908</a> of file <a class="el" href="os-sched_8h_source.html">os-sched.h</a>.</p>
 
 </div>
 </div>
