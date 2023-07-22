@@ -242,7 +242,7 @@
 <h1 class="page-title">Project history</h1>
 <table id="last-modified">
   <tr>
-    <td id="last-modified">Last modified on Thu Jul 20 07:18:51 2023 UTC.</td>
+    <td id="last-modified">Last modified on Thu Jul 20 07:29:50 2023 UTC.</td>
     <td id="improve" align="right"><a id="improve" href="https://github.com/micro-os-plus/web-jekyll/edit/master/pages/project/history.md"><i class="fa fa-pencil"></i>  Improve this page</a></td>
   </tr>
 </table>
@@ -757,12 +757,13 @@ nice <a href="https://micro-os-plus.github.io/utils-lists-xpack/">web site</a>.<
 <p>A major milestone was reached in July 2023: after updating the project
 to the more strict requirements of modern toolchains (GCC &amp; clang),
 the tests that previously were performed manually in Eclipse were
-reworked to use CMake and the workflow was fully automated via
-<strong>xpm</strong> to the point of running in scriptable CI environments.</p>
+reworked to use CMake and the workflow was fully automated with
+<strong>xpm</strong> in order to allow the multi-platform tests to run in
+scriptable CI environments, like GitHub Actions.</p>
 
-<p>The tests run on the synthetic POSIX native platform (macOS &amp; GNU/Linux)
+<p>The tests run natively on the synthetic POSIX platform (macOS &amp; GNU/Linux)
 compiled with multiple GCC &amp; clang versions,
-and on Cortex-M0+/M3/M7F, emulated on QEMU.</p>
+and on Cortex-M0+/M3/M7F, emulated by QEMU.</p>
 
 <h2 id="the-µos-fourth-edition">The µOS++ fourth edition</h2>
 
