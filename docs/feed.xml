@@ -5,15 +5,15 @@
     <description>A POSIX inspired open source framework, written in C++.</description>
     <link>http://micro-os-plus.github.io/web-preview/</link>
     <atom:link href="http://micro-os-plus.github.io/web-preview/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 22 Jul 2023 11:15:27 +0000</pubDate>
-    <lastBuildDate>Sat, 22 Jul 2023 11:15:27 +0000</lastBuildDate>
+    <pubDate>Sun, 23 Jul 2023 11:11:18 +0000</pubDate>
+    <lastBuildDate>Sun, 23 Jul 2023 11:11:18 +0000</lastBuildDate>
     <generator>Jekyll v3.9.3</generator>
     
       <item>
         <title>µOS++ v7.0.0 released</title>
         <description>&lt;p&gt;Version v7.0.0 is a new &lt;strong&gt;µOS++&lt;/strong&gt; major release. It represents
-an important milestone, being the first release that includes extensive
-tests running in scriptable CI environments.&lt;/p&gt;
+an important &lt;strong&gt;milestone&lt;/strong&gt;, being the first release that includes &lt;strong&gt;extensive
+tests&lt;/strong&gt; running in &lt;strong&gt;scriptable CI&lt;/strong&gt; environments, and &lt;strong&gt;CMake&lt;/strong&gt; support.&lt;/p&gt;
 
 </description>
         <pubDate>Wed, 19 Jul 2023 11:09:00 +0000</pubDate>

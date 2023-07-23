@@ -263,8 +263,8 @@ Posted on July 19, 2023 by Liviu Ionescu.
 </p>
 
 <p>Version v7.0.0 is a new <strong>µOS++</strong> major release. It represents
-an important milestone, being the first release that includes extensive
-tests running in scriptable CI environments.</p>
+an important <strong>milestone</strong>, being the first release that includes <strong>extensive
+tests</strong> running in <strong>scriptable CI</strong> environments, and <strong>CMake</strong> support.</p>
 
 <p>The main functional changes
 are several updates required to avoid warnings with the new toolchains.</p>
@@ -292,48 +292,41 @@ are several updates required to avoid warnings with the new toolchains.</p>
 
 <h2 id="install">Install</h2>
 
-<p>As a source code library, µOS++ can be integrated into another project
+<p>As a <strong>source code library</strong>, µOS++ can be integrated into another project
 in the traditional way,
 by either copying the relevant files into the target project, or by linking
 the relevant project as Git submodules.</p>
 
 <p>However, the workflow can be further automated and the most convenient way is
-to <strong>add it as a dependency</strong> to the project via <strong>xpm</strong>.</p>
+to <strong>add it as a dependency</strong> to the project via <strong>xpm</strong>. For details,
+please see the project <a href="https://github.com/micro-os-plus/micro-os-plus-iii#xpm">README</a> file.</p>
 
 <h2 id="new-features">New features</h2>
 
 <ul>
-  <li>
-    <p>[<a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/78">#78</a>]:
+  <li>[<a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/78">#78</a>]:
 there was no support to clear the statistics;
-add a <code class="language-plaintext highlighter-rouge">clear()</code> method to thread statistics and to the scheduler</p>
-  </li>
-  <li>
-    <p>[<a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/79">#79</a>]:
+add a <code class="language-plaintext highlighter-rouge">clear()</code> method to thread statistics and to the scheduler</li>
+  <li>[<a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/79">#79</a>]:
 identifying the thread which issued an assert was difficult;
-add the <code class="language-plaintext highlighter-rouge">this_thread</code> address and name when displaying the assert error</p>
-  </li>
-  <li>
-    <p>[<a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/81">#81</a>]:
+add the <code class="language-plaintext highlighter-rouge">this_thread</code> address and name when displaying the assert error</li>
+  <li>[<a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/81">#81</a>]:
 thread reuse via placement new was error prone;
 add a thread attribute to check if the thread constructor is called
-only after destroy</p>
-  </li>
+only after destroy</li>
 </ul>
 
 <h2 id="addressed-bugs">Addressed bugs</h2>
 
 <ul>
-  <li>
-    <p>[<a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/82">#82</a>]:
+  <li>[<a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/82">#82</a>]:
 GCC 12 spotted a name clash between the <code class="language-plaintext highlighter-rouge">file_system()</code> method and
-the class; the method was renamed to <code class="language-plaintext highlighter-rouge">get_file_system()</code></p>
-  </li>
-  <li>
-    <p>[<a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/83">#83</a>]:
+the class; the method was renamed to <code class="language-plaintext highlighter-rouge">get_file_system()</code>
+</li>
+  <li>[<a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/83">#83</a>]:
 GCC 12 spotted a name clash between the unscoped enum <code class="language-plaintext highlighter-rouge">socket</code> definition
-and the top definition; the definition was changed to a scoped <code class="language-plaintext highlighter-rouge">enum class</code></p>
-  </li>
+and the top definition; the definition was changed to a scoped <code class="language-plaintext highlighter-rouge">enum class</code>
+</li>
 </ul>
 
 <p>Note: although minor, those were both <strong>breaking changes</strong>, which
@@ -343,22 +336,23 @@ to increase the version major number.</p>
 <h2 id="other-changes">Other changes</h2>
 
 <ul>
-  <li>
-    <p>[<a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/77">#77</a>]:
+  <li>[<a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/77">#77</a>]:
 the arm-none-eabi-gcc 12 complains about some new warnings;
-silenced</p>
-  </li>
-  <li>
-    <p>[<a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/80">#80</a>]:
+silenced</li>
+  <li>[<a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/80">#80</a>]:
 in a normal use case, during thread destruction, there was an <em>already gone</em>
 debug message; fixed, do not call <code class="language-plaintext highlighter-rouge">kill()</code> in the destructor if
-it was already called explicitly</p>
-  </li>
-  <li>
-    <p>[<a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/84">#84</a>]:
+it was already called explicitly</li>
+  <li>[<a href="https://github.com/micro-os-plus/micro-os-plus-iii/issues/84">#84</a>]:
 the stack underflow condition was tested only when asserts were enabled;
-fixed, the condition is always tested and <code class="language-plaintext highlighter-rouge">abort()</code> is invoked if necessary</p>
-  </li>
+fixed, the condition is always tested and <code class="language-plaintext highlighter-rouge">abort()</code> is invoked if necessary</li>
+</ul>
+
+<h2 id="cmake">CMake</h2>
+
+<ul>
+  <li>a <code class="language-plaintext highlighter-rouge">CMakeLists.txt</code> file was added to each project, providing a
+convenient way to integrate them in projects built with CMake</li>
 </ul>
 
 <h2 id="known-problems">Known problems</h2>
@@ -373,7 +367,7 @@ replaced by <code class="language-plaintext highlighter-rouge">micro-os-plus</co
 
 <p>This will hopefully be the final release of µOS++ in the current monolithic
 structure (IIIe). Work on the next version (IVe) is already under way;
-the main change is that it’ll use a modular structure, based on xPacks.</p>
+the main change will be the migration to a modular structure, based on xPacks.</p>
 
 
 <div class="post-footer">
@@ -382,7 +376,7 @@ the main change is that it’ll use a modular structure, based on xPacks.</p>
 <strong>releases</strong>, <strong>micro-os-plus-iii</strong> and tagged
 
 <strong>releases</strong>, <strong>rtos</strong>, <strong>cmsis-plus</strong>, <strong>micro-os-plus</strong>.</p>
-<p>Last modified on Sat Jul 22 11:14:10 2023 UTC.</p>
+<p>Last modified on Sun Jul 23 11:09:52 2023 UTC.</p>
 <ul class="share-buttons">
   <li><div class="tw-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a></div></li>
   <li><div class="fb-share-button" data-href="http://micro-os-plus.github.io/web-preview/blog/2023/07/19/micro-os-plus-v7-0-0-released/" data-layout="button"></div></li>
