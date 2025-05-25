@@ -1,0 +1,30 @@
+{
+  "name": "web-preview.git",
+  "version": "0.0.0",
+  "description": "Web site preview for https://micro-os-plus.github.io.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/micro-os-plus/web-preview.git"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Liviu Ionescu",
+    "email": "ilg@livius.net",
+    "url": "https://github.com/ilg-ul"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/micro-os-plus/web-preview/issues"
+  },
+  "homepage": "https://micro-os-plus.github.com/web-preview",
+  "topConfig": {
+    "isWebDeployOnly": "true"
+  },
+  "engines": {
+    "node": " >=18.0.0"
+  }
+}
