@@ -2,14 +2,29 @@
   "name": "web-preview.git",
   "version": "0.0.0",
   "description": "Web site preview for https://micro-os-plus.github.io.",
-  "main": "index.js",
+  "main": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "generate-top-commons": "bash node_modules/@xpack/npm-packages-helper/maintenance-scripts/generate-top-commons.sh --micro-os-plus",
+    "npm-install": "npm install",
+    "npm-link-helpers": "npm link @xpack/npm-packages-helper @xpack/docusaurus-template-liquid",
+    "npm-outdated": "npm outdated",
+    "npm-pack": "npm pack",
+    "npm-link": "npm link",
+    "npm-version-patch": "npm version patch",
+    "npm-version-minor": "npm version minor",
+    "git-log": "git log --pretty='%cd * %h %s' --date=short",
+    "git-pull-helper": "git -C ${HOME}/Work/micro-os-plus/build-helper-xpack.git pull",
+    "deep-clean": "del-cli node_modules package-lock.json *.tgz",
+    "postversion": "git push origin --all && git push origin --tags"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/micro-os-plus/web-preview.git"
   },
+  "bugs": {
+    "url": "https://github.com/micro-os-plus/web-preview/issues"
+  },
+  "homepage": "https://micro-os-plus.github.io/web-preview/",
   "keywords": [],
   "author": {
     "name": "Liviu Ionescu",
@@ -17,12 +32,20 @@
     "url": "https://github.com/ilg-ul"
   },
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/micro-os-plus/web-preview/issues"
+  "dependencies": {},
+  "$devDependenciesUrls": [
+    "https://www.npmjs.com/package/del-cli",
+    "https://www.npmjs.com/package/json",
+    "https://www.npmjs.com/package/liquidjs"
+  ],
+  "devDependencies": {
+    "del-cli": "^6.0.0",
+    "json": "^11.0.0",
+    "liquidjs": "^10.19.1"
   },
-  "homepage": "https://micro-os-plus.github.com/web-preview",
   "topConfig": {
-    "isWebDeployOnly": "true"
+    "isWebDeployOnly": "true",
+    "isWebPreview": "true"
   },
   "engines": {
     "node": " >=18.0.0"
